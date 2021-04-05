@@ -7,6 +7,9 @@
     [theme=dark] & {
       color: if($dark, $global-link-color-dark, $single-link-color-dark);
     }
+    [theme=black] & {
+      color: if($dark, $global-link-color-black, $single-link-color-black);
+    }
   }
 
   a:active,
@@ -15,6 +18,9 @@
 
     [theme=dark] & {
       color: if($dark, $global-link-hover-color-dark, $single-link-hover-color-dark);
+    }
+    [theme=black] & {
+      color: if($dark, $global-link-hover-color-black, $single-link-hover-color-black);
     }
   }
 }

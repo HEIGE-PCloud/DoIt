@@ -34,6 +34,14 @@
       color: $global-font-color-dark;
     }
   }
+  [theme=black] & {
+    color: $global-font-secondary-color-black;
+    background: $header-background-color-black;
+
+    &:hover, &:active {
+      color: $global-font-color-black;
+    }
+  }
 }
 
 #back-to-top {

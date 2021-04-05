@@ -83,10 +83,12 @@ class Theme {
     initSwitchTheme() {
         this.util.forEach(document.getElementsByClassName('theme-switch'), $themeSwitch => {
             $themeSwitch.addEventListener('click', () => {
-                if (document.body.getAttribute('theme') === 'dark') document.body.setAttribute('theme', 'light');
-                else document.body.setAttribute('theme', 'dark');
-                this.isDark = !this.isDark;
-                window.localStorage && localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+                if (document.body.getAttribute('theme') === 'light') document.body.setAttribute('theme', 'dark'), window.localStorage && localStorage.setItem('theme', 'dark');
+                else if (document.body.getAttribute('theme') === 'dark') document.body.setAttribute('theme', 'black'), window.localStorage && localStorage.setItem('theme', 'black');
+                else document.body.setAttribute('theme', 'light'), window.localStorage && localStorage.setItem('theme', 'light');
+                // this.isDark = !this.isDark;
+                // window.localStorage && localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+                // window.localStorage && localStorage.setItem('theme', 'auto');
                 for (let event of this.switchThemeEventSet) event();
             }, false);
         });

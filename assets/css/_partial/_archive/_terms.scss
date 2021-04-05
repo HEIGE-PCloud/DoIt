@@ -65,6 +65,13 @@
       color: $global-link-hover-color-dark;
     }
   }
+  [theme=black] & {
+    color: $global-link-color-black;
+
+    &:hover {
+      color: $global-link-hover-color-black;
+    }
+  }
 }
 
 .archive-item-date {
@@ -74,6 +81,9 @@
 
   [theme=dark] & {
     color: $global-font-secondary-color-dark;
+  }
+  [theme=black] & {
+    color: $global-font-secondary-color-black;
   }
 }
 

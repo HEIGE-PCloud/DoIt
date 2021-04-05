@@ -13,5 +13,12 @@
         background-color: #fff;
       }
     }
+    [theme=black] & {
+      color: $global-font-color;
+
+      &:hover, &:focus {
+        background-color: #fff;
+      }
+    }
   }
 }
