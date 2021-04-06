@@ -178,7 +178,7 @@ Thanks to the authors of following resources included in the theme:
 
 ## Author
 
-[Dillon](https://dillonzq.com)
+[PCloud](https://planet-cloud.fun)
 
 ## Sponsor
 
