@@ -867,18 +867,18 @@ enableEmoji = true
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
         enable = true
-        appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
-        appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
+        appId = "aM7gLUeWp8it1Efrcp3rm8TB-MdYXbMMI"
+        appKey = "Xn1xlYj3Fm5gvsYG3WyQpaix"
         placeholder = ""
         avatar = "mp"
         meta= ""
         pageSize = 10
-        lang = ""
+        lang = "en"
         visitor = true
-        recordIP = true
+        recordIP = false
         highlight = true
         enableQQ = false
-        serverURLs = "https://leancloud.hugoloveit.com"
+        serverURLs = ""
         # emoji data file name, default is "google.yml"
         # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
         # located in "themes/DoIt/assets/data/emoji/" directory
