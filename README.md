@@ -1,7 +1,5 @@
 # DoIt Theme | Hugo
 
-Based on [LoveIt Theme](https://github.com/dillonzq/LoveIt) which is no longer maintaned.
-
 English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.zh-cn.md)
 
 > **DoIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
@@ -11,9 +9,9 @@ It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt 
 Since the three themes have a similar look, if you have questions about their differences,
 read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
 
-## [Demo Site](https://demosite.com/)
+## [Demo Site](https://hugodoit.pages.dev/)
 
-To see this theme in action, here is a live [demo site](https://demosite.com/) which is rendered with **DoIt** theme.
+To see this theme in action, here is a live [demo site](https://hugodoit.pages.dev/) which is rendered with **DoIt** theme.
 
 ## Why choose DoIt
 
@@ -111,7 +109,7 @@ I hope you will LoveIt ❤️!
 * **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
 * ...
 
-## [Documentation](https://hugoloveit.com/categories/documentation/)
+## [Documentation](https://hugodoit.pages.dev/categories/documentation/)
 
 Build Documentation Locally:
 
@@ -121,7 +119,7 @@ hugo server --source=exampleSite
 
 ## Multilingual and i18n
 
-LoveIt supports the following languages:
+DoIt supports the following languages:
 
 * English
 * Simplified Chinese
@@ -137,7 +135,7 @@ LoveIt supports the following languages:
 * Vietnamese
 * [Contribute with a new language](https://github.com/HEIGE-PCloud/DoIt/pulls)
 
-[Languages Compatibility](https://hugoloveit.com/theme-documentation-basics/#language-compatibility)
+[Languages Compatibility](https://hugodoit.pages.dev/theme-documentation-basics/#language-compatibility)
 
 ## [Roadmap](https://github.com/HEIGE-PCloud/DoIt/projects/1)
 
@@ -147,7 +145,7 @@ All feedback is welcome! Head over to the [issue tracker](https://github.com/HEI
 
 ## License
 
-LoveIt is licensed under the **MIT** license. Check the [LICENSE file](https://github.com/HEIGE-PCloud/DoIt/blob/master/LICENSE) for details.
+DoIt is licensed under the **MIT** license. Check the [LICENSE file](https://github.com/HEIGE-PCloud/DoIt/blob/master/LICENSE) for details.
 
 Thanks to the authors of following resources included in the theme:
 
