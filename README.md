@@ -2,7 +2,7 @@
 
 English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.zh-cn.md)
 
-> **DoIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
+> **DoIt** is a **not clean**, **not elegant** and **not advanced** blog theme for [Hugo](https://gohugo.io/).
 
 It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
