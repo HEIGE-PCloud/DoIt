@@ -12,7 +12,7 @@
     "browserify": "^17.0.0",
     "core-js": "^3.10.0",
     "husky": "^6.0.0",
-    "minimist": "^1.2.5",
+    "minimist": "1.2.5",
     "segmentit": "^2.0.3"
   },
   "scripts": {
@@ -26,7 +26,7 @@
     "copy": "rm -rf resources && cp -rf exampleSite/resources resources"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "1.2.5"
   },
   "husky": {
     "hooks": {

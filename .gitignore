@@ -17,3 +17,5 @@ $RECYCLE.BIN/
 
 # Linux
 .directory
+
+_gen/
