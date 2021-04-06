@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>
             {{- block "title" . }}{{ .Site.Title }}{{ end -}}
         </title>
@@ -18,36 +18,32 @@
     <body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
         {{- /* Check theme isDark before body rendering */ -}}
         {{- $theme := .Site.Params.defaulttheme -}}
-        <!-- <script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('{{ $theme }}' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '{{ $theme }}' === 'dark')) && document.body.setAttribute('theme', 'dark');</script> -->
         <script type="text/javascript">
             if (window.localStorage && localStorage.getItem('theme'))
             {
-                if (localStorage.getItem('theme') === 'light')
-                {
-                    document.body.setAttribute('theme', 'light')
-                }
-                else if (localStorage.getItem('theme') === 'dark')
-                {
-                    document.body.setAttribute('theme', 'dark')
-                }
-                else if (localStorage.getItem('theme') === 'black')
-                {
-                    document.body.setAttribute('theme', 'black')
-                }
+                let localStorageTheme = localStorage.getItem('theme');
+                if (localStorageTheme === 'light' || localStorageTheme === 'dark' || localStorageTheme === 'black')
+                    document.body.setAttribute('theme', localStorageTheme);
                 else if (localStorage.getItem('theme') === 'auto')
                 {
-                    window.matchMedia('(prefers-color-scheme: dark)').matches
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                        document.body.setAttribute('theme', 'dark');
+                    else
+                        document.body.setAttribute('theme', 'white');
                 }
             }
             else
             {
-                if ('{{ $theme }}' === 'dark' || '{{ $theme }}' === 'light' || '{{ $theme }}' === 'black')
+                if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark' || '{{ $theme }}' === 'black')
                 {
-                    document.body.setAttribute('{{ $theme }}')
+                    document.body.setAttribute('{{ $theme }}');
+                    window.localStorage && localStorage.setItem('theme', '{{ $theme }}');
                 }
                 else
                 {
-                    window.matchMedia('(prefers-color-scheme: dark)').matches
+                    window.localStorage && localStorage.setItem('theme', 'auto');
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.setAttribute('theme', 'dark');
+                    else document.body.setAttribute('theme', 'white');
                 }
             }
         </script>
