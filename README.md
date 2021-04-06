@@ -11,8 +11,6 @@ It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) an
 Since the three themes have a similar look, if you have questions about their differences,
 read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
 
-![Hugo Theme DoIt](https://github.com/dillonzq/DoIt/raw/master/images/Apple-Devices-Preview.png)
-
 ## [Demo Site](https://demosite.com/)
 
 To see this theme in action, here is a live [demo site](https://demosite.com/) which is rendered with **DoIt** theme.
