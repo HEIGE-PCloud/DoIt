@@ -1,7 +1,7 @@
 {
-  "name": "loveit-src",
+  "name": "doit-src",
   "version": "0.2.0",
-  "description": "LoveIt theme source file",
+  "description": "DoIt theme source file",
   "private": true,
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -35,16 +35,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dillonzq/LoveIt.git"
+    "url": "git+https://github.com/HEIGE-PCloud/DoIt.git"
   },
   "keywords": [
     "hugo",
     "theme"
   ],
-  "author": "Dillon",
+  "author": "PCloud",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dillonzq/LoveIt/issues"
+    "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
   },
-  "homepage": "https://github.com/dillonzq/LoveIt#readme"
+  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme"
 }

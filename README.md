@@ -1,28 +1,25 @@
-# LoveIt Theme | Hugo [![Netlify Status](https://api.netlify.com/api/v1/badges/e60303f2-862c-4342-bf59-7c9adb10812e/deploy-status)](https://app.netlify.com/sites/hugo-loveit/deploys)
+# DoIt Theme | Hugo
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
-[![CircleCI](https://img.shields.io/circleci/build/github/dillonzq/LoveIt/develop?label=CI&style=flat-square&logo=circleci)](https://app.circleci.com/pipelines/github/dillonzq/LoveIt)
+Based on [LoveIt Theme](https://github.com/dillonzq/LoveIt) which is no longer maintaned.
 
-English README | [简体中文说明](https://github.com/dillonzq/LoveIt/blob/master/README.zh-cn.md)
+English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.zh-cn.md)
 
-> **LoveIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
+> **DoIt** is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
 
 It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
 Since the three themes have a similar look, if you have questions about their differences,
-read [Why choose LoveIt](#why-choose-loveit) so that you can choose the one that works best for you.
+read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
 
-![Hugo Theme LoveIt](https://github.com/dillonzq/LoveIt/raw/master/images/Apple-Devices-Preview.png)
+![Hugo Theme DoIt](https://github.com/dillonzq/DoIt/raw/master/images/Apple-Devices-Preview.png)
 
-## [Demo Site](https://hugoloveit.com/)
+## [Demo Site](https://demosite.com/)
 
-To see this theme in action, here is a live [demo site](https://hugoloveit.com/) which is rendered with **LoveIt** theme.
+To see this theme in action, here is a live [demo site](https://demosite.com/) which is rendered with **DoIt** theme.
 
-## Why choose LoveIt
+## Why choose DoIt
 
-Compared to the original LeaveIt theme and the KeepIt theme, the LoveIt theme has the following modifications.
+Compared to the original LeaveIt theme and the KeepIt theme, the DoIt theme has the following modifications.
 
 * Custom **Header**
 * Custom **CSS Style**
@@ -49,10 +46,10 @@ Compared to the original LeaveIt theme and the KeepIt theme, the LoveIt theme ha
 * ...
 
 In short,
-if you prefer the design language and freedom of the LoveIt theme,
+if you prefer the design language and freedom of the DoIt theme,
 if you want to use the extended Font Awesome icons conveniently,
 if you want to embed mathematical formulas, flowcharts, music or Bilibili videos in your posts,
-the LoveIt theme may be more suitable for you.
+the DoIt theme may be more suitable for you.
 
 I hope you will LoveIt ❤️!
 
@@ -140,19 +137,19 @@ LoveIt supports the following languages:
 * Russian
 * Romanian
 * Vietnamese
-* [Contribute with a new language](https://github.com/dillonzq/LoveIt/pulls)
+* [Contribute with a new language](https://github.com/HEIGE-PCloud/DoIt/pulls)
 
 [Languages Compatibility](https://hugoloveit.com/theme-documentation-basics/#language-compatibility)
 
-## [Roadmap](https://github.com/dillonzq/LoveIt/projects/1)
+## [Roadmap](https://github.com/HEIGE-PCloud/DoIt/projects/1)
 
 ## Questions, ideas, bugs, pull requests
 
-All feedback is welcome! Head over to the [issue tracker](https://github.com/dillonzq/LoveIt/issues).
+All feedback is welcome! Head over to the [issue tracker](https://github.com/HEIGE-PCloud/DoIt/issues).
 
 ## License
 
-LoveIt is licensed under the **MIT** license. Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
+LoveIt is licensed under the **MIT** license. Check the [LICENSE file](https://github.com/HEIGE-PCloud/DoIt/blob/master/LICENSE) for details.
 
 Thanks to the authors of following resources included in the theme:
 
@@ -188,9 +185,5 @@ Thanks to the authors of following resources included in the theme:
 ## Sponsor
 
 If you enjoy the theme, please consider buying me a coffee ☕️.
-
-* [PayPal](https://paypal.me/dillonzq)
-* [Alipay](https://github.com/dillonzq/LoveIt/raw/master/images/Alipay.jpg)
-* [Wechat](https://github.com/dillonzq/LoveIt/raw/master/images/Wechat.jpg)
 
 Thanks! ❤️

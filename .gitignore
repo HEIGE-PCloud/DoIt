@@ -19,3 +19,4 @@ $RECYCLE.BIN/
 .directory
 
 _gen/
+package-lock.json
