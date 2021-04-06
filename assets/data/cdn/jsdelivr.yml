@@ -10,7 +10,7 @@ libFiles:
   # animate.css@3.7.2 https://github.com/daneden/animate.css
   animateCSS: animate.css/animate.min.css
   # smooth-scroll@16.1.3 https://github.com/cferdinandi/smooth-scroll
-  smoothScrollJS: smooth-scroll/dist/smooth-scroll.min.js
+  # smoothScrollJS: smooth-scroll/dist/smooth-scroll.min.js
   # autocomplete.js@0.37.1 https://github.com/algolia/autocomplete.js
   autocompleteJS: autocomplete.js/dist/autocomplete.min.js
   # lunr.js@2.3.8 https://lunrjs.com/
