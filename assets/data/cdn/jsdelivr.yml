@@ -37,7 +37,7 @@ libFiles:
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit/dist/typeit.min.js
   # katex@0.11.1 https://katex.org/
-  katexCSS: katex/dist/katex.min.css
+  # katexCSS: katex/dist/katex.min.css
   katexJS: katex/dist/katex.min.js
   katexAutoRenderJS: katex/dist/contrib/auto-render.min.js
   katexCopyTexCSS: katex/dist/contrib/copy-tex.min.css
