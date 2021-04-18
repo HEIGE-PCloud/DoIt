@@ -24,8 +24,7 @@
             data-src="{{ .Src | safeURL }}"
             data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
             data-sizes="auto"
-            alt="{{ $alt }}"
-            height="96px"width="96px"/>
+            alt="{{ $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }} />
     </a>
 {{- else -}}
     <img
@@ -35,5 +34,5 @@
         data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
         data-sizes="auto"
         alt="{{ $alt }}"
-        title="{{ .Title | default $alt }}"height="96px"width="96px"/>
+        title="{{ .Title | default $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }} />
 {{- end -}}
