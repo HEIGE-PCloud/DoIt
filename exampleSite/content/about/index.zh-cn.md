@@ -17,7 +17,7 @@ math:
 {{< /style >}}
 
 
-> [:(far fa-kiss-wink-heart fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个由 [HEIGE-PCloud](https://github.com/HEIGE-PCloud) 开发的**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
+> [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个由 [HEIGE-PCloud](https://github.com/HEIGE-PCloud) 开发的**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
 >
 > 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt)， [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
 
