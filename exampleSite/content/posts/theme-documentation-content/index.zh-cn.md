@@ -6,7 +6,7 @@ lastmod: 2020-03-05T16:30:05+08:00
 draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
-description: "了解如何在 LoveIt 主题中快速, 直观地创建和组织内容."
+description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
@@ -22,7 +22,7 @@ math:
   enable: true
 ---
 
-了解如何在 **LoveIt** 主题中快速, 直观地创建和组织内容.
+了解如何在 **DoIt** 主题中快速, 直观地创建和组织内容.
 
 <!--more-->
 
@@ -183,7 +183,7 @@ resources:
 
 ## 3 内容摘要
 
-**LoveIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
+**DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
 
 ![文章摘要预览](summary.zh-cn.png "文章摘要预览")
 
@@ -213,7 +213,7 @@ resources:
 
 你可能希望将文章前置参数中的 `description` 变量的内容作为摘要.
 
-你仍然需要在文章开头添加 `<!--more-->` 摘要分割符. 将摘要分隔符之前的内容保留为空. 然后 **LoveIt** 主题会将你的文章描述作为摘要.
+你仍然需要在文章开头添加 `<!--more-->` 摘要分割符. 将摘要分隔符之前的内容保留为空. 然后 **DoIt** 主题会将你的文章描述作为摘要.
 
 ### 摘要选择的优先级顺序
 
@@ -234,7 +234,7 @@ resources:
 
 ## 5 Markdown 扩展语法 {#extended-markdown-syntax}
 
-**LoveIt** 主题提供了一些扩展的语法便于你撰写文章.
+**DoIt** 主题提供了一些扩展的语法便于你撰写文章.
 
 ### Emoji 支持
 
@@ -242,7 +242,7 @@ resources:
 
 ### 数学公式
 
-**LoveIt** 基于 [$ \KaTeX $](https://katex.org/) 提供数学公式的支持.
+**DoIt** 基于 [$ \KaTeX $](https://katex.org/) 提供数学公式的支持.
 
 在你的 [网站配置](../theme-documentation-basics#site-configuration) 中的 `[params.math]` 下面设置属性 `enable = true`,
 并在文章的前置参数中设置属性 `math: true`来启用数学公式的自动渲染.
@@ -315,7 +315,7 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 
 ### 字符注音或者注释 {#ruby}
 
-**LoveIt** 主题支持一种 **字符注音或者注释** Markdown 扩展语法:
+**DoIt** 主题支持一种 **字符注音或者注释** Markdown 扩展语法:
 
 ```markdown
 [Hugo]{?^}(一个开源的静态网站生成工具)
@@ -329,7 +329,7 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 
 {{< version 0.2.0 >}}
 
-**LoveIt** 主题支持一种 **分数** Markdown 扩展语法:
+**DoIt** 主题支持一种 **分数** Markdown 扩展语法:
 
 ```markdown
 [浅色]{?/}[深色]
@@ -345,7 +345,7 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 
 ### Font Awesome {#fontawesome}
 
-**LoveIt** 主题使用 [Font Awesome](https://fontawesome.com/) 作为图标库.
+**DoIt** 主题使用 [Font Awesome](https://fontawesome.com/) 作为图标库.
 你同样可以在文章中轻松使用这些图标.
 
 从 [Font Awesome 网站](https://fontawesome.com/icons?d=gallery) 上获取所需的图标 `class`.

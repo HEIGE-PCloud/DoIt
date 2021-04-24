@@ -6,7 +6,7 @@ lastmod: 2020-03-03T16:29:59+08:00
 draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
-description: "LoveIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
+description: "DoIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
@@ -22,7 +22,7 @@ mapbox:
   darkStyle: mapbox://styles/mapbox/dark-zh-v1?optimize=true
 ---
 
-**LoveIt** 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.
+**DoIt** 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.
 
 <!--more-->
 
@@ -1286,12 +1286,12 @@ public class HelloWorld {
 
 ```markdown
 {{</* script */>}}
-console.log('Hello LoveIt!');
+console.log('Just DoIt!');
 {{</* /script */>}}
 ```
 
 你可以在开发者工具的控制台中看到输出.
 
 {{< script >}}
-console.log('Hello LoveIt!');
+console.log('Just DoIt!');
 {{< /script >}}

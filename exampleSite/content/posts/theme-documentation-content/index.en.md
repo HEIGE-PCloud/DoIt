@@ -6,7 +6,7 @@ lastmod: 2020-03-05T15:58:26+08:00
 draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
-description: "Find out how to create and organize your content quickly and intuitively in LoveIt theme."
+description: "Find out how to create and organize your content quickly and intuitively in DoIt theme."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
@@ -22,7 +22,7 @@ math:
   enable: true
 ---
 
-Find out how to create and organize your content quickly and intuitively in **LoveIt** theme.
+Find out how to create and organize your content quickly and intuitively in **DoIt** theme.
 
 <!--more-->
 
@@ -184,7 +184,7 @@ resources:
 
 ## 3 Content Summaries
 
-**LoveIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
+**DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
 ![Summary Preview](summary.png "Summary Preview")
 
@@ -214,7 +214,7 @@ You might want your summary to be something other than the text that starts the 
 
 You might want your description in the `description` variable of the article front matter as the summary.
 
-You may add the `<!--more-->` summary divider at the start of the article. Keep content that comes before the summary divider empty. Then **LoveIt** theme will use your description as the summary.
+You may add the `<!--more-->` summary divider at the start of the article. Keep content that comes before the summary divider empty. Then **DoIt** theme will use your description as the summary.
 
 ### Priority Order of Summary Selection
 
@@ -235,7 +235,7 @@ This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/
 
 ## 5 Extended Markdown Syntax {#extended-markdown-syntax}
 
-**LoveIt** theme has some extended syntax elements for you to write articles.
+**DoIt** theme has some extended syntax elements for you to write articles.
 
 ### Emoji Support
 
@@ -243,7 +243,7 @@ This part is shown in the [emoji support page](../emoji-support/).
 
 ### Mathematical Formula
 
-**LoveIt** theme supports mathematical formulas based on [$ \KaTeX $](https://katex.org/).
+**DoIt** theme supports mathematical formulas based on [$ \KaTeX $](https://katex.org/).
 
 Set the property `enable = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration)
 and the property `math: true` of the article front matter to enable the automatic rendering of mathematical formulas.
@@ -316,7 +316,7 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 
 ### Ruby Annotation {#ruby}
 
-An extended Markdown syntax for **ruby annotation** is supported in **LoveIt** theme:
+An extended Markdown syntax for **ruby annotation** is supported in **DoIt** theme:
 
 ```markdown
 [Hugo]{?^}(An open-source static site generator)
@@ -330,7 +330,7 @@ The rendered output looks like this:
 
 {{< version 0.2.0 >}}
 
-An extended Markdown syntax for **fraction** is supported in **LoveIt** theme:
+An extended Markdown syntax for **fraction** is supported in **DoIt** theme:
 
 ```markdown
 [Light]{?/}[Dark]
@@ -346,7 +346,7 @@ The rendered output looks like this:
 
 ### Font Awesome {#fontawesome}
 
-**LoveIt** theme uses [Font Awesome](https://fontawesome.com/) as the icon library.
+**DoIt** theme uses [Font Awesome](https://fontawesome.com/) as the icon library.
 You can easily use these icons in your articles.
 
 Get the `class` of icons you wanted from the [Font Awesome website](https://fontawesome.com/icons?d=gallery).
