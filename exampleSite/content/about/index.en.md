@@ -1,5 +1,5 @@
 ---
-title: "About LoveIt"
+title: "About DoIt"
 date: 2019-08-02T11:04:49+08:00
 draft: false
 
@@ -10,18 +10,17 @@ math:
 ---
 
 {{< style "img { height: 1.25rem; }" >}}
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/releases)
 [![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt)
-[![GitHub forks](https://img.shields.io/github/forks/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt/fork)
+[![License](https://img.shields.io/github/license/HEIGE-PCloud/DoIt?style=flat-square)](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt)
+[![GitHub forks](https://img.shields.io/github/forks/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt/fork)
 {{< /style >}}
 
-> [:(far fa-kiss-wink-heart fa-fw): LoveIt](https://github.com/dillonzq/LoveIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [Dillon](https://dillonzq.com).
+> [:(far fa-kiss-wink-heart fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [HEIGE-PCloud](https://github.com/HEIGE-PCloud).
 >
-> It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
+> It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
-![Hugo Theme LoveIt](/images/Apple-Devices-Preview.png "Hugo Theme LoveIt")
+<!-- ![Hugo Theme LoveIt](/images/Apple-Devices-Preview.png "Hugo Theme LoveIt") -->
 
 ### Features
 
@@ -79,15 +78,14 @@ math:
 * :(fas fa-align-left fa-fw): **Custom style** shortcode
 * :(fab fa-js-square fa-fw): **Custom script** shortcode
 * :(fas fa-i-cursor fa-fw): **Animated typing** supported by [TypeIt](https://typeitjs.com/)
-* :(fas fa-arrow-down fa-fw): **Dynamic scroll** supported by [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 * :(fas fa-cookie-bite fa-fw): **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
 * ...
 
 ### License
 
-LoveIt is licensed under the **MIT** license.
+DoIt is licensed under the **MIT** license.
 
-Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
+Check the [LICENSE file](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE) for details.
 
 Thanks to the authors of following resources included in the theme:
 
@@ -95,7 +93,6 @@ Thanks to the authors of following resources included in the theme:
 * [Font Awesome](https://fontawesome.com/)
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)

@@ -6,7 +6,7 @@ lastmod: 2020-03-06T21:29:01+08:00
 draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
-description: "Discover what the Hugo - LoveIt theme is all about and the core-concepts behind it."
+description: "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
@@ -20,7 +20,7 @@ toc:
   auto: false
 ---
 
-Discover what the Hugo - **LoveIt** theme is all about and the core-concepts behind it.
+Discover what the Hugo - **DoIt** theme is all about and the core-concepts behind it.
 
 <!--more-->
 
@@ -53,26 +53,26 @@ cd my_website
 
 ### 2.2 Install the Theme
 
-The **LoveIt** theme’s repository is: [https://github.com/dillonzq/LoveIt](https://github.com/dillonzq/LoveIt).
+The **DoIt** theme’s repository is: [https://github.com/HEIGE-PCloud/DoIt](https://github.com/HEIGE-PCloud/DoIt).
 
-You can download the [latest release :(far fa-file-archive fa-fw): .zip file](https://github.com/dillonzq/LoveIt/releases) of the theme and extract it in the `themes` directory.
+You can download the [latest release :(far fa-file-archive fa-fw): .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the `themes` directory.
 
 Alternatively, clone this repository to the `themes` directory:
 
 ```bash
-git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt
+git clone https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
 Or, create an empty git repository and make this repository a submodule of your site directory:
 
 ```bash
 git init
-git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
 ### 2.3 Basic Configuration {#basic-configuration}
 
-The following is a basic configuration for the LoveIt theme:
+The following is a basic configuration for the DoIt theme:
 
 ```toml
 baseURL = "http://example.org/"
@@ -83,10 +83,10 @@ languageCode = "en"
 title = "My New Hugo Site"
 
 # Change the default theme to be use when building the site with Hugo
-theme = "LoveIt"
+theme = "DoIt"
 
 [params]
-  # LoveIt theme version
+  # DoIt theme version
   version = "0.2.X"
 
 [menu]
@@ -188,13 +188,13 @@ Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deploymen
 
 ### 3.1 Site Configuration {#site-configuration}
 
-In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **LoveIt** lets you define the following parameters in your site configuration (here is a `config.toml`, whose values are default).
+In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **DoIt** lets you define the following parameters in your site configuration (here is a `config.toml`, whose values are default).
 
 Please open the code block below to view the complete sample configuration :(far fa-hand-point-down fa-fw)::
 
 ```toml
 [params]
-  # {{< version 0.2.0 changed >}} LoveIt theme version
+  # {{< version 0.2.0 changed >}} DoIt theme version
   version = "0.2.X"
   # site description
   description = "This is My New Hugo Site"
@@ -215,7 +215,7 @@ Please open the code block below to view the complete sample configuration :(far
   # {{< version 0.2.0 >}} App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "LoveIt"
+    title = "DoIt"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -528,7 +528,7 @@ Please open the code block below to view the complete sample configuration :(far
         serverURLs = ""
         # {{< version 0.2.6 >}} emoji data file name, default is "google.yml"
         # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
-        # located in "themes/LoveIt/assets/data/emoji/" directory
+        # located in "themes/DoIt/assets/data/emoji/" directory
         # you can store your own data files in the same path under your project:
         # "assets/data/emoji/"
         emoji = ""
@@ -635,7 +635,7 @@ Please open the code block below to view the complete sample configuration :(far
   [params.cdn]
     # CDN data file name, disabled by default
     # ("jsdelivr.yml")
-    # located in "themes/LoveIt/assets/data/cdn/" directory
+    # located in "themes/DoIt/assets/data/cdn/" directory
     # you can store your own data files in the same path under your project:
     # "assets/data/cdn/"
     data = ""
@@ -747,7 +747,7 @@ You could enable these features with `hugo serve -e production`.
   data = ""
 ````
 
-The default CDN data file is located in `themes/LoveIt/assets/data/cdn/` directory.
+The default CDN data file is located in `themes/DoIt/assets/data/cdn/` directory.
 You can store your own data file in the same path under your project: `assets/data/cdn/`.
 {{< /admonition >}}
 
@@ -778,7 +778,7 @@ Or You can set more options through a dict:
     title = "Mastodon"
 ```
 
-The default data of all supported social links is located in `themes/LoveIt/assets/data/social.yaml`,
+The default data of all supported social links is located in `themes/DoIt/assets/data/social.yaml`,
 which is you can refer to.
 {{< /admonition >}}
 
@@ -807,11 +807,11 @@ Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and back
 Hugo **extended** version is necessary for the style customization.
 {{< /admonition >}}
 
-**LoveIt** theme has been built to be as configurable as possible by defining custom `.scss` style files.
+**DoIt** theme has been built to be as configurable as possible by defining custom `.scss` style files.
 
 The directory including the custom `.scss` style files is `assets/css` relative to **your project root directory**.
 
-In `assets/css/_override.scss`, you can override the variables in `themes/LoveIt/assets/css/_variables.scss` to customize the style.
+In `assets/css/_override.scss`, you can override the variables in `themes/DoIt/assets/css/_variables.scss` to customize the style.
 
 Here is a example:
 
@@ -824,7 +824,7 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 
 ## 4 Multilingual and i18n
 
-**LoveIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
+**DoIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
 
 ![Language Switch](language-switch.gif "Language Switch")
 
@@ -973,15 +973,15 @@ Use [Front Matter parameter](https://gohugo.io/content-management/multilingual#t
 
 Translations strings are used for common default values used in the theme. Translations are available in [some languages](#language-compatibility), but you may use another language or want to override default values.
 
-To override these values, create a new file in your local i18n folder `i18n/<languageCode>.toml` and inspire yourself from `themes/LoveIt/i18n/en.toml`.
+To override these values, create a new file in your local i18n folder `i18n/<languageCode>.toml` and inspire yourself from `themes/DoIt/i18n/en.toml`.
 
-By the way, as these translations could be used by other people, please take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/dillonzq/LoveIt/pulls) to the theme!
+By the way, as these translations could be used by other people, please take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
 
 ## 5 Search
 
 {{< version 0.2.0 >}}
 
-Based on [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/), searching is supported in **LoveIt** theme.
+Based on [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/), searching is supported in **DoIt** theme.
 
 ### 5.1 Output Configuration
 
