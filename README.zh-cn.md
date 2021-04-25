@@ -8,9 +8,31 @@
 
 由于三个主题外观的相似性，如果你对于它们的不同之处有疑问，请阅读 [为什么选择 DoIt](#为什么选择-DoIt)，以便你能选择最适合你的一个。
 
-# 安装
-如果你还没有使用过LoveIt主题，强烈建议你阅读[主题文档](https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration)。否则你会无法使用主题。
-**注意**:当然如果你想立即看到效果，那么你只需要安装[hugo-extened](https://gohugo.io/getting-started/installing),如果安装失败，请到[hugo的github官网](https://github.com/gohugoio/hugo/)下载带有extended后缀的安装包。
+## 立即开始
+
+前往这篇[文档](https://hugodoit.pages.dev/theme-documentation-basics/)，阅读关于安装与使用的详细指南。
+
+## 从LoveIt迁移
+
+如果你现在正在使用LoveIt主题，你可以很容易地迁移至DoIt。
+
+你可以将这个主题仓库添加为你的网站目录的子模块
+
+```bash
+git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+```
+
+或者，你可以下载主题的[最新版本.zip 文件](https://github.com/HEIGE-PCloud/DoIt/releases)并且解压放到`themes`目录。（不推荐，这个主题会被频繁更新，发行版中可能包含过时的文件。）
+
+接着，前往 `config.toml` 并将默认主题更改为 `DoIt`.
+
+```diff
+- theme = "LoveIt"
++ theme = "DoIt"
+```
+
+这样就完成了迁移工作，现在一切准备就绪🎉
+
 ## 主题[预览](https://hugodoit.pages.dev/zh-cn/)
 
 为了直观地浏览主题特性，这里有一个基于 **DoIt** 主题渲染的 [预览网站](https://hugodoit.pages.dev/zh-cn/)。

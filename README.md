@@ -9,9 +9,30 @@ It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt 
 Since the three themes have a similar look, if you have questions about their differences,
 read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
 
-# Install
-If you haven't used LoveIt theme, it is strongly recommended that you read [theme document] (https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration). Otherwise you won't be able to use the theme.
-**Note**: if you want to see the effect immediately, of course, then you only need to install the [Hugo - extened] (https://gohugo.io/getting-started/installing), if the installation fails, Please refer to [Hugo] making website (https://github.com/gohugoio/hugo/) to download the installation package with extended suffix.
+## Getting started
+
+Head to this [documentation page](https://hugodoit.pages.dev/theme-documentation-basics/) for a complete guidence to get started with the DoIt theme.
+
+## Migrate from LoveIt
+
+If you are currently using the LoveIt theme, it is very easy to migrate to DoIt.
+
+You can add this repo as a submodule of your site directory.
+
+```bash
+git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+```
+
+Alternatively, you can download the [latest release .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the themes directory. (Not recommended, the repo is being updated frequently so the releases may out of date.)
+
+Next, go to the `config.toml` and change the default theme to `DoIt`.
+
+```diff
+- theme = "LoveIt"
++ theme = "DoIt"
+```
+
+Now the migration is finished and everything is ready 🎉
 
 ## [Demo Site](https://hugodoit.pages.dev/)
 
