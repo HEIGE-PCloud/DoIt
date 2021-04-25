@@ -8,9 +8,6 @@
 
 由于三个主题外观的相似性，如果你对于它们的不同之处有疑问，请阅读 [为什么选择 DoIt](#为什么选择-DoIt)，以便你能选择最适合你的一个。
 
-# 安装
-如果你还没有使用过LoveIt主题，强烈建议你阅读[主题文档](https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration)。否则你会无法使用主题。
-**注意**:当然如果你想立即看到效果，那么你只需要安装[hugo-extened](https://gohugo.io/getting-started/installing),如果安装失败，请到[hugo的github官网](https://github.com/gohugoio/hugo/)下载带有extended后缀的安装包。
 ## 主题[预览](https://hugodoit.pages.dev/zh-cn/)
 
 为了直观地浏览主题特性，这里有一个基于 **DoIt** 主题渲染的 [预览网站](https://hugodoit.pages.dev/zh-cn/)。
