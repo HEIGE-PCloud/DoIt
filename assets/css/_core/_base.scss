@@ -57,6 +57,7 @@ body {
 
 @include ms;
 @include link(true, true);
+@include button(true, true);
 
 @import "../_partial/mask";
 @import "../_partial/icon";

@@ -40,7 +40,7 @@
                     <span class="menu-item delimiter"></span>
                 {{- end -}}
                 {{- if .Site.IsMultiLingual -}}
-                    <a href="javascript:void(0);" class="menu-item language" title="{{ T "selectLanguage" }}">
+                    <button class="menu-item language" title="{{ T "selectLanguage" }}">
                         {{- .Language.LanguageName -}}
                         <i class="fas fa-chevron-right fa-fw"></i>
                         <select class="language-select" id="language-select-desktop" onchange="location = this.value;">
@@ -60,15 +60,15 @@
                                 {{- end -}}
                             {{- end -}}
                         </select>
-                    </a>
+                    </button>
                 {{- end -}}
                 {{- if .Site.Params.search.enable -}}
                     <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
+                        <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
+                        <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
@@ -76,17 +76,9 @@
                         </span>
                     </span>
                 {{- end -}}
-                <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                     <i class="fas fa-adjust fa-fw"></i>
-                </a>
-                <!-- <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
-                    <select class="theme-select" id="theme-select-desktop" title="{{ T "switchTheme" }}">
-                        <option value="Light">Light</option>
-                        <option value="Dark">Dark</option>
-                        <option value="Black">Black</option>
-                        <option value="Auto">Auto</option>
-                    </select>
-                </a> -->
+                </button>
             </div>
         </div>
     </div>
@@ -129,17 +121,17 @@
                 <div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="{{ T `search` }}">
+                        <button class="search-button search-toggle" id="search-toggle-mobile" title="{{ T `search` }}">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
+                        <button class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
                             <i class="fas fa-spinner fa-fw fa-spin"></i>
                         </span>
                     </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                    <button class="search-cancel" id="search-cancel-mobile">
                         {{ T `cancel` }}
                     </a>
                 </div>
@@ -154,11 +146,11 @@
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
                 </a>
             {{- end -}}
-            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+            <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
             {{- if .Site.IsMultiLingual -}}
-                <a href="javascript:void(0);" class="menu-item" title="{{ T "selectLanguage" }}">
+                <button class="menu-item" title="{{ T "selectLanguage" }}">
                     {{- .Language.LanguageName -}}
                     <i class="fas fa-chevron-right fa-fw"></i>
                     <select class="language-select" onchange="location = this.value;">
@@ -178,7 +170,7 @@
                             {{- end -}}
                         {{- end -}}
                     </select>
-                </a>
+                </button>
             {{- end -}}
         </div>
     </div>
