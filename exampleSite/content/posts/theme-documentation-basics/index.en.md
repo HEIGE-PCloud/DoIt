@@ -737,6 +737,23 @@ the **comment system**, **CDN** and **fingerprint** will not be enabled in the `
 You could enable these features with `hugo serve -e production`.
 {{< /admonition >}}
 
+{{< admonition tip "Tips about avatar Configuration" >}}
+
+```toml
+[params.home.profile]
+  enable = true
+  # Gravatar Email for preferred avatar in home page
+  gravatarEmail = ""
+  # URL of avatar shown in home page
+  avatarURL = "/images/avatar.png"
+````
+
+You can sign up and configure your avatar at [Gravatar](https://en.gravatar.com), the website will automatically obtain and set your avatar through the email address filled in `gravatarEmail`.
+
+Or you can place image files in the `/assets` or `/static` directory, and configure the address under `avatarURL` to display the avatar. The file path of the referenced resource is relative to the `assets` or `static` directory. Please refer to [this document](/theme-documentation-content/#contents-organization) for detailed local resource reference method.
+
+{{< /admonition >}}
+
 {{< admonition tip "Tips about CDN Configuration" >}}
 {{< version 0.2.7 changed >}}
 

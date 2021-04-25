@@ -741,6 +741,21 @@ hugo
 你可以使用 `hugo serve -e production` 命令来开启这些特性.
 {{< /admonition >}}
 
+{{< admonition tip "关于头像配置的技巧" >}}
+
+```toml
+[params.home.profile]
+  # Gravatar 邮箱，用于优先在主页显示的头像
+  gravatarEmail = ""
+  # 主页显示头像的 URL
+  avatarURL = "/images/avatar.png"
+````
+你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像，网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像。
+
+或者可以在`/assets`或`/static`目录下放置图片文件，并配置`avatarURL`下的地址来显示头像。引用资源的文件路径是相对于`assets`或`static`目录的。详细的本地资源引用方法请查看[这篇文档](/zh-cn/theme-documentation-content/#contents-organization)。
+
+{{< /admonition >}}
+
 {{< admonition tip "关于 CDN 配置的技巧" >}}
 {{< version 0.2.7 changed >}}
 
