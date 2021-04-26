@@ -317,6 +317,8 @@ hugo
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
+      # 将你的头像文件放置于 static 或者 assets 目录下
+      # 文件路径是相对于 static 或者 assets 目录的
       avatarURL = "/images/avatar.png"
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
