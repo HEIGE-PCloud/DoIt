@@ -66,6 +66,19 @@ header {
   }
 }
 
+.theme-select {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .search {
   position: relative;
 
@@ -162,6 +175,10 @@ header {
   @include transform(rotate(225deg));
 }
 
+.theme i {
+  @include transform(rotate(225deg));
+}
+
 #header-desktop {
   display: block;
   position: fixed;
@@ -202,6 +219,10 @@ header {
         }
 
         &.language {
+          margin-right: 0;
+        }
+
+        &.theme {
           margin-right: 0;
         }
 
