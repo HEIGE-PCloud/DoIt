@@ -83,9 +83,53 @@ class Theme {
     initSwitchTheme() {
         this.util.forEach(document.getElementsByClassName('theme-switch'), $themeSwitch => {
             $themeSwitch.addEventListener('click', () => {
-                if (document.body.getAttribute('theme') === 'dark') document.body.setAttribute('theme', 'black'), window.localStorage && localStorage.setItem('theme', 'black'), this.isDark = true;
-                else if (document.body.getAttribute('theme') === 'black') document.body.setAttribute('theme', 'light'), window.localStorage && localStorage.setItem('theme', 'light'), this.isDark = false;
-                else document.body.setAttribute('theme', 'dark'), window.localStorage && localStorage.setItem('theme', 'dark'),  this.isDark = true;
+                let currentTheme = document.body.getAttribute('theme');
+                if (currentTheme === 'dark') {
+                    document.body.setAttribute('theme', 'black');
+                    window.localStorage && localStorage.setItem('theme', 'black');
+                    this.isDark = true;
+                } else if (currentTheme === 'black') {
+                    document.body.setAttribute('theme', 'light');
+                    window.localStorage && localStorage.setItem('theme', 'light');
+                    this.isDark = false;
+                } else {
+                    document.body.setAttribute('theme', 'dark');
+                    window.localStorage && localStorage.setItem('theme', 'dark');
+                    this.isDark = true;
+                }
+                for (let event of this.switchThemeEventSet) event();
+            }, false);
+        });
+    }
+
+    initSelectTheme() {
+        this.util.forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
+            let currentTheme = document.body.getAttribute('theme');
+            for (let i, j = 0; i = $themeSelect.options[j]; j++) {
+                if (i.value == currentTheme) {
+                    $themeSelect.selectedIndex = j;
+                    break;
+                }
+            }
+            $themeSelect.addEventListener('change', () => {
+                let theme = $themeSelect.value;
+                window.localStorage && localStorage.setItem('theme', theme);
+                if (theme != 'auto') {
+                    document.body.setAttribute('theme', theme);
+                    if (theme == 'light') {
+                        this.isDark = false;
+                    } else {
+                        this.isDark = true;
+                    }
+                } else {
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        document.body.setAttribute('theme', 'dark');
+                        this.isDark = true;
+                    } else {
+                        document.body.setAttribute('theme', 'white');
+                        this.isDark = false;
+                    }
+                }
                 for (let event of this.switchThemeEventSet) event();
             }, false);
         });
@@ -697,6 +741,7 @@ class Theme {
             this.initTwemoji();
             this.initMenuMobile();
             this.initSwitchTheme();
+            this.initSelectTheme();
             this.initSearch();
             this.initDetails();
             this.initLightGallery();

@@ -258,6 +258,9 @@ hugo
     desktopMode = "fixed"
     # 移动端导航栏模式 ("fixed", "normal", "auto")
     mobileMode = "auto"
+    # {{< version 0.2.11 >}} 主题切换模式
+    # 主题切换模式 ("switch", "select")
+    themeChangeMode = "select"
     # {{< version 0.2.0 >}} 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL

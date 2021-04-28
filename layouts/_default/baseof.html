@@ -20,9 +20,9 @@
         {{- $theme := .Site.Params.defaulttheme -}}
         <script type="text/javascript">
             if (window.localStorage && localStorage.getItem('theme')) {
-                let localStorageTheme = localStorage.getItem('theme');
-                if (localStorageTheme === 'light' || localStorageTheme === 'dark' || localStorageTheme === 'black') {
-                    document.body.setAttribute('theme', localStorageTheme);
+                let theme = localStorage.getItem('theme');
+                if (theme === 'light' || theme === 'dark' || theme === 'black') {
+                    document.body.setAttribute('theme', theme);
                 } else {
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.body.setAttribute('theme', 'dark');
