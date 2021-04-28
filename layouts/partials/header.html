@@ -76,49 +76,21 @@
                         </span>
                     </span>
                 {{- end -}}
-                <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+                <a href="javascript:void(0);" class="menu-item theme-select" title="{{ T "switchTheme" }}">
                     <i class="fas fa-adjust fa-fw"></i>
-                </a>
-                <a href="javascript:void(0);" class="menu-item theme" title="{{ T "switchTheme" }}">
-                    <i class="fas fa-adjust fa-fw"></i>
-                    <select class="theme-select" id="theme-select-desktop" onchange="setTheme(this.value);" title="{{ T "switchTheme" }}">
+                    <select class="color-theme-select" id="theme-select-desktop" title="{{ T "switchTheme" }}">
                         <option value="light">Light</option>
                         <option value="dark">Dark</option>
                         <option value="black">Black</option>
                         <option value="auto">Auto</option>
                     </select>
                 </a>
-                <script>
-                    function getTheme() {
-                        return document.body.getAttribute('theme');
-                    }
-                    function storeThemeSetting(theme) {
-                        window.localStorage && localStorage.setItem('theme', theme);
-                    }
-                    function setTheme(value) {
-                        storeThemeSetting(value)
-                        if (value != 'auto') {
-                            document.body.setAttribute('theme', value);
-                        } else {
-                            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                                document.body.setAttribute('theme', 'dark');
-                            } else {
-                                document.body.setAttribute('theme', 'white');
-                            }
-                        }
-                    }
-                    function initThemeDefaultOption() {
-                        let currentTheme = getTheme();
-                        let select = document.getElementById('theme-select-desktop');
-                        for (let i, j = 0; i = select.options[j]; j++) {
-                            if (i.value == currentTheme) {
-                                select.selectedIndex = j;
-                                break;
-                            }
-                        }
-                    }
-                    initThemeDefaultOption();
-                </script>
+                {{- else -}}
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+                {{- end -}}
             </div>
         </div>
     </div>
@@ -186,9 +158,21 @@
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
                 </a>
             {{- end -}}
+            {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+            <a href="javascript:void(0);" class="menu-item theme-select" title="{{ T "switchTheme" }}">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="{{ T "switchTheme" }}">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </a>
+            {{- else -}}
             <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
+            {{- end -}}
             {{- if .Site.IsMultiLingual -}}
                 <a href="javascript:void(0);" class="menu-item" title="{{ T "selectLanguage" }}">
                     {{- .Language.LanguageName -}}

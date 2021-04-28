@@ -255,6 +255,9 @@ Please open the code block below to view the complete sample configuration :(far
     desktopMode = "fixed"
     # mobile header mode ("fixed", "normal", "auto")
     mobileMode = "auto"
+    # {{< version 0.2.11 >}} Theme change mode
+    # theme change mode ("switch", "select")
+    themeChangeMode = "select"
     # {{< version 0.2.0 >}} Header title config
     [params.header.title]
       # URL of the LOGO

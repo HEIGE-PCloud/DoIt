@@ -66,7 +66,7 @@ header {
   }
 }
 
-.theme-select {
+.color-theme-select {
   position: absolute;
   opacity: 0;
   left: 0;
@@ -175,7 +175,7 @@ header {
   @include transform(rotate(225deg));
 }
 
-.theme i {
+.theme-select i {
   @include transform(rotate(225deg));
 }
 
@@ -222,7 +222,7 @@ header {
           margin-right: 0;
         }
 
-        &.theme {
+        &.theme-select {
           margin-right: 0;
         }
 
