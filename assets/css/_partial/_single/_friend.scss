@@ -1,0 +1,124 @@
+$avatar-border-color: #f0f0f0;
+$avatar-border-color-dark: #363636;
+$avatar-border-color-black: #363636;
+
+$friend-link-background-color: #f8f8f8;
+$friend-link-background-color-dark: #252627;
+$friend-link-background-color-black: #111111;
+
+$friend-link-color: #2d96bd;
+$friend-link-color-dark: #a9a9b3;
+$friend-link-color-black: #d9d9d9;
+
+$friend-link-hover-color: #ef3982;
+$friend-link-hover-color-dark: #ffffff;
+$friend-link-hover-color-black: #ffffff;
+
+.friend-avatar {
+    width: 56px;
+    height: 56px;
+    padding: 2px;
+    margin-top: 14px;
+    margin-left: 14px;
+    border-radius: 50%;
+    border: 1px solid $avatar-border-color;
+    [theme=dark] & {
+        border: 1px solid $avatar-border-color-dark;   
+    }
+    [theme=black] & {
+        border: 1px solid $avatar-border-color-black;   
+    }
+}
+
+.friend-link-div {
+    height: 92px;
+    margin-top: 10px;
+    width: 48%;
+    display: inline-block !important;
+    border-radius: 5px;
+    background: $friend-link-background-color;
+    [theme=dark] & {
+        background: $friend-link-background-color-dark;
+    }
+    [theme=black] & {
+        background: $friend-link-background-color-black;
+    }
+    -webkit-transition: transform 0.4s ease;
+    -moz-transition: transform 0.4s ease;
+    -o-transition: transform 0.4s ease;
+    transition: transform 0.4s ease;
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.friend-link-avatar {
+    width: 92px;
+    float: left;
+}
+
+.friend-link-avatar {
+    margin-right: 2px;
+}
+
+.friend-link-info {
+    margin-top: 18px;
+    margin-right: 18px;
+    color: $friend-link-color;
+    [theme=dark] & {
+        color: $friend-link-color-dark;
+    }
+    [theme=black] & {
+        color: $friend-link-color-black;
+    }
+    &:hover {
+        color: $friend-link-hover-color;
+        [theme=dark] & {
+            color: $friend-link-hover-color-dark;
+        }
+        [theme=black] & {
+            color: $friend-link-hover-color-black;
+        }
+    }
+}
+
+.friend-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-style: normal;
+
+}
+
+.friend-bio {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $global-font-secondary-color;
+    [theme=dark] & {
+        color: $global-font-secondary-color-dark;
+    }
+    [theme=black] & {
+        color: $global-font-secondary-color-black;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .friend-bio {
+        display: none;
+    }
+    .friend-link-avatar {
+        width: 84px;
+        margin: auto;
+    }
+    .friend-link-info {
+        height: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .friend-name {
+        font-size: 14px;
+    }
+}
