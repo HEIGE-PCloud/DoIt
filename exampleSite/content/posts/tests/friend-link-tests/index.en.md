@@ -15,4 +15,4 @@ hiddenFromHomePage: true
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud as well~" >}}
 
-{{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="Awwwwww, toooooooo many PCloud🤔" >}}
+{{< friend "PCloud" "https://github.com/HEIGE-PCloud/" "https://avatars.githubusercontent.com/u/52968553?v=4" "Awwwwww, toooooooo many PCloud🤔" >}}
