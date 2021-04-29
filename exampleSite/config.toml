@@ -1076,9 +1076,9 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "xxxx"
-  email = ""
-  link = ""
+  name = "PCloud"
+  email = "heige.pcloud@outlook.com"
+  link = "https://github.com/HEIGE-PCloud"
 
 # Sitemap config
 # 网站地图配置

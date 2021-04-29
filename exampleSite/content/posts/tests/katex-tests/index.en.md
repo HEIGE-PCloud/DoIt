@@ -3,12 +3,12 @@ title: "KaTeX Tests"
 date: 2021-04-16T14:53:03+01:00
 lastmod: 2021-04-16T14:53:03+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "KaTeX Tests"
 categories: [Tests]
 math:
   enable: true
+hiddenFromHomePage: true
+
 ---
 
 <!--more-->
