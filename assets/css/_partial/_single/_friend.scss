@@ -53,8 +53,7 @@ $friend-link-hover-color-black: #ffffff;
 }
 
 .friend-link-avatar {
-    width: 56px;
-    height: 56px;
+    width: 92px;
     float: left;
 }
 
@@ -112,6 +111,7 @@ $friend-link-hover-color-black: #ffffff;
         display: none;
     }
     .friend-link-avatar {
+        width: 54px;
         margin: auto;
     }
     .friend-link-info {
