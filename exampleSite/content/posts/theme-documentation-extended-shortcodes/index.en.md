@@ -1293,3 +1293,39 @@ You can see the output in the console of the developer tool.
 {{< script >}}
 console.log('Just DoIt!');
 {{< /script >}}
+
+## 12 friend
+
+{{< version 0.2.11 >}}
+
+`friend` is a shortcode to insert a friend link to your friend's site in your post.
+
+The `friend` shortcode has the following named parameters:
+
+* **name** *[required]* (**first** positional parameter)
+
+    Your friend site's name.
+
+* **url** *[required]* (**second** positional parameter)
+
+    The link to your friend site.
+
+* **avatar** *[required]* (**third** positional parameter)
+
+    Your friend site's avatar.
+
+* **bio** *[required]* (**fourth** positional parameter)
+
+    A short bio of your friend site.
+
+Example `friend` input:
+
+```markdown
+{{</* friend "PCloud" "https://github.com/HEIGE-PCloud/" "https://avatars.githubusercontent.com/u/52968553?v=4" "This is PCloud~💤" */>}}
+Or
+{{</* friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" */>}}
+```
+
+The rendered output looks like this:
+
+{{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
