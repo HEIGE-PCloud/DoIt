@@ -3,10 +3,9 @@ title: "Echarts Tests"
 date: 2021-04-16T14:41:49+01:00
 lastmod: 2021-04-16T14:41:49+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "Echarts Tests"
 categories: [Tests]
+hiddenFromHomePage: true
 ---
 
 <!--more-->

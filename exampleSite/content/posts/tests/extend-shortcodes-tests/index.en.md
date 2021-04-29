@@ -3,11 +3,10 @@ title: "Extend Shortcodes Tests"
 date: 2021-04-16T14:21:36+01:00
 lastmod: 2021-04-16T14:21:36+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "Extend Shortcodes Tests"
 categories: [Tests]
 lightgallery: true
+hiddenFromHomePage: true
 ---
 
 <!--more-->
