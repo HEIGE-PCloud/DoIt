@@ -53,7 +53,8 @@ $friend-link-hover-color-black: #ffffff;
 }
 
 .friend-link-avatar {
-    width: 92px;
+    width: 56px;
+    height: 56px;
     float: left;
 }
 
@@ -104,11 +105,13 @@ $friend-link-hover-color-black: #ffffff;
 }
 
 @media screen and (max-width: 600px) {
+    .fas {
+        display: none;
+    }
     .friend-bio {
         display: none;
     }
     .friend-link-avatar {
-        width: 84px;
         margin: auto;
     }
     .friend-link-info {
