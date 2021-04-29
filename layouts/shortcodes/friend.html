@@ -1,8 +1,9 @@
 {{ if .IsNamedParams }}
+{{- $avatar := .Get "avatar" -}}
 <a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friend-link">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
-            <img class="friend-avatar" src={{ .Get "avatar" }} />
+            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
         </div>
         <div class="friend-link-info">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -12,10 +13,11 @@
     </div>
 </a>
 {{- else -}}
+{{- $avatar := .Get 2 -}}
 <a target="_blank" href={{ .Get 1 }} title={{ .Get 0 }} class="friend-link">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
-            <img class="friend-avatar" src={{ .Get 2 }} />
+            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
         </div>
         <div class="friend-link-info">
             <i class="fas fa-user-circle fa-fw"></i>
