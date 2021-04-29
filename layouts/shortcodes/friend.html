@@ -11,4 +11,17 @@
         </div>
     </div>
 </a>
+{{- else -}}
+<a target="_blank" href={{ .Get 1 }} title={{ .Get 0 }} class="friend-link">
+    <div class="friend-link-div">
+        <div class="friend-link-avatar">
+            <img class="friend-avatar" src={{ .Get 2 }} />
+        </div>
+        <div class="friend-link-info">
+            <i class="fas fa-user-circle fa-fw"></i>
+            <i class="friend-name">{{ .Get 0 }}</i>
+            <p class="friend-bio">{{ .Get 3 }}</p>
+        </div>
+    </div>
+</a>
 {{ end }}
