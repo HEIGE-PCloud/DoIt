@@ -105,6 +105,7 @@ I hope you will LoveIt ❤️!
 * **Disqus** comment system supported by [Disqus](https://disqus.com)
 * **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
 * **Valine** comment system supported by [Valine](https://valine.js.org/)
+* **Waline** comment system supported by [Waline](https://waline.js.org/)
 * **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 * **Telegram comments** system supported by [Telegram Comments](https://comments.app/)
 * **Commento** comment system supported by [Commento](https://commento.io/)
@@ -197,6 +198,7 @@ Thanks to the authors of following resources included in the theme:
 * [MetingJS](https://github.com/metowolf/MetingJS)
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
+* [Waline](https://waline.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 
 ## Author

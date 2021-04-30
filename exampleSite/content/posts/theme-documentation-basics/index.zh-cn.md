@@ -540,6 +540,25 @@ hugo
         # 可以在你的项目下相同路径存放你自己的数据文件:
         # "assets/data/emoji/"
         emoji = ""
+      # {{< link "https://github.com/xCss/Valine" Waline >}} 评论系统设置
+      [params.page.comment.waline]
+        # {{< version 0.2.11 >}}
+        enable = false
+        serverURL = ""
+        placeholder = "Just Go Go."
+        wordLimit = 0
+        avatar = "mp"
+        meta = ["nick", "mail", "link"]
+        pageSize = 10
+        lang = "en"
+        visitor = true
+        highlight = true
+        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarForce = false
+        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
+        emojiMaps = "微博表情包"
+        requiredFields = []
+        anonymous = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]
         enable = false
