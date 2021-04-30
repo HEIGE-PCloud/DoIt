@@ -457,7 +457,7 @@ class Theme {
             const $page = document.getElementsByClassName('page')[0];
             const rect = $page.getBoundingClientRect();
             $toc.style.left = `${rect.left + rect.width + 20}px`;
-            $toc.style.maxWidth = `${$page.getBoundingClientRect().left - 20}px`;
+            $toc.style.maxWidth = `20%`;
             $toc.style.visibility = 'visible';
             const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
             const $tocLiElements = $tocCore.getElementsByTagName('li');
@@ -506,6 +506,15 @@ class Theme {
             });
             this._tocOnScroll();
             this.scrollEventSet.add(this._tocOnScroll);
+        }
+    }
+
+    initPageStyle() {
+        if (this.config.pageStyle === 'wide') {
+            $page = document.getElementsByClassName('page')[0];
+            $page.style.marginLeft = "10%";
+            $page.style.marginRight = "auto";
+            $page.style.width = "70%";
         }
     }
 
