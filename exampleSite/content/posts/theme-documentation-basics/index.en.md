@@ -537,6 +537,25 @@ Please open the code block below to view the complete sample configuration :(far
         # you can store your own data files in the same path under your project:
         # "assets/data/emoji/"
         emoji = ""
+      # {{< link "https://github.com/xCss/Valine" Waline >}} comment config
+      [params.page.comment.waline]
+        # {{< version 0.2.11 >}}
+        enable = false
+        serverURL = ""
+        placeholder = "Just Go Go."
+        wordLimit = 0
+        avatar = "mp"
+        meta = ["nick", "mail", "link"]
+        pageSize = 10
+        lang = "en"
+        visitor = true
+        highlight = true
+        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarForce = false
+        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
+        emojiMaps = "微博表情包"
+        requiredFields = []
+        anonymous = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false
