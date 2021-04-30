@@ -509,15 +509,6 @@ class Theme {
         }
     }
 
-    initPageStyle() {
-        if (this.config.pageStyle === 'wide') {
-            $page = document.getElementsByClassName('page')[0];
-            $page.style.marginLeft = "10%";
-            $page.style.marginRight = "auto";
-            $page.style.width = "70%";
-        }
-    }
-
     initMath() {
         if (this.config.math) renderMathInElement(document.body, this.config.math);
     }
