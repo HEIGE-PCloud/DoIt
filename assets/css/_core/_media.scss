@@ -28,7 +28,8 @@
   }
 
   .page {
-    width: 80%;
+    width: 80% !important;
+    margin: 0 auto !important;  
   }
 
   #header-desktop .header-wrapper {
@@ -50,7 +51,7 @@
   }
 
   .page {
-    width: 100%;
+    width: 100% !important;
 
     [header-mobile] & {
       padding-top: $header-height;
