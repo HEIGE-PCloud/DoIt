@@ -3,12 +3,9 @@ title: "Built-in Shortcodes Tests"
 date: 2021-04-16T14:08:05+01:00
 lastmod: 2021-04-16T14:08:05+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "Built-in Shortcodes Tests"
 categories: [Tests]
-hiddenFromHomePage: false
-hiddenFromSearch: false
+hiddenFromHomePage: true
 ---
 
 <!--more-->

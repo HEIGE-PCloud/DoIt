@@ -4,10 +4,9 @@ subtitle: ""
 date: 2021-04-16T12:27:57+01:00
 lastmod: 2021-04-16T12:27:57+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "Test basic markdown rendering"
 categories: [Tests]
+hiddenFromHomePage: true
 ---
 
 <!--more-->

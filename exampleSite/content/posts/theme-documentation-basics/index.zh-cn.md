@@ -258,6 +258,9 @@ hugo
     desktopMode = "fixed"
     # 移动端导航栏模式 ("fixed", "normal", "auto")
     mobileMode = "auto"
+    # {{< version 0.2.11 >}} 主题切换模式
+    # 主题切换模式 ("switch", "select")
+    themeChangeMode = "select"
     # {{< version 0.2.0 >}} 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
@@ -317,6 +320,8 @@ hugo
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
+      # 将你的头像文件放置于 static 或者 assets 目录下
+      # 文件路径是相对于 static 或者 assets 目录的
       avatarURL = "/images/avatar.png"
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
@@ -535,6 +540,25 @@ hugo
         # 可以在你的项目下相同路径存放你自己的数据文件:
         # "assets/data/emoji/"
         emoji = ""
+      # {{< link "https://github.com/xCss/Valine" Waline >}} 评论系统设置
+      [params.page.comment.waline]
+        # {{< version 0.2.11 >}}
+        enable = false
+        serverURL = ""
+        placeholder = "Just Go Go."
+        wordLimit = 0
+        avatar = "mp"
+        meta = ["nick", "mail", "link"]
+        pageSize = 10
+        lang = "en"
+        visitor = true
+        highlight = true
+        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarForce = false
+        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
+        emojiMaps = "微博表情包"
+        requiredFields = []
+        anonymous = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]
         enable = false
@@ -739,6 +763,21 @@ hugo
 **评论系统**, **CDN** 和 **fingerprint** 不会在 `development` 环境下启用.
 
 你可以使用 `hugo serve -e production` 命令来开启这些特性.
+{{< /admonition >}}
+
+{{< admonition tip "关于头像配置的技巧" >}}
+
+```toml
+[params.home.profile]
+  # Gravatar 邮箱，用于优先在主页显示的头像
+  gravatarEmail = ""
+  # 主页显示头像的 URL
+  avatarURL = "/images/avatar.png"
+````
+你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像，网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像。
+
+或者可以在`/assets`或`/static`目录下放置图片文件，并配置`avatarURL`下的地址来显示头像。引用资源的文件路径是相对于`assets`或`static`目录的。详细的本地资源引用方法请查看[这篇文档](/zh-cn/theme-documentation-content/#contents-organization)。
+
 {{< /admonition >}}
 
 {{< admonition tip "关于 CDN 配置的技巧" >}}

@@ -1295,3 +1295,40 @@ console.log('Just DoIt!');
 {{< script >}}
 console.log('Just DoIt!');
 {{< /script >}}
+
+## 12 friend
+
+{{< version 0.2.11 >}}
+
+`friend` shortcode 用来在你的页面上插入友链.
+
+`friend` shortcode 有以下命名参数:
+
+* **name** *[必需]* (**第一个**位置参数)
+
+    友站的名称.
+
+* **url** *[必需]* (**第二个**位置参数)
+
+    友站的链接.
+
+* **avatar** *[必需]* (**第三个**位置参数)
+
+    友站的头像.
+
+* **bio** *[必需]* (**第四个**位置参数)
+
+    友站的简介.
+
+一个 `friend` 示例:
+
+
+```markdown
+{{</* friend "PCloud" "https://github.com/HEIGE-PCloud/" "https://avatars.githubusercontent.com/u/52968553?v=4" "This is PCloud~💤" */>}}
+或者
+{{</* friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" */>}}
+```
+
+呈现的输出效果如下:
+
+{{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}

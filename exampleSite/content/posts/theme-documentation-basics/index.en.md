@@ -255,6 +255,9 @@ Please open the code block below to view the complete sample configuration :(far
     desktopMode = "fixed"
     # mobile header mode ("fixed", "normal", "auto")
     mobileMode = "auto"
+    # {{< version 0.2.11 >}} Theme change mode
+    # theme change mode ("switch", "select")
+    themeChangeMode = "select"
     # {{< version 0.2.0 >}} Header title config
     [params.header.title]
       # URL of the LOGO
@@ -314,6 +317,8 @@ Please open the code block below to view the complete sample configuration :(far
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
+      # Place your avatar file under static or assets directory
+      # The filepath is relative to the static or assets directory
       avatarURL = "/images/avatar.png"
       # {{< version 0.2.7 changed >}} title shown in home page (HTML format is supported)
       title = ""
@@ -532,6 +537,25 @@ Please open the code block below to view the complete sample configuration :(far
         # you can store your own data files in the same path under your project:
         # "assets/data/emoji/"
         emoji = ""
+      # {{< link "https://github.com/xCss/Valine" Waline >}} comment config
+      [params.page.comment.waline]
+        # {{< version 0.2.11 >}}
+        enable = false
+        serverURL = ""
+        placeholder = "Just Go Go."
+        wordLimit = 0
+        avatar = "mp"
+        meta = ["nick", "mail", "link"]
+        pageSize = 10
+        lang = "en"
+        visitor = true
+        highlight = true
+        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarForce = false
+        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
+        emojiMaps = "微博表情包"
+        requiredFields = []
+        anonymous = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false
@@ -735,6 +759,23 @@ Due to limitations in the local `development` environment,
 the **comment system**, **CDN** and **fingerprint** will not be enabled in the `development` environment.
 
 You could enable these features with `hugo serve -e production`.
+{{< /admonition >}}
+
+{{< admonition tip "Tips about avatar Configuration" >}}
+
+```toml
+[params.home.profile]
+  enable = true
+  # Gravatar Email for preferred avatar in home page
+  gravatarEmail = ""
+  # URL of avatar shown in home page
+  avatarURL = "/images/avatar.png"
+````
+
+You can sign up and configure your avatar at [Gravatar](https://en.gravatar.com), the website will automatically obtain and set your avatar through the email address filled in `gravatarEmail`.
+
+Or you can place image files in the `/assets` or `/static` directory, and configure the address under `avatarURL` to display the avatar. The file path of the referenced resource is relative to the `assets` or `static` directory. Please refer to [this document](/theme-documentation-content/#contents-organization) for detailed local resource reference method.
+
 {{< /admonition >}}
 
 {{< admonition tip "Tips about CDN Configuration" >}}

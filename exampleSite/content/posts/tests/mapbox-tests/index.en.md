@@ -3,10 +3,9 @@ title: "Mapbox Tests"
 date: 2021-04-16T14:45:40+01:00
 lastmod: 2021-04-16T14:45:40+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PCloud"
 description: "Mapbox Tests"
 categories: [Tests]
+hiddenFromHomePage: true
 ---
 
 <!--more-->

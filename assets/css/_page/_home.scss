@@ -83,15 +83,15 @@
     padding-top: 1rem;
     padding-bottom: .8rem;
     color: $global-font-color;
-    border-bottom: 1px dashed $global-border-color;
+    border-bottom: 3px dashed $global-border-color;
 
     [theme=dark] & {
       color: $global-font-color-dark;
-      border-bottom: 1px dashed $global-border-color-dark;
+      border-bottom: 3px dashed $global-border-color-dark;
     }
     [theme=black] & {
       color: $global-font-color-black;
-      border-bottom: 1px dashed $global-border-color-black;
+      border-bottom: 3px dashed $global-border-color-black;
     }
 
     .featured-image-preview {

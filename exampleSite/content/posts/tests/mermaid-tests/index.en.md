@@ -3,10 +3,9 @@ title: "Mermaid Tests"
 date: 2021-04-16T14:37:26+01:00
 lastmod: 2021-04-16T14:37:26+01:00
 draft: false
-author: "PCloud"
-authorLink: "https://github.com/HEIGE-PClod"
 description: "Mermaid Tests"
 categories: [Tests]
+hiddenFromHomePage: true
 ---
 
 <!--more-->

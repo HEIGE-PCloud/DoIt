@@ -317,18 +317,19 @@
     @import "../_partial/_single/mapbox";
     @import "../_partial/_single/music";
     @import "../_partial/_single/bilibili";
+    @import "../_partial/_single/friend";
 
     hr {
-      margin: 1rem 0;
+      margin: 2rem 0;
       position: relative;
-      border-top: 1px dashed $global-border-color;
+      border-top: 3px dashed $global-border-color;
       border-bottom: none;
 
       [theme=dark] & {
-        border-top: 1px dashed $global-border-color-dark;
+        border-top: 3px dashed $global-border-color-dark;
       }
       [theme=black] & {
-        border-top: 1px dashed $global-border-color-black;
+        border-top: 3px dashed $global-border-color-black;
       }
     }
 

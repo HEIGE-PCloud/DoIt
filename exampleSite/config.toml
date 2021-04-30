@@ -649,6 +649,9 @@ enableEmoji = true
     # mobile header mode ("fixed", "normal", "auto")
     # 移动端导航栏模式 ("fixed", "normal", "auto")
     mobileMode = "auto"
+    # theme change mode ("switch", "select")
+    # 主题切换模式 ("switch", "select")
+    themeChangeMode = "select"
     # Header title config
     # 页面头部导航栏标题配置
     [params.header.title]
@@ -774,7 +777,7 @@ enableEmoji = true
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
-      enable = false
+      enable = true
       # default block delimiter is $$ ... $$ and \\[ ... \\]
       # 默认块定界符是 $$ ... $$ 和 \\[ ... \\]
       blockLeftDelimiter = ""
@@ -866,7 +869,7 @@ enableEmoji = true
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "aM7gLUeWp8it1Efrcp3rm8TB-MdYXbMMI"
         appKey = "Xn1xlYj3Fm5gvsYG3WyQpaix"
         placeholder = ""
@@ -890,6 +893,25 @@ enableEmoji = true
         # 可以在你的项目下相同路径存放你自己的数据文件:
         # "assets/data/emoji/"
         emoji = ""
+      # Waline comment config (https://waline.js.org)
+      # Waline 评论系统设置 (https://waline.js.org)
+      [params.page.comment.waline]
+        enable = true
+        serverURL = "https://planet-cloud-comment.vercel.app/"
+        placeholder = "Just Go Go."
+        wordLimit = 0
+        avatar = "mp"
+        meta = ["nick", "mail", "link"]
+        pageSize = 10
+        lang = "en"
+        visitor = true
+        highlight = true
+        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarForce = false
+        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
+        emojiMaps = "微博表情包"
+        requiredFields = []
+        anonymous = false
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
@@ -1073,9 +1095,9 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "xxxx"
-  email = ""
-  link = ""
+  name = "PCloud"
+  email = "heige.pcloud@outlook.com"
+  link = "https://github.com/HEIGE-PCloud"
 
 # Sitemap config
 # 网站地图配置

@@ -76,9 +76,21 @@
                         </span>
                     </span>
                 {{- end -}}
-                <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+                <a href="javascript:void(0);" class="menu-item theme-select" title="{{ T "switchTheme" }}">
                     <i class="fas fa-adjust fa-fw"></i>
-                </button>
+                    <select class="color-theme-select" id="theme-select-desktop" title="{{ T "switchTheme" }}">
+                        <option value="light">{{ T "Light" }}</option>
+                        <option value="dark">{{ T "Dark" }}</option>
+                        <option value="black">{{ T "Black" }}</option>
+                        <option value="auto">{{ T "Auto" }}</option>
+                    </select>
+                </a>
+                {{- else -}}
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+                {{- end -}}
             </div>
         </div>
     </div>
@@ -146,9 +158,21 @@
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
                 </a>
             {{- end -}}
-            <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+            {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+            <a href="javascript:void(0);" class="menu-item theme-select" title="{{ T "switchTheme" }}">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="{{ T "switchTheme" }}">
+                    <option value="light">{{ T "Light" }}</option>
+                    <option value="dark">{{ T "Dark" }}</option>
+                    <option value="black">{{ T "Black" }}</option>
+                    <option value="auto">{{ T "Auto" }}</option>
+                </select>
+            </a>
+            {{- else -}}
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
+            {{- end -}}
             {{- if .Site.IsMultiLingual -}}
                 <button class="menu-item" title="{{ T "selectLanguage" }}">
                     {{- .Language.LanguageName -}}

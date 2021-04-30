@@ -9,6 +9,31 @@ It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt 
 Since the three themes have a similar look, if you have questions about their differences,
 read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
 
+## Getting started
+
+Head to this [documentation page](https://hugodoit.pages.dev/theme-documentation-basics/) for a complete guidence to get started with the DoIt theme.
+
+## Migrate from LoveIt
+
+If you are currently using the LoveIt theme, it is very easy to migrate to DoIt.
+
+You can add this repo as a submodule of your site directory.
+
+```bash
+git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+```
+
+Alternatively, you can download the [latest release .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the themes directory. (Not recommended, the repo is being updated frequently so the releases may out of date.)
+
+Next, go to the `config.toml` and change the default theme to `DoIt`.
+
+```diff
+- theme = "LoveIt"
++ theme = "DoIt"
+```
+
+Now the migration is finished and everything is ready 🎉
+
 ## [Demo Site](https://hugodoit.pages.dev/)
 
 To see this theme in action, here is a live [demo site](https://hugodoit.pages.dev/) which is rendered with **DoIt** theme.
@@ -80,6 +105,7 @@ I hope you will LoveIt ❤️!
 * **Disqus** comment system supported by [Disqus](https://disqus.com)
 * **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
 * **Valine** comment system supported by [Valine](https://valine.js.org/)
+* **Waline** comment system supported by [Waline](https://waline.js.org/)
 * **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 * **Telegram comments** system supported by [Telegram Comments](https://comments.app/)
 * **Commento** comment system supported by [Commento](https://commento.io/)
@@ -172,6 +198,7 @@ Thanks to the authors of following resources included in the theme:
 * [MetingJS](https://github.com/metowolf/MetingJS)
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
+* [Waline](https://waline.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 
 ## Author
