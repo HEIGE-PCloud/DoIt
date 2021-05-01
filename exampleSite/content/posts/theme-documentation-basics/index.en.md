@@ -426,6 +426,8 @@ Please open the code block below to view the complete sample configuration :(far
     linkToMarkdown = true
     # {{< version 0.2.4 >}} whether to show the full text content in RSS
     rssFullText = false
+    # {{< version 0.2.11 >}} page layout style ("normal", "wide")
+    pageStyle = "normal"
     # {{< version 0.2.0 >}} Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents

@@ -18,6 +18,12 @@
         </div>
     {{- end -}}
 
+    {{- /* Page Style */ -}}
+    {{- if eq $params.pageStyle "wide" -}}
+    <script>document.body.setAttribute("pageStyle", "wide")</script>
+    {{- else -}}
+    <script>document.body.setAttribute("pageStyle", "normal")</script>
+    {{- end -}}
     <article class="page single">
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX">{{ .Title }}</h1>

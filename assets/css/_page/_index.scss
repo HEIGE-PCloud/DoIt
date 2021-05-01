@@ -3,7 +3,11 @@
   max-width: initial;
   width: 60%;
   margin: 0 auto;
-
+  [pageStyle=wide] & {
+    margin-left: 10%;
+    margin-right: auto;
+    width: 70%;
+  }
   [header-desktop] & {
     padding-top: $header-height;
   }
