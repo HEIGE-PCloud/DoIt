@@ -45,6 +45,19 @@
                     }
                 }
             }
+            function getMeta(metaName) {
+                const metas = document.getElementsByTagName('meta'); 
+                for (let i = 0; i < metas.length; i++) {
+                    if (metas[i].getAttribute('name') === metaName) {
+                        return metas[i];
+                    }
+                }
+                return '';
+            }
+            let themeColorMeta = getMeta('theme-color');
+            if (document.body.getAttribute('theme') !== 'white') {
+                themeColorMeta.content = '#000000';
+            }
         </script>
         <div id="mask"></div>
 
