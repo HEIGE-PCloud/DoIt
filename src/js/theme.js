@@ -667,6 +667,32 @@ class Theme {
         }
     }
 
+    initMeta() {
+        function getMeta(metaName) {
+            const metas = document.getElementsByTagName('meta'); 
+            for (let i = 0; i < metas.length; i++) {
+                if (metas[i].getAttribute('name') === metaName) {
+                    return metas[i];
+                }
+            }
+            return '';
+        }
+        let themeColorMeta = getMeta('theme-color');
+        if (this.isDark) {
+            themeColorMeta.content = '#000000';
+        } else {
+            themeColorMeta.content = '#ffffff';
+        }
+        this._metaThemeColorOnSwitchTheme = this._metaThemeColorOnSwitchTheme || (() => {
+            if (this.isDark) {
+                themeColorMeta.content = '#000000';
+            } else {
+                themeColorMeta.content = '#ffffff';
+            }
+        });
+        this.switchThemeEventSet.add(this._metaThemeColorOnSwitchTheme);
+    }
+
     initCookieconsent() {
         if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
     }
@@ -744,6 +770,7 @@ class Theme {
             this.initMenuMobile();
             this.initSwitchTheme();
             this.initSelectTheme();
+            this.initMeta();
             this.initSearch();
             this.initDetails();
             this.initLightGallery();
