@@ -1,6 +1,6 @@
 {
-    "name": "DoIt",
-    "short_name": "DoIt",
+    "name": "HugoDoIt Theme Documentation",
+    "short_name": "DoIt Docs",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -11,9 +11,17 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
+    "orientation": "portrait",
     "display": "standalone"
 }
