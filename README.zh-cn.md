@@ -204,4 +204,6 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 
 如果你喜爱这个主题, 请考虑给我买杯咖啡 ☕️.
 
+https://www.buymeacoffee.com/PCloud
+
 谢谢! ❤️
