@@ -289,8 +289,7 @@ This is a **right-aligned** paragraph.
 一个 **流程图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-graph LR;
+{{</* mermaid */>}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -300,8 +299,7 @@ graph LR;
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-graph LR;
+{{< mermaid >}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -313,8 +311,7 @@ graph LR;
 一个 **时序图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-sequenceDiagram
+{{</* mermaid */>}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -330,8 +327,7 @@ sequenceDiagram
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-sequenceDiagram
+{{< mermaid >}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -349,8 +345,7 @@ sequenceDiagram
 一个 **甘特图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-gantt
+{{</* mermaid */>}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -370,8 +365,7 @@ gantt
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-gantt
+{{< mermaid >}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -393,8 +387,7 @@ gantt
 一个 **类图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-classDiagram
+{{</* mermaid */>}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -413,8 +406,7 @@ classDiagram
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-classDiagram
+{{< mermaid >}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -435,8 +427,7 @@ classDiagram
 一个 **状态图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-stateDiagram
+{{</* mermaid */>}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -448,8 +439,7 @@ stateDiagram
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-stateDiagram
+{{< mermaid >}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -463,8 +453,7 @@ stateDiagram
 一个 **Git 图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-gitGraph:
+{{</* mermaid */>}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -485,8 +474,7 @@ end
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-gitGraph:
+{{< mermaid >}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -509,8 +497,7 @@ end
 一个 **饼图** `mermaid` 示例:
 
 ```markdown
-{{</* mermaid */>}}
-pie
+{{</* mermaid */>}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
@@ -519,8 +506,7 @@ pie
 
 呈现的输出效果如下:
 
-{{< mermaid >}}
-pie
+{{< mermaid >}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
