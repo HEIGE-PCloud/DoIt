@@ -28,7 +28,7 @@
                         document.body.setAttribute('theme', 'dark');
                     }
                     else {
-                        document.body.setAttribute('theme', 'white');
+                        document.body.setAttribute('theme', 'light');
                     }
                 }
             } else {
@@ -41,7 +41,7 @@
                         document.body.setAttribute('theme', 'dark');
                     }
                     else {
-                        document.body.setAttribute('theme', 'white');
+                        document.body.setAttribute('theme', 'light');
                     }
                 }
             }
@@ -55,7 +55,7 @@
                 return '';
             }
             let themeColorMeta = getMeta('theme-color');
-            if (document.body.getAttribute('theme') !== 'white') {
+            if (document.body.getAttribute('theme') != 'light') {
                 themeColorMeta.content = '#000000';
             }
         </script>

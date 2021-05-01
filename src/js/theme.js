@@ -32,7 +32,7 @@ class Theme {
     constructor() {
         this.config = window.config;
         this.data = this.config.data;
-        this.isDark = document.body.getAttribute('theme') === 'dark';
+        this.isDark = document.body.getAttribute('theme') !== 'light';
         this.util = new Util();
         this.newScrollTop = this.util.getScrollTop();
         this.oldScrollTop = this.newScrollTop;
