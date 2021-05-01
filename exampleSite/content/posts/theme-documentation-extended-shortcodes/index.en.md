@@ -286,8 +286,7 @@ Just insert your mermaid code in the `mermaid` shortcode and that’s it.
 Example **flowchart** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-graph LR;
+{{</* mermaid */>}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -297,8 +296,7 @@ graph LR;
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-graph LR;
+{{< mermaid >}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -310,8 +308,7 @@ graph LR;
 Example **sequence diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-sequenceDiagram
+{{</* mermaid */>}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -327,8 +324,7 @@ sequenceDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-sequenceDiagram
+{{< mermaid >}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -346,8 +342,7 @@ sequenceDiagram
 Example **GANTT** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-gantt
+{{</* mermaid */>}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -367,8 +362,7 @@ gantt
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-gantt
+{{< mermaid >}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -390,8 +384,7 @@ gantt
 Example **class diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-classDiagram
+{{</* mermaid */>}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -410,8 +403,7 @@ classDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-classDiagram
+{{< mermaid >}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -432,8 +424,7 @@ classDiagram
 Example **state diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-stateDiagram
+{{</* mermaid */>}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -445,8 +436,7 @@ stateDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-stateDiagram
+{{< mermaid >}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -460,8 +450,7 @@ stateDiagram
 Example **git graph** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-gitGraph:
+{{</* mermaid */>}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -482,8 +471,7 @@ end
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-gitGraph:
+{{< mermaid >}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -506,8 +494,7 @@ end
 Example **pie** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-pie
+{{</* mermaid */>}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
@@ -516,8 +503,7 @@ pie
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-pie
+{{< mermaid >}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
