@@ -31,10 +31,6 @@ hiddenFromHomePage: true
 </section>
 {{< /highlight >}}
 
-## instagram
-
-TODO: fix
-
 ## param
 
 {{< param description >}}
