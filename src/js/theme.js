@@ -13,7 +13,7 @@ class Util {
     }
 
     isTocStatic() {
-        return window.matchMedia('only screen and (max-width: 960px)').matches;
+        return window.matchMedia('only screen and (max-width: 1000px)').matches;
     }
 
     animateCSS(element, animation, reserved, callback) {
