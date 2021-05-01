@@ -223,8 +223,6 @@ hugo
     noFavicon = false
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
     svgFavicon = ""
-    # Android 浏览器主题色
-    themeColor = "#ffffff"
     # Safari 图标颜色
     iconColor = "#5bbad5"
     # Windows v8-10磁贴颜色

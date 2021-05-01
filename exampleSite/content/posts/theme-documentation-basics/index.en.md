@@ -220,8 +220,6 @@ Please open the code block below to view the complete sample configuration :(far
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
     svgFavicon = ""
-    # Android browser theme color
-    themeColor = "#ffffff"
     # Safari mask icon color
     iconColor = "#5bbad5"
     # Windows v8-10 tile color
