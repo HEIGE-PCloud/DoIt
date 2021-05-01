@@ -209,4 +209,6 @@ Thanks to the authors of following resources included in the theme:
 
 If you enjoy the theme, please consider buying me a coffee ☕️.
 
+https://www.buymeacoffee.com/PCloud
+
 Thanks! ❤️
