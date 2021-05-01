@@ -14,7 +14,7 @@ const OFFLINE_CACHE_FILES = [
     '/js/theme.min.js',
     '/svg/loading.min.svg',
     '/site.webmanifest',
-    '/offline.html',
+    '/offline',
 ];
 
 const NOT_FOUND_CACHE_FILES = [
@@ -26,7 +26,7 @@ const NOT_FOUND_CACHE_FILES = [
     '/404.html',
 ];
 
-const OFFLINE_PAGE = '/offline.html';
+const OFFLINE_PAGE = '/offline';
 const NOT_FOUND_PAGE = '/404.html';
 
 const CACHE_VERSIONS = {
