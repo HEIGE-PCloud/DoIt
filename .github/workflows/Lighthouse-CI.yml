@@ -16,7 +16,7 @@ on:
 jobs:
   lhci:
     name: Lighthouse
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -36,7 +36,7 @@ jobs:
           npm run build
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.7.x
+          npm install -g @lhci/cli@0.6.x
           lhci autorun --collect.staticDistDir="./exampleSite/public"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
