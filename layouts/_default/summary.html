@@ -3,16 +3,22 @@
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
     {{- /* Featured image */ -}}
     {{- $image := $params.featuredimagepreview | default $params.featuredimage -}}
+    {{- $height := "auto" -}}
+    {{- $width := "auto" -}}
     {{- with .Resources.GetMatch "featured-image" -}}
         {{- $image = .RelPermalink -}}
-    {{- end -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+        {{- end -}}
     {{- with .Resources.GetMatch "featured-image-preview" -}}
         {{- $image = .RelPermalink -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
     {{- end -}}
-    {{- with $image -}}
+        {{- with $image -}}
         <div class="featured-image-preview">
             <a href="{{ $.RelPermalink }}">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
             </a>
         </div>
     {{- end -}}

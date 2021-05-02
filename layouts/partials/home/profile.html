@@ -13,7 +13,7 @@
                     {{- $url = .RelPermalink -}}
                 {{- end -}}
                 <a href="{{ $url }}"{{ with .Title | default .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-                    {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+                    {{- dict "Src" $avatar "Height" "6rem" "Width" "6rem" | partial "plugin/image.html" -}}
                 </a>
             {{- else -}}
                 {{- dict "Src" $avatar | partial "plugin/image.html" -}}
