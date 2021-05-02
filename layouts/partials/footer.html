@@ -47,6 +47,8 @@
                 {{- end -}}
             </div>
         </div>
+        {{- /* PWA */ -}}
+        {{- if eq .Site.Params.enablePWA true -}}
         <script>
             if('serviceWorker' in navigator) {
                 navigator.serviceWorker
@@ -61,6 +63,8 @@
                         //console.log('Service Worker Ready');
                     });
             }
-          </script>          
+          </script>
+        {{- end -}}
+       
     </footer>
 {{- end -}}

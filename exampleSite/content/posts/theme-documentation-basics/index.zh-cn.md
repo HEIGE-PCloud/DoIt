@@ -214,7 +214,8 @@ hugo
   dateFormat = "2006-01-02"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = ["/logo.png"]
-
+  # {{< version 0.2.11 >}} 开启PWA支持
+  enablePWA = false
   # {{< version 0.2.0 >}} 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题

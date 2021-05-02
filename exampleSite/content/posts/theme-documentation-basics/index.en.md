@@ -211,7 +211,8 @@ Please open the code block below to view the complete sample configuration :(far
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   images = ["/logo.png"]
-
+  # {{< version 0.2.11 >}} enable PWA support
+  enablePWA = false
   # {{< version 0.2.0 >}} App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
