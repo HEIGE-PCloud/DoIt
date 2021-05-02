@@ -17,6 +17,3 @@ $RECYCLE.BIN/
 
 # Linux
 .directory
-
-_gen/
-package-lock.json
