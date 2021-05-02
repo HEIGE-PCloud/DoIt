@@ -894,7 +894,7 @@ enableEmoji = true
       # Waline 评论系统设置 (https://waline.js.org)
       [params.page.comment.waline]
         enable = true
-        serverURL = "https://planet-cloud-comment.vercel.app/"
+        serverURL = "https://doit-docs-comment.vercel.app/"
         placeholder = "Just Go Go."
         wordLimit = 0
         avatar = "mp"
