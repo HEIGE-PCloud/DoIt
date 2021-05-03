@@ -4,7 +4,6 @@ const BASE_CACHE_FILES = [
     '/css/style.min.css',
     '/images/avatar.webp',
     '/js/theme.min.js',
-    '/svg/loading.min.svg',
     '/site.webmanifest',
 ];
 
@@ -12,7 +11,6 @@ const OFFLINE_CACHE_FILES = [
     '/css/style.min.css',
     '/images/avatar.webp',
     '/js/theme.min.js',
-    '/svg/loading.min.svg',
     '/site.webmanifest',
     '/offline',
 ];
@@ -21,7 +19,6 @@ const NOT_FOUND_CACHE_FILES = [
     '/css/style.min.css',
     '/images/avatar.webp',
     '/js/theme.min.js',
-    '/svg/loading.min.svg',
     '/site.webmanifest',
     '/404.html',
 ];
@@ -46,9 +43,9 @@ const MAX_TTL = {
 };
 
 const CACHE_BLACKLIST = [
-    //(str) => {
-    //    return !str.startsWith('http://localhost') && !str.startsWith('https://gohugohq.com');
-    //},
+    (str) => {
+       return !str.startsWith('http://localhost');
+    },
 ];
 
 const SUPPORTED_METHODS = [
