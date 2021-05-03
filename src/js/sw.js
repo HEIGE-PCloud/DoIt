@@ -2,7 +2,7 @@ const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.png',
+    '/images/avatar.webp',
     '/js/theme.min.js',
     '/svg/loading.min.svg',
     '/site.webmanifest',
@@ -10,7 +10,7 @@ const BASE_CACHE_FILES = [
 
 const OFFLINE_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.png',
+    '/images/avatar.webp',
     '/js/theme.min.js',
     '/svg/loading.min.svg',
     '/site.webmanifest',
@@ -19,7 +19,7 @@ const OFFLINE_CACHE_FILES = [
 
 const NOT_FOUND_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.png',
+    '/images/avatar.webp',
     '/js/theme.min.js',
     '/svg/loading.min.svg',
     '/site.webmanifest',

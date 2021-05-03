@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
@@ -186,7 +186,7 @@ resources:
 
 **DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
 
-![文章摘要预览](summary.zh-cn.png "文章摘要预览")
+![文章摘要预览](summary.zh-cn.webp "文章摘要预览")
 
 ### 自动摘要拆分
 

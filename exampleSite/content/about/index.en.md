@@ -20,7 +20,7 @@ math:
 >
 > It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
-<!-- ![Hugo Theme LoveIt](/images/Apple-Devices-Preview.png "Hugo Theme LoveIt") -->
+<!-- ![Hugo Theme LoveIt](/images/Apple-Devices-Preview.webp "Hugo Theme LoveIt") -->
 
 ### Features
 
