@@ -22,9 +22,7 @@
             data-src="{{ .Src | safeURL }}"
             data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
             data-sizes="auto"
-            alt="{{ $alt }}"
-            {{ with .Height }} height="{{ . }}"{{ end }}
-            {{ with .Width }} width="{{ . }}"{{ end }}
+            alt="{{ $alt }}"{{ with .Height }}height="{{ . }}"{{ end }}{{ with .Width }}width="{{ . }}"{{ end }}
         />
     </a>
 {{- else -}}
@@ -34,8 +32,6 @@
         data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
         data-sizes="auto"
         alt="{{ $alt }}"
-        title="{{ .Title | default $alt }}"
-        {{ with .Height }} height="{{ . }}"{{ end }}
-        {{ with .Width }} width="{{ . }}"{{ end }}
+        title="{{ .Title | default $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }}
     />
 {{- end -}}
