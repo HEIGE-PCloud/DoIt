@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "探索 Hugo - DoIt 主题的全部内容和背后的核心概念."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
@@ -157,7 +157,7 @@ hugo serve
 
 去查看 `http://localhost:1313`.
 
-![基本配置下的预览](basic-configuration-preview.zh-cn.png "基本配置下的预览")
+![基本配置下的预览](basic-configuration-preview.zh-cn.webp "基本配置下的预览")
 
 {{< admonition tip >}}
 当你运行 `hugo serve` 时, 当文件内容更改时, 页面会随着更改自动刷新.
@@ -321,7 +321,7 @@ hugo
       # 主页显示头像的 URL
       # 将你的头像文件放置于 static 或者 assets 目录下
       # 文件路径是相对于 static 或者 assets 目录的
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/images/avatar.webp"
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
@@ -773,7 +773,7 @@ hugo
   # Gravatar 邮箱，用于优先在主页显示的头像
   gravatarEmail = ""
   # 主页显示头像的 URL
-  avatarURL = "/images/avatar.png"
+  avatarURL = "/images/avatar.webp"
 ````
 你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像，网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像。
 
@@ -826,7 +826,7 @@ hugo
 你可以参考它来配置你的社交链接.
 {{< /admonition >}}
 
-![完整配置下的预览](complete-configuration-preview.zh-cn.png "完整配置下的预览")
+![完整配置下的预览](complete-configuration-preview.zh-cn.webp "完整配置下的预览")
 
 ### 3.2 网站图标, 浏览器配置, 网站清单
 

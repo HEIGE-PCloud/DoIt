@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Découvrez en quoi consiste le thème Hugo - LoveIt et les concepts fondamentaux qui le sous-tendent."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
@@ -159,7 +159,7 @@ hugo serve
 
 Go to `http://localhost:1313`.
 
-![Basic configuration preview](basic-configuration-preview.png "Basic configuration preview")
+![Basic configuration preview](basic-configuration-preview.webp "Basic configuration preview")
 
 {{< admonition tip >}}
 When you run `hugo serve`, when the contents of the files change, the page automatically refreshes with the changes.
@@ -319,7 +319,7 @@ Please open the code block below to view the complete sample configuration :(far
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/images/avatar.webp"
       # {{< version 0.2.7 changed >}} title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page
@@ -787,7 +787,7 @@ The default data of all supported social links is located in `themes/LoveIt/asse
 which is you can refer to.
 {{< /admonition >}}
 
-![Complete configuration preview](complete-configuration-preview.png "Complete configuration preview")
+![Complete configuration preview](complete-configuration-preview.webp "Complete configuration preview")
 
 ### 3.2 Favicons, Browserconfig, Manifest
 

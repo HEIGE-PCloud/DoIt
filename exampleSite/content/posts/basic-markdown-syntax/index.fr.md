@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Cet article présente la syntaxe et le format de base de Markdown."
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.webp"
 
 tags: ["Markdown", "HTML"]
 categories: ["Markdown"]
