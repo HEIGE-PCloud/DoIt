@@ -4,13 +4,13 @@
 
 > [DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个**不简洁**、**不优雅**也**不高效**但仍然被维护的 [Hugo](https://gohugo.io/) 博客主题。
 
-它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt) [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
+它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt), [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
 
 由于三个主题外观的相似性，如果你对于它们的不同之处有疑问，请阅读 [为什么选择 DoIt](#为什么选择-DoIt)，以便你能选择最适合你的一个。
 
 ## 立即开始
 
-前往这篇[文档](https://hugodoit.pages.dev/theme-documentation-basics/)，阅读关于安装与使用的详细指南。
+前往这篇[文档](https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/)，阅读关于安装与使用的详细指南。
 
 ## 从LoveIt迁移
 
@@ -67,7 +67,6 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 
 所以，如果你更偏好 DoIt 主题的设计语言和自由度，如果你想便捷地使用扩展的 Font Awesome 图标，如果你想在文章内嵌数学公式、流程图、音乐或是 Bilibili 视频，
 那么，DoIt 主题可能是更适合你。
-希望你会 LoveIt ❤️!
 
 ## 特性
 
@@ -174,7 +173,6 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Font Awesome](https://fontawesome.com/)
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
@@ -198,10 +196,12 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 
 ## 作者
 
-[PCloud](https://planet-cloud.fun)
+[PCloud](https://github.com/HEIGE-PCloud)
 
 ## 赞助支持
 
 如果你喜爱这个主题, 请考虑给我买杯咖啡 ☕️.
+
+https://www.buymeacoffee.com/PCloud
 
 谢谢! ❤️

@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Guide to emoji usage in Hugo and DoIt."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["emoji"]
 categories: ["Markdown"]

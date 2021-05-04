@@ -18,6 +18,12 @@
         </div>
     {{- end -}}
 
+    {{- /* Page Style */ -}}
+    {{- if eq $params.pageStyle "wide" -}}
+    <script>document.body.setAttribute("pageStyle", "wide")</script>
+    {{- else -}}
+    <script>document.body.setAttribute("pageStyle", "normal")</script>
+    {{- end -}}
     <article class="page single">
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX">{{ .Title }}</h1>
@@ -70,12 +76,16 @@
 
         {{- /* Featured image */ -}}
         {{- $image := $params.featuredimage -}}
+        {{- $width := "auto" -}}
+        {{- $height := "auto" -}}
         {{- with .Resources.GetMatch "featured-image" -}}
             {{- $image = .RelPermalink -}}
+            {{- $width = .Width -}}
+            {{- $height = .Height -}}
         {{- end -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height | partial "plugin/image.html" -}}
             </div>
         {{- end -}}
 

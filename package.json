@@ -6,18 +6,18 @@
   "devDependencies": {
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
     "babel-preset-minify": "^0.5.1",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
-    "core-js": "^3.11.1",
+    "core-js": "^3.11.2",
     "husky": "^6.0.0",
     "minimist": "1.2.5",
     "segmentit": "^2.0.3"
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "babel": "npx babel src/js --out-file assets/js/theme.min.js --source-maps",
+    "babel": "npx babel src/js/theme.js --out-file assets/js/theme.min.js --source-maps --no-comments && npx babel src/js/sw.js --out-file exampleSite/static/sw.min.js --source-maps --no-comments",
     "build": "npm run babel && hugo -v --source=exampleSite --themesDir ../.. --gc",
     "build-lunr-segmentit": "browserify src/lib/lunr.segmentit.js -o assets/lib/lunr/lunr.segmentit.js -t babelify --presets @babel/preset-env --presets minify",
     "start": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
@@ -25,7 +25,8 @@
     "check": "htmlproofer exampleSite/public --check-html --allow-hash-href --empty-alt-ignore --disable-external",
     "copy": "rm -rf resources && cp -rf exampleSite/resources resources",
     "serve": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "serve-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production"
+    "serve-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
+    "algolia": "atomic-algolia"
   },
   "resolutions": {
     "minimist": "1.2.5"
@@ -48,5 +49,8 @@
   "bugs": {
     "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
   },
-  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme"
+  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
+  "dependencies": {
+    "atomic-algolia": "^0.3.19"
+  }
 }

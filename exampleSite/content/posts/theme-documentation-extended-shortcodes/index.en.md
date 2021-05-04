@@ -9,9 +9,9 @@ authorLink: "https://dillonzq.com"
 description: "DoIt theme provides multiple shortcodes on top of built-in ones in Hugo."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 - name: "featured-image-preview"
-  src: "featured-image-preview.jpg"
+  src: "featured-image-preview.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]
@@ -182,12 +182,12 @@ The `image` shortcode has the following named parameters:
 Example `image` input:
 
 ```markdown
-{{</* image src="/images/lighthouse.jpg" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.jpg" src_l="/images/lighthouse-large.jpg" */>}}
+{{</* image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" */>}}
 ```
 
 The rendered output looks like this:
 
-{{< image src="/images/lighthouse.jpg" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.jpg" src_l="/images/lighthouse-large.jpg" >}}
+{{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
 
 ## 4 admonition
 
@@ -286,8 +286,7 @@ Just insert your mermaid code in the `mermaid` shortcode and that’s it.
 Example **flowchart** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-graph LR;
+{{</* mermaid */>}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -297,8 +296,7 @@ graph LR;
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-graph LR;
+{{< mermaid >}}graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
@@ -310,8 +308,7 @@ graph LR;
 Example **sequence diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-sequenceDiagram
+{{</* mermaid */>}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -327,8 +324,7 @@ sequenceDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-sequenceDiagram
+{{< mermaid >}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -346,8 +342,7 @@ sequenceDiagram
 Example **GANTT** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-gantt
+{{</* mermaid */>}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -367,8 +362,7 @@ gantt
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-gantt
+{{< mermaid >}}gantt
     dateFormat  YYYY-MM-DD
     title Adding GANTT diagram functionality to mermaid
     section A section
@@ -390,8 +384,7 @@ gantt
 Example **class diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-classDiagram
+{{</* mermaid */>}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -410,8 +403,7 @@ classDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-classDiagram
+{{< mermaid >}}classDiagram
     Class01 <|-- AveryLongClass : Cool
     Class03 *-- Class04
     Class05 o-- Class06
@@ -432,8 +424,7 @@ classDiagram
 Example **state diagram** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-stateDiagram
+{{</* mermaid */>}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -445,8 +436,7 @@ stateDiagram
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-stateDiagram
+{{< mermaid >}}stateDiagram
     [*] --> Still
     Still --> [*]
     Still --> Moving
@@ -460,8 +450,7 @@ stateDiagram
 Example **git graph** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-gitGraph:
+{{</* mermaid */>}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -482,8 +471,7 @@ end
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-gitGraph:
+{{< mermaid >}}gitGraph:
 options
 {
     "nodeSpacing": 100,
@@ -506,8 +494,7 @@ end
 Example **pie** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}
-pie
+{{</* mermaid */>}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
@@ -516,8 +503,7 @@ pie
 
 The rendered output looks like this:
 
-{{< mermaid >}}
-pie
+{{< mermaid >}}pie
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
@@ -1022,12 +1008,12 @@ The `music` shortcode has the following named parameters by custom music URL:
 Example `music` input by custom music URL:
 
 ```markdown
-{{</* music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.jpg" */>}}
+{{</* music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" */>}}
 ```
 
 The rendered output looks like this:
 
-{{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.jpg" >}}
+{{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" >}}
 
 ### 8.2 Music Platform URL Automatic Identification {#automatic-identification}
 

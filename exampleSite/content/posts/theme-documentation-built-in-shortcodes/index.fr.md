@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Hugo fournit plusieurs shortcodes intégrés pour la commodité de l'auteur et pour garder votre contenu de démarque propre."
 resources:
 - name: "featured"
-  src: "featured-image.png"
+  src: "featured-image.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]
@@ -42,18 +42,18 @@ Hugo ships with a set of predefined shortcodes that represent very common usage.
 Example `figure` input:
 
 ```markdown
-{{</* figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" */>}}
+{{</* figure src="/images/lighthouse.webp" title="Lighthouse (figure)" */>}}
 ```
 
 The rendered output looks like this:
 
-{{< figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" >}}
+{{< figure src="/images/lighthouse.webp" title="Lighthouse (figure)" >}}
 
 The HTML looks like this:
 
 ```html
 <figure>
-    <img src="/images/lighthouse.jpg"/>
+    <img src="/images/lighthouse.webp"/>
     <figcaption>
         <h4>Lighthouse (figure)</h4>
     </figcaption>

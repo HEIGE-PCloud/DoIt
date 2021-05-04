@@ -13,7 +13,7 @@ class Util {
     }
 
     isTocStatic() {
-        return window.matchMedia('only screen and (max-width: 960px)').matches;
+        return window.matchMedia('only screen and (max-width: 1000px)').matches;
     }
 
     animateCSS(element, animation, reserved, callback) {
@@ -32,7 +32,7 @@ class Theme {
     constructor() {
         this.config = window.config;
         this.data = this.config.data;
-        this.isDark = document.body.getAttribute('theme') === 'dark';
+        this.isDark = document.body.getAttribute('theme') !== 'light';
         this.util = new Util();
         this.newScrollTop = this.util.getScrollTop();
         this.oldScrollTop = this.newScrollTop;
@@ -457,7 +457,7 @@ class Theme {
             const $page = document.getElementsByClassName('page')[0];
             const rect = $page.getBoundingClientRect();
             $toc.style.left = `${rect.left + rect.width + 20}px`;
-            $toc.style.maxWidth = `${$page.getBoundingClientRect().left - 20}px`;
+            $toc.style.maxWidth = `20%`;
             $toc.style.visibility = 'visible';
             const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
             const $tocLiElements = $tocCore.getElementsByTagName('li');
@@ -516,10 +516,11 @@ class Theme {
     initMermaid() {
         const $mermaidElements = document.getElementsByClassName('mermaid');
         if ($mermaidElements.length) {
-            mermaid.initialize({startOnLoad: false, theme: 'null'});
+            mermaid.initialize({startOnLoad: false, theme: 'default'});
             this.util.forEach($mermaidElements, $mermaid => {
                 mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
                     $mermaid.insertAdjacentHTML('afterbegin', svgCode);
+                document.getElementById('svg-' + $mermaid.id).children[0].remove();
                 }, $mermaid);
             });
         }
@@ -666,6 +667,32 @@ class Theme {
         }
     }
 
+    initMeta() {
+        function getMeta(metaName) {
+            const metas = document.getElementsByTagName('meta'); 
+            for (let i = 0; i < metas.length; i++) {
+                if (metas[i].getAttribute('name') === metaName) {
+                    return metas[i];
+                }
+            }
+            return '';
+        }
+        let themeColorMeta = getMeta('theme-color');
+        if (this.isDark) {
+            themeColorMeta.content = '#000000';
+        } else {
+            themeColorMeta.content = '#ffffff';
+        }
+        this._metaThemeColorOnSwitchTheme = this._metaThemeColorOnSwitchTheme || (() => {
+            if (this.isDark) {
+                themeColorMeta.content = '#000000';
+            } else {
+                themeColorMeta.content = '#ffffff';
+            }
+        });
+        this.switchThemeEventSet.add(this._metaThemeColorOnSwitchTheme);
+    }
+
     initCookieconsent() {
         if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
     }
@@ -743,6 +770,7 @@ class Theme {
             this.initMenuMobile();
             this.initSwitchTheme();
             this.initSelectTheme();
+            this.initMeta();
             this.initSearch();
             this.initDetails();
             this.initLightGallery();

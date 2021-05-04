@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "探索 Hugo - DoIt 主题的全部内容和背后的核心概念."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
@@ -28,10 +28,10 @@ toc:
 
 由于 Hugo 提供的便利性, [Hugo](https://gohugo.io/) 本身是这个主题唯一的依赖.
 
-直接安装满足你操作系统 (**Windows**, **Linux**, **macOS**) 的最新版本 [:(far fa-file-archive fa-fw): Hugo (> 0.62.0)](https://gohugo.io/getting-started/installing/).
+直接安装满足你操作系统 (**Windows**, **Linux**, **macOS**) 的最新版本 [:(far fa-file-archive fa-fw): Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/).
 
 {{< admonition note "为什么不支持早期版本的 Hugo?" >}}
-由于 [Markdown 渲染钩子函数](https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks) 在 [Hugo 圣诞节版本](https://gohugo.io/news/0.62.0-relnotes/) 中被引入, 本主题只支持高于 **0.62.0** 的 Hugo 版本.
+由于 [WebP 图像处理](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) 在 [Hugo 0.83.0版本](https://gohugo.io/news/0.83.0-relnotes/) 中被引入, 本主题只支持高于 **0.83.0** 的 Hugo 版本.
 {{< /admonition >}}
 
 {{< admonition tip "推荐使用 Hugo extended 版本" >}}
@@ -157,7 +157,7 @@ hugo serve
 
 去查看 `http://localhost:1313`.
 
-![基本配置下的预览](basic-configuration-preview.zh-cn.png "基本配置下的预览")
+![基本配置下的预览](basic-configuration-preview.zh-cn.webp "基本配置下的预览")
 
 {{< admonition tip >}}
 当你运行 `hugo serve` 时, 当文件内容更改时, 页面会随着更改自动刷新.
@@ -214,7 +214,8 @@ hugo
   dateFormat = "2006-01-02"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = ["/logo.png"]
-
+  # {{< version 0.2.11 >}} 开启PWA支持
+  enablePWA = false
   # {{< version 0.2.0 >}} 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
@@ -223,8 +224,6 @@ hugo
     noFavicon = false
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
     svgFavicon = ""
-    # Android 浏览器主题色
-    themeColor = "#ffffff"
     # Safari 图标颜色
     iconColor = "#5bbad5"
     # Windows v8-10磁贴颜色
@@ -322,7 +321,7 @@ hugo
       # 主页显示头像的 URL
       # 将你的头像文件放置于 static 或者 assets 目录下
       # 文件路径是相对于 static 或者 assets 目录的
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/images/avatar.webp"
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
@@ -429,6 +428,8 @@ hugo
     linkToMarkdown = true
     # {{< version 0.2.4 >}} 是否在 RSS 中显示全文内容
     rssFullText = false
+    # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
+    pageStyle = "normal"
     # {{< version 0.2.0 >}} 目录配置
     [params.page.toc]
       # 是否使用目录
@@ -772,7 +773,7 @@ hugo
   # Gravatar 邮箱，用于优先在主页显示的头像
   gravatarEmail = ""
   # 主页显示头像的 URL
-  avatarURL = "/images/avatar.png"
+  avatarURL = "/images/avatar.webp"
 ````
 你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像，网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像。
 
@@ -825,7 +826,7 @@ hugo
 你可以参考它来配置你的社交链接.
 {{< /admonition >}}
 
-![完整配置下的预览](complete-configuration-preview.zh-cn.png "完整配置下的预览")
+![完整配置下的预览](complete-configuration-preview.zh-cn.webp "完整配置下的预览")
 
 ### 3.2 网站图标, 浏览器配置, 网站清单
 

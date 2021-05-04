@@ -3,7 +3,7 @@
 <a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friend-link">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
-            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+            {{- dict "Src" $avatar "Height" "62" "Width" "62" | partial "plugin/image.html" -}}
         </div>
         <div class="friend-link-info">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -17,7 +17,7 @@
 <a target="_blank" href={{ .Get 1 }} title={{ .Get 0 }} class="friend-link">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
-            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+            {{- dict "Src" $avatar "Height" "62" "Width" "62" | partial "plugin/image.html" -}}
         </div>
         <div class="friend-link-info">
             <i class="fas fa-user-circle fa-fw"></i>

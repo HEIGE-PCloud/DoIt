@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "这篇文章展示了基本的 Markdown 语法和格式."
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.webp"
 
 tags: ["Markdown", "HTML"]
 categories: ["Markdown"]

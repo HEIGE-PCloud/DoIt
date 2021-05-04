@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
@@ -28,10 +28,10 @@ Discover what the Hugo - **DoIt** theme is all about and the core-concepts behin
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
-Just install latest version of [:(far fa-file-archive fa-fw): Hugo (> 0.62.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
+Just install latest version of [:(far fa-file-archive fa-fw): Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
 
 {{< admonition note "Why not support earlier versions of Hugo?" >}}
-Since [Markdown Render Hooks](https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks) was introduced in the [Hugo Christmas Edition](https://gohugo.io/news/0.62.0-relnotes/), this theme only supports Hugo versions above **0.62.0**.
+Since [WebP Image Processing](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) was introduced in the [Hugo 0.83.0](https://gohugo.io/news/0.83.0-relnotes/), this theme only supports Hugo versions above **0.83.0**.
 {{< /admonition >}}
 
 {{< admonition tip "Hugo extended version is recommended" >}}
@@ -154,7 +154,7 @@ hugo serve
 
 Go to `http://localhost:1313`.
 
-![Basic configuration preview](basic-configuration-preview.png "Basic configuration preview")
+![Basic configuration preview](basic-configuration-preview.webp "Basic configuration preview")
 
 {{< admonition tip >}}
 When you run `hugo serve`, when the contents of the files change, the page automatically refreshes with the changes.
@@ -211,7 +211,8 @@ Please open the code block below to view the complete sample configuration :(far
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   images = ["/logo.png"]
-
+  # {{< version 0.2.11 >}} enable PWA support
+  enablePWA = false
   # {{< version 0.2.0 >}} App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -220,8 +221,6 @@ Please open the code block below to view the complete sample configuration :(far
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
     svgFavicon = ""
-    # Android browser theme color
-    themeColor = "#ffffff"
     # Safari mask icon color
     iconColor = "#5bbad5"
     # Windows v8-10 tile color
@@ -319,7 +318,7 @@ Please open the code block below to view the complete sample configuration :(far
       # URL of avatar shown in home page
       # Place your avatar file under static or assets directory
       # The filepath is relative to the static or assets directory
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/images/avatar.webp"
       # {{< version 0.2.7 changed >}} title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page
@@ -426,6 +425,8 @@ Please open the code block below to view the complete sample configuration :(far
     linkToMarkdown = true
     # {{< version 0.2.4 >}} whether to show the full text content in RSS
     rssFullText = false
+    # {{< version 0.2.11 >}} page layout style ("normal", "wide")
+    pageStyle = "normal"
     # {{< version 0.2.0 >}} Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents
@@ -769,7 +770,7 @@ You could enable these features with `hugo serve -e production`.
   # Gravatar Email for preferred avatar in home page
   gravatarEmail = ""
   # URL of avatar shown in home page
-  avatarURL = "/images/avatar.png"
+  avatarURL = "/images/avatar.webp"
 ````
 
 You can sign up and configure your avatar at [Gravatar](https://en.gravatar.com), the website will automatically obtain and set your avatar through the email address filled in `gravatarEmail`.
@@ -823,7 +824,7 @@ The default data of all supported social links is located in `themes/DoIt/assets
 which is you can refer to.
 {{< /admonition >}}
 
-![Complete configuration preview](complete-configuration-preview.png "Complete configuration preview")
+![Complete configuration preview](complete-configuration-preview.webp "Complete configuration preview")
 
 ### 3.2 Favicons, Browserconfig, Manifest
 

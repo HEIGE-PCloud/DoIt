@@ -9,16 +9,14 @@ hiddenFromHomePage: true
 ---
 
 <!--more-->
-{{< mermaid >}}
-graph TD;
+{{< mermaid >}}graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
 {{< /mermaid >}}
 
-{{< mermaid >}}
-sequenceDiagram
+{{< mermaid >}}sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
@@ -31,8 +29,7 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 {{< /mermaid >}}
 
-{{< mermaid >}}
-gantt
+{{< mermaid >}}gantt
 dateFormat  YYYY-MM-DD
 title Adding GANTT diagram to mermaid
 excludes weekdays 2014-01-10
@@ -44,8 +41,7 @@ Future task               :         des3, after des2, 5d
 Future task2               :         des4, after des3, 5d
 {{< /mermaid >}}
 
-{{< mermaid >}}
-classDiagram
+{{< mermaid >}}classDiagram
 Class01 <|-- AveryLongClass : Cool
 Class03 *-- Class04
 Class05 o-- Class06
@@ -61,8 +57,7 @@ Class01 : int gorilla
 Class08 <--> C2: Cool label
 {{< /mermaid >}}
 
-{{< mermaid >}}
-gitGraph:
+{{< mermaid >}}gitGraph:
 options
 {
     "nodeSpacing": 150,
@@ -80,15 +75,13 @@ commit
 merge newbranch
 {{< /mermaid >}}
 
-{{< mermaid >}}
-erDiagram
+{{< mermaid >}}erDiagram
     CUSTOMER ||--o{ ORDER : places
     ORDER ||--|{ LINE-ITEM : contains
     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
 {{< /mermaid >}}
 
-{{< mermaid >}}
-journey
+{{< mermaid >}}journey
     title My working day
     section Go to work
       Make tea: 5: Me

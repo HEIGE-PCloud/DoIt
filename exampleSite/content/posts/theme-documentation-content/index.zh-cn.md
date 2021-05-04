@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
@@ -154,6 +154,7 @@ seo:
 * **fontawesome**: {{< version 0.2.0 >}} 如果设为 `true`, 这篇文章会使用 [Font Awesome 扩展语法](#fontawesome).
 * **linkToMarkdown**: 如果设为 `true`, 内容的页脚将显示指向原始 Markdown 文件的链接.
 * **rssFullText**: {{< version 0.2.4 >}} 如果设为 `true`, 在 RSS 中将会显示全文内容.
+* **pageStyle**: {{< version 0.2.11 >}} 调整页面样式，可选择"normal"或"wide".
 
 * **toc**: {{< version 0.2.9 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.toc` 部分相同.
 * **code**: {{< version 0.2.0 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.code` 部分相同.
@@ -185,7 +186,7 @@ resources:
 
 **DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
 
-![文章摘要预览](summary.zh-cn.png "文章摘要预览")
+![文章摘要预览](summary.zh-cn.webp "文章摘要预览")
 
 ### 自动摘要拆分
 

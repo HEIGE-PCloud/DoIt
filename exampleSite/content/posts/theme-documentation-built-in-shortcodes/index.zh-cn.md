@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Hugo 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁."
 resources:
 - name: "featured-image"
-  src: "featured-image.png"
+  src: "featured-image.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]
@@ -38,18 +38,18 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 一个 `figure` 示例:
 
 ```markdown
-{{</* figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" */>}}
+{{</* figure src="/images/lighthouse.webp" title="Lighthouse (figure)" */>}}
 ```
 
 呈现的输出效果如下:
 
-{{< figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" >}}
+{{< figure src="/images/lighthouse.webp" title="Lighthouse (figure)" >}}
 
 输出的 HTML 看起来像这样:
 
 ```html
 <figure>
-    <img src="/images/lighthouse.jpg"/>
+    <img src="/images/lighthouse.webp"/>
     <figcaption>
         <h4>Lighthouse (figure)</h4>
     </figcaption>
@@ -78,7 +78,7 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 
 ## 3 highlight
 
-[`highlight` 的文档](https://gohugo.io/content-management/shortcodes#instagram)
+[`highlight` 的文档](https://gohugo.io/content-management/shortcodes#highlight)
 
 一个 `highlight` 示例:
 
@@ -108,19 +108,7 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 </section>
 {{< /highlight >}}
 
-## 4 instagram
-
-[`instagram` 的文档](https://gohugo.io/content-management/shortcodes#instagram)
-
-一个 `instagram` 示例:
-
-```markdown
-```
-
-呈现的输出效果如下:
-
-
-## 5 param
+## 4 param
 
 [`param` 的文档](https://gohugo.io/content-management/shortcodes#param)
 
@@ -134,11 +122,11 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 
 {{< param description >}}
 
-## 6 ref 和 relref {#ref-and-relref}
+## 5 ref 和 relref {#ref-and-relref}
 
 [`ref` 和 `relref` 的文档](https://gohugo.io/content-management/shortcodes#ref-and-relref)
 
-## 7 tweet
+## 6 tweet
 
 [`tweet` 的文档](https://gohugo.io/content-management/shortcodes#tweet)
 
@@ -152,7 +140,7 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 
 {{< tweet 877500564405444608 >}}
 
-## 8 vimeo
+## 7 vimeo
 
 [`vimeo` 的文档](https://gohugo.io/content-management/shortcodes#vimeo)
 
@@ -166,7 +154,7 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 
 {{< vimeo 146022717 >}}
 
-## 9 youtube
+## 8 youtube
 
 [`youtube` 的文档](https://gohugo.io/content-management/shortcodes#youtube)
 

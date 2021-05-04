@@ -9,7 +9,7 @@ authorLink: "https://dillonzq.com"
 description: "Découvrez comment créer et organiser votre contenu rapidement et intuitivement dans le thème LoveIt."
 resources:
 - name: "featured-image"
-  src: "featured-image.jpg"
+  src: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
@@ -191,7 +191,7 @@ resources:
 
 **LoveIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
-![Summary Preview](summary.png "Summary Preview")
+![Summary Preview](summary.webp "Summary Preview")
 
 ### Automatic Summary Splitting
 
