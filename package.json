@@ -48,5 +48,8 @@
   "bugs": {
     "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
   },
-  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme"
+  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
+  "dependencies": {
+    "atomic-algolia": "^0.3.19"
+  }
 }
