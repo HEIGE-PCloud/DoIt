@@ -22,11 +22,11 @@ features = [
   "syntax-highlighting",
   "SEO Optimized"
 ]
-min_version = "0.62.0"
+min_version = "0.83.0"
 
 [author]
   name = "PCloud"
-  homepage = "https://planet-cloud.fun/"
+  homepage = "https://github.com/HEIGE-PCloud/"
 
 [original]
   name = "Dillon"

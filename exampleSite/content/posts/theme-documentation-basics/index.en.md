@@ -28,10 +28,10 @@ Discover what the Hugo - **DoIt** theme is all about and the core-concepts behin
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
-Just install latest version of [:(far fa-file-archive fa-fw): Hugo (> 0.62.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
+Just install latest version of [:(far fa-file-archive fa-fw): Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
 
 {{< admonition note "Why not support earlier versions of Hugo?" >}}
-Since [Markdown Render Hooks](https://gohugo.io/getting-started/configuration-markup#markdown-render-hooks) was introduced in the [Hugo Christmas Edition](https://gohugo.io/news/0.62.0-relnotes/), this theme only supports Hugo versions above **0.62.0**.
+Since [WebP Image Processing](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) was introduced in the [Hugo 0.83.0](https://gohugo.io/news/0.83.0-relnotes/), this theme only supports Hugo versions above **0.83.0**.
 {{< /admonition >}}
 
 {{< admonition tip "Hugo extended version is recommended" >}}

@@ -200,7 +200,7 @@ Thanks to the authors of following resources included in the theme:
 
 ## Author
 
-[PCloud](https://planet-cloud.fun)
+[PCloud](https://github.com/HEIGE-PCloud)
 
 ## Sponsor
 

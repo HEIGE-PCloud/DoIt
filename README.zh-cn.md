@@ -196,7 +196,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 
 ## 作者
 
-[PCloud](https://planet-cloud.fun)
+[PCloud](https://github.com/HEIGE-PCloud)
 
 ## 赞助支持
 
