@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -52,6 +49,6 @@ jobs:
           ALGOLIA_APP_ID: 5YGRNRQK1G
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: 'fr_index'
-          ALGOLIA_INDEX_FILE: '.exampleSite/public/fr/index.json'
+          ALGOLIA_INDEX_FILE: './exampleSite/public/fr/index.json'
         run: |
           npm run algolia
