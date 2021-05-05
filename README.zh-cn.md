@@ -2,11 +2,13 @@
 
 [English README](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.md) | 简体中文说明
 
-> [DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个**不简洁**、**不优雅**也**不高效**但仍然被维护的 [Hugo](https://gohugo.io/) 博客主题。
+> [DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
 
 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt), [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
 
-由于三个主题外观的相似性，如果你对于它们的不同之处有疑问，请阅读 [为什么选择 DoIt](#为什么选择-DoIt)，以便你能选择最适合你的一个。
+DoIt 主题继承了这些主题的优秀功能，并在此基础上添加了新的功能与优化，请阅读 [为什么选择 DoIt](#为什么选择-DoIt)来了解更多。
+
+DoIt 主题的目标是创建一个功能强大且易于使用的 Hugo 主题，您可以全心关注于创作博客内容，而无需担心复杂的技术细节，just** do it**。
 
 ## 立即开始
 
@@ -38,8 +40,6 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 为了直观地浏览主题特性，这里有一个基于 **DoIt** 主题渲染的 [预览网站](https://hugodoit.pages.dev/zh-cn/)。
 
 ## 为什么选择 DoIt
-
-相较于 LeaveIt 主题 和 KeepIt 主题，DoIt 主题主要有以下修改
 
 * 自定义**标题栏**
 * 自定义**CSS 样式**
@@ -83,12 +83,14 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ### 外观和布局
 
 * **响应式**布局
-* **浅色/深色** 主题模式
+* **浅色/深色/黑色** 主题模式
 * 全局一致的**设计语言**
 * 支持**分页**
 * 易用和自动展开的**文章目录**
 * 支持**多语言**和国际化
 * 美观的 **CSS 动画**
+* 全新的为宽屏适配的**页面布局**
+* 全新的**PWA应用**适配
 
 ### 社交和评论系统
 
@@ -124,8 +126,9 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 * 支持多种**注释**的 shortcode
 * 支持**自定义样式**的 shortcode
 * 支持**自定义脚本**的 shortcode
+* 支持**友链**的 shortcode
 * 支持基于 [TypeIt](https://typeitjs.com/) 的**打字动画** shortcode
-* 支持基于 [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll) 的**滚动动画**
+* 支持基于原生CSS的**滚动动画**
 * 支持基于 [cookieconsent](https://github.com/osano/cookieconsent) 的 **Cookie 许可横幅**
 * ...
 

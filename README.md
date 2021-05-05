@@ -2,12 +2,13 @@
 
 English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.zh-cn.md)
 
-> **DoIt** is a **not clean**, **not elegant** and **not advanced** blog theme for [Hugo](https://gohugo.io/).
+> **DoIt** is a **clean**, **elegant** and **advanced** blog theme for [Hugo](https://gohugo.io/).
 
 It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
-Since the three themes have a similar look, if you have questions about their differences,
-read [Why choose DoIt](#why-choose-DoIt) so that you can choose the one that works best for you.
+The DoIt theme inherits the excellent functions of these themes, and adds new functions and optimizations on this basis. Please read [Why Choose DoIt](#Why-Choose-DoIt) to learn more.
+
+The goal of DoIt theme is to create a powerful and easy-to-use Hugo theme, so you can go straight into your blog content creation and just **do it** without worrying about the complex technical details.
 
 ## Getting started
 
@@ -39,8 +40,6 @@ Now the migration is finished and everything is ready 🎉
 To see this theme in action, here is a live [demo site](https://hugodoit.pages.dev/) which is rendered with **DoIt** theme.
 
 ## Why choose DoIt
-
-Compared to the original LeaveIt theme and the KeepIt theme, the DoIt theme has the following modifications.
 
 * Custom **Header**
 * Custom **CSS Style**
@@ -87,12 +86,14 @@ the DoIt theme may be more suitable for you.
 ### Appearance and Layout
 
 * **Responsive** layout
-* **Light/Dark** mode
+* **Light/Dark/Black** mode
 * Globally consistent **design language**
 * **Pagination** supported
 * Easy-to-use and self-expanding **table of contents**
 * **Multilanguage** supported and i18n ready
 * Beautiful **CSS animation**
+* Brand new **Page Layout** optimized for wide screens
+* Compatibility for **PWA**
 
 ### Social and Comment Systems
 
@@ -128,8 +129,9 @@ the DoIt theme may be more suitable for you.
 * Kinds of **admonitions** shortcode
 * **Custom style** shortcode
 * **Custom script** shortcode
+* **Custom friend** shortcode
 * **Animated typing** supported by [TypeIt](https://typeitjs.com/)
-* **Dynamic scroll** supported by [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
+* **Dynamic scroll** supported by native CSS
 * **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
 * ...
 
