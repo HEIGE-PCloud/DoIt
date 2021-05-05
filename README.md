@@ -6,7 +6,7 @@ English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/
 
 It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
-The DoIt theme inherits the excellent functions of these themes, and adds new functions and optimizations on this basis. Please read [Why Choose DoIt](#Why-Choose-DoIt) to learn more.
+The DoIt theme inherits the excellent functions of these themes, and adds new functions and optimizations on this basis. Please read [Why Choose DoIt](#why-choose-doit) to learn more.
 
 The goal of DoIt theme is to create a powerful and easy-to-use Hugo theme, so you can go straight into your blog content creation and just **do it** without worrying about the complex technical details.
 
