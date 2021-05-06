@@ -750,8 +750,7 @@ hugo
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
-[taxonomies]
-  series = "series"
+
 ```
 
 {{< admonition >}}

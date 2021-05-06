@@ -727,8 +727,7 @@ Please open the code block below to view the complete sample configuration :(far
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
-[taxonomies]
-  series = "series"
+
 ```
 
 {{< admonition >}}
