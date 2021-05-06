@@ -49,3 +49,9 @@
 {{- $source := $cdn.animateCSS | default "lib/animate/animate.min.css" -}}
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
 {{- partial "plugin/defer-style.html" $style -}}
+
+{{- if eq .Site.Params.enablePWA true -}}
+{{- /* sw.min.js */ -}}
+{{- $sw := resources.Get "sw.min.js" -}}
+{{- $_ := $sw.Permalink -}}
+{{- end -}}

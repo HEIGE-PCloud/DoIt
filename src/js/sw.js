@@ -2,14 +2,12 @@ const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.webp',
     '/js/theme.min.js',
     '/site.webmanifest',
 ];
 
 const OFFLINE_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.webp',
     '/js/theme.min.js',
     '/site.webmanifest',
     '/offline',
@@ -17,7 +15,6 @@ const OFFLINE_CACHE_FILES = [
 
 const NOT_FOUND_CACHE_FILES = [
     '/css/style.min.css',
-    '/images/avatar.webp',
     '/js/theme.min.js',
     '/site.webmanifest',
     '/404.html',
@@ -182,7 +179,6 @@ function cleanupLegacyCache() {
                         reject();
                     }
                 );
-
         }
     );
 }
@@ -240,7 +236,6 @@ self.addEventListener(
                                                 date = new Date(pair[1]);
                                             }
                                         }
-
                                         if (date) {
                                             let age = parseInt((new Date().getTime() - date.getTime()) / 1000);
                                             let ttl = getTTL(event.request.url);
@@ -266,7 +261,6 @@ self.addEventListener(
                                                                     resolve(response);
                                                                 }
                                                             );
-
                                                     }
                                                 )
                                                     .catch(
@@ -322,7 +316,6 @@ self.addEventListener(
                                                                 return offlineCache.match(OFFLINE_PAGE)
                                                             }
                                                         )
-
                                                 }
                                             );
                                     }
