@@ -30,8 +30,8 @@ libFiles:
   lightgalleryZoomJS: lg-zoom.js@1.2.0/dist/lg-zoom.min.js
   # clipboard.js@2.0.6 https://github.com/zenorocha/clipboard.js
   clipboardJS: clipboard@2.0.6/dist/clipboard.min.js
-  # sharer.js@0.4.0 https://github.com/ellisonleao/sharer.js
-  sharerJS: sharer.js@0.4.0/sharer.min.js
+  # sharer.js@0.4.1 https://github.com/ellisonleao/sharer.js
+  sharerJS: sharer.js@0.4.1/sharer.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
   # katex@0.13.9 https://katex.org/
