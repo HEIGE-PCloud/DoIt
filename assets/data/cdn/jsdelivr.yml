@@ -13,8 +13,8 @@ libFiles:
   autocompleteJS: autocomplete.js@0.37.1/dist/autocomplete.min.js
   # lunr.js@2.3.8 https://lunrjs.com/
   lunrJS: lunr@2.3.8/lunr.min.js
-  # algoliasearch@4.2.0 https://github.com/algolia/algoliasearch-client-javascript
-  algoliasearchJS: algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js
+  # algoliasearch@4.9.1 https://github.com/algolia/algoliasearch-client-javascript
+  algoliasearchJS: algoliasearch@4.9.1/dist/algoliasearch-lite.umd.min.js
   # lazysizes@5.3.2 https://github.com/aFarkas/lazysizes
   lazysizesJS: lazysizes@5.3.2/lazysizes.min.js
   # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
