@@ -125,7 +125,7 @@
 {{- if (.Scratch.Get "this").echarts -}}
     {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.js" -}}
+    {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
     {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
