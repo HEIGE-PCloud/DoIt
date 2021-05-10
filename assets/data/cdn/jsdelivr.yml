@@ -9,8 +9,8 @@ libFiles:
   fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.3/css/all.min.css'
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
-  # autocomplete.js@0.37.1 https://github.com/algolia/autocomplete.js
-  autocompleteJS: autocomplete.js@0.37.1/dist/autocomplete.min.js
+  # autocomplete.js@0.38.0 https://github.com/algolia/autocomplete.js
+  autocompleteJS: autocomplete.js@0.38.0/dist/autocomplete.min.js
   # lunr.js@2.3.9 https://lunrjs.com/
   lunrJS: lunr@2.3.9/lunr.min.js
   # algoliasearch@4.9.1 https://github.com/algolia/algoliasearch-client-javascript
