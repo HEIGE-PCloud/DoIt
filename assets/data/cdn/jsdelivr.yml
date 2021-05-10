@@ -7,8 +7,8 @@ libFiles:
   normalizeCSS: normalize.css@8.0.1/normalize.min.css
   # fontawesome-free@5.15.3 https://fontawesome.com/
   fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.3/css/all.min.css'
-  # animate.css@3.7.2 https://github.com/daneden/animate.css
-  animateCSS: animate.css@3.7.2/animate.min.css
+  # animate.css@4.1.1 https://github.com/daneden/animate.css
+  animateCSS: animate.css@4.1.1/animate.min.css
   # autocomplete.js@0.37.1 https://github.com/algolia/autocomplete.js
   autocompleteJS: autocomplete.js@0.37.1/dist/autocomplete.min.js
   # lunr.js@2.3.9 https://lunrjs.com/
@@ -22,7 +22,7 @@ libFiles:
   # twemoji@13.0.2 https://github.com/twitter/twemoji
   twemojiJS: twemoji@13.0.2/dist/twemoji.min.js
   # lightgallery.js@1.4.0 https://github.com/sachinchoolur/lightgallery.js
-  # lg-thumbnail.js@1.2.0 https://github.com/sachinchoolur/lg-thumbnail.js
+  # lg-thumbnail.js@1.4.0 https://github.com/sachinchoolur/lg-thumbnail.js
   # lg-zoom.js@1.3.0 https://github.com/sachinchoolur/lg-zoom.js
   lightgalleryCSS: lightgallery.js@1.4.0/dist/css/lightgallery.min.css
   lightgalleryJS: lightgallery.js@1.4.0/dist/js/lightgallery.min.js
@@ -41,9 +41,9 @@ libFiles:
   katexCopyTexCSS: katex@0.13.9/dist/contrib/copy-tex.min.css
   katexCopyTexJS: katex@0.13.9/dist/contrib/copy-tex.min.js
   katexMhchemJS: katex@0.13.9/dist/contrib/mhchem.min.js
-  # mermaid@8.5.1 https://github.com/knsv/mermaid
+  # mermaid@8.9.3 https://github.com/knsv/mermaid
   mermaidJS: mermaid@8.9.3/dist/mermaid.min.js
-  # echarts@4.8.0 https://echarts.apache.org/
+  # echarts@5.0.2 https://echarts.apache.org/
   echartsJS: echarts@5.0.2/dist/echarts.min.js
   echartsMacaronsJS: echarts@5.0.2/theme/macarons.min.js
   # mapbox-gl@1.10.1 https://docs.mapbox.com/mapbox-gl-js
