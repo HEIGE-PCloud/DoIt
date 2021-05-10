@@ -46,9 +46,9 @@ libFiles:
   # echarts@5.0.2 https://echarts.apache.org/
   echartsJS: echarts@5.0.2/dist/echarts.min.js
   echartsMacaronsJS: echarts@5.0.2/theme/macarons.min.js
-  # mapbox-gl@1.10.1 https://docs.mapbox.com/mapbox-gl-js
-  mapboxGLCSS: mapbox-gl@1.10.1/dist/mapbox-gl.min.css
-  mapboxGLJS: mapbox-gl@1.10.1/dist/mapbox-gl.min.js
+  # mapbox-gl@2.2.0 https://docs.mapbox.com/mapbox-gl-js
+  mapboxGLCSS: mapbox-gl@2.2.0/dist/mapbox-gl.min.css
+  mapboxGLJS: mapbox-gl@2.2.0/dist/mapbox-gl.min.js
   # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
   aplayerCSS: aplayer@1.10.1/dist/APlayer.min.css
   aplayerJS: aplayer@1.10.1/dist/APlayer.min.js
