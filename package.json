@@ -5,7 +5,7 @@
   "private": true,
   "devDependencies": {
     "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
+    "@babel/core": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
     "babel-preset-minify": "^0.5.1",
     "babelify": "^10.0.0",
