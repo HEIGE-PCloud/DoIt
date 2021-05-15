@@ -139,4 +139,4 @@ After clicking "Install", your website should be installed as a native app.
 
 Congratulation! You have successfully turned your static site into a PWA🎉
 
-If you have any issues during the setup process, you can check the `Console` and `Application` panels in your browser's DevTools for debugging. Alternatively, you can check your site on [PWA Builder](https://www.pwabuilder.com/) for more information. You can also start a [discussion](https://github.com/HEIGE-PCloud/DoIt/discussions) if you have any questions or purpose an [issue](https://github.com/HEIGE-PCloud/DoIt/issues) for any bugs you find. 
+If you have any issues during the setup process, you can check the `Console` and `Application` panels in your browser's DevTools for debugging. Alternatively, you can check your site on [PWA Builder](https://www.pwabuilder.com/) for more information. You can also start a [discussion](https://github.com/HEIGE-PCloud/DoIt/discussions) if you have any questions or propose an [issue](https://github.com/HEIGE-PCloud/DoIt/issues) for any bugs you find. 
