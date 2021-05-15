@@ -35,6 +35,8 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 
 这样就完成了迁移工作，现在一切准备就绪🎉
 
+DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md)与[文档](https://hugodoit.pages.dev/)来了解更多。
+
 ## 主题[预览](https://hugodoit.pages.dev/zh-cn/)
 
 为了直观地浏览主题特性，这里有一个基于 **DoIt** 主题渲染的 [预览网站](https://hugodoit.pages.dev/zh-cn/)。
