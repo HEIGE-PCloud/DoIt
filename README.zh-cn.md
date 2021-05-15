@@ -162,6 +162,8 @@ DoIt 支持下列语言:
 
 ## [路线图](https://github.com/HEIGE-PCloud/DoIt/projects/1)
 
+## [变更日志](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md)
+
 ## 问题、想法、 bugs 和 PRs
 
 所有的反馈都是欢迎的！详见 [issue tracker](https://github.com/HEIGE-PCloud/DoIt/issues)。

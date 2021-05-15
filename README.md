@@ -165,6 +165,8 @@ DoIt supports the following languages:
 
 ## [Roadmap](https://github.com/HEIGE-PCloud/DoIt/projects/1)
 
+## [Changelog](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md)
+
 ## Questions, ideas, bugs, pull requests
 
 All feedback is welcome! Head over to the [issue tracker](https://github.com/HEIGE-PCloud/DoIt/issues).
