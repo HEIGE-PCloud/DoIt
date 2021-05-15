@@ -22,7 +22,7 @@ Find out how to turn your DoIt site into a Progressive Web App.
 <!--more-->
 
 {{< admonition warning >}}
-Sorry, this article has not been completely translated into **Simplified Chinese**.
+Sorry, this article has not been completely translated into **French**.
 Welcome to take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
 {{< /admonition >}}
 
