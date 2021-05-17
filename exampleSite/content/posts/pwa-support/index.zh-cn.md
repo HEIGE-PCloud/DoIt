@@ -1,6 +1,6 @@
 ---
 weight: 7
-title: "PWA Support"
+title: "PWA 支持"
 date: 2021-05-10T16:21:41+01:00
 lastmod: 2021-05-10T16:21:41+01:00
 draft: false
@@ -17,55 +17,50 @@ categories: ["Documentation"]
 lightgallery: true
 ---
 
-Find out how to turn your DoIt site into a Progressive Web App.
+了解如何在 DoIt 主题中配置渐进式网络应用程序(PWA)。
 
 <!--more-->
 
-{{< admonition warning >}}
-Sorry, this article has not been completely translated into **Simplified Chinese**.
-Welcome to take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
-{{< /admonition >}}
+## 什么是 PWA？
 
-## What are PWAs?
+[渐进式网络应用程序(PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)是运用现代的 Web API 以及传统的渐进式增强策略来创建跨平台网络应用程序。这些应用无处不在、功能丰富，使其具有与原生应用相同的用户体验。
 
-[Progressive Web Apps](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) are web apps that use emerging web browser APIs and features along with traditional progressive enhancement strategy to bring a native app-like user experience to cross-platform web applications.
+## 为什么要配置 PWA？
 
-## Why bother?
+你并不需要将你的站点配置为一个 PWA。传统的网站足以满足你想要分享的所有内容。但是，PWA 带来了一些可能有用的额外好处。
 
-Well, the straight answer to this questions is: "You don't need to turn your site into a PWA." A normal website is good enough for all the content you want to share. However, a PWA brings some extra benefits that might be useful.
+1. 在用户安装 PWA 后，页面将由 service worker 自动缓存，这使得从第二次访问开始页面将被快速加载。
+2. 用户始终可以在离线时访问缓存的页面。
 
-1. Pages will be automatically cached by service workers when the app is installed, which enables a near-instantaneous loading from the second visit.
-2. Users can always visit cached pages when they are offline.
+这些功能可能对某些网站（例如此文档站点）很有用，但是将个人博客配置为 PWA 就没有多少意义。当然一切都取决于你的选择，无论如何 DoIt 主题都将为你提供开启此功能的选项。
 
-These features may be useful for some websites, such as this documentation site. But it does not make much sense to turn a personal blog into a PWA. In the end, it all depends on your choice, and the DoIt theme will provide this feature for you anyway.
+## 如何将使用 DoIt 主题的静态网站配置为 PWA?
 
-## How to turn your DoIt site into a PWA?
+### 配置 `site.webmanifest`
 
-### Configure `site.webmanifest`
+你需要在 `/static` 文件夹下创建名为 `site.webmanifest` 的文件，并在此文件提供有关你的 PWA 的信息。
 
-Under the `/static` folder, you need to create a file named `site.webmanifest`. This file provides information about your app and it is required for your app to be installable.
+以下是必填参数。
 
-Here are the key values required.
+* **name** *[必须]*
 
-* **name** *[required]*
+    你的 PWA 的名称。
 
-    The name of your web app.
+* **short_name** *[必须]*
 
-* **short_name** *[required]*
+    你的 PWA 的简称。
 
-    A shorter name for your web app.
+* **start_url** *[必须]*
 
-* **start_url** *[required]*
+    你的 PWA 的起始地址。请默认填写`"/"`。
 
-    The start URL of your web app. Please fill in `"/"` by default.
+* **icons** *[必须]*
 
-* **icons** *[required]*
+    你的 PWA 的图标。你可以将网站的 favicon 作为图标。
 
-    An array of objects representing image files will be served as application icons. You can reuse the favicon of your site as the icons.
+您还可以在 `site.webmanifest` 中设置其他可选值，查看这篇[文档](https://developer.mozilla.org/zh-CN/docs/Web/Manifest)来了解更多。
 
-There are other optional values you can set in the manifest file, check out this [documentation](https://developer.mozilla.org/en-US/docs/Web/Manifest) for more information.
-
-Here is a sample `site.webmanifest` file from this documentation site.
+这是一份示例 `site.webmanifest` 文件。
 
 ```json
 {
@@ -98,33 +93,33 @@ Here is a sample `site.webmanifest` file from this documentation site.
 }
 ```
 
-### Configure the offline page
+### 配置离线页面
 
-The offline page will be served to your visitor when they are offline.
+离线页面将在访客离线访问未缓存的页面时显示。
 
-Create `offline.md` under `/content` directory and write an offline message.
+在`/content`目录下创建`offline.md`并在其中编写离线提示。
 
 {{< admonition type=tip title="Permalink" open=true >}}
-You need to make sure the [Permalink](https://gohugo.io/content-management/urls/#permalinks) to the offline page is `/offline`, otherwise, you will need to modify the value of `OFFLINE_CACHE_FILES` and `OFFLINE_PAGE` in the service worker yourself.
+你需要确保离线页面的 [Permalink](https://gohugo.io/content-management/urls/#permalinks) 是 `/offline`， 否则你需要手动更改 service worker 中 `OFFLINE_CACHE_FILES` 和 `OFFLINE_PAGE` 的值。
 {{< /admonition >}}
 
 {{< admonition type=warning title="i18n" open=true >}}
-Currently, i18n is not supported for the offline page, consider writing the offline message in different languages if you are running a multilingual website.
+目前离线页面不支持 i18n，如果你运行的是多语言网站，请考虑在同一页面上编写多条不同语言的离线消息。
 {{< /admonition >}}
 
-Here is a sample offline page.
+这是一个示例离线页面。
 
 ```md
 ---
 title: "Offline"
 ---
 
-> You are not connected to the Internet, only cached pages will be available.
+> 你没有连接至互联网，只有缓存的页面可用。
 ```
 
-### Enable the `enablePWA` option
+### 开启 `enablePWA` 选项
 
-Go to `config.toml`, add or change the option `enablePWA = true` under `[params]`.
+前往 `config.toml`，添加/修改 `[params]` 配置项下 `enablePWA` 选项的值为 `true`。
 
 ```toml
 [params]
@@ -132,16 +127,16 @@ Go to `config.toml`, add or change the option `enablePWA = true` under `[params]
     enablePWA = true
 ```
 
-## Install your PWA
+## 安装并使用你的 PWA
 
-Now, an install button should show up when you visit your website and you will be able to install your site as an app.
+如果一切顺利，现在当你访问你的网站时，浏览器将显示一个安装按钮。
 
-{{< image src="./Install-PWA.webp" caption="Install your PWA" height="693px" width="419px">}}
+{{< image src="./Install-PWA.webp" caption="安装 PWA" height="693px" width="419px">}}
 
-After clicking "Install", your website should be installed as a native app.
+单击“安装”后，你的网站将被安装为一个本地的原生应用程序。
 
-{{< image src="./Installed-PWA.webp" caption="Installed PWA" height="1575px" width="1321px">}}
+{{< image src="./Installed-PWA.webp" caption="安装完成" height="1575px" width="1321px">}}
 
-Congratulation! You have successfully turned your static site into a PWA🎉
+大功告成！你已成功将你的静态网站配置为了一个 PWA 🎉
 
-If you have any issues during the setup process, you can check the `Console` and `Application` panels in your browser's DevTools for debugging. Alternatively, you can check your site on [PWA Builder](https://www.pwabuilder.com/) for more information. You can also start a [discussion](https://github.com/HEIGE-PCloud/DoIt/discussions) if you have any questions or propose an [issue](https://github.com/HEIGE-PCloud/DoIt/issues) for any bugs you find. 
+如果你在配置过程中有任何问题，你可以通过浏览器调试工具中的 `Console` 与 `Application` 面板来进行调试。你也可以用[PWA Builder](https://www.pwabuilder.com/)来检查你的网站以获得更多信息。你可以创建一个 [discussion](https://github.com/HEIGE-PCloud/DoIt/discussions) 来获得社区帮助或者提交 [issue](https://github.com/HEIGE-PCloud/DoIt/issues) 来报告你遇到的任何 bug。
