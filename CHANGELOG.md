@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.2.11] - 2021-05-15
+## [0.2.11] - 2021-05-17
 
 ### Enhancements
 - 📜 replace smooth-scroll with native CSS b0bbe68 @HEIGE-PCloud (#7)
