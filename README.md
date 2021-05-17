@@ -35,6 +35,8 @@ Next, go to the `config.toml` and change the default theme to `DoIt`.
 
 Now the migration is finished and everything is ready 🎉
 
+Many new features and configurations have been added to the DoIt theme, check the [changelog](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md) and [documentation](https://hugodoit.pages.dev/) for more information.
+
 ## [Demo Site](https://hugodoit.pages.dev/)
 
 To see this theme in action, here is a live [demo site](https://hugodoit.pages.dev/) which is rendered with **DoIt** theme.
@@ -164,6 +166,8 @@ DoIt supports the following languages:
 [Languages Compatibility](https://hugodoit.pages.dev/theme-documentation-basics/#language-compatibility)
 
 ## [Roadmap](https://github.com/HEIGE-PCloud/DoIt/projects/1)
+
+## [Changelog](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md)
 
 ## Questions, ideas, bugs, pull requests
 
