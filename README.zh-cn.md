@@ -1,6 +1,6 @@
 # DoIt 主题 | Hugo
 
-[English README](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.md) | 简体中文说明
+[English README](https://github.com/HEIGE-PCloud/DoIt/blob/main/README.md) | 简体中文说明
 
 > [DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
 
@@ -14,11 +14,11 @@ DoIt 主题的目标是创建一个功能强大且易于使用的 Hugo 主题，
 
 前往这篇[文档](https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/)，阅读关于安装与使用的详细指南。
 
-## 从LoveIt迁移
+## 从 LoveIt 迁移
 
-如果你现在正在使用LoveIt主题，你可以很容易地迁移至DoIt。
+如果你现在正在使用 LoveIt 主题，你可以很容易地迁移至 DoIt。
 
-你可以将这个主题仓库添加为你的网站目录的子模块
+你可以将这个主题仓库添加为你的网站目录的子模块。
 
 ```bash
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
@@ -26,14 +26,14 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 
 或者，你可以下载主题的[最新版本.zip 文件](https://github.com/HEIGE-PCloud/DoIt/releases)并且解压放到`themes`目录。（不推荐，这个主题会被频繁更新，发行版中可能包含过时的文件。）
 
-接着，前往 `config.toml` 并将默认主题更改为 `DoIt`.
+接着，前往 `config.toml` 并将默认主题更改为 `DoIt`。
 
 ```diff
 - theme = "LoveIt"
 + theme = "DoIt"
 ```
 
-这样就完成了迁移工作，现在一切准备就绪🎉
+这样就完成了迁移工作，现在一切准备就绪 🎉
 
 DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https://github.com/HEIGE-PCloud/DoIt/blob/main/CHANGELOG.md)与[文档](https://hugodoit.pages.dev/)来了解更多。
 
@@ -207,7 +207,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 
 ## 赞助支持
 
-如果你喜爱这个主题, 请考虑给我买杯咖啡 ☕️.
+如果你喜爱这个主题, 请考虑给我买杯咖啡 ☕️
 
 https://www.buymeacoffee.com/PCloud
 

@@ -1,6 +1,6 @@
 # DoIt Theme | Hugo
 
-English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/master/README.zh-cn.md)
+English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/main/README.zh-cn.md)
 
 > **DoIt** is a **clean**, **elegant** and **advanced** blog theme for [Hugo](https://gohugo.io/).
 
