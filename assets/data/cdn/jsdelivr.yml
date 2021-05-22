@@ -59,8 +59,8 @@ libFiles:
   gitalkJS: gitalk@1.7.2/dist/gitalk.min.js
   # valine@1.4.14 https://valine.js.org/
   valineJS: valine@1.4.14/dist/Valine.min.js
-  # waline@0.15.0 https://waline.js.org/
-  walineJS: "@waline/client@0.15.0/dist/Waline.min.js"
+  # waline@0.17.0 https://waline.js.org/
+  walineJS: "@waline/client@0.17.0/dist/Waline.min.js"
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
