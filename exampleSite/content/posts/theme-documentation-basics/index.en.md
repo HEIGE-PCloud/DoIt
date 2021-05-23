@@ -551,10 +551,10 @@ Please open the code block below to view the complete sample configuration :(far
         lang = "en"
         visitor = true
         highlight = true
-        avatarCDN = "https://cdn.v2ex.com/gravatar/"
+        avatarCDN = ""
         avatarForce = false
-        emojiCDN = "https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/"
-        emojiMaps = "微博表情包"
+        emojiCDN = ""
+        emojiMaps = ""
         requiredFields = []
         anonymous = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
