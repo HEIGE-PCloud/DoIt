@@ -32,7 +32,7 @@
         {{- .Scratch.Set "comment" dict -}}
     {{- end -}}
 {{- else if eq .Site .Sites.First -}}
-    {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"CDN\" 和 \"fingerprint\" 不会启用.\n" -}}
+    {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n" -}}
 {{- end -}}
 
 {{- .Scratch.Set "params" $params -}}

@@ -1,0 +1,105 @@
+$avatar-border-color: #f0f0f0;
+$avatar-border-color-dark: #363636;
+$avatar-border-color-black: #363636;
+
+$friend-link-background-color: #f8f8f8;
+$friend-link-background-color-dark: #252627;
+$friend-link-background-color-black: #111111;
+
+$friend-link-color: #2d96bd;
+$friend-link-color-dark: #a9a9b3;
+$friend-link-color-black: #d9d9d9;
+
+$friend-link-hover-color: #ef3982;
+$friend-link-hover-color-dark: #ffffff;
+$friend-link-hover-color-black: #ffffff;
+
+.showcase-box {
+    height: 370px;
+    margin-top: 2%;
+    margin-left: 1%;
+    width: 48%;
+    display: inline-block !important;
+    background: $friend-link-background-color;
+    position: relative;
+    border-radius: 5px;
+    [theme=dark] & {
+        background: $friend-link-background-color-dark;
+    }
+    [theme=black] & {
+        background: $friend-link-background-color-black;
+    }
+}
+
+.showcase-image img {
+    width: 96%;
+    margin: 2%;
+    margin-bottom: 0;
+    border-radius: 5px;
+    height: 200px;
+    object-fit: cover;
+    &:hover {
+        -webkit-transition: transform 0.4s ease;
+        -moz-transition: transform 0.4s ease;
+        -o-transition: transform 0.4s ease;
+        transition: transform 0.4s ease;
+        transform: scale(1.01);
+    }
+}
+
+.showcase-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: 210px;
+    width: 96%;
+    margin: 3%;
+    margin-left: 2%;
+    font-size: 1.25rem;
+    line-height: 140%;
+}
+
+.showcase-title a {
+    color: black;
+    &:hover {
+        color: $friend-link-hover-color;
+    }
+    [theme=dark] & {
+        color: $friend-link-color-dark;
+        &:hover {
+            color: $friend-link-hover-color-dark;
+        }
+    }
+    [theme=black] & {
+        color: $friend-link-color-black;
+        &:hover {
+            color: $friend-link-hover-color-black;
+        }
+    }
+}
+
+.showcase-summary {
+    display: -webkit-box;
+    position: absolute;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 2%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 70px;
+    top: 250px;
+    -webkit-box-orient: vertical;
+}
+
+.showcase-link {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+@media screen and (max-width: 600px) {
+    .showcase-box {
+        width: 100%;
+    }
+}

@@ -51,10 +51,12 @@
 {{- partial "plugin/defer-style.html" $style -}}
 
 {{- if eq .Site.Params.enablePWA true -}}
-{{- /* sw.min.js */ -}}
-{{- $sw := resources.Get "sw.min.js" -}}
-{{- $_ := $sw.Permalink -}}
-{{- /* sw.min.js.map */ -}}
-{{- $sw := resources.Get "sw.min.js.map" -}}
-{{- $_ := $sw.Permalink -}}
+    {{- if eq hugo.Environment "production" -}}
+        {{- /* sw.min.js */ -}}
+        {{- $sw := resources.Get "sw.min.js" -}}
+        {{- $_ := $sw.Permalink -}}
+        {{- /* sw.min.js.map */ -}}
+        {{- $sw := resources.Get "sw.min.js.map" -}}
+        {{- $_ := $sw.Permalink -}}
+    {{- end -}}
 {{- end -}}
