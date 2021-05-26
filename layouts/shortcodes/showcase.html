@@ -1,0 +1,22 @@
+{{ if .IsNamedParams }}
+{{- $image := .Get "image" -}}
+{{- $title := .Get "title" -}}
+{{- $link := .Get "link" -}}
+<div class="showcase-box">
+    <div class="showcase-image">
+        <a href={{ $link }}>
+            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
+        </a>
+    </div>
+    <h1 class="showcase-title">
+        <a href={{ $link }}>{{ $title }}</a>
+    </h1>
+    <p class="showcase-summary">
+        {{ .Get "summary" }}
+    </p>
+    <a class="showcase-link" href={{ $link }}>
+        Read more...
+    </a>
+</div>
+{{- else -}}
+{{ end }}

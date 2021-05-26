@@ -49,21 +49,23 @@
         </div>
         {{- /* PWA */ -}}
         {{- if eq .Site.Params.enablePWA true -}}
-        <script>
-            if('serviceWorker' in navigator) {
-                navigator.serviceWorker
-                    .register('/sw.min.js', { scope: '/' })
-                    .then(function(registration) {
-                        //console.log('Service Worker Registered');
-                    });
-          
-                navigator.serviceWorker
-                    .ready
-                    .then(function(registration) {
-                        //console.log('Service Worker Ready');
-                    });
-            }
-          </script>
+            {{- if eq hugo.Environment "production" -}}
+                <script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                //console.log('Service Worker Registered');
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                //console.log('Service Worker Ready');
+                            });
+                    }
+                </script>
+            {{- end -}}
         {{- end -}}
        
     </footer>
