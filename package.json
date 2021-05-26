@@ -10,7 +10,7 @@
     "babel-preset-minify": "^0.5.1",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
-    "core-js": "^3.12.1",
+    "core-js": "^3.13.0",
     "husky": "^6.0.0",
     "minimist": "1.2.5",
     "segmentit": "^2.0.3"
