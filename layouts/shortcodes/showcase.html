@@ -8,11 +8,13 @@
 {{- $summary = .Get "summary" -}}
 {{- $link = .Get "link" -}}
 {{- $image = .Get "image" -}}
+{{- $column = .Get "column" -}}
 {{- else -}}
 {{- $title = .Get 0 -}}
 {{- $summary = .Get 1 -}}
 {{- $image = .Get 2 -}}
 {{- $link = .Get 3 -}}
+{{- $column = .Get 4 -}}
 {{ end }}
 <div class="showcase-box column-{{ $column }}">
     <div class="showcase-image">

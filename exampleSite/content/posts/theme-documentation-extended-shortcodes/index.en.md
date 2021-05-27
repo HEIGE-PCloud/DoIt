@@ -1340,6 +1340,10 @@ The `showcase` shortcode has the following named parameters:
 
     The url to your project page.
 
+* **column** *[optional]* (**fifth** positional parameter)
+
+    This parameter defines how many showcases in each row. The default value is 2, which means there will have two showcases in each row. You can change it to 1, 2 or 3.
+
 Example `showcase` input:
 
 ```markdown
