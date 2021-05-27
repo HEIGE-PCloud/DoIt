@@ -5,25 +5,38 @@
 
     {{- $toc := $params.toc -}}
     {{- if eq $toc true -}}
-        {{- $toc = .Site.Params.page.toc | default dict -}}
+    {{- $toc = .Site.Params.page.toc | default dict -}}
     {{- else if eq $toc false -}}
-        {{- $toc = dict "enable" false -}}
+    {{- $toc = dict "enable" false -}}
     {{- end -}}
-
+    
+    
     {{- /* Auto TOC */ -}}
     {{- if ne $toc.enable false -}}
-        <div class="toc" id="toc-auto">
-            <h2 class="toc-title">{{ T "contents" }}</h2>
-            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
-        </div>
+    <div class="toc" id="toc-auto">
+        <h2 class="toc-title">{{ T "contents" }}</h2>
+        <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
+    </div>
     {{- end -}}
-
+    
     {{- /* Page Style */ -}}
     {{- if eq $params.pageStyle "wide" -}}
     <script>document.body.setAttribute("pageStyle", "wide")</script>
     {{- else -}}
     <script>document.body.setAttribute("pageStyle", "normal")</script>
     {{- end -}}
+
+    {{- /* TOC Style */ -}}
+    {{- if eq $toc.enable true -}}
+        {{- if eq $toc.keepStatic true -}}
+            <script>document.body.setAttribute("autoTOC", "false")</script>
+        {{- else if eq $toc.keepStatic false -}}
+            <script>document.body.setAttribute("autoTOC", "true")</script>
+        {{- end -}}
+    {{- else if eq $toc.enable false -}}
+        <script>document.body.setAttribute("autoTOC", "false")</script>
+    {{- end -}}
+
     <article class="page single">
         {{- /* Title */ -}}
         <h1 class="single-title animate__animated animate__flipInX">{{ .Title }}</h1>
