@@ -1343,6 +1343,10 @@ console.log('Just DoIt!');
 
     项目主页的链接.
 
+* **column** *[optional]* (**fifth** positional parameter)
+
+    这个参数定义一行显示几个 `showcase`. 默认的值是 2, 默认一行显示两个 `showcase`. 你可以将它改为 1, 2 或 3.
+
 一个 `showcase` 示例:
 
 ```markdown
