@@ -1318,3 +1318,39 @@ console.log('Just DoIt!');
 呈现的输出效果如下:
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
+
+## 13 showcase
+
+{{< version 0.2.12 >}}
+
+`showcase` 用于在页面上插入一个个人项目的展示柜.
+
+`showcase` shortcode 有以下命名参数:
+
+* **title** *[required]* (**第一个**位置参数)
+
+    项目名称.
+
+* **summary** *[required]* (**第二个**位置参数)
+
+    项目简介.
+
+* **image** *[required]* (**第三个**位置参数)
+
+    预览图的链接.
+
+* **link** *[required]* (**第四个**位置参数)
+
+    项目主页的链接.
+
+一个 `showcase` 示例:
+
+```markdown
+{{</* showcase title="Theme Documentation - Basics" summary="Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" */>}}
+Or
+{{</* showcase "Theme Documentation - Basics" "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." "/theme-documentation-basics/featured-image.webp" "/theme-documentation-basics" */>}}
+```
+
+呈现的输出效果如下:
+
+{{< showcase title="主题文档 - 基本概念" summary="探索 Hugo - DoIt 主题的全部内容和背后的核心概念." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
