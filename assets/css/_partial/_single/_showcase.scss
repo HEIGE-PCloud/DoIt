@@ -28,6 +28,7 @@ $showcase-hover-color-black: #ffffff;
 
 .column-1 {
     width: 100%;
+    margin: 1% 0% 0% 0%;
 }
 .column-2 {
     width: 48%;
@@ -106,6 +107,12 @@ $showcase-hover-color-black: #ffffff;
 
 @media screen and (max-width: 600px) {
     .showcase-box {
-        width: 100%;
+        width: 100% !important;
+        margin: 1% 0% 0% 0%;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .column-3 {
+        width: 48%;
     }
 }

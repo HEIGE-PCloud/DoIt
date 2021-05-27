@@ -1342,7 +1342,7 @@ The `showcase` shortcode has the following named parameters:
 
 * **column** *[optional]* (**fifth** positional parameter)
 
-    This parameter defines how many showcases in each row. The default value is 2, which means there will have two showcases in each row. You can change it to 1, 2 or 3.
+    This parameter defines how many showcases in each row. The default value is 2, which means there will have two showcases in each row. You can change it to 1, 2 or 3. It’s important to note that when a user visits the website on a small screen, the number of column may be auto adjusted to provide the best experience.
 
 Example `showcase` input:
 
