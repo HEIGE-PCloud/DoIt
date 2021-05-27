@@ -48,7 +48,7 @@ $friend-link-hover-color-black: #ffffff;
     -o-transition: transform 0.4s ease;
     transition: transform 0.4s ease;
     &:hover {
-        transform: scale(1.01);
+        @include transform(scale(1.01));
     }
 }
 

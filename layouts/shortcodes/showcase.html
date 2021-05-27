@@ -1,8 +1,20 @@
+{{- $image :=  "" -}}
+{{- $title := "" -}}
+{{- $link := "" -}}
+{{- $summary := "" -}}
+{{- $column := "2" -}}
 {{ if .IsNamedParams }}
-{{- $image := .Get "image" -}}
-{{- $title := .Get "title" -}}
-{{- $link := .Get "link" -}}
-<div class="showcase-box">
+{{- $title = .Get "title" -}}
+{{- $summary = .Get "summary" -}}
+{{- $link = .Get "link" -}}
+{{- $image = .Get "image" -}}
+{{- else -}}
+{{- $title = .Get 0 -}}
+{{- $summary = .Get 1 -}}
+{{- $image = .Get 2 -}}
+{{- $link = .Get 3 -}}
+{{ end }}
+<div class="showcase-box column-{{ $column }}">
     <div class="showcase-image">
         <a href={{ $link }}>
             {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
@@ -12,11 +24,9 @@
         <a href={{ $link }}>{{ $title }}</a>
     </h1>
     <p class="showcase-summary">
-        {{ .Get "summary" }}
+        {{ $summary }}
     </p>
     <a class="showcase-link" href={{ $link }}>
-        Read more...
+        {{ T "readMore" }}
     </a>
 </div>
-{{- else -}}
-{{ end }}

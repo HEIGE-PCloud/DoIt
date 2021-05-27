@@ -1,49 +1,58 @@
-$avatar-border-color: #f0f0f0;
-$avatar-border-color-dark: #363636;
-$avatar-border-color-black: #363636;
+$showcase-background-color: #f8f8f8;
+$showcase-background-color-dark: #252627;
+$showcase-background-color-black: #111111;
 
-$friend-link-background-color: #f8f8f8;
-$friend-link-background-color-dark: #252627;
-$friend-link-background-color-black: #111111;
+$showcase-color: #2d96bd;
+$showcase-color-dark: #a9a9b3;
+$showcase-color-black: #d9d9d9;
 
-$friend-link-color: #2d96bd;
-$friend-link-color-dark: #a9a9b3;
-$friend-link-color-black: #d9d9d9;
-
-$friend-link-hover-color: #ef3982;
-$friend-link-hover-color-dark: #ffffff;
-$friend-link-hover-color-black: #ffffff;
+$showcase-hover-color: #ef3982;
+$showcase-hover-color-dark: #ffffff;
+$showcase-hover-color-black: #ffffff;
 
 .showcase-box {
     height: 370px;
-    margin-top: 2%;
-    margin-left: 1%;
-    width: 48%;
+    margin: 1% 1% 0% 0%;
     display: inline-block !important;
-    background: $friend-link-background-color;
+    background: $showcase-background-color;
     position: relative;
     border-radius: 5px;
-    [theme=dark] & {
-        background: $friend-link-background-color-dark;
+    [theme="dark"] & {
+        background: $showcase-background-color-dark;
     }
-    [theme=black] & {
-        background: $friend-link-background-color-black;
+    [theme="black"] & {
+        background: $showcase-background-color-black;
     }
 }
 
-.showcase-image img {
-    width: 96%;
-    margin: 2%;
-    margin-bottom: 0;
-    border-radius: 5px;
-    height: 200px;
-    object-fit: cover;
+.column-1 {
+    width: 100%;
+}
+.column-2 {
+    width: 48%;
+}
+.column-3 {
+    width: 32%;
+}
+
+.showcase-image {
+    @include transition(transform 0.4s ease);
+
+    img {
+        width: 96%;
+        margin: 2% 2% 0% 2%;
+        border-radius: 5px;
+        height: 200px;
+        max-width: none;
+        @include object-fit(none);
+    }
+
+    img.lazyloaded {
+        @include object-fit(cover);
+    }
+
     &:hover {
-        -webkit-transition: transform 0.4s ease;
-        -moz-transition: transform 0.4s ease;
-        -o-transition: transform 0.4s ease;
-        transition: transform 0.4s ease;
-        transform: scale(1.01);
+        @include transform(scale(1.01));
     }
 }
 
@@ -54,8 +63,7 @@ $friend-link-hover-color-black: #ffffff;
     position: absolute;
     top: 210px;
     width: 96%;
-    margin: 3%;
-    margin-left: 2%;
+    margin: 3% 3% 3% 2%;
     font-size: 1.25rem;
     line-height: 140%;
 }
@@ -63,33 +71,30 @@ $friend-link-hover-color-black: #ffffff;
 .showcase-title a {
     color: black;
     &:hover {
-        color: $friend-link-hover-color;
+        color: $showcase-hover-color;
     }
-    [theme=dark] & {
-        color: $friend-link-color-dark;
+    [theme="dark"] & {
+        color: $showcase-color-dark;
         &:hover {
-            color: $friend-link-hover-color-dark;
+            color: $showcase-hover-color-dark;
         }
     }
-    [theme=black] & {
-        color: $friend-link-color-black;
+    [theme="black"] & {
+        color: $showcase-color-black;
         &:hover {
-            color: $friend-link-hover-color-black;
+            color: $showcase-hover-color-black;
         }
     }
 }
 
 .showcase-summary {
-    display: -webkit-box;
     position: absolute;
-    width: 96%;
-    margin-left: 2%;
-    margin-top: 2%;
     text-overflow: ellipsis;
     overflow: hidden;
-    height: 70px;
+    margin: 2%;
     top: 250px;
-    -webkit-box-orient: vertical;
+    height: 70px;
+    width: 96%;
 }
 
 .showcase-link {
