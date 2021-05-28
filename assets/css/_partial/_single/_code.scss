@@ -2,6 +2,7 @@ code {
   display:inline-block;
   max-width: 100%;
   padding: 0 .4rem;
+  overflow-x: scroll;
   @include overflow-wrap(break-word);
   @include line-break(anywhere);
   font-size: $code-font-size;
