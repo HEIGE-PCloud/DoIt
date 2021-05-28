@@ -13,7 +13,7 @@ $showcase-hover-color-black: #ffffff;
 .showcase-box {
     width: 48%;
     height: 370px;
-    margin: 1% 1% 0% 0%;
+    margin: 1% 0% 0% 0%;
     display: inline-block !important;
     background: $showcase-background-color;
     position: relative;
@@ -111,7 +111,7 @@ $showcase-hover-color-black: #ffffff;
         margin: 1% 0% 0% 0%;
     }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1000px) {
     .column-3 {
         width: 48%;
     }
