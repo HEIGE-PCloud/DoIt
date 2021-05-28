@@ -1315,3 +1315,43 @@ Or
 The rendered output looks like this:
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
+
+## 13 showcase
+
+{{< version 0.2.12 >}}
+
+`showcase` is a shortcode to insert a showcase of your project in the post.
+
+The `showcase` shortcode has the following named parameters:
+
+* **title** *[required]* (**first** positional parameter)
+
+    The title of your showcase.
+
+* **summary** *[required]* (**second** positional parameter)
+
+    A brief introduction to your project.
+
+* **image** *[required]* (**third** positional parameter)
+
+    The url to the preview image.
+
+* **link** *[required]* (**fourth** positional parameter)
+
+    The url to your project page.
+
+* **column** *[optional]* (**fifth** positional parameter)
+
+    This parameter defines how many showcases in each row. The default value is 2, which means there will have two showcases in each row. You can change it to 1, 2 or 3. It’s important to note that when a user visits the website on a small screen, the number of column may be auto adjusted to provide the best experience.
+
+Example `showcase` input:
+
+```markdown
+{{</* showcase title="Theme Documentation - Basics" summary="Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" */>}}
+Or
+{{</* showcase "Theme Documentation - Basics" "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." "/theme-documentation-basics/featured-image.webp" "/theme-documentation-basics" */>}}
+```
+
+The rendered output looks like this:
+
+{{< showcase title="Theme Documentation - Basics" summary="Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
