@@ -1,69 +1,160 @@
-// ========== Global ========== //
-// Color of the border
-$border-color: #f0f0f0;
-$border-color-dark: #363636;
-
-// ========== Code ========== //
-// Color of the code
-$code-color: #E74C3C !default;
-$code-color-dark: #E5BF78 !default;
-
-// Color of the code background
-$code-background-color: #f5f5f5 !default;
-$code-background-color-dark: #272C34 !default;
-
-@mixin overflow-wrap($value) {
-  word-wrap: $value;
-  overflow-wrap: $value;
-}
-
-@mixin line-break($value) {
-  -webkit-line-break: $value;
-  -ms-line-break: $value;
-  line-break: $value;
-}
-
-@mixin tab-size($value) {
-  -moz-tab-size: $value;
-  -o-tab-size: $value;
-  tab-size: $value;
-}
+@import "../../css/_variables";
 
 .v[data-class=v] {
-  .vcards .vcard .vcontent.expand {
-    &::before, &::after {
-      z-index: 50;
-    }
-  }
-
-  .vwrap,
-  .vwrap .vheader .vinput,
-  .vcards .vcard .vh,
-  .vcards .vcard .vquote,
-  blockquote {
-    border-color: $border-color;
-
+  .vpanel {
+    border: 1px solid black !important;
+    background: $global-background-color !important;
     [theme=dark] & {
-      border-color: $border-color-dark;
+      border: 1px solid white !important;
+      background: $global-background-color-dark !important;
+    }
+    [theme=black] & {
+      border: 1px solid white !important;
+      background: $global-background-color-black !important;
     }
   }
-
-  code, pre, pre code {
-    font-size: 90%;
-    @include overflow-wrap(break-word);
-    @include line-break(anywhere);
-    @include tab-size(4);
-    color: $code-color;
+  p {
+    color: $global-font-color !important;
+    [theme=dark] & {
+      color: $global-font-color-dark !important;
+    }
+    [theme=black] & {
+      color: $global-font-color-black !important;
+    }
+  }
+  .vcard {
+    border: none !important;
+    .vhead span.vnick {
+      color: $global-font-color !important;
+      [theme=dark] & {
+        color: $global-font-color-dark !important;
+      }
+      [theme=black] & {
+        color: $global-font-color-black !important;
+      }
+    }
+    .vquote {
+      border: none !important;
+    }
+    .vhead .vtime {
+      color: $global-font-color !important;
+      [theme=dark] & {
+        color: $global-font-color-dark !important;
+      }
+      [theme=black] & {
+        color: $global-font-color-black !important;
+      }
+    }
+    .vhead .vreply svg {
+      fill: $global-font-color !important;
+      [theme=dark] & {
+        fill: $global-font-color-dark !important;
+      }
+      [theme=black] & {
+        fill: $global-font-color-black !important;
+      }
+    }
+  }
+  .vlogin-btn {
+    border: 1px solid black !important;
+    background: $global-background-color !important;
+    color: $global-font-color !important;
+    [theme=dark] & {
+      border: 1px solid white !important;
+      background: $global-background-color-dark !important;
+      color: $global-font-color-dark !important;
+    }
+    [theme=black] & {
+      border: 1px solid white !important;
+      background: $global-background-color-black !important;
+      color: $global-font-color-black !important;
+    }
+  }
+  .vicon {
+    fill: $global-font-color;
+    [theme=dark] & {
+      fill: $global-font-color-dark;
+    }
+    [theme=black] & {
+      fill: $global-font-color-black;
+    }
+  }
+  .vinfo .vtext-number {
+    color: $global-font-color;
+    [theme=dark] & {
+      color: $global-font-color-dark;
+    }
+    [theme=black] & {
+      color: $global-font-color-black;
+    }
+  }
+  .vbtn {
+    color: $global-font-color;
+    [theme=dark] & {
+      color: $global-font-color-dark;
+    }
+    [theme=black] & {
+      color: $global-font-color-black;
+    }
+  }
+  .veditor {
+    background: $global-background-color;
+    color: $global-font-color;
+    [theme=dark] & {
+      background: $global-background-color-dark;
+      color: $global-font-color-dark;
+    }
+    [theme=black] & {
+      background: $global-background-color-black;
+      color: $global-font-color-black;
+    }
+  }
+  .vheader {
+    border-bottom: 1px solid black;
+    [theme=dark] & {
+      border-bottom: 1px solid white;
+    }
+    [theme=black] & {
+      border-bottom: 1px solid white;
+    }
+    input {
+      background: $global-background-color;
+      [theme=dark] & {
+        background: $global-background-color-dark;
+      }
+      [theme=black] & {
+        background: $global-background-color-black;
+      }
+    }
+    label {
+      color: $global-font-color;
+      [theme=dark] & {
+        color: $global-font-color-dark;
+      }
+      [theme=black] & {
+        color: $global-font-color-black;
+      }
+    }
+  }
+  .vinput {
+    color: $global-font-color;
+    [theme=dark] & {
+      color: $global-font-color-dark;
+    }
+    [theme=black] & {
+      color: $global-font-color-black;
+    }
+  }
+  code, pre {
+    color: $code-info-color;
     background: $code-background-color;
-
     [theme=dark] & {
-      color: $code-color-dark;
+      color: $code-info-color-dark;
       background: $code-background-color-dark;
     }
-  }
-
-  .emoji, .vemoji {
-    max-width: 1.5em;
-    vertical-align: text-bottom;
+    [theme=black] & {
+      color: $code-info-color-black;
+      background: $code-background-color-black;
+    }
   }
 }
