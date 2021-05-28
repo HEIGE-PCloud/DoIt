@@ -17,7 +17,7 @@
     {{- end -}}
         {{- with $image -}}
         <div class="featured-image-preview">
-            <a href="{{ $.RelPermalink }}">
+            <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
             </a>
         </div>
