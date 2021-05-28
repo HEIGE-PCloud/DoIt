@@ -19,6 +19,12 @@ This is a list of TeX functions, sorted alphabetically. This list includes funct
 
 If you know the shape of a character, but not its name, [Detexify](http://detexify.kirelabs.org/classify.html) can help.
 
+$$\text{This is looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong.}$$
+
+$$
+\text{This is short.}
+$$
+
 ## Symbols
 
 |Symbol/Function |  Rendered   | Source or Comment|
