@@ -1,69 +1,67 @@
-// ========== Global ========== //
-// Color of the border
-$border-color: #f0f0f0;
-$border-color-dark: #363636;
+@import "../../css/_variables";
 
-// ========== Code ========== //
-// Color of the code
-$code-color: #E74C3C !default;
-$code-color-dark: #E5BF78 !default;
-
-// Color of the code background
-$code-background-color: #f5f5f5 !default;
-$code-background-color-dark: #272C34 !default;
-
-@mixin overflow-wrap($value) {
-  word-wrap: $value;
-  overflow-wrap: $value;
-}
-
-@mixin line-break($value) {
-  -webkit-line-break: $value;
-  -ms-line-break: $value;
-  line-break: $value;
-}
-
-@mixin tab-size($value) {
-  -moz-tab-size: $value;
-  -o-tab-size: $value;
-  tab-size: $value;
-}
 
 .v[data-class=v] {
-  .vcards .vcard .vcontent.expand {
-    &::before, &::after {
-      z-index: 50;
+    .vbtn {
+        color: $global-font-color;
+        [theme=dark] & {
+            color: $global-font-color-dark;
+        }
+        [theme=black] & {
+            color: $global-font-color-black;
+        }
     }
-  }
-
-  .vwrap,
-  .vwrap .vheader .vinput,
-  .vcards .vcard .vh,
-  .vcards .vcard .vquote,
-  blockquote {
-    border-color: $border-color;
-
-    [theme=dark] & {
-      border-color: $border-color-dark;
+    .vicon {
+        fill: $global-font-color;
+        [theme=dark] & {
+            fill: $global-font-color-dark;
+        }
+        [theme=black] & {
+            fill: $global-font-color-black;
+        }
     }
-  }
-
-  code, pre, pre code {
-    font-size: 90%;
-    @include overflow-wrap(break-word);
-    @include line-break(anywhere);
-    @include tab-size(4);
-    color: $code-color;
-    background: $code-background-color;
-
-    [theme=dark] & {
-      color: $code-color-dark;
-      background: $code-background-color-dark;
+    code, pre {
+        background-color: $code-background-color;
+        [theme=dark] & {
+            background-color: $code-background-color-dark;
+        }
+        [theme=black] & {
+            background-color: $code-background-color-black;
+        }   
     }
-  }
-
-  .emoji, .vemoji {
-    max-width: 1.5em;
-    vertical-align: text-bottom;
-  }
+    .status-bar, .veditor, .vinput, p, pre code {
+        color: $global-font-color;
+        [theme=dark] & {
+            color: $global-font-color-dark;
+        }
+        [theme=black] & {
+            color: $global-font-color-black;
+        }
+    }
+    .vcards .vcard {
+        .vh, .vquote {
+            border: none;
+        }
+        .vcontent.expand:after {
+            color: $global-font-color;
+            background: $global-background-color;
+            [theme=dark] & {
+                color: $global-font-color-dark;
+                background: $global-background-color-dark;
+            }
+            [theme=black] & {
+                color: $global-font-color-black;
+                background: $global-background-color-black;
+            }
+        }
+        .vcontent.expand:before {
+            background: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.9));
+            [theme=dark] & {
+                background: linear-gradient(180deg,hsla(0,0%,100%,0),#292a2de6);
+            }
+            [theme=black] & {
+                background: linear-gradient(180deg,hsla(0,0%,100%,0),#000000e6);
+            }
+        }
+    }
 }
