@@ -2,72 +2,72 @@
 
 .v[data-class=v] {
   .vpanel {
-    border: 1px solid black !important;
-    background: $global-background-color !important;
+    border: 1px solid black;
+    background: $global-background-color;
     [theme=dark] & {
-      border: 1px solid white !important;
-      background: $global-background-color-dark !important;
+      border: 1px solid white;
+      background: $global-background-color-dark;
     }
     [theme=black] & {
-      border: 1px solid white !important;
-      background: $global-background-color-black !important;
+      border: 1px solid white;
+      background: $global-background-color-black;
     }
   }
   p {
-    color: $global-font-color !important;
+    color: $global-font-color;
     [theme=dark] & {
-      color: $global-font-color-dark !important;
+      color: $global-font-color-dark;
     }
     [theme=black] & {
-      color: $global-font-color-black !important;
+      color: $global-font-color-black;
     }
   }
   .vcard {
-    border: none !important;
+    border: none;
     .vhead span.vnick {
-      color: $global-font-color !important;
+      color: $global-font-color;
       [theme=dark] & {
-        color: $global-font-color-dark !important;
+        color: $global-font-color-dark;
       }
       [theme=black] & {
-        color: $global-font-color-black !important;
+        color: $global-font-color-black;
       }
     }
     .vquote {
-      border: none !important;
+      border: none;
     }
     .vhead .vtime {
-      color: $global-font-color !important;
+      color: $global-font-color;
       [theme=dark] & {
-        color: $global-font-color-dark !important;
+        color: $global-font-color-dark;
       }
       [theme=black] & {
-        color: $global-font-color-black !important;
+        color: $global-font-color-black;
       }
     }
     .vhead .vreply svg {
-      fill: $global-font-color !important;
+      fill: $global-font-color;
       [theme=dark] & {
-        fill: $global-font-color-dark !important;
+        fill: $global-font-color-dark;
       }
       [theme=black] & {
-        fill: $global-font-color-black !important;
+        fill: $global-font-color-black;
       }
     }
   }
   .vlogin-btn {
-    border: 1px solid black !important;
-    background: $global-background-color !important;
-    color: $global-font-color !important;
+    border: 1px solid black;
+    background: $global-background-color;
+    color: $global-font-color;
     [theme=dark] & {
-      border: 1px solid white !important;
-      background: $global-background-color-dark !important;
-      color: $global-font-color-dark !important;
+      border: 1px solid white;
+      background: $global-background-color-dark;
+      color: $global-font-color-dark;
     }
     [theme=black] & {
-      border: 1px solid white !important;
-      background: $global-background-color-black !important;
-      color: $global-font-color-black !important;
+      border: 1px solid white;
+      background: $global-background-color-black;
+      color: $global-font-color-black;
     }
   }
   .vicon {
