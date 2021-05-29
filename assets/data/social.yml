@@ -509,3 +509,11 @@ rss:
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
+    
+# 065: ORCID
+orcid:
+  Weight: 65
+  Prefix: https://orcid.org/
+  Title: ORCID
+  Icon:
+    Class: fab fa-orcid fa-fw
