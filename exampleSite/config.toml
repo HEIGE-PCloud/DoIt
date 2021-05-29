@@ -218,6 +218,7 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
+        ORCID = ""
         Email = "xxxx@xxxx.com"
         RSS = true
         [languages.en.params.social.Mastodon]
@@ -417,6 +418,7 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = "xxxx"
+        ORCID = ""
         Email = "xxxx@xxxx.com"
         RSS = true
 
@@ -611,9 +613,9 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
+        ORCID = ""
         Email = "xxxx@xxxx.com"
         RSS = true
-        ORCID = ""
 
 [params]
   # DoIt theme version

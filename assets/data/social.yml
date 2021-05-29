@@ -493,27 +493,27 @@ bilibili:
   Icon:
     Src: svg/icons/bilibili.svg
 
-# 063: Email
-email:
+# 063: ORCID
+orcid:
   Weight: 63
+  Prefix: https://orcid.org/
+  Title: ORCID
+  Icon:
+    Class: fab fa-orcid fa-fw
+
+# 064: Email
+email:
+  Weight: 64
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 064: RSS
+# 065: RSS
 rss:
-  Weight: 64
+  Weight: 65
   Url: /index.xml
   Title: RSS
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
-    
-# 065: ORCID
-orcid:
-  Weight: 65
-  Prefix: https://orcid.org/
-  Title: ORCID
-  Icon:
-    Class: fab fa-orcid fa-fw
