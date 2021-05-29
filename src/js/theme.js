@@ -246,9 +246,9 @@ class Theme {
                                 });
                                 results[uri] = {
                                     'uri': uri,
-                                    'title' : title,
-                                    'date' : matchData.date,
-                                    'context' : context,
+                                    'title': title,
+                                    'date': matchData.date,
+                                    'context': context,
                                 };
                             });
                             return Object.values(results).slice(0, maxResultLength);
@@ -311,7 +311,7 @@ class Theme {
                 templates: {
                     suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
                     empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
-                    footer: ({}) => {
+                    footer: ({ }) => {
                         const { searchType, icon, href } = searchConfig.type === 'algolia' ? {
                             searchType: 'algolia',
                             icon: '<i class="fab fa-algolia fa-fw"></i>',
@@ -321,7 +321,8 @@ class Theme {
                             icon: '',
                             href: 'https://lunrjs.com/',
                         };
-                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;
+                    },
                 },
             });
             autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
@@ -338,7 +339,7 @@ class Theme {
             script.async = true;
             if (script.readyState) {
                 script.onreadystatechange = () => {
-                    if (script.readyState == 'loaded' || script.readyState == 'complete'){
+                    if (script.readyState == 'loaded' || script.readyState == 'complete') {
                         script.onreadystatechange = null;
                         initAutosearch();
                     }
@@ -490,7 +491,7 @@ class Theme {
                     const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
                     const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
                     if ((i == 0 && thisTop > INDEX_SPACING)
-                     || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                        || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                         activeTocIndex = i;
                         break;
                     }
@@ -516,11 +517,11 @@ class Theme {
     initMermaid() {
         const $mermaidElements = document.getElementsByClassName('mermaid');
         if ($mermaidElements.length) {
-            mermaid.initialize({startOnLoad: false, theme: 'default'});
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
             this.util.forEach($mermaidElements, $mermaid => {
                 mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
                     $mermaid.insertAdjacentHTML('afterbegin', svgCode);
-                document.getElementById('svg-' + $mermaid.id).children[0].remove();
+                    document.getElementById('svg-' + $mermaid.id).children[0].remove();
                 }, $mermaid);
             });
         }
@@ -534,7 +535,7 @@ class Theme {
             }
             this._echartsArr = [];
             this.util.forEach(document.getElementsByClassName('echarts'), $echarts => {
-                const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', {renderer: 'svg'});
+                const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', { renderer: 'svg' });
                 chart.setOption(JSON.parse(this.data[$echarts.id]));
                 this._echartsArr.push(chart);
             });
@@ -669,7 +670,7 @@ class Theme {
 
     initMeta() {
         function getMeta(metaName) {
-            const metas = document.getElementsByTagName('meta'); 
+            const metas = document.getElementsByTagName('meta');
             for (let i = 0; i < metas.length; i++) {
                 if (metas[i].getAttribute('name') === metaName) {
                     return metas[i];
@@ -808,3 +809,11 @@ if (document.readyState !== 'loading') {
 } else {
     document.addEventListener('DOMContentLoaded', themeInit, false);
 }
+var pjax = new Pjax({
+    selectors: [
+        "title",
+        "main",
+        "meta"
+    ],
+    cacheBust: false
+})
