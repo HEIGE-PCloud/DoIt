@@ -613,6 +613,7 @@ enableEmoji = true
         Bilibili = ""
         Email = "xxxx@xxxx.com"
         RSS = true
+        ORCID = ""
 
 [params]
   # DoIt theme version
