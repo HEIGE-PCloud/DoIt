@@ -496,7 +496,7 @@ class Theme {
                         break;
                     }
                 }
-                if (activeTocIndex !== -1) {
+                if (activeTocIndex !== -1 && $tocLinkElements.length > 0) {
                     $tocLinkElements[activeTocIndex].classList.add('active');
                     let $parent = $tocLinkElements[activeTocIndex].parentElement;
                     while ($parent !== $tocCore) {
@@ -813,7 +813,15 @@ var pjax = new Pjax({
     selectors: [
         "title",
         "main",
-        "meta"
+        "meta",
+        "script",
+        ".menu-item",
     ],
     cacheBust: false
 })
+document.addEventListener('pjax:success', function () {
+    themeInit();
+
+    // config = window.config;
+    // config.math && renderMathInElement(document.body);
+});
