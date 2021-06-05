@@ -1,0 +1,14 @@
+{{- /* Author */ -}}
+
+{{- $i18nAuthor := ( index .author .lang ) -}}
+{{- $name := ( or $i18nAuthor.name .author.name ) -}}
+
+{{- $extLink := $name.display -}}
+{{- if .author.link -}}
+{{- $extLink = printf `<a href="%s" class="archive-item-link" title="%s" target="_blank"> %s </a>` .author.link $name.display $name.display -}}
+{{- end -}}
+
+{{- /* $link := .author.link | default ((print "authors" "/" .author.id) | relLangURL) */ -}}
+{{- $link := (print "authors" "/" .author.id) | relLangURL -}}
+
+{{- return dict "author" .author "name" $name.display "extLink" $extLink "link" $link -}}

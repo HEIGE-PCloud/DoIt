@@ -1147,3 +1147,8 @@ enableEmoji = true
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"

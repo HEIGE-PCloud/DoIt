@@ -1,0 +1,10 @@
+id = "anonymous"
+
+link = "https://example.com"
+
+[name]
+display = "Anonymous"
+
+[zh-cn]
+[zh-cn.name]
+display = "佚名"
