@@ -954,6 +954,7 @@ enableEmoji = true
         envId = "https://doit-docs-comment-twikoo.vercel.app/"
         region = ""
         path = ""
+        visitor = true
     # Third-party library config
     # 第三方库配置
     [params.page.library]

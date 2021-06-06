@@ -593,6 +593,7 @@ Please open the code block below to view the complete sample configuration :(far
         envId = ""
         region = ""
         path = ""
+        visitor = true
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

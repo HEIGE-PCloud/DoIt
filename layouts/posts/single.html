@@ -84,6 +84,11 @@
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
+                {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
+                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                {{- end -}}
             </div>
         </div>
 

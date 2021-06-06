@@ -596,6 +596,7 @@ hugo
         envId = ""
         region = ""
         path = ""
+        visitor = true
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
