@@ -642,6 +642,7 @@ class Theme {
             }
             if (this.config.comment.valine) new Valine(this.config.comment.valine);
             if (this.config.comment.waline) new Waline(this.config.comment.waline);
+            if (this.config.comment.twikoo) twikoo.init(this.config.comment.twikoo);
             if (this.config.comment.utterances) {
                 const utterancesConfig = this.config.comment.utterances;
                 const script = document.createElement('script');

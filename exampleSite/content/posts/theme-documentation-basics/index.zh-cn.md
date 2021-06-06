@@ -590,6 +590,12 @@ hugo
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
+      # {{< version 0.2.12 >}} {{< link "https://twikoo.js.org/" "Twikoo" >}} 评论系统设置
+      [params.page.comment.twikoo]
+        enable = false
+        envId = ""
+        region = ""
+        path = ""
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
