@@ -54,9 +54,8 @@
                 }
                 return '';
             }
-            let themeColorMeta = getMeta('theme-color');
             if (document.body.getAttribute('theme') != 'light') {
-                themeColorMeta.content = '#000000';
+                getMeta('theme-color').content = '#000000';
             }
         </script>
         <div id="mask"></div>
