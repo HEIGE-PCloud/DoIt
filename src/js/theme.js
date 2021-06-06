@@ -813,7 +813,6 @@ var pjax = new Pjax({
     selectors: [
         "title",
         "main",
-        "meta",
         "script",
         ".menu-item",
     ],
@@ -821,7 +820,4 @@ var pjax = new Pjax({
 })
 document.addEventListener('pjax:success', function () {
     themeInit();
-
-    // config = window.config;
-    // config.math && renderMathInElement(document.body);
 });
