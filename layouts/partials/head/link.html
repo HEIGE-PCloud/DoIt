@@ -32,7 +32,7 @@
 {{- /* normalize.css */ -}}
 {{- $source := $cdn.normalizeCSS | default "lib/normalize/normalize.min.css" -}}
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
-{{- partial "plugin/defer-style.html" $style -}}
+{{- partial "plugin/style.html" $style -}}
 
 {{- /* style.min.css */ -}}
 {{- $style := dict "Source" "css/style.scss" "Fingerprint" $fingerprint -}}
