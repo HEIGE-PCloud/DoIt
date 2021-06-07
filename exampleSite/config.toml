@@ -68,13 +68,21 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.en.menu.main]]
+        identifier = "authors"
+        pre = ""
+        post = ""
+        name = "Authors"
+        url = "/authors/"
+        title = ""
+        weight = 4
+      [[languages.en.menu.main]]
         identifier = "documentation"
         pre = ""
         post = ""
         name = "Docs"
         url = "/categories/documentation/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -82,7 +90,7 @@ enableEmoji = true
         name = "About"
         url = "/about/"
         title = ""
-        weight = 5
+        weight = 6
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -90,7 +98,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 6
+        weight = 7
     [languages.en.params]
       # site description
       description = "About DoIt Theme"
@@ -268,12 +276,20 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.zh-cn.menu.main]]
+        identifier = "authors"
+        pre = ""
+        post = ""
+        name = "作者"
+        url = "/authors/"
+        title = ""
+        weight = 4
+      [[languages.zh-cn.menu.main]]
         identifier = "documentation"
         pre = ""
         name = "文档"
         url = "/categories/documentation/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         pre = ""
@@ -281,7 +297,7 @@ enableEmoji = true
         name = "关于"
         url = "/about/"
         title = ""
-        weight = 5
+        weight = 6
       [[languages.zh-cn.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -289,7 +305,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 6
+        weight = 7
     [languages.zh-cn.params]
       # 网站描述
       description = "关于 DoIt 主题"
