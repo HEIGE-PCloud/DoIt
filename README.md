@@ -65,7 +65,7 @@ To see this theme in action, here is a live [demo site](https://hugodoit.pages.d
 * Kinds of **admonitions** shortcode supported
 * Custom style shortcodes supported
 * **CDN** for all third-party libraries supported
-* **Mulit Authors** supported
+* **Mulitple Authors** supported
 * ...
 
 In short,

@@ -56,7 +56,13 @@ will be supported in the future.
 It's really cool! :(far fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 Front Matter {#front-matter}
+## 2 Author Settings {#author-setup}
+
+{{< admonition type=warning title=TODO open=true >}}
+TODO: Documentation for author setup
+{{< /admonition >}}
+
+## 3 Front Matter {#front-matter}
 
 **Hugo** allows you to add front matter in `yaml`, `toml` or `json` to your content files.
 
@@ -183,7 +189,7 @@ resources:
 ```
 {{< /admonition >}}
 
-## 3 Content Summaries
+## 4 Content Summaries
 
 **DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
@@ -230,11 +236,11 @@ Because there are multiple ways in which a summary can be specified it is useful
 It is not recommended to include rich text block elements in the summary, which will cause typographic errors. Such as code blocks, pictures, tables, etc.
 {{< /admonition >}}
 
-## 4 Basic Markdown Syntax
+## 5 Basic Markdown Syntax
 
 This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/).
 
-## 5 Extended Markdown Syntax {#extended-markdown-syntax}
+## 6 Extended Markdown Syntax {#extended-markdown-syntax}
 
 **DoIt** theme has some extended syntax elements for you to write articles.
 
