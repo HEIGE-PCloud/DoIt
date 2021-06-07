@@ -66,3 +66,5 @@ libFiles:
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
   # pjax@0.2.8 https://github.com/MoOx/pjax
   pjaxJS: pjax@0.2.8/pjax.min.js
+  # topbar@1.0.1 https://github.com/buunguyen/topbar
+  topbarJS: topbar@1.0.1/topbar.min.js

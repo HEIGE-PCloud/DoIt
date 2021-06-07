@@ -114,3 +114,4 @@ Thanks to the authors of following resources included in the theme:
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
+* [Topbar](https://github.com/buunguyen/topbar)

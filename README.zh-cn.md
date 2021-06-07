@@ -200,6 +200,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
+* [Topbar](https://github.com/buunguyen/topbar)
 
 ## 作者
 

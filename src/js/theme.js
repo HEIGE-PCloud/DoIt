@@ -816,7 +816,21 @@ var pjax = new Pjax({
         "script",
         ".menu-item",
     ],
-    cacheBust: false
+    cacheBust: false,
+    debug: false
 })
 document.addEventListener('pjax:success', function () {
 });
+topbar.config({
+    autoRun: true, 
+    barThickness: 3,
+    barColors: {
+      '0': '#55bde2'
+    },
+    shadowBlur: 0,
+    shadowColor: 'rgba(0, 0, 0, .5)',
+    className: 'topbar',
+})
+document.addEventListener('pjax:send', topbar.show);
+document.addEventListener('pjax:complete', topbar.hide);
+document.addEventListener('pjax:error', topbar.hide);

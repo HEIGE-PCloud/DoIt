@@ -184,6 +184,10 @@
 {{- /* Config script */ -}}
 {{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
+{{- /* Topbar */ -}}
+{{- $source := $cdn.topbarJS | default "lib/topbar/topbar.min.js" -}}
+{{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
 {{- /* pjax script */ -}}
 {{- $source := $cdn.pjaxJS | default "lib/pjax/pjax.min.js" -}}
 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
