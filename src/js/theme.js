@@ -819,5 +819,4 @@ var pjax = new Pjax({
     cacheBust: false
 })
 document.addEventListener('pjax:success', function () {
-    themeInit();
 });
