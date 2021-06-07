@@ -1,5 +1,5 @@
 ---
-title: "Multi Author Test"
+title: "Multiple Authors Test"
 date: 2021-06-07T11:39:42+01:00
 lastmod: 2021-06-07T11:39:42+01:00
 draft: false
@@ -8,6 +8,8 @@ description: "Multr Author Test"
 categories: [Tests]
 hiddenFromHomePage: true
 ---
+
+<!--more-->
 
 Hello!
 

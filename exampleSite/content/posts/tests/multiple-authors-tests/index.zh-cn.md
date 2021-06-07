@@ -9,8 +9,4 @@ categories: [Tests]
 hiddenFromHomePage: true
 ---
 
-Just for authors test.
-
 <!--more-->
-
-There is nothing.

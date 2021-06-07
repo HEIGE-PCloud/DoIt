@@ -1,16 +1,14 @@
 ---
-title: "Author single test"
-date: 2020-10-10T10:10:10+08:00
-lastmod: 2020-10-10T10:10:10+08:00
+title: "Single Author Test"
+date: 2021-06-07T20:40:23+01:00
+lastmod: 2021-06-07T20:40:23+01:00
 draft: false
-authors: ["PCloud"]
-description: "Author single test"
+authors: ["Alice"]
+description: "Single Author Test"
 categories: [Tests]
 hiddenFromHomePage: true
 ---
 
-Just for authors test.
-
 <!--more-->
 
-There is nothing.
+[Alice](/authors/alice)
