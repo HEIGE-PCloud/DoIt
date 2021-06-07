@@ -14,11 +14,12 @@
         <span class='screen-reader-text'> {{ i18n "by" }} </span>
         {{- range $i, $authorID := .Params.authors -}}
         {{- with partial "function/authorinfo.html" (dict
+            "authorID" $authorID
             "author" (index $.Site.Data.authors $authorID)
             "lang" $lang
         ) -}}
             {{- if gt $i 0 }}, {{ end -}}
-            <a href='{{ .link }}'>{{- .name -}}</a>
+            <a href='{{ .link | absURL }}'>{{- .name -}}</a>
         {{- end -}}
         {{- end -}}
     </span>

@@ -1,4 +1,10 @@
 {{- $params := .Page.Params | merge .Site.Params.Page | merge (dict "author" .Site.Author.name) -}}
+
+{{- $hasAuthors := ne .Page.Params.authors nil -}}
+{{- if $hasAuthors -}}
+{{- $hasAuthors = (ne (len .Page.Params.authors) 0) -}}
+{{- end -}}
+
 <item>
     <title>
         {{- .Page.Title -}}
@@ -9,9 +15,26 @@
     <pubDate>
         {{- .Page.Date.Format "Mon, 02 Jan 2006 15:04:05 -0700"  -}}
     </pubDate>
+    {{- if $hasAuthors -}}
+    {{- $lang := ( .Page.Language.Lang | default $.Lang ) -}}
+        {{- range $i, $authorID := .Page.Params.authors -}}
+        {{- with partial "function/authorinfo.html" (dict
+            "authorID" $authorID
+            "author" (index $.Site.Data.authors $authorID)
+            "lang" $lang
+        ) -}}
+        <author>
+            <name>{{- .name -}}</name>
+            <uri>{{ .link | absURL }}</uri>
+            {{- if .email -}}<email>{{ .email }}</email>{{- end -}}
+        </author>
+        {{- end -}}
+        {{- end -}}
+    {{- else -}}
     <author>
-        {{- $params.author | default (T "author") -}}
+        <name>{{- $params.author | default (T "author") -}}</name>
     </author>
+    {{- end -}}
     <guid>
         {{- .Page.Permalink -}}
     </guid>
