@@ -3,7 +3,7 @@ title: "Author single test"
 date: 2020-10-10T10:10:10+08:00
 lastmod: 2020-10-10T10:10:10+08:00
 draft: false
-authors: ["anonymous0"]
+authors: ["PCloud"]
 description: "Author single test"
 categories: [Tests]
 hiddenFromHomePage: true
