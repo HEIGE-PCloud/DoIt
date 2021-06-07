@@ -1,7 +1,7 @@
 ---
 title: "多作者测试"
-date: 2020-10-10T10:10:10+08:00
-lastmod: 2020-10-10T10:10:10+08:00
+date: 2021-06-07T20:45:21+01:00
+lastmod: 2021-06-07T20:45:21+01:00
 draft: false
 authors: ["Alice", "Bob"]
 description: "多作者测试"
@@ -10,3 +10,6 @@ hiddenFromHomePage: true
 ---
 
 <!--more-->
+
+- [爱丽丝](/zh-cn/authors/alice)
+- [Bob](/authors/bob)
