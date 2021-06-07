@@ -7,13 +7,13 @@
 {{- $i18nAuthor := dict -}}
 {{- if .author -}}
 {{- $i18nAuthor = ( index .author .lang ) -}}
-{{- $name = .author.name.display -}}
+{{- $name = .author.name -}}
 {{- $link = .author.link -}}
 {{- $email = .author.email -}}
 {{- end -}}
 
 {{- if $i18nAuthor -}}
-{{- $name = $i18nAuthor.name.display -}}
+{{- $name = $i18nAuthor.name -}}
 {{- end -}}
 
 

@@ -1,4 +1,1 @@
-id = "Bob"
-
-[name]
-display = "Bob"
+name = "Bob"

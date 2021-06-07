@@ -1,12 +1,5 @@
-id = "Alice"
-
 link = "https://alice.example.com"
-
 email = "alice@example.com"
-
-[name]
-display = "Alice"
-
+name = "Alice"
 [zh-cn]
-[zh-cn.name]
-display = "爱丽丝"
+    name = "爱丽丝"
