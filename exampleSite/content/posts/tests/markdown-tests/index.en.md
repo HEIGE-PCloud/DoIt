@@ -6,6 +6,7 @@ lastmod: 2021-04-16T12:27:57+01:00
 draft: false
 description: "Test basic markdown rendering"
 categories: [Tests]
+authors: [PCloud]
 hiddenFromHomePage: true
 ---
 
