@@ -1,0 +1,31 @@
+{{- $icon := dict "Class" "author fas fa-user-circle fa-fw" }}
+
+{{- $hasAuthors := ne .Params.authors nil -}}
+{{- if $hasAuthors -}}
+{{- $hasAuthors = (ne (len .Params.authors) 0) -}}
+{{- end -}}
+
+{{- if $hasAuthors -}}
+    {{- $lang := ( $.Params.lang | default $.Lang ) -}}
+    <span class='author'>
+        {{- with $icon -}}
+            {{- partial "plugin/icon.html" . -}}
+        {{- end -}}
+        <span class='screen-reader-text'> {{ i18n "by" }} </span>
+        {{- range $i, $authorID := .Params.authors -}}
+        {{- with partial "function/authorinfo.html" (dict
+            "authorID" $authorID
+            "author" (index $.Site.Data.authors $authorID)
+            "lang" $lang
+        ) -}}
+            {{- if gt $i 0 }}, {{ end -}}
+            <a href='{{ .link | absURL }}'>{{- .name -}}</a>
+        {{- end -}}
+        {{- end -}}
+    </span>
+{{- else -}}
+    {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
+    {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+    {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Icon" $icon "Content" $author -}}
+    {{- partial "plugin/link.html" $options -}}
+{{- end -}}

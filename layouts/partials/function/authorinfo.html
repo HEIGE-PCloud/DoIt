@@ -1,0 +1,28 @@
+{{- /* Author */ -}}
+
+{{- $name := .authorID -}}
+{{- $link := "" -}}
+{{- $email := "" -}}
+
+{{- $i18nAuthor := dict -}}
+{{- if .author -}}
+{{- $i18nAuthor = ( index .author .lang ) -}}
+{{- $name = .author.name -}}
+{{- $link = .author.link -}}
+{{- $email = .author.email -}}
+{{- end -}}
+
+{{- if $i18nAuthor -}}
+{{- $name = $i18nAuthor.name -}}
+{{- end -}}
+
+
+{{- $extLink := $name -}}
+{{- if $link -}}
+{{- $extLink = printf `<a href="%s" class="archive-item-link" title="%s" target="_blank"> %s </a>` $link $name $name -}}
+{{- end -}}
+
+{{- /* $link := .author.link | default ((print "authors" "/" .authorID) | relLangURL) */ -}}
+{{- $link := (print "authors" "/" (lower .authorID)) | relLangURL -}}
+
+{{- return dict "author" .author "email" $email "name" $name "extLink" $extLink "link" $link -}}

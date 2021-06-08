@@ -56,7 +56,37 @@ will be supported in the future.
 It's really cool! :(far fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 Front Matter {#front-matter}
+## 2 Author Settings {#author-setup}
+
+You are encouraged to create your author profile under `mysite/data/authors` as `author_name.toml`. In your profile, you can specify the link, email and name with i18n support.
+
+Here is an example for `Alice.toml`:
+
+```toml
+link = "https://alice.example.com"
+email = "alice@example.com"
+name = "Alice"
+[zh-cn]
+    name = "爱丽丝"
+```
+
+After creating your author profile, you can specify your name in the front matter of your posts. After that, the post will be automatically signed with your name and link, and will be classified according to its author.
+
+```yaml
+---
+authors: [Alice]
+---
+```
+
+You can also specify multiple authors for one post.
+
+```yaml
+---
+authors: [Alice, Bob, Catherine]
+---
+```
+
+## 3 Front Matter {#front-matter}
 
 **Hugo** allows you to add front matter in `yaml`, `toml` or `json` to your content files.
 
@@ -74,8 +104,7 @@ subtitle: ""
 date: 2020-03-04T15:58:26+08:00
 lastmod: 2020-03-04T15:58:26+08:00
 draft: true
-author: ""
-authorLink: ""
+authors: []
 description: ""
 license: ""
 images: []
@@ -135,8 +164,7 @@ seo:
 * **date**: the datetime assigned to this page, which is usually fetched from the `date` field in front matter, but this behaviour is configurabl in the [site configuration](../theme-documentation-basics#site-configuration).
 * **lastmod**: the datetime at which the content was last modified.
 * **draft**: if `true`, the content will not be rendered unless the `--buildDrafts`/`-D` flag is passed to the `hugo` command.
-* **author**: the author for the content.
-* **authorLink**: the link of the author.
+* **authors**: {{< version 0.2.12 changed >}} the list of authors for the content.
 * **description**: the description for the content.
 * **license**: the special lisence for this content.
 * **images**: page images for Open Graph and Twitter Cards.
@@ -183,7 +211,7 @@ resources:
 ```
 {{< /admonition >}}
 
-## 3 Content Summaries
+## 4 Content Summaries
 
 **DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
@@ -230,11 +258,11 @@ Because there are multiple ways in which a summary can be specified it is useful
 It is not recommended to include rich text block elements in the summary, which will cause typographic errors. Such as code blocks, pictures, tables, etc.
 {{< /admonition >}}
 
-## 4 Basic Markdown Syntax
+## 5 Basic Markdown Syntax
 
 This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/).
 
-## 5 Extended Markdown Syntax {#extended-markdown-syntax}
+## 6 Extended Markdown Syntax {#extended-markdown-syntax}
 
 **DoIt** theme has some extended syntax elements for you to write articles.
 

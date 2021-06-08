@@ -11,6 +11,16 @@
                 <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "tag" -}}
                 <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
+            {{- else if eq $taxonomy "author" -}}
+                {{- printf "%v - " (T $taxonomy | default $taxonomy) -}}
+                {{- .Scratch.Set "authorID" .Title -}}
+                {{- with partial "function/authorinfo.html" (dict
+                    "authorID" .Title
+                    "author" (index $.Site.Data.authors .Title)
+                    "lang" ($.Params.lang | default $.Lang)
+                ) -}}
+                    {{- .extLink | safeHTML -}}
+                {{- end -}}
             {{- else -}}
                 {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
             {{- end -}}
