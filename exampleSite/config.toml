@@ -914,7 +914,7 @@ enableEmoji = true
       # Waline comment config (https://waline.js.org)
       # Waline 评论系统设置 (https://waline.js.org)
       [params.page.comment.waline]
-        enable = true
+        enable = false
         serverURL = "https://doit-docs-comment.vercel.app/"
         placeholder = "Just Go Go."
         wordLimit = 0
@@ -963,6 +963,14 @@ enableEmoji = true
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
+      # Twikoo comment config (https://twikoo.js.org/)
+      # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
+      [params.page.comment.twikoo]
+        enable = true
+        envId = "https://doit-docs-comment-twikoo.vercel.app/"
+        region = ""
+        path = ""
+        visitor = true
     # Third-party library config
     # 第三方库配置
     [params.page.library]

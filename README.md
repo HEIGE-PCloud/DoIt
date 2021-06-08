@@ -112,6 +112,7 @@ the DoIt theme may be more suitable for you.
 * **Telegram comments** system supported by [Telegram Comments](https://comments.app/)
 * **Commento** comment system supported by [Commento](https://commento.io/)
 * **Utterances** comment system supported by [Utterances](https://utteranc.es/)
+* **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 
 ### Extended Features
 
@@ -203,6 +204,7 @@ Thanks to the authors of following resources included in the theme:
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
+* [Twikoo](https://twikoo.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 
 ## Author

@@ -587,6 +587,13 @@ Please open the code block below to view the complete sample configuration :(far
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
+      # {{< version 0.2.12 >}} {{< link "https://twikoo.js.org/" "Twikoo" >}} comment config
+      [params.page.comment.twikoo]
+        enable = false
+        envId = ""
+        region = ""
+        path = ""
+        visitor = true
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]
