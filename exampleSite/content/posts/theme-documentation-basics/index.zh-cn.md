@@ -232,7 +232,7 @@ hugo
   # {{< version 0.2.0 >}} 搜索配置
   [params.search]
     enable = true
-    # 搜索引擎的类型 ("lunr", "algolia")
+    # 搜索引擎的类型 ("lunr", "algolia", "fuse")
     type = "lunr"
     # 文章内容最长索引长度
     contentLength = 4000
@@ -1054,7 +1054,7 @@ defaultContentLanguage = "zh-cn"
 ```toml
 [params.search]
   enable = true
-  # 搜索引擎的类型 ("lunr", "algolia")
+  # 搜索引擎的类型 ("lunr", "algolia", "fuse")
   type = "lunr"
   # 文章内容最长索引长度
   contentLength = 4000

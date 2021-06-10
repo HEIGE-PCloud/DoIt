@@ -63,7 +63,7 @@ math:
 
 #### 扩展功能
 
-* :(fas fa-search fa-fw): 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 的**搜索**
+* :(fas fa-search fa-fw): 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 或 [Fuse.js](https://fusejs.io/) 的**搜索**
 * :(far fa-grin-tongue-wink fa-fw): 支持 **Twemoji**
 * :(fas fa-code fa-fw): 支持**代码高亮**
 * :(far fa-copy fa-fw): 一键**复制代码**到剪贴板
@@ -99,6 +99,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
+* [Fuse.js](https://fusejs.io/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)
 * [Twemoji](https://github.com/twitter/twemoji)

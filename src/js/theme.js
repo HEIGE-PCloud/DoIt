@@ -306,6 +306,58 @@ class Theme {
                                 console.error(err);
                                 finish([]);
                             });
+                    } else if (searchConfig.type === 'fuse') {
+                        const search = () => {
+                            const results = {};
+                            this._index.search(query).forEach(({ item, refIndex, matches }) => {
+                                let title = item.title;
+                                matches.forEach(({ indices, value, key }) => {
+                                    if (key === 'content') {
+                                        // TODO
+                                    } else if (key === 'title') {
+                                        let substr = title.substring(indices[0][0], indices[0][1] + 1);
+                                        let qwq = `<${highlightTag}>` + substr + `</${highlightTag}>`;
+                                        title = title.replaceAll(substr, qwq);
+                                    }
+                                });
+                                results[item.uri] = {
+                                    'uri': item.uri,
+                                    'title': title,
+                                    'date': item.date,
+                                    'context': item.content
+                                };
+                            });
+                            return Object.values(results).slice(0, maxResultLength);
+                        }
+                        if (!this._index) {
+                            fetch(searchConfig.fuseIndexURL)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const options = {
+                                        isCaseSensitive: false,
+                                        includeScore: false,
+                                        shouldSort: true,
+                                        includeMatches: true,
+                                        findAllMatches: false,
+                                        minMatchCharLength: 2,
+                                        location: 0,
+                                        threshold: 0.6,
+                                        distance: 100,
+                                        useExtendedSearch: false,
+                                        ignoreLocation: false,
+                                        ignoreFieldNorm: false,
+                                        keys: [
+                                          "content",
+                                          "title"
+                                        ]
+                                      };
+                                    this._index = new Fuse(data, options);
+                                    finish(search());
+                                }).catch(err => {
+                                    console.error(err);
+                                    finish([]);
+                                })
+                        } else finish(search());
                     }
                 },
                 templates: {
@@ -316,11 +368,15 @@ class Theme {
                             searchType: 'algolia',
                             icon: '<i class="fab fa-algolia fa-fw"></i>',
                             href: 'https://www.algolia.com/',
-                        } : {
+                        } : (searchConfig.type === 'lunr' ? {
                             searchType: 'Lunr.js',
                             icon: '',
                             href: 'https://lunrjs.com/',
-                        };
+                        } : {
+                            searchType: 'Fuse.js',
+                            icon: '',
+                            href: 'https://fusejs.io/',
+                        });
                         return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
                 },
             });
