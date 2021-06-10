@@ -229,7 +229,7 @@ Please open the code block below to view the complete sample configuration :(far
   # {{< version 0.2.0 >}} Search config
   [params.search]
     enable = true
-    # type of search engine ("lunr", "algolia")
+    # type of search engine ("lunr", "algolia"，"fuse")
     type = "lunr"
     # max index length of the chunked content
     contentLength = 4000
@@ -1052,7 +1052,7 @@ Here is the search configuration in your [site configuration](#site-configuratio
 ```toml
 [params.search]
   enable = true
-  # type of search engine ("lunr", "algolia")
+  # type of search engine ("lunr", "algolia", "fuse")
   type = "lunr"
   # max index length of the chunked content
   contentLength = 4000
