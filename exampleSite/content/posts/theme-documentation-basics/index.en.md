@@ -230,7 +230,7 @@ Please open the code block below to view the complete sample configuration :(far
   [params.search]
     enable = true
     # type of search engine ("lunr", "algolia"，"fuse")
-    type = "lunr"
+    type = "fuse"
     # max index length of the chunked content
     contentLength = 4000
     # placeholder of the search bar
@@ -247,7 +247,17 @@ Please open the code block below to view the complete sample configuration :(far
       index = ""
       appID = ""
       searchKey = ""
-
+    [params.search.fuse]
+      # {{< version 0.2.12 >}} https://fusejs.io/api/options.html
+      isCaseSensitive = false
+      minMatchCharLength = 2
+      findAllMatches = false
+      location = 0
+      threshold = 0.3
+      distance = 100
+      ignoreLocation = false
+      useExtendedSearch = false
+      ignoreFieldNorm = false
   # Header config
   [params.header]
     # desktop header mode ("fixed", "normal", "auto")
@@ -1053,7 +1063,7 @@ Here is the search configuration in your [site configuration](#site-configuratio
 [params.search]
   enable = true
   # type of search engine ("lunr", "algolia", "fuse")
-  type = "lunr"
+  type = "fuse"
   # max index length of the chunked content
   contentLength = 4000
   # placeholder of the search bar
@@ -1070,11 +1080,23 @@ Here is the search configuration in your [site configuration](#site-configuratio
     index = ""
     appID = ""
     searchKey = ""
+  [params.search.fuse]
+    # {{< version 0.2.12 >}} https://fusejs.io/api/options.html
+    isCaseSensitive = false
+    minMatchCharLength = 2
+    findAllMatches = false
+    location = 0
+    threshold = 0.3
+    distance = 100
+    ignoreLocation = false
+    useExtendedSearch = false
+    ignoreFieldNorm = false
 ```
 
 {{< admonition note "How to choose search engine?" >}}
 The following is a comparison of two search engines:
 
+* `fuse`: simple, no need to synchronize `index.json`, no limit for `contentLength`, high performance
 * `lunr`: simple, no need to synchronize `index.json`, no limit for `contentLength`,
   but high bandwidth and low performance (Especially for Chinese which needs a large segmentit library)
 * `algolia`: high performance and low bandwidth, but need to synchronize `index.json` and limit for `contentLength`
