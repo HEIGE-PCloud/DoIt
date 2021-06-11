@@ -143,7 +143,15 @@ class Theme {
         const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10;
         const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50;
         const highlightTag = searchConfig.highlightTag ? searchConfig.highlightTag : 'em';
-
+        const isCaseSensitive = searchConfig.isCaseSensitive ? searchConfig.isCaseSensitive : false;
+        const minMatchCharLength = searchConfig.minMatchCharLength ? searchConfig.minMatchCharLength : 1;
+        const findAllMatches = searchConfig.findAllMatches ? searchConfig.findAllMatches : false;
+        const location = searchConfig.location ? searchConfig.location : 0;
+        const threshold = searchConfig.threshold ? searchConfig.threshold : 0.3;
+        const distance = searchConfig.distance ? searchConfig.distance : 100;
+        const ignoreLocation = searchConfig.ignoreLocation ? searchConfig.ignoreLocation : false;
+        const useExtendedSearch = searchConfig.useExtendedSearch ? searchConfig.useExtendedSearch : false;
+        const ignoreFieldNorm = searchConfig.ignoreFieldNorm ? searchConfig.ignoreFieldNorm : false;
         const suffix = isMobile ? 'mobile' : 'desktop';
         const $header = document.getElementById(`header-${suffix}`);
         const $searchInput = document.getElementById(`search-input-${suffix}`);
@@ -311,20 +319,32 @@ class Theme {
                             const results = {};
                             this._index.search(query).forEach(({ item, refIndex, matches }) => {
                                 let title = item.title;
+                                let content = item.content;
                                 matches.forEach(({ indices, value, key }) => {
                                     if (key === 'content') {
-                                        // TODO
+                                        let offset = 0;
+                                        for (let i = 0; i < indices.length; i ++) {
+                                            let substr = content.substring(indices[i][0] + offset, indices[i][1] + 1 + offset);
+                                            let tag = `<${highlightTag}>` + substr + `</${highlightTag}>`;
+                                            content = content.substring(0, indices[i][0] + offset) + tag + content.substring(indices[i][1] + 1 + offset, content.length);
+                                            offset += highlightTag.length * 2 + 5;
+                                        }
                                     } else if (key === 'title') {
-                                        let substr = title.substring(indices[0][0], indices[0][1] + 1);
-                                        let qwq = `<${highlightTag}>` + substr + `</${highlightTag}>`;
-                                        title = title.replaceAll(substr, qwq);
+                                        let offset = 0;
+                                        for (let i = 0; i < indices.length; i ++) {
+                                            let substr = title.substring(indices[i][0] + offset, indices[i][1] + 1 + offset);
+                                            let tag = `<${highlightTag}>` + substr + `</${highlightTag}>`;
+                                            title = title.substring(0, indices[i][0] + offset) + tag + title.substring(indices[i][1] + 1 + offset, content.length);
+                                            offset += highlightTag.length * 2 + 5;
+
+                                        }
                                     }
                                 });
                                 results[item.uri] = {
                                     'uri': item.uri,
                                     'title': title,
                                     'date': item.date,
-                                    'context': item.content
+                                    'context': content
                                 };
                             });
                             return Object.values(results).slice(0, maxResultLength);
@@ -334,18 +354,18 @@ class Theme {
                                 .then(response => response.json())
                                 .then(data => {
                                     const options = {
-                                        isCaseSensitive: false,
+                                        isCaseSensitive: isCaseSensitive,
+                                        findAllMatches: findAllMatches,
+                                        minMatchCharLength: minMatchCharLength,
+                                        location: location,
+                                        threshold: threshold,
+                                        distance: distance,
+                                        ignoreLocation: ignoreLocation,
+                                        useExtendedSearch: useExtendedSearch,
+                                        ignoreFieldNorm: ignoreFieldNorm,
                                         includeScore: false,
                                         shouldSort: true,
                                         includeMatches: true,
-                                        findAllMatches: false,
-                                        minMatchCharLength: 2,
-                                        location: 0,
-                                        threshold: 0.6,
-                                        distance: 100,
-                                        useExtendedSearch: false,
-                                        ignoreLocation: false,
-                                        ignoreFieldNorm: false,
                                         keys: [
                                           "content",
                                           "title"

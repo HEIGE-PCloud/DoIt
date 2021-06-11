@@ -137,6 +137,17 @@ enableEmoji = true
           index = "en_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.en.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # Home page config
       [languages.en.params.home]
         # amount of RSS pages
@@ -344,6 +355,17 @@ enableEmoji = true
           index = "zh_cn_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.zh-cn.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
@@ -539,6 +561,17 @@ enableEmoji = true
           index = "fr_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.fr.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # Home page config
       [languages.fr.params.home]
         # amount of RSS pages
