@@ -7,6 +7,7 @@ description: "Bilibili Tests"
 categories: [Tests]
 authors: [PCloud]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

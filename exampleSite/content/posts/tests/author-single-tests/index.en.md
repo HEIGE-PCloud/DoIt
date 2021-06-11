@@ -7,6 +7,7 @@ authors: ["Alice"]
 description: "Single Author Test"
 categories: [Tests]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

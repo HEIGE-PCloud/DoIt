@@ -7,6 +7,7 @@ authors: ["Alice", "Bob", "Catherine", "David", "Edward", "Frank", "George", "Ha
 description: "Multr Author Test"
 categories: [Tests]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

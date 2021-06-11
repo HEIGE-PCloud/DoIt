@@ -8,6 +8,7 @@ description: "Test basic markdown rendering"
 categories: [Tests]
 authors: [PCloud]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

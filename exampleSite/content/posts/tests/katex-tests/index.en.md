@@ -9,7 +9,7 @@ authors: [PCloud]
 math:
   enable: true
 hiddenFromHomePage: true
-
+hiddenFromSearch: true
 ---
 
 <!--more-->
