@@ -6,6 +6,7 @@ draft: false
 description: "Author Fallback Test"
 categories: [Tests]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

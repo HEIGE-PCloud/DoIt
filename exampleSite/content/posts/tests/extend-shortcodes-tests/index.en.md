@@ -8,6 +8,7 @@ categories: [Tests]
 authors: [PCloud]
 lightgallery: true
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

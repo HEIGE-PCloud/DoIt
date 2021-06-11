@@ -8,6 +8,7 @@ description: "Friend link test"
 categories: [Tests]
 authors: [PCloud]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->
