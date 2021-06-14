@@ -141,11 +141,30 @@
                 {{- end -}}
             {{- end -}}
         },
-        {{- with .Params.author | default .Site.Author.name | default (T "author") -}}
+        {{- if .Params.authors -}}
+        "authors": [
+        {{- $lang := ( $.Params.lang | default $.Lang ) -}}
+        {{- range $i, $authorID := .Params.authors -}}
+            {{- with partial "function/authorinfo.html" (dict
+                "authorID" $authorID
+                "author" (index $.Site.Data.authors $authorID)
+                "lang" $lang
+            ) -}}
+                {{- if gt $i 0 }},{{ end -}}
+                {
+                    "@type": "Person",
+                    "name": "{{ .name }}"
+                }
+            {{- end -}}
+        {{- end -}}
+        ],
+        {{- else -}}
+            {{- with .Params.author | default .Site.Author.name | default (T "author") -}}
             "author": {
                 "@type": "Person",
                 "name": {{ . | safeHTML }}
             },
+            {{- end -}}
         {{- end -}}
         "description": {{ .Description | safeHTML }}
     }
