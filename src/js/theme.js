@@ -591,7 +591,7 @@ class Theme {
 
     initMermaid() {
         const $mermaidElements = document.getElementsByClassName('mermaid');
-        if ($mermaidElements.length) {
+        if ($mermaidElements.length && typeof mermaid !== 'undefined') {
             mermaid.initialize({ startOnLoad: false, theme: 'default' });
             this.util.forEach($mermaidElements, $mermaid => {
                 mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
@@ -600,6 +600,7 @@ class Theme {
                 }, $mermaid);
             });
         }
+
     }
 
     initEcharts() {
@@ -887,13 +888,13 @@ if (document.readyState !== 'loading') {
 }
 let pjax = new Pjax({
     selectors: [
-        "title",
-        "main",
-        ".menu-item",
-        ".pjax-assets"
+        "title .pjax-title",
+        "main .main",
+        "a .menu-item",
+        "div .pjax-assets"
     ],
     cacheBust: false,
-    debug: true
+    debug: false
 })
 document.addEventListener('pjax:success', function () {
 });
