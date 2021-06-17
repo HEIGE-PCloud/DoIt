@@ -590,18 +590,17 @@ class Theme {
     }
 
     initMermaid() {
-        if (mermaid) {
-            const $mermaidElements = document.getElementsByClassName('mermaid');
-            if ($mermaidElements.length) {
-                mermaid.initialize({ startOnLoad: false, theme: 'default' });
-                this.util.forEach($mermaidElements, $mermaid => {
-                    mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
-                        $mermaid.insertAdjacentHTML('afterbegin', svgCode);
-                        document.getElementById('svg-' + $mermaid.id).children[0].remove();
-                    }, $mermaid);
-                });
-            }
+        const $mermaidElements = document.getElementsByClassName('mermaid');
+        if ($mermaidElements.length && typeof mermaid !== 'undefined') {
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
+            this.util.forEach($mermaidElements, $mermaid => {
+                mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
+                    $mermaid.insertAdjacentHTML('afterbegin', svgCode);
+                    document.getElementById('svg-' + $mermaid.id).children[0].remove();
+                }, $mermaid);
+            });
         }
+
     }
 
     initEcharts() {
