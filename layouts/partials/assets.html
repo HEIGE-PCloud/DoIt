@@ -2,7 +2,7 @@
 {{- $cdn := .Scratch.Get "cdn" | default dict -}}
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $config := (.Scratch.Get "this").config -}}
-
+<div class="pjax-assets">
 {{- /* Search */ -}}
 {{- if .Site.Params.search | and .Site.Params.search.enable -}}
     {{- $search := .Site.Params.search -}}
@@ -209,3 +209,4 @@
 {{- end -}}
 
 {{- partial "plugin/analytics.html" . -}}
+</div>

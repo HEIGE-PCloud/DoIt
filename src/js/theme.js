@@ -809,15 +809,15 @@ if (document.readyState !== 'loading') {
 } else {
     document.addEventListener('DOMContentLoaded', themeInit, false);
 }
-var pjax = new Pjax({
+let pjax = new Pjax({
     selectors: [
         "title",
         "main",
-        "script",
         ".menu-item",
+        ".pjax-assets"
     ],
     cacheBust: false,
-    debug: false
+    debug: true
 })
 document.addEventListener('pjax:success', function () {
 });
