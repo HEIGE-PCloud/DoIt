@@ -68,13 +68,21 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.en.menu.main]]
+        identifier = "authors"
+        pre = ""
+        post = ""
+        name = "Authors"
+        url = "/authors/"
+        title = ""
+        weight = 4
+      [[languages.en.menu.main]]
         identifier = "documentation"
         pre = ""
         post = ""
         name = "Docs"
         url = "/categories/documentation/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -82,7 +90,7 @@ enableEmoji = true
         name = "About"
         url = "/about/"
         title = ""
-        weight = 5
+        weight = 6
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -90,7 +98,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 6
+        weight = 7
     [languages.en.params]
       # site description
       description = "About DoIt Theme"
@@ -111,7 +119,7 @@ enableEmoji = true
       # Search config
       [languages.en.params.search]
         enable = true
-        # type of search engine ("lunr", "algolia")
+        # type of search engine ("lunr", "algolia", "fuse")
         type = "algolia"
         # max index length of the chunked content
         contentLength = 4000
@@ -129,6 +137,17 @@ enableEmoji = true
           index = "en_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.en.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # Home page config
       [languages.en.params.home]
         # amount of RSS pages
@@ -268,12 +287,20 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.zh-cn.menu.main]]
+        identifier = "authors"
+        pre = ""
+        post = ""
+        name = "作者"
+        url = "/authors/"
+        title = ""
+        weight = 4
+      [[languages.zh-cn.menu.main]]
         identifier = "documentation"
         pre = ""
         name = "文档"
         url = "/categories/documentation/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         pre = ""
@@ -281,7 +308,7 @@ enableEmoji = true
         name = "关于"
         url = "/about/"
         title = ""
-        weight = 5
+        weight = 6
       [[languages.zh-cn.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -289,7 +316,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 6
+        weight = 7
     [languages.zh-cn.params]
       # 网站描述
       description = "关于 DoIt 主题"
@@ -310,7 +337,7 @@ enableEmoji = true
       # 搜索配置
       [languages.zh-cn.params.search]
         enable = true
-        # 搜索引擎的类型 ("lunr", "algolia")
+        # 搜索引擎的类型 ("lunr", "algolia", "fuse")
         type = "algolia"
         # 文章内容最长索引长度
         contentLength = 4000
@@ -328,6 +355,17 @@ enableEmoji = true
           index = "zh_cn_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.zh-cn.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # 主页信息设置
       [languages.zh-cn.params.home]
         # RSS 文章数目
@@ -505,7 +543,7 @@ enableEmoji = true
       # Search config
       [languages.fr.params.search]
         enable = true
-        # type of search engine ("lunr", "algolia")
+        # type of search engine ("lunr", "algolia", "fuse")
         type = "algolia"
         # max index length of the chunked content
         contentLength = 4000
@@ -523,6 +561,17 @@ enableEmoji = true
           index = "fr_index"
           appID = "5YGRNRQK1G"
           searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+        [languages.fr.params.search.fuse]
+          # https://fusejs.io/api/options.html
+          isCaseSensitive = false
+          minMatchCharLength = 2
+          findAllMatches = false
+          location = 0
+          threshold = 0.3
+          distance = 100
+          ignoreLocation = false
+          useExtendedSearch = false
+          ignoreFieldNorm = false
       # Home page config
       [languages.fr.params.home]
         # amount of RSS pages
@@ -898,7 +947,7 @@ enableEmoji = true
       # Waline comment config (https://waline.js.org)
       # Waline 评论系统设置 (https://waline.js.org)
       [params.page.comment.waline]
-        enable = true
+        enable = false
         serverURL = "https://doit-docs-comment.vercel.app/"
         placeholder = "Just Go Go."
         wordLimit = 0
@@ -947,6 +996,14 @@ enableEmoji = true
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
+      # Twikoo comment config (https://twikoo.js.org/)
+      # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
+      [params.page.comment.twikoo]
+        enable = true
+        envId = "https://doit-docs-comment-twikoo.vercel.app/"
+        region = ""
+        path = ""
+        visitor = true
     # Third-party library config
     # 第三方库配置
     [params.page.library]
@@ -1147,3 +1204,8 @@ enableEmoji = true
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"

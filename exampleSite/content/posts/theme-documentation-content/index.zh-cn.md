@@ -55,7 +55,37 @@ math:
 非常酷的功能! :(far fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 前置参数 {#front-matter}
+## 2 作者配置 {#author-setup}
+
+我们鼓励你在 `mysite/data/authors` 下创建你的作者个人资料 `author_name.toml`. 在你的资料中, 你可以添加个人链接, 邮箱, 以及支持 i18n 的姓名.
+
+以下是 `Alice.toml` 的示例:
+
+```toml
+link = "https://alice.example.com"
+email = "alice@example.com"
+name = "Alice"
+[zh-cn]
+    name = "爱丽丝"
+```
+
+在创建作者个人资料后, 您可以在文章的前置参数中指定您的姓名. 之后, 该文章将自动著上你的名字, 并可以根据作者进行分类.
+
+```yaml
+---
+authors: [Alice]
+---
+```
+
+您也可以为一篇文章注明多个作者.
+
+```yaml
+---
+authors: [Alice, Bob, Catherine]
+---
+```
+
+## 3 前置参数 {#front-matter}
 
 **Hugo** 允许你在文章内容前面添加 `yaml`, `toml` 或者 `json` 格式的前置参数.
 
@@ -73,8 +103,7 @@ subtitle: ""
 date: 2020-03-04T15:58:26+08:00
 lastmod: 2020-03-04T15:58:26+08:00
 draft: true
-author: ""
-authorLink: ""
+authors: []
 description: ""
 license: ""
 images: []
@@ -134,8 +163,7 @@ seo:
 * **date**: 这篇文章创建的日期时间. 它通常是从文章的前置参数中的 `date` 字段获取的, 但是也可以在 [网站配置](../theme-documentation-basics#site-configuration) 中设置.
 * **lastmod**: 上次修改内容的日期时间.
 * **draft**: 如果设为 `true`, 除非 `hugo` 命令使用了 `--buildDrafts`/`-D` 参数, 这篇文章不会被渲染.
-* **author**: 文章作者.
-* **authorLink**: 文章作者的链接.
+* **authors**: {{< version 0.2.12 changed >}} 文章作者.
 * **description**: 文章内容的描述.
 * **license**: 这篇文章特殊的许可.
 * **images**: 页面图片, 用于 Open Graph 和 Twitter Cards.
@@ -182,7 +210,7 @@ resources:
 ```
 {{< /admonition >}}
 
-## 3 内容摘要
+## 4 内容摘要
 
 **DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
 
@@ -229,11 +257,11 @@ resources:
 不建议在摘要内容中包含富文本块元素, 这会导致渲染错误. 例如代码块, 图片, 表格等.
 {{< /admonition >}}
 
-## 4 Markdown 基本语法
+## 5 Markdown 基本语法
 
 这部分内容在 [Markdown 基本语法页面](../basic-markdown-syntax/) 中介绍.
 
-## 5 Markdown 扩展语法 {#extended-markdown-syntax}
+## 6 Markdown 扩展语法 {#extended-markdown-syntax}
 
 **DoIt** 主题提供了一些扩展的语法便于你撰写文章.
 

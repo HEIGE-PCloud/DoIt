@@ -183,6 +183,24 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
         {{- end -}}
+        
+        {{- /* Twikoo Comment System */ -}}
+        {{- $twikoo := $comment.twikoo | default dict -}}
+        {{- if $twikoo.enable -}}
+            <div id="twikoo"></div>
+            {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
+            {{- with $twikoo.region -}}
+                {{- $commentConfig = dict "region" . | dict "twikoo" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $twikoo.path -}}
+                {{- $commentConfig = dict "path" . | dict "twikoo" | merge $commentConfig -}}
+            {{- end -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
+            </noscript>
+        {{- end -}}
     </div>
 {{- end -}}
 

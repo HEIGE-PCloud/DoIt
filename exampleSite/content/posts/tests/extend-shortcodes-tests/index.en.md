@@ -5,8 +5,10 @@ lastmod: 2021-04-16T14:21:36+01:00
 draft: false
 description: "Extend Shortcodes Tests"
 categories: [Tests]
+authors: [PCloud]
 lightgallery: true
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

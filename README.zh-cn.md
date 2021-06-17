@@ -51,7 +51,7 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 一些美观的 **CSS 动画**
 * 易用和自动展开的**文章目录**
 * 支持更多的**社交链接**、**网站分享**和**评论系统**
-* 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 的**搜索**
+* 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 或 [Fuse.js](https://fusejs.io/) 的**搜索**
 * 一键**复制代码**到剪贴板
 * 支持基于 **[Font Awesome](https://fontawesome.com/) 图标**的扩展 Markdown 语法
 * 支持**上标注释**的扩展 Markdown 语法
@@ -65,6 +65,7 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持多种**注释**的 shortcode
 * 支持自定义样式的 shortcode
 * 支持所有第三方库的 **CDN**
+* 支持**多作者分类**
 * ...
 
 所以，如果你更偏好 DoIt 主题的设计语言和自由度，如果你想便捷地使用扩展的 Font Awesome 图标，如果你想在文章内嵌数学公式、流程图、音乐或是 Bilibili 视频，
@@ -108,10 +109,11 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持 **[Telegram comments](https://comments.app/) 评论**系统
 * 支持 **[Commento](https://commento.io/)** 评论系统
 * 支持 **[Utterances](https://utteranc.es/)** 评论系统
+* 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
 
 ### 扩展功能
 
-* 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 的**搜索**
+* 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 或 [Fuse.js](https://fusejs.io/) 的**搜索**
 * 支持 **Twemoji**
 * 支持**代码高亮**
 * 一键**复制代码**到剪贴板
@@ -183,6 +185,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
+* [Fuse.js](https://fusejs.io/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)
 * [Twemoji](https://github.com/twitter/twemoji)
@@ -199,6 +202,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
+* [Twikoo](https://twikoo.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Topbar](https://github.com/buunguyen/topbar)
 

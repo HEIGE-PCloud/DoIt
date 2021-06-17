@@ -5,7 +5,9 @@ lastmod: 2021-04-16T14:45:40+01:00
 draft: false
 description: "Mapbox Tests"
 categories: [Tests]
+authors: [PCloud]
 hiddenFromHomePage: true
+hiddenFromSearch: true
 ---
 
 <!--more-->

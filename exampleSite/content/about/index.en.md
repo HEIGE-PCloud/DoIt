@@ -58,10 +58,11 @@ math:
 * :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
 * :(fas fa-comment-dots fa-fw): **Commento** comment system supported by [Commento](https://commento.io/)
 * :(fas fa-comment-alt fa-fw): **Utterances** comment system supported by [Utterances](https://utteranc.es/)
+* :(fas fa-comment-alt fa-fw): **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 
 #### Extended Features
 
-* :(fas fa-search fa-fw): **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/)
+* :(fas fa-search fa-fw): **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
 * :(far fa-grin-tongue-wink fa-fw): **Twemoji** supported
 * :(fas fa-code fa-fw): Automatically **highlighting** code
 * :(far fa-copy fa-fw): **Copy code** to clipboard with one click
@@ -97,6 +98,7 @@ Thanks to the authors of following resources included in the theme:
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
+* [Fuse.js](https://fusejs.io/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)
 * [Twemoji](https://github.com/twitter/twemoji)
@@ -113,5 +115,6 @@ Thanks to the authors of following resources included in the theme:
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
+* [Twikoo](https://twikoo.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Topbar](https://github.com/buunguyen/topbar)
