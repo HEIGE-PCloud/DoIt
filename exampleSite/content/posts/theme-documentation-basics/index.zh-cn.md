@@ -203,7 +203,7 @@ hugo
   description = "这是我的全新 Hugo 网站"
   # 网站关键词
   keywords = ["Theme", "Hugo"]
-  # 网站默认主题样式 ("light", "dark", "auto")
+  # {{< version 0.2.11 changed >}} 网站默认主题样式 ("light", "dark", "black", "auto")
   defaultTheme = "auto"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
   gitRepo = ""

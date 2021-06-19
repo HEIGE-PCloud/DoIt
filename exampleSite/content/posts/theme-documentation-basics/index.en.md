@@ -200,7 +200,7 @@ Please open the code block below to view the complete sample configuration :(far
   description = "This is My New Hugo Site"
   # site keywords
   keywords = ["Theme", "Hugo"]
-  # site default theme ("light", "dark", "auto")
+  # {{< version 0.2.11 changed >}} site default theme ("light", "dark", "black", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
   gitRepo = ""

@@ -2,89 +2,65 @@
 
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>
-            {{- block "title" . }}{{ .Site.Title }}{{ end -}}
-        </title>
 
-        {{- partial "head/meta.html" . -}}
-        {{- partial "head/link.html" . -}}
-        {{- partial "head/seo.html" . -}}
-    </head>
-    <body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
-        {{- /* Check theme isDark before body rendering */ -}}
-        {{- $theme := .Site.Params.defaulttheme -}}
-        <script type="text/javascript">
-            if (window.localStorage && localStorage.getItem('theme')) {
-                let theme = localStorage.getItem('theme');
-                if (theme === 'light' || theme === 'dark' || theme === 'black') {
-                    document.body.setAttribute('theme', theme);
-                } else {
-                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.body.setAttribute('theme', 'dark');
-                    }
-                    else {
-                        document.body.setAttribute('theme', 'light');
-                    }
-                }
-            } else {
-                if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark' || '{{ $theme }}' === 'black') {
-                    document.body.setAttribute('{{ $theme }}');
-                    window.localStorage && localStorage.setItem('theme', '{{ $theme }}');
-                } else {
-                    window.localStorage && localStorage.setItem('theme', 'auto');
-                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.body.setAttribute('theme', 'dark');
-                    }
-                    else {
-                        document.body.setAttribute('theme', 'light');
-                    }
-                }
-            }
-            function getMeta(metaName) {
-                const metas = document.getElementsByTagName('meta'); 
-                for (let i = 0; i < metas.length; i++) {
-                    if (metas[i].getAttribute('name') === metaName) {
-                        return metas[i];
-                    }
-                }
-                return '';
-            }
-            let themeColorMeta = getMeta('theme-color');
-            if (document.body.getAttribute('theme') != 'light') {
-                themeColorMeta.content = '#000000';
-            }
-        </script>
-        <div id="mask"></div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {{- block "title" . }}{{ .Site.Title }}{{ end -}}
+    </title>
 
-        {{- /* Body wrapper */ -}}
-        <div class="wrapper">
-            {{- partial "header.html" . -}}
-            <main class="main">
-                <div class="container">
-                    {{- block "content" . }}{{ end -}}
-                </div>
-            </main>
-            {{- partial "footer.html" . -}}
-        </div>
+    {{- partial "head/meta.html" . -}}
+    {{- partial "head/link.html" . -}}
+    {{- partial "head/seo.html" . -}}
+</head>
 
-        <div id="fixed-buttons">
-            {{- /* top button */ -}}
-            <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a>
+<body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+    {{- /* Check theme isDark before body rendering */ -}}
+    {{- $theme := .Site.Params.defaulttheme -}}
+    <script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {
+            const metas = document.getElementsByTagName('meta');
+            for (let i = 0; i < metas.length; i++)
+                if (metas[i].getAttribute('name') === metaName)
+                    return metas[i];
+            return '';
+        }
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark' || '{{ $theme }}' === 'black') setTheme('{{ $theme }}'), saveTheme('{{ $theme }}'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="mask"></div>
 
-            {{- /* comment button */ -}}
-            <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div>
+    {{- /* Body wrapper */ -}}
+    <div class="wrapper">
+        {{- partial "header.html" . -}}
+        <main class="main">
+            <div class="container">
+                {{- block "content" . }}{{ end -}}
+            </div>
+        </main>
+        {{- partial "footer.html" . -}}
+    </div>
 
-        {{- /* Load JavaScript scripts and CSS */ -}}
-        {{- partial "assets.html" . -}}
-    </body>
+    <div id="fixed-buttons">
+        {{- /* top button */ -}}
+        <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a>
+
+        {{- /* comment button */ -}}
+        <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div>
+
+    {{- /* Load JavaScript scripts and CSS */ -}}
+    {{- partial "assets.html" . -}}
+</body>
+
 </html>
