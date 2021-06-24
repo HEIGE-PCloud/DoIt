@@ -7,11 +7,8 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "DoIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
-- name: "featured-image-preview"
-  src: "featured-image-preview.webp"
+featuredImage: "featured-image.webp"
+featuredImagePreview: "featured-image-preview.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]

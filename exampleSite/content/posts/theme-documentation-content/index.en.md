@@ -7,9 +7,7 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "Find out how to create and organize your content quickly and intuitively in DoIt theme."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]

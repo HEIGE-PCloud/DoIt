@@ -7,9 +7,7 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "Hugo 和 DoIt 中的 Emoji 的用法指南."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["emoji"]
 categories: ["Markdown"]

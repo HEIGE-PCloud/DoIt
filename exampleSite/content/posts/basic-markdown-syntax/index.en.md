@@ -7,9 +7,7 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "This article shows the basic Markdown syntax and format."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["Markdown", "HTML"]
 categories: ["Markdown"]

@@ -8,10 +8,8 @@ author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "DoIt theme provides multiple shortcodes on top of built-in ones in Hugo."
 resources:
-- name: "featured-image"
-  src: "featured-image.webp"
-- name: "featured-image-preview"
-  src: "featured-image-preview.webp"
+featuredImage: "featured-image.webp"
+featuredImagePreview: "featured-image-preview.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]

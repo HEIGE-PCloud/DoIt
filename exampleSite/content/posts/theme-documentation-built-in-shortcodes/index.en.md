@@ -7,9 +7,7 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "Hugo provides multiple built-in shortcodes for author convenience and to keep your markdown content clean."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]

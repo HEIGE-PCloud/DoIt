@@ -7,9 +7,7 @@ draft: false
 author: "PCloud"
 authorLink: "https://github.com/HEIGE-PCloud"
 description: "Guide to setup PWA in DoIt"
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["PWA"]
 categories: ["Documentation"]

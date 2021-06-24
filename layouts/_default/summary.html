@@ -2,14 +2,19 @@
 
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
     {{- /* Featured image */ -}}
-    {{- $image := $params.featuredimagepreview | default $params.featuredimage -}}
+    {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
     {{- $height := "auto" -}}
     {{- $width := "auto" -}}
+    {{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+        {{- $image = .RelPermalink -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+    {{- end -}}
     {{- with .Resources.GetMatch "featured-image" -}}
         {{- $image = .RelPermalink -}}
         {{- $height = .Height -}}
         {{- $width = .Width -}}
-        {{- end -}}
+    {{- end -}}
     {{- with .Resources.GetMatch "featured-image-preview" -}}
         {{- $image = .RelPermalink -}}
         {{- $height = .Height -}}

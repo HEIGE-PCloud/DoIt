@@ -7,9 +7,7 @@ draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it."
-resources:
-- name: "featured-image"
-  src: "featured-image.webp"
+featuredImage: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
