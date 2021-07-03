@@ -68,13 +68,21 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.en.menu.main]]
+        identifier = "series"
+        pre = ""
+        post = ""
+        name = "Series"
+        url = "/series/"
+        title = ""
+        weight = 4
+      [[languages.en.menu.main]]
         identifier = "authors"
         pre = ""
         post = ""
         name = "Authors"
         url = "/authors/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.en.menu.main]]
         identifier = "documentation"
         pre = ""
@@ -82,7 +90,7 @@ enableEmoji = true
         name = "Docs"
         url = "/categories/documentation/"
         title = ""
-        weight = 5
+        weight = 6
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -90,7 +98,7 @@ enableEmoji = true
         name = "About"
         url = "/about/"
         title = ""
-        weight = 6
+        weight = 7
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -98,7 +106,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 7
+        weight = 8
     [languages.en.params]
       # site description
       description = "About DoIt Theme"
@@ -1209,3 +1217,4 @@ enableEmoji = true
 author = "authors"
 category = "categories"
 tag = "tags"
+series = "series"

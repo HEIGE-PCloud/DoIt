@@ -29,7 +29,9 @@ other = "Category"
 
 [categories]
 other = "Categories"
-# === Taxonomy ===
+
+[series]
+other = "Series"
 
 # === Pagination ===
 [more]
