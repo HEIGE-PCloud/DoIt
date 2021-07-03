@@ -5,7 +5,7 @@ lastmod: 2021-07-03T22:15:26+08:00
 draft: false
 description: "Series Taxonomy Test"
 categories: [Tests]
-series: [Test pages]
+series: [test-pages]
 hiddenFromHomePage: true
 hiddenFromSearch: true
 ---

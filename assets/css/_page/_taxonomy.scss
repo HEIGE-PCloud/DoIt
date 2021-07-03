@@ -1,0 +1,16 @@
+.introduction blockquote {
+    display: block;
+    border-left: .5rem solid $blockquote-color;
+    background-color: rgba($blockquote-color, .2);
+    padding: .25rem .75rem;
+    margin: 1rem 0;
+
+    [theme=dark] & {
+      border-left-color: $blockquote-color-dark;
+      background-color: rgba($blockquote-color-dark, .2);
+    }
+    [theme=black] & {
+      border-left-color: $blockquote-color-black;
+      background-color: rgba($blockquote-color-black, .2);
+    }
+}
