@@ -30,6 +30,9 @@ other = "分类"
 
 [categories]
 other = "分类"
+
+[series]
+other = "系列"
 # === Taxonomy ===
 
 # === Pagination ===
@@ -123,8 +126,17 @@ other = "目录"
 [publishedOnDate]
 other = "发布于 {{ .Date }}"
 
+[includedIn]
+other = "收录于 "
+
+[includedInAnd]
+other = "和"
+
 [includedInCategories]
-other = "收录于 {{ .Categories }}"
+other = "类别 {{ .Categories }}"
+
+[includedInSeries]
+other = "系列 {{ .Series }}"
 
 [wordCount]
 other = "约 {{ .Count }} 字"

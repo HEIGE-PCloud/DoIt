@@ -25,7 +25,12 @@
                 {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
             {{- end -}}
         </h2>
-
+        {{- /* Introduction*/ -}}
+        {{- with .Params.introduction -}}
+        <div class="introduction">
+            <blockquote>{{- . -}}</blockquote>
+        </div>
+        {{- end -}}
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
             {{- $pages := .Pages.GroupByDate "2006" -}}

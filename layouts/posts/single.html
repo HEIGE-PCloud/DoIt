@@ -52,7 +52,12 @@
                 <span class="post-author">
                     {{- partial "meta/author.html" . }}
                 </span>
-
+                {{- with (or (.Params.categories) (.Params.series)) -}}
+                    &nbsp;<span class="post-category">
+                        {{- T "includedIn" | safeHTML -}}
+                    </span>
+                {{- end -}}
+                
                 {{- $categories := slice -}}
                 {{- range .Params.categories -}}
                     {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
@@ -60,7 +65,24 @@
                 {{- end -}}
                 {{- with delimit $categories "&nbsp;" -}}
                     &nbsp;<span class="post-category">
-                        {{- dict "Categories" . | T "includedInCategories" | safeHTML -}}
+                        {{- dict "Categories" . "Count" (len $categories) | T "includedInCategories" | safeHTML -}}
+                    </span>
+                {{- end -}}
+                
+                {{- with (and (.Params.categories) (.Params.series)) -}}
+                    &nbsp;<span class="post-category">
+                        {{- T "includedInAnd" | safeHTML -}}
+                    </span>
+                {{- end -}}
+
+                {{- $series := slice -}}
+                {{- range .Params.series -}}
+                    {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
+                    {{- $series = $series | append (printf `<a href="%v"><i class="far fa-list-alt fa-fw"></i>%v</a>` $singleSeries.RelPermalink $singleSeries.Title) -}}
+                {{- end -}}
+                {{- with delimit $series "&nbsp;" -}}
+                    &nbsp;<span class="post-series">
+                        {{- dict "Series" . | T "includedInSeries" | safeHTML -}}
                     </span>
                 {{- end -}}
             </div>

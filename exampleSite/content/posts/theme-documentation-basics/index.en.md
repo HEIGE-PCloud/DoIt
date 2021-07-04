@@ -764,6 +764,12 @@ Please open the code block below to view the complete sample configuration :(far
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
 
+# Options for taxonomies
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
+series = "series"
 ```
 
 {{< admonition >}}

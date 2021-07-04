@@ -11,7 +11,7 @@
         {{- if $.Site.Params.search.absoluteURL -}}
             {{- $uri = .Permalink -}}
         {{- end -}}
-        {{- $meta := dict "uri" $uri "title" .Title "tags" .Params.tags "categories" .Params.categories -}}
+        {{- $meta := dict "uri" $uri "title" .Title "tags" .Params.tags "categories" .Params.categories "series" .Params.series -}}
         {{- $meta = $.Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format | dict "date" | merge $meta -}}
         {{- with .Description -}}
             {{- $index = $index | append (dict "content" . "objectID" $uri | merge $meta) -}}
