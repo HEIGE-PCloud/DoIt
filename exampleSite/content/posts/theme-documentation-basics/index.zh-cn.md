@@ -768,6 +768,12 @@ hugo
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
 
+# 用于分类的设置
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
+series = "series"
 ```
 
 {{< admonition >}}

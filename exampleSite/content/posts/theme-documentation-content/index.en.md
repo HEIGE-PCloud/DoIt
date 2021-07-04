@@ -109,6 +109,7 @@ images: []
 
 tags: []
 categories: []
+series: []
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -169,6 +170,7 @@ seo:
 
 * **tags**: the tags for the content.
 * **categories**: the categories for the content.
+* **series**: {{< version 0.2.12 >}} the series for the content.
 * **featuredImage**: the featured image for the content.
 * **featuredImagePreview**: the featured image for the content preview in the home page.
 

@@ -108,6 +108,7 @@ images: []
 
 tags: []
 categories: []
+series: []
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -168,6 +169,7 @@ seo:
 
 * **tags**: 文章的标签.
 * **categories**: 文章所属的类别.
+* **series**: {{< version 0.2.12 >}} 文章所属的系列.
 * **featuredImage**: 文章的特色图片.
 * **featuredImagePreview**: 用在主页预览的文章特色图片.
 
