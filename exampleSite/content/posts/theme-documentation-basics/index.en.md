@@ -4,13 +4,13 @@ title: "Theme Documentation - Basics"
 date: 2020-03-06T21:29:01+08:00
 lastmod: 2020-03-06T21:29:01+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+authors: ["Dillon", "PCloud"]
 description: "Discover what the Hugo - DoIt theme is all about and the core-concepts behind it."
 featuredImage: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
+series: ["getting-start"]
 
 lightgallery: true
 
@@ -152,7 +152,7 @@ hugo serve
 
 Go to `http://localhost:1313`.
 
-![Basic configuration preview](basic-configuration-preview.webp "Basic configuration preview")
+{{< image src="basic-configuration-preview.webp" caption="Basic configuration preview" height="1562" width="2400">}}
 
 {{< admonition tip >}}
 When you run `hugo serve`, when the contents of the files change, the page automatically refreshes with the changes.
@@ -847,7 +847,7 @@ The default data of all supported social links is located in `themes/DoIt/assets
 which is you can refer to.
 {{< /admonition >}}
 
-![Complete configuration preview](complete-configuration-preview.webp "Complete configuration preview")
+{{< image src="complete-configuration-preview.webp" caption="Complete configuration preview" height="1562" width="2450">}}
 
 ### 3.2 Favicons, Browserconfig, Manifest
 
@@ -891,7 +891,7 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 
 **DoIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
 
-![Language Switch](language-switch.gif "Language Switch")
+{{< image src="language-switch.gif" caption="Language Switch" height="226" width="770">}}
 
 ### 4.1 Compatibility {#language-compatibility}
 
@@ -986,45 +986,14 @@ defaultContentLanguage = "en"
       url = "/categories/"
       title = ""
       weight = 3
-
-  [languages.fr]
-    weight = 3
-    title = "Mon nouveau site Hugo"
-    languageCode = "fr"
-    languageName = "Français"
-    [[languages.fr.menu.main]]
-      identifier = "posts"
-      pre = ""
-      post = ""
-      name = "Postes"
-      url = "/posts/"
-      title = ""
-      weight = 1
-    [[languages.fr.menu.main]]
-      identifier = "tags"
-      pre = ""
-      post = ""
-      name = "Balises"
-      url = "/tags/"
-      title = ""
-      weight = 2
-    [[languages.fr.menu.main]]
-      identifier = "categories"
-      name = "Catégories"
-      pre = ""
-      post = ""
-      url = "/categories/"
-      title = ""
-      weight = 3
 ```
 
 Then, for each new page, append the language code to the file name.
 
-Single file `my-page.md` is split in three files:
+Single file `my-page.md` is split in two files:
 
 * in English: `my-page.en.md`
 * in Chinese: `my-page.zh-cn.md`
-* in French: `my-page.fr.md`
 
 {{< admonition >}}
 Be aware that only translated pages are displayed in menu. It’s not replaced with default language content.

@@ -1,10 +1,10 @@
 ---
-title: "Friend link test"
+title: "Friend Shortcode Tests"
 subtitle: ""
 date: 2021-04-29T13:41:31+01:00
 lastmod: 2021-04-29T13:41:31+01:00
 draft: false
-description: "Friend link test"
+description: "Friend Shortcode Tests"
 categories: [Tests]
 authors: [PCloud]
 hiddenFromHomePage: true

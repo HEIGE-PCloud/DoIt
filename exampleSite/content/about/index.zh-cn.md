@@ -9,19 +9,9 @@ math:
   enable: true
 ---
 
-{{< style "img { height: 1.25rem; }" >}}
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.83.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/HEIGE-PCloud/DoIt?style=flat-square)](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt)
-[![GitHub forks](https://img.shields.io/github/forks/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt/fork)
-{{< /style >}}
-
-
 > [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个由 [HEIGE-PCloud](https://github.com/HEIGE-PCloud) 开发的**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
 >
 > 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt)， [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
-
-<!-- ![Hugo 主题 LoveIt](/images/Apple-Devices-Preview.webp "Hugo 主题 LoveIt") -->
 
 ### 特性
 

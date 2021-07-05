@@ -115,6 +115,11 @@
         {{- $image := $params.featuredimage -}}
         {{- $width := "auto" -}}
         {{- $height := "auto" -}}
+        {{- with .Resources.GetMatch (printf "**%s" $params.featuredimage) -}}
+            {{- $image = .RelPermalink -}}
+            {{- $width = .Width -}}
+            {{- $height = .Height -}}
+        {{- end -}}
         {{- with .Resources.GetMatch "featured-image" -}}
             {{- $image = .RelPermalink -}}
             {{- $width = .Width -}}

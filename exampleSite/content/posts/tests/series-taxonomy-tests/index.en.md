@@ -1,11 +1,11 @@
 ---
-title: "Series Taxonomy Test"
+title: "Series Taxonomy Tests"
 date: 2021-07-03T22:15:26+08:00
 lastmod: 2021-07-03T22:15:26+08:00
 draft: false
-description: "Series Taxonomy Test"
+description: "Series Taxonomy Tests"
 categories: [Tests]
-series: [Test pages]
+series: [Test series]
 hiddenFromHomePage: true
 hiddenFromSearch: true
 ---
