@@ -5,7 +5,8 @@ name = "DoIt"
 license = "MIT"
 licenselink = "https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE"
 description = "A Clean, Elegant but Advanced Hugo Theme for Hugo."
-homepage = "https://hugodoit.pages.dev"
+homepage = "https://github.com/HEIGE-PCloud/DoIt"
+demosite = "https://hugodoit.pages.dev"
 tags = [
   "blog",
   "clean",
@@ -22,7 +23,6 @@ features = [
   "syntax-highlighting",
   "SEO Optimized"
 ]
-min_version = "0.83.0"
 
 [author]
   name = "PCloud"
@@ -32,3 +32,8 @@ min_version = "0.83.0"
   name = "Dillon"
   homepage = "https://dillonzq.com/"
   repo = "https://github.com/dillonzq/LoveIt/"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.83.0"
