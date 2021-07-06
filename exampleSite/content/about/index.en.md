@@ -9,18 +9,9 @@ math:
   enable: true
 ---
 
-{{< style "img { height: 1.25rem; }" >}}
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.83.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/HEIGE-PCloud/DoIt?style=flat-square)](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt)
-[![GitHub forks](https://img.shields.io/github/forks/HEIGE-PCloud/DoIt?style=social)](https://github.com/HEIGE-PCloud/DoIt/fork)
-{{< /style >}}
-
 > [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [HEIGE-PCloud](https://github.com/HEIGE-PCloud).
 >
 > It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
-
-<!-- ![Hugo Theme LoveIt](/images/Apple-Devices-Preview.webp "Hugo Theme LoveIt") -->
 
 ### Features
 

@@ -12,6 +12,7 @@ featuredImagePreview: "featured-image-preview.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]
+series: ["getting-start"]
 
 lightgallery: true
 mapbox:

@@ -4,13 +4,13 @@ title: "主题文档 - 基本概念"
 date: 2020-03-06T21:40:32+08:00
 lastmod: 2020-03-06T21:40:32+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+authors: ["Dillon", "PCloud"]
 description: "探索 Hugo - DoIt 主题的全部内容和背后的核心概念."
 featuredImage: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]
+series: ["getting-start"]
 
 lightgallery: true
 
@@ -155,7 +155,7 @@ hugo serve
 
 去查看 `http://localhost:1313`.
 
-![基本配置下的预览](basic-configuration-preview.zh-cn.webp "基本配置下的预览")
+{{< image src="basic-configuration-preview.zh-cn.webp" caption="基本配置下的预览" width="2450" height="1562" >}}
 
 {{< admonition tip >}}
 当你运行 `hugo serve` 时, 当文件内容更改时, 页面会随着更改自动刷新.
@@ -850,7 +850,7 @@ series = "series"
 你可以参考它来配置你的社交链接.
 {{< /admonition >}}
 
-![完整配置下的预览](complete-configuration-preview.zh-cn.webp "完整配置下的预览")
+{{< image src="complete-configuration-preview.zh-cn.webp" caption="完整配置下的预览" width="2450" height="1562" >}}
 
 ### 3.2 网站图标, 浏览器配置, 网站清单
 
@@ -894,7 +894,7 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 **DoIt** 主题完全兼容 Hugo 的多语言模式, 并且支持在网页上切换语言.
 
-![语言切换](language-switch.gif "语言切换")
+{{< image src="language-switch.gif" caption="语言切换" width="770" height="226" >}}
 
 ### 4.1 兼容性 {#language-compatibility}
 
@@ -988,45 +988,14 @@ defaultContentLanguage = "zh-cn"
       url = "/categories/"
       title = ""
       weight = 3
-
-  [languages.fr]
-    weight = 3
-    title = "Mon nouveau site Hugo"
-    languageCode = "fr"
-    languageName = "Français"
-    [[languages.fr.menu.main]]
-      identifier = "posts"
-      pre = ""
-      post = ""
-      name = "Postes"
-      url = "/posts/"
-      title = ""
-      weight = 1
-    [[languages.fr.menu.main]]
-      identifier = "tags"
-      pre = ""
-      post = ""
-      name = "Balises"
-      url = "/tags/"
-      title = ""
-      weight = 2
-    [[languages.fr.menu.main]]
-      identifier = "categories"
-      pre = ""
-      post = ""
-      name = "Catégories"
-      url = "/categories/"
-      title = ""
-      weight = 3
 ```
 
 然后, 对于每个新页面, 将语言代码附加到文件名中.
 
-单个文件 `my-page.md` 需要分为三个文件:
+单个文件 `my-page.md` 需要分为两个文件:
 
 * 英语: `my-page.en.md`
 * 中文: `my-page.zh-cn.md`
-* 法语: `my-page.fr.md`
 
 {{< admonition >}}
 请注意, 菜单中仅显示翻译的页面. 它不会替换为默认语言内容.

@@ -1,10 +1,10 @@
 ---
-title: "Single Author Test"
+title: "Single Author Tests"
 date: 2021-06-07T20:40:23+01:00
 lastmod: 2021-06-07T20:40:23+01:00
 draft: false
-authors: ["Alice"]
-description: "Single Author Test"
+authors: ["PCloud"]
+description: "Single Author Tests"
 categories: [Tests]
 hiddenFromHomePage: true
 hiddenFromSearch: true
@@ -12,4 +12,4 @@ hiddenFromSearch: true
 
 <!--more-->
 
-[Alice](/authors/alice)
+[PCloud](/authors/pcloud)

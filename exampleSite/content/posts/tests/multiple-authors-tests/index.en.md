@@ -1,10 +1,10 @@
 ---
-title: "Multiple Authors Test"
+title: "Multiple Authors Tests"
 date: 2021-06-07T11:39:42+01:00
 lastmod: 2021-06-07T11:39:42+01:00
 draft: false
-authors: ["Alice", "Bob", "Catherine", "David", "Edward", "Frank", "George", "Harry", "Isaac", "Jack"]
-description: "Multr Author Test"
+authors: ["Alice", "Bob", "Catherine", "David", "Edward"]
+description: "Multiple Authors Tests"
 categories: [Tests]
 hiddenFromHomePage: true
 hiddenFromSearch: true
@@ -19,8 +19,3 @@ Hello!
 - [Catherine](/authors/catherine)
 - [David](/authors/david)
 - [Edward](/authors/edward)
-- [Frank](/authors/frank)
-- [George](/authors/george)
-- [Harry](/authors/harry)
-- [Isaac](/authors/isaac)
-- [Jack](/authors/jack)

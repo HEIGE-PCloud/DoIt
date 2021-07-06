@@ -4,13 +4,13 @@ title: "Theme Documentation - Content"
 date: 2020-03-05T15:58:26+08:00
 lastmod: 2020-03-05T15:58:26+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+authors: ["Dillon", "PCloud"]
 description: "Find out how to create and organize your content quickly and intuitively in DoIt theme."
 featuredImage: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
+series: ["getting-start"]
 
 lightgallery: true
 
@@ -215,7 +215,7 @@ resources:
 
 **DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
-![Summary Preview](summary.webp "Summary Preview")
+{{< image src="summary.webp" caption="Summary Preview" width="1740" height="862" >}}
 
 ### Automatic Summary Splitting
 

@@ -4,13 +4,13 @@ title: "主题文档 - 内容"
 date: 2020-03-05T16:30:05+08:00
 lastmod: 2020-03-05T16:30:05+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+authors: ["Dillon", "PCloud"]
 description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
 featuredImage: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
+series: ["getting-start"]
 
 lightgallery: true
 
@@ -214,7 +214,7 @@ resources:
 
 **DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
 
-![文章摘要预览](summary.zh-cn.webp "文章摘要预览")
+{{< image src="summary.zh-cn.webp" caption="文章摘要预览" width="1740" height="870" >}}
 
 ### 自动摘要拆分
 
