@@ -809,7 +809,7 @@ enableEmoji = true
       # Twikoo comment config (https://twikoo.js.org/)
       # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
       [params.page.comment.twikoo]
-        enable = true
+        enable = false
         envId = "https://doit-docs-comment-twikoo.vercel.app/"
         region = ""
         path = ""
