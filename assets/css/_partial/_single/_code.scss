@@ -7,7 +7,14 @@ code {
   font-size: $code-font-size;
   font-family: $code-font-family;
   color: $code-color;
-
+  text-align: unset;
+  white-space: unset;
+  word-spacing: unset;
+  word-break: unset;
+  line-height: unset;
+  background: none;
+  text-shadow: none;
+  tab-size: unset;
   [theme=dark] & {
     color: $code-color-dark;
   }
