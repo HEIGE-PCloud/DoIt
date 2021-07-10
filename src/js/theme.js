@@ -254,9 +254,9 @@ class Theme {
                                 });
                                 results[uri] = {
                                     'uri': uri,
-                                    'title' : title,
-                                    'date' : matchData.date,
-                                    'context' : context,
+                                    'title': title,
+                                    'date': matchData.date,
+                                    'context': context,
                                 };
                             });
                             return Object.values(results).slice(0, maxResultLength);
@@ -323,7 +323,7 @@ class Theme {
                                 matches.forEach(({ indices, value, key }) => {
                                     if (key === 'content') {
                                         let offset = 0;
-                                        for (let i = 0; i < indices.length; i ++) {
+                                        for (let i = 0; i < indices.length; i++) {
                                             let substr = content.substring(indices[i][0] + offset, indices[i][1] + 1 + offset);
                                             let tag = `<${highlightTag}>` + substr + `</${highlightTag}>`;
                                             content = content.substring(0, indices[i][0] + offset) + tag + content.substring(indices[i][1] + 1 + offset, content.length);
@@ -331,7 +331,7 @@ class Theme {
                                         }
                                     } else if (key === 'title') {
                                         let offset = 0;
-                                        for (let i = 0; i < indices.length; i ++) {
+                                        for (let i = 0; i < indices.length; i++) {
                                             let substr = title.substring(indices[i][0] + offset, indices[i][1] + 1 + offset);
                                             let tag = `<${highlightTag}>` + substr + `</${highlightTag}>`;
                                             title = title.substring(0, indices[i][0] + offset) + tag + title.substring(indices[i][1] + 1 + offset, content.length);
@@ -367,10 +367,10 @@ class Theme {
                                         shouldSort: true,
                                         includeMatches: true,
                                         keys: [
-                                          "content",
-                                          "title"
+                                            "content",
+                                            "title"
                                         ]
-                                      };
+                                    };
                                     this._index = new Fuse(data, options);
                                     finish(search());
                                 }).catch(err => {
@@ -383,7 +383,7 @@ class Theme {
                 templates: {
                     suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
                     empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
-                    footer: ({}) => {
+                    footer: ({ }) => {
                         const { searchType, icon, href } = searchConfig.type === 'algolia' ? {
                             searchType: 'algolia',
                             icon: '<i class="fab fa-algolia fa-fw"></i>',
@@ -397,7 +397,8 @@ class Theme {
                             icon: '',
                             href: 'https://fusejs.io/',
                         });
-                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;
+                    },
                 },
             });
             autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
@@ -414,7 +415,7 @@ class Theme {
             script.async = true;
             if (script.readyState) {
                 script.onreadystatechange = () => {
-                    if (script.readyState == 'loaded' || script.readyState == 'complete'){
+                    if (script.readyState == 'loaded' || script.readyState == 'complete') {
                         script.onreadystatechange = null;
                         initAutosearch();
                     }
@@ -566,7 +567,7 @@ class Theme {
                     const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
                     const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
                     if ((i == 0 && thisTop > INDEX_SPACING)
-                     || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                        || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                         activeTocIndex = i;
                         break;
                     }
@@ -592,11 +593,11 @@ class Theme {
     initMermaid() {
         const $mermaidElements = document.getElementsByClassName('mermaid');
         if ($mermaidElements.length) {
-            mermaid.initialize({startOnLoad: false, theme: 'default'});
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
             this.util.forEach($mermaidElements, $mermaid => {
                 mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
                     $mermaid.insertAdjacentHTML('afterbegin', svgCode);
-                document.getElementById('svg-' + $mermaid.id).children[0].remove();
+                    document.getElementById('svg-' + $mermaid.id).children[0].remove();
                 }, $mermaid);
             });
         }
@@ -610,7 +611,7 @@ class Theme {
             }
             this._echartsArr = [];
             this.util.forEach(document.getElementsByClassName('echarts'), $echarts => {
-                const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', {renderer: 'svg'});
+                const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', { renderer: 'svg' });
                 chart.setOption(JSON.parse(this.data[$echarts.id]));
                 this._echartsArr.push(chart);
             });
@@ -746,7 +747,7 @@ class Theme {
 
     initMeta() {
         function getMeta(metaName) {
-            const metas = document.getElementsByTagName('meta'); 
+            const metas = document.getElementsByTagName('meta');
             for (let i = 0; i < metas.length; i++) {
                 if (metas[i].getAttribute('name') === metaName) {
                     return metas[i];
@@ -875,8 +876,11 @@ class Theme {
     }
 }
 
+var theme;
+var newElements;
+
 const themeInit = () => {
-    const theme = new Theme();
+    theme = new Theme();
     theme.init();
 };
 
@@ -885,3 +889,75 @@ if (document.readyState !== 'loading') {
 } else {
     document.addEventListener('DOMContentLoaded', themeInit, false);
 }
+
+let pjax = new Pjax({
+    selectors: [
+        "title .pjax-title",
+        "main",
+        ".menu-item",
+        ".pjax-assets",
+        ".pjax-script"
+    ],
+    switches: {
+        ".pjax-assets": function(oldEl, newEl, options) {
+            // let pjaxAssets = document.querySelector(".pjax-assets");
+            // pjaxAssets.innerHTML += newEl.innerHTML
+            newElements = newEl
+            this.onSwitch();
+        },
+    },
+    cacheBust: false,
+    debug: true
+})
+
+function reloadJS(e) {
+    let pjaxAssets = e.children;
+    for (let i = 0; i < pjaxAssets.length; i++) {
+        let element = pjaxAssets[i];
+        let id = element.id || "";
+        let src = element.src || "";
+        let code = element.text || element.textContent || element.innerHTML || "";
+        let parent = document.getElementsByClassName("pjax-assets")[0];
+        let script = document.createElement("script");
+        // parent.removeChild(element);
+        if (id !== "") {
+            script.id = element.id;
+        }
+        if (src !== "") {
+            script.src = src;
+            script.async = false;
+        }
+        if (code !== "") {
+            script.appendChild(document.createTextNode(code));
+        }
+        parent.appendChild(script);
+    }
+}
+
+document.addEventListener('pjax:complete', function () {
+    initPage();
+    reloadJS(newElements);
+    // let pjaxAssets = document.querySelector(".pjax-assets");
+    // pjaxAssets.innerHTML += newElements.innerHTML;
+    // let scriptArray = document.getElementsByTagName('script');
+    // for (let i = 0; i < scriptArray.length; i++) {
+    //     if (scriptArray[i].type != "application/ld+json") {
+    //         eval(scriptArray[i].innerHTML);
+    //     }
+    // }
+    themeInit();
+});
+
+topbar.config({
+    autoRun: true,
+    barThickness: 3,
+    barColors: {
+        '0': '#55bde2'
+    },
+    shadowBlur: 0,
+    shadowColor: 'rgba(0, 0, 0, .5)',
+    className: 'topbar',
+})
+document.addEventListener('pjax:send', topbar.show);
+document.addEventListener('pjax:complete', topbar.hide);
+document.addEventListener('pjax:error', topbar.hide);

@@ -30,7 +30,7 @@
     {{- if eq $toc.enable true -}}
         {{- if eq $toc.keepStatic true -}}
             <script>document.body.setAttribute("autoTOC", "false")</script>
-        {{- else if eq $toc.keepStatic false -}}
+        {{- else -}}
             <script>document.body.setAttribute("autoTOC", "true")</script>
         {{- end -}}
     {{- else if eq $toc.enable false -}}

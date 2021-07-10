@@ -1,0 +1,4 @@
+{{- $this := .Scratch.Get "this" -}}
+{{- $pjaxScript := $this.pjaxScript | default slice -}}
+{{- $pjaxScript = $pjaxScript | append (slice .Data) -}}
+{{- .Scratch.SetInMap "this" "pjaxScript" $pjaxScript -}}

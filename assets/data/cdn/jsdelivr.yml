@@ -68,3 +68,7 @@ libFiles:
   twikooJS: twikoo@1.4.0/dist/twikoo.all.min.js
   # fusejs@6.4.6 https://fusejs.io/
   fuseJS: fuse.js@6.4.6/dist/fuse.min.js
+  # pjax@0.2.8 https://github.com/MoOx/pjax
+  pjaxJS: pjax@0.2.8/pjax.min.js
+  # topbar@1.0.1 https://github.com/buunguyen/topbar
+  topbarJS: topbar@1.0.1/topbar.min.js
