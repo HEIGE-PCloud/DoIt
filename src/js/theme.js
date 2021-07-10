@@ -877,7 +877,6 @@ class Theme {
 }
 
 var theme;
-var newElements;
 
 const themeInit = () => {
     theme = new Theme();
@@ -895,56 +894,13 @@ let pjax = new Pjax({
         "title .pjax-title",
         "main",
         ".menu-item",
-        ".pjax-assets",
-        ".pjax-script"
+        ".pjax-assets"
     ],
-    switches: {
-        ".pjax-assets": function(oldEl, newEl, options) {
-            // let pjaxAssets = document.querySelector(".pjax-assets");
-            // pjaxAssets.innerHTML += newEl.innerHTML
-            newElements = newEl
-            this.onSwitch();
-        },
-    },
     cacheBust: false,
     debug: true
 })
 
-function reloadJS(e) {
-    let pjaxAssets = e.children;
-    for (let i = 0; i < pjaxAssets.length; i++) {
-        let element = pjaxAssets[i];
-        let id = element.id || "";
-        let src = element.src || "";
-        let code = element.text || element.textContent || element.innerHTML || "";
-        let parent = document.getElementsByClassName("pjax-assets")[0];
-        let script = document.createElement("script");
-        // parent.removeChild(element);
-        if (id !== "") {
-            script.id = element.id;
-        }
-        if (src !== "") {
-            script.src = src;
-            script.async = false;
-        }
-        if (code !== "") {
-            script.appendChild(document.createTextNode(code));
-        }
-        parent.appendChild(script);
-    }
-}
-
 document.addEventListener('pjax:complete', function () {
-    initPage();
-    reloadJS(newElements);
-    // let pjaxAssets = document.querySelector(".pjax-assets");
-    // pjaxAssets.innerHTML += newElements.innerHTML;
-    // let scriptArray = document.getElementsByTagName('script');
-    // for (let i = 0; i < scriptArray.length; i++) {
-    //     if (scriptArray[i].type != "application/ld+json") {
-    //         eval(scriptArray[i].innerHTML);
-    //     }
-    // }
     themeInit();
 });
 
