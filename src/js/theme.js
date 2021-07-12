@@ -572,7 +572,10 @@ class Theme {
                         break;
                     }
                 }
-                if (activeTocIndex !== -1) {
+                if (activeTocIndex >= 0 && activeTocIndex < $tocLinkElements.length) {
+                    // console.log(activeTocIndex);
+                    // console.log($tocLinkElements);
+                    // console.log($tocLinkElements[activeTocIndex]);
                     $tocLinkElements[activeTocIndex].classList.add('active');
                     let $parent = $tocLinkElements[activeTocIndex].parentElement;
                     while ($parent !== $tocCore) {
