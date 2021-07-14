@@ -892,7 +892,7 @@ let pjax = new Pjax({
 })
 
 document.addEventListener('pjax:success', function () {
-    console.log(lightgallery)
+    themeInit();
 });
 
 topbar.config({
