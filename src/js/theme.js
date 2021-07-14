@@ -830,7 +830,6 @@ function onClickMask() {
 
 function init() {
     try {
-        window.config = window.config;
         window.data = window.config.data;
         window.isDark = document.body.getAttribute('theme') !== 'light';
         window.newScrollTop = getScrollTop();
@@ -887,7 +886,8 @@ let pjax = new Pjax({
         "title .pjax-title",
         "main",
         ".menu-item",
-        ".pjax-assets"
+        ".pjax-assets",
+        ".comment"
     ]
 })
 
