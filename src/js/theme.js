@@ -887,7 +887,7 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets",
-        ".comment"
+        "#comments"
     ]
 })
 
