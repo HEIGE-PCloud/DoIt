@@ -1,22 +1,21 @@
-class Util {
-    forEach(elements, handler) {
+function forEach(elements, handler) {
         elements = elements || [];
         for (let i = 0; i < elements.length; i++) handler(elements[i]);
     }
 
-    getScrollTop() {
+function getScrollTop() {
         return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     }
 
-    isMobile() {
+function isMobileWindow() {
         return window.matchMedia('only screen and (max-width: 680px)').matches;
     }
 
-    isTocStatic() {
+function isTocStatic() {
         return window.matchMedia('only screen and (max-width: 1000px)').matches;
     }
 
-    animateCSS(element, animation, reserved, callback) {
+function animateCSS(element, animation, reserved, callback) {
         if (!Array.isArray(animation)) animation = [animation];
         element.classList.add('animate__animated', ...animation);
         const handler = () => {
@@ -26,25 +25,10 @@ class Util {
         };
         if (!reserved) element.addEventListener('animationend', handler, false);
     }
-}
 
-class Theme {
-    constructor() {
-        this.config = window.config;
-        this.data = this.config.data;
-        this.isDark = document.body.getAttribute('theme') !== 'light';
-        this.util = new Util();
-        this.newScrollTop = this.util.getScrollTop();
-        this.oldScrollTop = this.newScrollTop;
-        this.scrollEventSet = new Set();
-        this.resizeEventSet = new Set();
-        this.switchThemeEventSet = new Set();
-        this.clickMaskEventSet = new Set();
-        if (window.objectFitImages) objectFitImages();
-    }
 
-    initSVGIcon() {
-        this.util.forEach(document.querySelectorAll('[data-svg-src]'), $icon => {
+function initSVGIcon() {
+        forEach(document.querySelectorAll('[data-svg-src]'), $icon => {
             fetch($icon.getAttribute('data-svg-src'))
                 .then(response => response.text())
                 .then(svg => {
@@ -61,11 +45,11 @@ class Theme {
         });
     }
 
-    initTwemoji() {
-        if (this.config.twemoji) twemoji.parse(document.body);
+function initTwemoji() {
+        if (window.config.twemoji) twemoji.parse(document.body);
     }
 
-    initMenuMobile() {
+function initMenuMobile() {
         const $menuToggleMobile = document.getElementById('menu-toggle-mobile');
         const $menuMobile = document.getElementById('menu-mobile');
         $menuToggleMobile.addEventListener('click', () => {
@@ -73,37 +57,37 @@ class Theme {
             $menuToggleMobile.classList.toggle('active');
             $menuMobile.classList.toggle('active');
         }, false);
-        this._menuMobileOnClickMask = this._menuMobileOnClickMask || (() => {
+        window._menuMobileOnClickMask = window._menuMobileOnClickMask || (() => {
             $menuToggleMobile.classList.remove('active');
             $menuMobile.classList.remove('active');
         });
-        this.clickMaskEventSet.add(this._menuMobileOnClickMask);
+        window.clickMaskEventSet.add(window._menuMobileOnClickMask);
     }
 
-    initSwitchTheme() {
-        this.util.forEach(document.getElementsByClassName('theme-switch'), $themeSwitch => {
+function initSwitchTheme() {
+        forEach(document.getElementsByClassName('theme-switch'), $themeSwitch => {
             $themeSwitch.addEventListener('click', () => {
                 let currentTheme = document.body.getAttribute('theme');
                 if (currentTheme === 'dark') {
                     document.body.setAttribute('theme', 'black');
                     window.localStorage && localStorage.setItem('theme', 'black');
-                    this.isDark = true;
+                    window.isDark = true;
                 } else if (currentTheme === 'black') {
                     document.body.setAttribute('theme', 'light');
                     window.localStorage && localStorage.setItem('theme', 'light');
-                    this.isDark = false;
+                    window.isDark = false;
                 } else {
                     document.body.setAttribute('theme', 'dark');
                     window.localStorage && localStorage.setItem('theme', 'dark');
-                    this.isDark = true;
+                    window.isDark = true;
                 }
-                for (let event of this.switchThemeEventSet) event();
+                for (let event of window.switchThemeEventSet) event();
             }, false);
         });
     }
 
-    initSelectTheme() {
-        this.util.forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
+function initSelectTheme() {
+        forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
             let currentTheme = document.body.getAttribute('theme');
             for (let i, j = 0; i = $themeSelect.options[j]; j++) {
                 if (i.value == currentTheme) {
@@ -117,28 +101,28 @@ class Theme {
                 if (theme != 'auto') {
                     document.body.setAttribute('theme', theme);
                     if (theme == 'light') {
-                        this.isDark = false;
+                        window.isDark = false;
                     } else {
-                        this.isDark = true;
+                        window.isDark = true;
                     }
                 } else {
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.body.setAttribute('theme', 'dark');
-                        this.isDark = true;
+                        window.isDark = true;
                     } else {
                         document.body.setAttribute('theme', 'white');
-                        this.isDark = false;
+                        window.isDark = false;
                     }
                 }
-                for (let event of this.switchThemeEventSet) event();
+                for (let event of window.switchThemeEventSet) event();
             }, false);
         });
     }
 
-    initSearch() {
-        const searchConfig = this.config.search;
-        const isMobile = this.util.isMobile();
-        if (!searchConfig || isMobile && this._searchMobileOnce || !isMobile && this._searchDesktopOnce) return;
+function initSearch() {
+        const searchConfig = window.config.search;
+        const isMobile = isMobileWindow();
+        if (!searchConfig || isMobile && window._searchMobileOnce || !isMobile && window._searchDesktopOnce) return;
 
         const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10;
         const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50;
@@ -159,7 +143,7 @@ class Theme {
         const $searchLoading = document.getElementById(`search-loading-${suffix}`);
         const $searchClear = document.getElementById(`search-clear-${suffix}`);
         if (isMobile) {
-            this._searchMobileOnce = true;
+            window._searchMobileOnce = true;
             $searchInput.addEventListener('focus', () => {
                 document.body.classList.add('blur');
                 $header.classList.add('open');
@@ -171,21 +155,21 @@ class Theme {
                 document.getElementById('menu-mobile').classList.remove('active');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                window._searchMobile && window._searchMobile.autocomplete.setVal('');
             }, false);
             $searchClear.addEventListener('click', () => {
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                window._searchMobile && window._searchMobile.autocomplete.setVal('');
             }, false);
-            this._searchMobileOnClickMask = this._searchMobileOnClickMask || (() => {
+            window._searchMobileOnClickMask = window._searchMobileOnClickMask || (() => {
                 $header.classList.remove('open');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                window._searchMobile && window._searchMobile.autocomplete.setVal('');
             });
-            this.clickMaskEventSet.add(this._searchMobileOnClickMask);
+            window.clickMaskEventSet.add(window._searchMobileOnClickMask);
         } else {
-            this._searchDesktopOnce = true;
+            window._searchDesktopOnce = true;
             $searchToggle.addEventListener('click', () => {
                 document.body.classList.add('blur');
                 $header.classList.add('open');
@@ -193,15 +177,15 @@ class Theme {
             }, false);
             $searchClear.addEventListener('click', () => {
                 $searchClear.style.display = 'none';
-                this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+                window._searchDesktop && window._searchDesktop.autocomplete.setVal('');
             }, false);
-            this._searchDesktopOnClickMask = this._searchDesktopOnClickMask || (() => {
+            window._searchDesktopOnClickMask = window._searchDesktopOnClickMask || (() => {
                 $header.classList.remove('open');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+                window._searchDesktop && window._searchDesktop.autocomplete.setVal('');
             });
-            this.clickMaskEventSet.add(this._searchDesktopOnClickMask);
+            window.clickMaskEventSet.add(window._searchDesktopOnClickMask);
         }
         $searchInput.addEventListener('input', () => {
             if ($searchInput.value === '') $searchClear.style.display = 'none';
@@ -230,8 +214,8 @@ class Theme {
                         const search = () => {
                             if (lunr.queryHandler) query = lunr.queryHandler(query);
                             const results = {};
-                            this._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
-                                const matchData = this._indexData[ref];
+                            window._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
+                                const matchData = window._indexData[ref];
                                 let { uri, title, content: context } = matchData;
                                 if (results[uri]) return;
                                 let position = 0;
@@ -261,25 +245,25 @@ class Theme {
                             });
                             return Object.values(results).slice(0, maxResultLength);
                         }
-                        if (!this._index) {
+                        if (!window._index) {
                             fetch(searchConfig.lunrIndexURL)
                                 .then(response => response.json())
                                 .then(data => {
                                     const indexData = {};
-                                    this._index = lunr(function () {
-                                        if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
-                                        this.ref('objectID');
-                                        this.field('title', { boost: 50 });
-                                        this.field('tags', { boost: 20 });
-                                        this.field('categories', { boost: 20 });
-                                        this.field('content', { boost: 10 });
-                                        this.metadataWhitelist = ['position'];
+                                    window._index = lunr(function () {
+                                        if (searchConfig.lunrLanguageCode) window.use(lunr[searchConfig.lunrLanguageCode]);
+                                        window.ref('objectID');
+                                        window.field('title', { boost: 50 });
+                                        window.field('tags', { boost: 20 });
+                                        window.field('categories', { boost: 20 });
+                                        window.field('content', { boost: 10 });
+                                        window.metadataWhitelist = ['position'];
                                         data.forEach((record) => {
                                             indexData[record.objectID] = record;
-                                            this.add(record);
+                                            window.add(record);
                                         });
                                     });
-                                    this._indexData = indexData;
+                                    window._indexData = indexData;
                                     finish(search());
                                 }).catch(err => {
                                     console.error(err);
@@ -287,8 +271,8 @@ class Theme {
                                 });
                         } else finish(search());
                     } else if (searchConfig.type === 'algolia') {
-                        this._algoliaIndex = this._algoliaIndex || algoliasearch(searchConfig.algoliaAppID, searchConfig.algoliaSearchKey).initIndex(searchConfig.algoliaIndex);
-                        this._algoliaIndex
+                        window._algoliaIndex = window._algoliaIndex || algoliasearch(searchConfig.algoliaAppID, searchConfig.algoliaSearchKey).initIndex(searchConfig.algoliaIndex);
+                        window._algoliaIndex
                             .search(query, {
                                 offset: 0,
                                 length: maxResultLength * 8,
@@ -317,7 +301,7 @@ class Theme {
                     } else if (searchConfig.type === 'fuse') {
                         const search = () => {
                             const results = {};
-                            this._index.search(query).forEach(({ item, refIndex, matches }) => {
+                            window._index.search(query).forEach(({ item, refIndex, matches }) => {
                                 let title = item.title;
                                 let content = item.content;
                                 matches.forEach(({ indices, value, key }) => {
@@ -349,7 +333,7 @@ class Theme {
                             });
                             return Object.values(results).slice(0, maxResultLength);
                         }
-                        if (!this._index) {
+                        if (!window._index) {
                             fetch(searchConfig.fuseIndexURL)
                                 .then(response => response.json())
                                 .then(data => {
@@ -371,7 +355,7 @@ class Theme {
                                             "title"
                                         ]
                                     };
-                                    this._index = new Fuse(data, options);
+                                    window._index = new Fuse(data, options);
                                     finish(search());
                                 }).catch(err => {
                                     console.error(err);
@@ -404,8 +388,8 @@ class Theme {
             autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
                 window.location.assign(suggestion.uri);
             });
-            if (isMobile) this._searchMobile = autosearch;
-            else this._searchDesktop = autosearch;
+            if (isMobile) window._searchMobile = autosearch;
+            else window._searchDesktop = autosearch;
         };
         if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
             const script = document.createElement('script');
@@ -429,8 +413,8 @@ class Theme {
         } else initAutosearch();
     }
 
-    initDetails() {
-        this.util.forEach(document.getElementsByClassName('details'), $details => {
+function initDetails() {
+        forEach(document.getElementsByClassName('details'), $details => {
             const $summary = $details.getElementsByClassName('details-summary')[0];
             $summary.addEventListener('click', () => {
                 $details.classList.toggle('open');
@@ -438,12 +422,12 @@ class Theme {
         });
     }
 
-    initLightGallery() {
-        if (this.config.lightGallery) lightGallery(document.getElementById('content'), this.config.lightGallery);
+function initLightGallery() {
+        if (window.config.lightGallery) lightGallery(document.getElementById('content'), window.config.lightGallery);
     }
 
-    initHighlight() {
-        this.util.forEach(document.querySelectorAll('.highlight > pre.chroma'), $preChroma => {
+function initHighlight() {
+        forEach(document.querySelectorAll('.highlight > pre.chroma'), $preChroma => {
             const $chroma = document.createElement('div');
             $chroma.className = $preChroma.className;
             const $table = document.createElement('table');
@@ -457,7 +441,7 @@ class Theme {
             $preChroma.parentElement.replaceChild($chroma, $preChroma);
             $td.appendChild($preChroma);
         });
-        this.util.forEach(document.querySelectorAll('.highlight > .chroma'), $chroma => {
+        forEach(document.querySelectorAll('.highlight > .chroma'), $chroma => {
             const $codeElements = $chroma.querySelectorAll('pre.chroma > code');
             if ($codeElements.length) {
                 const $code = $codeElements[$codeElements.length - 1];
@@ -481,13 +465,13 @@ class Theme {
                 $copy.insertAdjacentHTML('afterbegin', '<i class="far fa-copy fa-fw"></i>');
                 $copy.classList.add('copy');
                 const code = $code.innerText;
-                if (this.config.code.maxShownLines < 0 || code.split('\n').length < this.config.code.maxShownLines + 2) $chroma.classList.add('open');
-                if (this.config.code.copyTitle) {
+                if (window.config.code.maxShownLines < 0 || code.split('\n').length < window.config.code.maxShownLines + 2) $chroma.classList.add('open');
+                if (window.config.code.copyTitle) {
                     $copy.setAttribute('data-clipboard-text', code);
-                    $copy.title = this.config.code.copyTitle;
+                    $copy.title = window.config.code.copyTitle;
                     const clipboard = new ClipboardJS($copy);
                     clipboard.on('success', _e => {
-                        this.util.animateCSS($code, 'animate__flash');
+                        animateCSS($code, 'animate__flash');
                     });
                     $header.appendChild($copy);
                 }
@@ -496,8 +480,8 @@ class Theme {
         });
     }
 
-    initTable() {
-        this.util.forEach(document.querySelectorAll('.content table'), $table => {
+function initTable() {
+        forEach(document.querySelectorAll('.content table'), $table => {
             const $wrapper = document.createElement('div');
             $wrapper.className = 'table-wrapper';
             $table.parentElement.replaceChild($wrapper, $table);
@@ -505,25 +489,25 @@ class Theme {
         });
     }
 
-    initHeaderLink() {
+function initHeaderLink() {
         for (let num = 1; num <= 6; num++) {
-            this.util.forEach(document.querySelectorAll('.single .content > h' + num), $header => {
+            forEach(document.querySelectorAll('.single .content > h' + num), $header => {
                 $header.classList.add('headerLink');
                 $header.insertAdjacentHTML('afterbegin', `<a href="#${$header.id}" class="header-mark"></a>`);
             });
         }
     }
 
-    initToc() {
+function initToc() {
         const $tocCore = document.getElementById('TableOfContents');
         if ($tocCore === null) return;
-        if (document.getElementById('toc-static').getAttribute('kept') || this.util.isTocStatic()) {
+        if (document.getElementById('toc-static').getAttribute('kept') || isTocStatic()) {
             const $tocContentStatic = document.getElementById('toc-content-static');
             if ($tocCore.parentElement !== $tocContentStatic) {
                 $tocCore.parentElement.removeChild($tocCore);
                 $tocContentStatic.appendChild($tocCore);
             }
-            if (this._tocOnScroll) this.scrollEventSet.delete(this._tocOnScroll);
+            if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
         } else {
             const $tocContentAuto = document.getElementById('toc-content-auto');
             if ($tocCore.parentElement !== $tocContentAuto) {
@@ -544,14 +528,14 @@ class Theme {
             const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
             const minTocTop = $toc.offsetTop;
             const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-            this._tocOnScroll = this._tocOnScroll || (() => {
+            window._tocOnScroll = window._tocOnScroll || (() => {
                 const footerTop = document.getElementById('post-footer').offsetTop;
                 const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
                 const maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-                if (this.newScrollTop < minScrollTop) {
+                if (window.newScrollTop < minScrollTop) {
                     $toc.style.position = 'absolute';
                     $toc.style.top = `${minTocTop}px`;
-                } else if (this.newScrollTop > maxScrollTop) {
+                } else if (window.newScrollTop > maxScrollTop) {
                     $toc.style.position = 'absolute';
                     $toc.style.top = `${maxTocTop}px`;
                 } else {
@@ -559,15 +543,15 @@ class Theme {
                     $toc.style.top = `${TOP_SPACING}px`;
                 }
 
-                this.util.forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
-                this.util.forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
+                forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
+                forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
                 const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
                 let activeTocIndex = $headerLinkElements.length - 1;
                 for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-                    const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
+                    const windowTop = $headerLinkElements[i].getBoundingClientRect().top;
                     const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                    if ((i == 0 && thisTop > INDEX_SPACING)
-                        || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                    if ((i == 0 && windowTop > INDEX_SPACING)
+                        || (windowTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                         activeTocIndex = i;
                         break;
                     }
@@ -584,21 +568,21 @@ class Theme {
                     }
                 }
             });
-            this._tocOnScroll();
-            this.scrollEventSet.add(this._tocOnScroll);
+            window._tocOnScroll();
+            window.scrollEventSet.add(window._tocOnScroll);
         }
     }
 
-    initMath() {
-        if (this.config.math) renderMathInElement(document.body, this.config.math);
+function initMath() {
+        if (window.config.math) renderMathInElement(document.body, window.config.math);
     }
 
-    initMermaid() {
+function initMermaid() {
         const $mermaidElements = document.getElementsByClassName('mermaid');
         if ($mermaidElements.length) {
             mermaid.initialize({ startOnLoad: false, theme: 'default' });
-            this.util.forEach($mermaidElements, $mermaid => {
-                mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
+            forEach($mermaidElements, $mermaid => {
+                mermaid.mermaidAPI.render('svg-' + $mermaid.id, window.data[$mermaid.id], svgCode => {
                     $mermaid.insertAdjacentHTML('afterbegin', svgCode);
                     document.getElementById('svg-' + $mermaid.id).children[0].remove();
                 }, $mermaid);
@@ -606,42 +590,42 @@ class Theme {
         }
     }
 
-    initEcharts() {
-        this._echartsOnSwitchTheme = this._echartsOnSwitchTheme || (() => {
-            this._echartsArr = this._echartsArr || [];
-            for (let i = 0; i < this._echartsArr.length; i++) {
-                this._echartsArr[i].dispose();
+function initEcharts() {
+        window._echartsOnSwitchTheme = window._echartsOnSwitchTheme || (() => {
+            window._echartsArr = window._echartsArr || [];
+            for (let i = 0; i < window._echartsArr.length; i++) {
+                window._echartsArr[i].dispose();
             }
-            this._echartsArr = [];
-            this.util.forEach(document.getElementsByClassName('echarts'), $echarts => {
-                const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', { renderer: 'svg' });
-                chart.setOption(JSON.parse(this.data[$echarts.id]));
-                this._echartsArr.push(chart);
+            window._echartsArr = [];
+            forEach(document.getElementsByClassName('echarts'), $echarts => {
+                const chart = echarts.init($echarts, window.isDark ? 'dark' : 'macarons', { renderer: 'svg' });
+                chart.setOption(JSON.parse(window.data[$echarts.id]));
+                window._echartsArr.push(chart);
             });
         });
-        this.switchThemeEventSet.add(this._echartsOnSwitchTheme);
-        this._echartsOnSwitchTheme();
-        this._echartsOnResize = this._echartsOnResize || (() => {
-            for (let i = 0; i < this._echartsArr.length; i++) {
-                this._echartsArr[i].resize();
+        window.switchThemeEventSet.add(window._echartsOnSwitchTheme);
+        window._echartsOnSwitchTheme();
+        window._echartsOnResize = window._echartsOnResize || (() => {
+            for (let i = 0; i < window._echartsArr.length; i++) {
+                window._echartsArr[i].resize();
             }
         });
-        this.resizeEventSet.add(this._echartsOnResize);
+        window.resizeEventSet.add(window._echartsOnResize);
     }
 
-    initMapbox() {
-        if (this.config.mapbox) {
-            mapboxgl.accessToken = this.config.mapbox.accessToken;
-            mapboxgl.setRTLTextPlugin(this.config.mapbox.RTLTextPlugin);
-            this._mapboxArr = this._mapboxArr || [];
-            this.util.forEach(document.getElementsByClassName('mapbox'), $mapbox => {
-                const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = this.data[$mapbox.id];
+function initMapbox() {
+        if (window.config.mapbox) {
+            mapboxgl.accessToken = window.config.mapbox.accessToken;
+            mapboxgl.setRTLTextPlugin(window.config.mapbox.RTLTextPlugin);
+            window._mapboxArr = window._mapboxArr || [];
+            forEach(document.getElementsByClassName('mapbox'), $mapbox => {
+                const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = window.data[$mapbox.id];
                 const mapbox = new mapboxgl.Map({
                     container: $mapbox,
                     center: [lng, lat],
                     zoom: zoom,
                     minZoom: .2,
-                    style: this.isDark ? darkStyle : lightStyle,
+                    style: window.isDark ? darkStyle : lightStyle,
                     attributionControl: false,
                 });
                 if (marked) {
@@ -666,23 +650,23 @@ class Theme {
                     mapbox.addControl(new mapboxgl.FullscreenControl());
                 }
                 mapbox.addControl(new MapboxLanguage());
-                this._mapboxArr.push(mapbox);
+                window._mapboxArr.push(mapbox);
             });
-            this._mapboxOnSwitchTheme = this._mapboxOnSwitchTheme || (() => {
-                this.util.forEach(this._mapboxArr, mapbox => {
+            window._mapboxOnSwitchTheme = window._mapboxOnSwitchTheme || (() => {
+                forEach(window._mapboxArr, mapbox => {
                     const $mapbox = mapbox.getContainer();
-                    const { lightStyle, darkStyle } = this.data[$mapbox.id];
-                    mapbox.setStyle(this.isDark ? darkStyle : lightStyle);
+                    const { lightStyle, darkStyle } = window.data[$mapbox.id];
+                    mapbox.setStyle(window.isDark ? darkStyle : lightStyle);
                     mapbox.addControl(new MapboxLanguage());
                 });
             });
-            this.switchThemeEventSet.add(this._mapboxOnSwitchTheme);
+            window.switchThemeEventSet.add(window._mapboxOnSwitchTheme);
         }
     }
 
-    initTypeit() {
-        if (this.config.typeit) {
-            const typeitConfig = this.config.typeit;
+function initTypeit() {
+        if (window.config.typeit) {
+            const typeitConfig = window.config.typeit;
             const speed = typeitConfig.speed ? typeitConfig.speed : 100;
             const cursorSpeed = typeitConfig.cursorSpeed ? typeitConfig.cursorSpeed : 1000;
             const cursorChar = typeitConfig.cursorChar ? typeitConfig.cursorChar : '|';
@@ -690,7 +674,7 @@ class Theme {
                 const typeone = (i) => {
                     const id = group[i];
                     const instance = new TypeIt(`#${id}`, {
-                        strings: this.data[id],
+                        strings: window.data[id],
                         speed: speed,
                         lifeLike: true,
                         cursorSpeed: cursorSpeed,
@@ -713,42 +697,42 @@ class Theme {
         }
     }
 
-    initComment() {
-        if (this.config.comment) {
-            if (this.config.comment.gitalk) {
-                this.config.comment.gitalk.body = decodeURI(window.location.href);
-                const gitalk = new Gitalk(this.config.comment.gitalk);
+function initComment() {
+        if (window.config.comment) {
+            if (window.config.comment.gitalk) {
+                window.config.comment.gitalk.body = decodeURI(window.location.href);
+                const gitalk = new Gitalk(window.config.comment.gitalk);
                 gitalk.render('gitalk');
             }
-            if (this.config.comment.valine) new Valine(this.config.comment.valine);
-            if (this.config.comment.waline) new Waline(this.config.comment.waline);
-            if (this.config.comment.twikoo) twikoo.init(this.config.comment.twikoo);
-            if (this.config.comment.utterances) {
-                const utterancesConfig = this.config.comment.utterances;
+            if (window.config.comment.valine) new Valine(window.config.comment.valine);
+            if (window.config.comment.waline) new Waline(window.config.comment.waline);
+            if (window.config.comment.twikoo) twikoo.init(window.config.comment.twikoo);
+            if (window.config.comment.utterances) {
+                const utterancesConfig = window.config.comment.utterances;
                 const script = document.createElement('script');
                 script.src = 'https://utteranc.es/client.js';
                 script.type = 'text/javascript';
                 script.setAttribute('repo', utterancesConfig.repo);
                 script.setAttribute('issue-term', utterancesConfig.issueTerm);
                 if (utterancesConfig.label) script.setAttribute('label', utterancesConfig.label);
-                script.setAttribute('theme', this.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme);
+                script.setAttribute('theme', window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme);
                 script.crossOrigin = 'anonymous';
                 script.async = true;
                 document.getElementById('utterances').appendChild(script);
-                this._utterancesOnSwitchTheme = this._utterancesOnSwitchTheme || (() => {
+                window._utterancesOnSwitchTheme = window._utterancesOnSwitchTheme || (() => {
                     const message = {
                         type: 'set-theme',
-                        theme: this.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme,
+                        theme: window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme,
                     };
                     const iframe = document.querySelector('.utterances-frame');
                     iframe.contentWindow.postMessage(message, 'https://utteranc.es');
                 });
-                this.switchThemeEventSet.add(this._utterancesOnSwitchTheme);
+                window.switchThemeEventSet.add(window._utterancesOnSwitchTheme);
             }
         }
     }
 
-    initMeta() {
+function initMeta() {
         function getMeta(metaName) {
             const metas = document.getElementsByTagName('meta');
             for (let i = 0; i < metas.length; i++) {
@@ -759,26 +743,26 @@ class Theme {
             return '';
         }
         let themeColorMeta = getMeta('theme-color');
-        if (this.isDark) {
+        if (window.isDark) {
             themeColorMeta.content = '#000000';
         } else {
             themeColorMeta.content = '#ffffff';
         }
-        this._metaThemeColorOnSwitchTheme = this._metaThemeColorOnSwitchTheme || (() => {
-            if (this.isDark) {
+        window._metaThemeColorOnSwitchTheme = window._metaThemeColorOnSwitchTheme || (() => {
+            if (window.isDark) {
                 themeColorMeta.content = '#000000';
             } else {
                 themeColorMeta.content = '#ffffff';
             }
         });
-        this.switchThemeEventSet.add(this._metaThemeColorOnSwitchTheme);
+        window.switchThemeEventSet.add(window._metaThemeColorOnSwitchTheme);
     }
 
-    initCookieconsent() {
-        if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
+function initCookieconsent() {
+        if (window.config.cookieconsent) cookieconsent.initialise(window.config.cookieconsent);
     }
 
-    onScroll() {
+function onScroll() {
         const $headers = [];
         if (document.body.getAttribute('header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
         if (document.body.getAttribute('header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
@@ -790,100 +774,106 @@ class Theme {
         const $fixedButtons = document.getElementById('fixed-buttons');
         const ACCURACY = 20, MINIMUM = 100;
         window.addEventListener('scroll', () => {
-            this.newScrollTop = this.util.getScrollTop();
-            const scroll = this.newScrollTop - this.oldScrollTop;
-            const isMobile = this.util.isMobile();
-            this.util.forEach($headers, $header => {
+            window.newScrollTop = getScrollTop();
+            const scroll = window.newScrollTop - window.oldScrollTop;
+            const isMobile = isMobileWindow();
+            forEach($headers, $header => {
                 if (scroll > ACCURACY) {
                     $header.classList.remove('animate__fadeInDown');
-                    this.util.animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
+                    animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
                 } else if (scroll < - ACCURACY) {
                     $header.classList.remove('animate__fadeOutUp');
-                    this.util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
+                    animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
                 }
             });
-            if (this.newScrollTop > MINIMUM) {
+            if (window.newScrollTop > MINIMUM) {
                 if (isMobile && scroll > ACCURACY) {
                     $fixedButtons.classList.remove('animate__fadeIn');
-                    this.util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
                 } else if (!isMobile || scroll < - ACCURACY) {
                     $fixedButtons.style.display = 'block';
                     $fixedButtons.classList.remove('animate__fadeOut');
-                    this.util.animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
+                    animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
                 }
             } else {
                 if (!isMobile) {
                     $fixedButtons.classList.remove('animate__fadeIn');
-                    this.util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
                 }
                 $fixedButtons.style.display = 'none';
             }
-            for (let event of this.scrollEventSet) event();
-            this.oldScrollTop = this.newScrollTop;
+            for (let event of window.scrollEventSet) event();
+            window.oldScrollTop = window.newScrollTop;
         }, false);
     }
 
-    onResize() {
+function onResize() {
         window.addEventListener('resize', () => {
-            if (!this._resizeTimeout) {
-                this._resizeTimeout = window.setTimeout(() => {
-                    this._resizeTimeout = null;
-                    for (let event of this.resizeEventSet) event();
-                    this.initToc();
-                    this.initMermaid();
-                    this.initSearch();
+            if (!window._resizeTimeout) {
+                window._resizeTimeout = window.setTimeout(() => {
+                    window._resizeTimeout = null;
+                    for (let event of window.resizeEventSet) event();
+                    window.initToc();
+                    window.initMermaid();
+                    window.initSearch();
                 }, 100);
             }
         }, false);
     }
 
-    onClickMask() {
+function onClickMask() {
         document.getElementById('mask').addEventListener('click', () => {
-            for (let event of this.clickMaskEventSet) event();
+            for (let event of window.clickMaskEventSet) event();
             document.body.classList.remove('blur');
         }, false);
     }
 
-    init() {
-        try {
-            this.initSVGIcon();
-            this.initTwemoji();
-            this.initMenuMobile();
-            this.initSwitchTheme();
-            this.initSelectTheme();
-            this.initMeta();
-            this.initSearch();
-            this.initDetails();
-            this.initLightGallery();
-            this.initHighlight();
-            this.initTable();
-            this.initHeaderLink();
-            this.initMath();
-            this.initMermaid();
-            this.initEcharts();
-            this.initTypeit();
-            this.initMapbox();
-            this.initCookieconsent();
-        } catch (err) {
-            console.error(err);
-        }
-
-        window.setTimeout(() => {
-            this.initToc();
-            this.initComment();
-
-            this.onScroll();
-            this.onResize();
-            this.onClickMask();
-        }, 100);
+function init() {
+    try {
+        window.config = window.config;
+        window.data = window.config.data;
+        window.isDark = document.body.getAttribute('theme') !== 'light';
+        window.newScrollTop = getScrollTop();
+        window.oldScrollTop = window.newScrollTop;
+        window.scrollEventSet = new Set();
+        window.resizeEventSet = new Set();
+        window.switchThemeEventSet = new Set();
+        window.clickMaskEventSet = new Set();
+        if (window.objectFitImages) objectFitImages();
+        initSVGIcon();
+        initTwemoji();
+        initMenuMobile();
+        initSwitchTheme();
+        initSelectTheme();
+        initMeta();
+        initSearch();
+        initDetails();
+        initLightGallery();
+        initHighlight();
+        initTable();
+        initHeaderLink();
+        initMath();
+        initMermaid();
+        initEcharts();
+        initTypeit();
+        initMapbox();
+        initCookieconsent();
+    } catch (err) {
+        console.error(err);
     }
+
+    window.setTimeout(() => {
+        window.initToc();
+        window.initComment();
+
+        window.onScroll();
+        window.onResize();
+        window.onClickMask();
+    }, 100);
 }
 
-var theme;
-
 const themeInit = () => {
-    theme = new Theme();
-    theme.init();
+    init();
 };
 
 if (document.readyState !== 'loading') {
@@ -898,13 +888,11 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets"
-    ],
-    cacheBust: false,
-    debug: true
+    ]
 })
 
-document.addEventListener('pjax:complete', function () {
-    themeInit();
+document.addEventListener('pjax:success', function () {
+    console.log(lightgallery)
 });
 
 topbar.config({
