@@ -423,8 +423,14 @@ function initDetails() {
     }
 
 function initLightGallery() {
-        if (window.config.lightGallery) lightGallery(document.getElementById('content'), window.config.lightGallery);
-    }
+        if (window.config.lightGallery) {
+            const instance = lightGallery(document.getElementById('content'), window.config.lightGallery);
+            function destoryLightGallery() {
+                instance.destroy();
+            }
+            document.addEventListener('pjax:send', destoryLightGallery);
+        }
+}
 
 function initHighlight() {
         forEach(document.querySelectorAll('.highlight > pre.chroma'), $preChroma => {
