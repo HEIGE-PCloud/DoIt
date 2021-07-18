@@ -50,7 +50,7 @@ John Gruber, Markdown 的作者如是说:
 话不多说, 我们来回顾一下 Markdown 的主要语法以及生成的 HTML 样式!
 
 {{< admonition tip >}}
-:(far fa-bookmark fa-fw): 将此页保存为书签，以备将来参考!
+:(far fa-bookmark fa-fw): 将此页保存为书签, 以备将来参考!
 {{< /admonition >}}
 
 ## 1 标题
@@ -416,7 +416,7 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 ### 任务列表
 
 任务列表使你可以创建带有复选框的列表.
-要创建任务列表, 请在任务列表项之前添加破折号 (`-`) 和带有空格的方括号 (`[ ]`). 要选择一个复选框，请在方括号之间添加 x (`[x]`).
+要创建任务列表, 请在任务列表项之前添加破折号 (`-`) 和带有空格的方括号 (`[ ]`). 要选择一个复选框, 请在方括号之间添加 x (`[x]`).
 
 ```markdown
 - [x] Write the press release
@@ -454,7 +454,7 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 ### 缩进代码
 
-将几行代码缩进至少四个空格，例如:
+将几行代码缩进至少四个空格, 例如:
 
 ```markdown
     // Some comments
@@ -505,7 +505,7 @@ Sample text here...
 
 [GFM]^(GitHub Flavored Markdown) 也支持语法高亮.
 
-要激活它，只需在第一个代码 "围栏" 之后直接添加你要使用的语言的文件扩展名,
+要激活它, 只需在第一个代码 "围栏" 之后直接添加你要使用的语言的文件扩展名,
 <code>```js</code>, 语法高亮显示将自动应用于渲染的 HTML 中.
 
 例如, 在以下 JavaScript 代码中应用语法高亮:
@@ -640,7 +640,7 @@ grunt.initConfig({
 [Assemble](https://assemble.io)
 ```
 
-呈现的输出效果如下 (将鼠标悬停在链接上，没有提示):
+呈现的输出效果如下 (将鼠标悬停在链接上, 没有提示):
 
 <https://assemble.io>
 
@@ -662,7 +662,7 @@ grunt.initConfig({
 [Upstage](https://github.com/upstage/ "Visit Upstage!")
 ```
 
-呈现的输出效果如下 (将鼠标悬停在链接上，会有一行提示):
+呈现的输出效果如下 (将鼠标悬停在链接上, 会有一行提示):
 
 [Upstage](https://github.com/upstage/ "Visit Upstage!")
 

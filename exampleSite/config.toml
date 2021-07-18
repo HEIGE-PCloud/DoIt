@@ -264,7 +264,7 @@ enableEmoji = true
     paginate = 12
     # [UA-XXXXXXXX-X] 谷歌分析代号
     googleAnalytics = ""
-    # 版权描述，仅仅用于 SEO
+    # 版权描述, 仅仅用于 SEO
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # 菜单配置
     [languages.zh-cn.menu]
@@ -389,7 +389,7 @@ enableEmoji = true
         # 主页个人信息
         [languages.zh-cn.params.home.profile]
           enable = true
-          # Gravatar 邮箱，用于优先在主页显示的头像
+          # Gravatar 邮箱, 用于优先在主页显示的头像
           gravatarEmail = ""
           # 主页显示头像的 URL
           avatarURL = "/images/avatar.webp"
@@ -484,7 +484,7 @@ enableEmoji = true
   # 网站默认主题 ("light", "dark", "black", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
+  # 公共 git 仓库路径, 仅在 enableGitInfo 设为 true 时有效
   gitRepo = "https://github.com/HEIGE-PCloud/DoIt"
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
@@ -549,7 +549,7 @@ enableEmoji = true
     # 网站创立年份
     since = 2019
     # ICP info only in China (HTML format is supported)
-    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
+    # ICP 备案信息, 仅在中国使用 (支持 HTML 格式)
     icp = ""
     # license info (HTML format is supported)
     # 许可协议信息 (支持 HTML 格式)
@@ -717,7 +717,7 @@ enableEmoji = true
       [params.page.comment.disqus]
         enable = false
         # Disqus shortname to use Disqus in posts
-        # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
+        # Disqus 的 shortname, 用来在文章中启用 Disqus 评论系统
         shortname = ""
       # Gitalk comment config (https://github.com/gitalk/gitalk)
       # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
@@ -856,7 +856,7 @@ enableEmoji = true
     duration = -1
 
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
-  # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
+  # 网站验证代码, 用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
     google = "MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4"
     bing = ""
