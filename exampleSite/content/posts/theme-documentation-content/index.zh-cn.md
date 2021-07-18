@@ -182,7 +182,7 @@ seo:
 * **fontawesome**: {{< version 0.2.0 >}} 如果设为 `true`, 这篇文章会使用 [Font Awesome 扩展语法](#fontawesome).
 * **linkToMarkdown**: 如果设为 `true`, 内容的页脚将显示指向原始 Markdown 文件的链接.
 * **rssFullText**: {{< version 0.2.4 >}} 如果设为 `true`, 在 RSS 中将会显示全文内容.
-* **pageStyle**: {{< version 0.2.11 >}} 调整页面样式，可选择"normal"或"wide".
+* **pageStyle**: {{< version 0.2.11 >}} 调整页面样式, 可选择"normal"或"wide".
 
 * **toc**: {{< version 0.2.9 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.toc` 部分相同.
 * **code**: {{< version 0.2.0 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.code` 部分相同.
@@ -212,7 +212,7 @@ resources:
 
 ## 4 内容摘要
 
-**DoIt** 主题使用内容摘要在主页中显示大致文章信息。Hugo 支持生成文章的摘要.
+**DoIt** 主题使用内容摘要在主页中显示大致文章信息. Hugo 支持生成文章的摘要.
 
 {{< image src="summary.zh-cn.webp" caption="文章摘要预览" width="1740" height="870" >}}
 
@@ -222,7 +222,7 @@ resources:
 
 你可以通过在 [网站配置](../theme-documentation-basics#site-configuration) 中设置 `summaryLength` 来自定义摘要长度.
 
-如果您要使用 [CJK]^(中文/日语/韩语) 语言创建内容, 并且想使用 Hugo 的自动摘要拆分功能，请在 [网站配置](../theme-documentation-basics#site-configuration) 中将 `hasCJKLanguage` 设置为 `true`.
+如果您要使用 [CJK]^(中文/日语/韩语) 语言创建内容, 并且想使用 Hugo 的自动摘要拆分功能, 请在 [网站配置](../theme-documentation-basics#site-configuration) 中将 `hasCJKLanguage` 设置为 `true`.
 
 ### 手动摘要拆分
 
@@ -310,6 +310,10 @@ $ c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^
 
 {{< admonition tip >}}
 你可以在 [网站配置](../theme-documentation-basics#site-configuration) 中自定义公式块和行内公式的分割符.
+{{< /admonition >}}
+
+{{< admonition info >}}
+你可以使用 [`math` shortcode](../theme-documentation-extended-shortcodes/#14-math) 以避免特殊字符造成[问题](https://github.com/HEIGE-PCloud/DoIt/issues/126).
 {{< /admonition >}}
 
 #### Copy-tex

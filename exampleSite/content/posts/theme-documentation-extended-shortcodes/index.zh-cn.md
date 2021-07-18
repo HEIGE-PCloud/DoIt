@@ -18,6 +18,8 @@ lightgallery: true
 mapbox:
   lightStyle: mapbox://styles/mapbox/light-zh-v1?optimize=true
   darkStyle: mapbox://styles/mapbox/dark-zh-v1?optimize=true
+math:
+  enable: true
 ---
 
 **DoIt** 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.
@@ -118,7 +120,7 @@ This is a **right-aligned** paragraph.
 {{</* link href="https://github.com/upstage/" content=Upstage title="Visit Upstage!" */>}}
 ```
 
-呈现的输出效果如下 (将鼠标悬停在链接上，会有一行提示):
+呈现的输出效果如下 (将鼠标悬停在链接上, 会有一行提示):
 
 {{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
@@ -902,7 +904,7 @@ data = [
 
 {{< version 0.2.0 >}}
 
-[Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js) 是一个 JavaScript 库，它使用 WebGL, 以 [vector tiles](https://docs.mapbox.com/help/glossary/vector-tiles/) 和 [Mapbox styles](https://docs.mapbox.com/mapbox-gl-js/style-spec/) 为来源, 将它们渲染成互动式地图.
+[Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js) 是一个 JavaScript 库, 它使用 WebGL, 以 [vector tiles](https://docs.mapbox.com/help/glossary/vector-tiles/) 和 [Mapbox styles](https://docs.mapbox.com/mapbox-gl-js/style-spec/) 为来源, 将它们渲染成互动式地图.
 
 `mapbox` shortcode 有以下命名参数来使用 Mapbox GL JS:
 
@@ -1343,7 +1345,7 @@ console.log('Just DoIt!');
 
 * **column** *[optional]* (**fifth** positional parameter)
 
-    这个参数定义一行显示几个 `showcase`. 默认的值是 2, 默认一行显示两个 `showcase`. 你可以将它改为 1, 2 或 3. 需要注意的是，当用户使用小屏幕访问网站时，每行显示的 `showcase` 数量将会被自动调整以保证最好的体验.
+    这个参数定义一行显示几个 `showcase`. 默认的值是 2, 默认一行显示两个 `showcase`. 你可以将它改为 1, 2 或 3. 需要注意的是, 当用户使用小屏幕访问网站时, 每行显示的 `showcase` 数量将会被自动调整以保证最好的体验.
 
 一个 `showcase` 示例:
 
@@ -1356,3 +1358,27 @@ Or
 呈现的输出效果如下:
 
 {{< showcase title="主题文档 - 基本概念" summary="探索 Hugo - DoIt 主题的全部内容和背后的核心概念." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
+
+## 14 math
+
+{{< version 0.2.12 >}}
+
+`math` 用于插入数学公式. 它可以阻止 [Goldmark](https://gohugo.io/getting-started/configuration-markup/#goldmark) 将数学表达式中的特殊字符解析为 HTML 从而避免很多问题. 在 `math` 中, 你不再需要转义特殊字符.
+
+一个 `math` 示例:
+
+```markdown
+{{</* math */>}}$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}${{</* /math */>}}
+Or
+{{</* math */>}}
+$$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
+{{</* /math */>}}
+```
+
+呈现的输出效果如下:
+
+{{< math >}}$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}${{< /math >}}
+
+{{< math >}}
+$$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
+{{< /math >}}

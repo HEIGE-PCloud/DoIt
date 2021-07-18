@@ -313,6 +313,10 @@ $ c = \pm\sqrt{a^2 + b^2} $ and \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^
 You can add more block and inline delimiters in your [site configuration](../theme-documentation-basics#site-configuration).
 {{< /admonition >}}
 
+{{< admonition info >}}
+You can use the [`math` shortcode](../theme-documentation-extended-shortcodes/#14-math) to avoid [issues](https://github.com/HEIGE-PCloud/DoIt/issues/126) causing by special characters.
+{{< /admonition >}}
+
 #### Copy-tex
 
 **[Copy-tex](https://github.com/Khan/KaTeX/tree/master/contrib/copy-tex)** is an extension for **$ \KaTeX $**.
