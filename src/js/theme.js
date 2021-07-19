@@ -531,7 +531,7 @@ function initToc() {
         const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
         const minTocTop = $toc.offsetTop;
         const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-        window._tocOnScroll = window._tocOnScroll || (() => {
+        window._tocOnScroll = (() => {
             const footerTop = document.getElementById('post-footer').offsetTop;
             const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
             const maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
