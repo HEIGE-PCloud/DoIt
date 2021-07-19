@@ -497,7 +497,7 @@ enableEmoji = true
   images = ["/logo.png"]
   # enable PWA
   # 开启 PWA 支持
-  enablePWA = false
+  enablePWA = true
   # Header config
   # 页面头部导航栏配置
   [params.header]
