@@ -428,11 +428,6 @@ function initDetails() {
 function initLightGallery() {
     if (window.config.lightGallery) {
         const instance = lightGallery(document.getElementById('content'), window.config.lightGallery);
-        function destroyInstance () {
-            instance.destroy();
-            document.removeEventListener('pjax:send', destroyInstance)
-        }
-        document.addEventListener('pjax:send', destroyInstance);
     }
 }
 
