@@ -426,9 +426,13 @@ function initDetails() {
 }
 
 function initLightGallery() {
-    // Dev WIP
     if (window.config.lightGallery) {
-        lightGallery(document.getElementById('content'), window.config.lightGallery);
+        const instance = lightGallery(document.getElementById('content'), window.config.lightGallery);
+        function destroyInstance () {
+            instance.destroy();
+            document.removeEventListener('pjax:send', destroyInstance)
+        }
+        document.addEventListener('pjax:send', destroyInstance);
     }
 }
 
@@ -780,7 +784,6 @@ function onScroll() {
         window.addEventListener('scroll', () => {
             window.newScrollTop = getScrollTop();
             const scroll = window.newScrollTop - window.oldScrollTop;
-            console.log(scroll);
             const isMobile = isMobileWindow();
             forEach($headers, $header => {
                 if (scroll > ACCURACY) {

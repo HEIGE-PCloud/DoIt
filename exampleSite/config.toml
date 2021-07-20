@@ -509,7 +509,7 @@ enableEmoji = true
     mobileMode = "auto"
     # theme change mode ("switch", "select")
     # 主题切换模式 ("switch", "select")
-    themeChangeMode = "switch"
+    themeChangeMode = "select"
     # Header title config
     # 页面头部导航栏标题配置
     [params.header.title]
