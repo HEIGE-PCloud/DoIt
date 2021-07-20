@@ -203,7 +203,7 @@ hugo
   keywords = ["Theme", "Hugo"]
   # {{< version 0.2.11 changed >}} 网站默认主题样式 ("light", "dark", "black", "auto")
   defaultTheme = "auto"
-  # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
+  # 公共 git 仓库路径, 仅在 enableGitInfo 设为 true 时有效
   gitRepo = ""
   # {{< version 0.1.1 >}} 哪种哈希函数用来 SRI, 为空时表示不使用 SRI
   # ("sha256", "sha384", "sha512", "md5")
@@ -295,7 +295,7 @@ hugo
     author = true
     # 网站创立年份
     since = 2019
-    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
+    # ICP 备案信息, 仅在中国使用 (支持 HTML 格式)
     icp = ""
     # 许可协议信息 (支持 HTML 格式)
     license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
@@ -325,7 +325,7 @@ hugo
     # 主页个人信息
     [params.home.profile]
       enable = true
-      # Gravatar 邮箱，用于优先在主页显示的头像
+      # Gravatar 邮箱, 用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
       # 将你的头像文件放置于 static 或者 assets 目录下
@@ -520,7 +520,7 @@ hugo
       [params.page.comment.disqus]
         # {{< version 0.1.1 >}}
         enable = false
-        # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
+        # Disqus 的 shortname, 用来在文章中启用 Disqus 评论系统
         shortname = ""
       # {{< link "https://github.com/gitalk/gitalk" Gitalk >}} 评论系统设置
       [params.page.comment.gitalk]
@@ -638,7 +638,7 @@ hugo
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
     duration = -1
 
-  # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
+  # 网站验证代码, 用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
     google = ""
     bing = ""
@@ -794,14 +794,14 @@ series = "series"
 
 ```toml
 [params.home.profile]
-  # Gravatar 邮箱，用于优先在主页显示的头像
+  # Gravatar 邮箱, 用于优先在主页显示的头像
   gravatarEmail = ""
   # 主页显示头像的 URL
   avatarURL = "/images/avatar.webp"
 ````
-你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像，网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像。
+你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像, 网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像.
 
-或者可以在`/assets`或`/static`目录下放置图片文件，并配置`avatarURL`下的地址来显示头像。引用资源的文件路径是相对于`assets`或`static`目录的。详细的本地资源引用方法请查看[这篇文档](/zh-cn/theme-documentation-content/#contents-organization)。
+或者可以在`/assets`或`/static`目录下放置图片文件, 并配置`avatarURL`下的地址来显示头像.引用资源的文件路径是相对于`assets`或`static`目录的.详细的本地资源引用方法请查看[这篇文档](/zh-cn/theme-documentation-content/#contents-organization).
 
 {{< /admonition >}}
 
@@ -1010,7 +1010,7 @@ defaultContentLanguage = "zh-cn"
 翻译字符串用于在主题中使用的常见默认值.
 目前提供[一些语言](#language-compatibility)的翻译, 但你可能自定义其他语言或覆盖默认值.
 
-要覆盖默认值, 请在你项目的 i18n 目录 `i18n/<languageCode>.toml` 中创建一个新文件，并从 `themes/DoIt/i18n/en.toml` 中获得提示.
+要覆盖默认值, 请在你项目的 i18n 目录 `i18n/<languageCode>.toml` 中创建一个新文件, 并从 `themes/DoIt/i18n/en.toml` 中获得提示.
 
 另外, 由于你的翻译可能会帮助到其他人, 请花点时间通过 [:(fas fa-code-branch fa-fw): 创建一个 PR](https://github.com/HEIGE-PCloud/DoIt/pulls) 来贡献主题翻译, 谢谢!
 
