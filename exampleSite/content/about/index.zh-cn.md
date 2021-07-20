@@ -9,15 +9,16 @@ math:
   enable: true
 ---
 
-> [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个由 [HEIGE-PCloud](https://github.com/HEIGE-PCloud) 开发的**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题.
+> [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) 是一个由 [HEIGE-PCloud](https://github.com/HEIGE-PCloud) 开发的**简洁**、**优雅**且**高效**的 [Hugo](https://gohugo.io/) 博客主题。
 >
-> 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt),  [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt).
+> 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt)， [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
 
 ### 特性
 
 #### 性能和 SEO
 
-* :(fas fa-rocket fa-fw): **性能**优化：在 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights) 中,  [99]/[100] 的移动设备得分和 [100]/[100] 的桌面设备得分
+* :(fas fa-rocket fa-fw): **性能**优化：在 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights) 中， [99]/[100] 的移动设备得分和 [100]/[100] 的桌面设备得分
+* :(fas fa-space-shuttle fa-fw): 支持 **PJAX**
 * :(fab fa-searchengin fa-fw): 使用基于 JSON-LD 格式 的 **SEO SCHEMA** 文件进行 SEO 优化
 * :(fab fa-google fa-fw): 支持 **[Google Analytics](https://analytics.google.com/analytics)**
 * :(far fa-chart-bar fa-fw): 支持 **[Fathom Analytics](https://usefathom.com/)**
@@ -76,11 +77,11 @@ math:
 
 ### 许可协议
 
-DoIt 根据 **MIT** 许可协议授权.
+DoIt 根据 **MIT** 许可协议授权。
 
-更多信息请查看 [LICENSE 文件](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE).
+更多信息请查看 [LICENSE 文件](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)。
 
-DoIt 主题中用到了以下项目, 感谢它们的作者：
+DoIt 主题中用到了以下项目，感谢它们的作者：
 
 * [normalize.css](https://github.com/necolas/normalize.css)
 * [Font Awesome](https://fontawesome.com/)
@@ -108,3 +109,5 @@ DoIt 主题中用到了以下项目, 感谢它们的作者：
 * [Waline](https://waline.js.org/)
 * [Twikoo](https://twikoo.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
+* [Pjax](https://github.com/PaperStrike/Pjax)
+* [Topbar](https://github.com/buunguyen/topbar)
