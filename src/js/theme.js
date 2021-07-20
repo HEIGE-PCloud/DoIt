@@ -52,12 +52,15 @@ function initTwemoji() {
 function initMenuMobile() {
     const $menuToggleMobile = document.getElementById('menu-toggle-mobile');
     const $menuMobile = document.getElementById('menu-mobile');
-    $menuToggleMobile.addEventListener('click', () => {
-        document.body.classList.toggle('blur');
-        $menuToggleMobile.classList.toggle('active');
-        $menuMobile.classList.toggle('active');
-    }, false);
-    window._menuMobileOnClickMask = window._menuMobileOnClickMask || (() => {
+    if (!window.menuToggleMobileEventListener) {
+        $menuToggleMobile.addEventListener('click', () => {
+            document.body.classList.toggle('blur');
+            $menuToggleMobile.classList.toggle('active');
+            $menuMobile.classList.toggle('active');
+        }, false);
+        window.menuToggleMobileEventListener = true;
+    }
+    window._menuMobileOnClickMask = (() => {
         $menuToggleMobile.classList.remove('active');
         $menuMobile.classList.remove('active');
     });
@@ -773,38 +776,42 @@ function onScroll() {
     }
     const $fixedButtons = document.getElementById('fixed-buttons');
     const ACCURACY = 20, MINIMUM = 100;
-    window.addEventListener('scroll', () => {
-        window.newScrollTop = getScrollTop();
-        const scroll = window.newScrollTop - window.oldScrollTop;
-        const isMobile = isMobileWindow();
-        forEach($headers, $header => {
-            if (scroll > ACCURACY) {
-                $header.classList.remove('animate__fadeInDown');
-                animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
-            } else if (scroll < - ACCURACY) {
-                $header.classList.remove('animate__fadeOutUp');
-                animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
+    if (!window.scrollEventListener) {
+        window.addEventListener('scroll', () => {
+            window.newScrollTop = getScrollTop();
+            const scroll = window.newScrollTop - window.oldScrollTop;
+            console.log(scroll);
+            const isMobile = isMobileWindow();
+            forEach($headers, $header => {
+                if (scroll > ACCURACY) {
+                    $header.classList.remove('animate__fadeInDown');
+                    animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
+                } else if (scroll < - ACCURACY) {
+                    $header.classList.remove('animate__fadeOutUp');
+                    animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
+                }
+            });
+            if (window.newScrollTop > MINIMUM) {
+                if (isMobile && scroll > ACCURACY) {
+                    $fixedButtons.classList.remove('animate__fadeIn');
+                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                } else if (!isMobile || scroll < - ACCURACY) {
+                    $fixedButtons.style.display = 'block';
+                    $fixedButtons.classList.remove('animate__fadeOut');
+                    animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
+                }
+            } else {
+                if (!isMobile) {
+                    $fixedButtons.classList.remove('animate__fadeIn');
+                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                }
+                $fixedButtons.style.display = 'none';
             }
-        });
-        if (window.newScrollTop > MINIMUM) {
-            if (isMobile && scroll > ACCURACY) {
-                $fixedButtons.classList.remove('animate__fadeIn');
-                animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
-            } else if (!isMobile || scroll < - ACCURACY) {
-                $fixedButtons.style.display = 'block';
-                $fixedButtons.classList.remove('animate__fadeOut');
-                animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
-            }
-        } else {
-            if (!isMobile) {
-                $fixedButtons.classList.remove('animate__fadeIn');
-                animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
-            }
-            $fixedButtons.style.display = 'none';
-        }
-        for (let event of window.scrollEventSet) event();
-        window.oldScrollTop = window.newScrollTop;
-    }, false);
+            for (let event of window.scrollEventSet) event();
+            window.oldScrollTop = window.newScrollTop;
+        }, false);
+        window.scrollEventListener = true;
+    }
 }
 
 function onResize() {
@@ -889,7 +896,13 @@ let pjax = new Pjax({
         ".pjax-assets",
     ]
 })
-
+document.addEventListener('pjax:send', function () {
+    const $menuToggleMobile = document.getElementById('menu-toggle-mobile');
+    const $menuMobile = document.getElementById('menu-mobile');
+    document.body.classList.remove("blur");
+    $menuToggleMobile.classList.remove('active');
+    $menuMobile.classList.remove('active');
+});
 document.addEventListener('pjax:success', function () {
     themeInit();
 });
