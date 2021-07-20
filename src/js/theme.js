@@ -766,50 +766,54 @@ function initCookieconsent() {
 
 function onScroll() {
     const $headers = [];
+    const $viewComments = document.getElementById('view-comments');
     if (document.body.getAttribute('header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
     if (document.body.getAttribute('header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
     if (document.getElementById('comments')) {
-        const $viewComments = document.getElementById('view-comments');
         $viewComments.href = `#comments`;
         $viewComments.style.display = 'block';
+    } else {
+        $viewComments.style.display = 'null';
     }
+    console.log(document.getElementById('view-comments'));
     const $fixedButtons = document.getElementById('fixed-buttons');
     const ACCURACY = 20, MINIMUM = 100;
-    if (!window.scrollEventListener) {
-        window.addEventListener('scroll', () => {
-            window.newScrollTop = getScrollTop();
-            const scroll = window.newScrollTop - window.oldScrollTop;
-            const isMobile = isMobileWindow();
-            forEach($headers, $header => {
-                if (scroll > ACCURACY) {
-                    $header.classList.remove('animate__fadeInDown');
-                    animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
-                } else if (scroll < - ACCURACY) {
-                    $header.classList.remove('animate__fadeOutUp');
-                    animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
-                }
-            });
-            if (window.newScrollTop > MINIMUM) {
-                if (isMobile && scroll > ACCURACY) {
-                    $fixedButtons.classList.remove('animate__fadeIn');
-                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
-                } else if (!isMobile || scroll < - ACCURACY) {
-                    $fixedButtons.style.display = 'block';
-                    $fixedButtons.classList.remove('animate__fadeOut');
-                    animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
-                }
-            } else {
-                if (!isMobile) {
-                    $fixedButtons.classList.remove('animate__fadeIn');
-                    animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
-                }
-                $fixedButtons.style.display = 'none';
+    function handleScrollEvent() {
+        window.newScrollTop = getScrollTop();
+        const scroll = window.newScrollTop - window.oldScrollTop;
+        const isMobile = isMobileWindow();
+        forEach($headers, $header => {
+            if (scroll > ACCURACY) {
+                $header.classList.remove('animate__fadeInDown');
+                animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
+            } else if (scroll < - ACCURACY) {
+                $header.classList.remove('animate__fadeOutUp');
+                animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
             }
-            for (let event of window.scrollEventSet) event();
-            window.oldScrollTop = window.newScrollTop;
-        }, false);
-        window.scrollEventListener = true;
+        });
+        if (window.newScrollTop > MINIMUM) {
+            if (isMobile && scroll > ACCURACY) {
+                $fixedButtons.classList.remove('animate__fadeIn');
+                animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+            } else if (!isMobile || scroll < - ACCURACY) {
+                $fixedButtons.style.display = 'block';
+                $fixedButtons.classList.remove('animate__fadeOut');
+                animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
+            }
+        } else {
+            if (!isMobile) {
+                $fixedButtons.classList.remove('animate__fadeIn');
+                animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+            }
+            $fixedButtons.style.display = 'none';
+        }
+        for (let event of window.scrollEventSet) event();
+        window.oldScrollTop = window.newScrollTop;
     }
+    window.addEventListener('scroll', handleScrollEvent, false);
+    document.addEventListener('pjax:send', function () {
+        window.removeEventListener('scroll', handleScrollEvent);
+    });
 }
 
 function onResize() {
@@ -862,18 +866,14 @@ function init() {
         initTypeit();
         initMapbox();
         initCookieconsent();
+        initToc();
+        initComment();
+        onScroll();
+        onResize();
+        onClickMask();
     } catch (err) {
         console.error(err);
     }
-
-    window.setTimeout(() => {
-        window.initToc();
-        window.initComment();
-
-        window.onScroll();
-        window.onResize();
-        window.onClickMask();
-    }, 100);
 }
 
 const themeInit = () => {
@@ -892,6 +892,7 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets",
+        "#fixed-buttons"
     ]
 })
 document.addEventListener('pjax:send', function () {

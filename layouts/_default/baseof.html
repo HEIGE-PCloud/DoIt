@@ -28,6 +28,7 @@
         let themeColorMeta = getMeta('theme-color');
         if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
     </script>
+    <div id="back-to-top"></div>
     <div id="mask"></div>
 
     {{- /* Body wrapper */ -}}
@@ -43,7 +44,7 @@
 
     <div id="fixed-buttons">
         {{- /* top button */ -}}
-        <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
+        <a href="#back-to-top" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
             <i class="fas fa-arrow-up fa-fw"></i>
         </a>
 
