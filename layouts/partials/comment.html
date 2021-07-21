@@ -191,6 +191,7 @@
             {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
             {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
+            {{- $commentConfig = dict "lang" .Lang | dict "twikoo" | merge $commentConfig -}}
             {{- with $twikoo.region -}}
                 {{- $commentConfig = dict "region" . | dict "twikoo" | merge $commentConfig -}}
             {{- end -}}
