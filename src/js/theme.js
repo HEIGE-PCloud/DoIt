@@ -775,7 +775,6 @@ function onScroll() {
     } else {
         $viewComments.style.display = 'null';
     }
-    console.log(document.getElementById('view-comments'));
     const $fixedButtons = document.getElementById('fixed-buttons');
     const ACCURACY = 20, MINIMUM = 100;
     function handleScrollEvent() {
