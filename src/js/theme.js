@@ -477,6 +477,10 @@ function initHighlight() {
                 const clipboard = new ClipboardJS($copy);
                 clipboard.on('success', _e => {
                     animateCSS($code, 'animate__flash');
+                    $copy.firstElementChild.className = "fas fa-check fa-fw";
+                    setTimeout(() => {
+                        $copy.firstElementChild.className = "far fa-copy fa-fw";
+                    }, 3000);
                 });
                 $header.appendChild($copy);
             }
