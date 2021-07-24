@@ -896,8 +896,7 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets",
-        "#fixed-buttons",
-        ".dropdown-menu"
+        "#fixed-buttons"
     ]
 })
 
