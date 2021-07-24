@@ -789,7 +789,7 @@ function onScroll() {
             if (scroll > ACCURACY) {
                 $header.classList.remove('animate__fadeInDown');
                 animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
-            } else if (scroll < - ACCURACY) {
+            } else if (scroll < - ACCURACY || window.newScrollTop <= 20) {
                 $header.classList.remove('animate__fadeOutUp');
                 animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
             }
@@ -896,7 +896,8 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets",
-        "#fixed-buttons"
+        "#fixed-buttons",
+        ".search-dropdown"
     ]
 })
 
