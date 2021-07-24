@@ -501,17 +501,34 @@ orcid:
   Icon:
     Class: fab fa-orcid fa-fw
 
-# 064: Email
-email:
+# 064 Liberapay:
+liberapay:
   Weight: 64
+  Prefix: https://liberapay.com/
+  Title: Liberapay
+  Icon:
+    Simpleicons: liberapay
+
+# 065 Ko-Fi:
+ko-fi:
+  Weight: 65
+  Prefix: https://ko-fi.com/
+  Title: Ko-Fi
+  Icon:
+    Simpleicons: ko-fi
+
+
+# 066: Email
+email:
+  Weight: 66
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 065: RSS
+# 067: RSS
 rss:
-  Weight: 65
+  Weight: 67
   Url: /index.xml
   Title: RSS
   Newtab: true

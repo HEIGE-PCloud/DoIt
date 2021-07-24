@@ -246,6 +246,8 @@ enableEmoji = true
         Matrix = ""
         Bilibili = ""
         ORCID = ""
+        Liberapay = "xxx"
+        Ko-Fi = "xxx"
         Email = "xxxx@xxxx.com"
         RSS = true
         [languages.en.params.social.Mastodon]
@@ -473,6 +475,8 @@ enableEmoji = true
         Matrix = ""
         Bilibili = "xxxx"
         ORCID = ""
+        Liberapay = ""
+        Ko-Fi = ""
         Email = "xxxx@xxxx.com"
         RSS = true
 
