@@ -125,7 +125,7 @@ function initSelectTheme() {
 function initSearch() {
     const searchConfig = window.config.search;
     const isMobile = isMobileWindow();
-    if (!searchConfig || isMobile && window._searchMobileOnce || !isMobile && window._searchDesktopOnce) return;
+    if (!searchConfig) return;
 
     const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10;
     const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50;
@@ -146,7 +146,6 @@ function initSearch() {
     const $searchLoading = document.getElementById(`search-loading-${suffix}`);
     const $searchClear = document.getElementById(`search-clear-${suffix}`);
     if (isMobile) {
-        window._searchMobileOnce = true;
         $searchInput.addEventListener('focus', () => {
             document.body.classList.add('blur');
             $header.classList.add('open');
@@ -164,15 +163,15 @@ function initSearch() {
             $searchClear.style.display = 'none';
             window._searchMobile && window._searchMobile.autocomplete.setVal('');
         }, false);
-        window._searchMobileOnClickMask = window._searchMobileOnClickMask || (() => {
+        window._searchMobileOnClickMask = (() => {
             $header.classList.remove('open');
             $searchLoading.style.display = 'none';
             $searchClear.style.display = 'none';
             window._searchMobile && window._searchMobile.autocomplete.setVal('');
         });
         window.clickMaskEventSet.add(window._searchMobileOnClickMask);
+        window.pjaxSendEventSet.add(window._searchMobileOnClickMask);
     } else {
-        window._searchDesktopOnce = true;
         $searchToggle.addEventListener('click', () => {
             document.body.classList.add('blur');
             $header.classList.add('open');
@@ -182,13 +181,14 @@ function initSearch() {
             $searchClear.style.display = 'none';
             window._searchDesktop && window._searchDesktop.autocomplete.setVal('');
         }, false);
-        window._searchDesktopOnClickMask = window._searchDesktopOnClickMask || (() => {
+        window._searchDesktopOnClickMask = (() => {
             $header.classList.remove('open');
             $searchLoading.style.display = 'none';
             $searchClear.style.display = 'none';
             window._searchDesktop && window._searchDesktop.autocomplete.setVal('');
         });
         window.clickMaskEventSet.add(window._searchDesktopOnClickMask);
+        window.pjaxSendEventSet.add(window._searchDesktopOnClickMask);
     }
     $searchInput.addEventListener('input', () => {
         if ($searchInput.value === '') $searchClear.style.display = 'none';
@@ -597,7 +597,7 @@ function initMermaid() {
 }
 
 function initEcharts() {
-    window._echartsOnSwitchTheme = window._echartsOnSwitchTheme || (() => {
+    window._echartsOnSwitchTheme = (() => {
         window._echartsArr = window._echartsArr || [];
         for (let i = 0; i < window._echartsArr.length; i++) {
             window._echartsArr[i].dispose();
@@ -611,7 +611,7 @@ function initEcharts() {
     });
     window.switchThemeEventSet.add(window._echartsOnSwitchTheme);
     window._echartsOnSwitchTheme();
-    window._echartsOnResize = window._echartsOnResize || (() => {
+    window._echartsOnResize = (() => {
         for (let i = 0; i < window._echartsArr.length; i++) {
             window._echartsArr[i].resize();
         }
@@ -658,7 +658,7 @@ function initMapbox() {
             mapbox.addControl(new MapboxLanguage());
             window._mapboxArr.push(mapbox);
         });
-        window._mapboxOnSwitchTheme = window._mapboxOnSwitchTheme || (() => {
+        window._mapboxOnSwitchTheme = (() => {
             forEach(window._mapboxArr, mapbox => {
                 const $mapbox = mapbox.getContainer();
                 const { lightStyle, darkStyle } = window.data[$mapbox.id];
@@ -725,7 +725,7 @@ function initComment() {
             script.crossOrigin = 'anonymous';
             script.async = true;
             document.getElementById('utterances').appendChild(script);
-            window._utterancesOnSwitchTheme = window._utterancesOnSwitchTheme || (() => {
+            window._utterancesOnSwitchTheme = (() => {
                 const message = {
                     type: 'set-theme',
                     theme: window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme,
@@ -754,7 +754,7 @@ function initMeta() {
     } else {
         themeColorMeta.content = '#ffffff';
     }
-    window._metaThemeColorOnSwitchTheme = window._metaThemeColorOnSwitchTheme || (() => {
+    window._metaThemeColorOnSwitchTheme = (() => {
         if (window.isDark) {
             themeColorMeta.content = '#000000';
         } else {
@@ -850,6 +850,7 @@ function init() {
         window.resizeEventSet = new Set();
         window.switchThemeEventSet = new Set();
         window.clickMaskEventSet = new Set();
+        window.pjaxSendEventSet = new Set();
         if (window.objectFitImages) objectFitImages();
         initSVGIcon();
         initTwemoji();
@@ -895,18 +896,19 @@ let pjax = new Pjax({
         "main",
         ".menu-item",
         ".pjax-assets",
-        "#fixed-buttons"
+        "#fixed-buttons",
+        ".dropdown-menu"
     ]
 })
-document.addEventListener('pjax:send', function () {
-    const $menuToggleMobile = document.getElementById('menu-toggle-mobile');
-    const $menuMobile = document.getElementById('menu-mobile');
-    document.body.classList.remove("blur");
-    $menuToggleMobile.classList.remove('active');
-    $menuMobile.classList.remove('active');
-});
+
 document.addEventListener('pjax:success', function () {
     themeInit();
+});
+
+document.addEventListener('pjax:send', function () {
+    for (let event of window.pjaxSendEventSet) event();
+    for (let event of window.clickMaskEventSet) event();
+    document.body.classList.remove('blur');
 });
 
 topbar.config({
