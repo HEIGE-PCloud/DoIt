@@ -207,20 +207,26 @@
         {{- $vssue := $comment.vssue | default dict -}}
         {{- if $vssue.enable -}}
             <div id="vssue"></div>
+                {{- $source := $cdn.vssueCSS | default "lib/vssue/vssue.min.css" -}}
+                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
                 {{- $source := $cdn.vueRuntimeJS | default "lib/vue/vue.runtime.min.js" -}}
                 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- if eq $vssue.platform "bitbucket" -}}
                     {{- $source := $cdn.vssueBitbucketJS | default "lib/vssue/vssue.bitbucket.min.js" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- else if eq $vssue.platform "gitea" -}}
                     {{- $source := $cdn.vssueGiteaJS | default "lib/vssue/vssue.gitea.min.js" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- else if eq $vssue.platform "gitee" -}}
                     {{- $source := $cdn.vssueGiteeJS | default "lib/vssue/vssue.gitee.min.js" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- else if eq $vssue.platform "github" -}}
                     {{- $source := $cdn.vssueGithubJS | default "lib/vssue/vssue.github.min.js" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- else if eq $vssue.platform "gitlab" -}}
                     {{- $source := $cdn.vssueGitlabJS | default "lib/vssue/vssue.gitlab.min.js" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- end -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- $commentConfig = dict "el" "#vssue" "title" .Title | dict "vssue" | merge $commentConfig -}}
                 {{- with $vssue.owner -}}
                     {{- $commentConfig = dict "owner" . | dict "vssue" | merge $commentConfig -}}
