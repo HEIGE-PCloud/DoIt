@@ -72,3 +72,11 @@ libFiles:
   pjaxJS: "@sliphua/pjax@0.13.0/dist/pjax.min.js"
   # topbar@1.0.1 https://github.com/buunguyen/topbar
   topbarJS: topbar@1.0.1/topbar.min.js
+  # vue@v2.6.14 https://vuejs.org
+  vueRuntimeJS: vue@2.6.14/dist/vue.runtime.min.js
+  # vssue@1.4.8 https://vssue.js.org
+  vssueBitbucketJS: vssue@1.4.8/dist/vssue.bitbucket.min.js
+  vssueGiteaJS: vssue@1.4.8/dist/vssue.gitea.min.js
+  vssueGiteeJS: vssue@1.4.8/dist/vssue.gitee.min.js
+  vssueGithubJS: vssue@1.4.8/dist/vssue.github.min.js
+  vssueGitlabJS: vssue@1.4.8/dist/vssue.gitlab.min.js
