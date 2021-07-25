@@ -221,7 +221,7 @@
                     {{- $source := $cdn.vssueGitlabJS | default "lib/vssue/vssue.gitlab.min.js" -}}
                 {{- end -}}
                 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-                {{- $commentConfig = dict "el" "#vssue" "title" .Title | dict "twikoo" | merge $commentConfig -}}
+                {{- $commentConfig = dict "el" "#vssue" "title" .Title | dict "vssue" | merge $commentConfig -}}
                 {{- with $vssue.owner -}}
                     {{- $commentConfig = dict "owner" . | dict "vssue" | merge $commentConfig -}}
                 {{- end -}}
