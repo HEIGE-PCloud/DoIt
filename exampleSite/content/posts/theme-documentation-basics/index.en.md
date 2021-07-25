@@ -602,6 +602,10 @@ Please open the code block below to view the complete sample configuration :(far
         region = ""
         path = ""
         visitor = true
+      # {{< version 0.2.12 >}} {{< link "https://www.intensedebate.com//" "IntenseDebate" >}} comment config
+      [params.page.comment.intensedebate]
+        enable = false
+        acct = ""
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

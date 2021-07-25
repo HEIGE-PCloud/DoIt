@@ -606,6 +606,10 @@ hugo
         region = ""
         path = ""
         visitor = true
+      # {{< version 0.2.12 >}} {{< link "https://www.intensedebate.com//" "IntenseDebate" >}} 评论系统设置
+      [params.page.comment.intensedebate]
+        enable = false
+        acct = ""
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
