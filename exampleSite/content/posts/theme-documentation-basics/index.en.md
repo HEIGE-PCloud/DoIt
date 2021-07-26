@@ -604,6 +604,14 @@ Please open the code block below to view the complete sample configuration :(far
         region = ""
         path = ""
         visitor = true
+      # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} comment config
+      [params.page.comment.vssue]
+        enable = false
+        platform = "" # ("bitbucket", "gitea", "gitee", "github", "gitlab")
+        owner = ""
+        repo = ""
+        clientId = ""
+        clientSecret = ""
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

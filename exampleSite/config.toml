@@ -818,6 +818,15 @@ enableEmoji = true
         region = ""
         path = ""
         visitor = true
+      # Vssue comment config (https://vssue.js.org//)
+      # Vssue comment 评论系统设置 (https://vssue.js.org//)
+      [params.page.comment.vssue]
+        enable = false
+        platform = "" # ("bitbucket", "gitea", "gitee", "github", "gitlab")
+        owner = ""
+        repo = ""
+        clientId = ""
+        clientSecret = ""
     # Third-party library config
     # 第三方库配置
     [params.page.library]
