@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latesst, macos-latest, windows-latest]
+        hugo_version: ["0.83.0", "0.83.1", "0.84.4", "0.85.0", "0.86.0"]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Hugo setup
+        uses: peaceiris/actions-hugo@v2.4.13
+        with:
+          hugo-version: ${{ matrix.hugo_version }}
+          extended: true
+
+      - name: Build
+        run: hugo -v --source=exampleSite --themesDir ../.. --gc
