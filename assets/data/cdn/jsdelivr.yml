@@ -1,20 +1,20 @@
 prefix:
   libFiles: https://cdn.jsdelivr.net/npm/
-  # simple-icons@5.4.0 https://github.com/simple-icons/simple-icons
-  simpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/
+  # simple-icons@5.8.1 https://github.com/simple-icons/simple-icons
+  simpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@v5.8.1/icons/
 libFiles:
   # normalize.css@8.0.1 https://github.com/necolas/normalize.css
   normalizeCSS: normalize.css@8.0.1/normalize.min.css
-  # fontawesome-free@5.15.3 https://fontawesome.com/
-  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.3/css/all.min.css'
+  # fontawesome-free@5.15.4 https://fontawesome.com/
+  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
   # autocomplete.js@0.38.0 https://github.com/algolia/autocomplete.js
   autocompleteJS: autocomplete.js@0.38.0/dist/autocomplete.min.js
   # lunr.js@2.3.9 https://lunrjs.com/
   lunrJS: lunr@2.3.9/lunr.min.js
-  # algoliasearch@4.10.2 https://github.com/algolia/algoliasearch-client-javascript
-  algoliasearchJS: algoliasearch@4.10.2/dist/algoliasearch-lite.umd.min.js
+  # algoliasearch@4.10.3 https://github.com/algolia/algoliasearch-client-javascript
+  algoliasearchJS: algoliasearch@4.10.3/dist/algoliasearch.umd.min.js
   # lazysizes@5.3.2 https://github.com/aFarkas/lazysizes
   lazysizesJS: lazysizes@5.3.2/lazysizes.min.js
   # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
@@ -34,15 +34,15 @@ libFiles:
   sharerJS: sharer.js@0.4.1/sharer.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
-  # katex@0.13.11 https://katex.org/
-  katexCSS: katex@0.13.11/dist/katex.min.css
-  katexJS: katex@0.13.11/dist/katex.min.js
-  katexAutoRenderJS: katex@0.13.11/dist/contrib/auto-render.min.js
-  katexCopyTexCSS: katex@0.13.11/dist/contrib/copy-tex.min.css
-  katexCopyTexJS: katex@0.13.11/dist/contrib/copy-tex.min.js
-  katexMhchemJS: katex@0.13.11/dist/contrib/mhchem.min.js
-  # mermaid@8.11.0 https://github.com/knsv/mermaid
-  mermaidJS: mermaid@8.11.0/dist/mermaid.min.js
+  # katex@0.13.13 https://katex.org/
+  katexCSS: katex@0.13.13/dist/katex.min.css
+  katexJS: katex@0.13.13/dist/katex.min.js
+  katexAutoRenderJS: katex@0.13.13/dist/contrib/auto-render.min.js
+  katexCopyTexCSS: katex@0.13.13/dist/contrib/copy-tex.min.css
+  katexCopyTexJS: katex@0.13.13/dist/contrib/copy-tex.min.js
+  katexMhchemJS: katex@0.13.13/dist/contrib/mhchem.min.js
+  # mermaid@8.11.3 https://github.com/knsv/mermaid
+  mermaidJS: mermaid@8.11.3/dist/mermaid.min.js
   # echarts@5.1.2 https://echarts.apache.org/
   echartsJS: echarts@5.1.2/dist/echarts.min.js
   echartsMacaronsJS: echarts@5.1.2/theme/macarons.min.js
@@ -64,8 +64,8 @@ libFiles:
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
-  # twikoo@1.4.1 https://twikoo.js.org/
-  twikooJS: twikoo@1.4.1/dist/twikoo.all.min.js
+  # twikoo@1.4.3 https://twikoo.js.org/
+  twikooJS: twikoo@1.4.3/dist/twikoo.all.min.js
   # fusejs@6.4.6 https://fusejs.io/
   fuseJS: fuse.js@6.4.6/dist/fuse.min.js
   # pjax@0.13.0 https://github.com/PaperStrike/Pjax
