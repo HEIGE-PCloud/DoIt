@@ -4,8 +4,7 @@ title: "Theme Documentation - Extended Shortcodes"
 date: 2020-03-03T16:29:41+08:00
 lastmod: 2020-03-03T16:29:41+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+authors: [Dillon, PCloud]
 description: "DoIt theme provides multiple shortcodes on top of built-in ones in Hugo."
 resources:
 featuredImage: "featured-image.webp"
