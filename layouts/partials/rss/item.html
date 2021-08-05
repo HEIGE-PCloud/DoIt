@@ -1,10 +1,5 @@
 {{- $params := .Page.Params | merge .Site.Params.Page | merge (dict "author" .Site.Author.name) -}}
 
-{{- $hasAuthors := ne .Page.Params.authors nil -}}
-{{- if $hasAuthors -}}
-{{- $hasAuthors = (ne (len .Page.Params.authors) 0) -}}
-{{- end -}}
-
 <item>
     <title>
         {{- .Page.Title -}}
@@ -15,20 +10,22 @@
     <pubDate>
         {{- .Page.Date.Format "Mon, 02 Jan 2006 15:04:05 -0700"  -}}
     </pubDate>
-    {{- if $hasAuthors -}}
+    {{- if .Page.Params.authors -}}
     {{- $lang := ( .Page.Language.Lang | default $.Lang ) -}}
-        {{- range $i, $authorID := .Page.Params.authors -}}
-        {{- with partial "function/authorinfo.html" (dict
-            "authorID" $authorID
-            "author" (index $.Site.Data.authors $authorID)
-            "lang" $lang
-        ) -}}
-        <author>
-            <name>{{- .name -}}</name>
-            <uri>{{ .link | absURL }}</uri>
-            {{- if .email -}}<email>{{ .email }}</email>{{- end -}}
-        </author>
-        {{- end -}}
+        {{- range $i, $name := .Page.Params.authors -}}
+            {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+                <author>
+                    <name>{{- .name -}}</name>
+                    {{- if .absLink -}}
+                        <uri>{{ .absLink | absURL }}</uri>
+                    {{- else -}}
+                        <uri>{{ .link | absURL }}</uri>
+                    {{- end -}}
+                    {{- if .email -}}
+                        <email>{{ .email }}</email>
+                    {{- end -}}
+                </author>
+            {{- end -}}
         {{- end -}}
     {{- else -}}
     <author>

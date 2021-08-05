@@ -1,0 +1,28 @@
+{{- /* Author */ -}}
+
+{{- $name := .name -}}
+{{- $link := "" -}}
+{{- $absLink := "" -}}
+{{- $linkTag := $name -}}
+{{- $email := "" -}}
+{{- $i18n := dict -}}
+
+{{- if .author -}}
+    {{- $i18n = (index .author .lang) -}}
+    {{- $name = .author.name -}}
+    {{- $link = .author.link -}}
+    {{- $absLink = .author.link -}}
+    {{- $email = .author.email -}}
+{{- end -}}
+
+{{- if $i18n -}}
+    {{- $name = $i18n.name -}}
+{{- end -}}
+
+{{- if $link -}}
+    {{- $linkTag = printf `<a href="%s" class="archive-item-link" title="%s" target="_blank"> %s </a>` $link $name $name -}}
+{{- end -}}
+
+{{- $link := urlize (printf "/authors/%s" .name) -}}
+
+{{- return dict "author" .author "email" $email "name" $name "link" $link "absLink" $absLink -}}

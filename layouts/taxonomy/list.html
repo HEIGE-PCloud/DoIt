@@ -12,14 +12,23 @@
             {{- else if eq $taxonomy "tag" -}}
                 <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "author" -}}
-                {{- printf "%v - " (T $taxonomy | default $taxonomy) -}}
-                {{- .Scratch.Set "authorID" .Title -}}
-                {{- with partial "function/authorinfo.html" (dict
-                    "authorID" .Title
-                    "author" (index $.Site.Data.authors .Title)
-                    "lang" ($.Params.lang | default $.Lang)
-                ) -}}
-                    {{- .extLink | safeHTML -}}
+                {{- $icon := dict "Class" "author fas fa-user fa-fw" }}
+                {{- partial "plugin/icon.html" $icon -}}
+
+                {{- .Scratch.Set "name" .Title -}}
+                {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
+                    {{- .name | safeHTML -}}
+                    <br>
+                    {{- if .absLink -}}
+                        <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon" target="_blank">
+                            <i class="author-link-icon fa fa-link fa-fw"></i>
+                        </a>
+                        {{- end -}}
+                    {{- if .email -}}
+                        <a class="author-link-icon" href="mailto:{{ .email }}" title="Email" rel="icon" target="_blank">
+                            <i class="author-link-icon far fa-envelope fa-fw"></i>
+                        </a>
+                    {{- end -}}
                 {{- end -}}
             {{- else -}}
                 {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
