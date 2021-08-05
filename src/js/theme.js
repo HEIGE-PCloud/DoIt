@@ -909,7 +909,7 @@ if (document.readyState !== 'loading') {
 
 let pjax = new Pjax({
     selectors: [
-        "title .pjax-title",
+        ".pjax-title",
         "main",
         ".menu-item",
         ".pjax-assets",
