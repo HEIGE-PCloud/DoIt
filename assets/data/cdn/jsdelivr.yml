@@ -34,13 +34,13 @@ libFiles:
   sharerJS: sharer.js@0.4.1/sharer.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
-  # katex@0.13.11 https://katex.org/
-  katexCSS: katex@0.13.11/dist/katex.min.css
-  katexJS: katex@0.13.11/dist/katex.min.js
-  katexAutoRenderJS: katex@0.13.11/dist/contrib/auto-render.min.js
-  katexCopyTexCSS: katex@0.13.11/dist/contrib/copy-tex.min.css
-  katexCopyTexJS: katex@0.13.11/dist/contrib/copy-tex.min.js
-  katexMhchemJS: katex@0.13.11/dist/contrib/mhchem.min.js
+  # katex@0.13.13 https://katex.org/
+  katexCSS: katex@0.13.13/dist/katex.min.css
+  katexJS: katex@0.13.13/dist/katex.min.js
+  katexAutoRenderJS: katex@0.13.13/dist/contrib/auto-render.min.js
+  katexCopyTexCSS: katex@0.13.13/dist/contrib/copy-tex.min.css
+  katexCopyTexJS: katex@0.13.13/dist/contrib/copy-tex.min.js
+  katexMhchemJS: katex@0.13.13/dist/contrib/mhchem.min.js
   # mermaid@8.11.0 https://github.com/knsv/mermaid
   mermaidJS: mermaid@8.11.0/dist/mermaid.min.js
   # echarts@5.1.2 https://echarts.apache.org/
