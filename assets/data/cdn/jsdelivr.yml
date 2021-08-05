@@ -5,8 +5,8 @@ prefix:
 libFiles:
   # normalize.css@8.0.1 https://github.com/necolas/normalize.css
   normalizeCSS: normalize.css@8.0.1/normalize.min.css
-  # fontawesome-free@5.15.3 https://fontawesome.com/
-  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.3/css/all.min.css'
+  # fontawesome-free@5.15.4 https://fontawesome.com/
+  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
   # autocomplete.js@0.38.0 https://github.com/algolia/autocomplete.js
