@@ -41,8 +41,8 @@ libFiles:
   katexCopyTexCSS: katex@0.13.13/dist/contrib/copy-tex.min.css
   katexCopyTexJS: katex@0.13.13/dist/contrib/copy-tex.min.js
   katexMhchemJS: katex@0.13.13/dist/contrib/mhchem.min.js
-  # mermaid@8.11.0 https://github.com/knsv/mermaid
-  mermaidJS: mermaid@8.11.0/dist/mermaid.min.js
+  # mermaid@8.11.3 https://github.com/knsv/mermaid
+  mermaidJS: mermaid@8.11.3/dist/mermaid.min.js
   # echarts@5.1.2 https://echarts.apache.org/
   echartsJS: echarts@5.1.2/dist/echarts.min.js
   echartsMacaronsJS: echarts@5.1.2/theme/macarons.min.js
