@@ -64,8 +64,8 @@ libFiles:
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
-  # twikoo@1.4.1 https://twikoo.js.org/
-  twikooJS: twikoo@1.4.1/dist/twikoo.all.min.js
+  # twikoo@1.4.3 https://twikoo.js.org/
+  twikooJS: twikoo@1.4.3/dist/twikoo.all.min.js
   # fusejs@6.4.6 https://fusejs.io/
   fuseJS: fuse.js@6.4.6/dist/fuse.min.js
   # pjax@0.13.0 https://github.com/PaperStrike/Pjax
