@@ -1,6 +1,32 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.12] - 2021-08-05
+
+### Enhancements
+
+### New features
+- ✨ add PJAX support (#135) 33243ba @HEIGE-PCloud (#135)
+- ✨ add [showcase shortcode](https://hugodoit.pages.dev/theme-documentation-extended-shortcodes/#13-showcase) f493819 @HEIGE-PCloud (#76)
+- ➕ add [math shortcode](https://hugodoit.pages.dev/theme-documentation-extended-shortcodes/#14-math) cb920c9 @HEIGE-PCloud  (#144)
+- ✨ add more social icons cf5331a 77fd6ef @HEIGE-PCloud (#86) (#153)
+- ✨ add support for multi-authors taxonomy 73b2fe0 @xqbumu @HEIGE-PCloud (#98)
+- ✨ add support for series taxonomy c74187e @HEIGE-PCloud (#123)
+- ✨ add support for [Twikoo comment system](https://twikoo.js.org) 8cf5b1e @HEIGE-PCloud (#97)
+- ✨ add support for [Vssue comment system](https://vssue.js.org) d9d8bc1 @HEIGE-PCloud (#157)
+- 🔍add support for [Fusejs search](https://fusejs.io/) e0f2696 @HEIGE-PCloud (#104)
+
+### Fixes
+- 🐛 fix toc's position in wide pages 7995ea9 @HEIGE-PCloud (#77)
+- 🐛 fix overflow for KaTeX formulas e35b922 @HEIGE-PCloud (#83)
+- 🐛 fix featured image param 11d375a @HEIGE-PCloud (#117)
+
+### Chores
+- ⬆️ update all third-party libraries b2b2b87 @HEIGE-PCloud (#168)
+- ♿ improve accessibility @HEIGE-PCloud f480c1f @HEIGE-PCloud (#80)
+
+[v0.2.11...v0.2.12](https://github.com/HEIGE-PCloud/DoIt/compare/v0.2.11...v0.2.12)
+
 ## [0.2.11] - 2021-05-17
 
 ### Enhancements
