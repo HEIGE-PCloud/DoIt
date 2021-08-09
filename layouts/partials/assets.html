@@ -116,7 +116,7 @@
     {{- end -}}
     {{- $inlineDelimiters := slice (dict "left" "$" "right" "$" "display" false) (dict "left" "\\(" "right" "\\)" "display" false) -}}
     {{- if and $math.inlineLeftDelimiter $math.inlineRightDelimiter -}}
-        {{- $inlineDelimiters = slice (dict "left" $math.inlineRightDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
+        {{- $inlineDelimiters = slice (dict "left" $math.inlineLeftDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
     {{- end -}}
     {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
     {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
