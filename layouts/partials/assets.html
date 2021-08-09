@@ -110,14 +110,15 @@
         {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- end -}}
-    {{- $delimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
+    {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
     {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
-        {{- $delimiters = $delimiters | append (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}
+        {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}
     {{- end -}}
-    {{- $delimiters = $delimiters | append (dict "left" "$" "right" "$" "display" false) (dict "left" "\\(" "right" "\\)" "display" false) -}}
+    {{- $inlineDelimiters := slice (dict "left" "$" "right" "$" "display" false) (dict "left" "\\(" "right" "\\)" "display" false) -}}
     {{- if and $math.inlineLeftDelimiter $math.inlineRightDelimiter -}}
-        {{- $delimiters = $delimiters | append (dict "left" $math.inlineRightDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
+        {{- $inlineDelimiters = slice (dict "left" $math.inlineRightDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
     {{- end -}}
+    {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
     {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
 {{- end -}}
 
