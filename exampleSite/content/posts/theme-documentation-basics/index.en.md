@@ -585,6 +585,7 @@ Please open the code block below to view the complete sample configuration :(far
         colorful = true
         dislikes = false
         outlined = false
+        dark = false
       # {{< version 0.2.0 >}} {{< link "https://commento.io/" "Commento" >}} comment config
       [params.page.comment.commento]
         enable = false
