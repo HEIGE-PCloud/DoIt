@@ -156,7 +156,7 @@ stackoverflow:
   Prefix: https://stackoverflow.com/users/
   Title: Stack Overflow
   Icon:
-    Class: fab fa-codepen fa-fw
+    Simpleicons: stackoverflow
 
 # 021: 微博
 weibo:
@@ -517,18 +517,25 @@ ko-fi:
   Icon:
     Simpleicons: ko-fi
 
-
-# 066: Email
-email:
+# 066: BuyMeaCoffee
+buymeacoffee:
   Weight: 66
+  Prefix: https://www.buymeacoffee.com/
+  Title: BuyMeaCoffee
+  Icon:
+    Simpleicons: buymeacoffee
+
+# 067: Email
+email:
+  Weight: 67
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 067: RSS
+# 068: RSS
 rss:
-  Weight: 67
+  Weight: 68
   Url: /index.xml
   Title: RSS
   Newtab: true

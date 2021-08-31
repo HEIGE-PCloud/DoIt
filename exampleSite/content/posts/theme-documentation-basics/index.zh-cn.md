@@ -417,6 +417,7 @@ hugo
     ORCID = ""
     Liberapay = ""
     Ko-Fi = ""
+    BuyMeACoffee = ""
     Email = "xxxx@xxxx.com"
     RSS = true # {{< version 0.2.0 >}}
 

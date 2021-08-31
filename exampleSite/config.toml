@@ -248,6 +248,7 @@ enableEmoji = true
         ORCID = ""
         Liberapay = "xxx"
         Ko-Fi = "xxx"
+        BuyMeACoffee = ""
         Email = "xxxx@xxxx.com"
         RSS = true
         [languages.en.params.social.Mastodon]
@@ -477,6 +478,7 @@ enableEmoji = true
         ORCID = ""
         Liberapay = ""
         Ko-Fi = ""
+        BuyMeACoffee = ""
         Email = "xxxx@xxxx.com"
         RSS = true
 
