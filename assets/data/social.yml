@@ -534,3 +534,11 @@ rss:
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
+
+# 068: BuyMeaCoffee
+buymeacoffee:
+  Weight: 68
+  Prefix: https://www.buymeacoffee.com/
+  Title: BuyMeaCoffee
+  Icon:
+    Simpleicons: buymeacoffee
