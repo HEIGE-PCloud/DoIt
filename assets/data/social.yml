@@ -517,28 +517,27 @@ ko-fi:
   Icon:
     Simpleicons: ko-fi
 
-
-# 066: Email
-email:
+# 066: BuyMeaCoffee
+buymeacoffee:
   Weight: 66
+  Prefix: https://www.buymeacoffee.com/
+  Title: BuyMeaCoffee
+  Icon:
+    Simpleicons: buymeacoffee
+
+# 067: Email
+email:
+  Weight: 67
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 067: RSS
+# 068: RSS
 rss:
-  Weight: 67
+  Weight: 68
   Url: /index.xml
   Title: RSS
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
-
-# 068: BuyMeaCoffee
-buymeacoffee:
-  Weight: 68
-  Prefix: https://www.buymeacoffee.com/
-  Title: BuyMeaCoffee
-  Icon:
-    Simpleicons: buymeacoffee
