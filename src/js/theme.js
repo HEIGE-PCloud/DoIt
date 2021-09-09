@@ -254,16 +254,16 @@ function initSearch() {
                             .then(data => {
                                 const indexData = {};
                                 window._index = lunr(function () {
-                                    if (searchConfig.lunrLanguageCode) window.use(lunr[searchConfig.lunrLanguageCode]);
-                                    window.ref('objectID');
-                                    window.field('title', { boost: 50 });
-                                    window.field('tags', { boost: 20 });
-                                    window.field('categories', { boost: 20 });
-                                    window.field('content', { boost: 10 });
-                                    window.metadataWhitelist = ['position'];
+                                    if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
+                                    this.ref('objectID');
+                                    this.field('title', { boost: 50 });
+                                    this.field('tags', { boost: 20 });
+                                    this.field('categories', { boost: 20 });
+                                    this.field('content', { boost: 10 });
+                                    this.metadataWhitelist = ['position'];
                                     data.forEach((record) => {
                                         indexData[record.objectID] = record;
-                                        window.add(record);
+                                        this.add(record);
                                     });
                                 });
                                 window._indexData = indexData;
