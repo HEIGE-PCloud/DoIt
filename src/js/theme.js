@@ -584,11 +584,36 @@ function initMath() {
 }
 
 function initMermaid() {
+    const mermaidKeywords = [
+        "graph TD",
+        "graph TB",
+        "graph BT",
+        "graph RL",
+        "graph LR",
+        "sequenceDiagram",
+        "gantt",
+        "classDiagram",
+        "gitGraph",
+        "erDiagram",
+        "journey",
+    ];
+    Array.from(document.getElementsByClassName("language-fallback")).forEach((e) => {
+        let graphDefinition = e.innerText;
+        if (mermaidKeywords.some((keyword) => graphDefinition.startsWith(keyword))) {
+            let eleN = e.parentElement.parentElement.parentElement.parentElement;
+            eleN.parentElement.outerHTML = `<div class="mermaid">${e.innerText}</div>`;
+        }
+    });
+
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach((e) => {
+            e.parentElement.outerHTML = `<div class="mermaid">${e.innerText}</div>`;
+    });
+    
     const $mermaidElements = document.getElementsByClassName('mermaid');
     if ($mermaidElements.length) {
         mermaid.initialize({ startOnLoad: false, theme: 'default' });
         forEach($mermaidElements, $mermaid => {
-            mermaid.mermaidAPI.render('svg-' + $mermaid.id, window.data[$mermaid.id], svgCode => {
+            mermaid.mermaidAPI.render('svg-' + $mermaid.id, $mermaid.textContent, svgCode => {
                 $mermaid.insertAdjacentHTML('afterbegin', svgCode);
                 document.getElementById('svg-' + $mermaid.id).children[0].remove();
             }, $mermaid);

@@ -714,6 +714,10 @@ enableEmoji = true
       Skype = false
       Trello = false
       Mix = false
+    # Mermaid config
+    # Mermaid 设置
+    [params.page.mermaid]
+      enable = false
     # Comment config
     # 评论系统设置
     [params.page.comment]

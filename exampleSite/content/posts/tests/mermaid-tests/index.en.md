@@ -18,6 +18,14 @@ hiddenFromSearch: true
     C-->D;
 {{< /mermaid >}}
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 {{< mermaid >}}sequenceDiagram
     participant Alice
     participant Bob
