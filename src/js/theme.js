@@ -679,24 +679,26 @@ function initTypeit() {
         Object.values(typeitConfig.data).forEach(group => {
             const typeone = (i) => {
                 const id = group[i];
-                const instance = new TypeIt(`#${id}`, {
-                    strings: window.data[id],
-                    speed: speed,
-                    lifeLike: true,
-                    cursorSpeed: cursorSpeed,
-                    cursorChar: cursorChar,
-                    waitUntilVisible: true,
-                    afterComplete: () => {
-                        if (i === group.length - 1) {
-                            if (typeitConfig.duration >= 0) window.setTimeout(() => {
-                                instance.destroy();
-                            }, typeitConfig.duration);
-                            return;
-                        }
-                        instance.destroy();
-                        typeone(i + 1);
-                    },
-                }).go();
+                if (!document.getElementById(id).hasAttribute("data-typeit-id")) {
+                    const instance = new TypeIt(`#${id}`, {
+                        strings: window.data[id],
+                        speed: speed,
+                        lifeLike: true,
+                        cursorSpeed: cursorSpeed,
+                        cursorChar: cursorChar,
+                        waitUntilVisible: true,
+                        afterComplete: () => {
+                            if (i === group.length - 1) {
+                                if (typeitConfig.duration >= 0) window.setTimeout(() => {
+                                    instance.destroy();
+                                }, typeitConfig.duration);
+                                return;
+                            }
+                            instance.destroy();
+                            typeone(i + 1);
+                        },
+                    }).go();
+                }
             };
             typeone(0);
         });
