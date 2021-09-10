@@ -615,7 +615,7 @@ function initMermaid() {
         forEach($mermaidElements, $mermaid => {
             mermaid.mermaidAPI.render('svg-' + $mermaid.id, $mermaid.textContent, svgCode => {
                 $mermaid.insertAdjacentHTML('afterbegin', svgCode);
-                document.getElementById('svg-' + $mermaid.id).children[0].remove();
+                document.getElementById('svg-' + $mermaid.id).firstElementChild.remove();
             }, $mermaid);
         });
     }
