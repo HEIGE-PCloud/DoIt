@@ -109,7 +109,7 @@ enableEmoji = true
         weight = 8
     [languages.en.params]
       # site description
-      description = "About DoIt Theme"
+      description = "The official documentation for the Hugo DoIt theme"
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
@@ -338,7 +338,7 @@ enableEmoji = true
         weight = 8
     [languages.zh-cn.params]
       # 网站描述
-      description = "关于 DoIt 主题"
+      description = "Hugo DoIt 主题官方文档"
       # 网站关键词
       keywords = ["Theme", "Hugo"]
       # 应用图标配置
