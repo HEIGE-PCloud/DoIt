@@ -483,6 +483,9 @@ enableEmoji = true
         RSS = true
 
 [params]
+  # website title
+  # 网站标题
+  title = "Hugo DoIt Theme Documentation"
   # DoIt theme version
   # DoIt 主题版本
   version = "0.2.X"
