@@ -503,7 +503,7 @@ enableEmoji = true
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/images/avatar.webp"]
   # enable PWA
   # 开启 PWA 支持
   enablePWA = true
