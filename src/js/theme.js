@@ -584,6 +584,9 @@ function initMath() {
 }
 
 function initMermaid() {
+    var elementId = 1;
+    while (document.getElementById(`id-${elementId}`)) elementId++;
+
     const mermaidKeywords = [
         "graph TD",
         "graph TB",
@@ -600,13 +603,13 @@ function initMermaid() {
     Array.from(document.getElementsByClassName("language-fallback")).forEach((e) => {
         let graphDefinition = e.innerText;
         if (mermaidKeywords.some((keyword) => graphDefinition.startsWith(keyword))) {
-            let eleN = e.parentElement.parentElement.parentElement.parentElement;
-            eleN.parentElement.outerHTML = `<div class="mermaid">${e.innerText}</div>`;
+            let eN = e.parentElement.parentElement.parentElement.parentElement;
+            eN.parentElement.outerHTML = `<div class="mermaid" id="id-${elementId}">${e.innerText}</div>`;
         }
     });
 
     Array.from(document.getElementsByClassName("language-mermaid")).forEach((e) => {
-            e.parentElement.outerHTML = `<div class="mermaid">${e.innerText}</div>`;
+            e.parentElement.outerHTML = `<div class="mermaid" id="id-${elementId}">${e.innerText}</div>`;
     });
     
     const $mermaidElements = document.getElementsByClassName('mermaid');
