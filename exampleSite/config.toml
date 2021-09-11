@@ -109,7 +109,7 @@ enableEmoji = true
         weight = 8
     [languages.en.params]
       # site description
-      description = "About DoIt Theme"
+      description = "The official documentation for the Hugo DoIt theme"
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
@@ -338,7 +338,7 @@ enableEmoji = true
         weight = 8
     [languages.zh-cn.params]
       # 网站描述
-      description = "关于 DoIt 主题"
+      description = "Hugo DoIt 主题官方文档"
       # 网站关键词
       keywords = ["Theme", "Hugo"]
       # 应用图标配置
@@ -483,6 +483,9 @@ enableEmoji = true
         RSS = true
 
 [params]
+  # website title
+  # 网站标题
+  title = "Hugo DoIt Theme Documentation"
   # DoIt theme version
   # DoIt 主题版本
   version = "0.2.X"
@@ -500,7 +503,7 @@ enableEmoji = true
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/images/avatar.webp"]
   # enable PWA
   # 开启 PWA 支持
   enablePWA = true
