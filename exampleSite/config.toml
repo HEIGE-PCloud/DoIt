@@ -249,6 +249,7 @@ enableEmoji = true
         Liberapay = "xxx"
         Ko-Fi = "xxx"
         BuyMeACoffee = ""
+        Linktree = ""
         Email = "xxxx@xxxx.com"
         RSS = true
         [languages.en.params.social.Mastodon]
@@ -479,6 +480,7 @@ enableEmoji = true
         Liberapay = ""
         Ko-Fi = ""
         BuyMeACoffee = ""
+        Linktree = ""
         Email = "xxxx@xxxx.com"
         RSS = true
 

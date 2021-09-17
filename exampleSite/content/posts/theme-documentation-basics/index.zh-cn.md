@@ -420,6 +420,7 @@ hugo
     Liberapay = ""
     Ko-Fi = ""
     BuyMeACoffee = ""
+    Linktree = ""
     Email = "xxxx@xxxx.com"
     RSS = true # {{< version 0.2.0 >}}
 
