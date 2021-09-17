@@ -525,7 +525,15 @@ buymeacoffee:
   Icon:
     Simpleicons: buymeacoffee
 
-# 067: Email
+# 067: Linktree
+linktree:
+  Weight: 65
+  Prefix: https://linktr.ee/
+  Title: Linktree
+  Icon:
+    Simpleicons: linktree
+
+# 068: Email
 email:
   Weight: 67
   Template: mailto:%v
@@ -533,7 +541,7 @@ email:
   Icon:
     Class: far fa-envelope fa-fw
 
-# 068: RSS
+# 069: RSS
 rss:
   Weight: 68
   Url: /index.xml
