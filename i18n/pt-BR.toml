@@ -108,8 +108,19 @@ other = "Conteúdos"
 [publishedOnDate]
 other = "publicado em {{ .Date }}"
 
+[includedIn]
+other = "incluído "
+
+[includedInAnd]
+other = "e"
+
 [includedInCategories]
-other = "incluido em {{ .Categories }}"
+one = "na categoria {{ .Categories }}"
+other = "nas categorias {{ .Categories }}"
+
+[includedInSeries]
+one = "na série {{ .Series }}"
+other = "nas séries {{ .Series }}"
 
 [wordCount]
 one = "Uma palavra"
