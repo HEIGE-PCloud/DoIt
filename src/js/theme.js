@@ -754,6 +754,28 @@ function initComment() {
                 })
             })
         }
+        if (window.config.comment.remark42) {
+            let remark42 = window.config.comment.remark42;
+            var remark_config = {
+                host: remark42.host,
+                site_id: remark42.site_id,
+                components: ['embed'],
+                max_shown_comments: remark42.max_shown_comments,
+                theme: window.isDark ? 'dark' : 'light',
+                locale: remark42.locale,
+                show_email_subscription: remark42.show_email_subscription,
+                simple_view: remark42.simple_view
+            };
+            !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+            window._remark42OnSwitchTheme = (() => {
+                if (window.isDark) {
+                    window.REMARK42.changeTheme('dark');
+                } else {
+                    window.REMARK42.changeTheme('light');
+                }
+            });
+            window.switchThemeEventSet.add(window._remark42OnSwitchTheme);
+        }
     }
 }
 

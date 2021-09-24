@@ -621,6 +621,14 @@ hugo
         repo = ""
         clientId = ""
         clientSecret = ""
+      # {{< version 0.2.13 >}} {{< link "https://remark42.com/" "Remark42" >}} 评论系统设置
+      [params.page.comment.remark42]
+        enable = false
+        host = ""
+        site_id = ""
+        max_shown_comments = 15
+        show_email_subscription = true
+        simple_view = false
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
