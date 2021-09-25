@@ -247,6 +247,25 @@
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
             </noscript>
         {{- end -}}
+
+        {{- /* Remark42 Comment System */ -}}
+        {{- $remark42 := $comment.remark42 | default dict -}}
+        {{- if $remark42.enable -}}
+            <div id="remark42"></div>
+            {{- $commentConfig = dict "host" $remark42.host "site_id" $remark42.site_id "locale" .Lang  | dict "remark42" | merge $commentConfig -}}
+            {{- with $remark42.max_shown_comments -}}
+                {{- $commentConfig = dict "max_shown_comments" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $remark42.show_email_subscription -}}
+                {{- $commentConfig = dict "show_email_subscription" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $remark42.simple_view -}}
+                {{- $commentConfig = dict "simple_view" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
+            </noscript>
+        {{- end -}}
     </div>
 {{- end -}}
 

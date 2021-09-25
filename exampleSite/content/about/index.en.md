@@ -52,6 +52,7 @@ math:
 * :(fas fa-comment-alt fa-fw): **Utterances** comment system supported by [Utterances](https://utteranc.es/)
 * :(fas fa-comment-alt fa-fw): **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 * :(fas fa-comment-alt fa-fw): **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
+* :(fas fa-comment-alt fa-fw): **Remark42** comment system supported by [Remark42](https://remark42.com/)
 
 #### Extended Features
 
@@ -113,3 +114,4 @@ Thanks to the authors of following resources included in the theme:
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Pjax](https://github.com/PaperStrike/Pjax)
 * [Topbar](https://github.com/buunguyen/topbar)
+* [Remark42](https://remark42.com/)

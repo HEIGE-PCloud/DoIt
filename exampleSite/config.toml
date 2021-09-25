@@ -835,6 +835,15 @@ enableEmoji = true
         repo = ""
         clientId = ""
         clientSecret = ""
+      # Remark42 comment config (https://remark42.com/)
+      # Remark42 comment 评论系统设置 (https://remark42.com/)
+      [params.page.comment.remark42]
+        enable = false
+        host = ""
+        site_id = ""
+        max_shown_comments = 15
+        show_email_subscription = true
+        simple_view = false
     # Third-party library config
     # 第三方库配置
     [params.page.library]

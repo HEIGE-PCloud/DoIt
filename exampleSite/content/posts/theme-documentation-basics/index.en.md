@@ -617,6 +617,14 @@ Please open the code block below to view the complete sample configuration :(far
         repo = ""
         clientId = ""
         clientSecret = ""
+      # {{< version 0.2.13 >}} {{< link "https://remark42.com/" "Remark42" >}} comment config
+      [params.page.comment.remark42]
+        enable = false
+        host = ""
+        site_id = ""
+        max_shown_comments = 15
+        show_email_subscription = true
+        simple_view = false
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

@@ -112,6 +112,7 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持 **[Utterances](https://utteranc.es/)** 评论系统
 * 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
 * 支持 **[Vssue](https://vssue.js.org/)** 评论系统
+* 支持 **[Remark42](https://remark42.com/) 评论系统
 
 ### 扩展功能
 
@@ -209,6 +210,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Pjax](https://github.com/PaperStrike/Pjax)
 * [Topbar](https://github.com/buunguyen/topbar)
+* [Remark42](https://remark42.com/)
 
 ## 作者
 

@@ -115,6 +115,7 @@ the DoIt theme may be more suitable for you.
 * **Utterances** comment system supported by [Utterances](https://utteranc.es/)
 * **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 * **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
+* **Remark42** comment system supported by[Remark42](https://remark42.com/)
 
 ### Extended Features
 
@@ -209,6 +210,7 @@ Thanks to the authors of following resources included in the theme:
 * [Waline](https://waline.js.org/)
 * [Twikoo](https://twikoo.js.org/)
 * [Vssue](https://vssue.js.org/)
+* [Remark42](https://remark42.com/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Pjax](https://github.com/PaperStrike/Pjax)
 * [Topbar](https://github.com/buunguyen/topbar)
