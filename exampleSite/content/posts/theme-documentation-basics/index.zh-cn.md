@@ -559,23 +559,19 @@ hugo
         emoji = ""
       # {{< link "https://github.com/xCss/Valine" Waline >}} 评论系统设置
       [params.page.comment.waline]
-        # {{< version 0.2.11 >}}
+        # {{< version 0.2.13 changed >}}
         enable = false
         serverURL = ""
-        placeholder = "Just Go Go."
+        visitor = false
+        emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+        meta = ['nick', 'mail', 'link']
+        requiredMeta = []
+        login = 'enable'
         wordLimit = 0
-        avatar = "mp"
-        meta = ["nick", "mail", "link"]
         pageSize = 10
-        lang = "en"
-        visitor = true
+        uploadImage = false
         highlight = true
-        avatarCDN = ""
-        avatarForce = false
-        emojiCDN = ""
-        emojiMaps = ""
-        requiredFields = []
-        anonymous = false
+        mathTagSupport = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]
         enable = false
