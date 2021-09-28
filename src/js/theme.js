@@ -536,7 +536,16 @@ function initToc() {
         const headerHeight = document.getElementById('header-desktop').offsetHeight;
         const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
         const minTocTop = $toc.offsetTop;
-        const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
+        const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
+        window._tocOnResize = (() => {
+            if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
+                $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
+            } else {
+                $tocCore.style.removeProperty('height');
+            }
+        });
+        window._tocOnResize();
+        window.resizeEventSet.add(window._tocOnResize);        
         window._tocOnScroll = (() => {
             const footerTop = document.getElementById('post-footer').offsetTop;
             const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
