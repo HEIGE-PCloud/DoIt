@@ -538,7 +538,11 @@ function initToc() {
         const minTocTop = $toc.offsetTop;
         const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
         window._tocOnResize = (() => {
-            $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
+            if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
+                $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
+            } else {
+                $tocCore.style.removeProperty('height');
+            }
         });
         window._tocOnResize();
         window.resizeEventSet.add(window._tocOnResize);        
