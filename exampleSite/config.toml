@@ -907,7 +907,7 @@ enableEmoji = true
   # Analytics config
   # 网站分析配置
   [params.analytics]
-    enable = true
+    enable = false
     # Google Analytics
     [params.analytics.google]
       id = ""
