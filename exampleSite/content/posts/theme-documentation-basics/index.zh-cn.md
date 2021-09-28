@@ -689,9 +689,18 @@ hugo
       id = ""
       # 自行托管追踪器时的主机路径
       server = ""
-    # Baidu Analytics
+    # {{< version 0.2.13 >}} Baidu Analytics
     [params.analytics.baidu]
       id = ""
+    # {{< version 0.2.13 >}} Umami Analytics
+    [params.analytics.umami]
+      data_website_id = ""
+      src = ""
+      data_domains = ""
+    # {{< version 0.2.13 >}} Plausible Analytics
+    [params.analytics.plausible]
+      data_domain = ""
+      src = ""
 
   # {{< version 0.2.7 >}} Cookie 许可配置
   [params.cookieconsent]
