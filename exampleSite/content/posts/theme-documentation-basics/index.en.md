@@ -685,9 +685,18 @@ Please open the code block below to view the complete sample configuration :(far
       id = ""
       # server url for your tracker if you're self hosting
       server = ""
-    # Baidu Analytics
+    # {{< version 0.2.13 >}} Baidu Analytics
     [params.analytics.baidu]
       id = ""
+    # {{< version 0.2.13 >}} Umami Analytics
+    [params.analytics.umami]
+      data_website_id = ""
+      src = ""
+      data_domains = ""
+    # {{< version 0.2.13 >}} Plausible Analytics
+    [params.analytics.plausible]
+      data_domain = ""
+      src = ""
 
   # {{< version 0.2.7 >}} Cookie consent config
   [params.cookieconsent]

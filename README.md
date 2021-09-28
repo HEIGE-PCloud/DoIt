@@ -83,6 +83,9 @@ the DoIt theme may be more suitable for you.
 * Optimized SEO performance with a correct **SEO SCHEMA** based on JSON-LD
 * **[Google Analytics](https://analytics.google.com/analytics)** supported
 * **[Fathom Analytics](https://usefathom.com/)** supported
+* **[Baidu Analytics](https://tongji.baidu.com/)** supported
+* **[Umami Analytics](https://umami.is/)** supported
+* **[Plausible Analytics](https://plausible.io/)** supported
 * Search engine **verification** supported (Google, Bind, Yandex and Baidu)
 * **CDN** for third-party libraries supported
 * Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)

@@ -33,4 +33,13 @@
 		</script>
 	{{- end -}}
     
+    {{- /* Umami Analytics */ -}}
+    {{- with $analytics.umami.data_website_id -}}
+        <script async defer data-website-id="{{ . }}" src="{{ $analytics.umami.src }}" {{ with $analytics.umami.data_domains }} data-domains="{{ . }}" {{ end }}></script>
+    {{- end -}}
+
+    {{- /* Plausible Analytics */ -}}
+    {{- with $analytics.plausible.data_domain -}}
+        <script async defer data-domain="{{ . }}" src="{{ $analytics.plausible.src }}"></script>
+    {{- end -}}
 {{- end -}}

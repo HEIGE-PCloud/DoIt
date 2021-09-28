@@ -923,6 +923,15 @@ enableEmoji = true
     # Baidu Analytics
     [params.analytics.baidu]
       id = ""
+    # Umami Analytics
+    [params.analytics.umami]
+      data_website_id = ""
+      src = ""
+      data_domains = ""
+    # Plausible Analytics
+    [params.analytics.plausible]
+      data_domain = ""
+      src = ""
 
   # Cookie consent config
   # Cookie 许可配置
