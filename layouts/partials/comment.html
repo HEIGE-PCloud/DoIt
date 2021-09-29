@@ -66,7 +66,7 @@
             <div id="waline" class="comment"></div>
             {{- $source := $cdn.walineJS | default "lib/waline/Waline.min.js" -}}
             {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-            {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" false | dict "waline" | merge $commentConfig -}}
+            {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" true | dict "waline" | merge $commentConfig -}}
             {{- with $waline.emoji -}}
                 {{- $commentConfig = dict "emoji" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
