@@ -96,6 +96,7 @@
                 <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
+                {{- /* Visitor Count */ -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
@@ -109,6 +110,17 @@
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- /* Comment Count */ -}}
+                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.commentCount -}}
+                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="waline-comment-count" id="waline-comment-count"></span>&nbsp;{{ T "comments" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}
+                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
             </div>
