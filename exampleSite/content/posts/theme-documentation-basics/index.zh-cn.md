@@ -417,6 +417,8 @@ hugo
     Matrix = ""
     Bilibili = ""
     ORCID = ""
+    QQ = ""
+    QQGroup = ""
     Liberapay = ""
     Ko-Fi = ""
     BuyMeACoffee = ""

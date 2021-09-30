@@ -549,3 +549,17 @@ rss:
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
+
+# 070: QQ
+qq:
+  Weight: 70
+  Title: QQ
+  Icon:
+    Src: svg/icons/qq.svg
+
+# 071: QQGroup
+qq-group:
+  Weight: 71
+  Title: QQGroup
+  Icon:
+    Src: svg/icons/qqGroup.svg
