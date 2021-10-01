@@ -128,7 +128,7 @@ enableEmoji = true
       [languages.en.params.search]
         enable = true
         # type of search engine ("lunr", "algolia", "fuse")
-        type = "algolia"
+        type = "fuse"
         # max index length of the chunked content
         contentLength = 4000
         # placeholder of the search bar
@@ -358,7 +358,7 @@ enableEmoji = true
       [languages.zh-cn.params.search]
         enable = true
         # 搜索引擎的类型 ("lunr", "algolia", "fuse")
-        type = "algolia"
+        type = "fuse"
         # 文章内容最长索引长度
         contentLength = 4000
         # 搜索框的占位提示语
