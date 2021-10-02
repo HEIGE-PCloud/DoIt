@@ -417,12 +417,12 @@ hugo
     Matrix = ""
     Bilibili = ""
     ORCID = ""
-    QQ = ""
-    QQGroup = ""
     Liberapay = ""
     Ko-Fi = ""
     BuyMeACoffee = ""
     Linktree = ""
+    QQ = ""
+    QQGroup = ""
     Email = "xxxx@xxxx.com"
     RSS = true # {{< version 0.2.0 >}}
 
