@@ -542,7 +542,7 @@ qq:
     Src: svg/icons/qq.svg
 
 # 069: QQGroup
-qq-group:
+qqgroup:
   Weight: 69
   Prefix: https://qm.qq.com/cgi-bin/qm/qr?k=
   Title: QQGroup
@@ -551,7 +551,7 @@ qq-group:
 
 # 068: Email
 email:
-  Weight: 68
+  Weight: 70
   Template: mailto:%v
   Title: Email
   Icon:
@@ -559,7 +559,7 @@ email:
 
 # 069: RSS
 rss:
-  Weight: 69
+  Weight: 71
   Url: /index.xml
   Title: RSS
   Newtab: true
