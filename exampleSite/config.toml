@@ -136,7 +136,7 @@ enableEmoji = true
         # max number of results length
         maxResultLength = 10
         # snippet length of the result
-        snippetLength = 30
+        snippetLength = 300
         # HTML tag name of the highlight part in results
         highlightTag = "em"
         # whether to use the absolute URL based on the baseURL in search index
@@ -151,9 +151,9 @@ enableEmoji = true
           minMatchCharLength = 2
           findAllMatches = false
           location = 0
-          threshold = 0.3
+          threshold = 0.1
           distance = 100
-          ignoreLocation = false
+          ignoreLocation = true
           useExtendedSearch = false
           ignoreFieldNorm = false
       # Home page config
@@ -381,9 +381,9 @@ enableEmoji = true
           minMatchCharLength = 2
           findAllMatches = false
           location = 0
-          threshold = 0.3
+          threshold = 0.1
           distance = 100
-          ignoreLocation = false
+          ignoreLocation = true
           useExtendedSearch = false
           ignoreFieldNorm = false
       # 主页信息设置
