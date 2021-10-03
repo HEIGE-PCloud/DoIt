@@ -246,6 +246,8 @@ enableEmoji = true
         Matrix = ""
         Bilibili = ""
         ORCID = ""
+        QQ = ""
+        QQGroup = ""
         Liberapay = "xxx"
         Ko-Fi = "xxx"
         BuyMeACoffee = ""
@@ -481,6 +483,8 @@ enableEmoji = true
         Ko-Fi = ""
         BuyMeACoffee = ""
         Linktree = ""
+        QQ = ""
+        QQGroup = ""
         Email = "xxxx@xxxx.com"
         RSS = true
 
