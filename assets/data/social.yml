@@ -533,9 +533,25 @@ linktree:
   Icon:
     Simpleicons: linktree
 
+# 068: QQ
+qq:
+  Weight: 68
+  Prefix: https://sighttp.qq.com/authd?IDKEY=
+  Title: QQ
+  Icon:
+    Src: svg/icons/qq.svg
+
+# 069: QQGroup
+qqgroup:
+  Weight: 69
+  Prefix: https://qm.qq.com/cgi-bin/qm/qr?k=
+  Title: QQGroup
+  Icon:
+    Src: svg/icons/qqGroup.svg
+
 # 068: Email
 email:
-  Weight: 68
+  Weight: 70
   Template: mailto:%v
   Title: Email
   Icon:
@@ -543,7 +559,7 @@ email:
 
 # 069: RSS
 rss:
-  Weight: 69
+  Weight: 71
   Url: /index.xml
   Title: RSS
   Newtab: true
