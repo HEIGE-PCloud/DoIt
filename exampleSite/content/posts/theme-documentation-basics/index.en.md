@@ -570,6 +570,7 @@ Please open the code block below to view the complete sample configuration :(far
         uploadImage = false
         highlight = true
         mathTagSupport = false
+        commentCount = true
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false
@@ -607,6 +608,7 @@ Please open the code block below to view the complete sample configuration :(far
         region = ""
         path = ""
         visitor = true
+        commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} comment config
       [params.page.comment.vssue]
         enable = false

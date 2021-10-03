@@ -723,7 +723,28 @@ function initComment() {
         }
         if (window.config.comment.valine) new Valine(window.config.comment.valine);
         if (window.config.comment.waline) new Waline(window.config.comment.waline);
-        if (window.config.comment.twikoo) twikoo.init(window.config.comment.twikoo);
+        if (window.config.comment.twikoo) {
+            twikoo.init(window.config.comment.twikoo);
+            if (window.config.comment.twikoo.commentCount) {
+                twikoo.getCommentsCount({
+                    envId: window.config.comment.twikoo.envId,
+                    region: window.config.comment.twikoo.region,
+                    urls: [
+                        window.location.pathname
+                    ],
+                    includeReply: false
+                  }).then(function (res) {
+                    // example: [
+                    //   { url: '/2020/10/post-1.html', count: 10 },
+                    //   { url: '/2020/11/post-2.html', count: 0 },
+                    //   { url: '/2020/12/post-3.html', count: 20 }
+                    // ]
+                    document.getElementById('twikoo-comment-count').innerHTML = res[0].count;
+                  }).catch(function (err) {
+                    console.error(err);
+                  });
+            }
+        } 
         if (window.config.comment.utterances) {
             const utterancesConfig = window.config.comment.utterances;
             const script = document.createElement('script');

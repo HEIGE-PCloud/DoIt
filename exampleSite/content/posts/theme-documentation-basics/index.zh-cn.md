@@ -574,6 +574,7 @@ hugo
         uploadImage = false
         highlight = true
         mathTagSupport = false
+        commentCount = true
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]
         enable = false
@@ -611,6 +612,7 @@ hugo
         region = ""
         path = ""
         visitor = true
+        commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} 评论系统设置
       [params.page.comment.vssue]
         enable = false

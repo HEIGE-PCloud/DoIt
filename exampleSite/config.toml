@@ -784,6 +784,7 @@ enableEmoji = true
         uploadImage = false
         highlight = true
         mathTagSupport = false
+        commentCount = false
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
@@ -826,6 +827,7 @@ enableEmoji = true
         region = ""
         path = ""
         visitor = true
+        commentCount = true
       # Vssue comment config (https://vssue.js.org//)
       # Vssue comment 评论系统设置 (https://vssue.js.org//)
       [params.page.comment.vssue]
