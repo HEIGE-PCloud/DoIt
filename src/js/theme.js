@@ -818,22 +818,18 @@ function initMeta() {
                 return metas[i];
             }
         }
-        return '';
     }
     let themeColorMeta = getMeta('theme-color');
-    if (window.isDark) {
-        themeColorMeta.content = '#000000';
-    } else {
-        themeColorMeta.content = '#ffffff';
+    let metaColors = {
+        'light': '#f8f8f8',
+        'dark': '#252627',
+        'black': '#000000'
     }
     window._metaThemeColorOnSwitchTheme = (() => {
-        if (window.isDark) {
-            themeColorMeta.content = '#000000';
-        } else {
-            themeColorMeta.content = '#ffffff';
-        }
+        themeColorMeta.content = metaColors[document.body.getAttribute('theme')];
     });
     window.switchThemeEventSet.add(window._metaThemeColorOnSwitchTheme);
+    window._metaThemeColorOnSwitchTheme();
 }
 
 function initCookieconsent() {
