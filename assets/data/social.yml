@@ -536,7 +536,7 @@ linktree:
 # 068: QQ
 qq:
   Weight: 68
-  Prefix: https://sighttp.qq.com/authd?IDKEY=
+  Template: https://sighttp.qq.com/authd?IDKEY=%v
   Title: QQ
   Icon:
     Src: svg/icons/qq.svg
@@ -544,7 +544,7 @@ qq:
 # 069: QQGroup
 qqgroup:
   Weight: 69
-  Prefix: https://qm.qq.com/cgi-bin/qm/qr?k=
+  Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v
   Title: QQGroup
   Icon:
     Src: svg/icons/qqGroup.svg
