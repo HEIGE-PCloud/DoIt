@@ -596,6 +596,17 @@ enableEmoji = true
     # RSS 文章数目
     rss = 10
 
+  # Display a message at the beginning of an article to warn the readers that it's content may be outdated.
+  # 在文章末尾显示提示信息，提醒读者文章内容可能过时。
+  [params.outdatedInfoWarning]
+      enable = true
+      # Display hint if the last modified time is more than these days ago.
+      # 如果文章最后更新于这天数之前，显示提醒
+      hint = 90
+      # Display warning if the last modified time is more than these days ago.
+      # 如果文章最后更新于这天数之前，显示警告
+      warn = 180
+
   # Page config
   # 文章页面配置
   [params.page]
