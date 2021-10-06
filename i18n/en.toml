@@ -163,6 +163,12 @@ other = "Home"
 
 [readMore]
 other = "Read more..."
+
+[outdatedInfoWarningBefore]
+other = "This article was last updated on "
+
+[outdatedInfoWarningAfter]
+other = ",the content in the article may be out of date, please use it with caution."
 # === posts/single.html ===
 
 # === 404.html ===

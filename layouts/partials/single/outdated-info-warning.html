@@ -1,0 +1,39 @@
+{{- if or .Params.outdatedInfoWarning (and .Site.Params.outdatedInfoWarning.enable (ne .Params.outdatedInfoWarning false)) }}
+{{- $daysAgo := div (sub now.Unix .Lastmod.Unix) 86400 }}
+{{- $hintThreshold := .Site.Params.outdatedInfoWarning.hint | default 30 }}
+{{- $warnThreshold := .Site.Params.outdatedInfoWarning.warn | default 180 }}
+
+{{- $updateTime := .Lastmod }}
+{{- if .GitInfo }}
+{{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix }}
+{{- $updateTime := .GitInfo.AuthorDate }}
+{{- end }}
+{{- end -}}
+
+{{- if gt $daysAgo $hintThreshold }}
+{{- $iconDetails := "fas fa-angle-right fa-fw" -}}
+{{- if gt $daysAgo $warnThreshold }}
+{{- $type := "warning" -}}
+{{- $icon := "fas fa-exclamation-triangle fa-fw" -}}
+<div class="details admonition {{ $type }} open">
+    <div class="details-summary admonition-title">
+        <i class="icon {{ $icon }}{{ $type }}"></i>{{ T $type }}<i class="details-icon {{ $iconDetails }}"></i>
+        {{- else }}
+        {{- $type := "note" -}}
+        {{- $icon := "fas fa-pencil-alt fa-fw" -}}
+        <div class="details admonition {{ $type }} open">
+            <div class="details-summary admonition-title">
+                <i class="icon {{ $icon }}{{ $type }}"></i>{{ T $type }}<i class="details-icon {{ $iconDetails }}"></i>
+                {{- end }}
+            </div>
+            <div class="details-content">
+                <div class="admonition-content">
+                    {{ T "outdatedInfoWarningBefore" -}}
+                    <span class="timeago" datetime="{{ dateFormat "2006-01-02T15:04:05" $updateTime }}" title="{{ dateFormat "January 2, 2006" $updateTime }}">
+                    {{- dateFormat "2006-01-02" $updateTime -}}
+                    </span>{{ T "outdatedInfoWarningAfter" -}}
+                </div>
+            </div>
+        </div>
+        {{- end -}}
+{{- end -}}
