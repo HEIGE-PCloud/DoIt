@@ -905,6 +905,8 @@ enableEmoji = true
     yandex = ""
     pinterest = ""
     baidu = ""
+    so = ""
+    sogou = ""
 
   # Site SEO config
   # 网站 SEO 配置

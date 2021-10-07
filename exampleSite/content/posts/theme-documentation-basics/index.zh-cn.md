@@ -675,6 +675,8 @@ hugo
     yandex = ""
     pinterest = ""
     baidu = ""
+    so = "" # 360 search
+    sogou = ""
 
   # {{< version 0.2.10 >}} 网站 SEO 配置
   [params.seo]
