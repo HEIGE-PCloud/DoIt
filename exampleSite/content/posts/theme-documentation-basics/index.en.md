@@ -664,6 +664,8 @@ Please open the code block below to view the complete sample configuration :(far
     yandex = ""
     pinterest = ""
     baidu = ""
+    so = "" # 360 search
+    sogou = ""
 
   # {{< version 0.2.10 >}} Site SEO config
   [params.seo]
