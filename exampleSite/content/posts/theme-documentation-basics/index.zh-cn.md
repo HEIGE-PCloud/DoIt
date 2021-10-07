@@ -448,6 +448,13 @@ hugo
     rssFullText = false
     # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} 过时文章提示
+    [params.pages.outdatedArticleReminder]
+        enable = true
+        # 如果文章最后更新于 90 天之前，显示提醒
+        reminder = 90
+        # 如果文章最后更新于 180 天之前，显示警告
+        warning = 180
     # {{< version 0.2.0 >}} 目录配置
     [params.page.toc]
       # 是否使用目录

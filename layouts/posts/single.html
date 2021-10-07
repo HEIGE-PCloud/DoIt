@@ -161,9 +161,8 @@
 
         {{- /* Content */ -}}
         <div class="content" id="content">
-            {{- /* Outdated Info Warning */ -}}
-            {{- partial "single/outdated-info-warning.html" . -}}
-
+            {{- /* Outdated Article Reminder */ -}}
+            {{- partial "single/outdatedArticleReminder.html" . -}}
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 

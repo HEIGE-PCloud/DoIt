@@ -172,7 +172,7 @@ other = "阅读全文"
 other = "本文最后更新于 "
 
 [outdatedInfoWarningAfter]
-other = "，文中内容可能已过时，请谨慎使用。"
+other = "，文中内容可能已过时。"
 # === posts/single.html ===
 
 # === 404.html ===

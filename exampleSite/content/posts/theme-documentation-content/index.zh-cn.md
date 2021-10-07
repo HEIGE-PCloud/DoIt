@@ -154,6 +154,9 @@ library:
 seo:
   images: []
   # ...
+outdatedArticleReminder:
+  enable: false
+  # ...
 ---
 ```
 
@@ -192,6 +195,7 @@ seo:
 * **comment**: {{< version 0.2.0 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.comment` 部分相同.
 * **library**: {{< version 0.2.7 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.library` 部分相同.
 * **seo**: {{< version 0.2.10 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.seo` 部分相同.
+* **outdatedArticleReminder**: {{< version 0.2.13 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.outdatedArticleReminder` 部分相同.
 
 {{< admonition tip >}}
 {{< version 0.2.10 >}}

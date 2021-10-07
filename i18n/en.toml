@@ -168,7 +168,7 @@ other = "Read more..."
 other = "This article was last updated on "
 
 [outdatedInfoWarningAfter]
-other = ",the content in the article may be out of date, please use it with caution."
+other = ", the content may be out of date."
 # === posts/single.html ===
 
 # === 404.html ===
