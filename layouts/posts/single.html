@@ -161,10 +161,10 @@
 
         {{- /* Content */ -}}
         <div class="content" id="content">
-            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-
             {{- /* Outdated Info Warning */ -}}
             {{- partial "single/outdated-info-warning.html" . -}}
+
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
         {{- /* Footer */ -}}
