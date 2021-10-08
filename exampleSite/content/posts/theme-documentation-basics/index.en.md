@@ -444,6 +444,13 @@ Please open the code block below to view the complete sample configuration :(far
     rssFullText = false
     # {{< version 0.2.11 >}} page layout style ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} outdated article reminder config
+    [params.pages.outdatedArticleReminder]
+        enable = false
+        # Display the reminder if the last modified time is more than 90 days ago.
+        reminder = 90
+        # Display warning if the last modified time is more than 180 days ago.
+        warning = 180
     # {{< version 0.2.0 >}} Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents

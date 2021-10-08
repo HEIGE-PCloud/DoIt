@@ -629,6 +629,16 @@ enableEmoji = true
     # Page style ("normal", "wide")
     # 页面样式 ("normal", "wide")
     pageStyle = "wide"
+    # Display a message at the beginning of an article to warn the reader that its content might be outdated.
+    # 在文章开头显示提示信息，提醒读者文章内容可能过时。
+    [params.pages.outdatedArticleReminder]
+        enable = true
+        # Display the reminder if the last modified time is more than 90 days ago.
+        # 如果文章最后更新于这天数之前，显示提醒
+        reminder = 90
+        # Display warning if the last modified time is more than 180 days ago.
+        # 如果文章最后更新于这天数之前，显示警告
+        warning = 180
     # Table of the contents config
     # 目录配置
     [params.page.toc]
