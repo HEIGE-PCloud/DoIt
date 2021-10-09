@@ -313,6 +313,7 @@ hugo
     # {{< version 0.2.13 >}} 最近更新文章设置
     [params.section.recentlyUpdated]
       enable = false
+      rss = false
       days = 30
       maxCount = 10
 

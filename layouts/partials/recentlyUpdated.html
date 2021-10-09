@@ -1,4 +1,4 @@
-{{- if  and .Site.Params.section.recentlyUpdated.enable (eq $.Paginator.PageNumber 1) -}}
+{{- if and .Site.Params.section.recentlyUpdated.enable (eq $.Paginator.PageNumber 1) -}}
 <h3 class="group-title">{{- T "recentlyUpdated" -}}</h3>
     {{- $postCount := 0 -}}
     {{- $maxPostCount := .Site.Params.section.recentlyUpdated.maxCount | default 10 -}}

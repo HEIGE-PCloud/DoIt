@@ -586,6 +586,7 @@ enableEmoji = true
     # 最近更新文章设置
     [params.section.recentlyUpdated]
       enable = true
+      rss = true
       days = 30
       maxCount = 10
 

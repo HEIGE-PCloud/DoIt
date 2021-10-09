@@ -309,6 +309,7 @@ Please open the code block below to view the complete sample configuration :(far
     # {{< version 0.2.13 >}} recently updated posts settings
     [params.section.recentlyUpdated]
       enable = false
+      rss = false
       days = 30
       maxCount = 10
 
