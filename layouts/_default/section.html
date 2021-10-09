@@ -17,6 +17,7 @@
             {{- else -}}
                 {{- $pages = .Paginate $pages -}}
             {{- end -}}
+            {{- partial "recentlyUpdated.html" . -}}
             {{- range $pages.PageGroups -}}
                 <h3 class="group-title">{{ .Key }}</h3>
                 {{- range .Pages -}}

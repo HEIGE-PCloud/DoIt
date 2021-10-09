@@ -34,6 +34,13 @@ other = "Categories"
 other = "Series"
 # === Taxonomy ===
 
+# === Section ===
+
+[recentlyUpdated]
+other = "Recently Updated"
+
+# === Section ===
+
 # === Pagination ===
 [more]
 other = "More"
