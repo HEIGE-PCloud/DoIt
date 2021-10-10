@@ -1,7 +1,7 @@
-{{- if .Params.outdatedArticleReminder.enable | default .Site.Params.pages.outdatedArticleReminder.enable | default false -}}
+{{- if .Params.outdatedArticleReminder.enable | default .Site.Params.page.outdatedArticleReminder.enable | default false -}}
     {{- $daysAgo := div (sub now.Unix .Lastmod.Unix) 86400 }}
-    {{- $reminderThreshold := .Params.outdatedArticleReminder.reminder | default .Site.Params.pages.outdatedArticleReminder.reminder | default 90 }}
-    {{- $warningThreshold := .Params.outdatedArticleReminder.warning | default .Site.Params.pages.outdatedArticleReminder.warning | default 180 }}
+    {{- $reminderThreshold := .Params.outdatedArticleReminder.reminder | default .Site.Params.page.outdatedArticleReminder.reminder | default 90 }}
+    {{- $warningThreshold := .Params.outdatedArticleReminder.warning | default .Site.Params.page.outdatedArticleReminder.warning | default 180 }}
     {{- $updateTime := .Lastmod }}
     {{- if .GitInfo }}
         {{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix }}
