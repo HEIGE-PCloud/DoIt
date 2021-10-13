@@ -1,11 +1,11 @@
-{{- $enable := .Params.sponsor.enable | default .Site.Params.page.sponsor.enable -}}
+{{- $enable := .Params.sponsor.enable | default .Site.Params.sponsor.enable -}}
 {{- $avatar := .Site.Author.avatar -}}
 {{- with .Site.Author.gravataremail -}}
     {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
 {{- end -}}
-{{- $bio := .Params.sponsor.bio | default .Site.Params.page.sponsor.bio -}}
-{{- $link := .Params.sponsor.link | default .Site.Params.page.sponsor.link -}}
-{{- $custom := .Params.sponsor.custom | default .Site.Params.page.sponsor.custom -}}
+{{- $bio := .Params.sponsor.bio | default .Site.Params.sponsor.bio -}}
+{{- $link := .Params.sponsor.link | default .Site.Params.sponsor.link -}}
+{{- $custom := .Params.sponsor.custom | default .Site.Params.sponsor.custom -}}
 {{- $authors := .Params.authors -}}
 
 {{- if $enable -}}
