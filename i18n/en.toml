@@ -176,6 +176,9 @@ other = "This article was last updated on "
 
 [outdatedInfoWarningAfter]
 other = ", the content may be out of date."
+
+[sponsor]
+other = "Sponsor"
 # === posts/single.html ===
 
 # === 404.html ===

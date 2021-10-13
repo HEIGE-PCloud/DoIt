@@ -5,6 +5,7 @@
 {{- $absLink := "" -}}
 {{- $linkTag := $name -}}
 {{- $email := "" -}}
+{{- $avatar := "" -}}
 {{- $i18n := dict -}}
 
 {{- if .author -}}
@@ -13,6 +14,10 @@
     {{- $link = .author.link -}}
     {{- $absLink = .author.link -}}
     {{- $email = .author.email -}}
+    {{- $avatar = .author.avatar -}}
+    {{- if .author.gravatarEmail -}}
+        {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
+    {{- end -}}
 {{- end -}}
 
 {{- if $i18n -}}
@@ -25,4 +30,4 @@
 
 {{- $link :=  (printf "/authors/%s" .name) | urlize | relLangURL -}}
 
-{{- return dict "author" .author "email" $email "name" $name "link" $link "absLink" $absLink -}}
+{{- return dict "author" .author "email" $email "name" $name "link" $link "absLink" $absLink "avatar" $avatar -}}

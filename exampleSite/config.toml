@@ -887,6 +887,11 @@ enableEmoji = true
       [params.page.seo.publisher]
         name = "xxxx"
         logoUrl = "/images/avatar.webp"
+    [params.page.sponsor]
+      enable = true
+      bio = "If you find this post helpful, please consider sponsoring."
+      link = "https://github.com/sponsors/HEIGE-PCloud"
+      # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
 
   # TypeIt config
   # TypeIt 配置
@@ -1030,6 +1035,8 @@ enableEmoji = true
   name = "PCloud"
   email = "heige.pcloud@outlook.com"
   link = "https://github.com/HEIGE-PCloud"
+  avatar = "/images/avatar.webp"
+  gravatarEmail = "heige.pcloud@outlook.com"
 
 # Sitemap config
 # 网站地图配置
