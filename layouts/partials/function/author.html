@@ -15,7 +15,7 @@
     {{- $absLink = .author.link -}}
     {{- $email = .author.email -}}
     {{- $avatar = .author.avatar -}}
-    {{- if .author.gravatarEmail -}}
+    {{- with .author.gravatarEmail -}}
         {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
     {{- end -}}
 {{- end -}}

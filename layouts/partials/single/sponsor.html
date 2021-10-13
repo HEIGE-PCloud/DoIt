@@ -1,7 +1,7 @@
 {{- $enable := .Params.sponsor.enable | default .Site.Params.page.sponsor.enable -}}
 {{- $avatar := .Site.Author.avatar -}}
-{{- if .Site.Author.gravatarEmail -}}
-    {{- $avatar = md5 .Site.Author.gravatarEmail | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
+{{- with .Site.Author.gravataremail -}}
+    {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
 {{- end -}}
 {{- $bio := .Params.sponsor.bio | default .Site.Params.page.sponsor.bio -}}
 {{- $link := .Params.sponsor.link | default .Site.Params.page.sponsor.link -}}

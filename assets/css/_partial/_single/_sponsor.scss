@@ -5,7 +5,7 @@
         img {
             display: inline-block;
             width: 6rem;
-            height: auto;
+            height: 6rem;
             margin: 10px;
             @include border-radius(100%);
             @include box-shadow(0 0 0 .3618em rgba(0, 0, 0, .05));

@@ -1036,7 +1036,7 @@ enableEmoji = true
   email = "heige.pcloud@outlook.com"
   link = "https://github.com/HEIGE-PCloud"
   avatar = "/images/avatar.webp"
-  gravatarEmail = "heige.pcloud@outlook.com"
+  gravatarEmail = ""
 
 # Sitemap config
 # 网站地图配置
