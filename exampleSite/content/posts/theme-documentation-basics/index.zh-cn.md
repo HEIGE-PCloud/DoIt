@@ -663,6 +663,13 @@ hugo
         name = ""
         logoUrl = ""
 
+  # {{< version 0.2.13 >}} 赞赏配置
+  [params.sponsor]
+    enable = false
+    bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+    link = "https://www.buymeacoffee.com" # 你的赞赏页面的地址
+    custom = "" # 自定义 HTML 
+
   # {{< version 0.2.5 >}} TypeIt 配置
   [params.typeit]
     # 每一步的打字速度 (单位是毫秒)
@@ -776,6 +783,8 @@ hugo
   name = "xxxx"
   email = ""
   link = ""
+  avatar = ""
+  gravatarEmail = ""
 
 # 网站地图配置
 [sitemap]
