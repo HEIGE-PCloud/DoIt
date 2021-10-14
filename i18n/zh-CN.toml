@@ -180,6 +180,9 @@ other = "本文最后更新于 "
 
 [outdatedInfoWarningAfter]
 other = "，文中内容可能已过时。"
+
+[sponsor]
+other = "赞赏"
 # === posts/single.html ===
 
 # === 404.html ===

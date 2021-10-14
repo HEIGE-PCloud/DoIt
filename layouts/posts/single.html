@@ -21,9 +21,9 @@
     
     {{- /* Page Style */ -}}
     {{- if eq $params.pageStyle "wide" -}}
-    <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
+        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
     {{- else -}}
-    <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
+        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
     {{- end -}}
 
     {{- /* TOC Style */ -}}
@@ -165,6 +165,9 @@
             {{- partial "single/outdatedArticleReminder.html" . -}}
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
+
+        {{/* Sponsor */}}
+        {{- partial "single/sponsor.html" . -}}
 
         {{- /* Footer */ -}}
         {{- partial "single/footer.html" . -}}

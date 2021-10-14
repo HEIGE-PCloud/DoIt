@@ -659,6 +659,13 @@ Please open the code block below to view the complete sample configuration :(far
         name = ""
         logoUrl = ""
 
+  # {{< version 0.2.13 >}} Sponsor config
+  [params.sponsor]
+    enable = false
+    bio = "If you find this post helpful, please consider sponsoring."
+    link = "https://www.buymeacoffee.com" # The link to your sponsor page
+    custom = "" # Custom HTML button
+
   # {{< version 0.2.5 >}} TypeIt config
   [params.typeit]
     # typing speed between each step (measured in milliseconds)
@@ -772,6 +779,8 @@ Please open the code block below to view the complete sample configuration :(far
   name = "xxxx"
   email = ""
   link = ""
+  avatar = ""
+  gravatarEmail = ""
 
 # Sitemap config
 [sitemap]

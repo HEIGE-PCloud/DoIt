@@ -257,6 +257,13 @@ enableEmoji = true
         [languages.en.params.social.Mastodon]
           id = "@xxxx"
           prefix = "https://mastodon.technology/"
+      # Sponsor config
+      [languages.en.params.sponsor]
+        enable = true
+        bio = "If you find this post helpful, please consider sponsoring."
+        link = "https://github.com/sponsors/HEIGE-PCloud"
+        # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
 
   [languages.zh-cn]
     weight = 2
@@ -487,6 +494,13 @@ enableEmoji = true
         QQGroup = ""
         Email = "xxxx@xxxx.com"
         RSS = true
+        # 赞助设置
+      [languages.zh-cn.params.sponsor]
+        enable = true
+        bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+        link = "https://github.com/sponsors/HEIGE-PCloud"
+        # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
 
 [params]
   # website title
@@ -888,6 +902,14 @@ enableEmoji = true
         name = "xxxx"
         logoUrl = "/images/avatar.webp"
 
+  # Sponsor config
+  # 赞助设置
+  [params.sponsor]
+    enable = true
+    bio = "If you find this post helpful, please consider sponsoring."
+    link = "https://github.com/sponsors/HEIGE-PCloud"
+    # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
   # TypeIt config
   # TypeIt 配置
   [params.typeit]
@@ -1030,6 +1052,8 @@ enableEmoji = true
   name = "PCloud"
   email = "heige.pcloud@outlook.com"
   link = "https://github.com/HEIGE-PCloud"
+  avatar = "/images/avatar.webp"
+  gravatarEmail = ""
 
 # Sitemap config
 # 网站地图配置

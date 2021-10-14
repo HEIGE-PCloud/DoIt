@@ -17,7 +17,6 @@ $showcase-hover-color-black: #ffffff;
     display: inline-block !important;
     background: $showcase-background-color;
     position: relative;
-    border-radius: 5px;
     [theme="dark"] & {
         background: $showcase-background-color-dark;
     }
@@ -43,7 +42,6 @@ $showcase-hover-color-black: #ffffff;
     img {
         width: 96%;
         margin: 2% 2% 0% 2%;
-        border-radius: 5px;
         height: 200px;
         max-width: none;
         @include object-fit(none);
@@ -105,7 +103,7 @@ $showcase-hover-color-black: #ffffff;
     left: 2%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
     .showcase-box {
         width: 100% !important;
         margin: 1% 0% 0% 0%;
