@@ -259,7 +259,7 @@ enableEmoji = true
           prefix = "https://mastodon.technology/"
       # Sponsor config
       [languages.en.params.sponsor]
-        enable = true
+        enable = false
         bio = "If you find this post helpful, please consider sponsoring."
         link = "https://github.com/sponsors/HEIGE-PCloud"
         # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
@@ -496,7 +496,7 @@ enableEmoji = true
         RSS = true
         # 赞助设置
       [languages.zh-cn.params.sponsor]
-        enable = true
+        enable = false
         bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
         link = "https://github.com/sponsors/HEIGE-PCloud"
         # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
@@ -905,7 +905,7 @@ enableEmoji = true
   # Sponsor config
   # 赞助设置
   [params.sponsor]
-    enable = true
+    enable = false
     bio = "If you find this post helpful, please consider sponsoring."
     link = "https://github.com/sponsors/HEIGE-PCloud"
     # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
