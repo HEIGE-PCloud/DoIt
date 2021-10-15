@@ -638,6 +638,19 @@ Please open the code block below to view the complete sample configuration :(far
         max_shown_comments = 15
         show_email_subscription = true
         simple_view = false
+      # {{< version 0.2.13 >}} {{< link "https://giscus.app/" "giscus" >}} comment config
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        dataRepo = ""
+        dataRepoId = ""
+        dataCategory = ""
+        dataCategoryId = ""
+        dataMapping = "pathname"
+        dataReactionsEnabled = "1"
+        dataEmitMetadata = "0"
+        lightTheme = "light"
+        darkTheme = "dark"
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]
