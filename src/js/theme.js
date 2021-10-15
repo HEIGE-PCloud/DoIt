@@ -826,7 +826,9 @@ function initComment() {
             window._giscusOnSwitchTheme = (() => {
                 const message = {
                     giscus: {
-                        theme: window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme,
+                        setConfig: {
+                            theme: window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme,
+                        }
                     }
                 };
                 const iframe = document.querySelector('.giscus-frame');
