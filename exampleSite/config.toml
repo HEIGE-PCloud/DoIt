@@ -877,6 +877,19 @@ enableEmoji = true
         max_shown_comments = 15
         show_email_subscription = true
         simple_view = false
+      # giscus comment config (https://giscus.app/)
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        dataRepo = ""
+        dataRepoId = ""
+        dataCategory = ""
+        dataCategoryId = ""
+        dataMapping = "pathname"
+        dataReactionsEnabled = "1"
+        dataEmitMetadata = "0"
+        lightTheme = "ight"
+        darkTheme = "dark"
     # Third-party library config
     # 第三方库配置
     [params.page.library]
