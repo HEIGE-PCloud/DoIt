@@ -527,7 +527,7 @@ function initToc() {
         const $page = document.getElementsByClassName('page')[0];
         const rect = $page.getBoundingClientRect();
         $toc.style.left = `${rect.left + rect.width + 20}px`;
-        $toc.style.maxWidth = `19%`;
+        $toc.style.maxWidth = `${window.innerWidth - $page.getBoundingClientRect().right - 20}px`;
         $toc.style.visibility = 'visible';
         const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
         const $tocLiElements = $tocCore.getElementsByTagName('li');
@@ -566,15 +566,15 @@ function initToc() {
             const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
             let activeTocIndex = $headerLinkElements.length - 1;
             for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-                const windowTop = $headerLinkElements[i].getBoundingClientRect().top;
+                const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
                 const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                if ((i == 0 && windowTop > INDEX_SPACING)
-                    || (windowTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                if ((i == 0 && thisTop > INDEX_SPACING)
+                    || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                     activeTocIndex = i;
                     break;
                 }
             }
-            if (activeTocIndex >= 0 && activeTocIndex < $tocLinkElements.length) {
+            if (activeTocIndex !== -1) {
                 $tocLinkElements[activeTocIndex].classList.add('active');
                 let $parent = $tocLinkElements[activeTocIndex].parentElement;
                 while ($parent !== $tocCore) {
