@@ -56,6 +56,7 @@ math:
 * :(fas fa-comment-alt fa-fw): **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 * :(fas fa-comment-alt fa-fw): **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
 * :(fas fa-comment-alt fa-fw): **Remark42** comment system supported by [Remark42](https://remark42.com/)
+* :(fas fa-gem fa-fw): **giscus** comment system supported by [giscus](https://giscus.app/)
 
 #### Extended Features
 

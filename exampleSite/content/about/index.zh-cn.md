@@ -56,6 +56,7 @@ math:
 * :(far fa-comment-alt fa-fw): 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Vssue](https://vssue.js.org/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Remark42](https://remark42.com/)** 评论系统
+* :(far fa-comment-alt fa-fw): 支持 **[giscus](https://giscus.app/)** 评论系统
 
 #### 扩展功能
 

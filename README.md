@@ -119,6 +119,7 @@ the DoIt theme may be more suitable for you.
 * **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
 * **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
 * **Remark42** comment system supported by[Remark42](https://remark42.com/)
+* **giscus** comment system supported by [giscus](https://giscus.app/)
 
 ### Extended Features
 

@@ -115,7 +115,8 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持 **[Utterances](https://utteranc.es/)** 评论系统
 * 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
 * 支持 **[Vssue](https://vssue.js.org/)** 评论系统
-* 支持 **[Remark42](https://remark42.com/) 评论系统
+* 支持 **[Remark42](https://remark42.com/)** 评论系统
+* 支持 **[giscus](https://giscus.app/)** 评论系统
 
 ### 扩展功能
 

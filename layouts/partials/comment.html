@@ -255,6 +255,24 @@
                 Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
             </noscript>
         {{- end -}}
+
+        {{- /* giscus Comment System */ -}}
+        {{- $giscus := $comment.giscus | default dict -}}
+        {{- if $giscus.enable -}}
+            <div id="giscus"></div>
+            {{- $commentConfig = dict "dataRepo" $giscus.dataRepo | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataRepoId" $giscus.dataRepoId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategory" $giscus.dataCategory | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategoryId" $giscus.dataCategoryId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataMapping | default "pathname" | dict "dataMapping" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataReactionsEnabled | default "1" | dict "dataReactionsEnabled" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataEmitMetadata | default "0" | dict "dataEmitMetadata" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.lightTheme | default "light" | dict "lightTheme" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.darkTheme | default "dark" | dict "darkTheme" | dict "giscus" | merge $commentConfig -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript>
+        {{- end -}}
     </div>
 {{- end -}}
 

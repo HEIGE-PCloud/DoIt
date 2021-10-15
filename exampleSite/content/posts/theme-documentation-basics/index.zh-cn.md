@@ -642,6 +642,19 @@ hugo
         max_shown_comments = 15
         show_email_subscription = true
         simple_view = false
+      # {{< version 0.2.13 >}} {{< link "https://giscus.app/" "giscus" >}} 评论系统设置
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        dataRepo = ""
+        dataRepoId = ""
+        dataCategory = ""
+        dataCategoryId = ""
+        dataMapping = "pathname"
+        dataReactionsEnabled = "1"
+        dataEmitMetadata = "0"
+        lightTheme = "light"
+        darkTheme = "dark"
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
