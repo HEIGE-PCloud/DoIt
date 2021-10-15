@@ -814,7 +814,7 @@ function initComment() {
             script.type = 'text/javascript';
             script.setAttribute('data-repo', giscusConfig.dataRepo);
             script.setAttribute('data-repo-id', giscusConfig.dataRepoId);
-            if (ugiscusConfig.dataCategory) script.setAttribute('data-category', giscusConfig.dataCategory);
+            if (giscusConfig.dataCategory) script.setAttribute('data-category', giscusConfig.dataCategory);
             script.setAttribute('data-category-id', giscusConfig.dataCategoryId);
             script.setAttribute('data-mapping', giscusConfig.dataMapping);
             script.setAttribute('data-reactions-enabled', giscusConfig.dataReactionsEnabled);

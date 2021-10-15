@@ -888,7 +888,7 @@ enableEmoji = true
         dataMapping = "pathname"
         dataReactionsEnabled = "1"
         dataEmitMetadata = "0"
-        lightTheme = "ight"
+        lightTheme = "light"
         darkTheme = "dark"
     # Third-party library config
     # 第三方库配置
