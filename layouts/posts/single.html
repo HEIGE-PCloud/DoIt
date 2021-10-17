@@ -90,8 +90,10 @@
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
                 {{- end -}}
-                {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                    <i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- if .Params.lastmod -}}
+                    {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
+                        <i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                    {{- end -}}
                 {{- end -}}
                 <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
