@@ -1,8 +1,8 @@
 ---
 weight: 4
 title: "主题文档 - 扩展 Shortcodes"
-date: 2020-03-03T16:29:59+08:00
-lastmod: 2020-03-03T16:29:59+08:00
+date: 2020-03-06T16:29:59+08:00
+lastmod: 2020-03-06T16:29:59+08:00
 draft: false
 authors: [Dillon, PCloud]
 author: "Dillon"
@@ -10,7 +10,7 @@ authorLink: "https://dillonzq.com"
 description: "DoIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
 featuredImage: "featured-image.webp"
 featuredImagePreview: "featured-image-preview.webp"
-
+seriesIndex: 4
 tags: ["shortcodes"]
 categories: ["documentation"]
 series: ["getting-start"]

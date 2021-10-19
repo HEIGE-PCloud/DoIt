@@ -649,7 +649,7 @@ enableEmoji = true
     rssFullText = false
     # Page style ("normal", "wide")
     # 页面样式 ("normal", "wide")
-    pageStyle = "wide"
+    pageStyle = "normal"
     # Display a message at the beginning of an article to warn the reader that its content might be outdated.
     # 在文章开头显示提示信息，提醒读者文章内容可能过时。
     [params.page.outdatedArticleReminder]

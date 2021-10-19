@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "Theme Documentation - Basics"
-date: 2020-03-06T21:29:01+08:00
+date: 2020-03-03T21:29:01+08:00
 lastmod: 2020-03-06T21:29:01+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+seriesIndex: 1
 lightgallery: true
 
 toc:
