@@ -922,7 +922,7 @@ function onResize() {
             window._resizeTimeout = window.setTimeout(() => {
                 window._resizeTimeout = null;
                 for (let event of window.resizeEventSet) event();
-                window.initToc();
+                // window.initToc();
                 window.initMermaid();
                 window.initSearch();
             }, 100);
