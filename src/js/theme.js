@@ -125,7 +125,7 @@ function initSelectTheme() {
 function initSearch() {
     const searchConfig = window.config.search;
     const isMobile = isMobileWindow();
-    if (!searchConfig) return;
+    if (!searchConfig || isMobile && window._searchMobileOnce || !isMobile && window._searchDesktopOnce) return;
 
     const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10;
     const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50;
@@ -146,6 +146,7 @@ function initSearch() {
     const $searchLoading = document.getElementById(`search-loading-${suffix}`);
     const $searchClear = document.getElementById(`search-clear-${suffix}`);
     if (isMobile) {
+        window._searchMobileOnce = true;
         $searchInput.addEventListener('focus', () => {
             document.body.classList.add('blur');
             $header.classList.add('open');
@@ -172,6 +173,7 @@ function initSearch() {
         window.clickMaskEventSet.add(window._searchMobileOnClickMask);
         window.pjaxSendEventSet.add(window._searchMobileOnClickMask);
     } else {
+        window._searchDesktopOnce = true;
         $searchToggle.addEventListener('click', () => {
             document.body.classList.add('blur');
             $header.classList.add('open');
@@ -189,6 +191,7 @@ function initSearch() {
         });
         window.clickMaskEventSet.add(window._searchDesktopOnClickMask);
         window.pjaxSendEventSet.add(window._searchDesktopOnClickMask);
+        window.pjaxSendEventSet.add(() => {window._searchDesktopOnce = false; window._searchMobileOnce = false;});
     }
     $searchInput.addEventListener('input', () => {
         if ($searchInput.value === '') $searchClear.style.display = 'none';
