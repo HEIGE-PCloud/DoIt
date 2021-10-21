@@ -102,6 +102,9 @@ other = "Nenhum resultado encontrado"
 [lunrLanguageCode]
 other = "pt"
 
+[lunrLanguageLib]
+other = "lib/lunr/lunr.pt.js"
+
 [copyToClipboard]
 other = "Copiar para a área de transferência"
 
