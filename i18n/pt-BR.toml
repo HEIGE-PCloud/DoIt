@@ -12,7 +12,7 @@ other = "Ver comentários"
 
 # === Post ===
 [posts]
-other = "Posts"
+other = "Publicações"
 # === Post ===
 
 # === Taxonomy ===
@@ -30,7 +30,17 @@ other = "Categoria"
 
 [categories]
 other = "Categorias"
+
+[series]
+other = "Séries"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Atualizados Recentemente"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -43,6 +53,18 @@ other = "Selecione o idioma"
 
 [switchTheme]
 other = "Trocar tema"
+
+[Light]
+other = "Claro"
+
+[Dark]
+other = "Escuro"
+
+[Black]
+other = "Preto"
+
+[Auto]
+other = "Auto"
 # === partials/header.html ===
 
 # === partials/footer.html ===
@@ -80,9 +102,6 @@ other = "Nenhum resultado encontrado"
 [lunrLanguageCode]
 other = "pt"
 
-[lunrLanguageLib]
-other = "lib/lunr/lunr.pt.js"
-
 [copyToClipboard]
 other = "Copiar para a área de transferência"
 
@@ -90,7 +109,7 @@ other = "Copiar para a área de transferência"
 other = "Este site usa Cookies para melhorar sua experiência."
 
 [cookieconsentDismiss]
-other = "Aceita"
+other = "Entendi!"
 
 [cookieconsentLink]
 other = "Saber mais"
@@ -109,7 +128,7 @@ other = "Conteúdos"
 other = "publicado em {{ .Date }}"
 
 [includedIn]
-other = "incluído "
+other = "incluído em "
 
 [includedInAnd]
 other = "e"
@@ -133,6 +152,9 @@ other = "{{ .Count }} minutos"
 [views]
 other = "visualizações"
 
+[comments]
+other = "comentários"
+
 [author]
 other = "Autor"
 
@@ -150,6 +172,15 @@ other = "Home"
 
 [readMore]
 other = "Leia mais"
+
+[outdatedInfoWarningBefore]
+other = "Este artigo foi atualizado em "
+
+[outdatedInfoWarningAfter]
+other = ", o conteúdo pode estar desatualizado."
+
+[sponsor]
+other = "Patrocinador"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -165,7 +196,7 @@ other = "A página que você procura não existe. Desculpe"
 other = "Nota"
 
 [abstract]
-other = "Abstrato"
+other = "Resumo"
 
 [info]
 other = "Info"
@@ -208,4 +239,3 @@ other = "ALTERADO"
 [deleted]
 other = "EXCLUÍDO"
 # === shortcodes/version.html ===
-
