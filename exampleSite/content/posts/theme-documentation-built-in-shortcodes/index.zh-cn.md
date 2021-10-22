@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["shortcodes"]
 categories: ["documentation"]
 series: ["getting-start"]
-seriesIndex: 3
+series_weight: 3
 lightgallery: true
 ---
 

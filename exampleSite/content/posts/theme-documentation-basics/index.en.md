@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 series: ["getting-start"]
-seriesIndex: 1
+series_weight: 1
 lightgallery: true
 
 toc:

@@ -42,69 +42,15 @@
         {{- end -}}
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
-            {{- if eq $taxonomy "series" -}}
-                {{- $weightSlice := slice -}}
-                {{- $dateSlice := slice -}}
-                {{- $linkTitleSlice := slice -}}
-                {{- range .Pages -}}
-                    {{- if .Params.seriesIndex -}}
-                        {{- $weightSlice = $weightSlice | append . -}}
-                    {{- else if .Date -}}
-                        {{- $dateSlice = $dateSlice | append . -}}
-                    {{- else -}}
-                        {{- $linkTitleSlice = $linkTitleSlice | append . -}}
-                    {{- end -}}
-                {{- end -}}
-                {{- range sort $weightSlice "Params.seriesIndex" -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                        </span>
-                    </article>
-                {{- end -}}
-                {{- range sort $dateSlice ".Date" -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                        </span>
-                    </article>
-                {{- end -}}
-                {{- range sort $linkTitleSlice ".LinkTitle" -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                        </span>
-                    </article>
-                {{- end -}}
-            {{- else -}}
-                {{- $pages := .Pages.GroupByDate "2006" -}}
-                {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                    {{- $pages = $.Paginate $pages . -}}
-                {{- else -}}
-                    {{- $pages = .Paginate $pages -}}
-                {{- end -}}
-                {{- range $pages.PageGroups -}}
-                    <h3 class="group-title">{{ .Key }}</h3>
-                    {{- range .Pages -}}
-                        <article class="archive-item">
-                            <a href="{{ .RelPermalink }}" class="archive-item-link">
-                                {{- .Title -}}
-                            </a>
-                            <span class="archive-item-date">
-                                {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                            </span>
-                        </article>
-                    {{- end -}}
-                {{- end -}}
+            {{- range .Pages -}}
+                <article class="archive-item">
+                    <a href="{{ .RelPermalink }}" class="archive-item-link">
+                        {{- .Title -}}
+                    </a>
+                    <span class="archive-item-date">
+                        {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
+                    </span>
+                </article>
             {{- end -}}
             {{- partial "paginator.html" . -}}
         {{- end -}}

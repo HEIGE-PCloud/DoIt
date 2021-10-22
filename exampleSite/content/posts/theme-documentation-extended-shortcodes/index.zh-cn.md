@@ -10,7 +10,7 @@ authorLink: "https://dillonzq.com"
 description: "DoIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
 featuredImage: "featured-image.webp"
 featuredImagePreview: "featured-image-preview.webp"
-seriesIndex: 4
+series_weight: 4
 tags: ["shortcodes"]
 categories: ["documentation"]
 series: ["getting-start"]

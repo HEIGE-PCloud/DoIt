@@ -13,7 +13,7 @@ featuredImagePreview: "featured-image-preview.webp"
 tags: ["shortcodes"]
 categories: ["documentation"]
 series: ["getting-start"]
-seriesIndex: 4
+series_weight: 4
 lightgallery: true
 math:
   enable: true

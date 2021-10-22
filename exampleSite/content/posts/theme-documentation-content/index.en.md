@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["content", "Markdown"]
 categories: ["documentation"]
 series: ["getting-start"]
-seriesIndex: 2
+series_weight: 2
 lightgallery: true
 
 toc:
