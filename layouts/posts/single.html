@@ -162,7 +162,7 @@
                                             {{ if .LinkTitle | eq $.Title }}
                                                 <li><span class="active">{{ .LinkTitle }}</span></li>
                                             {{ else }}
-                                                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                                                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
                                             {{ end }}
                                         {{ end }}
                                     </ul>
