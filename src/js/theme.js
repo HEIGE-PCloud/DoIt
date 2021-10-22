@@ -174,6 +174,7 @@ function initSearch() {
         window.pjaxSendEventSet.add(window._searchMobileOnClickMask);
     } else {
         window._searchDesktopOnce = true;
+
         $searchToggle.addEventListener('click', () => {
             document.body.classList.add('blur');
             $header.classList.add('open');
@@ -182,6 +183,13 @@ function initSearch() {
         $searchClear.addEventListener('click', () => {
             $searchClear.style.display = 'none';
             window._searchDesktop && window._searchDesktop.autocomplete.setVal('');
+        }, false);
+        // Toggle search when Ctrl + K is pressed
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && e.code == 'KeyK') {
+                e.preventDefault();
+                $searchToggle.click();
+            }
         }, false);
         window._searchDesktopOnClickMask = (() => {
             $header.classList.remove('open');
