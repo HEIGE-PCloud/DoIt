@@ -671,7 +671,7 @@ enableEmoji = true
       enable = true
       # whether to keep the static table of the contents in front of the post
       # 是否保持使用文章前面的静态目录
-      keepStatic = true
+      keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
       auto = true

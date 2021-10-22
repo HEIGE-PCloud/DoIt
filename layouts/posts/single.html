@@ -150,21 +150,23 @@
                 {{ range $key, $value := .Site.Taxonomies.series }}
                     {{ if $key | in $params.series }}
                         {{ $term := $.Site.GetPage "series" $key }}
-                        <div class="details toc open" id="series-list">
-                            <div class="details-summary toc-title">
-                                <span>{{ $term.Title }}</span>
+                        <div class="details series-nav open">
+                            <div class="details-summary series-title">
+                                <span>{{ T "series" }} - {{ $term.Title }}</span>
                                 <span><i class="details-icon fas fa-angle-right"></i></span>
                             </div>
-                            <div class="details-content toc-content">
-                                <ul>
-                                    {{ range $value.Pages }}
-                                        {{ if .LinkTitle | eq $.Title }}
-                                            <li><em>{{ .LinkTitle }}</em></li>
-                                        {{ else }}
-                                            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                            <div class="details-content series-content">
+                                <nav>
+                                    <ul>
+                                        {{ range $value.Pages }}
+                                            {{ if .LinkTitle | eq $.Title }}
+                                                <li><span class="active">{{ .LinkTitle }}</span></li>
+                                            {{ else }}
+                                                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                                            {{ end }}
                                         {{ end }}
-                                    {{ end }}
-                                </ul>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     {{- end -}}
