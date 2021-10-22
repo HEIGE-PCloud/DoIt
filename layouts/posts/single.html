@@ -144,8 +144,25 @@
             <div class="featured-image">
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height | partial "plugin/image.html" -}}
             </div>
-        {{- end -}}
+        {{- end -}}      
 
+        {{- /* Series list */ -}}
+        {{- if $params.series -}}
+            <section>
+                {{ range $key, $value := .Site.Taxonomies.series }}
+                    {{ if $key | in $params.series }}
+                        {{ $term := $.Site.GetPage "series" $key }}
+                        <li> {{ $term.Title }} </li>
+                        <ul>
+                            {{ range $value.Pages }}
+                                <li><a href="{{ .Permalink }}"> {{ .LinkTitle }} </a> </li>
+                            {{ end }}
+                        </ul>
+                    {{- end -}}
+                {{ end }}
+            </section>
+        {{- end -}}
+        
         {{- /* Static TOC */ -}}
         {{- if ne $toc.enable false -}}
             <div class="details toc" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
