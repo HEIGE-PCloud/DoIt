@@ -109,6 +109,8 @@ images: []
 tags: []
 categories: []
 series: []
+series_weight: 1
+seriesNavigation: true
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -176,6 +178,8 @@ sponsor:
 * **tags**: 文章的标签.
 * **categories**: 文章所属的类别.
 * **series**: {{< version 0.2.12 >}} 文章所属的系列.
+* **series_weight**: {{< version 0.2.13 >}} 自定义文章在系列中的[位置](https://gohugo.io/content-management/taxonomies/#order-taxonomies).
+* **seriesNavigation**: {{< version 0.2.13 >}} 是否使用系列导航.
 * **featuredImage**: 文章的特色图片.
 * **featuredImagePreview**: 用在主页预览的文章特色图片.
 

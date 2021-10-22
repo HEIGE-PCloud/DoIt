@@ -110,6 +110,8 @@ images: []
 tags: []
 categories: []
 series: []
+series_weight: 1
+seriesNavigation: true
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -177,6 +179,8 @@ sponsor:
 * **tags**: the tags for the content.
 * **categories**: the categories for the content.
 * **series**: {{< version 0.2.12 >}} the series for the content.
+* **series_weight**: {{< version 0.2.13 >}} define the [position](https://gohugo.io/content-management/taxonomies/#order-taxonomies) of the post in the series.
+* **seriesNavigation**: {{< version 0.2.13 >}} whether to enable series navigation.
 * **featuredImage**: the featured image for the content.
 * **featuredImagePreview**: the featured image for the content preview in the home page.
 

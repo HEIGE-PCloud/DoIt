@@ -454,6 +454,8 @@ hugo
     rssFullText = false
     # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} 是否在文章开头显示系列导航
+    seriesNavigation = true
     # {{< version 0.2.13 >}} 过时文章提示
     [params.page.outdatedArticleReminder]
       enable = true

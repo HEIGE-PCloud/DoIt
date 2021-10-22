@@ -450,6 +450,8 @@ Please open the code block below to view the complete sample configuration :(far
     rssFullText = false
     # {{< version 0.2.11 >}} page layout style ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} whether to enable series navigation
+    seriesNavigation = true
     # {{< version 0.2.13 >}} outdated article reminder config
     [params.page.outdatedArticleReminder]
       enable = false
