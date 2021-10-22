@@ -650,6 +650,9 @@ enableEmoji = true
     # Page style ("normal", "wide")
     # 页面样式 ("normal", "wide")
     pageStyle = "normal"
+    # whether to enable series navigation
+    # 是否使用系列导航
+    seriesNavigation = true
     # Display a message at the beginning of an article to warn the reader that its content might be outdated.
     # 在文章开头显示提示信息，提醒读者文章内容可能过时。
     [params.page.outdatedArticleReminder]
@@ -668,7 +671,7 @@ enableEmoji = true
       enable = true
       # whether to keep the static table of the contents in front of the post
       # 是否保持使用文章前面的静态目录
-      keepStatic = false
+      keepStatic = true
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
       auto = true

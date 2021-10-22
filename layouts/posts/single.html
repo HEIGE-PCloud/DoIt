@@ -145,22 +145,30 @@
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
-
         {{- /* Series list */ -}}
-        {{- if $params.series -}}
-            <section>
+        {{- if $params.series | and $params.seriesNavigation -}}
                 {{ range $key, $value := .Site.Taxonomies.series }}
                     {{ if $key | in $params.series }}
                         {{ $term := $.Site.GetPage "series" $key }}
-                        <li> {{ $term.Title }} </li>
-                        <ul>
-                            {{ range $value.Pages }}
-                                <li><a href="{{ .Permalink }}"> {{ .LinkTitle }} </a> </li>
-                            {{ end }}
-                        </ul>
+                        <div class="details toc open" id="series-list">
+                            <div class="details-summary toc-title">
+                                <span>{{ $term.Title }}</span>
+                                <span><i class="details-icon fas fa-angle-right"></i></span>
+                            </div>
+                            <div class="details-content toc-content">
+                                <ul>
+                                    {{ range $value.Pages }}
+                                        {{ if .LinkTitle | eq $.Title }}
+                                            <li><em>{{ .LinkTitle }}</em></li>
+                                        {{ else }}
+                                            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                                        {{ end }}
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
                     {{- end -}}
                 {{ end }}
-            </section>
         {{- end -}}
         
         {{- /* Static TOC */ -}}
