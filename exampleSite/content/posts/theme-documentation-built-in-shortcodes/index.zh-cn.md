@@ -1,8 +1,8 @@
 ---
 weight: 3
 title: "主题文档 - 内置 Shortcodes"
-date: 2020-03-04T16:29:59+08:00
-lastmod: 2020-03-04T16:29:59+08:00
+date: 2020-03-05T16:29:59+08:00
+lastmod: 2020-03-05T16:29:59+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "Hugo 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁."
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["shortcodes"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 3
 lightgallery: true
 ---
 

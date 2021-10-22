@@ -1,8 +1,8 @@
 ---
 weight: 2
 title: "Theme Documentation - Content"
-date: 2020-03-05T15:58:26+08:00
-lastmod: 2020-03-05T15:58:26+08:00
+date: 2020-03-04T15:58:26+08:00
+lastmod: 2020-03-04T15:58:26+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "Find out how to create and organize your content quickly and intuitively in DoIt theme."
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["content", "Markdown"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 2
 lightgallery: true
 
 toc:
@@ -110,6 +110,8 @@ images: []
 tags: []
 categories: []
 series: []
+series_weight: 1
+seriesNavigation: true
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -177,6 +179,8 @@ sponsor:
 * **tags**: the tags for the content.
 * **categories**: the categories for the content.
 * **series**: {{< version 0.2.12 >}} the series for the content.
+* **series_weight**: {{< version 0.2.13 >}} define the [position](https://gohugo.io/content-management/taxonomies/#order-taxonomies) of the post in the series.
+* **seriesNavigation**: {{< version 0.2.13 >}} whether to enable series navigation.
 * **featuredImage**: the featured image for the content.
 * **featuredImagePreview**: the featured image for the content preview in the home page.
 

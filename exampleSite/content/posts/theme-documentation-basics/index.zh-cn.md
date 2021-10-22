@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "主题文档 - 基本概念"
-date: 2020-03-06T21:40:32+08:00
+date: 2020-03-03T21:40:32+08:00
 lastmod: 2020-03-06T21:40:32+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 1
 lightgallery: true
 
 toc:
@@ -454,6 +454,8 @@ hugo
     rssFullText = false
     # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} 是否在文章开头显示系列导航
+    seriesNavigation = true
     # {{< version 0.2.13 >}} 过时文章提示
     [params.page.outdatedArticleReminder]
       enable = true

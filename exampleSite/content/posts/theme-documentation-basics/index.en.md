@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "Theme Documentation - Basics"
-date: 2020-03-06T21:29:01+08:00
+date: 2020-03-03T21:29:01+08:00
 lastmod: 2020-03-06T21:29:01+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 1
 lightgallery: true
 
 toc:
@@ -450,6 +450,8 @@ Please open the code block below to view the complete sample configuration :(far
     rssFullText = false
     # {{< version 0.2.11 >}} page layout style ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} whether to enable series navigation
+    seriesNavigation = true
     # {{< version 0.2.13 >}} outdated article reminder config
     [params.page.outdatedArticleReminder]
       enable = false
