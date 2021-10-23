@@ -750,7 +750,9 @@ function initComment() {
                     //   { url: '/2020/11/post-2.html', count: 0 },
                     //   { url: '/2020/12/post-3.html', count: 20 }
                     // ]
-                    document.getElementById('twikoo-comment-count').innerHTML = res[0].count;
+                    // If there is an element with id="twikoo-comment-count", set its innerHTML to the count of comments
+                    const $twikooCommentCount = document.getElementById('twikoo-comment-count');
+                    if ($twikooCommentCount) $twikooCommentCount.innerHTML = res[0].count;
                   }).catch(function (err) {
                     console.error(err);
                   });
