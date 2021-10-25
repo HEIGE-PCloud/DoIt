@@ -832,7 +832,7 @@ function initComment() {
             script.setAttribute('data-mapping', giscusConfig.dataMapping);
             script.setAttribute('data-reactions-enabled', giscusConfig.dataReactionsEnabled);
             script.setAttribute('data-emit-metadata', giscusConfig.dataEmitMetadata);
-            script.setAttribute('theme', window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme);
+            script.setAttribute('data-theme', window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme);
             script.crossOrigin = 'anonymous';
             script.async = true;
             document.getElementById('giscus').appendChild(script);
