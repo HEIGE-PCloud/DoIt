@@ -24,7 +24,7 @@
                         <div class="card-item-wrapper">
                             <h3 class="card-item-title">
                                 <a href="{{ .RelPermalink }}">
-                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }}
+                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{- len $pages -}}</sup>
                                 </a>
                             </h3>
                             {{- range first 5 $pages -}}
@@ -57,7 +57,7 @@
                         <div class="card-item-wrapper">
                             <h3 class="card-item-title">
                                 <a href="{{ .RelPermalink }}">
-                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }}
+                                    <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{- len $pages -}}</sup>
                                 </a>
                             </h3>
                             {{- range first 5 $pages -}}
@@ -90,7 +90,7 @@
                         <div class="card-item-wrapper">
                             <h3 class="card-item-title">
                                 <a href="{{ .RelPermalink }}">
-                                    <i class="fas fa-user-circle fa-fw"></i>&nbsp;{{ .Page.Title }}
+                                    <i class="fas fa-user-circle fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{- len $pages -}}</sup>
                                 </a>
                             </h3>
                             {{- range first 5 $pages -}}
