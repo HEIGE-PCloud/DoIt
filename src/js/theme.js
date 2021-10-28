@@ -951,43 +951,39 @@ function onClickMask() {
 }
 
 function init() {
-    try {
-        window.data = window.config.data;
-        window.isDark = document.body.getAttribute('theme') !== 'light';
-        window.newScrollTop = getScrollTop();
-        window.oldScrollTop = window.newScrollTop;
-        window.scrollEventSet = new Set();
-        window.resizeEventSet = new Set();
-        window.switchThemeEventSet = new Set();
-        window.clickMaskEventSet = new Set();
-        window.pjaxSendEventSet = new Set();
-        if (window.objectFitImages) objectFitImages();
-        initSVGIcon();
-        initTwemoji();
-        initMenuMobile();
-        initSwitchTheme();
-        initSelectTheme();
-        initMeta();
-        initSearch();
-        initDetails();
-        initLightGallery();
-        initHighlight();
-        initTable();
-        initHeaderLink();
-        initMath();
-        initMermaid();
-        initEcharts();
-        initTypeit();
-        initMapbox();
-        initCookieconsent();
-        initToc();
-        initComment();
-        onScroll();
-        onResize();
-        onClickMask();
-    } catch (err) {
-        console.error(err);
-    }
+    window.data = window.config.data;
+    window.isDark = document.body.getAttribute('theme') !== 'light';
+    window.newScrollTop = getScrollTop();
+    window.oldScrollTop = window.newScrollTop;
+    window.scrollEventSet = new Set();
+    window.resizeEventSet = new Set();
+    window.switchThemeEventSet = new Set();
+    window.clickMaskEventSet = new Set();
+    window.pjaxSendEventSet = new Set();
+    if (window.objectFitImages) objectFitImages();
+    initSVGIcon();
+    initTwemoji();
+    initMenuMobile();
+    initSwitchTheme();
+    initSelectTheme();
+    initMeta();
+    initSearch();
+    initDetails();
+    initLightGallery();
+    initHighlight();
+    initTable();
+    initHeaderLink();
+    initMath();
+    initMermaid();
+    initEcharts();
+    initTypeit();
+    initMapbox();
+    initCookieconsent();
+    initToc();
+    initComment();
+    onScroll();
+    onResize();
+    onClickMask();
 }
 
 const themeInit = () => {
