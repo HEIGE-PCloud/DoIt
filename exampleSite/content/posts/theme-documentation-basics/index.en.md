@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "Theme Documentation - Basics"
-date: 2020-03-06T21:29:01+08:00
+date: 2020-03-03T21:29:01+08:00
 lastmod: 2020-03-06T21:29:01+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 1
 lightgallery: true
 
 toc:
@@ -194,6 +194,8 @@ Please open the code block below to view the complete sample configuration :(far
 [params]
   # {{< version 0.2.0 changed >}} DoIt theme version
   version = "0.2.X"
+  # website title
+  title = "My New Hugo Site"
   # site description
   description = "This is My New Hugo Site"
   # site keywords
@@ -304,6 +306,12 @@ Please open the code block below to view the complete sample configuration :(far
     dateFormat = "01-02"
     # amount of RSS pages
     rss = 10
+    # {{< version 0.2.13 >}} recently updated posts settings
+    [params.section.recentlyUpdated]
+      enable = false
+      rss = false
+      days = 30
+      maxCount = 10
 
   # {{< version 0.2.0 >}} List (category or tag) page config
   [params.list]
@@ -414,6 +422,9 @@ Please open the code block below to view the complete sample configuration :(far
     Liberapay = ""
     Ko-Fi = ""
     BuyMeACoffee = ""
+    Linktree = ""
+    QQ = ""
+    QQGroup = ""
     Email = "xxxx@xxxx.com"
     RSS = true # {{< version 0.2.0 >}}
 
@@ -439,6 +450,15 @@ Please open the code block below to view the complete sample configuration :(far
     rssFullText = false
     # {{< version 0.2.11 >}} page layout style ("normal", "wide")
     pageStyle = "normal"
+    # {{< version 0.2.13 >}} whether to enable series navigation
+    seriesNavigation = true
+    # {{< version 0.2.13 >}} outdated article reminder config
+    [params.page.outdatedArticleReminder]
+      enable = false
+      # Display the reminder if the last modified time is more than 90 days ago.
+      reminder = 90
+      # Display warning if the last modified time is more than 180 days ago.
+      warning = 180
     # {{< version 0.2.0 >}} Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents
@@ -552,23 +572,20 @@ Please open the code block below to view the complete sample configuration :(far
         emoji = ""
       # {{< link "https://github.com/xCss/Valine" Waline >}} comment config
       [params.page.comment.waline]
-        # {{< version 0.2.11 >}}
+        # {{< version 0.2.13 changed >}}
         enable = false
         serverURL = ""
-        placeholder = "Just Go Go."
+        visitor = false
+        emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+        meta = ['nick', 'mail', 'link']
+        requiredMeta = []
+        login = 'enable'
         wordLimit = 0
-        avatar = "mp"
-        meta = ["nick", "mail", "link"]
         pageSize = 10
-        lang = "en"
-        visitor = true
+        uploadImage = false
         highlight = true
-        avatarCDN = ""
-        avatarForce = false
-        emojiCDN = ""
-        emojiMaps = ""
-        requiredFields = []
-        anonymous = false
+        mathTagSupport = false
+        commentCount = true
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false
@@ -606,6 +623,7 @@ Please open the code block below to view the complete sample configuration :(far
         region = ""
         path = ""
         visitor = true
+        commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} comment config
       [params.page.comment.vssue]
         enable = false
@@ -614,6 +632,27 @@ Please open the code block below to view the complete sample configuration :(far
         repo = ""
         clientId = ""
         clientSecret = ""
+      # {{< version 0.2.13 >}} {{< link "https://remark42.com/" "Remark42" >}} comment config
+      [params.page.comment.remark42]
+        enable = false
+        host = ""
+        site_id = ""
+        max_shown_comments = 15
+        show_email_subscription = true
+        simple_view = false
+      # {{< version 0.2.13 >}} {{< link "https://giscus.app/" "giscus" >}} comment config
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        dataRepo = ""
+        dataRepoId = ""
+        dataCategory = ""
+        dataCategoryId = ""
+        dataMapping = "pathname"
+        dataReactionsEnabled = "1"
+        dataEmitMetadata = "0"
+        lightTheme = "light"
+        darkTheme = "dark"
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]
@@ -635,6 +674,13 @@ Please open the code block below to view the complete sample configuration :(far
         name = ""
         logoUrl = ""
 
+  # {{< version 0.2.13 >}} Sponsor config
+  [params.sponsor]
+    enable = false
+    bio = "If you find this post helpful, please consider sponsoring."
+    link = "https://www.buymeacoffee.com" # The link to your sponsor page
+    custom = "" # Custom HTML button
+
   # {{< version 0.2.5 >}} TypeIt config
   [params.typeit]
     # typing speed between each step (measured in milliseconds)
@@ -653,6 +699,8 @@ Please open the code block below to view the complete sample configuration :(far
     yandex = ""
     pinterest = ""
     baidu = ""
+    so = "" # 360 search
+    sogou = ""
 
   # {{< version 0.2.10 >}} Site SEO config
   [params.seo]
@@ -674,6 +722,18 @@ Please open the code block below to view the complete sample configuration :(far
       id = ""
       # server url for your tracker if you're self hosting
       server = ""
+    # {{< version 0.2.13 >}} Baidu Analytics
+    [params.analytics.baidu]
+      id = ""
+    # {{< version 0.2.13 >}} Umami Analytics
+    [params.analytics.umami]
+      data_website_id = ""
+      src = ""
+      data_domains = ""
+    # {{< version 0.2.13 >}} Plausible Analytics
+    [params.analytics.plausible]
+      data_domain = ""
+      src = ""
 
   # {{< version 0.2.7 >}} Cookie consent config
   [params.cookieconsent]
@@ -734,6 +794,8 @@ Please open the code block below to view the complete sample configuration :(far
   name = "xxxx"
   email = ""
   link = ""
+  avatar = ""
+  gravatarEmail = ""
 
 # Sitemap config
 [sitemap]

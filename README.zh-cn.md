@@ -80,6 +80,9 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 使用基于 JSON-LD 格式 的 **SEO SCHEMA** 文件进行 SEO 优化
 * 支持 **[Google Analytics](https://analytics.google.com/analytics)**
 * 支持 **[Fathom Analytics](https://usefathom.com/)**
+* 支持 **[百度统计](https://tongji.baidu.com/)**
+* 支持 **[Umami Analytics](https://umami.is/)**
+* 支持 **[Plausible Analytics](https://plausible.io/)**
 * 支持搜索引擎的**网站验证** (Google, Bind, Yandex and Baidu)
 * 支持所有第三方库的 **CDN**
 * 基于 [lazysizes](https://github.com/aFarkas/lazysizes) 自动转换图片为**懒加载**
@@ -112,6 +115,8 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持 **[Utterances](https://utteranc.es/)** 评论系统
 * 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
 * 支持 **[Vssue](https://vssue.js.org/)** 评论系统
+* 支持 **[Remark42](https://remark42.com/)** 评论系统
+* 支持 **[giscus](https://giscus.app/)** 评论系统
 
 ### 扩展功能
 
@@ -209,6 +214,7 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Pjax](https://github.com/PaperStrike/Pjax)
 * [Topbar](https://github.com/buunguyen/topbar)
+* [Remark42](https://remark42.com/)
 
 ## 作者
 

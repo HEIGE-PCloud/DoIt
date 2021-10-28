@@ -64,52 +64,38 @@
         {{- $waline := $comment.waline | default dict -}}
         {{- if $waline.enable -}}
             <div id="waline" class="comment"></div>
-            {{- $options := dict "targetPath" "lib/waline/Waline.min.css" -}}
-            {{- dict "Source" "lib/waline/Waline.scss" "ToCSS" $options | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
             {{- $source := $cdn.walineJS | default "lib/waline/Waline.min.js" -}}
             {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-            {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL | dict "waline" | merge $commentConfig -}}
-            {{- with $waline.placeholder -}}
-                {{- $commentConfig = dict "placeholder" . | dict "waline" | merge $commentConfig -}}
+            {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" true | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.visitor -}}
+                {{- $commentConfig = dict "visitor" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.wordLimit -}}
-                {{- $commentConfig = dict "wordLimit" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.avatar -}}
-                {{- $commentConfig = dict "avatar" . | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.emoji -}}
+                {{- $commentConfig = dict "emoji" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- with $waline.meta -}}
                 {{- $commentConfig = dict "meta" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
+            {{- with $waline.requiredMeta -}}
+                {{- $commentConfig = dict "requiredMeta" . | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $waline.login -}}
+                {{- $commentConfig = dict "login" . | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $waline.wordLimit -}}
+                {{- $commentConfig = dict "wordLimit" . | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
             {{- with $waline.pageSize -}}
                 {{- $commentConfig = dict "pageSize" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.lang -}}
-                {{- $commentConfig = dict "lang" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.visitor -}}
-                {{- $commentConfig = dict "visitor" . | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.uploadImage -}}
+                {{- $commentConfig = dict "uploadImage" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- with $waline.highlight -}}
                 {{- $commentConfig = dict "highlight" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.avatarCDN -}}
-                {{- $commentConfig = dict "avatarCDN" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.avatarForce -}}
-                {{- $commentConfig = dict "avatarForce" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.emojiCDN -}}
-                {{- $commentConfig = dict "emojiCDN" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.emojiMaps -}}
-                {{- $commentConfig = dict "emojiMaps" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.requiredFields -}}
-                {{- $commentConfig = dict "requiredFields" . | dict "waline" | merge $commentConfig -}}
-            {{- end -}}
-            {{- with $waline.anonymous -}}
-                {{- $commentConfig = dict "anonymous" . | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.mathTagSupport -}}
+                {{- $commentConfig = dict "mathTagSupport" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Waline</a>.
@@ -201,6 +187,9 @@
             {{- with $twikoo.path -}}
                 {{- $commentConfig = dict "path" . | dict "twikoo" | merge $commentConfig -}}
             {{- end -}}
+            {{- with $twikoo.commentCount -}}
+                {{- $commentConfig = dict "commentCount" . | dict "twikoo" | merge $commentConfig -}}
+            {{- end -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
             </noscript>
@@ -245,6 +234,43 @@
                 {{- end -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
+            </noscript>
+        {{- end -}}
+
+        {{- /* Remark42 Comment System */ -}}
+        {{- $remark42 := $comment.remark42 | default dict -}}
+        {{- if $remark42.enable -}}
+            <div id="remark42"></div>
+            {{- $commentConfig = dict "host" $remark42.host "site_id" $remark42.site_id "locale" .Lang  | dict "remark42" | merge $commentConfig -}}
+            {{- with $remark42.max_shown_comments -}}
+                {{- $commentConfig = dict "max_shown_comments" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $remark42.show_email_subscription -}}
+                {{- $commentConfig = dict "show_email_subscription" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $remark42.simple_view -}}
+                {{- $commentConfig = dict "simple_view" . | dict "remark42" | merge $commentConfig -}}
+            {{- end -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
+            </noscript>
+        {{- end -}}
+
+        {{- /* giscus Comment System */ -}}
+        {{- $giscus := $comment.giscus | default dict -}}
+        {{- if $giscus.enable -}}
+            <div id="giscus"></div>
+            {{- $commentConfig = dict "dataRepo" $giscus.dataRepo | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataRepoId" $giscus.dataRepoId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategory" $giscus.dataCategory | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = dict "dataCategoryId" $giscus.dataCategoryId | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataMapping | default "pathname" | dict "dataMapping" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataReactionsEnabled | default "1" | dict "dataReactionsEnabled" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataEmitMetadata | default "0" | dict "dataEmitMetadata" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.lightTheme | default "light" | dict "lightTheme" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.darkTheme | default "dark" | dict "darkTheme" | dict "giscus" | merge $commentConfig -}}
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript>
         {{- end -}}
     </div>

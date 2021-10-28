@@ -1,8 +1,8 @@
 ---
 weight: 2
 title: "主题文档 - 内容"
-date: 2020-03-05T16:30:05+08:00
-lastmod: 2020-03-05T16:30:05+08:00
+date: 2020-03-04T16:30:05+08:00
+lastmod: 2020-03-04T16:30:05+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
@@ -11,7 +11,7 @@ featuredImage: "featured-image.webp"
 tags: ["content", "Markdown"]
 categories: ["documentation"]
 series: ["getting-start"]
-
+series_weight: 2
 lightgallery: true
 
 toc:
@@ -109,6 +109,8 @@ images: []
 tags: []
 categories: []
 series: []
+series_weight: 1
+seriesNavigation: true
 featuredImage: ""
 featuredImagePreview: ""
 
@@ -154,6 +156,12 @@ library:
 seo:
   images: []
   # ...
+outdatedArticleReminder:
+  enable: false
+  # ...
+sponsor:
+  enable: false
+  # ...
 ---
 ```
 
@@ -170,6 +178,8 @@ seo:
 * **tags**: 文章的标签.
 * **categories**: 文章所属的类别.
 * **series**: {{< version 0.2.12 >}} 文章所属的系列.
+* **series_weight**: {{< version 0.2.13 >}} 自定义文章在系列中的[位置](https://gohugo.io/content-management/taxonomies/#order-taxonomies).
+* **seriesNavigation**: {{< version 0.2.13 >}} 是否使用系列导航.
 * **featuredImage**: 文章的特色图片.
 * **featuredImagePreview**: 用在主页预览的文章特色图片.
 
@@ -192,6 +202,8 @@ seo:
 * **comment**: {{< version 0.2.0 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.comment` 部分相同.
 * **library**: {{< version 0.2.7 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.library` 部分相同.
 * **seo**: {{< version 0.2.10 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.seo` 部分相同.
+* **outdatedArticleReminder**: {{< version 0.2.13 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.outdatedArticleReminder` 部分相同.
+* **sponsor**: {{< version 0.2.13 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.sponsor` 部分相同.
 
 {{< admonition tip >}}
 {{< version 0.2.10 >}}

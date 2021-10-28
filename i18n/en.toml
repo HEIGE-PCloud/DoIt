@@ -34,6 +34,13 @@ other = "Categories"
 other = "Series"
 # === Taxonomy ===
 
+# === Section ===
+
+[recentlyUpdated]
+other = "Recently Updated"
+
+# === Section ===
+
 # === Pagination ===
 [more]
 other = "More"
@@ -143,6 +150,9 @@ other = "{{ .Count }} minutes"
 [views]
 other = "views"
 
+[comments]
+other = "comments"
+
 [author]
 other = "Author"
 
@@ -160,6 +170,15 @@ other = "Home"
 
 [readMore]
 other = "Read more..."
+
+[outdatedInfoWarningBefore]
+other = "This article was last updated on "
+
+[outdatedInfoWarningAfter]
+other = ", the content may be out of date."
+
+[sponsor]
+other = "Sponsor"
 # === posts/single.html ===
 
 # === 404.html ===

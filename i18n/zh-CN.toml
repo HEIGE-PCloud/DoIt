@@ -35,6 +35,13 @@ other = "分类"
 other = "系列"
 # === Taxonomy ===
 
+# === Section ===
+
+[recentlyUpdated]
+other = "最近更新"
+
+# === Section ===
+
 # === Pagination ===
 [more]
 other = "更多"
@@ -147,6 +154,9 @@ other = "预计阅读 {{ .Count }} 分钟"
 [views]
 other = "次阅读"
 
+[comments]
+other = "条评论"
+
 [author]
 other = "作者"
 
@@ -164,6 +174,15 @@ other = "主页"
 
 [readMore]
 other = "阅读全文"
+
+[outdatedInfoWarningBefore]
+other = "本文最后更新于 "
+
+[outdatedInfoWarningAfter]
+other = "，文中内容可能已过时。"
+
+[sponsor]
+other = "赞赏"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -222,3 +241,4 @@ other = "更改"
 [deleted]
 other = "删除"
 # === shortcodes/version.html ===
+

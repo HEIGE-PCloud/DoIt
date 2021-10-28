@@ -515,7 +515,7 @@ ko-fi:
   Prefix: https://ko-fi.com/
   Title: Ko-Fi
   Icon:
-    Simpleicons: ko-fi
+    Simpleicons: kofi
 
 # 066: BuyMeaCoffee
 buymeacoffee:
@@ -525,17 +525,41 @@ buymeacoffee:
   Icon:
     Simpleicons: buymeacoffee
 
-# 067: Email
-email:
+# 067: Linktree
+linktree:
   Weight: 67
+  Prefix: https://linktr.ee/
+  Title: Linktree
+  Icon:
+    Simpleicons: linktree
+
+# 068: QQ
+qq:
+  Weight: 68
+  Template: https://sighttp.qq.com/authd?IDKEY=%v
+  Title: QQ
+  Icon:
+    Src: svg/icons/qq.svg
+
+# 069: QQGroup
+qqgroup:
+  Weight: 69
+  Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v&jump_from=webapi
+  Title: QQGroup
+  Icon:
+    Src: svg/icons/qqGroup.svg
+
+# 068: Email
+email:
+  Weight: 70
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 068: RSS
+# 069: RSS
 rss:
-  Weight: 68
+  Weight: 71
   Url: /index.xml
   Title: RSS
   Newtab: true

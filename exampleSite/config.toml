@@ -109,7 +109,7 @@ enableEmoji = true
         weight = 8
     [languages.en.params]
       # site description
-      description = "About DoIt Theme"
+      description = "The official documentation for the Hugo DoIt theme"
       # site keywords
       keywords = ["Theme", "Hugo"]
       # App icon config
@@ -136,7 +136,7 @@ enableEmoji = true
         # max number of results length
         maxResultLength = 10
         # snippet length of the result
-        snippetLength = 30
+        snippetLength = 300
         # HTML tag name of the highlight part in results
         highlightTag = "em"
         # whether to use the absolute URL based on the baseURL in search index
@@ -151,9 +151,9 @@ enableEmoji = true
           minMatchCharLength = 2
           findAllMatches = false
           location = 0
-          threshold = 0.3
+          threshold = 0.1
           distance = 100
-          ignoreLocation = false
+          ignoreLocation = true
           useExtendedSearch = false
           ignoreFieldNorm = false
       # Home page config
@@ -246,14 +246,24 @@ enableEmoji = true
         Matrix = ""
         Bilibili = ""
         ORCID = ""
+        QQ = ""
+        QQGroup = ""
         Liberapay = "xxx"
         Ko-Fi = "xxx"
         BuyMeACoffee = ""
+        Linktree = ""
         Email = "xxxx@xxxx.com"
         RSS = true
         [languages.en.params.social.Mastodon]
           id = "@xxxx"
           prefix = "https://mastodon.technology/"
+      # Sponsor config
+      [languages.en.params.sponsor]
+        enable = false
+        bio = "If you find this post helpful, please consider sponsoring."
+        link = "https://github.com/sponsors/HEIGE-PCloud"
+        # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
 
   [languages.zh-cn]
     weight = 2
@@ -338,7 +348,7 @@ enableEmoji = true
         weight = 8
     [languages.zh-cn.params]
       # 网站描述
-      description = "关于 DoIt 主题"
+      description = "Hugo DoIt 主题官方文档"
       # 网站关键词
       keywords = ["Theme", "Hugo"]
       # 应用图标配置
@@ -380,9 +390,9 @@ enableEmoji = true
           minMatchCharLength = 2
           findAllMatches = false
           location = 0
-          threshold = 0.3
+          threshold = 0.1
           distance = 100
-          ignoreLocation = false
+          ignoreLocation = true
           useExtendedSearch = false
           ignoreFieldNorm = false
       # 主页信息设置
@@ -479,10 +489,23 @@ enableEmoji = true
         Liberapay = ""
         Ko-Fi = ""
         BuyMeACoffee = ""
+        Linktree = ""
+        QQ = ""
+        QQGroup = ""
         Email = "xxxx@xxxx.com"
         RSS = true
+        # 赞助设置
+      [languages.zh-cn.params.sponsor]
+        enable = false
+        bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+        link = "https://github.com/sponsors/HEIGE-PCloud"
+        # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
 
 [params]
+  # website title
+  # 网站标题
+  title = "Hugo DoIt Theme Documentation"
   # DoIt theme version
   # DoIt 主题版本
   version = "0.2.X"
@@ -500,7 +523,7 @@ enableEmoji = true
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/images/avatar.webp"]
   # enable PWA
   # 开启 PWA 支持
   enablePWA = true
@@ -533,7 +556,7 @@ enableEmoji = true
       post = ""
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
-      typeit = false
+      typeit = true
 
   # Footer config
   # 页面底部信息配置
@@ -573,6 +596,13 @@ enableEmoji = true
     # amount of RSS pages
     # RSS 文章数目
     rss = 10
+    # recently updated posts settings
+    # 最近更新文章设置
+    [params.section.recentlyUpdated]
+      enable = true
+      rss = true
+      days = 30
+      maxCount = 10
 
   # List (category or tag) page config
   # List (目录或标签) 页面配置
@@ -619,7 +649,20 @@ enableEmoji = true
     rssFullText = false
     # Page style ("normal", "wide")
     # 页面样式 ("normal", "wide")
-    pageStyle = "wide"
+    pageStyle = "normal"
+    # whether to enable series navigation
+    # 是否使用系列导航
+    seriesNavigation = true
+    # Display a message at the beginning of an article to warn the reader that its content might be outdated.
+    # 在文章开头显示提示信息，提醒读者文章内容可能过时。
+    [params.page.outdatedArticleReminder]
+      enable = true
+      # Display the reminder if the last modified time is more than 90 days ago.
+      # 如果文章最后更新于这天数之前，显示提醒
+      reminder = 90
+      # Display warning if the last modified time is more than 180 days ago.
+      # 如果文章最后更新于这天数之前，显示警告
+      warning = 180
     # Table of the contents config
     # 目录配置
     [params.page.toc]
@@ -768,21 +811,18 @@ enableEmoji = true
       # Waline 评论系统设置 (https://waline.js.org)
       [params.page.comment.waline]
         enable = false
-        serverURL = "https://doit-docs-comment.vercel.app/"
-        placeholder = "Just Go Go."
+        serverURL = ""
+        visitor = false
+        emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+        meta = ['nick', 'mail', 'link']
+        requiredMeta = []
+        login = 'enable'
         wordLimit = 0
-        avatar = "mp"
-        meta = ["nick", "mail", "link"]
         pageSize = 10
-        lang = "en"
-        visitor = true
+        uploadImage = false
         highlight = true
-        avatarCDN = ""
-        avatarForce = false
-        emojiCDN = ""
-        emojiMaps = ""
-        requiredFields = []
-        anonymous = false
+        mathTagSupport = false
+        commentCount = false
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
@@ -825,6 +865,7 @@ enableEmoji = true
         region = ""
         path = ""
         visitor = true
+        commentCount = true
       # Vssue comment config (https://vssue.js.org//)
       # Vssue comment 评论系统设置 (https://vssue.js.org//)
       [params.page.comment.vssue]
@@ -834,6 +875,29 @@ enableEmoji = true
         repo = ""
         clientId = ""
         clientSecret = ""
+      # Remark42 comment config (https://remark42.com/)
+      # Remark42 comment 评论系统设置 (https://remark42.com/)
+      [params.page.comment.remark42]
+        enable = false
+        host = ""
+        site_id = ""
+        max_shown_comments = 15
+        show_email_subscription = true
+        simple_view = false
+      # giscus comment config (https://giscus.app/)
+      # giscus comment 评论系统设置 (https://giscus.app/)
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        dataRepo = ""
+        dataRepoId = ""
+        dataCategory = ""
+        dataCategoryId = ""
+        dataMapping = "pathname"
+        dataReactionsEnabled = "1"
+        dataEmitMetadata = "0"
+        lightTheme = "light"
+        darkTheme = "dark"
     # Third-party library config
     # 第三方库配置
     [params.page.library]
@@ -859,6 +923,14 @@ enableEmoji = true
         name = "xxxx"
         logoUrl = "/images/avatar.webp"
 
+  # Sponsor config
+  # 赞助设置
+  [params.sponsor]
+    enable = false
+    bio = "If you find this post helpful, please consider sponsoring."
+    link = "https://github.com/sponsors/HEIGE-PCloud"
+    # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
   # TypeIt config
   # TypeIt 配置
   [params.typeit]
@@ -883,6 +955,8 @@ enableEmoji = true
     yandex = ""
     pinterest = ""
     baidu = ""
+    so = ""
+    sogou = ""
 
   # Site SEO config
   # 网站 SEO 配置
@@ -910,6 +984,18 @@ enableEmoji = true
       # server url for your tracker if you're self hosting
       # 自行托管追踪器时的主机路径
       server = ""
+    # Baidu Analytics
+    [params.analytics.baidu]
+      id = ""
+    # Umami Analytics
+    [params.analytics.umami]
+      data_website_id = ""
+      src = ""
+      data_domains = ""
+    # Plausible Analytics
+    [params.analytics.plausible]
+      data_domain = ""
+      src = ""
 
   # Cookie consent config
   # Cookie 许可配置
@@ -987,6 +1073,8 @@ enableEmoji = true
   name = "PCloud"
   email = "heige.pcloud@outlook.com"
   link = "https://github.com/HEIGE-PCloud"
+  avatar = "/images/avatar.webp"
+  gravatarEmail = ""
 
 # Sitemap config
 # 网站地图配置

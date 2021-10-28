@@ -1,0 +1,42 @@
+{{- $enable := .Params.sponsor.enable | default .Site.Params.sponsor.enable -}}
+{{- $avatar := .Site.Author.avatar -}}
+{{- with .Site.Author.gravataremail -}}
+    {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
+{{- end -}}
+{{- $bio := .Params.sponsor.bio | default .Site.Params.sponsor.bio -}}
+{{- $link := .Params.sponsor.link | default .Site.Params.sponsor.link -}}
+{{- $custom := .Params.sponsor.custom | default .Site.Params.sponsor.custom -}}
+{{- $authors := .Params.authors -}}
+
+{{- if $enable -}}
+    <div class="sponsor">
+        <div class="sponsor-avatar">
+            {{- if $authors -}}
+                {{- $lang := ( $.Params.lang | default $.Lang ) -}}
+                {{- range $i, $name := $authors -}}
+                    {{- with partial "function/author.html" (dict
+                        "name" $name
+                        "author" (index $.Site.Data.authors $name)
+                        "lang" $lang) -}}
+                        {{- dict "Src" .avatar | partial "plugin/image.html" -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- else if $avatar -}}
+                {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+            {{- end -}}
+        </div>
+        {{- with $bio -}}
+            <p class="sponsor-bio"><em>{{- . -}}</em></p>
+        {{- end -}}
+        {{- if $custom -}}
+            <div class="sponsor-custom">
+                {{- $custom | safeHTML -}}
+            </div>
+        {{- else -}}
+            <a href="{{- $link -}}" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
+                <i class="far fa-heart fa-fw icon" style="color: #ec6cb9;"></i>
+                <span>{{- T "sponsor" -}}</span>
+            </a>
+        {{- end -}}
+    </div>
+{{- end -}}

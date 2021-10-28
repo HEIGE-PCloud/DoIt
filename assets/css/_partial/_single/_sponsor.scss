@@ -1,0 +1,61 @@
+.sponsor {
+    text-align: center;
+    padding-top: 50px;
+    .sponsor-avatar {
+        img {
+            display: inline-block;
+            width: 6rem;
+            height: 6rem;
+            margin: 10px;
+            @include border-radius(100%);
+            @include box-shadow(0 0 0 .3618em rgba(0, 0, 0, .05));
+        }
+    }
+    .sponsor-custom {
+        margin: 30px auto;
+        display: block;
+    }
+    .sponsor-bio {
+        width: 25%;
+        margin: 10px auto;
+    }
+    .sponsor-button {
+        border-width: 0px;
+        border-style: solid;
+        padding: 5px 10px;
+        margin: 15px auto;
+        display: inline-block;
+        background-color: #f0f0f0;
+        -webkit-transition: transform 0.4s ease;
+        -moz-transition: transform 0.4s ease;
+        -o-transition: transform 0.4s ease;
+        transition: transform 0.4s ease;
+        &:hover {
+            background-color: #f0f0f0;
+            @include transform(scale(1.05));
+        }
+        [theme="dark"] & {
+            background-color: #363636;
+        }
+        [theme="black"] & {
+            background-color: #363636;
+        }
+        span {
+            vertical-align: top;
+        }
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .sponsor {
+        .sponsor-bio {
+            width: 50%;
+        }
+    }
+}
+@media only screen and (max-width: 680px) {
+    .sponsor {
+        .sponsor-bio {
+            width: 75%;
+        }
+    }
+}

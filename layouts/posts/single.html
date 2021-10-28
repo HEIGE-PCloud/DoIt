@@ -21,9 +21,9 @@
     
     {{- /* Page Style */ -}}
     {{- if eq $params.pageStyle "wide" -}}
-    <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
+        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
     {{- else -}}
-    <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
+        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
     {{- end -}}
 
     {{- /* TOC Style */ -}}
@@ -96,6 +96,7 @@
                 <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
+                {{- /* Visitor Count */ -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
@@ -109,6 +110,17 @@
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- /* Comment Count */ -}}
+                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.commentCount -}}
+                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="waline-comment-count" id="waline-comment-count"></span>&nbsp;{{ T "comments" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}
+                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
             </div>
@@ -132,8 +144,35 @@
             <div class="featured-image">
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height | partial "plugin/image.html" -}}
             </div>
+        {{- end -}}      
+        {{- /* Series list */ -}}
+        {{- if $params.series | and $params.seriesNavigation -}}
+                {{ range $key, $value := .Site.Taxonomies.series }}
+                    {{ if $key | in $params.series }}
+                        {{ $term := $.Site.GetPage "series" $key }}
+                        <div class="details series-nav open">
+                            <div class="details-summary series-title">
+                                <span>{{ T "series" }} - {{ $term.Title }}</span>
+                                <span><i class="details-icon fas fa-angle-right"></i></span>
+                            </div>
+                            <div class="details-content series-content">
+                                <nav>
+                                    <ul>
+                                        {{ range $value.Pages }}
+                                            {{ if .LinkTitle | eq $.Title }}
+                                                <li><span class="active">{{ .LinkTitle }}</span></li>
+                                            {{ else }}
+                                                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                                            {{ end }}
+                                        {{ end }}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    {{- end -}}
+                {{ end }}
         {{- end -}}
-
+        
         {{- /* Static TOC */ -}}
         {{- if ne $toc.enable false -}}
             <div class="details toc" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
@@ -149,8 +188,13 @@
 
         {{- /* Content */ -}}
         <div class="content" id="content">
+            {{- /* Outdated Article Reminder */ -}}
+            {{- partial "single/outdatedArticleReminder.html" . -}}
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
+
+        {{/* Sponsor */}}
+        {{- partial "single/sponsor.html" . -}}
 
         {{- /* Footer */ -}}
         {{- partial "single/footer.html" . -}}
