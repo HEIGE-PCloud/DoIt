@@ -77,7 +77,7 @@
 .archive-item-date {
   text-align: right;
   color: $global-font-secondary-color;
-
+  font-variant-numeric: tabular-nums;
   [theme=dark] & {
     color: $global-font-secondary-color-dark;
   }
