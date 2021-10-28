@@ -78,6 +78,7 @@
   text-align: right;
   color: $global-font-secondary-color;
   font-variant-numeric: tabular-nums;
+  min-width: fit-content;
   [theme=dark] & {
     color: $global-font-secondary-color-dark;
   }
