@@ -875,7 +875,14 @@ function initMeta() {
 }
 
 function initCookieconsent() {
-    if (window.config.cookieconsent) cookieconsent.initialise(window.config.cookieconsent);
+    if (window.config.cookieconsent) {
+        let container = document.getElementById('cookieconsent-container');
+        // if there is nothing in the container, then init the cookieconsent
+        if (container.innerHTML === '') {
+            window.config.cookieconsent.container = container;
+            cookieconsent.initialise(window.config.cookieconsent);
+        }
+    };
 }
 
 function onScroll() {
@@ -1003,7 +1010,7 @@ let pjax = new Pjax({
         ".menu-item",
         ".pjax-assets",
         "#fixed-buttons",
-        ".search-dropdown"
+        ".search-dropdown",
     ]
 })
 
