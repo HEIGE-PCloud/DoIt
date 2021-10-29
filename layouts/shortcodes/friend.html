@@ -1,22 +1,19 @@
-{{ if .IsNamedParams }}
-{{- $avatar := .Get "avatar" -}}
-<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friend-link">
-    <div class="friend-link-div">
-        <div class="friend-link-avatar">
-            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
-        </div>
-        <div class="friend-link-info">
-            <div class="friend-name-div">
-                <i class="fas fa-user-circle fa-fw"></i>
-                <i class="friend-name">{{ .Get "name" }}</i>
-            </div>
-            <p class="friend-bio">{{ .Get "bio" }}</p>
-        </div>
-    </div>
-</a>
+{{- $title := "" -}}
+{{- $link := ""  -}}
+{{- $avatar := "" -}}
+{{- $bio := "" -}}
+{{- if .IsNamedParams -}}
+    {{- $avatar = .Get "avatar" -}}
+    {{- $link = .Get "url"  -}}
+    {{- $title = .Get "name" -}}
+    {{- $bio = .Get "bio" -}}
 {{- else -}}
-{{- $avatar := .Get 2 -}}
-<a target="_blank" href={{ .Get 1 }} title={{ .Get 0 }} class="friend-link">
+    {{- $title = .Get 0 -}}
+    {{- $link = .Get 1 -}}
+    {{- $avatar = .Get 2 -}}
+    {{- $bio = .Get 3 -}}
+{{- end -}}
+<a target="_blank" href="{{- $link -}}" title="{{- $title -}}" class="friend-link">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
             {{- dict "Src" $avatar | partial "plugin/image.html" -}}
@@ -24,10 +21,9 @@
         <div class="friend-link-info">
             <div class="friend-name-div">
                 <i class="fas fa-user-circle fa-fw"></i>
-                <i class="friend-name">{{ .Get 0 }}</i>
+                <i class="friend-name">{{- $title -}}</i>
             </div>
-            <p class="friend-bio">{{ .Get 3 }}</p>
+            <p class="friend-bio">{{- $bio -}}</p>
         </div>
     </div>
 </a>
-{{ end }}
