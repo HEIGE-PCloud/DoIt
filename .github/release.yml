@@ -3,7 +3,7 @@ changelog:
     labels:
       - ignore-for-release
     authors:
-      - app/dependabot
+      - dependabot
   categories:
     - title: New features
       labels:
