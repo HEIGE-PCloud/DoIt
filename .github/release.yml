@@ -7,8 +7,13 @@ changelog:
   categories:
     - title: New features
       labels:
-        - enhancement
         - new feature
+    - title: Enhancement
+      labels:
+        - enhancement
+    - title: i18n
+      labels:
+        - translation
     - title: Fixes
       labels:
         - bug
