@@ -16,6 +16,7 @@ $friend-link-hover-color-black: #ffffff;
     width: 48%;
     display: inline-block;
     background: $friend-link-background-color;
+    vertical-align: top;
     [theme="dark"] & {
         background: $friend-link-background-color-dark;
     }
