@@ -1,0 +1,22 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+    authors:
+      - dependabot
+  categories:
+    - title: New features
+      labels:
+        - new feature
+    - title: Enhancement
+      labels:
+        - enhancement
+    - title: i18n
+      labels:
+        - translation
+    - title: Fixes
+      labels:
+        - bug
+    - title: Other Changes
+      labels:
+        - "*"
