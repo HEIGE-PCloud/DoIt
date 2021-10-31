@@ -17,7 +17,7 @@ other = "Publicações"
 
 # === Taxonomy ===
 [allSome]
-other = "Todos {{ .Some }}"
+other = "Todas {{ .Some }}"
 
 [tag]
 other = "Tag"
@@ -131,7 +131,7 @@ other = "Conteúdos"
 other = "publicado em {{ .Date }}"
 
 [includedIn]
-other = "incluído em "
+other = "incluído "
 
 [includedInAnd]
 other = "e"
