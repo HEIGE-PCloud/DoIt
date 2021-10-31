@@ -2,19 +2,17 @@
 name: Feature request 功能请求
 about: Suggest an idea for this project 为这个项目提供一个建议
 title: "[FEATURE] Some feature"
-labels: enhancement
+labels: new feature
 
 ---
 
 ### Describe the feature you want 描述你的功能需求
 
-- Feature 1 功能需求 1
-  I want this feature to solve ...
-  我希望这个功能解决 ...
-- Feature 2 功能需求 2
-  I want this feature to solve ...
-  我希望这个功能解决 ...
-- ...
+- New Feature
+  I recommend adding this feature.
+  我希望添加这样的一个功能...
+  Please submit new issues for different features.
+  请针对不同的功能建议提交新的 issue.
 
 ### Useful reference 有价值的参考
 
