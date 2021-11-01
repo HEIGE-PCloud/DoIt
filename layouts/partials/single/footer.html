@@ -36,6 +36,19 @@
                         </span>
                     {{- end -}}
                 {{- end -}}
+                {{- if $params.linktomarkdown | and (.OutputFormats.Get "markdown") | and .IsPage | and $params.linktoedit -}}
+                    |&nbsp;
+                {{- end -}}
+                {{- if .IsPage -}}
+                    {{- with $params.linktoedit -}}
+                            <span>
+                                {{- $link := printf . $.File.Path -}}
+                                <a class="link-to-edit" {{ printf "href=%v" $link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
+                                    {{- T "editThisPage" -}}
+                                </a>
+                            </span>
+                    {{- end -}}
+                {{- end -}}
             </div>
             <div class="post-info-share">
                 <span>

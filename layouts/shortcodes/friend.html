@@ -13,7 +13,7 @@
     {{- $avatar = .Get 2 -}}
     {{- $bio = .Get 3 -}}
 {{- end -}}
-<a target="_blank" href="{{- $link -}}" title="{{- $title -}}" class="friend-link">
+<a target="_blank" href="{{- $link -}}" title="{{- $title -}}" class="friend-link" rel="noopener noreferrer">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
             {{- dict "Src" $avatar | partial "plugin/image.html" -}}
