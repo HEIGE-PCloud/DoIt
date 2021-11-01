@@ -231,6 +231,6 @@
         {{- partial "plugin/script.html" . -}}
     {{- end -}}
     {{- range (.Scratch.Get "this").pjaxStyle -}}
-        {{- partial "plugin/style.html" . -}}
+        {{- partial "plugin/defer-style.html" . -}}
     {{- end -}}
 </div>
