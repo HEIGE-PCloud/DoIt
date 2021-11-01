@@ -450,6 +450,11 @@ hugo
     fontawesome = true
     # 是否在文章页面显示原始 Markdown 文档链接
     linkToMarkdown = true
+    # {{< version 0.2.13 >}} 配置编辑文章的链接
+    linkToEdit = false
+    # "https://github.com/user/repo/edit/main/{path}"
+    # "https://gitlab.com/user/repo/-/edit/main/{path}"
+    # "https://bitbucket.org/user/repo/src/main/{path}?mode=edit"
     # {{< version 0.2.4 >}} 是否在 RSS 中显示全文内容
     rssFullText = false
     # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")

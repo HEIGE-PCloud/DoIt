@@ -446,6 +446,11 @@ Please open the code block below to view the complete sample configuration :(far
     fontawesome = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
+    # {{< version 0.2.13 >}} configure the link to edit the post
+    linkToEdit = false
+    # "https://github.com/user/repo/edit/main/{path}"
+    # "https://gitlab.com/user/repo/-/edit/main/{path}"
+    # "https://bitbucket.org/user/repo/src/main/{path}?mode=edit"
     # {{< version 0.2.4 >}} whether to show the full text content in RSS
     rssFullText = false
     # {{< version 0.2.11 >}} page layout style ("normal", "wide")

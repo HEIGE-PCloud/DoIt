@@ -646,10 +646,10 @@ enableEmoji = true
     linkToMarkdown = true
     # configure the link to edit the post
     # 配置编辑文章的链接
-    linkToEdit = "https://github.com/HEIGE-PCloud/DoIt/edit/main/exampleSite/content/%v"
-    # https://github.com/user/repo/edit/main/%v
-    # https://gitlab.com/user/repo/-/edit/main/%v
-    # https://bitbucket.org/user/repo/src/main/%v?mode=edit
+    linkToEdit = "https://github.com/HEIGE-PCloud/DoIt/edit/main/exampleSite/content/{path}"
+    # https://github.com/user/repo/edit/main/{path}
+    # https://gitlab.com/user/repo/-/edit/main/{path}
+    # https://bitbucket.org/user/repo/src/main/{path}?mode=edit
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false

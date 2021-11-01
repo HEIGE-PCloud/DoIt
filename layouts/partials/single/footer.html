@@ -42,7 +42,7 @@
                 {{- if .IsPage -}}
                     {{- with $params.linktoedit -}}
                             <span>
-                                {{- $link := printf . $.File.Path -}}
+                                {{- $link := replace . "{path}" $.File.Path -}}
                                 <a class="link-to-edit" {{ printf "href=%v" $link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
                                     {{- T "editThisPage" -}}
                                 </a>
