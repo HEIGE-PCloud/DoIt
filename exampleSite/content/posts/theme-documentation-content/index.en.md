@@ -123,6 +123,7 @@ ruby: true
 fraction: true
 fontawesome: true
 linkToMarkdown: true
+linkToEdit: false
 rssFullText: false
 
 toc:
@@ -192,6 +193,7 @@ sponsor:
 * **fraction**: {{< version 0.2.0 >}} if `true`, the content will enable the [fraction extended syntax](#fraction).
 * **fontawesome**: {{< version 0.2.0 >}} if `true`, the content will enable the [Font Awesome extended syntax](#fontawesome).
 * **linkToMarkdown**: if `true`, the footer of the content will be shown the link to the orignal Markdown file.
+* **linkToEdit**: if `false`, turn off the **edit this page** link in the footer. You can set it to the link to edit the page. Use the magic variable `{path}` to specify the relative path of the post, for example, the `{path}` for this post is `posts/theme-documentation-content/index.en.md`.
 * **rssFullText**: {{< version 0.2.4 >}} if `true`, the full text content will be shown in RSS.
 * **pageStyle**: {{< version 0.2.11 >}} adjust the page layout style, "normal" or "wide".
 
