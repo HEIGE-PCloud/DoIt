@@ -84,13 +84,21 @@ enableEmoji = true
         title = ""
         weight = 5
       [[languages.en.menu.main]]
+        identifier = "showcase"
+        pre = ""
+        post = ""
+        name = "Showcase"
+        url = "/showcase/"
+        title = ""
+        weight = 6
+      [[languages.en.menu.main]]
         identifier = "documentation"
         pre = ""
         post = ""
         name = "Docs"
         url = "/categories/documentation/"
         title = ""
-        weight = 6
+        weight = 7
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -98,7 +106,7 @@ enableEmoji = true
         name = "About"
         url = "/about/"
         title = ""
-        weight = 7
+        weight = 8
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -106,7 +114,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 8
+        weight = 9
     [languages.en.params]
       # site description
       description = "The official documentation for the Hugo DoIt theme"
@@ -324,12 +332,20 @@ enableEmoji = true
         title = ""
         weight = 5
       [[languages.zh-cn.menu.main]]
+        identifier = "showcase"
+        pre = ""
+        post = ""
+        name = "作品"
+        url = "/showcase/"
+        title = ""
+        weight = 6
+      [[languages.zh-cn.menu.main]]
         identifier = "documentation"
         pre = ""
         name = "文档"
         url = "/categories/documentation/"
         title = ""
-        weight = 6
+        weight = 7
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         pre = ""
@@ -337,7 +353,7 @@ enableEmoji = true
         name = "关于"
         url = "/about/"
         title = ""
-        weight = 7
+        weight = 8
       [[languages.zh-cn.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -345,7 +361,7 @@ enableEmoji = true
         name = ""
         url = "https://github.com/HEIGE-PCloud/DoIt"
         title = "GitHub"
-        weight = 8
+        weight = 9
     [languages.zh-cn.params]
       # 网站描述
       description = "Hugo DoIt 主题官方文档"
