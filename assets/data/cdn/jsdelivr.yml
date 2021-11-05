@@ -68,9 +68,9 @@ libFiles:
   twikooJS: twikoo@1.4.10/dist/twikoo.all.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
-  # valine@1.4.14 https://valine.js.org/
-  valineJS: valine@1.4.14/dist/Valine.min.js
-  # vue@v2.6.14 https://vuejs.org
+  # valine@1.4.16 https://github.com/xCss/Valine
+  valineJS: valine@1.4.16/dist/Valine.min.js
+  # vue@v2.6.14 https://github.com/vuejs/vue
   vueRuntimeJS: vue@2.6.14/dist/vue.runtime.min.js
   # vssue@1.4.8 https://vssue.js.org
   vssueBitbucketJS: vssue@1.4.8/dist/vssue.bitbucket.min.js
