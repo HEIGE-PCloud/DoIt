@@ -72,12 +72,12 @@ libFiles:
   valineJS: valine@1.4.16/dist/Valine.min.js
   # vue@v2.6.14 https://github.com/vuejs/vue
   vueRuntimeJS: vue@2.6.14/dist/vue.runtime.min.js
-  # vssue@1.4.8 https://vssue.js.org
+  # vssue@1.4.8 https://github.com/meteorlxy/vssue
   vssueBitbucketJS: vssue@1.4.8/dist/vssue.bitbucket.min.js
   vssueGiteaJS: vssue@1.4.8/dist/vssue.gitea.min.js
   vssueGiteeJS: vssue@1.4.8/dist/vssue.gitee.min.js
   vssueGithubJS: vssue@1.4.8/dist/vssue.github.min.js
   vssueGitlabJS: vssue@1.4.8/dist/vssue.gitlab.min.js
   vssueCSS: vssue@1.4.8/dist/vssue.min.css
-  # waline@1.3.9 https://waline.js.org/
-  walineJS: "@waline/client@1.3.9/dist/Waline.min.js"
+  # waline@1.5.1 https://github.com/walinejs/waline
+  walineJS: "@waline/client@1.5.1/dist/Waline.min.js"
