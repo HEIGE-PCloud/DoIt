@@ -548,15 +548,6 @@ function initToc() {
         const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
         const minTocTop = $toc.offsetTop;
         const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
-        window._tocOnResize = (() => {
-            if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
-                $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
-            } else {
-                $tocCore.style.removeProperty('height');
-            }
-        });
-        window._tocOnResize();
-        window.resizeEventSet.add(window._tocOnResize);        
         window._tocOnScroll = (() => {
             const footerTop = document.getElementById('post-footer').offsetTop;
             const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
@@ -577,10 +568,10 @@ function initToc() {
             const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
             let activeTocIndex = $headerLinkElements.length - 1;
             for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-                const windowTop = $headerLinkElements[i].getBoundingClientRect().top;
+                const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
                 const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                if ((i == 0 && windowTop > INDEX_SPACING)
-                    || (windowTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                if ((i == 0 && thisTop > INDEX_SPACING)
+                    || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
                     activeTocIndex = i;
                     break;
                 }
@@ -596,6 +587,17 @@ function initToc() {
         });
         window._tocOnScroll();
         window.scrollEventSet.add(window._tocOnScroll);
+        window._tocOnResize = (() => {
+            if ($toc.style.position === 'fixed') {
+                if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
+                    $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
+                } else {
+                    $tocCore.style.removeProperty('height');
+                }
+            }
+        });
+        window.resizeEventSet.add(window._tocOnResize);        
+        window._tocOnResize();
     }
 }
 
@@ -942,9 +944,6 @@ function onResize() {
             window._resizeTimeout = window.setTimeout(() => {
                 window._resizeTimeout = null;
                 for (let event of window.resizeEventSet) event();
-                window.initToc();
-                window.initMermaid();
-                window.initSearch();
             }, 100);
         }
     }, false);
