@@ -1,6 +1,65 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.13] - 2021-11-06
+
+## What's Changed
+### New features
+* [Feature] Add remark42 comment system support by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/239
+* feat: add recently updated section by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/272
+* feat: add sponsor support by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/275
+* Add suport giscus comment system by @eyllanesc in https://github.com/HEIGE-PCloud/DoIt/pull/277
+* feat: add edit this page link by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/325
+### Enhancement
+* feat: add umami and plausible analytics support by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/249
+* feat: enhance searching experience by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/260
+* feat: enable commentCount for Twikoo and Waline by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/258
+* feat: match the theme-color meta with header color by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/262
+* feat: enhance series taxonomy by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/286
+* feat: add count sup for all taxos by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/301
+### i18n
+* i18n: fix typo for pt-BR translation by @dannyloxavier in https://github.com/HEIGE-PCloud/DoIt/pull/318
+### Fixes
+* Fix: Prevent creating multiple TypeIt instances by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/214
+* fix: friend link overflow by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/219
+* fix: meta info by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/220
+* fix: handle toc overflow by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/242
+* fix: search box input on Android devices by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/283
+* fix: typeit by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/306
+* fix: cookieconsent by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/312
+* fix: handle empty fields in friend shortcode properly by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/311
+* fix: prevent toc being resized unexpectedly by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/340
+### Other Changes
+* fix contents of _index.md on home page by @RainshawGao in https://github.com/HEIGE-PCloud/DoIt/pull/188
+* fix site.webmanifest 404 by @RainshawGao in https://github.com/HEIGE-PCloud/DoIt/pull/189
+* Custom icons by @eyllanesc in https://github.com/HEIGE-PCloud/DoIt/pull/197
+* [Feat] Add Linktree link support by @CXwudi in https://github.com/HEIGE-PCloud/DoIt/pull/230
+* Baidu analytics by @iuxt in https://github.com/HEIGE-PCloud/DoIt/pull/235
+* Update pt-BR.toml to work with includedIn by @dannyloxavier in https://github.com/HEIGE-PCloud/DoIt/pull/237
+* Fix Ko-Fi icon by @aozaki-kuro in https://github.com/HEIGE-PCloud/DoIt/pull/247
+* chore(deps): update waline config by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/244
+* updating waline from 1.3.8 to 1.3.9 by @dannyloxavier in https://github.com/HEIGE-PCloud/DoIt/pull/252
+* feat: Social add QQ and QQGroup support by @gclm in https://github.com/HEIGE-PCloud/DoIt/pull/256
+* feat(i18n): Add Korean translation strings by @JSYoo5B in https://github.com/HEIGE-PCloud/DoIt/pull/264
+* feat: add 360 and sougou seo support by @gclm in https://github.com/HEIGE-PCloud/DoIt/pull/268
+* feat : Add Article expiration reminder support by @gclm in https://github.com/HEIGE-PCloud/DoIt/pull/265
+* Update pt-BR language by @dannyloxavier in https://github.com/HEIGE-PCloud/DoIt/pull/284
+* Added showcase in the demo site by @wey-gu in https://github.com/HEIGE-PCloud/DoIt/pull/334
+* chore: update all third-party libraries  by @HEIGE-PCloud in https://github.com/HEIGE-PCloud/DoIt/pull/336
+
+## New Contributors
+* @RainshawGao made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/188
+* @eyllanesc made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/197
+* @CXwudi made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/230
+* @iuxt made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/235
+* @dannyloxavier made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/237
+* @aozaki-kuro made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/247
+* @gclm made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/256
+* @JSYoo5B made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/264
+* @wey-gu made their first contribution in https://github.com/HEIGE-PCloud/DoIt/pull/334
+
+**Full Changelog**: https://github.com/HEIGE-PCloud/DoIt/compare/v0.2.12...v0.2.13
+
 ## [0.2.12] - 2021-08-05
 
 ### Enhancements
