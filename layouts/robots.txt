@@ -1,5 +1,3 @@
-User-agent: *
-
 User-agent: MJ12bot
 Disallow: /
 
@@ -56,5 +54,8 @@ Disallow: /
 
 User-agent: ZoominfoBot
 Disallow: /
+
+User-agent: *
+Allow: *
 
 Sitemap: {{ "/sitemap.xml" | absLangURL }}
