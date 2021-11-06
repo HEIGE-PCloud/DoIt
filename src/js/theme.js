@@ -548,7 +548,7 @@ function initToc() {
         const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
         const minTocTop = $toc.offsetTop;
         const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
-        window._tocOnScroll = (() => {
+        window._tocOnScroll = window._tocOnScroll || (() => {
             const footerTop = document.getElementById('post-footer').offsetTop;
             const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
             const maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
@@ -587,17 +587,17 @@ function initToc() {
         });
         window._tocOnScroll();
         window.scrollEventSet.add(window._tocOnScroll);
-        window._tocOnResize = (() => {
-            if ($toc.style.position === 'fixed') {
-                if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
-                    $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
-                } else {
-                    $tocCore.style.removeProperty('height');
-                }
-            }
-        });
-        window.resizeEventSet.add(window._tocOnResize);        
-        window._tocOnResize();
+        // window._tocOnResize = (() => {
+        //     if ($toc.style.position === 'fixed') {
+        //         if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
+        //             $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
+        //         } else {
+        //             $tocCore.style.removeProperty('height');
+        //         }
+        //     }
+        // });
+        // window.resizeEventSet.add(window._tocOnResize);        
+        // window._tocOnResize();
     }
 }
 
@@ -944,6 +944,9 @@ function onResize() {
             window._resizeTimeout = window.setTimeout(() => {
                 window._resizeTimeout = null;
                 for (let event of window.resizeEventSet) event();
+                initToc();
+                initMermaid();
+                initSearch();
             }, 100);
         }
     }, false);
@@ -1021,6 +1024,7 @@ document.addEventListener('pjax:send', function () {
     for (let event of window.pjaxSendEventSet) event();
     for (let event of window.clickMaskEventSet) event();
     document.body.classList.remove('blur');
+    delete window._tocOnScroll;
 });
 
 topbar.config({
