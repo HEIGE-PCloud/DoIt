@@ -291,6 +291,7 @@ function initSearch() {
                             offset: 0,
                             length: maxResultLength * 8,
                             attributesToHighlight: ['title'],
+                            attributesToRetrieve: ['*'],
                             attributesToSnippet: [`content:${snippetLength}`],
                             highlightPreTag: `<${highlightTag}>`,
                             highlightPostTag: `</${highlightTag}>`,
