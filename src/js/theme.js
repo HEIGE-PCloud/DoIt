@@ -539,7 +539,7 @@ function initToc() {
         const $page = document.getElementsByClassName('page')[0];
         const rect = $page.getBoundingClientRect();
         $toc.style.left = `${rect.left + rect.width + 20}px`;
-        $toc.style.maxWidth = `${window.innerWidth - $page.getBoundingClientRect().right - 20}px`;
+        $toc.style.maxWidth = `calc(${window.innerWidth - $page.getBoundingClientRect().right - 20}px - 0.5rem)`;
         $toc.style.visibility = 'visible';
         const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
         const $tocLiElements = $tocCore.getElementsByTagName('li');
@@ -588,17 +588,6 @@ function initToc() {
         });
         window._tocOnScroll();
         window.scrollEventSet.add(window._tocOnScroll);
-        // window._tocOnResize = (() => {
-        //     if ($toc.style.position === 'fixed') {
-        //         if ($tocCore.offsetHeight > window.innerHeight - TOP_SPACING) {
-        //             $tocCore.style.height = `${window.innerHeight - $tocCore.getBoundingClientRect().top}px`;
-        //         } else {
-        //             $tocCore.style.removeProperty('height');
-        //         }
-        //     }
-        // });
-        // window.resizeEventSet.add(window._tocOnResize);        
-        // window._tocOnResize();
     }
 }
 
