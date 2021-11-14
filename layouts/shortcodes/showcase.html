@@ -4,17 +4,17 @@
 {{- $summary := "" -}}
 {{- $column := "2" -}}
 {{ if .IsNamedParams }}
-{{- $title = .Get "title" -}}
-{{- $summary = .Get "summary" -}}
-{{- $link = .Get "link" -}}
-{{- $image = .Get "image" -}}
-{{- $column = .Get "column" -}}
+{{- $title = .Get "title" | default $title -}}
+{{- $summary = .Get "summary" | default $summary -}}
+{{- $link = .Get "link" | default $link -}}
+{{- $image = .Get "image" | default $image -}}
+{{- $column = .Get "column" | default $column -}}
 {{- else -}}
-{{- $title = .Get 0 -}}
-{{- $summary = .Get 1 -}}
-{{- $image = .Get 2 -}}
-{{- $link = .Get 3 -}}
-{{- $column = .Get 4 -}}
+{{- $title = .Get 0 | default $title -}}
+{{- $summary = .Get 1 | default $summary -}}
+{{- $image = .Get 2 | default $image -}}
+{{- $link = .Get 3 | default $link -}}
+{{- $column = .Get 4 | default $column -}}
 {{ end }}
 <div class="showcase-box column-{{ $column }}">
     <div class="showcase-image">
