@@ -52,7 +52,7 @@
                 <span class="post-author">
                     {{- partial "meta/author.html" . }}
                 </span>
-                {{- with (or (.Params.categories) (.Params.series)) -}}
+                {{- with .Params.categories | or .Params.series -}}
                     &nbsp;<span class="post-category">
                         {{- T "includedIn" | safeHTML -}}
                     </span>
@@ -121,6 +121,13 @@
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
                         <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- /* License */ -}}
+                {{- $license := $params.license -}}
+                {{- with $license -}}
+                    <span>
+                        <i class="fas fa-balance-scale fa-fw"></i>&nbsp;<span>{{- . | safeHTML -}}</span>&nbsp;
                     </span>&nbsp;
                 {{- end -}}
             </div>

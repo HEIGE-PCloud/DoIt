@@ -13,7 +13,7 @@ categories: ["documentation"]
 series: ["getting-start"]
 series_weight: 1
 lightgallery: true
-
+license: '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 toc:
   auto: false
 ---
@@ -214,6 +214,8 @@ Please open the code block below to view the complete sample configuration :(far
   # {{< version 0.2.11 >}} enable PWA support
   enablePWA = false
   # {{< version 0.2.0 >}} App icon config
+  # {{< version 0.2.14 >}} License information
+  license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
     title = "DoIt"
