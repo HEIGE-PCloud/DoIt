@@ -543,6 +543,9 @@ enableEmoji = true
   # enable PWA
   # 开启 PWA 支持
   enablePWA = true
+  # license information
+  # 许可协议信息 (支持 HTML 格式)
+  license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   # Header config
   # 页面头部导航栏配置
   [params.header]

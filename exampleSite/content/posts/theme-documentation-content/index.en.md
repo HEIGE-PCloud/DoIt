@@ -125,6 +125,7 @@ fontawesome: true
 linkToMarkdown: true
 linkToEdit: false
 rssFullText: false
+license: ''
 
 toc:
   enable: true
@@ -196,6 +197,7 @@ sponsor:
 * **linkToEdit**: if `false`, turn off the **edit this page** link in the footer. You can set it to the link to edit the page. Use the magic variable `{path}` to specify the relative path of the post, for example, the `{path}` for this post is `posts/theme-documentation-content/index.en.md`.
 * **rssFullText**: {{< version 0.2.4 >}} if `true`, the full text content will be shown in RSS.
 * **pageStyle**: {{< version 0.2.11 >}} adjust the page layout style, "normal" or "wide".
+* **license**: {{< version 0.2.14 >}} set the license info (HTML format is supported).
 
 * **toc**: {{< version 0.2.9 changed >}} the same as the `params.page.toc` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **code**: {{< version 0.2.0 >}} the same as the `params.page.code` part in the [site configuration](../theme-documentation-basics#site-configuration).

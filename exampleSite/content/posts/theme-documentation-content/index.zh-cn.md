@@ -124,6 +124,7 @@ fontawesome: true
 linkToMarkdown: true
 linkToEdit: false
 rssFullText: false
+license: ''
 
 toc:
   enable: true
@@ -195,6 +196,7 @@ sponsor:
 * **linkToEdit**: 如果设为 `false`, 则关闭页脚 **编辑此页** 的链接. 你可以将其设置为一个用于编辑这个页面的链接. 使用魔法变量 `{path}` 来获取这篇文章的相对路径, 这篇文章的 `{path}` 是 `posts/theme-documentation-content/index.zh-cn.md`.
 * **rssFullText**: {{< version 0.2.4 >}} 如果设为 `true`, 在 RSS 中将会显示全文内容.
 * **pageStyle**: {{< version 0.2.11 >}} 调整页面样式, 可选择"normal"或"wide".
+* **license**: {{< version 0.2.14 >}} 许可协议信息 (支持 HTML 格式).
 
 * **toc**: {{< version 0.2.9 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.toc` 部分相同.
 * **code**: {{< version 0.2.0 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.code` 部分相同.
