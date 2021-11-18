@@ -24,6 +24,12 @@ You can add this repo as a submodule of your site directory.
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
+And later you can update the submodule in your site directory to the latest commit using this command:
+
+```bash
+git submodule update --remote --merge
+```
+
 Alternatively, you can download the [latest release .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the themes directory. (Not recommended, the repo is being updated frequently so the releases may out of date.)
 
 Next, go to the `config.toml` and change the default theme to `DoIt`.
