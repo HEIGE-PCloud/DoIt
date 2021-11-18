@@ -24,6 +24,12 @@ DoIt 主题的目标是创建一个功能强大且易于使用的 Hugo 主题，
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
+之后，你可以通过这条命令来将主题更新至最新版本。
+
+```bash
+git submodule update --remote --merge
+```
+
 或者，你可以下载主题的[最新版本.zip 文件](https://github.com/HEIGE-PCloud/DoIt/releases)并且解压放到`themes`目录。（不推荐，这个主题会被频繁更新，发行版中可能包含过时的文件。）
 
 接着，前往 `config.toml` 并将默认主题更改为 `DoIt`。
