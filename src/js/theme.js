@@ -1015,6 +1015,8 @@ document.addEventListener('pjax:send', function () {
     for (let event of window.clickMaskEventSet) event();
     document.body.classList.remove('blur');
     delete window._tocOnScroll;
+    let el = document.getElementById('content');
+    window.lgData[el.getAttribute('lg-uid')].destroy(true)
 });
 
 topbar.config({
