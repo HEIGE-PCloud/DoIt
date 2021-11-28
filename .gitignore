@@ -17,3 +17,6 @@ $RECYCLE.BIN/
 
 # Linux
 .directory
+
+# Hugo
+.hugo_build.lock
