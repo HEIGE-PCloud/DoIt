@@ -199,7 +199,7 @@ function initSearch() {
         });
         window.clickMaskEventSet.add(window._searchDesktopOnClickMask);
         window.pjaxSendEventSet.add(window._searchDesktopOnClickMask);
-        window.pjaxSendEventSet.add(() => {window._searchDesktopOnce = false; window._searchMobileOnce = false;});
+        window.pjaxSendEventSet.add(() => { window._searchDesktopOnce = false; window._searchMobileOnce = false; });
     }
     $searchInput.addEventListener('input', () => {
         if ($searchInput.value === '') $searchClear.style.display = 'none';
@@ -736,7 +736,7 @@ function initComment() {
                         window.location.pathname
                     ],
                     includeReply: false
-                  }).then(function (res) {
+                }).then(function (res) {
                     // example: [
                     //   { url: '/2020/10/post-1.html', count: 10 },
                     //   { url: '/2020/11/post-2.html', count: 0 },
@@ -745,11 +745,11 @@ function initComment() {
                     // If there is an element with id="twikoo-comment-count", set its innerHTML to the count of comments
                     const $twikooCommentCount = document.getElementById('twikoo-comment-count');
                     if ($twikooCommentCount) $twikooCommentCount.innerHTML = res[0].count;
-                  }).catch(function (err) {
+                }).catch(function (err) {
                     console.error(err);
-                  });
+                });
             }
-        } 
+        }
         if (window.config.comment.utterances) {
             const utterancesConfig = window.config.comment.utterances;
             const script = document.createElement('script');
@@ -802,7 +802,7 @@ function initComment() {
                 simple_view: remark42.simple_view
             };
             window.remark_config = remark_config;
-            !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+            !function (e, n) { for (var o = 0; o < e.length; o++) { var r = n.createElement("script"), c = ".js", d = n.head || n.body; "noModule" in r ? (r.type = "module", c = ".mjs") : r.async = !0, r.defer = !0, r.src = remark_config.host + "/web/" + e[o] + c, d.appendChild(r) } }(remark_config.components || ["embed"], document);
             window._remark42OnSwitchTheme = (() => {
                 if (window.isDark) {
                     window.REMARK42.changeTheme('dark');
@@ -1016,7 +1016,9 @@ document.addEventListener('pjax:send', function () {
     document.body.classList.remove('blur');
     delete window._tocOnScroll;
     let el = document.getElementById('content');
-    window.lgData[el.getAttribute('lg-uid')].destroy(true)
+    if (el) {
+        window.lgData[el?.getAttribute('lg-uid')].destroy(true)
+    }
 });
 
 topbar.config({
