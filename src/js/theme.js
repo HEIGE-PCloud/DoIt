@@ -568,20 +568,25 @@ function initToc() {
             forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
             forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
             const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
-            if (content.getBoundingClientRect().top < INDEX_SPACING
-                && content.getBoundingClientRect().bottom > INDEX_SPACING) {
-                let activeTocIndex = $headerLinkElements.length - 1;
-                for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-                    const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
-                    const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                    if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
-                        activeTocIndex = i;
-                        break;
+            let activeTocIndex = -1;
+            if (content.getBoundingClientRect().top <= INDEX_SPACING
+                && content.getBoundingClientRect().bottom > INDEX_SPACING
+                && $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
+                if ($headerLinkElements[$headerLinkElements.length -1].getBoundingClientRect().top < INDEX_SPACING) {
+                    activeTocIndex = $headerLinkElements.length - 1;
+                }
+                else {
+                    for (let i = 0; i < $headerLinkElements.length - 1; i++) {
+                        const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
+                        const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
+                        if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
+                            activeTocIndex = i;
+                            break;
+                        }
                     }
                 }
                 if (activeTocIndex >= 0 && activeTocIndex < $tocLinkElements.length) {
                     $tocLinkElements[activeTocIndex].classList.add('active');
-                    history.replaceState(history.state, null, $tocLinkElements[activeTocIndex].href);
                     let $parent = $tocLinkElements[activeTocIndex].parentElement;
                     while ($parent !== $tocCore) {
                         $parent.classList.add('has-active');
@@ -589,9 +594,7 @@ function initToc() {
                     }
                 }
             }
-            else {
-                history.replaceState(history.state, null, ' ');
-            }
+            history.replaceState(history.state, null, activeTocIndex === -1 ? ' ' : $tocLinkElements[activeTocIndex].href);
         });
         window._tocOnScroll();
         window.scrollEventSet.add(window._tocOnScroll);
