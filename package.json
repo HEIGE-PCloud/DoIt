@@ -15,10 +15,10 @@
   },
   "scripts": {
     "babel": "npx babel src/js/theme.js --out-file assets/js/theme.min.js --source-maps --no-comments && npx babel src/js/sw.js --out-file assets/sw.min.js --source-maps --no-comments",
-    "build": "npm run babel && hugo -v --source=exampleSite --themesDir ../.. --gc",
+    "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
     "build-lunr-segmentit": "browserify src/lib/lunr.segmentit.js -o assets/lib/lunr/lunr.segmentit.js -t babelify --presets @babel/preset-env --presets minify",
-    "start": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "start-production": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
+    "start": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
+    "start-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
     "check": "htmlproofer exampleSite/public --check-html --allow-hash-href --empty-alt-ignore --disable-external",
     "serve": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
     "serve-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
