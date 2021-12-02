@@ -207,10 +207,9 @@
 {{- $_ := (resources.Get "lib/pjax/pjax.min.js.map").RelPermalink -}}
 
 {{- /* Theme script */ -}}
-{{ $externals := slice "react" "react-dom" }}
-{{ $defines := dict "process.env.NODE_ENV" `"development"` }}
+{{ $shims := dict "topbar" "js/shims/topbar.js" }}
 
-{{ $opts := dict "targetPath" "js/theme.min.js" "externals" $externals "defines" $defines }}
+{{ $opts := dict "targetPath" "js/theme.min.js" "minify" true "shims" $shims }}
 {{ $built := resources.Get "js/theme.js" | js.Build $opts }}
 <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
 
