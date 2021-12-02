@@ -207,8 +207,8 @@
 {{- $_ := (resources.Get "lib/pjax/pjax.min.js.map").RelPermalink -}}
 
 {{- /* Theme script */ -}}
-{{- dict "Source" "js/theme.min.js" "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- $_ := (resources.Get "js/theme.min.js.map").RelPermalink -}}
+{{ $js := resources.Get "js/theme.js" | js.Build (dict "minify" false "params" (dict "myparam" "Hugo Rocks!")) }}
+{{- dict "Source" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- with (.Scratch.Get "this").scriptArr -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
