@@ -1,5 +1,6 @@
 import topbar from 'topbar'
 import twemoji from 'twemoji'
+import Fuse from 'fuse.js'
 
 function forEach (elements, handler) {
   elements = elements || []
@@ -127,7 +128,7 @@ function initSelectTheme () {
 function initSearch () {
   const searchConfig = window.config.search
   const isMobile = isMobileWindow()
-  if (!searchConfig || isMobile && window._searchMobileOnce || !isMobile && window._searchDesktopOnce) return
+  if (!searchConfig || (isMobile && window._searchMobileOnce) || (!isMobile && window._searchDesktopOnce)) return
 
   const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10
   const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50
