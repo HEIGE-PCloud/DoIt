@@ -43,9 +43,6 @@ hiddenFromSearch: true
 
 [relref]({{< relref "../../../about/index.en.md" >}})
 
-## tweet
-
-{{< tweet 877500564405444608 >}}
 
 ## vimeo
 

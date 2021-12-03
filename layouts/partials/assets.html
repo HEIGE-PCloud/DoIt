@@ -119,10 +119,8 @@
         {{- $inlineDelimiters = slice (dict "left" $math.inlineLeftDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
     {{- end -}}
     {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
-    {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
-    <script>
-        document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,window.config.math);})
-    </script>
+    {{- $katexConfig := dict "strict" false "delimiters" $delimiters | jsonify | printf "renderMathInElement(document.body,%s);" -}}
+    {{- $katexConfig| dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
 {{- /* mermaid */ -}}
