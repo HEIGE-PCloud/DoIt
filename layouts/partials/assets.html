@@ -120,6 +120,9 @@
     {{- end -}}
     {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
     {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,window.config.math);})
+    </script>
 {{- end -}}
 
 {{- /* mermaid */ -}}
