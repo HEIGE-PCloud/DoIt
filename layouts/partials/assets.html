@@ -208,7 +208,7 @@
 
 {{- /* Theme script */ -}}
 {{ $shims := dict "topbar" "js/shims/topbar.js" }}
-
+{{ $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims }}
 {{ $opts := dict "targetPath" "js/theme.min.js" "minify" true "shims" $shims }}
 {{ $built := resources.Get "js/theme.js" | js.Build $opts }}
 <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>

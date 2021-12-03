@@ -34,6 +34,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
     "atomic-algolia": "^0.3.19",
-    "topbar": "^1.0.1"
+    "topbar": "^1.0.1",
+    "twemoji": "^13.1.0"
   }
 }
