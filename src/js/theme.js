@@ -1,3 +1,5 @@
+/* eslint-disable no-new */
+/* eslint-disable no-undef */
 function forEach (elements, handler) {
   elements = elements || []
   for (let i = 0; i < elements.length; i++) handler(elements[i])
@@ -91,8 +93,9 @@ function initSwitchTheme () {
 function initSelectTheme () {
   forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
     const currentTheme = document.body.getAttribute('theme')
-    for (let i, j = 0; i = $themeSelect.options[j]; j++) {
-      if (i.value == currentTheme) {
+    for (let j = 0; j < $themeSelect.options.length; j++) {
+      const i = $themeSelect.options[j]
+      if (i.value === currentTheme) {
         $themeSelect.selectedIndex = j
         break
       }
@@ -100,9 +103,9 @@ function initSelectTheme () {
     $themeSelect.addEventListener('change', () => {
       const theme = $themeSelect.value
       window.localStorage && localStorage.setItem('theme', theme)
-      if (theme != 'auto') {
+      if (theme !== 'auto') {
         document.body.setAttribute('theme', theme)
-        if (theme == 'light') {
+        if (theme === 'light') {
           window.isDark = false
         } else {
           window.isDark = true
@@ -124,7 +127,7 @@ function initSelectTheme () {
 function initSearch () {
   const searchConfig = window.config.search
   const isMobile = isMobileWindow()
-  if (!searchConfig || isMobile && window._searchMobileOnce || !isMobile && window._searchDesktopOnce) return
+  if (!searchConfig || (isMobile && window._searchMobileOnce) || (!isMobile && window._searchDesktopOnce)) return
 
   const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10
   const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50
@@ -185,7 +188,7 @@ function initSearch () {
     }, false)
     // Toggle search when Ctrl + K is pressed
     document.addEventListener('keydown', e => {
-      if (e.ctrlKey && e.code == 'KeyK') {
+      if (e.ctrlKey && e.code === 'KeyK') {
         e.preventDefault()
         $searchToggle.click()
       }
@@ -380,7 +383,7 @@ function initSearch () {
       templates: {
         suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
         empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
-        footer: ({ }) => {
+        footer: () => {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
             ? {
                 searchType: 'algolia',
@@ -416,7 +419,7 @@ function initSearch () {
     script.async = true
     if (script.readyState) {
       script.onreadystatechange = () => {
-        if (script.readyState == 'loaded' || script.readyState == 'complete') {
+        if (script.readyState === 'loaded' || script.readyState === 'complete') {
           script.onreadystatechange = null
           initAutosearch()
         }
@@ -441,7 +444,7 @@ function initDetails () {
 
 function initLightGallery () {
   if (window.config.lightGallery) {
-    const instance = lightGallery(document.getElementById('content'), window.config.lightGallery)
+    lightGallery(document.getElementById('content'), window.config.lightGallery)
   }
 }
 
@@ -804,6 +807,7 @@ function initComment () {
     }
     if (window.config.comment.remark42) {
       const remark42 = window.config.comment.remark42
+      // eslint-disable-next-line camelcase
       const remark_config = {
         host: remark42.host,
         site_id: remark42.site_id,
@@ -814,7 +818,9 @@ function initComment () {
         show_email_subscription: remark42.show_email_subscription,
         simple_view: remark42.simple_view
       }
+      // eslint-disable-next-line camelcase
       window.remark_config = remark_config
+      // eslint-disable-next-line no-sequences, no-unused-expressions
       !(function (e, n) { for (let o = 0; o < e.length; o++) { const r = n.createElement('script'); let c = '.js'; const d = n.head || n.body; 'noModule' in r ? (r.type = 'module', c = '.mjs') : r.async = !0, r.defer = !0, r.src = remark_config.host + '/web/' + e[o] + c, d.appendChild(r) } }(remark_config.components || ['embed'], document))
       window._remark42OnSwitchTheme = () => {
         if (window.isDark) {
@@ -1008,7 +1014,7 @@ if (document.readyState !== 'loading') {
   document.addEventListener('DOMContentLoaded', themeInit, false)
 }
 
-const pjax = new Pjax({
+new Pjax({
   selectors: [
     '.pjax-title',
     'main',
