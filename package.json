@@ -36,6 +36,7 @@
     "atomic-algolia": "^0.3.19",
     "fuse.js": "^6.4.6",
     "topbar": "^1.0.1",
-    "twemoji": "^13.1.0"
+    "twemoji": "^13.1.0",
+    "twikoo": "^1.4.12"
   }
 }

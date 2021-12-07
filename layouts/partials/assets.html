@@ -211,7 +211,15 @@
 {{ $shims := dict "topbar" "js/shims/topbar.js" }}
 {{ $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims }}
 {{ $shims = dict "Fuse" "js/shims/fuse.js" | merge $shims }}
-{{ $opts := dict "targetPath" "js/theme.min.js" "minify" true "shims" $shims }}
+{{ $shims = dict "twikoo" "js/shims/twikoo.js" | merge $shims }}
+
+{{ $opts := dict "targetPath" "js/theme.min.js" }}
+{{ $opts = dict "minify" true | merge $opts }}
+{{ if eq hugo.Environment "production" }}
+    {{ $opts = dict "shims" $shims | merge $opts }}
+{{ else }}
+    {{ $opts = dict "sourceMap" "inline" | merge $opts }}
+{{ end }}
 {{ $built := resources.Get "js/theme.js" | js.Build $opts }}
 <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
 

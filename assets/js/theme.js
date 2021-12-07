@@ -1,7 +1,7 @@
-import topbar from 'topbar'
 import twemoji from 'twemoji'
 import Fuse from 'fuse.js'
-
+const topbar = require('topbar')
+const twikoo = require('twikoo')
 function forEach (elements, handler) {
   elements = elements || []
   for (let i = 0; i < elements.length; i++) handler(elements[i])
@@ -730,7 +730,7 @@ function initTypeit () {
   }
 }
 
-function initComment() {
+function initComment () {
   if (window.config.comment) {
     if (window.config.comment.gitalk) {
       window.config.comment.gitalk.body = decodeURI(window.location.href)
@@ -775,14 +775,14 @@ function initComment() {
       script.crossOrigin = 'anonymous'
       script.async = true
       document.getElementById('utterances').appendChild(script)
-      window._utterancesOnSwitchTheme = (() => {
+      window._utterancesOnSwitchTheme = () => {
         const message = {
           type: 'set-theme',
-          theme: window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme,
+          theme: window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme
         }
         const iframe = document.querySelector('.utterances-frame')
         iframe.contentWindow.postMessage(message, 'https://utteranc.es')
-      })
+      }
       window.switchThemeEventSet.add(window._utterancesOnSwitchTheme)
     }
     if (window.config.comment.vssue) {
@@ -796,8 +796,8 @@ function initComment() {
               owner: vssue.owner,
               repo: vssue.repo,
               clientId: vssue.clientId,
-              clientSecret: vssue.clientSecret,
-            },
+              clientSecret: vssue.clientSecret
+            }
           }
         })
       })
@@ -815,7 +815,7 @@ function initComment() {
         simple_view: remark42.simple_view
       }
       window.remark_config = remark_config
-      !function (e, n) { for (var o = 0; o < e.length; o++) { var r = n.createElement("script"), c = ".js", d = n.head || n.body; "noModule" in r ? (r.type = "module", c = ".mjs") : r.async = !0, r.defer = !0, r.src = remark_config.host + "/web/" + e[o] + c, d.appendChild(r) } }(remark_config.components || ["embed"], document)
+      !(function (e, n) { for (let o = 0; o < e.length; o++) { const r = n.createElement('script'); let c = '.js'; const d = n.head || n.body; 'noModule' in r ? (r.type = 'module', c = '.mjs') : r.async = !0, r.defer = !0, r.src = remark_config.host + '/web/' + e[o] + c, d.appendChild(r) } }(remark_config.components || ['embed'], document))
       window._remark42OnSwitchTheme = () => {
         if (window.isDark) {
           window.REMARK42.changeTheme('dark')
@@ -845,7 +845,7 @@ function initComment() {
         const message = {
           giscus: {
             setConfig: {
-              theme: window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme,
+              theme: window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme
             }
           }
         }
@@ -1008,7 +1008,7 @@ if (document.readyState !== 'loading') {
   document.addEventListener('DOMContentLoaded', themeInit, false)
 }
 
-let pjax = new Pjax({
+const pjax = new Pjax({
   selectors: [
     '.pjax-title',
     'main',
