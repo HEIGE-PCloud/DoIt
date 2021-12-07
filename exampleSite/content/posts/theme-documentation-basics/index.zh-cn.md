@@ -745,6 +745,9 @@ hugo
     [params.analytics.plausible]
       data_domain = ""
       src = ""
+    # {{< version 0.2.14 >}} Cloudflare Analytics
+    [params.analytics.cloudflare]
+      token = ""
 
   # {{< version 0.2.7 >}} Cookie 许可配置
   [params.cookieconsent]
