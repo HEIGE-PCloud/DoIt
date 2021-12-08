@@ -1,7 +1,7 @@
 {
-  "name": "doit-src",
+  "name": "doit",
   "version": "0.2.13",
-  "description": "DoIt theme source file",
+  "description": "A clean, elegant and advanced blog theme for Hugo.",
   "private": true,
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -12,10 +12,8 @@
   },
   "scripts": {
     "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
-    "start": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "start-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
-    "serve": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "serve-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
+    "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
+    "server:production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
     "algolia": "atomic-algolia"
   },
   "repository": {
@@ -31,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
   },
-  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
+  "homepage": "https://github.com/HEIGE-PCloud/DoIt",
   "dependencies": {
     "atomic-algolia": "^0.3.19",
     "fuse.js": "^6.4.6",

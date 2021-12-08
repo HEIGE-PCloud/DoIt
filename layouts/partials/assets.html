@@ -215,8 +215,8 @@
 
 {{ $opts := dict "targetPath" "js/theme.min.js" }}
 {{ $opts = dict "minify" true | merge $opts }}
+{{ $opts = dict "shims" $shims | merge $opts }}
 {{ if eq hugo.Environment "production" }}
-    {{ $opts = dict "shims" $shims | merge $opts }}
 {{ else }}
     {{ $opts = dict "sourceMap" "inline" | merge $opts }}
 {{ end }}

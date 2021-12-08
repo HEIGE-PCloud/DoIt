@@ -1,5 +1,5 @@
-import twemoji from 'twemoji'
-import Fuse from 'fuse.js'
+const twemoji = require('twemoji')
+const Fuse = require('fuse.js')
 const topbar = require('topbar')
 const twikoo = require('twikoo')
 function forEach (elements, handler) {
