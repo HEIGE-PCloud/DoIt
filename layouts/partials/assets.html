@@ -210,7 +210,7 @@
 {{- /* Theme script */ -}}
 {{ $shims := dict "topbar" "js/shims/topbar.js" }}
 {{ $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims }}
-{{ $shims = dict "Fuse" "js/shims/fuse.js" | merge $shims }}
+{{ $shims = dict "fuse.js" "js/shims/fuse.js" | merge $shims }}
 {{ $shims = dict "twikoo" "js/shims/twikoo.js" | merge $shims }}
 
 {{ $opts := dict "targetPath" "js/theme.min.js" }}
