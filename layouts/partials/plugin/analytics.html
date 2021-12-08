@@ -42,4 +42,10 @@
     {{- with $analytics.plausible.data_domain -}}
         <script async defer data-domain="{{ . }}" src="{{ $analytics.plausible.src }}"></script>
     {{- end -}}
+
+    {{- /* Cloudflare Analytics */ -}}
+    {{- with $analytics.cloudflare.token -}}
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ $analytics.cloudflare.token }}"}'></script>
+    {{- end -}}
+
 {{- end -}}

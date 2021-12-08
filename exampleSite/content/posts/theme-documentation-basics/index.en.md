@@ -741,6 +741,9 @@ Please open the code block below to view the complete sample configuration :(far
     [params.analytics.plausible]
       data_domain = ""
       src = ""
+    # {{< version 0.2.14 >}} Cloudflare Analytics
+    [params.analytics.cloudflare]
+      token = ""
 
   # {{< version 0.2.7 >}} Cookie consent config
   [params.cookieconsent]
