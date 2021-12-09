@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt",
   "dependencies": {
+    "@waline/client": "^1.5.2",
     "atomic-algolia": "^0.3.19",
     "clipboard": "^2.0.8",
     "fuse.js": "^6.4.6",

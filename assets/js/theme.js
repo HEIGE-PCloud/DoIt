@@ -4,6 +4,7 @@ const Fuse = require('fuse.js')
 const topbar = require('topbar')
 const twikoo = require('twikoo')
 const ClipboardJS = require('clipboard')
+const Waline = require('@waline/client')
 
 function forEach (elements, handler) {
   elements = elements || []
@@ -742,7 +743,7 @@ function initComment () {
       gitalk.render('gitalk')
     }
     if (window.config.comment.valine) new Valine(window.config.comment.valine)
-    if (window.config.comment.waline) new Waline(window.config.comment.waline)
+    if (window.config.comment.waline) Waline(window.config.comment.waline)
     if (window.config.comment.twikoo) {
       twikoo.init(window.config.comment.twikoo)
       if (window.config.comment.twikoo.commentCount) {
