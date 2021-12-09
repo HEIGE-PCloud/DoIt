@@ -1,7 +1,10 @@
+/* eslint-disable no-new */
 const twemoji = require('twemoji')
 const Fuse = require('fuse.js')
 const topbar = require('topbar')
 const twikoo = require('twikoo')
+const ClipboardJS = require('clipboard')
+
 function forEach (elements, handler) {
   elements = elements || []
   for (let i = 0; i < elements.length; i++) handler(elements[i])
@@ -95,7 +98,8 @@ function initSwitchTheme () {
 function initSelectTheme () {
   forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
     const currentTheme = document.body.getAttribute('theme')
-    for (let i, j = 0; i = $themeSelect.options[j]; j++) {
+    for (let j = 0; j < $themeSelect.options.length; j++) {
+      const i = $themeSelect.options[j]
       if (i.value === currentTheme) {
         $themeSelect.selectedIndex = j
         break
@@ -804,6 +808,7 @@ function initComment () {
     }
     if (window.config.comment.remark42) {
       const remark42 = window.config.comment.remark42
+      // eslint-disable-next-line camelcase
       const remark_config = {
         host: remark42.host,
         site_id: remark42.site_id,
@@ -814,7 +819,9 @@ function initComment () {
         show_email_subscription: remark42.show_email_subscription,
         simple_view: remark42.simple_view
       }
+      // eslint-disable-next-line camelcase
       window.remark_config = remark_config
+      // eslint-disable-next-line no-sequences, no-unused-expressions
       !(function (e, n) { for (let o = 0; o < e.length; o++) { const r = n.createElement('script'); let c = '.js'; const d = n.head || n.body; 'noModule' in r ? (r.type = 'module', c = '.mjs') : r.async = !0, r.defer = !0, r.src = remark_config.host + '/web/' + e[o] + c, d.appendChild(r) } }(remark_config.components || ['embed'], document))
       window._remark42OnSwitchTheme = () => {
         if (window.isDark) {
@@ -1008,7 +1015,7 @@ if (document.readyState !== 'loading') {
   document.addEventListener('DOMContentLoaded', themeInit, false)
 }
 
-const pjax = new Pjax({
+new Pjax({
   selectors: [
     '.pjax-title',
     'main',
