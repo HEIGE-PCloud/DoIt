@@ -213,10 +213,12 @@
 {{ $shims = dict "fuse.js" "js/shims/fuse.js" | merge $shims }}
 {{ $shims = dict "twikoo" "js/shims/twikoo.js" | merge $shims }}
 {{ $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims }}
-{{ $shims = dict "Waline" "js/shims/Waline.js" | merge $shims }}
-{{ $shims = dict "Gitalk" "js/shims/gitalk.js" | merge $shims }}
-{{ $shims = dict "Valine" "js/shims/valine.js" | merge $shims }}
+{{ $shims = dict "@waline/client" "js/shims/Waline.js" | merge $shims }}
+{{ $shims = dict "gitalk" "js/shims/gitalk.js" | merge $shims }}
+{{ $shims = dict "valine" "js/shims/valine.js" | merge $shims }}
 {{ $shims = dict "mermaid" "js/shims/mermaid.js" | merge $shims }}
+{{ $shims = dict "mapbox-gl" "js/shims/mapboxgl.js" | merge $shims }}
+{{ $shims = dict "@mapbox/mapbox-gl-language" "js/shims/MapboxLanguage.js" | merge $shims }}
 
 {{ $opts := dict "targetPath" "js/theme.min.js" }}
 {{ $opts = dict "minify" true | merge $opts }}
