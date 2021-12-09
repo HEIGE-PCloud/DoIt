@@ -5,6 +5,7 @@ const topbar = require('topbar')
 const twikoo = require('twikoo')
 const ClipboardJS = require('clipboard')
 const Waline = require('@waline/client')
+const Gitalk = require('gitalk')
 
 function forEach (elements, handler) {
   elements = elements || []
