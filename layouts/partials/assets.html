@@ -216,6 +216,7 @@
 {{ $shims = dict "Waline" "js/shims/Waline.js" | merge $shims }}
 {{ $shims = dict "Gitalk" "js/shims/gitalk.js" | merge $shims }}
 {{ $shims = dict "Valine" "js/shims/valine.js" | merge $shims }}
+{{ $shims = dict "mermaid" "js/shims/mermaid.js" | merge $shims }}
 
 {{ $opts := dict "targetPath" "js/theme.min.js" }}
 {{ $opts = dict "minify" true | merge $opts }}

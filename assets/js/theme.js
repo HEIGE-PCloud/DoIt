@@ -7,6 +7,7 @@ const ClipboardJS = require('clipboard')
 const Waline = require('@waline/client')
 const Gitalk = require('gitalk')
 const Valine = require('valine')
+const mermaid = require('mermaid')
 
 function forEach (elements, handler) {
   elements = elements || []
