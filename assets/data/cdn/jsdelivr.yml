@@ -79,5 +79,5 @@ libFiles:
   vssueGithubJS: vssue@1.4.8/dist/vssue.github.min.js
   vssueGitlabJS: vssue@1.4.8/dist/vssue.gitlab.min.js
   vssueCSS: vssue@1.4.8/dist/vssue.min.css
-  # waline@1.5.1 https://github.com/walinejs/waline
-  walineJS: "@waline/client@1.5.1/dist/Waline.min.js"
+  # waline@1.5.2 https://github.com/walinejs/waline
+  walineJS: "@waline/client@1.5.2/dist/Waline.min.js"
