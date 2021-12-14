@@ -178,7 +178,15 @@
         {{- if $twikoo.enable -}}
             <div id="twikoo"></div>
             {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- $shims := dict "twikoo" "js/shims/twikoo.js" -}}
+            {{- $options := dict -}}
+            {{- $options = dict "targetPath" "js/twikoo.min.js" | merge $options -}}
+            {{- $options = dict "minify" true | merge $options -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
+            {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}        
             {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
             {{- $commentConfig = dict "lang" .Lang | dict "twikoo" | merge $commentConfig -}}
             {{- with $twikoo.region -}}

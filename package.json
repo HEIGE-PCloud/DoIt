@@ -33,6 +33,7 @@
   "dependencies": {
     "atomic-algolia": "^0.3.19",
     "katex": "^0.15.1",
-    "twemoji": "^13.1.0"
+    "twemoji": "^13.1.0",
+    "twikoo": "^1.4.14"
   }
 }
