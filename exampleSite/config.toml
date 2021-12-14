@@ -265,6 +265,9 @@ enableEmoji = true
         [languages.en.params.social.Mastodon]
           id = "@xxxx"
           prefix = "https://mastodon.technology/"
+        [languages.en.params.social.Diaspora]
+          id = "@xxxx"
+          prefix = "https://yyyy/"
       # Sponsor config
       [languages.en.params.sponsor]
         enable = false
@@ -508,6 +511,7 @@ enableEmoji = true
         Linktree = ""
         QQ = ""
         QQGroup = ""
+        Diaspora = ""
         Email = "xxxx@xxxx.com"
         RSS = true
         # 赞助设置
