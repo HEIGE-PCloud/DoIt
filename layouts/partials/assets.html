@@ -238,7 +238,7 @@
 {{- end -}}
 
 {{- /* Config script */ -}}
-{{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+{{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/configScript.html" -}}
 
 <div class="assets">    
     {{- range (.Scratch.Get "this").style -}}
@@ -253,6 +253,10 @@
 </div>
 
 <div class="pjax-assets">
+    {{- range (.Scratch.Get "this").configScript -}}
+        {{- partial "plugin/script.html" . -}}
+    {{- end -}}
+
     {{- range (.Scratch.Get "this").pjaxScript -}}
         {{- partial "plugin/script.html" . -}}
     {{- end -}}
