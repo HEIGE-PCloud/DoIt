@@ -549,17 +549,24 @@ qqgroup:
   Icon:
     Src: svg/icons/qqGroup.svg
 
-# 068: Email
-email:
+# 070: Diaspora
+diaspora:
   Weight: 70
+  Title: diaspora*
+  Icon:
+    Simpleicons: diaspora
+
+# 071: Email
+email:
+  Weight: 71
   Template: mailto:%v
   Title: Email
   Icon:
     Class: far fa-envelope fa-fw
 
-# 069: RSS
+# 072: RSS
 rss:
-  Weight: 71
+  Weight: 72
   Url: /index.xml
   Title: RSS
   Newtab: true
