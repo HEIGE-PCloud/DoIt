@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "atomic-algolia": "^0.3.19"
+    "atomic-algolia": "^0.3.19",
+    "twemoji": "^13.1.0"
   }
 }

@@ -46,10 +46,6 @@ function initSVGIcon () {
   })
 }
 
-function initTwemoji () {
-  if (window.config.twemoji) twemoji.parse(document.body)
-}
-
 function initMenuMobile () {
   const $menuToggleMobile = document.getElementById('menu-toggle-mobile')
   const $menuMobile = document.getElementById('menu-mobile')
@@ -980,7 +976,6 @@ function init () {
   window.pjaxSendEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
   initSVGIcon()
-  initTwemoji()
   initMenuMobile()
   initSwitchTheme()
   initSelectTheme()
