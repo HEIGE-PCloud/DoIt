@@ -571,8 +571,8 @@ function initToc () {
       const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0)
       let activeTocIndex = -1
       if (content.getBoundingClientRect().top <= INDEX_SPACING &&
-                content.getBoundingClientRect().bottom > INDEX_SPACING &&
-                $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
+          content.getBoundingClientRect().bottom > INDEX_SPACING &&
+          $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
         if ($headerLinkElements[$headerLinkElements.length - 1].getBoundingClientRect().top < INDEX_SPACING) {
           activeTocIndex = $headerLinkElements.length - 1
         } else {
@@ -594,7 +594,9 @@ function initToc () {
           }
         }
       }
-      history.replaceState(history.state, null, activeTocIndex === -1 ? ' ' : $tocLinkElements[activeTocIndex].href)
+      if (activeTocIndex !== -1) {
+        history.replaceState(history.state, null, $tocLinkElements[activeTocIndex].href)
+      }
     })
     window._tocOnScroll()
     window.scrollEventSet.add(window._tocOnScroll)
