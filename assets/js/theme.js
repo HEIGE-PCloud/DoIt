@@ -601,10 +601,6 @@ function initToc () {
   }
 }
 
-function initMath () {
-  if (window.config.math) renderMathInElement(document.body, window.config.math)
-}
-
 function initMermaid () {
   const $mermaidElements = document.getElementsByClassName('mermaid')
   if ($mermaidElements.length) {
@@ -986,7 +982,6 @@ function init () {
   initHighlight()
   initTable()
   initHeaderLink()
-  initMath()
   initMermaid()
   initEcharts()
   initTypeit()
