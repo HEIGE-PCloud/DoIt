@@ -154,30 +154,32 @@
         {{- end -}}      
         {{- /* Series list */ -}}
         {{- if $params.series | and $params.seriesNavigation -}}
-                {{ range $key, $value := .Site.Taxonomies.series }}
-                    {{ if $key | in $params.series }}
-                        {{ $term := $.Site.GetPage "series" $key }}
-                        <div class="details series-nav open">
-                            <div class="details-summary series-title">
-                                <span>{{ T "series" }} - {{ $term.Title }}</span>
-                                <span><i class="details-icon fas fa-angle-right"></i></span>
+                {{- range $key, $value := .Site.Taxonomies.series -}}
+                    {{- range $params.series -}}
+                        {{- if . | urlize | eq $key -}}
+                            {{- $term := $.Site.GetPage "series" $key -}}
+                            <div class="details series-nav open">
+                                <div class="details-summary series-title">
+                                    <span>{{ T "series" }} - {{ $term.Title }}</span>
+                                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                                </div>
+                                <div class="details-content series-content">
+                                    <nav>
+                                        <ul>
+                                            {{- range $value.Pages -}}
+                                                {{- if .LinkTitle | eq $.Title -}}
+                                                    <li><span class="active">{{ .LinkTitle }}</span></li>
+                                                {{- else }}
+                                                    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                                                {{- end }}
+                                            {{- end -}}
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
-                            <div class="details-content series-content">
-                                <nav>
-                                    <ul>
-                                        {{ range $value.Pages }}
-                                            {{ if .LinkTitle | eq $.Title }}
-                                                <li><span class="active">{{ .LinkTitle }}</span></li>
-                                            {{ else }}
-                                                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-                                            {{ end }}
-                                        {{ end }}
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+                        {{- end -}}
                     {{- end -}}
-                {{ end }}
+                {{- end -}}
         {{- end -}}
         
         {{- /* Static TOC */ -}}
