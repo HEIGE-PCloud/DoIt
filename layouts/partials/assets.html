@@ -45,14 +45,14 @@
 {{- if $params.twemoji -}}
     {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-    {{ $shims := dict }}
-    {{ $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims }}
-    {{ $options := dict }}
-    {{ $options = dict "targetPath" "js/twemoji.min.js" | merge $options }}
-    {{ $options = dict "minify" true | merge $options }}
-    {{ $options = dict "shims" $shims | merge $options }}
-    {{ $js := resources.Get "js/lib/twemoji.js" | js.Build $options }}
-    {{ $_ := $js.RelPermalink }}
+    {{- $shims := dict -}}
+    {{- $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
@@ -215,17 +215,17 @@
 {{- $_ := (resources.Get "lib/pjax/pjax.min.js.map").RelPermalink -}}
 
 {{- /* Theme script */ -}}
-{{ $shims := dict }}
-{{ $options := dict }}
-{{ $options = dict "targetPath" "js/theme.min.js" | merge $options }}
-{{ $options = dict "minify" true | merge $options }}
-{{ $options = dict "shims" $shims | merge $options }}
-{{ if hugo.IsProduction }}
-{{ else }}
-    {{ $options = dict "sourceMap" "inline" | merge $options }}
-{{ end }}
-{{ $js := resources.Get "js/theme.js" | js.Build $options }}
-{{ $_ := $js.RelPermalink }}
+{{- $shims := dict -}}
+{{- $options := dict -}}
+{{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
+{{- $options = dict "minify" true | merge $options -}}
+{{- $options = dict "shims" $shims | merge $options -}}
+{{- if hugo.IsProduction -}}
+{{- else -}}
+    {{- $options = dict "sourceMap" "inline" | merge $options -}}
+{{- end -}}
+{{- $js := resources.Get "js/theme.js" | js.Build $options -}}
+{{- $_ := $js.RelPermalink -}}
 {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- with (.Scratch.Get "this").scriptArr -}}
