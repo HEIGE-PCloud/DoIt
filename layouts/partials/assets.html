@@ -45,8 +45,8 @@
 {{- if $params.twemoji -}}
     {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-    {{- $shims := dict -}}
-    {{- $shims = dict "twemoji" "js/shims/twemoji.js" | merge $shims -}}
+    {{- $config = dict "twemoji" true | merge $config -}}
+    {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
     {{- $options := dict -}}
     {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
@@ -118,6 +118,14 @@
         {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- end -}}
+    {{- $shims := dict "katex/dist/contrib/auto-render" "js/shims/katex.js" -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/katex.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
     {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
         {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}

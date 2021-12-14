@@ -1,3 +1,3 @@
 import twemoji from 'twemoji'
 
-twemoji.parse(document.body)
+if (window.config.twemoji) twemoji.parse(document.body)
