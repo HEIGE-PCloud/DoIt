@@ -44,8 +44,16 @@
 {{- /* twemoji */ -}}
 {{- if $params.twemoji -}}
     {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = dict "twemoji" true | merge $config -}}
+    {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
 {{- /* lightgallery.js */ -}}
@@ -97,19 +105,27 @@
     {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
     {{- $source := $cdn.katexJS | default "lib/katex/katex.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $source := $cdn.katexAutoRenderJS | default "lib/katex/auto-render.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- if $math.copyTex -}}
         {{- $source := $cdn.katexCopyTexCSS | default "lib/katex/copy-tex.min.css" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
         {{- $source := $cdn.katexCopyTexJS | default "lib/katex/copy-tex.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- end -}}
     {{- if $math.mhchem -}}
         {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- end -}}
+    {{- $shims := dict "katex/dist/contrib/auto-render" "js/shims/katex.js" -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/katex.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
     {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
         {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}
@@ -194,9 +210,6 @@
     {{- dict "Content" $content "Path" (printf "%v.scss" $path) "ToCSS" $options | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
 {{- end -}}
 
-{{- /* Config script */ -}}
-{{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-
 {{- /* topbar */ -}}
 {{- $source := $cdn.topbarJS | default "lib/topbar/topbar.min.js" -}}
 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
@@ -207,29 +220,47 @@
 {{- $_ := (resources.Get "lib/pjax/pjax.min.js.map").RelPermalink -}}
 
 {{- /* Theme script */ -}}
-{{- dict "Source" "js/theme.min.js" "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- $_ := (resources.Get "js/theme.min.js.map").RelPermalink -}}
+{{- $shims := dict -}}
+{{- $options := dict -}}
+{{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
+{{- $options = dict "minify" true | merge $options -}}
+{{- $options = dict "shims" $shims | merge $options -}}
+{{- if hugo.IsProduction -}}
+{{- else -}}
+    {{- $options = dict "sourceMap" "inline" | merge $options -}}
+{{- end -}}
+{{- $js := resources.Get "js/theme.js" | js.Build $options -}}
+{{- $_ := $js.RelPermalink -}}
+{{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- with (.Scratch.Get "this").scriptArr -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
+{{- /* Config script */ -}}
+{{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/configScript.html" -}}
+
 <div class="assets">    
     {{- range (.Scratch.Get "this").style -}}
-    {{- partial "plugin/style.html" . -}}
+        {{- partial "plugin/style.html" . -}}
     {{- end -}}
     
     {{- range (.Scratch.Get "this").script -}}
-    {{- partial "plugin/script.html" . -}}
+        {{- partial "plugin/script.html" . -}}
     {{- end -}}
     
     {{- partial "plugin/analytics.html" . -}}
 </div>
 
 <div class="pjax-assets">
+    {{- range (.Scratch.Get "this").configScript -}}
+        {{- partial "plugin/script.html" . -}}
+    {{- end -}}
+
     {{- range (.Scratch.Get "this").pjaxScript -}}
         {{- partial "plugin/script.html" . -}}
     {{- end -}}
+
     {{- range (.Scratch.Get "this").pjaxStyle -}}
         {{- partial "plugin/defer-style.html" . -}}
     {{- end -}}

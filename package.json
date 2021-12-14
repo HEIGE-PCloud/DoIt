@@ -4,29 +4,16 @@
   "description": "DoIt theme source file",
   "private": true,
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "babel-preset-minify": "^0.5.1",
-    "babelify": "^10.0.0",
-    "browserify": "^17.0.0",
-    "core-js": "^3.19.3",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "segmentit": "^2.0.3"
+    "eslint-plugin-promise": "^5.2.0"
   },
   "scripts": {
-    "babel": "npx babel src/js/theme.js --out-file assets/js/theme.min.js --source-maps --no-comments && npx babel src/js/sw.js --out-file assets/sw.min.js --source-maps --no-comments",
-    "build": "npm run babel && hugo -v --source=exampleSite --themesDir ../.. --gc",
-    "build-lunr-segmentit": "browserify src/lib/lunr.segmentit.js -o assets/lib/lunr/lunr.segmentit.js -t babelify --presets @babel/preset-env --presets minify",
-    "start": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "start-production": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
-    "check": "htmlproofer exampleSite/public --check-html --allow-hash-href --empty-alt-ignore --disable-external",
-    "serve": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "serve-production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
+    "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
+    "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
+    "server:production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
     "algolia": "atomic-algolia"
   },
   "repository": {
@@ -44,6 +31,9 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "atomic-algolia": "^0.3.19"
+    "atomic-algolia": "^0.3.19",
+    "katex": "^0.15.1",
+    "twemoji": "^13.1.0",
+    "twikoo": "^1.4.14"
   }
 }

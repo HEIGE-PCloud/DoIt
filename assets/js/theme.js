@@ -46,10 +46,6 @@ function initSVGIcon () {
   })
 }
 
-function initTwemoji () {
-  if (window.config.twemoji) twemoji.parse(document.body)
-}
-
 function initMenuMobile () {
   const $menuToggleMobile = document.getElementById('menu-toggle-mobile')
   const $menuMobile = document.getElementById('menu-mobile')
@@ -575,8 +571,8 @@ function initToc () {
       const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0)
       let activeTocIndex = -1
       if (content.getBoundingClientRect().top <= INDEX_SPACING &&
-                content.getBoundingClientRect().bottom > INDEX_SPACING &&
-                $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
+          content.getBoundingClientRect().bottom > INDEX_SPACING &&
+          $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
         if ($headerLinkElements[$headerLinkElements.length - 1].getBoundingClientRect().top < INDEX_SPACING) {
           activeTocIndex = $headerLinkElements.length - 1
         } else {
@@ -605,10 +601,6 @@ function initToc () {
     window._tocOnScroll()
     window.scrollEventSet.add(window._tocOnScroll)
   }
-}
-
-function initMath () {
-  if (window.config.math) renderMathInElement(document.body, window.config.math)
 }
 
 function initMermaid () {
@@ -744,30 +736,6 @@ function initComment () {
     }
     if (window.config.comment.valine) new Valine(window.config.comment.valine)
     if (window.config.comment.waline) new Waline(window.config.comment.waline)
-    if (window.config.comment.twikoo) {
-      twikoo.init(window.config.comment.twikoo)
-      if (window.config.comment.twikoo.commentCount) {
-        twikoo.getCommentsCount({
-          envId: window.config.comment.twikoo.envId,
-          region: window.config.comment.twikoo.region,
-          urls: [
-            window.location.pathname
-          ],
-          includeReply: false
-        }).then(function (res) {
-          // example: [
-          //   { url: '/2020/10/post-1.html', count: 10 },
-          //   { url: '/2020/11/post-2.html', count: 0 },
-          //   { url: '/2020/12/post-3.html', count: 20 }
-          // ]
-          // If there is an element with id="twikoo-comment-count", set its innerHTML to the count of comments
-          const $twikooCommentCount = document.getElementById('twikoo-comment-count')
-          if ($twikooCommentCount) $twikooCommentCount.innerHTML = res[0].count
-        }).catch(function (err) {
-          console.error(err)
-        })
-      }
-    }
     if (window.config.comment.utterances) {
       const utterancesConfig = window.config.comment.utterances
       const script = document.createElement('script')
@@ -982,7 +950,6 @@ function init () {
   window.pjaxSendEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
   initSVGIcon()
-  initTwemoji()
   initMenuMobile()
   initSwitchTheme()
   initSelectTheme()
@@ -993,7 +960,6 @@ function init () {
   initHighlight()
   initTable()
   initHeaderLink()
-  initMath()
   initMermaid()
   initEcharts()
   initTypeit()
