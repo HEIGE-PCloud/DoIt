@@ -13,7 +13,7 @@
   "scripts": {
     "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
     "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
-    "server:production": "npm run babel && hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
+    "server:production": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender -e production",
     "algolia": "atomic-algolia"
   },
   "repository": {
