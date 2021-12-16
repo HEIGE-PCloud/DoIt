@@ -146,7 +146,7 @@
     {{- dict "Source" "lib/mermaid/mermaid.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
     {{- $config = dict "mermaid" true | merge $config -}}
     {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
-    {{- $shims := dict "mermaid/mermaidAPI" "js/shims/mermaidAPI.js" -}}
+    {{- $shims = dict "mermaid/mermaidAPI" "js/shims/mermaidAPI.js" | merge $shims -}}
     {{- $options := dict -}}
     {{- $options = dict "targetPath" "js/mermaid.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
