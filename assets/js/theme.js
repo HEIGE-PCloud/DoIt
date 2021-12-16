@@ -603,19 +603,6 @@ function initToc () {
   }
 }
 
-function initMermaid () {
-  const $mermaidElements = document.getElementsByClassName('mermaid')
-  if ($mermaidElements.length) {
-    mermaid.initialize({ startOnLoad: false, theme: 'default' })
-    forEach($mermaidElements, $mermaid => {
-      mermaid.mermaidAPI.render('svg-' + $mermaid.id, window.data[$mermaid.id], svgCode => {
-        $mermaid.insertAdjacentHTML('afterbegin', svgCode)
-        document.getElementById('svg-' + $mermaid.id).children[0].remove()
-      }, $mermaid)
-    })
-  }
-}
-
 function initEcharts () {
   window._echartsOnSwitchTheme = () => {
     window._echartsArr = window._echartsArr || []
@@ -913,7 +900,6 @@ function onResize () {
         window._resizeTimeout = null
         for (const event of window.resizeEventSet) event()
         initToc()
-        initMermaid()
         initSearch()
       }, 100)
     }
@@ -949,7 +935,6 @@ function init () {
   initHighlight()
   initTable()
   initHeaderLink()
-  initMermaid()
   initEcharts()
   initTypeit()
   initMapbox()

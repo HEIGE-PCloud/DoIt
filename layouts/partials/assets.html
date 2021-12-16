@@ -141,10 +141,19 @@
 {{- /* mermaid */ -}}
 {{- if (.Scratch.Get "this").mermaid -}}
     {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $options := dict "targetPath" "lib/mermaid/mermaid.min.css" "enableSourceMap" true -}}
     {{- dict "Source" "lib/mermaid/mermaid.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
     {{- $config = dict "mermaid" true | merge $config -}}
+    {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
+    {{- $shims := dict "mermaid/mermaidAPI" "js/shims/mermaidAPI.js" -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/mermaid.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/mermaid.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
 {{- /* ECharts */ -}}
