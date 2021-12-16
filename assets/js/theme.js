@@ -603,29 +603,6 @@ function initToc () {
   }
 }
 
-function initEcharts () {
-  window._echartsOnSwitchTheme = () => {
-    window._echartsArr = window._echartsArr || []
-    for (let i = 0; i < window._echartsArr.length; i++) {
-      window._echartsArr[i].dispose()
-    }
-    window._echartsArr = []
-    forEach(document.getElementsByClassName('echarts'), $echarts => {
-      const chart = echarts.init($echarts, window.isDark ? 'dark' : 'macarons', { renderer: 'svg' })
-      chart.setOption(JSON.parse(window.data[$echarts.id]))
-      window._echartsArr.push(chart)
-    })
-  }
-  window.switchThemeEventSet.add(window._echartsOnSwitchTheme)
-  window._echartsOnSwitchTheme()
-  window._echartsOnResize = () => {
-    for (let i = 0; i < window._echartsArr.length; i++) {
-      window._echartsArr[i].resize()
-    }
-  }
-  window.resizeEventSet.add(window._echartsOnResize)
-}
-
 function initMapbox () {
   if (window.config.mapbox) {
     mapboxgl.accessToken = window.config.mapbox.accessToken
@@ -935,7 +912,6 @@ function init () {
   initHighlight()
   initTable()
   initHeaderLink()
-  initEcharts()
   initTypeit()
   initMapbox()
   initToc()
