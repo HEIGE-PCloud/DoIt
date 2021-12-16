@@ -855,17 +855,6 @@ function initMeta () {
   window._metaThemeColorOnSwitchTheme()
 }
 
-function initCookieconsent () {
-  if (window.config.cookieconsent) {
-    const container = document.getElementById('cookieconsent-container')
-    // if there is nothing in the container, then init the cookieconsent
-    if (container.innerHTML === '') {
-      window.config.cookieconsent.container = container
-      cookieconsent.initialise(window.config.cookieconsent)
-    }
-  };
-}
-
 function onScroll () {
   const $headers = []
   const $viewComments = document.getElementById('view-comments')
@@ -964,7 +953,6 @@ function init () {
   initEcharts()
   initTypeit()
   initMapbox()
-  initCookieconsent()
   initToc()
   initComment()
   onScroll()
