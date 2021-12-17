@@ -27,41 +27,41 @@
         </div>
         <div class="post-info-line">
             <div class="post-info-md">
-                {{- if $params.linktomarkdown -}}
-                    {{- with .OutputFormats.Get "markdown" -}}
-                        <span>
-                            <a class="link-to-markdown" href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer">
-                                {{- T "readMarkdown" -}}
-                            </a>
-                        </span>
+
+                {{- if  .IsPage -}}
+                    {{- $post_info := slice -}}
+                    {{- if $params.linktomarkdown -}}
+                        {{- with .OutputFormats.Get "markdown" -}}
+                            {{- $d := dict "class" "link-to-mardown" "link" .RelPermalink "text" "readMarkdown" -}}
+                            {{- $post_info = $post_info | append $d -}}
+                        {{- end -}}
                     {{- end -}}
-                {{- end -}}
-                {{- if $params.linktomarkdown | and (.OutputFormats.Get "markdown") | and .IsPage | and $params.linktoedit -}}
-                    |&nbsp;
-                {{- end -}}
-                {{- if .IsPage -}}
+                    {{- with $params.linktosource -}}
+                        {{- $link := replace . "{path}" $.File.Path -}}
+                        {{- $d := dict "class" "link-to-source" "link" $link "text" "viewSource" -}}
+                        {{- $post_info = $post_info | append $d -}}
+                    {{- end -}}
                     {{- with $params.linktoedit -}}
-                            <span>
-                                {{- $link := replace . "{path}" $.File.Path -}}
-                                <a class="link-to-edit" {{ printf "href=%v" $link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
-                                    {{- T "editThisPage" -}}
-                                </a>
-                            </span>
+                        {{- $link := replace . "{path}" $.File.Path -}}
+                        {{- $d := dict "class" "link-to-edit" "link" $link "text" "editThisPage" -}}
+                        {{- $post_info = $post_info | append $d -}}
                     {{- end -}}
-                {{- end -}}
-                {{- if ($params.linktomarkdown | or $params.linktoedit) | and (.OutputFormats.Get "markdown") | and .IsPage | and $params.linktoreport -}}
-                    |&nbsp;
-                {{- end -}}
-                {{- if .IsPage -}}
                     {{- with $params.linktoreport -}}
-                            <span>
-                                {{- $link := replace . "{title}" ($.Title | urlquery) -}}
-                                {{- $link := replace $link "{url}" $.Permalink -}}
-                                {{- $link := replace $link "{path}" $.File.Path -}}
-                                <a class="link-to-report" {{ printf "href=%v" $link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
-                                    {{- T "reportThisPage" -}}
-                                </a>
-                            </span>
+                        {{- $link := replace . "{title}" ($.Title | urlquery) -}}
+                        {{- $link := replace $link "{url}" $.Permalink -}}
+                        {{- $link := replace $link "{path}" $.File.Path -}}
+                        {{- $d := dict "class" "link-to-report" "link" $link "text" "reportThisPage" -}}
+                        {{- $post_info = $post_info | append $d -}}
+                    {{- end -}}
+                    {{- range $index, $value := $post_info -}}
+                    <span>
+                        {{- if gt $index 0 -}}
+                            |&nbsp;
+                        {{- end -}}
+                        <a class="{{ $value.class }}" {{ printf "href=%v" $value.link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
+                            {{- T $value.text -}}
+                        </a>
+                    </span>
                     {{- end -}}
                 {{- end -}}
             </div>

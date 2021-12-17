@@ -162,6 +162,9 @@ other = "Updated on {{ .Date }}"
 [readMarkdown]
 other = "Read Markdown"
 
+[viewSource]
+other = "View Source"
+
 [editThisPage]
 other = "Edit this page"
 
