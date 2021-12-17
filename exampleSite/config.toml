@@ -666,12 +666,18 @@ enableEmoji = true
     # whether to show link to Raw Markdown content of the content
     # 是否显示原始 Markdown 文档内容的链接
     linkToMarkdown = true
+    # configure the link to view source the post
+    linkToSource = "https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}"
     # configure the link to edit the post
     # 配置编辑文章的链接
     linkToEdit = "https://github.com/HEIGE-PCloud/DoIt/edit/main/exampleSite/content/{path}"
     # https://github.com/user/repo/edit/main/{path}
     # https://gitlab.com/user/repo/-/edit/main/{path}
     # https://bitbucket.org/user/repo/src/main/{path}?mode=edit
+    # configure the link to report issue the post
+    linkToReport = "https://github.com/HEIGE-PCloud/DoIt/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}|"
+    # https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
+    # https://gitlab.com/user/repo/-/issues/new?issue[title]=[bug]%20{title}&issue[description]=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://gitlab.com/user/repo/-/edit/main/{path}|
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false

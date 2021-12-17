@@ -166,8 +166,14 @@ other = "更新于 {{ .Date }}"
 [readMarkdown]
 other = "阅读原始文档"
 
+[viewSource]
+other = "查看源代码"
+
 [editThisPage]
 other = "编辑此页"
+
+[reportThisPage]
+other = "报告问题"
 
 [back]
 other = "返回"
