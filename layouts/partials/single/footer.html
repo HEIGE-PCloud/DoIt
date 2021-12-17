@@ -49,6 +49,21 @@
                             </span>
                     {{- end -}}
                 {{- end -}}
+                {{- if ($params.linktomarkdown | or $params.linktoedit) | and (.OutputFormats.Get "markdown") | and .IsPage | and $params.linktoreport -}}
+                    |&nbsp;
+                {{- end -}}
+                {{- if .IsPage -}}
+                    {{- with $params.linktoreport -}}
+                            <span>
+                                {{- $link := replace . "{title}" ($.Title | urlquery) -}}
+                                {{- $link := replace $link "{url}" $.Permalink -}}
+                                {{- $link := replace $link "{path}" $.File.Path -}}
+                                <a class="link-to-report" {{ printf "href=%v" $link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
+                                    {{- T "reportThisPage" -}}
+                                </a>
+                            </span>
+                    {{- end -}}
+                {{- end -}}
             </div>
             <div class="post-info-share">
                 <span>

@@ -165,6 +165,9 @@ other = "Read Markdown"
 [editThisPage]
 other = "Edit this page"
 
+[reportThisPage]
+other = "Report issue"
+
 [back]
 other = "Back"
 

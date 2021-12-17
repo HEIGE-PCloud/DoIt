@@ -672,6 +672,10 @@ enableEmoji = true
     # https://github.com/user/repo/edit/main/{path}
     # https://gitlab.com/user/repo/-/edit/main/{path}
     # https://bitbucket.org/user/repo/src/main/{path}?mode=edit
+    # configure the link to report issue the post
+    linkToReport = "https://github.com/HEIGE-PCloud/DoIt/issues/new?title=[post]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}|"
+    # https://github.com/user/repo/issues/new?title=[post]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
+    # https://gitlab.com/user/repo/-/issues/new?issue[title]=[post]%20{title}&issue[description]=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://gitlab.com/user/repo/-/edit/main/{path}|
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false
