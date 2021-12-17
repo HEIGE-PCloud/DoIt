@@ -1,5 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
+// import { autocomplete } from '@algolia/autocomplete-js'
+
 function forEach (elements, handler) {
   elements = elements || []
   for (let i = 0; i < elements.length; i++) handler(elements[i])
@@ -13,10 +15,13 @@ function isMobileWindow () {
   return window.matchMedia('only screen and (max-width: 680px)').matches
 }
 
-function isTocStatic () {
-  return window.matchMedia('only screen and (max-width: 1000px)').matches
-}
-
+/**
+ * Animate the element with AnimateCSS. https://animate.style/
+ * @param {HTMLElement} element The element to animate.
+ * @param {Array} animation The animation selected.
+ * @param {boolean} reserved Whether to execute the callback after the animation is ended.
+ * @param {function} callback The callback gets exectued after the element is animated.
+ */
 function animateCSS (element, animation, reserved, callback) {
   if (!Array.isArray(animation)) animation = [animation]
   element.classList.add('animate__animated', ...animation)
@@ -25,87 +30,97 @@ function animateCSS (element, animation, reserved, callback) {
     element.removeEventListener('animationend', handler)
     if (typeof callback === 'function') callback()
   }
-  if (!reserved) element.addEventListener('animationend', handler, false)
+  if (!reserved) element.addEventListener('animationend', handler)
 }
-
+/**
+ * Fetch and initialize all SVG icons.
+ */
 function initSVGIcon () {
-  forEach(document.querySelectorAll('[data-svg-src]'), $icon => {
-    fetch($icon.getAttribute('data-svg-src'))
+  Array.from(document.querySelectorAll('[data-svg-src]')).forEach(icon => {
+    fetch(icon.getAttribute('data-svg-src'))
       .then(response => response.text())
       .then(svg => {
-        const $temp = document.createElement('div')
-        $temp.insertAdjacentHTML('afterbegin', svg)
-        const $svg = $temp.firstChild
-        $svg.setAttribute('data-svg-src', $icon.getAttribute('data-svg-src'))
-        $svg.classList.add('icon')
-        const $titleElements = $svg.getElementsByTagName('title')
-        if ($titleElements.length) $svg.removeChild($titleElements[0])
-        $icon.parentElement.replaceChild($svg, $icon)
+        const temp = document.createElement('div')
+        temp.insertAdjacentHTML('afterbegin', svg)
+        const dataSvg = temp.firstChild
+        dataSvg.setAttribute('data-svg-src', icon.getAttribute('data-svg-src'))
+        dataSvg.classList.add('icon')
+        const titleElements = dataSvg.getElementsByTagName('title')
+        if (titleElements.length) dataSvg.removeChild(titleElements[0])
+        icon.parentElement.replaceChild(dataSvg, icon)
       })
-      .catch(err => { console.error(err) })
   })
 }
 
+/**
+ * Initialize the mobile menu bar.
+ */
 function initMenuMobile () {
-  const $menuToggleMobile = document.getElementById('menu-toggle-mobile')
-  const $menuMobile = document.getElementById('menu-mobile')
+  const menuToggleMobile = document.getElementById('menu-toggle-mobile')
+  const menuMobile = document.getElementById('menu-mobile')
+  // If no event listener has been registered yet, add one.
   if (!window.menuToggleMobileEventListener) {
-    $menuToggleMobile.addEventListener('click', () => {
+    menuToggleMobile.addEventListener('click', () => {
       document.body.classList.toggle('blur')
-      $menuToggleMobile.classList.toggle('active')
-      $menuMobile.classList.toggle('active')
-    }, false)
+      menuToggleMobile.classList.toggle('active')
+      menuMobile.classList.toggle('active')
+    })
     window.menuToggleMobileEventListener = true
   }
+  // Remove the mask when click on it.
   window._menuMobileOnClickMask = () => {
-    $menuToggleMobile.classList.remove('active')
-    $menuMobile.classList.remove('active')
+    menuToggleMobile.classList.remove('active')
+    menuMobile.classList.remove('active')
   }
   window.clickMaskEventSet.add(window._menuMobileOnClickMask)
 }
 
+/**
+ * Initialize the switch theme button.
+ */
 function initSwitchTheme () {
-  forEach(document.getElementsByClassName('theme-switch'), $themeSwitch => {
-    $themeSwitch.addEventListener('click', () => {
+  Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
+    themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
+      function setColorTheme (theme) {
+        document.body.setAttribute('theme', theme)
+        window.localStorage && localStorage.setItem('theme', theme)
+        window.isDark = !(theme === 'light')
+      }
       if (currentTheme === 'dark') {
-        document.body.setAttribute('theme', 'black')
-        window.localStorage && localStorage.setItem('theme', 'black')
-        window.isDark = true
+        setColorTheme('black')
       } else if (currentTheme === 'black') {
-        document.body.setAttribute('theme', 'light')
-        window.localStorage && localStorage.setItem('theme', 'light')
-        window.isDark = false
+        setColorTheme('light')
       } else {
-        document.body.setAttribute('theme', 'dark')
-        window.localStorage && localStorage.setItem('theme', 'dark')
-        window.isDark = true
+        setColorTheme('dark')
       }
       for (const event of window.switchThemeEventSet) event()
-    }, false)
+    })
   })
 }
 
+/**
+ * Initialize the select theme button.
+ */
 function initSelectTheme () {
-  forEach(document.getElementsByClassName('color-theme-select'), $themeSelect => {
+  Array.from(document.getElementsByClassName('color-theme-select')).forEach(themeSelect => {
+    // Get the current theme
     const currentTheme = document.body.getAttribute('theme')
-    for (let j = 0; j < $themeSelect.options.length; j++) {
-      const i = $themeSelect.options[j]
+    // Set the selected Index
+    for (let j = 0; j < themeSelect.options.length; j++) {
+      const i = themeSelect.options[j]
       if (i.value === currentTheme) {
-        $themeSelect.selectedIndex = j
+        themeSelect.selectedIndex = j
         break
       }
     }
-    $themeSelect.addEventListener('change', () => {
-      const theme = $themeSelect.value
+
+    themeSelect.addEventListener('change', () => {
+      const theme = themeSelect.value
       window.localStorage && localStorage.setItem('theme', theme)
       if (theme !== 'auto') {
+        window.isDark = !(theme === 'light')
         document.body.setAttribute('theme', theme)
-        if (theme === 'light') {
-          window.isDark = false
-        } else {
-          window.isDark = true
-        }
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
           document.body.setAttribute('theme', 'dark')
@@ -116,15 +131,23 @@ function initSelectTheme () {
         }
       }
       for (const event of window.switchThemeEventSet) event()
-    }, false)
+    })
   })
 }
 
+/**
+ * Initialize the search box.
+ * @returns {null}
+ */
 function initSearch () {
   const searchConfig = window.config.search
-  const isMobile = isMobileWindow()
+  const isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches
+  // If there is no search config
+  // Or the search has been initialized already
+  // Return directly
   if (!searchConfig || (isMobile && window._searchMobileOnce) || (!isMobile && window._searchDesktopOnce)) return
 
+  // Initialize default search config
   const maxResultLength = searchConfig.maxResultLength ? searchConfig.maxResultLength : 10
   const snippetLength = searchConfig.snippetLength ? searchConfig.snippetLength : 50
   const highlightTag = searchConfig.highlightTag ? searchConfig.highlightTag : 'em'
@@ -138,71 +161,80 @@ function initSearch () {
   const useExtendedSearch = searchConfig.useExtendedSearch ? searchConfig.useExtendedSearch : false
   const ignoreFieldNorm = searchConfig.ignoreFieldNorm ? searchConfig.ignoreFieldNorm : false
   const suffix = isMobile ? 'mobile' : 'desktop'
-  const $header = document.getElementById(`header-${suffix}`)
-  const $searchInput = document.getElementById(`search-input-${suffix}`)
-  const $searchToggle = document.getElementById(`search-toggle-${suffix}`)
-  const $searchLoading = document.getElementById(`search-loading-${suffix}`)
-  const $searchClear = document.getElementById(`search-clear-${suffix}`)
+  const header = document.getElementById(`header-${suffix}`)
+  const searchInput = document.getElementById(`search-input-${suffix}`)
+  const searchToggle = document.getElementById(`search-toggle-${suffix}`)
+  const searchLoading = document.getElementById(`search-loading-${suffix}`)
+  const searchClear = document.getElementById(`search-clear-${suffix}`)
+
   if (isMobile) {
     window._searchMobileOnce = true
-    $searchInput.addEventListener('focus', () => {
+    // Turn on the mask when clicking on the search button
+    searchInput.addEventListener('focus', () => {
       document.body.classList.add('blur')
-      $header.classList.add('open')
-    }, false)
+      header.classList.add('open')
+    })
+    // Turn off the everything when clicking on the cancel button
     document.getElementById('search-cancel-mobile').addEventListener('click', () => {
-      $header.classList.remove('open')
+      header.classList.remove('open')
       document.body.classList.remove('blur')
       document.getElementById('menu-toggle-mobile').classList.remove('active')
       document.getElementById('menu-mobile').classList.remove('active')
-      $searchLoading.style.display = 'none'
-      $searchClear.style.display = 'none'
+      searchLoading.style.display = 'none'
+      searchClear.style.display = 'none'
+      window._searchMobile && window._searchMobile.autocomplete.setVal('')
+    })
+    // Clear the search box when clicking on the clear button
+    searchClear.addEventListener('click', () => {
+      searchClear.style.display = 'none'
       window._searchMobile && window._searchMobile.autocomplete.setVal('')
     }, false)
-    $searchClear.addEventListener('click', () => {
-      $searchClear.style.display = 'none'
-      window._searchMobile && window._searchMobile.autocomplete.setVal('')
-    }, false)
+    // Remove the mask when click on it or pjax:send
     window._searchMobileOnClickMask = () => {
-      $header.classList.remove('open')
-      $searchLoading.style.display = 'none'
-      $searchClear.style.display = 'none'
+      header.classList.remove('open')
+      searchLoading.style.display = 'none'
+      searchClear.style.display = 'none'
       window._searchMobile && window._searchMobile.autocomplete.setVal('')
     }
     window.clickMaskEventSet.add(window._searchMobileOnClickMask)
     window.pjaxSendEventSet.add(window._searchMobileOnClickMask)
   } else {
     window._searchDesktopOnce = true
-
-    $searchToggle.addEventListener('click', () => {
+    // Turn on the mask when clicking on the search button
+    searchToggle.addEventListener('click', () => {
       document.body.classList.add('blur')
-      $header.classList.add('open')
-      $searchInput.focus()
-    }, false)
-    $searchClear.addEventListener('click', () => {
-      $searchClear.style.display = 'none'
+      header.classList.add('open')
+      searchInput.focus()
+    })
+    // Clear the search box when clicking on the clear button
+    searchClear.addEventListener('click', () => {
+      searchClear.style.display = 'none'
       window._searchDesktop && window._searchDesktop.autocomplete.setVal('')
-    }, false)
+    })
     // Toggle search when Ctrl + K is pressed
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.code === 'KeyK') {
         e.preventDefault()
-        $searchToggle.click()
+        searchToggle.click()
       }
-    }, false)
+    })
+    // Remove the mask when click on it or pjax:send
     window._searchDesktopOnClickMask = () => {
-      $header.classList.remove('open')
-      $searchLoading.style.display = 'none'
-      $searchClear.style.display = 'none'
+      header.classList.remove('open')
+      searchLoading.style.display = 'none'
+      searchClear.style.display = 'none'
       window._searchDesktop && window._searchDesktop.autocomplete.setVal('')
     }
     window.clickMaskEventSet.add(window._searchDesktopOnClickMask)
     window.pjaxSendEventSet.add(window._searchDesktopOnClickMask)
-    window.pjaxSendEventSet.add(() => { window._searchDesktopOnce = false; window._searchMobileOnce = false })
   }
-  $searchInput.addEventListener('input', () => {
-    if ($searchInput.value === '') $searchClear.style.display = 'none'
-    else $searchClear.style.display = 'inline'
-  }, false)
+  // Reset _searchDesktopOnce when pjax:send
+  window.pjaxSendEventSet.add(() => { window._searchDesktopOnce = false; window._searchMobileOnce = false })
+  // Display the clear button only when the search box is not empty
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value === '') searchClear.style.display = 'none'
+    else searchClear.style.display = 'inline'
+  })
 
   const initAutosearch = () => {
     const autosearch = autocomplete(`#search-input-${suffix}`, {
@@ -215,11 +247,11 @@ function initSearch () {
     }, {
       name: 'search',
       source: (query, callback) => {
-        $searchLoading.style.display = 'inline'
-        $searchClear.style.display = 'none'
+        searchLoading.style.display = 'inline'
+        searchClear.style.display = 'none'
         const finish = (results) => {
-          $searchLoading.style.display = 'none'
-          $searchClear.style.display = 'inline'
+          searchLoading.style.display = 'none'
+          searchClear.style.display = 'inline'
           callback(results)
         }
         if (searchConfig.type === 'lunr') {
@@ -523,7 +555,8 @@ function initHeaderLink () {
 function initToc () {
   const $tocCore = document.getElementById('TableOfContents')
   if ($tocCore === null) return
-  if (document.getElementById('toc-static').getAttribute('kept') || isTocStatic()) {
+  const isTocStatic = window.matchMedia && window.matchMedia('only screen and (max-width: 1000px)').matches
+  if (document.getElementById('toc-static').getAttribute('kept') || isTocStatic) {
     const $tocContentStatic = document.getElementById('toc-content-static')
     if ($tocCore.parentElement !== $tocContentStatic) {
       $tocCore.parentElement.removeChild($tocCore)
