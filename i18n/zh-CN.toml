@@ -167,13 +167,13 @@ other = "更新于 {{ .Date }}"
 other = "阅读原始文档"
 
 [viewSource]
-other = ""
+other = "查看源代码"
 
 [editThisPage]
 other = "编辑此页"
 
 [reportThisPage]
-other = ""
+other = "报告问题"
 
 [back]
 other = "返回"
