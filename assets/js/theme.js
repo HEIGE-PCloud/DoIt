@@ -553,83 +553,97 @@ function initHeaderLink () {
 }
 
 function initToc () {
-  const $tocCore = document.getElementById('TableOfContents')
-  if ($tocCore === null) return
+  const tocCore = document.getElementById('TableOfContents')
+  // Return directly if no toc
+  if (tocCore === null) return
   const isTocStatic = window.matchMedia && window.matchMedia('only screen and (max-width: 1000px)').matches
+
   if (document.getElementById('toc-static').getAttribute('kept') || isTocStatic) {
-    const $tocContentStatic = document.getElementById('toc-content-static')
-    if ($tocCore.parentElement !== $tocContentStatic) {
-      $tocCore.parentElement.removeChild($tocCore)
-      $tocContentStatic.appendChild($tocCore)
+    const tocContentStatic = document.getElementById('toc-content-static')
+    if (tocCore.parentElement !== tocContentStatic) {
+      tocCore.parentElement.removeChild(tocCore)
+      tocContentStatic.appendChild(tocCore)
     }
     if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll)
   } else {
-    const $tocContentAuto = document.getElementById('toc-content-auto')
-    if ($tocCore.parentElement !== $tocContentAuto) {
-      $tocCore.parentElement.removeChild($tocCore)
-      $tocContentAuto.appendChild($tocCore)
+    const tocContentAuto = document.getElementById('toc-content-auto')
+    if (tocCore.parentElement !== tocContentAuto) {
+      tocCore.parentElement.removeChild(tocCore)
+      tocContentAuto.appendChild(tocCore)
     }
-    const $toc = document.getElementById('toc-auto')
-    const $page = document.getElementsByClassName('page')[0]
-    const rect = $page.getBoundingClientRect()
-    $toc.style.left = `${rect.left + rect.width + 20}px`
-    $toc.style.maxWidth = `${window.innerWidth - $page.getBoundingClientRect().right - 20}px`
-    $toc.style.visibility = 'visible'
-    const $tocLinkElements = $tocCore.querySelectorAll('a:first-child')
-    const $tocLiElements = $tocCore.getElementsByTagName('li')
-    const $headerLinkElements = document.getElementsByClassName('headerLink')
+    // The toc element
+    const toc = document.getElementById('toc-auto')
+    // The page element
+    const page = document.getElementsByClassName('page')[0]
+    // The rect of the page
+    const rect = page.getBoundingClientRect()
+    // The toc is 20px to the right of the page
+    toc.style.left = `${rect.left + rect.width + 20}px`
+    // The toc occupy all the right of the window
+    toc.style.maxWidth = `${window.innerWidth - rect.right - 20}px`
+    toc.style.visibility = 'visible'
+    const tocLinkElements = tocCore.querySelectorAll('a:first-child')
+    const tocLiElements = tocCore.getElementsByTagName('li')
+    const headerLinkElements = document.getElementsByClassName('headerLink')
     const headerIsFixed = document.body.getAttribute('header-desktop') !== 'normal'
     const headerHeight = document.getElementById('header-desktop').offsetHeight
     const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0)
-    const minTocTop = $toc.offsetTop
+    const minTocTop = toc.offsetTop
     const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
     window._tocOnScroll = window._tocOnScroll || (() => {
       const footerTop = document.getElementById('post-footer').offsetTop
-      const maxTocTop = footerTop - $toc.getBoundingClientRect().height
+      const maxTocTop = footerTop - toc.getBoundingClientRect().height
       const maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight)
       if (window.newScrollTop < minScrollTop) {
-        $toc.style.position = 'absolute'
-        $toc.style.top = `${minTocTop}px`
+        // If scroll to the top of the page
+        // Set toc to absolute
+        toc.style.position = 'absolute'
+        toc.style.top = `${minTocTop}px`
       } else if (window.newScrollTop > maxScrollTop) {
-        $toc.style.position = 'absolute'
-        $toc.style.top = `${maxTocTop}px`
+        // If scroll to the bottom of the page
+        // Set toc to absolute
+        toc.style.position = 'absolute'
+        toc.style.top = `${maxTocTop}px`
       } else {
-        $toc.style.position = 'fixed'
-        $toc.style.top = `${TOP_SPACING}px`
+        // If in the middle
+        // Set toc to fixed with TOP_SPACING
+        toc.style.position = 'fixed'
+        toc.style.top = `${TOP_SPACING}px`
       }
-      if ($tocLinkElements.length === 0) return
-      const content = document.getElementById('content')
-      forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active') })
-      forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active') })
-      const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0)
+      // Update the active toc link
+      // Return directly if no toc link
+      if (tocLinkElements.length === 0) return
+
       let activeTocIndex = -1
-      if (content.getBoundingClientRect().top <= INDEX_SPACING &&
-          content.getBoundingClientRect().bottom > INDEX_SPACING &&
-          $headerLinkElements[0].getBoundingClientRect().top <= INDEX_SPACING) {
-        if ($headerLinkElements[$headerLinkElements.length - 1].getBoundingClientRect().top < INDEX_SPACING) {
-          activeTocIndex = $headerLinkElements.length - 1
-        } else {
-          for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-            const thisTop = $headerLinkElements[i].getBoundingClientRect().top
-            const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top
-            if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
-              activeTocIndex = i
-              break
-            }
-          }
-        }
-        if (activeTocIndex >= 0 && activeTocIndex < $tocLinkElements.length) {
-          $tocLinkElements[activeTocIndex].classList.add('active')
-          let $parent = $tocLinkElements[activeTocIndex].parentElement
-          while ($parent !== $tocCore) {
-            $parent.classList.add('has-active')
-            $parent = $parent.parentElement.parentElement
+      const INDEX_SPACING = TOP_SPACING + window.newScrollTop
+      if (headerLinkElements[headerLinkElements.length - 1].offsetHeight >= INDEX_SPACING) {
+        // activeTocIndex = headerLinkElements.length - 1
+      } else {
+        for (let i = 0; i < headerLinkElements.length - 1; i++) {
+          const thisTop = headerLinkElements[i].offsetTop
+          const nextTop = headerLinkElements[i + 1].offsetTop
+          if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
+            activeTocIndex = i
+            break
           }
         }
       }
-      if (activeTocIndex !== -1) {
-        history.replaceState(history.state, null, $tocLinkElements[activeTocIndex].href)
+      // Remove all legacy states
+      Array.from(tocLinkElements).forEach(tocLink => tocLink.classList.remove('active'))
+      Array.from(tocLiElements).forEach(tocLi => tocLi.classList.remove('has-active'))
+
+      // Set the tocLinkElement to active
+      // and all its parent to has-active
+      if (activeTocIndex >= 0 && activeTocIndex < tocLinkElements.length) {
+        tocLinkElements[activeTocIndex].classList.add('active')
+        let parent = tocLinkElements[activeTocIndex].parentElement
+        while (parent !== tocCore) {
+          parent.classList.add('has-active')
+          parent = parent.parentElement.parentElement
+        }
       }
+      // Update the broswer history
+      if (activeTocIndex !== -1) history.replaceState(history.state, null, tocLinkElements[activeTocIndex].href)
     })
     window._tocOnScroll()
     window.scrollEventSet.add(window._tocOnScroll)
