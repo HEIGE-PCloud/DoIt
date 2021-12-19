@@ -616,8 +616,8 @@ function initToc () {
 
       let activeTocIndex = -1
       const INDEX_SPACING = TOP_SPACING + window.newScrollTop
-      if (headerLinkElements[headerLinkElements.length - 1].offsetHeight >= INDEX_SPACING) {
-        // activeTocIndex = headerLinkElements.length - 1
+      if (headerLinkElements[headerLinkElements.length - 1].offsetTop < INDEX_SPACING) {
+        activeTocIndex = headerLinkElements.length - 1
       } else {
         for (let i = 0; i < headerLinkElements.length - 1; i++) {
           const thisTop = headerLinkElements[i].offsetTop
