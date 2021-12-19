@@ -616,9 +616,13 @@ function initToc () {
 
       let activeTocIndex = -1
       const INDEX_SPACING = TOP_SPACING + window.newScrollTop
+      // If the INDEX_SPACING is below the last header link
+      // activate the last element
       if (headerLinkElements[headerLinkElements.length - 1].offsetTop < INDEX_SPACING) {
         activeTocIndex = headerLinkElements.length - 1
       } else {
+        // Otherwise activate the element that is in between
+        // Use offsetTop instead of getBoundingClientRect().top for better performance
         for (let i = 0; i < headerLinkElements.length - 1; i++) {
           const thisTop = headerLinkElements[i].offsetTop
           const nextTop = headerLinkElements[i + 1].offsetTop
