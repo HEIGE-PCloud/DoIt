@@ -196,4 +196,11 @@
             {{- dict "Class" "fab fa-mix fa-fw" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
+
+    {{- /* 029: Telegram */ -}}
+    {{- if $share.Telegram -}}
+        <a href="#" onclick="return false;" title="{{ T `shareOn` }} Telegram" data-sharer="telegram" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
+            {{- dict "Class" "fab fa-telegram-plane fa-fw" | partial "plugin/icon.html" -}}
+        </a>
+    {{- end -}}
 {{- end -}}
