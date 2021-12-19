@@ -160,10 +160,16 @@ other = "Author"
 other = "Updated on {{ .Date }}"
 
 [readMarkdown]
-other = "Read Markdown"
+other = "Read markdown"
+
+[viewSource]
+other = "View source"
 
 [editThisPage]
 other = "Edit this page"
+
+[reportThisPage]
+other = "Report issue"
 
 [back]
 other = "Back"

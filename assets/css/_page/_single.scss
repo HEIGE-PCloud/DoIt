@@ -20,6 +20,8 @@
   .post-meta {
     font-size: .875rem;
     color: $global-font-secondary-color;
+    padding: 0.3rem 0 0.3rem;
+    border-bottom: 1px solid $global-border-color;
 
     span {
       display: inline-block;
@@ -27,9 +29,11 @@
 
     [theme=dark] & {
       color: $global-font-secondary-color-dark;
+      border-bottom: 1px solid $global-border-color-dark;
     }
     [theme=black] & {
       color: $global-font-secondary-color-black;
+      border-bottom: 1px solid $global-border-color-black;
     }
 
     @include link(false, true);
