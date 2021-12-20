@@ -165,7 +165,16 @@ other = "Autor"
 other = "Atualizado em {{ .Date }}"
 
 [readMarkdown]
-other = "Leia em Markdown"
+other = "Leia em markdown"
+
+[viewSource]
+other = "Ver fonte"
+
+[editThisPage]
+other = "Edite esta página"
+
+[reportThisPage]
+other = "Relatar problema"
 
 [back]
 other = "Voltar"
