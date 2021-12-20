@@ -197,6 +197,15 @@
     {{- $source := $cdn.metingJS | default "lib/meting/Meting.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = dict "music" true | merge $config -}}
+
+    {{- $shims := dict "aplayer" "js/shims/aplayer.js" -}}
+    {{- $options := dict -}}
+    {{- $options = dict "targetPath" "js/aplayer.min.js" | merge $options -}}
+    {{- $options = dict "minify" true | merge $options -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $js := resources.Get "js/lib/aplayer.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
 {{- end -}}
 
 {{- /* Cookie Consent */ -}}

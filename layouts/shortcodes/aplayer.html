@@ -18,9 +18,9 @@
     {{- $t := trim .Inner " \r\n" -}}
     {{- $_ := replace $t "}" "}," | printf "[%s]" -}}
     {{- $_ = replace $_ ",]" "]" -}}
-    <div class="aplayer" {{- printf "data-src='%s'" $_ | safeHTMLAttr -}} {{- printf "data-options='%s'" $options | safeHTMLAttr -}}></div>
+    <div class="aplayer" {{- printf "data-audio='%s'" $_ | safeHTMLAttr -}} {{- printf "data-options='%s'" $options | safeHTMLAttr -}}></div>
 
-    {{- .Page.Scratch.SetInMap "this" "aplayer" true -}}
+    {{- .Page.Scratch.SetInMap "this" "music" true -}}
 
 {{- else -}}
     {{- errorf "Only named params is supported: %s" .Position -}}
