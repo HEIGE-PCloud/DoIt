@@ -16,7 +16,7 @@ hiddenFromSearch: true
     {{< audio name="audio name" artist="artist" url="url" cover="cover" lrc="lrc" theme="theme" type="type" />}}
 {{< /aplayer >}}
 
-{{< aplayer qwq="" >}}
+{{< aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=0 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
     {{< audio name="audio name" artist="artist" url="url" cover="cover">}}
         LRC here
     {{< /audio >}}
