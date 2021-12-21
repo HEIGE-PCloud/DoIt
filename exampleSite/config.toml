@@ -590,6 +590,10 @@ enableEmoji = true
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
     hugo = true
+    # Hosted on (HTML format is supported)
+    # 托管服务信息 (支持 HTML 格式)
+    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+    hostedOn = '' 
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true

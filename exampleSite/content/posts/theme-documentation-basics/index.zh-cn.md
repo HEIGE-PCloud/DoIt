@@ -293,6 +293,9 @@ hugo
     custom = ''
     # {{< version 0.2.0 >}} 是否显示 Hugo 和主题信息
     hugo = true
+    # {{< version 0.2.14 >}} 托管服务信息 (支持 HTML 格式)
+    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+    hostedOn = '' 
     # {{< version 0.2.0 >}} 是否显示版权信息
     copyright = true
     # {{< version 0.2.0 >}} 是否显示作者

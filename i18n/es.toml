@@ -56,8 +56,14 @@ other = "Cambia el tema"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "Provisto por {{ .Hugo }} | Tema - {{ .Theme }}"
+[poweredBy]
+other = "Provisto por {{ .Hugo }}"
+
+[hostedOn]
+other = "Alejado en {{ .Host }}"
+
+[theme]
+other = "Tema - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
