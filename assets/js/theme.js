@@ -660,7 +660,7 @@ function initMapbox () {
     mapboxgl.setRTLTextPlugin(window.config.mapbox.RTLTextPlugin)
     window._mapboxArr = window._mapboxArr || []
     forEach(document.getElementsByClassName('mapbox'), $mapbox => {
-      const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = window.data[$mapbox.id]
+      const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = window.config.data[$mapbox.id]
       const mapbox = new mapboxgl.Map({
         container: $mapbox,
         center: [lng, lat],
@@ -696,7 +696,7 @@ function initMapbox () {
     window._mapboxOnSwitchTheme = () => {
       forEach(window._mapboxArr, mapbox => {
         const $mapbox = mapbox.getContainer()
-        const { lightStyle, darkStyle } = window.data[$mapbox.id]
+        const { lightStyle, darkStyle } = window.config.data[$mapbox.id]
         mapbox.setStyle(window.isDark ? darkStyle : lightStyle)
         mapbox.addControl(new MapboxLanguage())
       })
@@ -716,7 +716,7 @@ function initTypeit () {
         const id = group[i]
         if (!document.getElementById(id).hasAttribute('data-typeit-id')) {
           const instance = new TypeIt(`#${id}`, {
-            strings: window.data[id],
+            strings: window.config.data[id],
             speed: speed,
             lifeLike: true,
             cursorSpeed: cursorSpeed,
@@ -942,7 +942,6 @@ function onClickMask () {
 }
 
 function init () {
-  window.data = window.config.data
   window.isDark = document.body.getAttribute('theme') !== 'light'
   window.newScrollTop = getScrollTop()
   window.oldScrollTop = window.newScrollTop

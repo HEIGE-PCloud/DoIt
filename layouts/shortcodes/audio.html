@@ -1,0 +1,28 @@
+{{- if .Parent -}}
+    {{- if .Parent.Name | ne "aplayer" -}}
+        {{- errorf "The audio shortcode must be placed inside an aplayer shortcode: %s" .Position -}}
+    {{- else -}}
+
+    {{- if .IsNamedParams -}}    
+    {{- else -}}
+        {{- errorf "Only named params is supported: %s" .Position -}}
+    {{- end -}}
+
+    {{- $options := dict -}}
+    {{- with .Get "name" -}}{{- $options = dict "name" . | merge $options -}}{{- end -}}
+    {{- with .Get "artist" -}}{{- $options = dict "artist" . | merge $options -}}{{- end -}}
+    {{- with .Get "url" -}}{{- $options = dict "url" . | merge $options -}}{{- end -}}
+    {{- with .Get "cover" -}}{{- $options = dict "cover" . | merge $options -}}{{- end -}}
+    {{- with .Get "lrc" -}}{{- $options = dict "lrc" . | merge $options -}}{{- end -}}
+    {{- with .Inner -}}{{- $options = dict "lrc" . | merge $options -}}{{- end -}}
+    {{- with .Get "theme" -}}{{- $options = dict "theme" . | merge $options -}}{{- end -}}
+    {{- with .Get "type" -}}{{- $options = dict "type" . | merge $options -}}{{- end -}}
+
+    {{- $options | jsonify -}}
+
+    {{- end -}}
+{{- else -}}
+    {{- errorf "The audio shortcode must be placed inside an aplayer shortcode: %s" .Position -}}
+{{- end -}}
+
+
