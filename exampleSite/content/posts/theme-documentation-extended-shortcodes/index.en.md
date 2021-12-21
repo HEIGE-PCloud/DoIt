@@ -1123,6 +1123,38 @@ The `music` shortcode has the following named parameters only applying to the ty
 
 {{< version 0.2.14 >}}
 
+If you need more advanced controls (custom playlist, mini mode, custom audio type...) over the music player, you can use the `aplayer` shortcode along with the `audio` shortcode to reach full power of [APlayer.js](https://aplayer.js.org).
+
+The `aplayer` shortcode is used to create an `APlayer` instance, and the `audio` shortcode is used to store data about each music file. Please refer to [APlayer.js documentation](https://aplayer.js.org/#/home?id=options) for all options.
+
+Example `aplayer` and `audio` input:
+
+```markdown
+{{</* aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" */>}}
+    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" /*/>}}
+    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" */>}}
+        [00:00.00]APlayer audio1
+        [00:04.01]is
+        [00:08.02]amazing
+    {{</* /audio */>}}
+{{</* /aplayer */>}}
+```
+
+Example `aplayer` and `audio` output:
+
+{{< aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" />}}
+    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" >}}
+        [00:00.00]APlayer audio1
+        [00:04.01]is
+        [00:08.02]amazing
+    {{< /audio >}}
+{{< /aplayer >}}
+
+Note that these shortcodes cannot be used separately and only named parameters are supported.
+
+If you place the LRC inside the `audio` shortcode, it is passed to the APlayer as a JS string, so the `lrcType` needs to be set to 1. If you set the link to the LRC file through the `lrc` parameter, it will be passed as an LRC file, so the `lrcType` needs to be set to 1.
+
 ## 10 bilibili
 
 {{< version 0.2.0 changed >}}
