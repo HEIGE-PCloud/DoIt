@@ -68,8 +68,14 @@ other = "跟随系统"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "由 {{ .Hugo }} 强力驱动 | 主题 - {{ .Theme }}"
+[poweredBy]
+other = "由 {{ .Hugo }} 强力驱动"
+
+[hostedOn]
+other = "托管在 {{ .Host }} 上"
+
+[theme]
+other = "主题 - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===

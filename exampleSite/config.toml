@@ -592,6 +592,7 @@ enableEmoji = true
     hugo = true
     # whether to show copyright info
     # 是否显示版权信息
+    hostedOn = '<a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>' 
     copyright = true
     # whether to show the author
     # 是否显示作者

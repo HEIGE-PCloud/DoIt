@@ -8,15 +8,27 @@
                 </div>
             {{- end -}}
 
-            {{- /* Hugo and DoIt */ -}}
+            {{- /* Hugo, Host and DoIt */ -}}
+            {{- $post_info := slice -}}
             {{- if ne .Site.Params.footer.hugo false -}}
+                {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo %v">Hugo</a>` hugo.Version -}}
+                {{- $e := dict "Hugo" $hugo | T "poweredBy" -}}
+                {{- $post_info = $post_info | append $e -}}
+            {{- end -}}
+            {{- with .Site.Params.footer.hostedon -}}
+                {{- $e := dict "Host" . | T "hostedOn" -}}
+                {{- $post_info = $post_info | append $e -}}
+            {{- end -}}
+            {{- if ne .Site.Params.footer.hugo false -}}
+                {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
+                {{- $e := dict "Theme" $theme | T "theme" -}}
+                {{- $post_info = $post_info | append $e -}}
+            {{- end -}}
+            {{- with $post_info -}}
                 <div class="footer-line">
-                    {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo %v">Hugo</a>` hugo.Version -}}
-                    {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
-                    {{- dict "Hugo" $hugo "Theme" $theme | T "poweredBySome" | safeHTML }}
+                    {{ delimit . "&nbsp;|&nbsp;" | safeHTML }}
                 </div>
             {{- end -}}
-
             <div class="footer-line">
                 {{- /* Copyright year */ -}}
                 {{- if ne .Site.Params.footer.copyright false -}}
