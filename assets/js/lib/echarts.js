@@ -8,7 +8,7 @@ window._echartsOnSwitchTheme = () => {
   window._echartsArr = []
   Array.from(document.getElementsByClassName('echarts')).forEach(e => {
     const chart = echarts.init(e, window.isDark ? 'dark' : 'macarons', { renderer: 'svg' })
-    chart.setOption(JSON.parse(window.data[e.id]))
+    chart.setOption(JSON.parse(window.config.data[e.id]))
     window._echartsArr.push(chart)
   })
 }
