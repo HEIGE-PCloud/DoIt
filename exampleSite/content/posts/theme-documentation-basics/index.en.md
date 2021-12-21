@@ -454,12 +454,12 @@ Please open the code block below to view the complete sample configuration :(far
     # {{< version 0.2.14 >}} configure the link to view source the post
     linkToSource = false
     # "https://github.com/user/repo/blob/main/{path}"
-    # {{< version 0.2.13 >}} configure the link to report issue the post
+    # {{< version 0.2.13 >}} configure the link to edit the post
     linkToEdit = false
     # "https://github.com/user/repo/edit/main/{path}"
     # "https://gitlab.com/user/repo/-/edit/main/{path}"
     # "https://bitbucket.org/user/repo/src/main/{path}?mode=edit"
-    # {{< version 0.2.14 >}} configure the link to view source the post
+    # {{< version 0.2.14 >}} configure the link to report issue the post
     linkToReport = false
     # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # {{< version 0.2.4 >}} whether to show the full text content in RSS
