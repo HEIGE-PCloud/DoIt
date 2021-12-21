@@ -1121,7 +1121,43 @@ data = [
 
     音乐列表的最大高度, 默认值是 `340px`.
 
-## 9 bilibili
+## 9 aplayer and audio
+
+{{< version 0.2.14 >}}
+
+如果你需要针对音乐播放器的更多自定义选项（如自定义歌单，迷你模式，自定义音乐类型以及更多...），你可以使用 `aplayer` shortcode 配合 `audio` shortcode 以发挥 [APlayer.js](https://aplayer.js.org) 的全部功能。
+
+`aplayer` shortcode 用于创建一个 `APlayer` 播放器实例，`audio` shortcode 则用于设置音乐文件的相关信息。请查看 [APlayer.js 的文档](https://aplayer.js.org/#/zh-Hans/?id=%E5%8F%82%E6%95%B0) 来了解所有的可配置项。
+
+一个 `aplayer` 和 `audio` 的示例：
+
+```markdown
+{{</* aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" */>}}
+    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" /*/>}}
+    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" */>}}
+        [00:00.00]APlayer audio1
+        [00:04.01]is
+        [00:08.02]amazing
+    {{</* /audio */>}}
+{{</* /aplayer */>}}
+```
+
+呈现的输出效果如下：
+
+{{< aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" />}}
+    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" >}}
+        [00:00.00]APlayer audio1
+        [00:04.01]is
+        [00:08.02]amazing
+    {{< /audio >}}
+{{< /aplayer >}}
+
+需要注意的是，这两个 shortcodes 并不能单独使用，并且必须使用命名参数来设置它们的属性。
+
+如果你将 LRC 放置于 `audio` shortcode 之中，它会通过 JS 字符串方式传递给 APlayer，所以你需要将 `lrcType` 设置为 1。如果你通过配置 `lrc` 参数的方式来设置 LRC 文件的链接，那么它将会被通过 LRC 文件方式传递给 APlayer，则 `lrcType` 需要被设置为 3。
+
+## 10 bilibili
 
 {{< version 0.2.0 changed >}}
 
@@ -1163,13 +1199,13 @@ https://www.bilibili.com/video/BV1TJ411C7An?p=3
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
-## 10 typeit
+## 11 typeit
 
 `typeit` shortcode 基于 [TypeIt](https://typeitjs.com/) 提供了打字动画.
 
 只需将你需要打字动画的内容插入 `typeit` shortcode 中即可.
 
-### 10.1 简单内容 {#simple-content}
+### 11.1 简单内容 {#simple-content}
 
 允许使用 `Markdown` 格式的简单内容, 并且 **不包含** 富文本的块内容, 例如图像等等...
 
@@ -1203,7 +1239,7 @@ https://www.bilibili.com/video/BV1TJ411C7An?p=3
 这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{< /typeit >}}
 
-### 10.2 代码内容 {#code-content}
+### 11.2 代码内容 {#code-content}
 
 代码内容也是允许的, 并且通过使用参数 `code` 指定语言类型可以实习语法高亮.
 
@@ -1229,7 +1265,7 @@ public class HelloWorld {
 }
 {{< /typeit >}}
 
-### 10.3 分组内容 {#code-content}
+### 11.3 分组内容 {#code-content}
 
 默认情况下, 所有打字动画都是同时开始的.
 但是有时你可能需要按顺序开始一组 `typeit` 内容的打字动画.
@@ -1258,7 +1294,7 @@ public class HelloWorld {
 **然后**, 这个段落开始
 {{< /typeit >}}
 
-## 11 script
+## 12 script
 
 {{< version 0.2.8 >}}
 
@@ -1283,7 +1319,7 @@ console.log('Just DoIt!');
 console.log('Just DoIt!');
 {{< /script >}}
 
-## 12 friend
+## 13 friend
 
 {{< version 0.2.11 >}}
 
@@ -1320,7 +1356,7 @@ console.log('Just DoIt!');
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
 
-## 13 showcase
+## 14 showcase
 
 {{< version 0.2.12 >}}
 
@@ -1360,7 +1396,7 @@ Or
 
 {{< showcase title="主题文档 - 基本概念" summary="探索 Hugo - DoIt 主题的全部内容和背后的核心概念." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
 
-## 14 math
+## 15 math
 
 {{< version 0.2.12 >}}
 

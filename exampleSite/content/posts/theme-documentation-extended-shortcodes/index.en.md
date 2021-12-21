@@ -1153,7 +1153,7 @@ Example `aplayer` and `audio` output:
 
 Note that these shortcodes cannot be used separately and only named parameters are supported.
 
-If you place the LRC inside the `audio` shortcode, it is passed to the APlayer as a JS string, so the `lrcType` needs to be set to 1. If you set the link to the LRC file through the `lrc` parameter, it will be passed as an LRC file, so the `lrcType` needs to be set to 1.
+If you place the LRC inside the `audio` shortcode, it is passed to the APlayer as a JS string, so the `lrcType` needs to be set to 1. If you set the link to the LRC file through the `lrc` parameter, it will be passed as an LRC file, so the `lrcType` needs to be set to 3.
 
 ## 10 bilibili
 
