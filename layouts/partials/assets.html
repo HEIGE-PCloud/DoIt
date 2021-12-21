@@ -296,6 +296,6 @@
     {{- end -}}
 
     {{- range (.Scratch.Get "this").pjaxStyle -}}
-        {{- partial "plugin/defer-style.html" . -}}
+        {{- partial "plugin/style.html" . -}}
     {{- end -}}
 </div>
