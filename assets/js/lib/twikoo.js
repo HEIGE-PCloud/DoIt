@@ -1,6 +1,6 @@
 const twikoo = require('twikoo')
 
-if (window.config.comment) {
+if (window.config?.comment) {
   const config = window.config.comment.twikoo
   if (config) {
     twikoo.init(config)

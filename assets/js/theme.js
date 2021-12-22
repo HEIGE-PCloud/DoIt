@@ -742,112 +742,6 @@ function initTypeit () {
   }
 }
 
-function initComment () {
-  if (window.config.comment) {
-    if (window.config.comment.gitalk) {
-      window.config.comment.gitalk.body = decodeURI(window.location.href)
-      const gitalk = new Gitalk(window.config.comment.gitalk)
-      gitalk.render('gitalk')
-    }
-    if (window.config.comment.valine) new Valine(window.config.comment.valine)
-    if (window.config.comment.waline) new Waline(window.config.comment.waline)
-    if (window.config.comment.utterances) {
-      const utterancesConfig = window.config.comment.utterances
-      const script = document.createElement('script')
-      script.src = 'https://utteranc.es/client.js'
-      script.type = 'text/javascript'
-      script.setAttribute('repo', utterancesConfig.repo)
-      script.setAttribute('issue-term', utterancesConfig.issueTerm)
-      if (utterancesConfig.label) script.setAttribute('label', utterancesConfig.label)
-      script.setAttribute('theme', window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme)
-      script.crossOrigin = 'anonymous'
-      script.async = true
-      document.getElementById('utterances').appendChild(script)
-      window._utterancesOnSwitchTheme = () => {
-        const message = {
-          type: 'set-theme',
-          theme: window.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme
-        }
-        const iframe = document.querySelector('.utterances-frame')
-        iframe.contentWindow.postMessage(message, 'https://utteranc.es')
-      }
-      window.switchThemeEventSet.add(window._utterancesOnSwitchTheme)
-    }
-    if (window.config.comment.vssue) {
-      const vssue = window.config.comment.vssue
-      new Vue({
-        el: vssue.el,
-        render: h => h('Vssue', {
-          props: {
-            title: vssue.title,
-            options: {
-              owner: vssue.owner,
-              repo: vssue.repo,
-              clientId: vssue.clientId,
-              clientSecret: vssue.clientSecret
-            }
-          }
-        })
-      })
-    }
-    if (window.config.comment.remark42) {
-      const remark42 = window.config.comment.remark42
-      // eslint-disable-next-line camelcase
-      const remark_config = {
-        host: remark42.host,
-        site_id: remark42.site_id,
-        components: ['embed'],
-        max_shown_comments: remark42.max_shown_comments,
-        theme: window.isDark ? 'dark' : 'light',
-        locale: remark42.locale,
-        show_email_subscription: remark42.show_email_subscription,
-        simple_view: remark42.simple_view
-      }
-      // eslint-disable-next-line camelcase
-      window.remark_config = remark_config
-      // eslint-disable-next-line no-sequences, no-unused-expressions
-      !(function (e, n) { for (let o = 0; o < e.length; o++) { const r = n.createElement('script'); let c = '.js'; const d = n.head || n.body; 'noModule' in r ? (r.type = 'module', c = '.mjs') : r.async = !0, r.defer = !0, r.src = remark_config.host + '/web/' + e[o] + c, d.appendChild(r) } }(remark_config.components || ['embed'], document))
-      window._remark42OnSwitchTheme = () => {
-        if (window.isDark) {
-          window.REMARK42.changeTheme('dark')
-        } else {
-          window.REMARK42.changeTheme('light')
-        }
-      }
-      window.switchThemeEventSet.add(window._remark42OnSwitchTheme)
-    }
-    if (window.config.comment.giscus) {
-      const giscusConfig = window.config.comment.giscus
-      const script = document.createElement('script')
-      script.src = 'https://giscus.app/client.js'
-      script.type = 'text/javascript'
-      script.setAttribute('data-repo', giscusConfig.dataRepo)
-      script.setAttribute('data-repo-id', giscusConfig.dataRepoId)
-      if (giscusConfig.dataCategory) script.setAttribute('data-category', giscusConfig.dataCategory)
-      script.setAttribute('data-category-id', giscusConfig.dataCategoryId)
-      script.setAttribute('data-mapping', giscusConfig.dataMapping)
-      script.setAttribute('data-reactions-enabled', giscusConfig.dataReactionsEnabled)
-      script.setAttribute('data-emit-metadata', giscusConfig.dataEmitMetadata)
-      script.setAttribute('data-theme', window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme)
-      script.crossOrigin = 'anonymous'
-      script.async = true
-      document.getElementById('giscus').appendChild(script)
-      window._giscusOnSwitchTheme = () => {
-        const message = {
-          giscus: {
-            setConfig: {
-              theme: window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme
-            }
-          }
-        }
-        const iframe = document.querySelector('.giscus-frame')
-        iframe.contentWindow.postMessage(message, 'https://giscus.app')
-      }
-      window.switchThemeEventSet.add(window._giscusOnSwitchTheme)
-    }
-  }
-}
-
 function initMeta () {
   function getMeta (metaName) {
     const metas = document.getElementsByTagName('meta')
@@ -965,7 +859,6 @@ function init () {
   initTypeit()
   initMapbox()
   initToc()
-  initComment()
   onScroll()
   onResize()
   onClickMask()
