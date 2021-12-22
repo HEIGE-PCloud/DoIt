@@ -65,7 +65,7 @@
         {{- if $waline.enable -}}
             <div id="waline" class="comment"></div>
             {{- $source := $cdn.walineJS | default "lib/waline/Waline.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" true | dict "waline" | merge $commentConfig -}}
             {{- with $waline.visitor -}}
                 {{- $commentConfig = dict "visitor" . | dict "waline" | merge $commentConfig -}}
@@ -97,6 +97,14 @@
             {{- with $waline.mathTagSupport -}}
                 {{- $commentConfig = dict "mathTagSupport" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
+            {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
+            {{- $options := dict -}}
+            {{- $options = dict "targetPath" "js/waline.min.js" | merge $options -}}
+            {{- $options = dict "minify" true | merge $options -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
+            {{- $js := resources.Get "js/lib/waline.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}        
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Waline</a>.
             </noscript>
