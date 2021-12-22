@@ -742,16 +742,6 @@ function initTypeit () {
   }
 }
 
-function initComment () {
-  if (window.config.comment) {
-    if (window.config.comment.gitalk) {
-      window.config.comment.gitalk.body = decodeURI(window.location.href)
-      const gitalk = new Gitalk(window.config.comment.gitalk)
-      gitalk.render('gitalk')
-    }
-  }
-}
-
 function initMeta () {
   function getMeta (metaName) {
     const metas = document.getElementsByTagName('meta')
@@ -869,7 +859,6 @@ function init () {
   initTypeit()
   initMapbox()
   initToc()
-  initComment()
   onScroll()
   onResize()
   onClickMask()

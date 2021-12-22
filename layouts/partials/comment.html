@@ -28,6 +28,10 @@
             {{- with $gitalk.proxy -}}
                 {{- $commentConfig = dict "proxy" . | dict "gitalk" | merge $commentConfig -}}
             {{- end -}}
+            {{- $options := dict "targetPath" "js/gitalk.min.js" "minify" true -}}
+            {{- $js := resources.Get "js/lib/gitalk.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript>
