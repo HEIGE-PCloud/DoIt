@@ -455,11 +455,17 @@ hugo
     fontawesome = true
     # 是否在文章页面显示原始 Markdown 文档链接
     linkToMarkdown = true
+    # {{< version 0.2.14 >}} 配置文章原始文件的链接
+    linkToSource = false
+    # "https://github.com/user/repo/blob/main/{path}"
     # {{< version 0.2.13 >}} 配置编辑文章的链接
     linkToEdit = false
     # "https://github.com/user/repo/edit/main/{path}"
     # "https://gitlab.com/user/repo/-/edit/main/{path}"
     # "https://bitbucket.org/user/repo/src/main/{path}?mode=edit"
+    # {{< version 0.2.14 >}} 配置提交错误的链接
+    linkToReport = false
+    # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # {{< version 0.2.4 >}} 是否在 RSS 中显示全文内容
     rssFullText = false
     # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
