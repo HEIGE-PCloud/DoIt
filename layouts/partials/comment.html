@@ -40,7 +40,7 @@
             {{- $options := dict "targetPath" "lib/valine/valine.min.css" -}}
             {{- dict "Source" "lib/valine/Valine.scss" "ToCSS" $options | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
             {{- $source := $cdn.valineJS | default "lib/valine/Valine.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             {{- $commentConfig = dict "el" "#valine" "appId" $valine.appId "appKey" $valine.appKey "lang" ($valine.lang | default (T "valineLang")) "visitor" $valine.visitor "recordIP" $valine.recordIP "placeholder" ($valine.placeholder | default (T "valinePlaceholder")) "highlight" (ne $valine.highlight false) "enableQQ" $valine.enableQQ | dict "valine" | merge $commentConfig -}}
             {{- with $valine.avatar -}}
                 {{- $commentConfig = dict "avatar" . | dict "valine" | merge $commentConfig -}}
@@ -55,6 +55,14 @@
                 {{- $commentConfig = dict "serverURLs" . | dict "valine" | merge $commentConfig -}}
             {{- end -}}
             {{- $commentConfig = $valine.emoji | default "google.yml" | printf "data/emoji/%v" | resources.Get | transform.Unmarshal | dict "valine" | merge $commentConfig -}}
+            {{- $shims := dict "valine" "js/shims/valine.js" -}}
+            {{- $options := dict -}}
+            {{- $options = dict "targetPath" "js/valine.min.js" | merge $options -}}
+            {{- $options = dict "minify" true | merge $options -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
+            {{- $js := resources.Get "js/lib/valine.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}       
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript>
@@ -194,7 +202,7 @@
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}        
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
             {{- $commentConfig = dict "lang" .Lang | dict "twikoo" | merge $commentConfig -}}
             {{- with $twikoo.region -}}

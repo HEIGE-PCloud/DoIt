@@ -749,7 +749,6 @@ function initComment () {
       const gitalk = new Gitalk(window.config.comment.gitalk)
       gitalk.render('gitalk')
     }
-    if (window.config.comment.valine) new Valine(window.config.comment.valine)
     if (window.config.comment.utterances) {
       const utterancesConfig = window.config.comment.utterances
       const script = document.createElement('script')
