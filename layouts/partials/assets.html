@@ -255,6 +255,7 @@
 
 {{- /* Theme script */ -}}
 {{- $shims := dict -}}
+{{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
 {{- $options := dict -}}
 {{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
 {{- $options = dict "minify" true | merge $options -}}

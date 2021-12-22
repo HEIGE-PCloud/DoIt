@@ -1,6 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
 // import { autocomplete } from '@algolia/autocomplete-js'
+import * as topbar from 'topbar'
 
 function forEach (elements, handler) {
   elements = elements || []
