@@ -275,6 +275,10 @@
             {{- with $remark42.simple_view -}}
                 {{- $commentConfig = dict "simple_view" . | dict "remark42" | merge $commentConfig -}}
             {{- end -}}
+            {{- $options := dict "targetPath" "js/remark42.min.js" "minify" true -}}
+            {{- $js := resources.Get "js/lib/remark42.js" | js.Build $options -}}
+            {{- $_ := $js.RelPermalink -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
             </noscript>
