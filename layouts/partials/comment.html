@@ -260,6 +260,10 @@
                 {{- with $vssue.clientSecret -}}
                     {{- $commentConfig = dict "clientSecret" . | dict "vssue" | merge $commentConfig -}}
                 {{- end -}}
+                {{- $options := dict "targetPath" "js/vssue.min.js" "minify" true -}}
+                {{- $js := resources.Get "js/lib/vssue.js" | js.Build $options -}}
+                {{- $_ := $js.RelPermalink -}}
+                {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
             </noscript>

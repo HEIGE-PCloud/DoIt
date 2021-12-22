@@ -1,4 +1,4 @@
-if (window.config.comment.giscus) {
+if (window.config?.comment?.giscus) {
   const giscusConfig = window.config.comment.giscus
   const script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'

@@ -1,4 +1,4 @@
-if (window.config.comment.utterances) {
+if (window.config?.comment?.utterances) {
   const utterancesConfig = window.config.comment.utterances
   const script = document.createElement('script')
   script.src = 'https://utteranc.es/client.js'

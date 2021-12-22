@@ -1,4 +1,4 @@
-if (window.config.comment.remark42) {
+if (window.config?.comment?.remark42) {
   const remark42 = window.config.comment.remark42
   // eslint-disable-next-line camelcase
   const remark_config = {
