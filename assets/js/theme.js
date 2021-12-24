@@ -883,8 +883,7 @@ new Pjax({
     '.pjax-assets',
     '#fixed-buttons',
     '.search-dropdown'
-  ],
-  scrollTo: false
+  ]
 })
 
 document.addEventListener('pjax:success', function () {
@@ -900,7 +899,6 @@ document.addEventListener('pjax:send', function () {
   if (el) {
     window.lgData[el?.getAttribute('lg-uid')].destroy(true)
   }
-  window.scroll(0, 0)
 })
 
 topbar.config({
