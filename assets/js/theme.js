@@ -551,29 +551,9 @@ function initToc () {
   const isTocStatic = window.matchMedia && window.matchMedia('only screen and (max-width: 1000px)').matches
 
   if (document.getElementById('toc-static').getAttribute('kept') || isTocStatic) {
-    const tocContentStatic = document.getElementById('toc-content-static')
-    if (tocCore.parentElement !== tocContentStatic) {
-      tocCore.parentElement.removeChild(tocCore)
-      tocContentStatic.appendChild(tocCore)
-    }
     if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll)
   } else {
-    const tocContentAuto = document.getElementById('toc-content-auto')
-    if (tocCore.parentElement !== tocContentAuto) {
-      tocCore.parentElement.removeChild(tocCore)
-      tocContentAuto.appendChild(tocCore)
-    }
-    // The toc element
     const toc = document.getElementById('toc-auto')
-    // The page element
-    const page = document.getElementsByClassName('page')[0]
-    // The rect of the page
-    const rect = page.getBoundingClientRect()
-    // The toc is 20px to the right of the page
-    toc.style.left = `${rect.left + rect.width + 20}px`
-    // The toc occupy all the right of the window
-    toc.style.maxWidth = `${window.innerWidth - rect.right - 20}px`
-    toc.style.visibility = 'visible'
     const tocLinkElements = tocCore.querySelectorAll('a:first-child')
     const tocLiElements = tocCore.getElementsByTagName('li')
     const headerLinkElements = document.getElementsByClassName('headerLink')
