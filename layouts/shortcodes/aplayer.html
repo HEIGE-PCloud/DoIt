@@ -20,7 +20,7 @@
     {{- $_ = replace $_ ",]" "]" -}}
     <div class="aplayer-shortcode" {{- printf "data-audio='%s'" $_ | safeHTMLAttr -}} {{- printf "data-options='%s'" $options | safeHTMLAttr -}}></div>
 
-    {{- .Page.Scratch.SetInMap "this" "music" true -}}
+    {{- .Page.Scratch.SetInMap "this" "aplayer" true -}}
 
 {{- else -}}
     {{- errorf "Only named params is supported: %s" .Position -}}
