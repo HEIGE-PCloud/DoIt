@@ -612,6 +612,10 @@ function initToc () {
       // and all its parent to has-active
       if (activeTocIndex >= 0 && activeTocIndex < tocLinkElements.length) {
         tocLinkElements[activeTocIndex].classList.add('active')
+        tocLinkElements[activeTocIndex].scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
         let parent = tocLinkElements[activeTocIndex].parentElement
         while (parent !== tocCore) {
           parent.classList.add('has-active')
@@ -866,7 +870,7 @@ document.addEventListener('pjax:send', function () {
   delete window._tocOnScroll
   const el = document.getElementById('content')
   if (el) {
-    window.lgData[el?.getAttribute('lg-uid')].destroy(true)
+    window.lgData[el?.getAttribute('lg-uid')]?.destroy(true)
   }
 })
 
