@@ -4,6 +4,7 @@ public/
 
 node_modules/
 build/
+gen_/
 
 ## OS Files
 # Windows

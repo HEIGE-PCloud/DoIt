@@ -544,15 +544,6 @@ function initTable () {
   })
 }
 
-function initHeaderLink () {
-  for (let num = 1; num <= 6; num++) {
-    forEach(document.querySelectorAll('.single .content > h' + num), $header => {
-      $header.classList.add('headerLink')
-      $header.insertAdjacentHTML('afterbegin', `<a href="#${$header.id}" class="header-mark"></a>`)
-    })
-  }
-}
-
 function initToc () {
   const tocCore = document.getElementById('TableOfContents')
   // Return directly if no toc
@@ -856,7 +847,6 @@ function init () {
   initLightGallery()
   initHighlight()
   initTable()
-  initHeaderLink()
   initTypeit()
   initMapbox()
   initToc()
