@@ -793,7 +793,6 @@ function onResize () {
       window._resizeTimeout = window.setTimeout(() => {
         window._resizeTimeout = null
         for (const event of window.resizeEventSet) event()
-        initToc()
         initSearch()
       }, 100)
     }
