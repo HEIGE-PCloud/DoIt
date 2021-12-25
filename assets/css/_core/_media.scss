@@ -2,11 +2,20 @@
   .page {
     width: 56%;
   }
+  #toc-auto {
+    left: 78%;
+    width: 22%;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
   .page {
     width: 52%;
+  }
+
+  #toc-auto {
+    left: 76%;    
+    width: 24%;    
   }
 
   #header-desktop .header-wrapper {
