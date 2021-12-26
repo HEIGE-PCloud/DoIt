@@ -68,8 +68,14 @@ other = "Auto"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "Movido a {{ .Hugo }} | Tema - {{ .Theme }}"
+[poweredBy]
+other = "Movido a {{ .Hugo }}"
+
+[hostedOn]
+other = "Hospedado em {{ .Host }}"
+
+[theme]
+other = "Tema - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
