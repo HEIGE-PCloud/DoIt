@@ -63,18 +63,18 @@
                 {{- if eq .Site.Params.ibruce.enable true -}}
                     {{/*  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                     <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>  */}}
-                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline;">
                         <span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
                         <span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span>
                     </span>
                 {{- end -}}
-            </div>
-            <div class="footer-line">
                 {{- /* CNZZ */ -}}
                 {{- if eq .Site.Params.cnzz.enable true -}}
                     <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_{{ .Site.Params.cnzz.id }}'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D{{ .Site.Params.cnzz.id }}%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
                 {{- end -}}
+            </div>
+            <div class="footer-line">
             </div>
         </div>
         {{- /* PWA */ -}}
@@ -85,13 +85,11 @@
                         navigator.serviceWorker
                             .register('/sw.min.js', { scope: '/' })
                             .then(function(registration) {
-                                //console.log('Service Worker Registered');
                             });
                 
                         navigator.serviceWorker
                             .ready
                             .then(function(registration) {
-                                //console.log('Service Worker Ready');
                             });
                     }
                 </script>
