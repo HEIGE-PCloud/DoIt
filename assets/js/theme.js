@@ -541,6 +541,8 @@ function initTable () {
     $wrapper.className = 'table-wrapper'
     $table.parentElement.replaceChild($wrapper, $table)
     $wrapper.appendChild($table)
+    if (window.config?.table?.sort)
+      new Tablesort($table)
   })
 }
 
