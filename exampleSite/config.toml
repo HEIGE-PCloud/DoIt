@@ -728,7 +728,9 @@ enableEmoji = true
     # Table config
     #
     [params.page.table]
-      sort = false
+      # whether to enable sorting in the tables
+      # 
+      sort = true
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
