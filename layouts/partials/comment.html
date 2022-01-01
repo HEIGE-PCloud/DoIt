@@ -2,6 +2,7 @@
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $comment := .Scratch.Get "comment" | default dict -}}
 {{- $commentConfig := dict -}}
+{{- $bundle := .Site.Params.bundle -}}
 
 {{- if $comment.enable -}}
     <div id="comments">
@@ -201,13 +202,16 @@
         {{- $twikoo := $comment.twikoo | default dict -}}
         {{- if $twikoo.enable -}}
             <div id="twikoo"></div>
-            {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
             {{- $shims := dict "twikoo" "js/shims/twikoo.js" -}}
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/twikoo.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
-            {{- $options = dict "shims" $shims | merge $options -}}
+            {{- if $bundle -}}
+            {{- else -}}
+                {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+                {{- $options = dict "shims" $shims | merge $options -}}
+            {{- end -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
             {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
