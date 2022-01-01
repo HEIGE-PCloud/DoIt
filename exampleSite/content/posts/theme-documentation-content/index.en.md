@@ -135,6 +135,9 @@ toc:
 code:
   copy: true
   # ...
+table:
+  sort: true
+  # ...
 math:
   enable: true
   # ...
@@ -205,6 +208,7 @@ sponsor:
 
 * **toc**: {{< version 0.2.9 changed >}} the same as the `params.page.toc` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **code**: {{< version 0.2.0 >}} the same as the `params.page.code` part in the [site configuration](../theme-documentation-basics#site-configuration).
+* **table**: {{< version 0.2.14 >}} the same as the `params.page.table` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **math**: {{< version 0.2.0 changed >}} the same as the `params.page.math` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **mapbox**: {{< version 0.2.0 >}} the same as the `params.page.mapbox` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **share**: the same as the `params.page.share` part in the [site configuration](../theme-documentation-basics#site-configuration).

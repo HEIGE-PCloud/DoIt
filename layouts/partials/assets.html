@@ -41,6 +41,13 @@
 {{- $source := $cdn.lazysizesJS | default "lib/lazysizes/lazysizes.min.js" -}}
 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
+{{- /* tablesort */ -}}
+{{- if $params.table | and $params.table.sort -}}
+    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- $config = dict "sort" true | dict "table" | merge $config -}}
+{{- end -}}
+
 {{- /* twemoji */ -}}
 {{- if $params.twemoji -}}
     {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
@@ -258,6 +265,7 @@
 {{- /* Theme script */ -}}
 {{- $shims := dict -}}
 {{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
+{{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
 {{- $options := dict -}}
 {{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
 {{- $options = dict "minify" true | merge $options -}}

@@ -493,6 +493,10 @@ hugo
       copy = true
       # 默认展开显示的代码行数
       maxShownLines = 10
+    # {{< version 0.2.14 >}} 表格配置
+    [params.page.table]
+      # 是否开启表格排序
+      sort = true
     # {{< version 0.2.0 changed >}} {{< link "https://katex.org/" KaTeX >}} 数学公式
     [params.page.math]
       enable = true
