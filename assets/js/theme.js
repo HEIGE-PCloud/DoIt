@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 // import { autocomplete } from '@algolia/autocomplete-js'
 import * as topbar from 'topbar'
+const Tablesort = require('tablesort')
 
 function forEach (elements, handler) {
   elements = elements || []
@@ -541,8 +542,9 @@ function initTable () {
     $wrapper.className = 'table-wrapper'
     $table.parentElement.replaceChild($wrapper, $table)
     $wrapper.appendChild($table)
-    if (window.config?.table?.sort)
+    if (window.config?.table?.sort) {
       new Tablesort($table)
+    }
   })
 }
 
