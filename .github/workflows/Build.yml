@@ -24,5 +24,12 @@ jobs:
           hugo-version: ${{ matrix.hugo_version }}
           extended: true
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Build
         run: hugo -v --source=exampleSite --themesDir ../.. --gc
