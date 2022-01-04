@@ -7,9 +7,9 @@
     "@waline/client": "^1.5.2",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0"
+    "eslint-plugin-promise": "^6.0.0"
   },
   "scripts": {
     "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
@@ -39,6 +39,7 @@
     "echarts": "^5.2.2",
     "katex": "^0.15.1",
     "mermaid": "^8.13.8",
+    "tablesort": "^5.3.0",
     "topbar": "^1.0.1",
     "twemoji": "^13.1.0",
     "twikoo": "^1.4.15",

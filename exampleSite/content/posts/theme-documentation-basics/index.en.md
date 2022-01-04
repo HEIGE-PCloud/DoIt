@@ -502,6 +502,10 @@ Please open the code block below to view the complete sample configuration :(far
       copy = true
       # the maximum number of lines of displayed code by default
       maxShownLines = 10
+    # {{< version 0.2.14 >}} Table config
+    [params.page.table]
+      # whether to enable sorting in the tables
+      sort = true
     # {{< version 0.2.0 >}} {{< link "https://docs.mapbox.com/mapbox-gl-js" "Mapbox GL JS" >}} config
     [params.page.mapbox]
       # access token of Mapbox GL JS

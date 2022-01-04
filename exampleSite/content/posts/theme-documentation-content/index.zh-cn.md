@@ -134,6 +134,9 @@ toc:
 code:
   copy: true
   # ...
+table:
+  sort: true
+  # ...
 math:
   enable: true
   # ...
@@ -204,6 +207,7 @@ sponsor:
 
 * **toc**: {{< version 0.2.9 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.toc` 部分相同.
 * **code**: {{< version 0.2.0 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.code` 部分相同.
+* **table**: {{< version 0.2.14 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.table` 部分相同.
 * **math**: {{< version 0.2.0 changed >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.math` 部分相同.
 * **mapbox**: {{< version 0.2.0 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.mapbox` 部分相同.
 * **share**: 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.share` 部分相同.

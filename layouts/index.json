@@ -21,6 +21,7 @@
         {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
         {{/* Remove line number for code */}}
         {{- $content = $content | replaceRE `<span class="lnt?"> *\d*\n?</span>` "" -}}
+        {{- $content = $content | replaceRE `" class="headerLink">` `">` -}}
         {{- $anchor := "" -}}
         {{- range $h, $contenth := split $content "<h1 id=" -}}
             {{- if gt $h 0 -}}
