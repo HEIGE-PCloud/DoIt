@@ -880,10 +880,10 @@ enableEmoji = true
       # Telegram comments config (https://comments.app/)
       # Telegram comments 评论系统设置 (https://comments.app/)
       [params.page.comment.telegram]
-        enable = true
-        siteID = "08di01wh"
+        enable = false
+        siteID = ""
         limit = 5
-        height = "auto"
+        height = ""
         color = ""
         colorful = true
         dislikes = false
@@ -906,7 +906,7 @@ enableEmoji = true
       # Twikoo comment config (https://twikoo.js.org/)
       # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
       [params.page.comment.twikoo]
-        enable = false
+        enable = true
         envId = "https://doit-docs-comment-twikoo.vercel.app/"
         region = ""
         path = ""
