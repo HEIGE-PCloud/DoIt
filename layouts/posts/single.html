@@ -191,9 +191,7 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static">
-                {{- if $toc.keepStatic -}}
                     {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-                {{- end -}}
                 </div>
             </div>
         {{- end -}}
