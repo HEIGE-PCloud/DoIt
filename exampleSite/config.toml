@@ -34,7 +34,7 @@ enableEmoji = true
     hasCJKLanguage = false
     # default amount of posts in each pages
     paginate = 12
-    # [UA-XXXXXXXX-X] google analytics code
+    # [UA-XXXXXXXX-X] google analytics code (replaced by params.analytics.google)
     googleAnalytics = ""
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
@@ -286,7 +286,7 @@ enableEmoji = true
     hasCJKLanguage = true
     # 默认每页列表显示的文章数目
     paginate = 12
-    # [UA-XXXXXXXX-X] 谷歌分析代号
+    # [UA-XXXXXXXX-X] 谷歌分析代号 (被 params.analytics.google 替代)
     googleAnalytics = ""
     # 版权描述，仅仅用于 SEO
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
