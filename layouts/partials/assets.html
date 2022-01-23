@@ -243,7 +243,12 @@
 {{- end -}}
 
 {{- range $params.library.js -}}
-    {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- /* Check if it is string for compatibility */ -}}
+    {{- if eq (printf "%T" . ) "string" -}}
+        {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- else -}}
+        {{- dict "Source" .src "Fingerprint" $fingerprint "Defer" .defer "Async" .async "Attr" .attr| dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- end -}}
 {{- end -}}
 
 {{- with (.Scratch.Get "this").styleArr -}}

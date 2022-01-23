@@ -954,6 +954,12 @@ enableEmoji = true
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
+        test = "test.js"
+        [params.page.library.js.test2]
+          src = "test.js"
+          defer = true
+          async = true
+          attr = "attr"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someJavascript = "https://cdn.example.com/some.js"
