@@ -949,6 +949,10 @@ enableEmoji = true
     [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
+        [params.page.library.css.test]
+          src = "test.css"
+          defer = true
+          attr = "attr"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someCSS = "https://cdn.example.com/some.css"

@@ -44,13 +44,13 @@
 
 {{- /* Font Awesome */ -}}
 {{- $source := $cdn.fontawesomeFreeCSS | default "lib/fontawesome-free/all.min.css" -}}
-{{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
-{{- partial "plugin/defer-style.html" $style -}}
+{{- $style := dict "Source" $source "Fingerprint" $fingerprint "Defer" true -}}
+{{- partial "plugin/style.html" $style -}}
 
 {{- /* Animate.css */ -}}
 {{- $source := $cdn.animateCSS | default "lib/animate/animate.min.css" -}}
-{{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
-{{- partial "plugin/defer-style.html" $style -}}
+{{- $style := dict "Source" $source "Fingerprint" $fingerprint "Defer" true -}}
+{{- partial "plugin/style.html" $style -}}
 
 {{- if .Site.Params.enablePWA | and hugo.IsProduction -}}
     {{ $options := dict }}
