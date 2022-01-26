@@ -677,14 +677,25 @@ Please open the code block below to view the complete sample configuration :(far
     [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
+        # {{< version 0.2.14 >}} Enhance third-party library config
+        # [params.page.library.css.someOtherCSS]
+        #   src = "someOther.css"
+        #   defer = true
+        #   attr = "customAttribute"
         # located in "assets/"
         # Or
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
-        # someJavascript = "some.js"
+        # someJavaScript = "some.js"
+        # {{< version 0.2.14 >}} Enhance third-party library config
+        # [params.page.library.js.someOtherJavaScript]
+        #   src = "someOther.js"
+        #   defer = false
+        #   async = true
+        #   attr = "customAttribute"
         # located in "assets/"
         # Or
-        # someJavascript = "https://cdn.example.com/some.js"
+        # someJavaScript = "https://cdn.example.com/some.js"
     # {{< version 0.2.10 changed >}} Page SEO config
     [params.page.seo]
       # image URL

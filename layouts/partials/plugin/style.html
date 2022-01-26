@@ -27,5 +27,10 @@
         {{- end -}}
         {{- $href = $resource.RelPermalink -}}
     {{- end -}}
-    <link rel="stylesheet" href="{{ $href }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}>
+    {{- if .Defer -}}
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ $href }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}>
+        <noscript><link rel="stylesheet" href="{{ $href }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}></noscript>
+    {{- else -}}
+        <link rel="stylesheet" href="{{ $href }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}>
+    {{- end -}}
 {{- end -}}

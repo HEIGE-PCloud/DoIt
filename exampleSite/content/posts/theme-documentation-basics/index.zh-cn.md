@@ -681,14 +681,25 @@ hugo
     [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
+        # {{< version 0.2.14 >}} 更多第三方库配置
+        # [params.page.library.css.someOtherCSS]
+        #   src = "someOther.css"
+        #   defer = true
+        #   attr = "customAttribute"
         # 位于 "assets/"
         # 或者
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
-        # someJavascript = "some.js"
+        # someJavaScript = "some.js"
+        # {{< version 0.2.14 >}} 更多第三方库配置
+        # [params.page.library.js.someOtherJavaScript]
+        #   src = "someOther.js"
+        #   defer = false
+        #   async = true
+        #   attr = "customAttribute"
         # 位于 "assets/"
         # 或者
-        # someJavascript = "https://cdn.example.com/some.js"
+        # someJavaScript = "https://cdn.example.com/some.js"
     # {{< version 0.2.10 changed >}} 页面 SEO 配置
     [params.page.seo]
       # 图片 URL

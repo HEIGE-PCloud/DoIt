@@ -239,11 +239,32 @@
 {{- end -}}
 
 {{- range $params.library.css -}}
-    {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
+    {{- /* Check if it is string for compatibility */ -}}
+    {{- /* somecss = "src" */ -}}
+    {{- /* [params.page.library.css.somecss] */ -}}
+    {{- /*   src = "src" */ -}}
+    {{- /*   defer = true */ -}}
+    {{- /*   attr = "attr" */ -}}
+    {{- if eq (printf "%T" . ) "string" -}}
+        {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
+    {{- else -}}
+        {{- dict "Source" .src "Fingerprint" $fingerprint "Defer" .defer "Attr" .attr | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
+    {{- end -}}
 {{- end -}}
 
 {{- range $params.library.js -}}
-    {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- /* Check if it is string for compatibility */ -}}
+    {{- /* somejs = "src" */ -}}
+    {{- /* [params.page.library.js.somejs] */ -}}
+    {{- /*   src = "src" */ -}}
+    {{- /*   async = true */ -}}
+    {{- /*   defer = true */ -}}
+    {{- /*   attr = "attr" */ -}}
+    {{- if eq (printf "%T" . ) "string" -}}
+        {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- else -}}
+        {{- dict "Source" .src "Fingerprint" $fingerprint "Defer" .defer "Async" .async "Attr" .attr| dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- end -}}
 {{- end -}}
 
 {{- with (.Scratch.Get "this").styleArr -}}

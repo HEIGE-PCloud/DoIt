@@ -2,7 +2,7 @@
 title: "Echarts Tests"
 date: 2021-04-16T14:41:49+01:00
 lastmod: 2021-04-16T14:41:49+01:00
-draft: false
+draft: true
 description: "Echarts Tests"
 categories: [Tests]
 authors: [PCloud]

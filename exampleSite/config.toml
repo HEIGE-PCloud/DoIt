@@ -949,11 +949,20 @@ enableEmoji = true
     [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
+        # [params.page.library.css.someOtherCSS]
+        #   src = "someOther.css"
+        #   defer = true
+        #   attr = "customAttribute"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
-        # someJavascript = "some.js"
+        # someJavaScript = "some.js"
+        # [params.page.library.js.someOtherJavaScript]
+        #   src = "someOther.js"
+        #   defer = false
+        #   async = true
+        #   attr = "customAttribute"
         # located in "assets/" 位于 "assets/"
         # Or 或者
         # someJavascript = "https://cdn.example.com/some.js"
