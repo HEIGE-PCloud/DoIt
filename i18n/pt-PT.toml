@@ -1,0 +1,259 @@
+# Translations for European Portuguese
+# Tradução para Português de Portugal
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === baseof ==
+[backToTop]
+other = "Voltar ao topo"
+
+[viewComments]
+other = "Ver comentários"
+# === baseof ==
+
+# === Post ===
+[posts]
+other = "Publicações"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "Todas {{ .Some }}"
+
+[tag]
+other = "Etiqueta"
+
+[tags]
+other = "Etiquetas"
+
+[category]
+other = "Categoria"
+
+[categories]
+other = "Categorias"
+
+[series]
+other = "Séries"
+# === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Atualizados recentemente"
+
+# === Section ===
+
+# === Pagination ===
+[more]
+other = "Mais"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "Escolha a língua"
+
+[switchTheme]
+other = "Trocar tema"
+
+[Light]
+other = "Claro"
+
+[Dark]
+other = "Escuro"
+
+[Black]
+other = "Preto"
+
+[Auto]
+other = "Auto"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBy]
+other = "Movido a {{ .Hugo }}"
+
+[hostedOn]
+other = "Hospedado em {{ .Host }}"
+
+[theme]
+other = "Tema - {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
+[valineLang]
+other = "en"
+
+[valinePlaceholder]
+other = "O seu comentário ..."
+
+[facebookLanguageCode]
+other = "pt_PT"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "Procurar"
+
+[searchPlaceholder]
+other = "Procurar títulos ou conteúdos ..."
+
+[clear]
+other = "Limpar"
+
+[cancel]
+other = "Cancelar"
+
+[noResultsFound]
+other = "Nenhum resultado encontrado"
+
+[lunrLanguageCode]
+other = "pt"
+
+[lunrLanguageLib]
+other = "lib/lunr/lunr.pt.js"
+
+[copyToClipboard]
+other = "Copiar para a área de transferência"
+
+[cookieconsentMessage]
+other = "Este site usa cookies para melhorar sua experiência."
+
+[cookieconsentDismiss]
+other = "Entendi!"
+
+[cookieconsentLink]
+other = "Saiba mais"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "Partilhe em"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "Conteúdos"
+
+[publishedOnDate]
+other = "publicado em {{ .Date }}"
+
+[includedIn]
+other = "incluído "
+
+[includedInAnd]
+other = "e"
+
+[includedInCategories]
+one = "na categoria {{ .Categories }}"
+other = "nas categorias {{ .Categories }}"
+
+[includedInSeries]
+one = "na série {{ .Series }}"
+other = "nas séries {{ .Series }}"
+
+[wordCount]
+one = "Uma palavra"
+other = "{{ .Count }} palavras"
+
+[readingTime]
+one = "Um minuto"
+other = "{{ .Count }} minutos"
+
+[views]
+other = "visualizações"
+
+[comments]
+other = "comentários"
+
+[author]
+other = "Autor"
+
+[updatedOnDate]
+other = "Atualizado em {{ .Date }}"
+
+[readMarkdown]
+other = "Ler em markdown"
+
+[viewSource]
+other = "Ver fonte"
+
+[editThisPage]
+other = "Edite esta página"
+
+[reportThisPage]
+other = "Relatar problema"
+
+[back]
+other = "Voltar"
+
+[home]
+other = "Início"
+
+[readMore]
+other = "Ler mais..."
+
+[outdatedInfoWarningBefore]
+other = "Este artigo foi atualizado em "
+
+[outdatedInfoWarningAfter]
+other = ", o conteúdo pode estar desatualizado."
+
+[sponsor]
+other = "Patrocinador"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "Página não encontrada"
+
+[pageNotFoundText]
+other = "A página que procura não existe. Desculpe"
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "Nota"
+
+[abstract]
+other = "Resumo"
+
+[info]
+other = "Info"
+
+[tip]
+other = "Dica"
+
+[success]
+other = "Sucesso"
+
+[question]
+other = "Pergunta"
+
+[warning]
+other = "Aviso"
+
+[failure]
+other = "Falha"
+
+[danger]
+other = "Perigo"
+
+[bug]
+other = "Bug"
+
+[example]
+other = "Exemplo"
+
+[quote]
+other = "Citação"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "NOVO"
+
+[changed]
+other = "ALTERADO"
+
+[deleted]
+other = "EXCLUÍDO"
+# === shortcodes/version.html ===
