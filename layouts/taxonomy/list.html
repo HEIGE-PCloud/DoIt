@@ -44,7 +44,7 @@
         {{- if .Pages -}}
             {{- $taxonomy := .Data.Singular -}}
             {{- if eq $taxonomy "series" -}}
-                {{- $pages := .Pages -}}
+                {{- $pages := .Pages.ByParam "series_weight" -}}
                 {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
                     {{- $pages = $.Paginate $pages . -}}
                 {{- else -}}
