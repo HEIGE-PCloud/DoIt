@@ -1,0 +1,13 @@
+{{ $title := .Scratch.Get "title" }}
+
+<div class="tabs">
+    <div class="tabs-header">
+        {{- $titles := .Scratch.Get "title" -}}
+        {{- range $i, $title := $titles -}}
+            <p>{{- $title -}}</p>
+        {{- end -}}
+    </div>
+    <div class="tabs-content">
+        {{- .Inner -}}
+    </div>
+</div>

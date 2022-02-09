@@ -1,0 +1,22 @@
+{{- if .Parent -}}
+    {{- if .Parent.Name | ne "tabs" -}}
+        {{- errorf "The tab shortcode must be placed inside a tabs shortcode: %s" .Position -}}
+    {{- else -}}
+
+        {{- if .IsNamedParams -}}    
+        {{- else -}}
+            {{- errorf "Only named params is supported: %s" .Position -}}
+        {{- end -}}
+
+
+        {{ $title := .Get "title" }}
+        {{ .Parent.Scratch.Add "title" (slice $title) }}
+
+        <div>
+            {{ .Inner | .Page.RenderString }}
+        </div>
+
+    {{- end -}}
+{{- else -}}
+    {{- errorf "The tab shortcode must be placed inside an tabs shortcode: %s" .Position -}}
+{{- end -}}

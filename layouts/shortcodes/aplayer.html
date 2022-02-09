@@ -1,4 +1,4 @@
-{{- if .IsNamedParams -}}    
+{{- if .IsNamedParams -}}
 
     {{- $options := dict -}}
     {{- with .Get "fixed" -}}{{- $options = dict "fixed" . | merge $options -}}{{- end -}}
