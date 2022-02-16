@@ -1,5 +1,6 @@
 {{- $params := .Scratch.Get "params" -}}
 
+<meta name="keywords" content="{{ $params.keywords | default .Site.Params.keywords }}">
 <meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
 
 {{- template "_internal/opengraph.html" . -}}
