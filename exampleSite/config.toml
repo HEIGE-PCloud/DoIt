@@ -119,7 +119,7 @@ enableEmoji = true
       # site description
       description = "The official documentation for the Hugo DoIt theme"
       # site keywords
-      keywords = ["Theme", "Hugo"]
+      keywords = "Theme,Hugo"
       # App icon config
       [languages.en.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -369,7 +369,7 @@ enableEmoji = true
       # 网站描述
       description = "Hugo DoIt 主题官方文档"
       # 网站关键词
-      keywords = ["Theme", "Hugo"]
+      keywords = "Theme,Hugo"
       # 应用图标配置
       [languages.zh-cn.params.app]
         # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
