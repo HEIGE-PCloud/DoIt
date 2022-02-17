@@ -44,8 +44,11 @@
 
 {{- /* tablesort */ -}}
 {{- if $params.table | and $params.table.sort -}}
-    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- if $bundle -}}
+    {{- else -}}
+        {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- end -}}
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
 {{- end -}}
 
