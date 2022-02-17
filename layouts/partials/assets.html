@@ -2,6 +2,7 @@
 {{- $cdn := .Scratch.Get "cdn" | default dict -}}
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $config := (.Scratch.Get "this").config -}}
+{{- $bundle := .Site.Params.bundle -}}
 
 {{- /* Search */ -}}
 {{- if .Site.Params.search | and .Site.Params.search.enable -}}
@@ -147,17 +148,19 @@
 
 {{- /* mermaid */ -}}
 {{- if (.Scratch.Get "this").mermaid -}}
-    {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $options := dict "targetPath" "lib/mermaid/mermaid.min.css" "enableSourceMap" true -}}
     {{- dict "Source" "lib/mermaid/mermaid.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
-    {{- $config = dict "mermaid" true | merge $config -}}
-    {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
-    {{- $shims = dict "mermaid/mermaidAPI" "js/shims/mermaidAPI.js" | merge $shims -}}
     {{- $options := dict -}}
+    {{- if $bundle -}}
+    {{- else -}}
+        {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
+        {{- $options = dict "shims" $shims | merge $options -}}
+    {{- end -}}
+    {{- $config = dict "mermaid" true | merge $config -}}
     {{- $options = dict "targetPath" "js/mermaid.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
     {{- $js := resources.Get "js/lib/mermaid.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
