@@ -88,6 +88,9 @@
 
 {{- /* clipboard.js */ -}}
 {{- if ne $code.copy false -}}
+    {{- if $bundle -}}
+    {{- else -}}
+    {{- end -}}
     {{- $source := $cdn.clipboardJS | default "lib/clipboard/clipboard.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = T "copyToClipboard" | dict "copyTitle" | dict "code" | merge $config -}}
@@ -304,6 +307,8 @@
 {{- else -}}
     {{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
     {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
+    {{- $shims = dict "lazysizes" "js/shims/lazysizes.js" | merge $shims -}}
+    {{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
     {{- $options = dict "shims" $shims | merge $options -}}
 {{- end -}}
 {{- if hugo.IsProduction -}}

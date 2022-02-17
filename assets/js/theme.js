@@ -3,6 +3,7 @@
 // import { autocomplete } from '@algolia/autocomplete-js'
 import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
+// import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
 
 function forEach (elements, handler) {
