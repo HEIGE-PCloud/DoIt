@@ -40,6 +40,7 @@
     "cookieconsent": "^3.1.1",
     "echarts": "^5.3.0",
     "katex": "^0.15.2",
+    "lazysizes": "^5.3.2",
     "mermaid": "^8.14.0",
     "tablesort": "^5.3.0",
     "topbar": "^1.0.1",

@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 // import { autocomplete } from '@algolia/autocomplete-js'
 import * as topbar from 'topbar'
+import lazySizes from 'lazysizes'
 const Tablesort = require('tablesort')
 
 function forEach (elements, handler) {
@@ -840,6 +841,7 @@ function init () {
   onScroll()
   onResize()
   onClickMask()
+  lazySizes.init()
 }
 
 const themeInit = () => {
