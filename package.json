@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.5.2",
+    "@algolia/autocomplete-js": "^1.5.3",
     "@sliphua/pjax": "^2.4.0",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
