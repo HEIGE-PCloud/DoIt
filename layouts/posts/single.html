@@ -157,7 +157,7 @@
         {{- if $params.series | and $params.seriesNavigation -}}
                 {{- range $key, $value := .Site.Taxonomies.series -}}
                     {{- range $params.series -}}
-                        {{- if . | urlize | eq $key -}}
+                        {{- if . | urlize | eq ($key | urlize) -}}
                             {{- $term := $.Site.GetPage "series" $key -}}
                             <div class="details series-nav open">
                                 <div class="details-summary series-title">
