@@ -675,8 +675,10 @@ hugo
         dataMapping = "pathname"
         dataReactionsEnabled = "1"
         dataEmitMetadata = "0"
+        dataInputPosition = "bottom"
         lightTheme = "light"
         darkTheme = "dark"
+        dataLang = "zh-CN"
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
