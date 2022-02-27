@@ -671,8 +671,10 @@ Please open the code block below to view the complete sample configuration :(far
         dataMapping = "pathname"
         dataReactionsEnabled = "1"
         dataEmitMetadata = "0"
+        dataInputPosition = "bottom"
         lightTheme = "light"
         darkTheme = "dark"
+        dataLang = "en"
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

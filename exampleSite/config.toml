@@ -942,8 +942,10 @@ enableEmoji = true
         dataMapping = "pathname"
         dataReactionsEnabled = "1"
         dataEmitMetadata = "0"
+        dataInputPosition = "bottom"
         lightTheme = "light"
         darkTheme = "dark"
+        dataLang = "en"
     # Third-party library config
     # 第三方库配置
     [params.page.library]
