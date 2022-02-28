@@ -35,7 +35,7 @@ Check out the [`mermaid` shortcode]({{< relref "../../theme-documentation-extend
 
 ## GoAT
 
-[GoAT](https://github.com/bep/goat) (Go ASCII Tool) is a Go implementation of [markdeep.mini.js](https://casual-effects.com/markdeep/)'s ASCII diagram generator.
+[[GoAT](https://github.com/bep/goat)]^(Go ASCII Tool) is a Go implementation of [markdeep.mini.js](https://casual-effects.com/markdeep/)'s ASCII diagram generator.
 
 To use GoAT, simply place the ASCII input inside a code block with the language set to `goat`.
 
@@ -313,7 +313,7 @@ More [examples](https://github.com/bep/goat/tree/master/examples) are available.
 
 ## Mermaid
 
-[Mermaid](https://mermaid-js.github.io/) is a Javascript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically. It lets you create diagrams and visualizations using text and code.
+[Mermaid](https://mermaid-js.github.io/) is a JavaScript-based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically. It lets you create diagrams and visualizations using text and code.
 
 To use Mermaid, simply place the mermaid code inside a code block with the language set to `mermaid`.
 
@@ -325,12 +325,10 @@ To use Mermaid, simply place the mermaid code inside a code block with the langu
 
 Here are some examples of generated SVGs using Mermaid.
 
-
 ### Flowchat
 
 All [Flowcharts](https://mermaid-js.github.io/mermaid/#/./flowchart?id=flowcharts-basic-syntax
-) are composed of nodes, the geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
-
+) are composed of nodes, geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
 
 ````markdown
 ```mermaid
@@ -387,7 +385,7 @@ sequenceDiagram
 
 ### Gantt diagram
 
-A [Gantt chart](https://mermaid-js.github.io/mermaid/#/./gantt) is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate number of days between the start and finish dates of the terminal elements and summary elements of a project.
+A [Gantt chart](https://mermaid-js.github.io/mermaid/#/./gantt) is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate numbers of days between the start and finish dates of the terminal elements and summary elements of a project.
 
 ````markdown
 ```mermaid
@@ -419,7 +417,7 @@ Future task2               :         des4, after des3, 5d
 
 ### Class diagram
 
-The [class diagram](https://mermaid-js.github.io/mermaid/#/./classDiagram) is the main building block of object-oriented modeling. It is used for general conceptual modeling of the structure of the application, and for detailed modeling translating the models into programming code. Class diagrams can also be used for data modeling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.
+The [class diagram](https://mermaid-js.github.io/mermaid/#/./classDiagram) is the main building block of object-oriented modelling. It is used for general conceptual modelling of the structure of the application, and detailed modelling translating the models into programming code. Class diagrams can also be used for data modelling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.
 
 ````markdown
 ```mermaid
