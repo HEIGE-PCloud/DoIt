@@ -3,12 +3,12 @@ title: "How to create diagrams in DoIt"
 subtitle: "Create SVG diagrams using GoAT or Mermaid in DoIt"
 date: 2022-02-28T14:27:14Z
 lastmod: 2022-02-28T14:27:14Z
-draft: true
+draft: false
 authors: [PCloud]
 description: "This post explains how you can create custom SVG diagrams in DoIt using GoAT or Mermaid."
 
-tags: []
-categories: []
+tags: ["diagram", "markdown"]
+categories: ["Documentation"]
 series: [how-to-doit]
 
 hiddenFromHomePage: false
@@ -23,28 +23,31 @@ toc:
 
 code:
     maxShownLines: 100
-
-
-math:
-  enable: false
-lightgallery: false
-license: ""
 ---
 
 <!--more-->
 
 {{< admonition type=note title="Note" open=true >}}
-Hugo [**v0.93.0**](https://github.com/gohugoio/hugo/releases/tag/v0.93.0) is required for drawing custom diagrams.
+Hugo [**v0.93.0**](https://github.com/gohugoio/hugo/releases/tag/v0.93.0) or later is required for drawing custom diagrams.
 
-Check out the [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.en.md/#5-mermaid" >}}) if you have to use an older version of the Hugo.
+Check out the [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.en.md/#5-mermaid" >}}) if you have to use an older version of Hugo.
 {{< /admonition >}}
-
 
 ## GoAT
 
-https://github.com/blampe/goat
+[GoAT](https://github.com/bep/goat) (Go ASCII Tool) is a Go implementation of [markdeep.mini.js](https://casual-effects.com/markdeep/)'s ASCII diagram generator.
 
-https://github.com/bep/goat/tree/master/examples
+To use GoAT, simply place the ASCII input inside a code block with the language set to `goat`.
+
+````markdown
+```goat
+// ASCII input here
+```
+````
+
+Here are some examples of generated SVGs using GoAT.
+
+More [examples](https://github.com/bep/goat/tree/master/examples) are available.
 
 ### Trees
 
@@ -310,9 +313,24 @@ https://github.com/bep/goat/tree/master/examples
 
 ## Mermaid
 
-https://mermaid-js.github.io/mermaid
+[Mermaid](https://mermaid-js.github.io/) is a Javascript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically. It lets you create diagrams and visualizations using text and code.
+
+To use Mermaid, simply place the mermaid code inside a code block with the language set to `mermaid`.
+
+````markdown
+```mermaid
+// mermaid diagram code here
+```
+````
+
+Here are some examples of generated SVGs using Mermaid.
+
 
 ### Flowchat
+
+All [Flowcharts](https://mermaid-js.github.io/mermaid/#/./flowchart?id=flowcharts-basic-syntax
+) are composed of nodes, the geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
+
 
 ````markdown
 ```mermaid
@@ -333,6 +351,9 @@ graph TD;
 ```
 
 ### Sequence diagram
+
+A [Sequence diagram](https://mermaid-js.github.io/mermaid/#/./sequenceDiagram
+) is an interaction diagram that shows how processes operate with one another and in what order.
 
 ````markdown
 ```mermaid
@@ -366,6 +387,8 @@ sequenceDiagram
 
 ### Gantt diagram
 
+A [Gantt chart](https://mermaid-js.github.io/mermaid/#/./gantt) is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate number of days between the start and finish dates of the terminal elements and summary elements of a project.
+
 ````markdown
 ```mermaid
 gantt
@@ -396,6 +419,8 @@ Future task2               :         des4, after des3, 5d
 
 ### Class diagram
 
+The [class diagram](https://mermaid-js.github.io/mermaid/#/./classDiagram) is the main building block of object-oriented modeling. It is used for general conceptual modeling of the structure of the application, and for detailed modeling translating the models into programming code. Class diagrams can also be used for data modeling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.
+
 ````markdown
 ```mermaid
 classDiagram
@@ -432,7 +457,7 @@ Class01 : int gorilla
 Class08 <--> C2: Cool label
 ```
 
-### Git graph
+### Git graph - experimental
 
 ````markdown
 ```mermaid
@@ -474,7 +499,9 @@ commit
 merge newbranch
 ```
 
-### Entity Relationship Diagram
+### Entity Relationship Diagram - experimental
+
+An [entity–relationship diagram](https://mermaid-js.github.io/mermaid/#/./entityRelationshipDiagram) (or ER diagram) describes interrelated things of interest in a specific domain of knowledge. A basic ER diagram is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities (instances of those entity types).
 
 ````markdown
 ```mermaid
@@ -493,6 +520,8 @@ erDiagram
 ```
 
 ### User Journey Diagram
+
+[User journey diagrams](https://mermaid-js.github.io/mermaid/#/./user-journey) describe at a high level of detail exactly what steps different users take to complete a specific task within a system, application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow.
 
 ````markdown
 ```mermaid
