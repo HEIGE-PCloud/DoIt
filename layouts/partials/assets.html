@@ -317,7 +317,7 @@
 {{- end -}}
 {{- $js := resources.Get "js/theme.js" | js.Build $options -}}
 {{- $_ := $js.RelPermalink -}}
-{{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- with (.Scratch.Get "this").scriptArr -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxScript.html" -}}

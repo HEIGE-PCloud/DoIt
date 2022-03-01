@@ -845,15 +845,7 @@ function init () {
   lazySizes.init()
 }
 
-const themeInit = () => {
-  init()
-}
-
-if (document.readyState !== 'loading') {
-  themeInit()
-} else {
-  document.addEventListener('DOMContentLoaded', themeInit, false)
-}
+init()
 
 new Pjax({
   selectors: [
@@ -867,7 +859,7 @@ new Pjax({
 })
 
 document.addEventListener('pjax:success', function () {
-  themeInit()
+  init()
 })
 
 document.addEventListener('pjax:send', function () {
