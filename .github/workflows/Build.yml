@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest]
         hugo_version: ["0.83.0", "latest"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2
