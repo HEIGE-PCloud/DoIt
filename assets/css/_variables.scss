@@ -459,3 +459,20 @@ $admonition-background-color-map: (
 // ========== Admonition ========== //
 
 $MAX_LENGTH: 12000px;
+
+// ========== Friend Link ========== //
+// Color of friend link background
+$friend-link-background-color: #f8f8f8 !default;
+$friend-link-background-color-dark: #252627 !default;
+$friend-link-background-color-black: #111111 !default;
+
+// Color of friend link text
+$friend-link-color: #2d96bd !default;
+$friend-link-color-dark: #a9a9b3 !default;
+$friend-link-color-black: #d9d9d9 !default;
+
+// Color of hover friend link text
+$friend-link-hover-color: #ef3982 !default;
+$friend-link-hover-color-dark: #ffffff !default;
+$friend-link-hover-color-black: #ffffff !default;
+// ========== Friend Link ========== //
