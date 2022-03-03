@@ -34,6 +34,30 @@ Under heading 6
 
 <!-- You cannot see this comment -->
 
+## h2 2.25rem (36px)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+
+### h3 2rem (32px)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+
+#### h4 1.75rem (28px)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+
+##### h5 1.5rem (24px)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+
+###### h6 1.25rem (20px)
+
+parapraph 16px
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+
+
+
 ## Horizontal Rules
 
 ---

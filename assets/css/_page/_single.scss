@@ -4,7 +4,7 @@
 .single {
   .single-title {
     margin: 1rem 0 .5rem;
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     font-weight: bold;
     line-height: 140%;
   }
@@ -56,8 +56,11 @@
   }
 
   .content {
+    > h1 {
+      font-size: 2.5rem;
+    }
     > h2 {
-      font-size: 1.5rem;
+      font-size: 2.25rem;
 
       & code {
         font-size: 1.25rem;
@@ -65,7 +68,7 @@
     }
 
     > h3 {
-      font-size: 1.375rem;
+      font-size: 2rem;
 
       & code {
         font-size: 1.125rem;
@@ -73,7 +76,7 @@
     }
 
     > h4 {
-      font-size: 1.25rem;
+      font-size: 1.75rem;
 
       & code {
         font-size: 1rem;
@@ -81,20 +84,20 @@
     }
 
     > h5 {
-      font-size: 1.125rem;
+      font-size: 1.5rem;
     }
 
     > h6 {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
-
+    h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
       font-weight: bold;
-      margin: 1.2rem 0;
+      margin: 1.5rem 0;
 
       [theme=dark] & {
         font-weight: bolder;
