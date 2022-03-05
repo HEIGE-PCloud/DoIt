@@ -4,7 +4,7 @@
 .single {
   .single-title {
     margin: 1rem 0 .5rem;
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     line-height: 140%;
   }
@@ -56,39 +56,39 @@
   }
 
   .content {
-    > h1 {
-      font-size: 2.5rem;
-    }
+    counter-reset: h2;
+ 
     > h2 {
-      font-size: 2.25rem;
-
+      font-size: 1.5rem;
+      counter-reset: h3;
       & code {
         font-size: 1.25rem;
       }
     }
 
     > h3 {
-      font-size: 2rem;
-
+      font-size: 1.375rem;
+      counter-reset: h4;
       & code {
         font-size: 1.125rem;
       }
     }
 
     > h4 {
-      font-size: 1.75rem;
-
+      font-size: 1.25rem;
+      counter-reset: h5;
       & code {
         font-size: 1rem;
       }
     }
 
     > h5 {
-      font-size: 1.5rem;
+      font-size: 1.125rem;
+      counter-reset: h6;
     }
 
     > h6 {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
     h1,
     h2,
@@ -97,7 +97,7 @@
     h5,
     h6 {
       font-weight: bold;
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
 
       [theme=dark] & {
         font-weight: bolder;
@@ -113,8 +113,19 @@
     > h5,
     > h6 {
       > .header-mark::before {
-        content: "|";
+        content: "#";
         margin-right: .3125rem;
+        color: $single-link-color;
+
+        [theme=dark] & {
+          color: $single-link-color-dark;
+        }
+        [theme=black] & {
+          color: $single-link-color-black;
+        }
+      }
+      > .header-mark::after {
+        margin-right: .5rem;
         color: $single-link-color;
 
         [theme=dark] & {
@@ -126,10 +137,31 @@
       }
     }
 
-    > h2 > .header-mark::before {
-      content: "|";
+    > h2 > .header-mark::after {
+      counter-increment: h2;
+      content: counter(h2);
     }
 
+    > h3 > .header-mark::after {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3);
+    }
+
+    > h4 > .header-mark::after {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4);
+    }
+
+    > h5 > .header-mark::after {
+      counter-increment: h5;
+      content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+    }
+
+    > h6 > .header-mark::after {
+      counter-increment: h6;
+      content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
+    }
+    
     p {
       margin: .5rem 0;
     }

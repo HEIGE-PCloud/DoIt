@@ -34,29 +34,35 @@ Under heading 6
 
 <!-- You cannot see this comment -->
 
-## h2 2.25rem (36px)
+## h2 heading
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+### h3 heading
 
-### h3 2rem (32px)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+### multiple h3 headings
 
-#### h4 1.75rem (28px)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+### yet another h3 heading
 
-##### h5 1.5rem (24px)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+#### h4 heading
 
-###### h6 1.25rem (20px)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
-parapraph 16px
+### back to h3 heading
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
+#### second h4 heading
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
+
+##### h5 heading
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue tristique justo, sit amet pretium purus vulputate vitae. Praesent vitae felis in nisi consequat egestas et commodo quam. Quisque et finibus libero, in luctus nunc. Fusce luctus sed sem sagittis vulputate. Duis metus ante, faucibus at lorem aliquet, imperdiet placerat nunc.
 
 ## Horizontal Rules
 
