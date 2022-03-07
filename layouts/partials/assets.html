@@ -177,16 +177,29 @@
 
 {{- /* ECharts */ -}}
 {{- if (.Scratch.Get "this").echarts -}}
-    {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-    {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
-    {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = dict "echarts" true | merge $config -}}
-    {{- $shims := dict "echarts" "js/shims/echarts.js" -}}
     {{- $options := dict -}}
+    {{- $shims := dict "echarts" "js/shims/echarts.js" -}}
     {{- $options = dict "targetPath" "js/echarts.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
+    {{- $options = dict "sourceMap" "inline" | merge $options -}}
+
+    {{- if $bundle -}}
+        {{- /* $options = dict "params" (dict "bundle" true) | merge $options */ -}}
+        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
+        {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $options = dict "shims" $shims | merge $options -}}
+    {{- else -}}
+        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
+        {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $options = dict "shims" $shims | merge $options -}}
+        {{- /* $options = dict "params" (dict "bundle" false) | merge $options */ -}}
+    {{- end -}}
+    
     {{- $js := resources.Get "js/lib/echarts.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
