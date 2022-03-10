@@ -27,7 +27,7 @@ math:
 
 <!--more-->
 
-## 1 style
+## style
 
 {{< version 0.2.0 changed >}}
 
@@ -58,7 +58,7 @@ This is a **right-aligned** paragraph.
 This is a **right-aligned** paragraph.
 {{< /style >}}
 
-## 2 link
+## link
 
 {{< version 0.2.0 >}}
 
@@ -125,7 +125,7 @@ This is a **right-aligned** paragraph.
 
 {{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
-## 3 image {#image}
+## image {#image}
 
 {{< version 0.2.0 changed >}}
 
@@ -193,7 +193,7 @@ This is a **right-aligned** paragraph.
 
 {{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
 
-## 4 admonition
+## admonition
 
 `admonition` shortcode 支持 **12** 种 帮助你在页面中插入提示的横幅.
 
@@ -279,13 +279,13 @@ This is a **right-aligned** paragraph.
 一个 **技巧** 横幅
 {{< /admonition >}}
 
-## 5 mermaid
+## mermaid
 
 [mermaid](https://mermaidjs.github.io/) 是一个可以帮助你在文章中生成图表和流程图的库, 类似 Markdown 的语法.
 
 只需将你的 mermaid 代码插入 `mermaid` shortcode 中即可.
 
-### 5.1 流程图 {#flowchart}
+### 流程图 {#flowchart}
 
 一个 **流程图** `mermaid` 示例:
 
@@ -307,7 +307,7 @@ This is a **right-aligned** paragraph.
     C -->|Two| E[Result two]
 {{< /mermaid >}}
 
-### 5.2 时序图 {#sequence-diagram}
+### 时序图 {#sequence-diagram}
 
 一个 **时序图** `mermaid` 示例:
 
@@ -341,7 +341,7 @@ This is a **right-aligned** paragraph.
     Bob-->John: Jolly good!
 {{< /mermaid >}}
 
-### 5.3 甘特图 {#gantt}
+### 甘特图 {#gantt}
 
 一个 **甘特图** `mermaid` 示例:
 
@@ -383,7 +383,7 @@ This is a **right-aligned** paragraph.
     Add to mermaid                      :1d
 {{< /mermaid >}}
 
-### 5.4 类图 {#class-diagram}
+### 类图 {#class-diagram}
 
 一个 **类图** `mermaid` 示例:
 
@@ -423,7 +423,7 @@ This is a **right-aligned** paragraph.
     Class08 <--> C2: Cool label
 {{< /mermaid >}}
 
-### 5.5 状态图 {#state-diagram}
+### 状态图 {#state-diagram}
 
 一个 **状态图** `mermaid` 示例:
 
@@ -449,7 +449,7 @@ This is a **right-aligned** paragraph.
     Crash --> [*]
 {{< /mermaid >}}
 
-### 5.6 Git 图 {#git-graph}
+### Git 图 {#git-graph}
 
 一个 **Git 图** `mermaid` 示例:
 
@@ -493,7 +493,7 @@ end
     merge newbranch
 {{< /mermaid >}}
 
-### 5.7 饼图 {#pie}
+### 饼图 {#pie}
 
 一个 **饼图** `mermaid` 示例:
 
@@ -513,7 +513,7 @@ end
     "Rats" : 15
 {{< /mermaid >}}
 
-## 6 echarts
+## echarts
 
 [ECharts](https://echarts.apache.org/) 是一个帮助你生成交互式数据可视化的库.
 
@@ -901,7 +901,7 @@ data = [
 
     {{< version 0.2.0 >}} 数据可视化的高度, 默认值是 `30rem`.
 
-## 7 mapbox
+## mapbox
 
 {{< version 0.2.0 >}}
 
@@ -981,13 +981,13 @@ data = [
 
 {{< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/streets-zh-v1?optimize=true" >}}
 
-## 8 music
+## music
 
 `music` shortcode 基于 [APlayer](https://github.com/MoePlayer/APlayer) 和 [MetingJS](https://github.com/metowolf/MetingJS) 提供了一个内嵌的响应式音乐播放器.
 
 有三种方式使用 `music` shortcode.
 
-### 8.1 自定义音乐 URL {#custom-music-url}
+### 自定义音乐 URL {#custom-music-url}
 
 {{< version 0.2.10 >}} 支持[本地资源引用](../theme-documentation-content#contents-organization)的完整用法.
 
@@ -1019,7 +1019,7 @@ data = [
 
 {{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" >}}
 
-### 8.2 音乐平台 URL 的自动识别 {#automatic-identification}
+### 音乐平台 URL 的自动识别 {#automatic-identification}
 
 `music` shortcode 有一个命名参数来使用音乐平台 URL 的自动识别:
 
@@ -1039,7 +1039,7 @@ data = [
 
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 
-### 8.3 自定义音乐平台, 类型和 ID {#custom-server}
+### 自定义音乐平台, 类型和 ID {#custom-server}
 
 `music` shortcode 有以下命名参数来使用自定义音乐平台:
 
@@ -1071,7 +1071,7 @@ data = [
 
 {{< music netease song 1868553 >}}
 
-### 8.4 其它参数 {#other-parameters}
+### 其它参数 {#other-parameters}
 
 `music` shortcode 有一些可以应用于以上三种方式的其它命名参数:
 
@@ -1121,7 +1121,7 @@ data = [
 
     音乐列表的最大高度, 默认值是 `340px`.
 
-## 9 aplayer and audio
+## aplayer and audio
 
 {{< version 0.2.14 >}}
 
@@ -1157,7 +1157,7 @@ data = [
 
 如果你将 LRC 放置于 `audio` shortcode 之中，它会通过 JS 字符串方式传递给 APlayer，所以你需要将 `lrcType` 设置为 1。如果你通过配置 `lrc` 参数的方式来设置 LRC 文件的链接，那么它将会被通过 LRC 文件方式传递给 APlayer，则 `lrcType` 需要被设置为 3。
 
-## 10 bilibili
+## bilibili
 
 {{< version 0.2.0 changed >}}
 
@@ -1199,13 +1199,13 @@ https://www.bilibili.com/video/BV1TJ411C7An?p=3
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
-## 11 typeit
+## typeit
 
 `typeit` shortcode 基于 [TypeIt](https://typeitjs.com/) 提供了打字动画.
 
 只需将你需要打字动画的内容插入 `typeit` shortcode 中即可.
 
-### 11.1 简单内容 {#simple-content}
+### 简单内容 {#simple-content}
 
 允许使用 `Markdown` 格式的简单内容, 并且 **不包含** 富文本的块内容, 例如图像等等...
 
@@ -1239,7 +1239,7 @@ https://www.bilibili.com/video/BV1TJ411C7An?p=3
 这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{< /typeit >}}
 
-### 11.2 代码内容 {#code-content}
+### 代码内容 {#code-content}
 
 代码内容也是允许的, 并且通过使用参数 `code` 指定语言类型可以实习语法高亮.
 
@@ -1265,7 +1265,7 @@ public class HelloWorld {
 }
 {{< /typeit >}}
 
-### 11.3 分组内容 {#code-content}
+### 分组内容 {#code-content}
 
 默认情况下, 所有打字动画都是同时开始的.
 但是有时你可能需要按顺序开始一组 `typeit` 内容的打字动画.
@@ -1294,7 +1294,7 @@ public class HelloWorld {
 **然后**, 这个段落开始
 {{< /typeit >}}
 
-## 12 script
+## script
 
 {{< version 0.2.8 >}}
 
@@ -1319,7 +1319,7 @@ console.log('Just DoIt!');
 console.log('Just DoIt!');
 {{< /script >}}
 
-## 13 friend
+## friend
 
 {{< version 0.2.11 >}}
 
@@ -1356,7 +1356,7 @@ console.log('Just DoIt!');
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
 
-## 14 showcase
+## showcase
 
 {{< version 0.2.12 >}}
 
@@ -1396,7 +1396,7 @@ Or
 
 {{< showcase title="主题文档 - 基本概念" summary="探索 Hugo - DoIt 主题的全部内容和背后的核心概念." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
 
-## 15 math
+## math
 
 {{< version 0.2.12 >}}
 

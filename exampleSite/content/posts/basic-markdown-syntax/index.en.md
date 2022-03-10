@@ -53,7 +53,7 @@ Without further delay, let us go over the main elements of Markdown and what the
 :(far fa-bookmark fa-fw): Bookmark this page for easy future reference!
 {{< /admonition >}}
 
-## 1 Headings
+## Headings
 
 Headings from `h2` through `h6` are constructed with a `#` for each level:
 
@@ -89,7 +89,7 @@ The HTML looks like this:
 ```
 {{< /admonition >}}
 
-## 2 Comments
+## Comments
 
 Comments should be HTML compatible.
 
@@ -105,7 +105,7 @@ Comment below should **NOT** be seen:
 This is a comment
 -->
 
-## 3 Horizontal Rules
+## Horizontal Rules
 
 The HTML `<hr>` element is for creating a "thematic break" between paragraph-level elements.
 In Markdown, you can create a `<hr>` with any of the following:
@@ -120,7 +120,7 @@ ___
 ---
 ***
 
-## 4 Body Copy
+## Body Copy
 
 Body copy written as normal, plain text will be wrapped with `<p></p>` tags in the rendered HTML.
 
@@ -140,7 +140,7 @@ The HTML looks like this:
 
 A **line break** can be done with one blank line.
 
-## 5 Inline HTML
+## Inline HTML
 
 If you need a certain HTML tag (with a class) you can simply use HTML:
 
@@ -154,7 +154,7 @@ Paragraph in Markdown.
 Paragraph in Markdown.
 ```
 
-## 6 Emphasis
+## Emphasis
 
 ### Bold
 
@@ -238,7 +238,7 @@ The HTML looks like this:
 <del><em><strong>bold, italics and strikethrough</strong></em></del>
 ```
 
-## 7 Blockquotes
+## Blockquotes
 
 For quoting blocks of content from another source within your document.
 
@@ -278,7 +278,7 @@ Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 >> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
 
-## 8 Lists
+## Lists
 
 ### Unordered
 
@@ -429,7 +429,7 @@ The rendered output looks like this:
 - [ ] Update the website
 - [ ] Contact the media
 
-## 9 Code
+## Code
 
 ### Inline Code
 
@@ -559,7 +559,7 @@ grunt.initConfig({
 [Syntax highlighting page](https://gohugo.io/content-management/syntax-highlighting/) in **Hugo** Docs introduces more about syntax highlighting, including highlight shortcode.
 {{< /admonition >}}
 
-## 10 Tables
+## Tables
 
 Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.
 
@@ -628,7 +628,7 @@ The rendered output looks like this:
 | ext    | extension to be used for dest files. |
 {{< /admonition >}}
 
-## 11 Links {#links}
+## Links {#links}
 
 ### Basic Link
 
@@ -698,7 +698,7 @@ Content for chapter one.
 The specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.
 {{< /admonition >}}
 
-## 12 Footnotes
+## Footnotes
 
 Footnotes allow you to add notes and references without cluttering the body of the document. When you create a footnote, a superscript number with a link appears where you added the footnote reference. Readers can click the link to jump to the content of the footnote at the bottom of the page.
 
@@ -721,7 +721,7 @@ This is a footnote with "label"[^label]
 [^1]: This is a digital footnote
 [^label]: This is a footnote with "label"
 
-## 13 Images
+## Images
 
 Images have a similar syntax to links but include a preceding exclamation point.
 
