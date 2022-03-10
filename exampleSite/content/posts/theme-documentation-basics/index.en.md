@@ -22,7 +22,7 @@ Discover what the Hugo - **DoIt** theme is all about and the core-concepts behin
 
 <!--more-->
 
-## 1 Requirements
+## Requirements
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
@@ -36,11 +36,11 @@ Since [WebP Image Processing](https://gohugo.io/content-management/image-process
 Since some features of this theme need to processes :(fab fa-sass fa-fw): SCSS to :(fab fa-css3 fa-fw): CSS, it is recommended to use Hugo **extended** version for better experience.
 {{< /admonition >}}
 
-## 2 Installation
+## Installation
 
 The following steps are here to help you initialize your new website. If you don’t know Hugo at all, we strongly suggest you learn more about it by following this [great documentation for beginners](https://gohugo.io/getting-started/quick-start/).
 
-### 2.1 Create Your Project
+### Create Your Project
 
 Hugo provides a `new` command to create a new website:
 
@@ -49,7 +49,7 @@ hugo new site my_website
 cd my_website
 ```
 
-### 2.2 Install the Theme
+### Install the Theme
 
 The **DoIt** theme’s repository is: [https://github.com/HEIGE-PCloud/DoIt](https://github.com/HEIGE-PCloud/DoIt).
 
@@ -68,7 +68,7 @@ git init
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
-### 2.3 Basic Configuration {#basic-configuration}
+### Basic Configuration {#basic-configuration}
 
 The following is a basic configuration for the DoIt theme:
 
@@ -128,7 +128,7 @@ theme = "DoIt"
 When building the website, you can set a theme by using `--theme` option. However, we suggest you modify the configuration file (**config.toml**) and set the theme as the default.
 {{< /admonition >}}
 
-### 2.4 Create Your First Post
+### Create Your First Post
 
 Here is the way to create your first post:
 
@@ -142,7 +142,7 @@ Feel free to edit the post file by adding some sample content and replacing the 
 By default all posts and pages are created as a draft. If you want to render these pages, remove the property `draft: true` from the metadata, set the property `draft: false` or add `-D`/`--buildDrafts` parameter to `hugo` command.
 {{< /admonition >}}
 
-### 2.5 Launching the Website Locally
+### Launching the Website Locally
 
 Launch by using the following command:
 
@@ -167,7 +167,7 @@ hugo serve --disableFastRender
 ```
 {{< /admonition >}}
 
-### 2.6 Build the Website
+### Build the Website
 
 When your site is ready to deploy, run the following command:
 
@@ -182,9 +182,9 @@ The website can be automatically published and hosted with [Netlify](https://www
 Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deployment/hosting-on-aws-amplify/), [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/), [Render](https://gohugo.io/hosting-and-deployment/hosting-on-render/) and more...
 {{< /admonition >}}
 
-## 3 Configuration
+## Configuration
 
-### 3.1 Site Configuration {#site-configuration}
+### Site Configuration {#site-configuration}
 
 In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **DoIt** lets you define the following parameters in your site configuration (here is a `config.toml`, whose values are default).
 
@@ -959,7 +959,7 @@ which is you can refer to.
 
 {{< image src="complete-configuration-preview.webp" caption="Complete configuration preview" height="1562" width="2450">}}
 
-### 3.2 Favicons, Browserconfig, Manifest
+### Favicons, Browserconfig, Manifest
 
 It is recommended to put your own favicons:
 
@@ -974,7 +974,7 @@ into `/static`. They’re easily created via [https://realfavicongenerator.net/]
 
 Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and background-color.
 
-### 3.3 Style Customization
+### Style Customization
 
 {{< version 0.2.8 changed >}}
 
@@ -997,13 +997,13 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 In `assets/css/_custom.scss`, you can add some css style code to customize the style.
 
-## 4 Multilingual and i18n
+## Multilingual and i18n
 
 **DoIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
 
 {{< image src="language-switch.gif" caption="Language Switch" height="226" width="770">}}
 
-### 4.1 Compatibility {#language-compatibility}
+### Compatibility {#language-compatibility}
 
 {{< version 0.2.10 changed >}}
 
@@ -1023,7 +1023,7 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 | Romanian             | `ro`      | `ro`                  | :(far fa-square fa-fw):       | :(far fa-check-square fa-fw): |
 | Vietnamese           | `vi`      | `vi`                  | :(far fa-square fa-fw):       | :(far fa-check-square fa-fw): |
 
-### 4.2 Basic Configuration
+### Basic Configuration
 
 After learning [how Hugo handle multilingual websites](https://gohugo.io/content-management/multilingual), define your languages in your [site configuration](#site-configuration).
 
@@ -1113,7 +1113,7 @@ Be aware that only translated pages are displayed in menu. It’s not replaced w
 Use [Front Matter parameter](https://gohugo.io/content-management/multilingual#translate-your-content) to translate urls too.
 {{< /admonition >}}
 
-### 4.3 Overwrite Translation Strings
+### Overwrite Translation Strings
 
 Translations strings are used for common default values used in the theme. Translations are available in [some languages](#language-compatibility), but you may use another language or want to override default values.
 
@@ -1121,13 +1121,13 @@ To override these values, create a new file in your local i18n folder `i18n/<lan
 
 By the way, as these translations could be used by other people, please take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
 
-## 5 Search
+## Search
 
 {{< version 0.2.0 >}}
 
 Based on [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/), searching is supported in **DoIt** theme.
 
-### 5.1 Output Configuration
+### Output Configuration
 
 In order to generate `index.json` for searching, add `JSON` output file type to the `home` of the `outputs` part in your [site configuration](#site-configuration).
 
@@ -1136,7 +1136,7 @@ In order to generate `index.json` for searching, add `JSON` output file type to 
   home = ["HTML", "RSS", "JSON"]
 ```
 
-### 5.2 Search Configuration
+### Search Configuration
 
 Based on `index.json` generated by Hugo, you could activate searching.
 

@@ -23,7 +23,7 @@ math:
 
 <!--more-->
 
-## 1 style
+## style
 
 {{< version 0.2.0 changed >}}
 
@@ -55,7 +55,7 @@ The rendered output looks like this:
 This is a **right-aligned** paragraph.
 {{< /style >}}
 
-## 2 link
+## link
 
 {{< version 0.2.0 >}}
 
@@ -121,7 +121,7 @@ The rendered output looks like this (hover over the link, there should be a tool
 
 {{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
-## 3 image {#image}
+## image {#image}
 
 {{< version 0.2.0 changed >}}
 
@@ -189,7 +189,7 @@ The rendered output looks like this:
 
 {{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
 
-## 4 admonition
+## admonition
 
 The `admonition` shortcode supports **12** types of banners to help you put a notice on your page.
 
@@ -275,13 +275,13 @@ The rendered output looks like this:
 A **tip** banner
 {{< /admonition >}}
 
-## 5 mermaid
+## mermaid
 
 [mermaid](https://mermaidjs.github.io/) is a library helping you to generate diagrams and flowcharts from text, in a similar manner as Markdown.
 
 Just insert your mermaid code in the `mermaid` shortcode and that’s it.
 
-### 5.1 Flowchart {#flowchart}
+### Flowchart {#flowchart}
 
 Example **flowchart** `mermaid` input:
 
@@ -303,7 +303,7 @@ The rendered output looks like this:
     C -->|Two| E[Result two]
 {{< /mermaid >}}
 
-### 5.2 Sequence Diagram {#sequence-diagram}
+### Sequence Diagram {#sequence-diagram}
 
 Example **sequence diagram** `mermaid` input:
 
@@ -337,7 +337,7 @@ The rendered output looks like this:
     Bob-->John: Jolly good!
 {{< /mermaid >}}
 
-### 5.3 GANTT {#gantt}
+### GANTT {#gantt}
 
 Example **GANTT** `mermaid` input:
 
@@ -379,7 +379,7 @@ The rendered output looks like this:
     Add to mermaid                      :1d
 {{< /mermaid >}}
 
-### 5.4 Class Diagram {#class-diagram}
+### Class Diagram {#class-diagram}
 
 Example **class diagram** `mermaid` input:
 
@@ -419,7 +419,7 @@ The rendered output looks like this:
     Class08 <--> C2: Cool label
 {{< /mermaid >}}
 
-### 5.5 State Diagram {#state-diagram}
+### State Diagram {#state-diagram}
 
 Example **state diagram** `mermaid` input:
 
@@ -445,7 +445,7 @@ The rendered output looks like this:
     Crash --> [*]
 {{< /mermaid >}}
 
-### 5.6 Git Graph {#git-graph}
+### Git Graph {#git-graph}
 
 Example **git graph** `mermaid` input:
 
@@ -489,7 +489,7 @@ end
     merge newbranch
 {{< /mermaid >}}
 
-### 5.7 Pie {#pie}
+### Pie {#pie}
 
 Example **pie** `mermaid` input:
 
@@ -509,7 +509,7 @@ The rendered output looks like this:
     "Rats" : 15
 {{< /mermaid >}}
 
-## 6 echarts
+## echarts
 
 [ECharts](https://echarts.apache.org/) is a library helping you to generate interactive data visualization.
 
@@ -897,7 +897,7 @@ The `echarts` shortcode has also the following named parameters:
 
     {{< version 0.2.0 >}} Height of the data visualization, default value is `30rem`.
 
-## 7 mapbox
+## mapbox
 
 {{< version 0.2.0 >}}
 
@@ -977,13 +977,13 @@ The rendered output looks like this:
 
 {{< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/navigation-preview-day-v4?optimize=true" "mapbox://styles/mapbox/navigation-preview-night-v4?optimize=true" >}}
 
-## 8 music
+## music
 
 The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS).
 
 There are three ways to use the `music` shortcode.
 
-### 8.1 Custom Music URL {#custom-music-url}
+### Custom Music URL {#custom-music-url}
 
 {{< version 0.2.10 >}} The complete usage of [local resource references](../theme-documentation-content#contents-organization) is supported.
 
@@ -1015,7 +1015,7 @@ The rendered output looks like this:
 
 {{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" >}}
 
-### 8.2 Music Platform URL Automatic Identification {#automatic-identification}
+### Music Platform URL Automatic Identification {#automatic-identification}
 
 The `music` shortcode has one named parameter by music platform URL automatic identification:
 
@@ -1036,7 +1036,7 @@ The rendered output looks like this:
 
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 
-### 8.3 Custom Server, Type and ID {#custom-server}
+### Custom Server, Type and ID {#custom-server}
 
 The `music` shortcode has the following named parameters by custom music platform:
 
@@ -1068,7 +1068,7 @@ The rendered output looks like this:
 
 {{< music netease song 1868553 >}}
 
-### 8.4 Other Parameters {#other-parameters}
+### Other Parameters {#other-parameters}
 
 The `music` shortcode has other named parameters applying to the above three ways:
 
@@ -1119,7 +1119,7 @@ The `music` shortcode has the following named parameters only applying to the ty
     Max height of the music list, the default value is `340px`.
 
 
-## 9 aplayer and audio
+## aplayer and audio
 
 {{< version 0.2.14 >}}
 
@@ -1155,7 +1155,7 @@ Note that these shortcodes cannot be used separately and only named parameters a
 
 If you place the LRC inside the `audio` shortcode, it is passed to the APlayer as a JS string, so the `lrcType` needs to be set to 1. If you set the link to the LRC file through the `lrc` parameter, it will be passed as an LRC file, so the `lrcType` needs to be set to 3.
 
-## 10 bilibili
+## bilibili
 
 {{< version 0.2.0 changed >}}
 
@@ -1198,13 +1198,13 @@ The rendered output looks like this:
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
-## 11 typeit
+## typeit
 
 The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/).
 
 Just insert your content in the `typeit` shortcode and that’s it.
 
-### 11.1 Simple Content {#simple-content}
+### Simple Content {#simple-content}
 
 Simple content is allowed in `Markdown` format and **without** rich block content such as images and more...
 
@@ -1238,7 +1238,7 @@ The rendered output looks like this:
 This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
 {{< /typeit >}}
 
-### 11.2 Code Content {#code-content}
+### Code Content {#code-content}
 
 Code content is allowed and will be highlighted by the named parameter `code` for the type of code language.
 
@@ -1264,7 +1264,7 @@ public class HelloWorld {
 }
 {{< /typeit >}}
 
-### 11.3 Group Content {#group-content}
+### Group Content {#group-content}
 
 All typing animations start at the same time by default.
 But sometimes you may want to start a set of `typeit` contents in order.
@@ -1293,7 +1293,7 @@ The rendered output looks like this:
 **Then** this paragraph begins
 {{< /typeit >}}
 
-## 12 script
+## script
 
 {{< version 0.2.8 >}}
 
@@ -1317,7 +1317,7 @@ You can see the output in the console of the developer tool.
 console.log('Just DoIt!');
 {{< /script >}}
 
-## 13 friend
+## friend
 
 {{< version 0.2.11 >}}
 
@@ -1353,7 +1353,7 @@ The rendered output looks like this:
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
 
-## 14 showcase
+## showcase
 
 {{< version 0.2.12 >}}
 
@@ -1393,7 +1393,7 @@ The rendered output looks like this:
 
 {{< showcase title="Theme Documentation - Basics" summary="Discover what the Hugo - DoIt theme is all about and the core-concepts behind it." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
 
-## 15 math
+## math
 
 {{< version 0.2.12 >}}
 

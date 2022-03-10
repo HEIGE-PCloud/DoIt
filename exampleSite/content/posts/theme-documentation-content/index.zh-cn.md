@@ -24,7 +24,7 @@ math:
 
 <!--more-->
 
-## 1 内容组织 {#contents-organization}
+## 内容组织 {#contents-organization}
 
 以下是一些方便你清晰管理和生成文章的目录结构建议:
 
@@ -53,7 +53,7 @@ math:
 非常酷的功能! :(far fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 作者配置 {#author-setup}
+## 作者配置 {#author-setup}
 
 我们鼓励你在 `mysite/data/authors` 下创建你的作者个人资料 `author_name.toml`. 在你的资料中, 你可以添加个人链接, 邮箱, 以及支持 i18n 的姓名.
 
@@ -83,7 +83,7 @@ authors: [Alice, Bob, Catherine]
 ---
 ```
 
-## 3 前置参数 {#front-matter}
+## 前置参数 {#front-matter}
 
 **Hugo** 允许你在文章内容前面添加 `yaml`, `toml` 或者 `json` 格式的前置参数.
 
@@ -234,7 +234,7 @@ resources:
 ```
 {{< /admonition >}}
 
-## 4 内容摘要
+## 内容摘要
 
 **DoIt** 主题使用内容摘要在主页中显示大致文章信息. Hugo 支持生成文章的摘要.
 
@@ -281,11 +281,11 @@ resources:
 不建议在摘要内容中包含富文本块元素, 这会导致渲染错误. 例如代码块, 图片, 表格等.
 {{< /admonition >}}
 
-## 5 Markdown 基本语法
+## Markdown 基本语法
 
 这部分内容在 [Markdown 基本语法页面](../basic-markdown-syntax/) 中介绍.
 
-## 6 Markdown 扩展语法 {#extended-markdown-syntax}
+## Markdown 扩展语法 {#extended-markdown-syntax}
 
 **DoIt** 主题提供了一些扩展的语法便于你撰写文章.
 

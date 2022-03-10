@@ -24,7 +24,7 @@ Find out how to create and organize your content quickly and intuitively in **Do
 
 <!--more-->
 
-## 1 Contents Organization {#contents-organization}
+## Contents Organization {#contents-organization}
 
 A few suggestions to help you get a good looking site quickly:
 
@@ -54,7 +54,7 @@ will be supported in the future.
 It's really cool! :(far fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 Author Settings {#author-setup}
+## Author Settings {#author-setup}
 
 You are encouraged to create your author profile under `mysite/data/authors` as `author_name.toml`. In your profile, you can specify the link, email and name with i18n support.
 
@@ -84,7 +84,7 @@ authors: [Alice, Bob, Catherine]
 ---
 ```
 
-## 3 Front Matter {#front-matter}
+## Front Matter {#front-matter}
 
 **Hugo** allows you to add front matter in `yaml`, `toml` or `json` to your content files.
 
@@ -235,7 +235,7 @@ resources:
 ```
 {{< /admonition >}}
 
-## 4 Content Summaries
+## Content Summaries
 
 **DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
@@ -282,11 +282,11 @@ Because there are multiple ways in which a summary can be specified it is useful
 It is not recommended to include rich text block elements in the summary, which will cause typographic errors. Such as code blocks, pictures, tables, etc.
 {{< /admonition >}}
 
-## 5 Basic Markdown Syntax
+## Basic Markdown Syntax
 
 This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/).
 
-## 6 Extended Markdown Syntax {#extended-markdown-syntax}
+## Extended Markdown Syntax {#extended-markdown-syntax}
 
 **DoIt** theme has some extended syntax elements for you to write articles.
 

@@ -53,7 +53,7 @@ John Gruber, Markdown 的作者如是说:
 :(far fa-bookmark fa-fw): 将此页保存为书签, 以备将来参考!
 {{< /admonition >}}
 
-## 1 标题
+## 标题
 
 从 `h2` 到 `h6` 的标题在每个级别上都加上一个 `＃`:
 
@@ -89,7 +89,7 @@ John Gruber, Markdown 的作者如是说:
 ```
 {{< /admonition >}}
 
-## 2 注释
+## 注释
 
 注释是和 HTML 兼容的：
 
@@ -105,7 +105,7 @@ John Gruber, Markdown 的作者如是说:
 这是一段注释
 -->
 
-## 3 水平线
+## 水平线
 
 HTML 中的 `<hr>` 标签是用来在段落元素之间创建一个 "专题间隔" 的.
 使用 Markdown, 你可以用以下方式创建一个 `<hr>` 标签:
@@ -120,7 +120,7 @@ ___
 ---
 ***
 
-## 4 段落
+## 段落
 
 按照纯文本的方式书写段落, 纯文本在呈现的 HTML 中将用 `<p>`/`</p>` 标签包裹.
 
@@ -140,7 +140,7 @@ soluta officiis concludaturque ei qui, vide sensibus vim ad.
 
 可以使用一个空白行进行**换行**.
 
-## 5 内联 HTML 元素
+## 内联 HTML 元素
 
 如果你需要某个 HTML 标签 (带有一个类), 则可以简单地像这样使用:
 
@@ -154,7 +154,7 @@ Markdown 格式的段落.
 Markdown 格式的段落.
 ```
 
-## 6 强调
+## 强调
 
 ### 加粗
 
@@ -238,7 +238,7 @@ _渲染为斜体_
 <del><em><strong>加粗, 斜体和删除线</strong></em></del>
 ```
 
-## 7 引用
+## 引用
 
 用于在文档中引用其他来源的内容块.
 
@@ -278,7 +278,7 @@ Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.
 >> Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor
 odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.
 
-## 8 列表
+## 列表
 
 ### 无序列表
 
@@ -430,7 +430,7 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 - [ ] Update the website
 - [ ] Contact the media
 
-## 9 代码
+## 代码
 
 ### 行内代码
 
@@ -561,7 +561,7 @@ grunt.initConfig({
 包括语法高亮的 shortcode.
 {{< /admonition >}}
 
-## 10 表格
+## 表格
 
 通过在每个单元格之间添加竖线作为分隔线, 并在标题下添加一行破折号 (也由竖线分隔) 来创建表格. 注意, 竖线不需要垂直对齐.
 
@@ -630,7 +630,7 @@ grunt.initConfig({
 | ext    | extension to be used for dest files. |
 {{< /admonition >}}
 
-## 11 链接 {#links}
+## 链接 {#links}
 
 ### 基本链接
 
@@ -700,7 +700,7 @@ Content for chapter one.
 定位标记的位置几乎是任意的. 因为它们并不引人注目, 所以它们通常被放在同一行了.
 {{< /admonition >}}
 
-## 12 脚注
+## 脚注
 
 脚注使你可以添加注释和参考, 而不会使文档正文混乱.
 当你创建脚注时, 会在添加脚注引用的位置出现带有链接的上标编号.
@@ -728,7 +728,7 @@ Content for chapter one.
 [^1]: 这是一个数字脚注
 [^label]: 这是一个带标签的脚注
 
-## 13 图片
+## 图片
 
 图片的语法与链接相似, 但包含一个在前面的感叹号.
 

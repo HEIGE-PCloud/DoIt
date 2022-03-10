@@ -22,7 +22,7 @@ toc:
 
 <!--more-->
 
-## 1 准备
+## 准备
 
 由于 Hugo 提供的便利性, [Hugo](https://gohugo.io/) 本身是这个主题唯一的依赖.
 
@@ -36,11 +36,11 @@ toc:
 由于这个主题的一些特性需要将 :(fab fa-sass fa-fw): SCSS 转换为 :(fab fa-css3 fa-fw): CSS, 推荐使用 Hugo **extended** 版本来获得更好的使用体验.
 {{< /admonition >}}
 
-## 2 安装
+## 安装
 
 以下步骤可帮助你初始化新网站. 如果你根本不了解 Hugo, 我们强烈建议你按照此 [快速入门文档](https://gohugo.io/getting-started/quick-start/) 进一步了解它.
 
-### 2.1 创建你的项目
+### 创建你的项目
 
 Hugo 提供了一个 `new` 命令来创建一个新的网站:
 
@@ -49,7 +49,7 @@ hugo new site my_website
 cd my_website
 ```
 
-### 2.2 安装主题
+### 安装主题
 
 **DoIt** 主题的仓库是: [https://github.com/HEIGE-PCloud/DoIt](https://github.com/HEIGE-PCloud/DoIt).
 
@@ -68,7 +68,7 @@ git init
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 ```
 
-### 2.3 基础配置 {#basic-configuration}
+### 基础配置 {#basic-configuration}
 
 以下是 DoIt 主题的基本配置:
 
@@ -131,7 +131,7 @@ theme = "DoIt"
 在构建网站时, 你可以使用 `--theme` 选项设置主题. 但是, 我建议你修改配置文件 (**config.toml**) 将本主题设置为默认主题.
 {{< /admonition >}}
 
-### 2.4 创建你的第一篇文章
+### 创建你的第一篇文章
 
 以下是创建第一篇文章的方法:
 
@@ -145,7 +145,7 @@ hugo new posts/first_post.md
 默认情况下, 所有文章和页面均作为草稿创建. 如果想要渲染这些页面, 请从元数据中删除属性 `draft: true`, 设置属性 `draft: false` 或者为 `hugo` 命令添加 `-D`/`--buildDrafts` 参数.
 {{< /admonition >}}
 
-### 2.5 在本地启动网站
+### 在本地启动网站
 
 使用以下命令启动网站:
 
@@ -170,7 +170,7 @@ hugo serve --disableFastRender
 ```
 {{< /admonition >}}
 
-### 2.6 构建网站
+### 构建网站
 
 当你准备好部署你的网站时, 运行以下命令:
 
@@ -185,9 +185,9 @@ hugo
 或者, 您可以使用 [AWS Amplify](https://gohugo.io/hosting-and-deployment/hosting-on-aws-amplify/), [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/), [Render](https://gohugo.io/hosting-and-deployment/hosting-on-render/) 以及更多...
 {{< /admonition >}}
 
-## 3 配置
+## 配置
 
-### 3.1 网站配置 {#site-configuration}
+### 网站配置 {#site-configuration}
 
 除了 [Hugo 全局配置](https://gohugo.io/overview/configuration/) 和 [菜单配置](#basic-configuration) 之外, **DoIt** 主题还允许您在网站配置中定义以下参数 (这是一个示例 `config.toml`, 其内容为默认值).
 
@@ -962,7 +962,7 @@ series = "series"
 
 {{< image src="complete-configuration-preview.zh-cn.webp" caption="完整配置下的预览" width="2450" height="1562" >}}
 
-### 3.2 网站图标, 浏览器配置, 网站清单
+### 网站图标, 浏览器配置, 网站清单
 
 强烈建议你把:
 
@@ -977,7 +977,7 @@ series = "series"
 
 可以自定义 `browserconfig.xml` 和 `site.webmanifest` 文件来设置 theme-color 和 background-color.
 
-### 3.3 自定义样式
+### 自定义样式
 
 {{< version 0.2.8 changed >}}
 
@@ -1000,13 +1000,13 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 在 `assets/css/_custom.scss` 中, 你可以添加一些 CSS 样式代码以自定义样式.
 
-## 4 多语言和 i18n
+## 多语言和 i18n
 
 **DoIt** 主题完全兼容 Hugo 的多语言模式, 并且支持在网页上切换语言.
 
 {{< image src="language-switch.gif" caption="语言切换" width="770" height="226" >}}
 
-### 4.1 兼容性 {#language-compatibility}
+### 兼容性 {#language-compatibility}
 
 {{< version 0.2.10 changed >}}
 
@@ -1025,7 +1025,7 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 | 罗马尼亚语 | `ro` | `ro` | :(far fa-square fa-fw): | :(far fa-check-square fa-fw): |
 | 越南语 | `vi` | `vi` | :(far fa-square fa-fw): | :(far fa-check-square fa-fw): |
 
-### 4.2 基本配置
+### 基本配置
 
 学习了 [Hugo如何处理多语言网站](https://gohugo.io/content-management/multilingual) 之后, 请在 [站点配置](#site-configuration) 中定义你的网站语言.
 
@@ -1115,7 +1115,7 @@ defaultContentLanguage = "zh-cn"
 也可以使用 [文章前置参数](https://gohugo.io/content-management/multilingual#translate-your-content) 来翻译网址.
 {{< /admonition >}}
 
-### 4.3 修改默认的翻译字符串
+### 修改默认的翻译字符串
 
 翻译字符串用于在主题中使用的常见默认值.
 目前提供[一些语言](#language-compatibility)的翻译, 但你可能自定义其他语言或覆盖默认值.
@@ -1124,13 +1124,13 @@ defaultContentLanguage = "zh-cn"
 
 另外, 由于你的翻译可能会帮助到其他人, 请花点时间通过 [:(fas fa-code-branch fa-fw): 创建一个 PR](https://github.com/HEIGE-PCloud/DoIt/pulls) 来贡献主题翻译, 谢谢!
 
-## 5 搜索
+## 搜索
 
 {{< version 0.2.0 >}}
 
 基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/), **DoIt** 主题支持搜索功能.
 
-### 5.1 输出配置
+### 输出配置
 
 为了生成搜索功能所需要的 `index.json`, 请在你的 [网站配置](#site-configuration) 中添加 `JSON` 输出文件类型到 `outputs` 部分的 `home` 字段中.
 
@@ -1139,7 +1139,7 @@ defaultContentLanguage = "zh-cn"
   home = ["HTML", "RSS", "JSON"]
 ```
 
-### 5.2 搜索配置
+### 搜索配置
 
 基于 Hugo 生成的 `index.json` 文件, 你可以激活搜索功能.
 

@@ -699,7 +699,7 @@ enableEmoji = true
     # Display a message at the beginning of an article to warn the reader that its content might be outdated.
     # 在文章开头显示提示信息，提醒读者文章内容可能过时。
     [params.page.outdatedArticleReminder]
-      enable = true
+      enable = false
       # Display the reminder if the last modified time is more than 90 days ago.
       # 如果文章最后更新于这天数之前，显示提醒
       reminder = 90
@@ -733,6 +733,17 @@ enableEmoji = true
       # whether to enable sorting in the tables
       # 是否开启表格排序
       sort = true
+    [params.page.header]
+      # whether to enable auto header numbering
+      # 是否开启标题自动编号
+      [params.page.header.number]
+        enable = true
+        [params.page.header.number.format]
+          h2 = "{h2} {title}"
+          h3 = "{h2}.{h3} {title}"
+          h4 = "{h2}.{h3}.{h4} {title}"
+          h5 = "{h2}.{h3}.{h4}.{h5} {title}"
+          h6 = "{h2}.{h3}.{h4}.{h5}.{h6} {title}"
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
