@@ -57,14 +57,19 @@
 
 {{- /* twemoji */ -}}
 {{- if $params.twemoji -}}
-    {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = dict "twemoji" true | merge $config -}}
-    {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
     {{- $options := dict -}}
+
+    {{- if $bundle -}}
+    {{- else -}}
+        {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+        {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
+        {{- $options = dict "shims" $shims | merge $options -}}
+    {{- end -}}
+
     {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
     {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
