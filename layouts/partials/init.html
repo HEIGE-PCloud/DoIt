@@ -4,13 +4,31 @@
 {{- $VERSION := "0.2.X" -}}
 {{- if eq .Site .Sites.First -}}
     {{- if not .Site.Params.version -}}
-        {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the DoIt version param correctly yet. See https://hugodoit.pages.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 DoIt 的版本参数. 参考 https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration\n" -}}
+        {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the DoIt version param correctly yet. See https://hugodoit.pages.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 DoIt 的版本参数. 参考 https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration\n\n" -}}
     {{- else if ne .Site.Params.version $VERSION -}}
-        {{- errorf (printf "Compatibility Error 兼容性错误\n\n%v -> %v:\nYou have an incompatible update. See https://github.com/HEIGE-PCloud/DoIt/releases\n你进行了一次不兼容的更新. 参考 https://github.com/HEIGE-PCloud/DoIt/releases\n" .Site.Params.version $VERSION) -}}
+        {{- errorf (printf "Compatibility Error 兼容性错误\n\n%v -> %v:\nYou have an incompatible update. See https://github.com/HEIGE-PCloud/DoIt/releases\n你进行了一次不兼容的更新. 参考 https://github.com/HEIGE-PCloud/DoIt/releases\n\n" .Site.Params.version $VERSION) -}}
     {{- end -}}
 {{- end -}}
 
+{{- /* Check Hugo version */ -}}
+{{- $OLDEST_SUPPORTED_HUGO_VERSION := "0.83.0" -}}
+{{- if lt hugo.Version "0.83.0" -}}
+    {{- errorf "\n\nHugo version is too low.\nHugo 版本过低。\n\nCurrent Hugo version is %v, the oldest supported version is %v.\n目前使用的 Hugo 版本为 %v， DoIt 支持的最老的 Hugo 版本为 %v。\n\nIf you are running Hugo on your own computer, check out https://gohugo.io/getting-started/installing/#upgrade-hugo for upgrading guide.\n如果你正在自己的计算机上运行 Hugo，请访问 https://gohugo.io/getting-started/installing/#upgrade-hugo 以查阅升级指南。\n\nIf you are deploying on a third-party platform, please configure Hugo version accordingly.\n如果你正在第三方平台上部署，请按照相应文档配置 Hugo 版本。\n\n" hugo.Version $OLDEST_SUPPORTED_HUGO_VERSION hugo.Version $OLDEST_SUPPORTED_HUGO_VERSION -}}
+{{- end -}}
+
+{{- /* Check Hugo extend */ -}}
+{{- if eq hugo.IsExtended false -}}
+    {{- warnf "\n\nThe Hugo Extended version is necessary for SCSS support.\n需要使用 Hugo Extended 版本来获得 SCSS 支持。\n\n" -}}
+{{- end -}}
+
+
 {{- $params := .Params | merge .Site.Params.page -}}
+
+{{- /* Check bundle option*/ -}}
+{{- if .Site.Params.bundle -}}
+    {{- warnf "\n\nThe experimental bundle option is enabled in config.toml.\nIf you encountered any 'Could not resolve' problem, please set bundle = false.\n在 config.toml 中启用了实验性选项。\n如果遇到 'Could not resolve' 的问题，请设置 bundle = false。\n\n" -}}
+{{- end -}}
+
 
 {{- if eq hugo.Environment "production" -}}
     {{- $cdn := .Site.Params.cdn -}}
@@ -32,7 +50,7 @@
         {{- .Scratch.Set "comment" dict -}}
     {{- end -}}
 {{- else if eq .Site .Sites.First -}}
-    {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n" -}}
+    {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n\n" -}}
 {{- end -}}
 
 {{- .Scratch.Set "params" $params -}}
