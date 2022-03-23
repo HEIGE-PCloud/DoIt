@@ -114,7 +114,7 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
     line 3 of code
     loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong
 
-```cpp
+```cpp { title="Hello World" open=false }
 #include <iostream>
 int main()
 {
