@@ -1,7 +1,11 @@
+{{- $params :=  .Page.Params.code | default site.Params.page.code -}}
+
 {{- $title := .Attributes.title -}}
 {{- $open := .Attributes.open -}}
+{{- $maxShownLines := .Attributes.maxShownLines | default $params.maxShownLines -}}
+{{- $line := strings.Count "\n" .Inner | add 1 -}}
 
-<div class="code-block {{ if $open }}open{{ end }}">
+<div class="code-block {{ if $open | or (le $line $maxShownLines) }}open{{ end }}">
     <div class="code-header">
         <span class="code-title">
             <i class="arrow fas fa-chevron-right fa-fw"></i>
