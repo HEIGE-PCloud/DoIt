@@ -349,8 +349,19 @@
       p {
         margin: .25rem 0;
       }
+
+      li {
+        scroll-margin-top: 3.5rem;
+      }
     }
 
+    .headerLink {
+      scroll-margin-top: 3.5rem;
+    }
+    
+    sup {
+      scroll-margin-top: 3.5rem;
+    }
     @import "../_partial/_single/code";
     @import "../_partial/_single/katex";
     @import "../_partial/_single/admonition";
