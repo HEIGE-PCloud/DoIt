@@ -27,6 +27,7 @@
             "type": ["string", "array"],
             "default": "DoIt",
             "minItems": 1,
+            "pattern": "^DoIt$",
             "contains": {
                 "pattern": "^DoIt$"
             }
