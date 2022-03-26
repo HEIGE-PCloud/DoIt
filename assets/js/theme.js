@@ -80,17 +80,28 @@ function initMenuMobile () {
 }
 
 /**
+ * Set the color theme
+ * @param {string} theme
+ */
+function setColorTheme (theme) {
+  // set body attribute for CSS selector
+  document.body.setAttribute('theme', theme)
+  // set root color scheme
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
+  document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark')
+  // save to local storage
+  window.localStorage && localStorage.setItem('theme', theme)
+  // set window.isDark for js
+  window.isDark = !(theme === 'light')
+}
+
+/**
  * Initialize the switch theme button.
  */
 function initSwitchTheme () {
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
-      function setColorTheme (theme) {
-        document.body.setAttribute('theme', theme)
-        window.localStorage && localStorage.setItem('theme', theme)
-        window.isDark = !(theme === 'light')
-      }
       if (currentTheme === 'dark') {
         setColorTheme('black')
       } else if (currentTheme === 'black') {
@@ -123,15 +134,12 @@ function initSelectTheme () {
       const theme = themeSelect.value
       window.localStorage && localStorage.setItem('theme', theme)
       if (theme !== 'auto') {
-        window.isDark = !(theme === 'light')
-        document.body.setAttribute('theme', theme)
+        setColorTheme(theme)
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.body.setAttribute('theme', 'dark')
-          window.isDark = true
+          setColorTheme('dark')
         } else {
-          document.body.setAttribute('theme', 'white')
-          window.isDark = false
+          setColorTheme('light')
         }
       }
       for (const event of window.switchThemeEventSet) event()
