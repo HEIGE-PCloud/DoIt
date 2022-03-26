@@ -16,16 +16,18 @@ html {
 }
 
 /* scrollbar, only support webkit */
-::-webkit-scrollbar {
-  width: .5rem;
-  height: .5rem;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $scrollbar-color;
-
-  &:hover {
-    background-color: $scrollbar-hover-color;
+@if $custom-scrollbar {
+  ::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: $custom-scrollbar-color;
+  
+    &:hover {
+      background-color: $custom-scrollbar-hover-color;
+    }
   }
 }
 
@@ -45,7 +47,6 @@ body {
   color: $global-font-color;
   @include overflow-wrap(break-word);
   scrollbar-color: auto;
-
   &[theme=dark] {
     color: $global-font-color-dark;
     background-color: $global-background-color-dark;

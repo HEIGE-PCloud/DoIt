@@ -41,11 +41,14 @@ $global-border-color-black: #363636 !default;
 // ========== Global ========== //
 
 // ========== Scrollbar ========== //
+// Whether enable custom scrollbar
+$custom-scrollbar: true;
+$custom-scrollbar-width: .5rem;
+$custom-scrollbar-height: .5rem;
 // Color of the scrollbar
-$scrollbar-color: #87878d !default;
-
+$custom-scrollbar-color: #87878d !default;
 // Color of the hover scrollbar
-$scrollbar-hover-color: #a9a9b3 !default;
+$custom-scrollbar-hover-color: #a9a9b3 !default;
 // ========== Scrollbar ========== //
 
 // ========== Selection ========== //
