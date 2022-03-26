@@ -24,9 +24,13 @@
             "default": "en"
         },
         "theme": {
-            "type": "array",
-            "default": ["DoIt"]
+            "type": ["string", "array"],
+            "default": "DoIt",
+            "minItems": 1,
+            "contains": {
+                "pattern": "^DoIt$"
+            }
         }
     },
-    "required": []
+    "required": ["theme"]
 }

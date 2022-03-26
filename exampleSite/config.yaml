@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=schema.json
 baseURL: 'https://hugodoit.pages.dev'
 defaultContentLanguage: en
-theme: [DoIt]
+theme: ["LoveIt"]
 themesDir: ../..
 title: DoIt
 enableRobotsTXT: true
