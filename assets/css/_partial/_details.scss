@@ -29,7 +29,8 @@
     }
 
     .details-content {
-      max-height: $MAX_LENGTH;
+      max-height: 60vh;
+      overflow-y: auto;
       @include details-transition-close;
     }
   }
