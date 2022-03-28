@@ -193,7 +193,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
       }
 
       .table-wrapper {
-        max-height: $MAX_LENGTH;
+        max-height: 60vh;
+        overflow-y: auto;
         @include details-transition-close;
       }
 
