@@ -48,7 +48,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
   font-family: $code-font-family;
   font-size: $code-font-size;
 
-  .table-wrapper {
+  .chroma {
     > table,
     > table thead,
     > table tr,
@@ -130,9 +130,10 @@ code, pre, .highlight table, .highlight tr, .highlight td {
   
     > .chroma {
       position: relative;
-  
+      max-height: 0;
+      overflow-y: hidden;
+      @include details-transition-open;
 
-  
       .lntd:first-child {
         min-width: 1.6rem;
         text-align: right;
@@ -171,12 +172,6 @@ code, pre, .highlight table, .highlight tr, .highlight td {
         [theme=black] & {
           color: $global-font-secondary-color-black;
         }
-      }
-  
-      .table-wrapper {
-        max-height: 0;
-        overflow-y: hidden;
-        @include details-transition-open;
       }
   
     }
@@ -218,7 +213,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
       }
     }
 
-    .highlight>.chroma>.table-wrapper {
+    .highlight>.chroma {
       max-height: $MAX_LENGTH;
       @include details-transition-close;
     }

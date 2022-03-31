@@ -194,97 +194,82 @@
       }
     }
 
-    .table-wrapper {
-      overflow-x: auto;
+    table {
+      width: 100%;
+      max-width: 100%;
+      margin: .625rem 0;
+      border-spacing: 0;
+      background: $table-background-color;
+      border-collapse: collapse;
 
-      &::-webkit-scrollbar {
-        background-color: $table-background-color;
+      [theme=dark] & {
+        background: $table-background-color-dark;
+      }
+      [theme=black] & {
+        background: $table-background-color-dark;
+      }
+
+      thead {
+        background: $table-thead-color;
 
         [theme=dark] & {
-          background-color: $table-background-color-dark;
+          background-color: $table-thead-color-dark;
         }
         [theme=black] & {
-          background-color: $table-background-color-black;
+          background-color: $table-thead-color-black;
         }
       }
 
-      > table {
-        width: 100%;
-        max-width: 100%;
-        margin: .625rem 0;
-        border-spacing: 0;
-        background: $table-background-color;
-        border-collapse: collapse;
+      th, td {
+        padding: .3rem 1rem;
+        border: 1px solid darken($table-thead-color, 2%);
 
         [theme=dark] & {
-          background: $table-background-color-dark;
+          border-color: darken($table-thead-color-dark, 2%);
         }
         [theme=black] & {
-          background: $table-background-color-dark;
+          border-color: darken($table-thead-color-black, 2%);
         }
+      }
 
-        thead {
-          background: $table-thead-color;
-
-          [theme=dark] & {
-            background-color: $table-thead-color-dark;
-          }
-          [theme=black] & {
-            background-color: $table-thead-color-black;
-          }
+      th[role=columnheader]:not(.no-sort) {
+        cursor: pointer;
+      }
+      
+      th[role=columnheader]:not(.no-sort):after {
+        content: '';
+        float: right;
+        margin: .7rem -.5rem 0px .5rem;
+        border-width: 0 4px 4px;
+        border-style: solid;
+        border-color: $global-font-color transparent;
+        [theme=dark] & {
+          border-color: $global-font-color-dark transparent;
         }
-
-        th, td {
-          padding: .3rem 1rem;
-          border: 1px solid darken($table-thead-color, 2%);
-
-          [theme=dark] & {
-            border-color: darken($table-thead-color-dark, 2%);
-          }
-          [theme=black] & {
-            border-color: darken($table-thead-color-black, 2%);
-          }
+        [theme=black] & {
+          border-color: $global-font-color-black transparent;
         }
-
-        th[role=columnheader]:not(.no-sort) {
-          cursor: pointer;
-        }
-        
-        th[role=columnheader]:not(.no-sort):after {
-          content: '';
-          float: right;
-          margin: .7rem -.5rem 0px .5rem;
-          border-width: 0 4px 4px;
-          border-style: solid;
-          border-color: $global-font-color transparent;
-          [theme=dark] & {
-            border-color: $global-font-color-dark transparent;
-          }
-          [theme=black] & {
-            border-color: $global-font-color-black transparent;
-          }
-          visibility: hidden;
-          opacity: 0;
-          -ms-user-select: none;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
-        }
-        
-        th[aria-sort=ascending]:not(.no-sort):after {
-          border-bottom: none;
-          border-width: 4px 4px 0;
-        }
-        
-        th[aria-sort]:not(.no-sort):after {
-          visibility: visible;
-          opacity: 0.4;
-        }
-        
-        th[role=columnheader]:not(.no-sort):hover:after {
-          visibility: visible;
-          opacity: 1;
-        }
+        visibility: hidden;
+        opacity: 0;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      
+      th[aria-sort=ascending]:not(.no-sort):after {
+        border-bottom: none;
+        border-width: 4px 4px 0;
+      }
+      
+      th[aria-sort]:not(.no-sort):after {
+        visibility: visible;
+        opacity: 0.4;
+      }
+      
+      th[role=columnheader]:not(.no-sort):hover:after {
+        visibility: visible;
+        opacity: 1;
       }
     }
 

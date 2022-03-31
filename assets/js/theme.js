@@ -504,10 +504,6 @@ function initHighlight () {
 
 function initTable () {
   forEach(document.querySelectorAll('.content table'), $table => {
-    const $wrapper = document.createElement('div')
-    $wrapper.className = 'table-wrapper'
-    $table.parentElement.replaceChild($wrapper, $table)
-    $wrapper.appendChild($table)
     if (window.config?.table?.sort) {
       new Tablesort($table)
     }
