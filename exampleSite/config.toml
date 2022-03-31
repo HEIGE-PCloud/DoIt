@@ -721,9 +721,6 @@ enableEmoji = true
     # Code config
     # 代码配置
     [params.page.code]
-      # whether to show the copy button of the code block
-      # 是否显示代码块的复制按钮
-      copy = true
       # the maximum number of lines of displayed code by default
       # 默认展开显示的代码行数
       maxShownLines = 10

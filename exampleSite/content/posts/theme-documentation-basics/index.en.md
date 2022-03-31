@@ -498,8 +498,6 @@ Please open the code block below to view the complete sample configuration :(far
       mhchem = true
     # {{< version 0.2.0 >}} Code config
     [params.page.code]
-      # whether to show the copy button of the code block
-      copy = true
       # the maximum number of lines of displayed code by default
       maxShownLines = 10
     # {{< version 0.2.14 >}} Table config
