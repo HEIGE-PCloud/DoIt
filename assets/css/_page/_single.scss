@@ -197,14 +197,16 @@
     .table-wrapper {
       overflow-x: auto;
 
-      &::-webkit-scrollbar {
-        background-color: $table-background-color;
-
-        [theme=dark] & {
-          background-color: $table-background-color-dark;
-        }
-        [theme=black] & {
-          background-color: $table-background-color-black;
+      @if $custom-scrollbar {
+        &::-webkit-scrollbar {
+          background-color: $table-background-color;
+  
+          [theme=dark] & {
+            background-color: $table-background-color-dark;
+          }
+          [theme=black] & {
+            background-color: $table-background-color-black;
+          }
         }
       }
 
