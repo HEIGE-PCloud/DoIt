@@ -25,20 +25,26 @@
         padding: 5px 10px;
         margin: 15px auto;
         display: inline-block;
-        background-color: #f0f0f0;
+        background-color: $sponsor-button-background-color;
         -webkit-transition: transform 0.4s ease;
         -moz-transition: transform 0.4s ease;
         -o-transition: transform 0.4s ease;
         transition: transform 0.4s ease;
         &:hover {
-            background-color: #f0f0f0;
+            background-color: $sponsor-button-hover-background-color;
             @include transform(scale(1.05));
         }
         [theme="dark"] & {
-            background-color: #363636;
+            background-color: $sponsor-button-background-color-dark;
+            &:hover {
+                background-color: $sponsor-button-hover-background-color-dark;
+            }
         }
         [theme="black"] & {
-            background-color: #363636;
+            background-color: $sponsor-button-background-color-black;
+            &:hover {
+                background-color: $sponsor-button-hover-background-color-black;
+            }
         }
         span {
             vertical-align: top;
