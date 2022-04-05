@@ -6,6 +6,14 @@ import lazySizes from 'lazysizes'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
 
+function escape (unsafe) {
+  return unsafe.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 function forEach (elements, handler) {
   elements = elements || []
   for (let i = 0; i < elements.length; i++) handler(elements[i])
@@ -421,8 +429,8 @@ function initSearch () {
         }
       },
       templates: {
-        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
-        empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
+        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${escape(context)}</div>`,
+        empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
         footer: () => {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
             ? {
