@@ -2,7 +2,7 @@ import mermaid from 'mermaid'
 
 const mermaidElements = document.getElementsByClassName('mermaid')
 if (mermaidElements.length) {
-  const theme = window.isDark ? 'dark' : 'neutral'
+  const theme = window.isDark ? 'dark' : 'default'
   mermaid.initialize({ startOnLoad: false, theme: theme })
   console.log(mermaid)
 
