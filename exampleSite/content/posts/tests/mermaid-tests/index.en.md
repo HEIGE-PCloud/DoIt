@@ -59,22 +59,49 @@ Class01 : int gorilla
 Class08 <--> C2: Cool label
 {{< /mermaid >}}
 
-{{< mermaid >}}gitGraph:
-options
-{
-    "nodeSpacing": 150,
-    "nodeRadius": 10
-}
-end
-commit
-branch newbranch
-checkout newbranch
-commit
-commit
-checkout master
-commit
-commit
-merge newbranch
+{{< mermaid >}}
+gitGraph
+    commit
+    branch hotfix
+    checkout hotfix
+    commit
+    branch develop
+    checkout develop
+    commit id:"ash" tag:"abc"
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
+    commit
+    checkout main
+    merge hotfix
+    checkout featureB
+    commit
+    checkout develop
+    branch featureA
+    commit
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release
 {{< /mermaid >}}
 
 {{< mermaid >}}erDiagram

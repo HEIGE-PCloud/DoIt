@@ -450,43 +450,96 @@ The rendered output looks like this:
 Example **git graph** `mermaid` input:
 
 ```markdown
-{{</* mermaid */>}}gitGraph:
-options
-{
-    "nodeSpacing": 100,
-    "nodeRadius": 10
-}
-end
+{{</* mermaid */>}}gitGraph
     commit
-    branch newbranch
-    checkout newbranch
+    branch hotfix
+    checkout hotfix
     commit
+    branch develop
+    checkout develop
+    commit id:"ash" tag:"abc"
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
     commit
-    checkout master
+    checkout main
+    merge hotfix
+    checkout featureB
     commit
+    checkout develop
+    branch featureA
     commit
-    merge newbranch
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release
 {{</* /mermaid */>}}
 ```
 
 The rendered output looks like this:
 
-{{< mermaid >}}gitGraph:
-options
-{
-    "nodeSpacing": 100,
-    "nodeRadius": 10
-}
-end
+{{< mermaid >}}
+gitGraph
     commit
-    branch newbranch
-    checkout newbranch
+    branch hotfix
+    checkout hotfix
     commit
+    branch develop
+    checkout develop
+    commit id:"ash" tag:"abc"
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
     commit
-    checkout master
+    checkout main
+    merge hotfix
+    checkout featureB
     commit
+    checkout develop
+    branch featureA
     commit
-    merge newbranch
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release
 {{< /mermaid >}}
 
 ### Pie {#pie}
