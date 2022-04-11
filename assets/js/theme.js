@@ -876,6 +876,18 @@ new Pjax({
 
 document.addEventListener('pjax:success', function () {
   init()
+  // refresh analytics
+  if (typeof gtag === 'function') {
+    gtag('event', 'pageview', { page_location: window.location.href })
+  }
+
+  if (typeof fathom === 'function') {
+    fathom('trackPageview')
+  }
+
+  if (typeof _hmt !== 'undefined' && typeof _hmt.push === 'function') {
+    _hmt.push(['_trackPageview', window.location.pathname])
+  }
 })
 
 document.addEventListener('pjax:send', function () {
