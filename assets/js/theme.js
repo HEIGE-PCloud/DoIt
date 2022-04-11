@@ -1,10 +1,10 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-// import { autocomplete } from '@algolia/autocomplete-js'
 import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
+// const autocomplete = require('autocomplete.js')
 
 function escape (unsafe) {
   return unsafe.replace(/&/g, '&amp;')
