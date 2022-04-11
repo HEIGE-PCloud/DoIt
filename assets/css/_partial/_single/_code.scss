@@ -1,6 +1,6 @@
 code {
   display:inline-block;
-  max-width: 100%;
+  width: 100%;
   padding: 0 .4rem;
   @include overflow-wrap(break-word);
   @include line-break(anywhere);
@@ -48,7 +48,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
   font-family: $code-font-family;
   font-size: $code-font-size;
 
-  .table-wrapper {
+  .chroma {
     > table,
     > table thead,
     > table tr,
@@ -60,101 +60,45 @@ code, pre, .highlight table, .highlight tr, .highlight td {
   }
 }
 
-.highlight {
-  line-height: 1.4em;
-  margin: .5rem 0;
+.code-block {
 
-  > .chroma {
-    position: relative;
+  > .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: $global-font-family;
+    font-weight: bold;
+    color: $code-info-color;
+    background: darken($code-background-color, 8%);
+    margin: .5rem 0 0 0;
+    [theme=dark] & {
+      color: $code-info-color-dark;
+      background: darken($code-background-color-dark, 6%);
+    }
+    [theme=black] & {
+      color: $code-info-color-black;
+      background: darken($code-background-color-black, 6%);
+    }
 
-    .code-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-sizing: border-box;
+    &:hover {
+      cursor: pointer;
+    }
+
+    .code-title {
       width: 100%;
-      font-family: $global-font-family;
-      font-weight: bold;
-      color: $code-info-color;
-      background: darken($code-background-color, 8%);
-
-      [theme=dark] & {
-        color: $code-info-color-dark;
-        background: darken($code-background-color-dark, 6%);
-      }
-      [theme=black] & {
-        color: $code-info-color-black;
-        background: darken($code-background-color-black, 6%);
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      .code-title {
-        width: 100%;
-        padding: .4rem;
-      }
-
-      .code-title::after {
-        padding-left: .2rem;
-        content: 'Code';
-      }
-
-      @each $type, $text in $code-type-map {
-        &.#{$type} .code-title::after {
-          content: $text;
-        }
-      }
-    }
-
-    .lntd:first-child {
-      min-width: 1.6rem;
-      text-align: right;
-    }
-
-    .lntd:last-child {
-      width: 100%;
-
-      pre {
-        @include max-content(min-width);
-      }
-    }
-
-    .ln {
-      padding-right: .75rem;
-    }
-
-    .hl {
-      display: block;
-      background-color: darken($code-background-color, 10%);
-
-      [theme=dark] & {
-        background-color: darken($code-background-color-dark, 5%);
-      }
-      [theme=black] & {
-        background-color: darken($code-background-color-black, 5%);
-      }
-    }
-
-    .ln, .lnt {
-      color: $global-font-secondary-color;
-
-      [theme=dark] & {
-        color: $global-font-secondary-color-dark;
-      }
-      [theme=black] & {
-        color: $global-font-secondary-color-black;
-      }
-    }
-
-    .arrow {
-      padding: 0 .2rem;
-      @include transition(transform 0.2s ease);
-    }
-
-    .ellipses {
       padding: .4rem;
+      line-height: 1.3rem;
+
+      .arrow {
+        padding: 0 .2rem;
+        @include transition(transform 0.2s ease);
+      }
+
+      .code-lang {
+        user-select: none;
+      }
     }
 
     .copy {
@@ -174,65 +118,115 @@ code, pre, .highlight table, .highlight tr, .highlight td {
       }
     }
 
-    .table-wrapper {
+    .ellipses {
+      padding: .4rem;
+    }
+
+  }
+
+  .highlight {
+    line-height: 1.4em;
+    margin: 0;
+  
+    > .chroma {
+      position: relative;
       max-height: 0;
       overflow-y: hidden;
       @include details-transition-open;
-    }
 
-    &.open {
-      .code-header {
-        background: darken($code-background-color, 3%);
-
+      .lntd:first-child {
+        min-width: 1.6rem;
+        text-align: right;
+      }
+  
+      .lntd:last-child {
+        width: 100%;
+  
+        pre {
+          @include max-content(min-width);
+        }
+      }
+  
+      .ln {
+        padding-right: .75rem;
+      }
+  
+      .hl {
+        display: block;
+        background-color: darken($code-background-color, 10%);
+  
         [theme=dark] & {
-          background: darken($code-background-color-dark, 3%);
+          background-color: darken($code-background-color-dark, 5%);
         }
         [theme=black] & {
-          background: darken($code-background-color-black, 3%);
+          background-color: darken($code-background-color-black, 5%);
         }
       }
-
-      .table-wrapper {
-        max-height: 60vh;
-        overflow-y: auto;
-        @include details-transition-close;
+      .ln, .lnt {
+        color: $global-font-secondary-color;
+  
+        [theme=dark] & {
+          color: $global-font-secondary-color-dark;
+        }
+        [theme=black] & {
+          color: $global-font-secondary-color-black;
+        }
       }
-
-      .arrow {
-        @include transform(rotate(90deg));
+  
+    }
+  
+    /* Comment */  .c,
+    /* CommentHashbang */  .ch,
+    /* CommentMultiline */  .cm,
+    /* CommentSingle */  .c1,
+    /* CommentSpecial */  .cs,
+    /* CommentPreproc */  .cp,
+    /* CommentPreprocFile */  .cpf { font-style: italic }
+    /* GenericUnderline */  .gl { text-decoration: underline }
+  
+    @each $class, $color in $code-highlight-color-map {
+      .#{$class} { color: $color; }
+    }
+  
+    [theme=dark] & {
+      @each $class, $color in $code-highlight-color-map-dark {
+        .#{$class} { color: $color; }
       }
-
-      .ellipses {
-        display: none;
-      }
-
-      .copy {
-        display: inline;
+    }
+    [theme=black] & {
+      @each $class, $color in $code-highlight-color-map-black {
+        .#{$class} { color: $color; }
       }
     }
   }
 
-  /* Comment */  .c,
-  /* CommentHashbang */  .ch,
-  /* CommentMultiline */  .cm,
-  /* CommentSingle */  .c1,
-  /* CommentSpecial */  .cs,
-  /* CommentPreproc */  .cp,
-  /* CommentPreprocFile */  .cpf { font-style: italic }
-  /* GenericUnderline */  .gl { text-decoration: underline }
+  &.open {
+    .code-header {
+      background: darken($code-background-color, 3%);
 
-  @each $class, $color in $code-highlight-color-map {
-    .#{$class} { color: $color; }
-  }
-
-  [theme=dark] & {
-    @each $class, $color in $code-highlight-color-map-dark {
-      .#{$class} { color: $color; }
+      [theme=dark] & {
+        background: darken($code-background-color-dark, 3%);
+      }
+      [theme=black] & {
+        background: darken($code-background-color-black, 3%);
+      }
     }
-  }
-  [theme=black] & {
-    @each $class, $color in $code-highlight-color-map-black {
-      .#{$class} { color: $color; }
+
+    .highlight>.chroma {
+      max-height: $MAX_LENGTH;
+      @include details-transition-close;
+    }
+
+    .arrow {
+      @include transform(rotate(90deg));
+    }
+
+    .ellipses {
+      display: none;
+    }
+
+    .copy {
+      display: inline;
     }
   }
 }

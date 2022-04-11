@@ -49,6 +49,7 @@ Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et l
 animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex,
 soluta officiis concludaturque ei qui, vide sensibus vim ad.
 ```
+
 ## Inline HTML
 
 <div class="class">
@@ -113,12 +114,11 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
     line 3 of code
     loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong
 
-
-```cpp
+```cpp { title="Hello World" open=false }
 #include <iostream>
 int main()
 {
-    std::cout << "Hello world!" << endl;
+    std::cout << "Hello world!" << std::endl;
     return 0;
 }
 ```

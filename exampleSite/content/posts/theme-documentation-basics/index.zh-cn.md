@@ -489,8 +489,6 @@ hugo
       auto = true
     # {{< version 0.2.0 >}} 代码配置
     [params.page.code]
-      # 是否显示代码块的复制按钮
-      copy = true
       # 默认展开显示的代码行数
       maxShownLines = 10
     # {{< version 0.2.14 >}} 表格配置
