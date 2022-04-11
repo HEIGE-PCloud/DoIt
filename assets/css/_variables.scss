@@ -41,11 +41,14 @@ $global-border-color-black: #363636 !default;
 // ========== Global ========== //
 
 // ========== Scrollbar ========== //
+// Whether enable custom scrollbar
+$custom-scrollbar: true;
+$custom-scrollbar-width: .5rem;
+$custom-scrollbar-height: .5rem;
 // Color of the scrollbar
-$scrollbar-color: #87878d !default;
-
+$custom-scrollbar-color: #87878d !default;
 // Color of the hover scrollbar
-$scrollbar-hover-color: #a9a9b3 !default;
+$custom-scrollbar-hover-color: #a9a9b3 !default;
 // ========== Scrollbar ========== //
 
 // ========== Selection ========== //
@@ -403,10 +406,6 @@ $admonition-background-color-map: (
   'example': rgba(101, 31, 255, 0.1),
   'quote': rgba(159, 159, 159, 0.1),
 ) !default;
-// ========== Admonition ========== //
-
-$MAX_LENGTH: 12000px;
-
 // ========== Friend Link ========== //
 // Color of friend link background
 $friend-link-background-color: #f8f8f8 !default;
@@ -423,3 +422,16 @@ $friend-link-hover-color: #ef3982 !default;
 $friend-link-hover-color-dark: #ffffff !default;
 $friend-link-hover-color-black: #ffffff !default;
 // ========== Friend Link ========== //
+
+
+// ========== Sponsor Button ========== //
+// Sponsor button background color
+$sponsor-button-background-color: #f0f0f0 !default;
+$sponsor-button-background-color-dark: #363636 !default;
+$sponsor-button-background-color-black: #363636 !default;
+
+// Sponsor button background color while in the :hover state
+$sponsor-button-hover-background-color: #f0f0f0 !default;
+$sponsor-button-hover-background-color-dark: #363636 !default;
+$sponsor-button-hover-background-color-black: #363636 !default;
+// ========== Sponsor Button ========== //

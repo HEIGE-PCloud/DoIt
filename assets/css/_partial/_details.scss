@@ -29,7 +29,7 @@
     }
 
     .details-content {
-      max-height: $MAX_LENGTH;
+      max-height: 12000px;
       @include details-transition-close;
     }
   }

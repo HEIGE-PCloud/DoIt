@@ -865,7 +865,7 @@ enableEmoji = true
       # Waline 评论系统设置 (https://waline.js.org)
       [params.page.comment.waline]
         enable = false
-        serverURL = ""
+        serverURL = "https://do-it-waline-comment.vercel.app/"
         visitor = false
         emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
         meta = ['nick', 'mail', 'link']

@@ -1,0 +1,779 @@
+
+# yaml-language-server: $schema=schema.json
+baseURL: 'https://hugodoit.pages.dev'
+defaultContentLanguage: en
+theme: "DoIt"
+themesDir: ../..
+title: DoIt
+enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
+languages:
+  en:
+    weight: 1
+    languageCode: en
+    languageName: English
+    hasCJKLanguage: false
+    paginate: 12
+    googleAnalytics: ''
+    copyright: >-
+      This work is licensed under a Creative Commons Attribution-NonCommercial
+      4.0 International License.
+    menu:
+      main:
+        - identifier: posts
+          pre: ''
+          post: ''
+          name: Posts
+          url: /posts/
+          title: ''
+          weight: 1
+        - identifier: tags
+          pre: ''
+          post: ''
+          name: Tags
+          url: /tags/
+          title: ''
+          weight: 2
+        - identifier: categories
+          pre: ''
+          post: ''
+          name: Categories
+          url: /categories/
+          title: ''
+          weight: 3
+        - identifier: series
+          pre: ''
+          post: ''
+          name: Series
+          url: /series/
+          title: ''
+          weight: 4
+        - identifier: authors
+          pre: ''
+          post: ''
+          name: Authors
+          url: /authors/
+          title: ''
+          weight: 5
+        - identifier: showcase
+          pre: ''
+          post: ''
+          name: Showcase
+          url: /showcase/
+          title: ''
+          weight: 6
+        - identifier: documentation
+          pre: ''
+          post: ''
+          name: Docs
+          url: /categories/documentation/
+          title: ''
+          weight: 7
+        - identifier: about
+          pre: ''
+          post: ''
+          name: About
+          url: /about/
+          title: ''
+          weight: 8
+        - identifier: github
+          pre: <i class='fab fa-github fa-fw'></i>
+          post: ''
+          name: ''
+          url: 'https://github.com/HEIGE-PCloud/DoIt'
+          title: GitHub
+          weight: 9
+    params:
+      description: The official documentation for the Hugo DoIt theme
+      keywords:
+        - Theme
+        - Hugo
+      app:
+        title: DoIt
+        noFavicon: false
+        svgFavicon: ''
+        iconColor: '#5bbad5'
+        tileColor: '#da532c'
+      search:
+        enable: true
+        type: algolia
+        contentLength: 4000
+        placeholder: ''
+        maxResultLength: 10
+        snippetLength: 300
+        highlightTag: em
+        absoluteURL: false
+        algolia:
+          index: en_index
+          appID: 5YGRNRQK1G
+          searchKey: 0ff6874805de24b84aa1d5ebccad56cd
+        fuse:
+          isCaseSensitive: false
+          minMatchCharLength: 2
+          findAllMatches: false
+          location: 0
+          threshold: 0.1
+          distance: 100
+          ignoreLocation: true
+          useExtendedSearch: false
+          ignoreFieldNorm: false
+      home:
+        rss: 10
+        profile:
+          enable: true
+          gravatarEmail: ''
+          avatarURL: /images/avatar.webp
+          title: ''
+          subtitle: 'A Clean, Elegant but Advanced Hugo Theme'
+          typeit: true
+          social: true
+          disclaimer: ''
+        posts:
+          enable: true
+          paginate: 7
+      social:
+        GitHub: xxxx
+        Linkedin: ''
+        Twitter: xxxx
+        Instagram: ''
+        Facebook: xxxx
+        Telegram: xxxx
+        Medium: ''
+        Gitlab: ''
+        Youtubelegacy: xxxx
+        Youtubecustom: ''
+        Youtubechannel: ''
+        Tumblr: ''
+        Quora: ''
+        Keybase: ''
+        Pinterest: ''
+        Reddit: ''
+        Codepen: ''
+        FreeCodeCamp: ''
+        Bitbucket: ''
+        Stackoverflow: ''
+        Weibo: ''
+        Odnoklassniki: ''
+        VK: ''
+        Flickr: ''
+        Xing: ''
+        Snapchat: ''
+        Soundcloud: ''
+        Spotify: ''
+        Bandcamp: ''
+        Paypal: ''
+        Fivehundredpx: ''
+        Mix: ''
+        Goodreads: ''
+        Lastfm: ''
+        Foursquare: ''
+        Hackernews: ''
+        Kickstarter: ''
+        Patreon: ''
+        Steam: ''
+        Twitch: ''
+        Strava: ''
+        Skype: ''
+        Whatsapp: ''
+        Zhihu: ''
+        Douban: ''
+        Angellist: ''
+        Slidershare: ''
+        Jsfiddle: ''
+        Deviantart: ''
+        Behance: ''
+        Dribbble: ''
+        Wordpress: ''
+        Vine: ''
+        Googlescholar: ''
+        Researchgate: ''
+        Thingiverse: ''
+        Devto: ''
+        Gitea: ''
+        XMPP: ''
+        Matrix: ''
+        Bilibili: ''
+        ORCID: ''
+        QQ: ''
+        QQGroup: ''
+        Liberapay: xxx
+        Ko-Fi: xxx
+        BuyMeACoffee: ''
+        Linktree: ''
+        Email: xxxx@xxxx.com
+        RSS: true
+        Mastodon:
+          id: '@xxxx'
+          prefix: 'https://mastodon.technology/'
+        Diaspora:
+          id: '@xxxx'
+          prefix: 'https://yyyy/'
+      sponsor:
+        enable: false
+        bio: 'If you find this post helpful, please consider sponsoring.'
+        link: 'https://github.com/sponsors/HEIGE-PCloud'
+  zh-cn:
+    weight: 2
+    languageCode: zh-CN
+    languageName: 简体中文
+    hasCJKLanguage: true
+    paginate: 12
+    googleAnalytics: ''
+    copyright: >-
+      This work is licensed under a Creative Commons Attribution-NonCommercial
+      4.0 International License.
+    menu:
+      main:
+        - identifier: posts
+          pre: ''
+          post: ''
+          name: 所有文章
+          url: /posts/
+          title: ''
+          weight: 1
+        - identifier: tags
+          pre: ''
+          post: ''
+          name: 标签
+          url: /tags/
+          title: ''
+          weight: 2
+        - identifier: categories
+          pre: ''
+          post: ''
+          name: 分类
+          url: /categories/
+          title: ''
+          weight: 3
+        - identifier: series
+          pre: ''
+          post: ''
+          name: 系列
+          url: /series/
+          title: ''
+          weight: 4
+        - identifier: authors
+          pre: ''
+          post: ''
+          name: 作者
+          url: /authors/
+          title: ''
+          weight: 5
+        - identifier: showcase
+          pre: ''
+          post: ''
+          name: 作品
+          url: /showcase/
+          title: ''
+          weight: 6
+        - identifier: documentation
+          pre: ''
+          name: 文档
+          url: /categories/documentation/
+          title: ''
+          weight: 7
+        - identifier: about
+          pre: ''
+          post: ''
+          name: 关于
+          url: /about/
+          title: ''
+          weight: 8
+        - identifier: github
+          pre: <i class='fab fa-github fa-fw'></i>
+          post: ''
+          name: ''
+          url: 'https://github.com/HEIGE-PCloud/DoIt'
+          title: GitHub
+          weight: 9
+    params:
+      description: Hugo DoIt 主题官方文档
+      keywords:
+        - Theme
+        - Hugo
+      app:
+        title: DoIt
+        noFavicon: false
+        svgFavicon: ''
+        iconColor: '#5bbad5'
+        tileColor: '#da532c'
+      search:
+        enable: true
+        type: algolia
+        contentLength: 4000
+        placeholder: ''
+        maxResultLength: 10
+        snippetLength: 50
+        highlightTag: em
+        absoluteURL: false
+        algolia:
+          index: zh_cn_index
+          appID: 5YGRNRQK1G
+          searchKey: 0ff6874805de24b84aa1d5ebccad56cd
+        fuse:
+          isCaseSensitive: false
+          minMatchCharLength: 2
+          findAllMatches: false
+          location: 0
+          threshold: 0.1
+          distance: 100
+          ignoreLocation: true
+          useExtendedSearch: false
+          ignoreFieldNorm: false
+      home:
+        rss: 10
+        profile:
+          enable: true
+          gravatarEmail: ''
+          avatarURL: /images/avatar.webp
+          title: ''
+          subtitle: 一个简洁、优雅且高效的 Hugo 主题
+          typeit: true
+          social: true
+          disclaimer: ''
+        posts:
+          enable: true
+          paginate: 7
+      social:
+        GitHub: xxxx
+        Linkedin: ''
+        Twitter: ''
+        Instagram: ''
+        Facebook: ''
+        Telegram: ''
+        Medium: ''
+        Gitlab: ''
+        Youtubelegacy: ''
+        Youtubecustom: ''
+        Youtubechannel: ''
+        Tumblr: ''
+        Quora: ''
+        Keybase: ''
+        Pinterest: ''
+        Reddit: ''
+        Codepen: ''
+        FreeCodeCamp: ''
+        Bitbucket: ''
+        Stackoverflow: ''
+        Weibo: xxxx
+        Odnoklassniki: ''
+        VK: ''
+        Flickr: ''
+        Xing: ''
+        Snapchat: ''
+        Soundcloud: ''
+        Spotify: ''
+        Bandcamp: ''
+        Paypal: ''
+        Fivehundredpx: ''
+        Mix: ''
+        Goodreads: ''
+        Lastfm: ''
+        Foursquare: ''
+        Hackernews: ''
+        Kickstarter: ''
+        Patreon: ''
+        Steam: xxxx
+        Twitch: ''
+        Strava: ''
+        Skype: ''
+        Whatsapp: ''
+        Zhihu: xxxx
+        Douban: xxxx
+        Angellist: ''
+        Slidershare: ''
+        Jsfiddle: ''
+        Deviantart: ''
+        Behance: ''
+        Dribbble: ''
+        Wordpress: ''
+        Vine: ''
+        Googlescholar: ''
+        Researchgate: ''
+        Mastodon: ''
+        Thingiverse: ''
+        Devto: xxxx
+        Gitea: ''
+        XMPP: ''
+        Matrix: ''
+        Bilibili: xxxx
+        ORCID: ''
+        Liberapay: ''
+        Ko-Fi: ''
+        BuyMeACoffee: ''
+        Linktree: ''
+        QQ: ''
+        QQGroup: ''
+        Email: xxxx@xxxx.com
+        RSS: true
+      sponsor:
+        enable: false
+        bio: 如果你觉得这篇文章对你有所帮助，欢迎赞赏~
+        link: 'https://github.com/sponsors/HEIGE-PCloud'
+params:
+  title: Hugo DoIt Theme Documentation
+  version: 0.2.X
+  defaultTheme: auto
+  gitRepo: 'https://github.com/HEIGE-PCloud/DoIt'
+  fingerprint: ''
+  dateFormat: '2006-01-02'
+  images:
+    - /images/avatar.webp
+  enablePWA: true
+  license: >-
+    <a rel="license external nofollow noopener noreffer"
+    href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC
+    BY-NC 4.0</a>
+  bundle: true
+  header:
+    desktopMode: fixed
+    mobileMode: auto
+    themeChangeMode: select
+    title:
+      logo: ''
+      name: DoIt
+      pre: <i class='far fa-edit fa-fw'></i>
+      post: ''
+      typeit: true
+  footer:
+    enable: true
+    custom: ''
+    hugo: true
+    hostedOn: ''
+    copyright: true
+    author: true
+    since: 2019
+    icp: ''
+    license: >-
+      <a rel="license external nofollow noopener noreffer"
+      href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC
+      BY-NC 4.0</a>
+  section:
+    paginate: 20
+    dateFormat: 01-02
+    rss: 10
+    recentlyUpdated:
+      enable: true
+      rss: true
+      days: 30
+      maxCount: 10
+  list:
+    paginate: 20
+    dateFormat: 01-02
+    rss: 10
+  page:
+    hiddenFromHomePage: false
+    hiddenFromSearch: false
+    twemoji: false
+    lightgallery: false
+    ruby: true
+    fraction: true
+    fontawesome: true
+    linkToMarkdown: true
+    linkToSource: 'https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}'
+    linkToEdit: 'https://github.com/HEIGE-PCloud/DoIt/edit/main/exampleSite/content/{path}'
+    linkToReport: >-
+      https://github.com/HEIGE-PCloud/DoIt/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}|
+    rssFullText: false
+    pageStyle: normal
+    seriesNavigation: true
+    outdatedArticleReminder:
+      enable: false
+      reminder: 90
+      warning: 180
+    toc:
+      enable: true
+      keepStatic: false
+      auto: true
+    code:
+      copy: true
+      maxShownLines: 10
+    table:
+      sort: true
+    header:
+      number:
+        enable: true
+        format:
+          h2: '{h2} {title}'
+          h3: '{h2}.{h3} {title}'
+          h4: '{h2}.{h3}.{h4} {title}'
+          h5: '{h2}.{h3}.{h4}.{h5} {title}'
+          h6: '{h2}.{h3}.{h4}.{h5}.{h6} {title}'
+    math:
+      enable: false
+      blockLeftDelimiter: ''
+      blockRightDelimiter: ''
+      inlineLeftDelimiter: ''
+      inlineRightDelimiter: ''
+      copyTex: true
+      mhchem: true
+    mapbox:
+      accessToken: >-
+        pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ
+      lightStyle: 'mapbox://styles/mapbox/light-v10?optimize=true'
+      darkStyle: 'mapbox://styles/mapbox/dark-v10?optimize=true'
+      navigation: true
+      geolocate: true
+      scale: true
+      fullscreen: true
+    share:
+      enable: true
+      Twitter: true
+      Facebook: true
+      Linkedin: false
+      Whatsapp: false
+      Pinterest: false
+      Tumblr: false
+      HackerNews: true
+      Reddit: false
+      VK: false
+      Buffer: false
+      Xing: false
+      Line: true
+      Instapaper: false
+      Pocket: false
+      Digg: false
+      Stumbleupon: false
+      Flipboard: false
+      Weibo: true
+      Renren: false
+      Myspace: false
+      Blogger: false
+      Baidu: false
+      Odnoklassniki: false
+      Evernote: false
+      Skype: false
+      Trello: false
+      Mix: false
+      Telegram: true
+    comment:
+      enable: true
+      disqus:
+        enable: false
+        shortname: ''
+      gitalk:
+        enable: false
+        owner: ''
+        repo: ''
+        clientId: ''
+        clientSecret: ''
+      valine:
+        enable: false
+        appId: ''
+        appKey: ''
+        placeholder: ''
+        avatar: mp
+        meta: ''
+        pageSize: 10
+        lang: en
+        visitor: true
+        recordIP: false
+        highlight: true
+        enableQQ: false
+        serverURLs: ''
+        emoji: ''
+      waline:
+        enable: false
+        serverURL: ''
+        visitor: false
+        emoji:
+          - 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo'
+        meta:
+          - nick
+          - mail
+          - link
+        requiredMeta: []
+        login: enable
+        wordLimit: 0
+        pageSize: 10
+        uploadImage: false
+        highlight: true
+        mathTagSupport: false
+        commentCount: false
+      facebook:
+        enable: false
+        width: 100%
+        numPosts: 10
+        appId: ''
+        languageCode: ''
+      telegram:
+        enable: false
+        siteID: ''
+        limit: 5
+        height: ''
+        color: ''
+        colorful: true
+        dislikes: false
+        outlined: false
+        dark: false
+      commento:
+        enable: false
+      utterances:
+        enable: false
+        repo: ''
+        issueTerm: pathname
+        label: ''
+        lightTheme: github-light
+        darkTheme: github-dark
+      twikoo:
+        enable: true
+        envId: 'https://doit-docs-comment-twikoo.vercel.app/'
+        region: ''
+        path: ''
+        visitor: true
+        commentCount: true
+      vssue:
+        enable: false
+        platform: ''
+        owner: ''
+        repo: ''
+        clientId: ''
+        clientSecret: ''
+      remark42:
+        enable: false
+        host: ''
+        site_id: ''
+        max_shown_comments: 15
+        show_email_subscription: true
+        simple_view: false
+      giscus:
+        enable: false
+        dataRepo: ''
+        dataRepoId: ''
+        dataCategory: ''
+        dataCategoryId: ''
+        dataMapping: pathname
+        dataReactionsEnabled: '1'
+        dataEmitMetadata: '0'
+        dataInputPosition: bottom
+        lightTheme: light
+        darkTheme: dark
+        dataLang: en
+    library:
+      css: {}
+      js: {}
+    seo:
+      images: []
+      publisher:
+        name: xxxx
+        logoUrl: /images/avatar.webp
+  sponsor:
+    enable: false
+    bio: 'If you find this post helpful, please consider sponsoring.'
+    link: 'https://github.com/sponsors/HEIGE-PCloud'
+  typeit:
+    speed: 100
+    cursorSpeed: 1000
+    cursorChar: '|'
+    duration: -1
+  verification:
+    google: MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4
+    bing: ''
+    yandex: ''
+    pinterest: ''
+    baidu: ''
+    so: ''
+    sogou: ''
+  seo:
+    image: /images/Apple-Devices-Preview.png
+    thumbnailUrl: /images/screenshot.png
+  analytics:
+    enable: false
+    google:
+      id: ''
+      anonymizeIP: true
+    fathom:
+      id: ''
+      server: ''
+    baidu:
+      id: ''
+    umami:
+      data_website_id: ''
+      src: ''
+      data_domains: ''
+    plausible:
+      data_domain: ''
+      src: ''
+    cloudflare:
+      token: ''
+  cookieconsent:
+    enable: false
+    content:
+      message: ''
+      dismiss: ''
+      link: ''
+  cdn:
+    data: ''
+  compatibility:
+    polyfill: false
+    objectFit: false
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+author:
+  name: PCloud
+  email: heige.pcloud@outlook.com
+  link: 'https://github.com/HEIGE-PCloud'
+  avatar: /images/avatar.webp
+  gravatarEmail: ''
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+Permalinks:
+  posts: ':filename'
+privacy:
+  googleAnalytics: {}
+  twitter:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+mediaTypes:
+  text/plain:
+    suffixes:
+      - md
+outputFormats:
+  MarkDown:
+    mediaType: text/plain
+    isPlainText: true
+    isHTML: false
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  page:
+    - HTML
+    - MarkDown
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  taxonomyTerm:
+    - HTML
+taxonomies:
+  author: authors
+  category: categories
+  tag: tags
+  series: series
