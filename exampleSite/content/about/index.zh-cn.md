@@ -13,9 +13,9 @@ math:
 >
 > 它的原型基于 [LoveIt 主题](https://github.com/dillonzq/LoveIt)， [LeaveIt 主题](https://github.com/liuzc/LeaveIt) 和 [KeepIt 主题](https://github.com/Fastbyte01/KeepIt)。
 
-### 特性
+## 特性
 
-#### 性能和 SEO
+### 性能和 SEO
 
 * :(fas fa-rocket fa-fw): **性能**优化：在 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights) 中， [99]/[100] 的移动设备得分和 [100]/[100] 的桌面设备得分
 * :(fas fa-space-shuttle fa-fw): 支持 **PJAX**
@@ -29,7 +29,7 @@ math:
 * :(fas fa-tachometer-alt fa-fw): 支持所有第三方库的 **CDN**
 * :(fas fa-cloud-download-alt fa-fw): 基于 [lazysizes](https://github.com/aFarkas/lazysizes) 自动转换图片为**懒加载**
 
-#### 外观和布局
+### 外观和布局
 
 * [:(fas fa-desktop):]/[:(fas fa-mobile):] **响应式**布局
 * [:(fas fa-sun):]/[:(fas fa-moon):] **[浅色]/[深色]** 主题模式
@@ -39,7 +39,7 @@ math:
 * :(fas fa-language fa-fw): 支持**多语言**和国际化
 * :(fab fa-css3-alt fa-fw): 美观的 **CSS 动画**
 
-#### 社交和评论系统
+### 社交和评论系统
 
 * :(far fa-user fa-fw): 支持 **[Gravatar](https://gravatar.com)** 头像
 * :(fas fa-user-circle fa-fw): 支持本地**头像**
@@ -58,7 +58,7 @@ math:
 * :(far fa-comment-alt fa-fw): 支持 **[Remark42](https://remark42.com/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[giscus](https://giscus.app/)** 评论系统
 
-#### 扩展功能
+### 扩展功能
 
 * :(fas fa-search fa-fw): 支持基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/) 或 [Fuse.js](https://fusejs.io/) 的**搜索**
 * :(far fa-grin-tongue-wink fa-fw): 支持 **Twemoji**
@@ -81,7 +81,7 @@ math:
 * :(fas fa-cookie-bite fa-fw): 支持基于 [cookieconsent](https://github.com/osano/cookieconsent) 的 **Cookie 许可横幅**
 * ...
 
-### 许可协议
+## 许可协议
 
 DoIt 根据 **MIT** 许可协议授权。
 

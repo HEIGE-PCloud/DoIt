@@ -7,7 +7,7 @@
     "@waline/client": "^1.6.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
@@ -33,20 +33,20 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.5.6",
     "@sliphua/pjax": "^2.4.0",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
+    "autocomplete.js": "^0.38.1",
     "clipboard": "^2.0.10",
     "cookieconsent": "^3.1.1",
     "echarts": "^5.3.2",
     "katex": "^0.15.3",
     "lazysizes": "^5.3.2",
-    "mermaid": "^8.14.0",
+    "mermaid": "^9.0.0",
     "tablesort": "^5.3.0",
     "topbar": "^1.0.1",
     "twemoji": "^14.0.2",
-    "twikoo": "^1.5.0",
+    "twikoo": "^1.5.3",
     "valine": "^1.4.18"
   }
 }

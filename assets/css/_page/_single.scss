@@ -220,6 +220,30 @@
         }
       }
 
+      @if $custom-scrollbar {
+        &::-webkit-scrollbar {
+          background-color: $table-background-color;
+  
+          [theme=dark] & {
+            background-color: $table-background-color-dark;
+          }
+          [theme=black] & {
+            background-color: $table-background-color-black;
+          }
+        }
+
+        ::-webkit-scrollbar-corner {
+          background-color: $table-background-color;
+
+          [theme=dark] & {
+            background-color: $table-background-color-dark;
+          }
+          [theme=black] & {
+            background-color: $table-background-color-black;
+          }
+        }
+      }
+
       th, td {
         padding: .3rem 1rem;
         border: 1px solid darken($table-thead-color, 2%);

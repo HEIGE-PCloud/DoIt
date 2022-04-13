@@ -1,12 +1,20 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-// import { autocomplete } from '@algolia/autocomplete-js'
 import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
 import { copy } from 'clipboard'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
+// const autocomplete = require('autocomplete.js')
+
+function escape (unsafe) {
+  return unsafe.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
 
 function forEach (elements, handler) {
   elements = elements || []
@@ -423,8 +431,8 @@ function initSearch () {
         }
       },
       templates: {
-        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
-        empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
+        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${escape(context)}</div>`,
+        empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
         footer: () => {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
             ? {
@@ -828,6 +836,18 @@ new Pjax({
 
 document.addEventListener('pjax:success', function () {
   init()
+  // refresh analytics
+  if (typeof gtag === 'function') {
+    gtag('event', 'pageview', { page_location: window.location.href })
+  }
+
+  if (typeof fathom === 'function') {
+    fathom('trackPageview')
+  }
+
+  if (typeof _hmt !== 'undefined' && typeof _hmt.push === 'function') {
+    _hmt.push(['_trackPageview', window.location.pathname])
+  }
 })
 
 document.addEventListener('pjax:send', function () {
