@@ -429,7 +429,7 @@ function initSearch () {
         }
       },
       templates: {
-        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${escape(context)}</div>`,
+        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${(context)}</div>`,
         empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
         footer: () => {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
