@@ -3,14 +3,6 @@
   "version": "0.2.13",
   "description": "DoIt theme source file",
   "private": true,
-  "devDependencies": {
-    "@waline/client": "^1.6.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0"
-  },
   "scripts": {
     "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
     "build:preview": "hugo -v --source=exampleSite --themesDir ../.. -D --gc",
@@ -34,6 +26,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
     "@sliphua/pjax": "^2.4.0",
+    "@waline/client": "^2.0.7",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
@@ -48,5 +41,10 @@
     "twemoji": "^14.0.2",
     "twikoo": "^1.5.8",
     "valine": "^1.4.18"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }
