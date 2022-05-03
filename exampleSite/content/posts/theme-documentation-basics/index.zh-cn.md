@@ -608,7 +608,6 @@ hugo
         pageSize = 10
         uploadImage = false
         highlight = true
-        mathTagSupport = false
         commentCount = true
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]

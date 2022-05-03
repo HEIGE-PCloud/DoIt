@@ -604,7 +604,6 @@ Please open the code block below to view the complete sample configuration :(far
         pageSize = 10
         uploadImage = false
         highlight = true
-        mathTagSupport = false
         commentCount = true
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
