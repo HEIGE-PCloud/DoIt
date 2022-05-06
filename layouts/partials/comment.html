@@ -107,14 +107,14 @@
             {{- with $waline.pageSize -}}
                 {{- $commentConfig = dict "pageSize" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.imageUploader -}}
-                {{- $commentConfig = dict "imageUploader" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.imageUploader false -}}
+                {{- $commentConfig = dict "imageUploader" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.highlighter -}}
-                {{- $commentConfig = dict "highlighter" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.highlighter false -}}
+                {{- $commentConfig = dict "highlighter" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.texRenderer -}}
-                {{- $commentConfig = dict "texRenderer" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.texRenderer false -}}
+                {{- $commentConfig = dict "texRenderer" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
