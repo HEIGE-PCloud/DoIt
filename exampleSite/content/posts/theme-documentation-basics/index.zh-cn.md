@@ -596,20 +596,20 @@ hugo
         emoji = ""
       # {{< link "https://github.com/xCss/Valine" Waline >}} 评论系统设置
       [params.page.comment.waline]
-        # {{< version 0.2.13 changed >}}
+        # {{< version 0.2.14 changed >}}
         enable = false
         serverURL = ""
-        visitor = false
-        emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
-        meta = ['nick', 'mail', 'link']
-        requiredMeta = []
-        login = 'enable'
-        wordLimit = 0
-        pageSize = 10
-        uploadImage = false
-        highlight = true
-        mathTagSupport = false
-        commentCount = true
+        pageview = true
+        comment = true
+        # emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+        # meta = ['nick', 'mail', 'link']
+        # requiredMeta = []
+        # login = 'enable'
+        # wordLimit = 0
+        # pageSize = 10
+        # imageUploader = false
+        # highlighter = false
+        # texRenderer = false
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook 评论系统" >}}设置
       [params.page.comment.facebook]
         enable = false

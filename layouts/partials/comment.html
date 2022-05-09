@@ -80,9 +80,14 @@
         {{- $waline := $comment.waline | default dict -}}
         {{- if $waline.enable -}}
             <div id="waline" class="comment"></div>
+            {{- $source := $cdn.walineCSS | default "lib/waline/waline.css" -}}
+            {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
             {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" true | dict "waline" | merge $commentConfig -}}
-            {{- with $waline.visitor -}}
-                {{- $commentConfig = dict "visitor" . | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.pageview -}}
+                {{- $commentConfig = dict "pageview" . | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
+            {{- with $waline.comment -}}
+                {{- $commentConfig = dict "comment" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- with $waline.emoji -}}
                 {{- $commentConfig = dict "emoji" . | dict "waline" | merge $commentConfig -}}
@@ -102,20 +107,20 @@
             {{- with $waline.pageSize -}}
                 {{- $commentConfig = dict "pageSize" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.uploadImage -}}
-                {{- $commentConfig = dict "uploadImage" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.imageUploader false -}}
+                {{- $commentConfig = dict "imageUploader" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.highlight -}}
-                {{- $commentConfig = dict "highlight" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.highlighter false -}}
+                {{- $commentConfig = dict "highlighter" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.mathTagSupport -}}
-                {{- $commentConfig = dict "mathTagSupport" . | dict "waline" | merge $commentConfig -}}
+            {{- if eq $waline.texRenderer false -}}
+                {{- $commentConfig = dict "texRenderer" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
             {{- if $bundle -}}
             {{- else -}}
-                {{- $source := $cdn.walineJS | default "lib/waline/Waline.min.js" -}}
+                {{- $source := $cdn.walineJS | default "lib/waline/waline.js" -}}
                 {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
                 {{- $options = dict "shims" $shims | merge $options -}}
             {{- end -}}
