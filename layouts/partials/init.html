@@ -24,12 +24,6 @@
 
 {{- $params := .Params | merge .Site.Params.page -}}
 
-{{- /* Check bundle option*/ -}}
-{{- if .Site.Params.bundle -}}
-    {{- warnf "\n\nThe experimental bundle option is enabled in config.toml.\nIf you encountered any 'Could not resolve' problem, please set bundle = false.\n在 config.toml 中启用了实验性选项。\n如果遇到 'Could not resolve' 的问题，请设置 bundle = false。\n\n" -}}
-{{- end -}}
-
-
 {{- if eq hugo.Environment "production" -}}
     {{- $cdn := .Site.Params.cdn -}}
     {{- with $cdn.data -}}
