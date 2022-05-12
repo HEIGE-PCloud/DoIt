@@ -51,5 +51,8 @@
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
     "hugo-bin": "^0.86.0"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
   }
 }
