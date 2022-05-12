@@ -692,7 +692,6 @@ enableEmoji = true
     rssFullText = false
     # Page style ("normal", "wide")
     # 页面样式 ("normal", "wide")
-    pageStyle = "normal"
     # whether to enable series navigation
     # 是否使用系列导航
     seriesNavigation = true
