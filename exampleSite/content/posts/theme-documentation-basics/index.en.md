@@ -789,8 +789,6 @@ Please open the code block below to view the complete sample configuration :(far
   [params.compatibility]
     # whether to use Polyfill.io to be compatible with older browsers
     polyfill = false
-    # whether to use object-fit-images to be compatible with older browsers
-    objectFit = false
 
 # Markup related config in Hugo
 [markup]

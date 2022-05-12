@@ -725,7 +725,6 @@ function init () {
   window.switchThemeEventSet = new Set()
   window.clickMaskEventSet = new Set()
   window.pjaxSendEventSet = new Set()
-  if (window.objectFitImages) objectFitImages()
   initSVGIcon()
   initMenuMobile()
   initSwitchTheme()
