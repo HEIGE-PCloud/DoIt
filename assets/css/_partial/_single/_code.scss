@@ -211,7 +211,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     }
 
     .highlight>.chroma {
-      max-height: $MAX_LENGTH;
+      max-height: calc(100vh - 6rem);
+      overflow: auto;
       @include details-transition-close;
     }
 
