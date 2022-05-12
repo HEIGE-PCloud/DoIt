@@ -508,7 +508,16 @@ function initHighlight () {
 
     // Set up the copy button with clipboardjs
     const copyButton = codeBlock.getElementsByClassName('copy')[0]
-    const clipboard = new ClipboardJS(copyButton)
+    const clipboard = new ClipboardJS(copyButton, {
+      text: () => {
+        const chroma = codeBlock.getElementsByClassName('chroma')
+        const code = chroma[chroma.length - 1]
+        if (code) {
+          return code.textContent
+        }
+        return ''
+      }
+    })
     clipboard.on('success', _e => {
       copyButton.firstElementChild.className = 'fas fa-check fa-fw'
       setTimeout(() => {
