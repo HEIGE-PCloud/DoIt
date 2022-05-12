@@ -125,8 +125,6 @@
 
 {{- /* mermaid */ -}}
 {{- if (.Scratch.Get "this").mermaid -}}
-    {{- $options := dict "targetPath" "lib/mermaid/mermaid.min.css" "enableSourceMap" true -}}
-    {{- dict "Source" "lib/mermaid/mermaid.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
     {{- $options := dict -}}
     {{- $config = dict "mermaid" true | merge $config -}}
     {{- $options = dict "targetPath" "js/mermaid.min.js" | merge $options -}}

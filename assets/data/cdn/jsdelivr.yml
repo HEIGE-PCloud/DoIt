@@ -46,8 +46,6 @@ libFiles:
   # mapbox-gl@2.3.1 https://docs.mapbox.com/mapbox-gl-js
   mapboxGLCSS: mapbox-gl@2.3.1/dist/mapbox-gl.min.css
   mapboxGLJS: mapbox-gl@2.3.1/dist/mapbox-gl.min.js
-  # mermaid@8.13.3 https://github.com/knsv/mermaid
-  mermaidJS: mermaid@8.13.3/dist/mermaid.min.js
   # meting@2.0.1 https://github.com/metowolf/MetingJS
   metingJS: meting@2.0.1/dist/Meting.min.js
   # normalize.css@8.0.1 https://github.com/necolas/normalize.css

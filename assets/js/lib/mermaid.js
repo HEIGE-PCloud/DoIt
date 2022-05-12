@@ -3,7 +3,7 @@ import mermaid from 'mermaid'
 const mermaidElements = document.getElementsByClassName('mermaid')
 if (mermaidElements.length) {
   const theme = window.isDark ? 'dark' : 'default'
-  mermaid.initialize({ startOnLoad: false, theme: theme })
+  mermaid.initialize({ startOnLoad: false, theme })
   console.log(mermaid)
 
   Array.from(mermaidElements).forEach((e) => {
