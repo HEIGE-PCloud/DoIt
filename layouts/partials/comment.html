@@ -201,7 +201,6 @@
         {{- $twikoo := $comment.twikoo | default dict -}}
         {{- if $twikoo.enable -}}
             <div id="twikoo"></div>
-            {{- $shims := dict "twikoo" "js/shims/twikoo.js" -}}
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/twikoo.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
