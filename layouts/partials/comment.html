@@ -109,7 +109,6 @@
             {{- if eq $waline.texRenderer false -}}
                 {{- $commentConfig = dict "texRenderer" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/waline.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
