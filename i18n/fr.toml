@@ -77,12 +77,6 @@ other = "Annuler"
 [noResultsFound]
 other = "Aucun résultat trouvé"
 
-[lunrLanguageCode]
-other = "fr"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.fr.js"
-
 [copyToClipboard]
 other = "Copier dans le presse-papiers"
 

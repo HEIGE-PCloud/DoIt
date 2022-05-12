@@ -77,9 +77,6 @@ other = "Поништи"
 [noResultsFound]
 other = "Без резултата"
 
-[lunrLanguageCode]
-other = "sr"
-
 [copyToClipboard]
 other = "Копирај на радну таблу"
 

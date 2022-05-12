@@ -77,12 +77,6 @@ other = "Отменить"
 [noResultsFound]
 other = "Результатов не найдено"
 
-[lunrLanguageCode]
-other = "ru"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.ru.js"
-
 [copyToClipboard]
 other = "Копировать в буфер обмена"
 

@@ -105,15 +105,6 @@ other = "取消"
 [noResultsFound]
 other = "没有找到结果"
 
-[lunrLanguageCode]
-other = "zh"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.zh.js"
-
-[lunrSegmentitLib]
-other = "lib/lunr/lunr.segmentit.js"
-
 [copyToClipboard]
 other = "复制到剪贴板"
 
