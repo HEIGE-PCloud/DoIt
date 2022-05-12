@@ -3,9 +3,8 @@
 /* eslint-disable no-undef */
 import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
-// import { copy } from 'clipboard'
 import Fuse from 'fuse.js'
-// import ClipboardJS from 'clipboard'
+import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
 // const autocomplete = require('autocomplete.js')
 
