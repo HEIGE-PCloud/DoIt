@@ -1,4 +1,3 @@
-{{- /* lazysizes and lightgallery.js */ -}}
 {{- $src := .Src -}}
 {{- with dict "Path" .Src "Resources" .Resources | partial "function/resource.html" -}}
     {{- $src = .RelPermalink -}}
@@ -14,22 +13,13 @@
     {{- $large = .RelPermalink -}}
 {{- end -}}
 
+{{/*  TODO: Support fetchpriority  */}}
 {{- $alt := .Alt | default $src -}}
 {{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
-        <img
-            class="lazyload{{ with .Class }} {{ . }}{{ end }}"
-            data-src="{{ .Src | safeURL }}"
-            data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
-            data-sizes="auto"
-            alt="{{ $alt }}"{{ with .Height }}height="{{ . }}"{{ end }}{{ with .Width }}width="{{ . }}"{{ end }}>
-    </a>
+<a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}" {{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }} {{ with .Rel }} rel="{{ . }}"{{ end }}>
+    <img loading="lazy" {{- with .Class -}}class="{{ . }}"{{- end -}} src="{{ .Src | safeURL }}" srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x" sizes="auto" alt="{{ $alt }}" {{- with .Height -}}height="{{- . -}}"{{- end -}} {{- with .Width -}}width="{{- . -}}"{{- end -}}>
+</a>
 {{- else -}}
-    <img
-        class="lazyload{{ with .Class }} {{ . }}{{ end }}"
-        data-src="{{ .Src | safeURL }}"
-        data-srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
-        data-sizes="auto"
-        alt="{{ $alt }}"
-        title="{{ .Title | default $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }}>
+<img loading="lazy" {{ with .Class }}class="{{ . }}"{{ end }} src="{{ .Src | safeURL }}" srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x" sizes="auto" alt="{{ $alt }}" title="{{ .Title | default $alt }}" {{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }}>
+
 {{- end -}}

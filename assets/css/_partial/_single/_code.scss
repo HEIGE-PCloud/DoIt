@@ -2,7 +2,6 @@ code {
   width: 100%;
   padding: 0 .4rem;
   @include overflow-wrap(break-word);
-  @include line-break(anywhere);
   font-size: $code-font-size;
   font-family: $code-font-family;
   color: $code-color;
@@ -18,7 +17,7 @@ code {
 pre {
   padding: 0;
   margin: .25rem .5rem .25rem .5rem;
-  @include tab-size(4);
+  tab-size: 4;
 
   code {
     padding: 0;

@@ -50,9 +50,6 @@
       overflow: hidden;
     }
 
-    img.lazyloaded {
-      width: 100%;
-    }
   }
 
   .content {
@@ -322,10 +319,6 @@
         margin: 0 auto;
         overflow: hidden;
       }
-    }
-
-    .lazyloading {
-      @include object-fit(none);
     }
 
     blockquote {

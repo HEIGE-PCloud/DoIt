@@ -36,7 +36,6 @@
     "echarts": "^5.3.2",
     "fuse.js": "^6.6.2",
     "katex": "^0.15.3",
-    "lazysizes": "^5.3.2",
     "mermaid": "^9.1.1",
     "tablesort": "^5.3.0",
     "topbar": "^1.0.1",

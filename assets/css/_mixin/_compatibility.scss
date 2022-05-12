@@ -75,12 +75,6 @@
   #{$property}: max-content;
 }
 
-@mixin tab-size($value) {
-  -moz-tab-size: $value;
-  -o-tab-size: $value;
-  tab-size: $value;
-}
-
 @mixin appearance($value) {
   -moz-appearance: $value;
   -webkit-appearance: $value;
@@ -91,20 +85,10 @@
   overflow-wrap: $value;
 }
 
-@mixin line-break($value) {
-  -webkit-line-break: $value;
-  -ms-line-break: $value;
-  line-break: $value;
-}
-
 @mixin ms {
   input::-ms-clear {
     display: none;
   }
 }
 
-@mixin object-fit($value) {
-  -o-object-fit: $value;
-  object-fit: $value;
-  font-family: 'object-fit: #{$value};';
-}
+
