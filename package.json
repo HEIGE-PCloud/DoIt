@@ -4,6 +4,7 @@
   "description": "DoIt theme source file",
   "private": true,
   "scripts": {
+    "version": "hugo version",
     "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
     "build:preview": "hugo -v --source=exampleSite --themesDir ../.. -D --gc",
     "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
@@ -48,6 +49,7 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-promise": "^6.0.0",
+    "hugo-bin": "^0.86.0"
   }
 }
