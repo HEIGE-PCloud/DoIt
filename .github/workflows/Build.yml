@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
-        hugo_version: ["0.83.0", "latest"]
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        hugo_version: ["latest"]
     steps:
       - uses: actions/checkout@v3
 
