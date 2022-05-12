@@ -297,11 +297,12 @@
     {{- end -}}
 {{- end -}}
 
+{{/*  Custom style  */}}
 {{- with (.Scratch.Get "this").styleArr -}}
     {{- $content := delimit . "" -}}
     {{- $path := substr (md5 $content) 0 6 | printf "css/%v" -}}
     {{- $options := printf "%v.min.css" $path | dict "targetPath" -}}
-    {{- dict "Content" $content "Path" (printf "%v.scss" $path) "ToCSS" $options | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
+    {{- dict "Content" $content "Path" (printf "%v.scss" $path) "ToCSS" $options | dict "Scratch" $.Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
 {{- end -}}
 
 {{- /* topbar */ -}}

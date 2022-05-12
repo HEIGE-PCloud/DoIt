@@ -100,23 +100,23 @@
                 {{- /* Visitor Count */ -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
-                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.visitor -}}
+                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.pageview -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count waline-pageview-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count id=twikoo_visitors></span>&nbsp;{{ T "views" }}
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id=twikoo_visitors></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- /* Comment Count */ -}}
-                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.commentCount -}}
+                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.comment -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
-                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="waline-comment-count" id="waline-comment-count"></span>&nbsp;{{ T "comments" }}
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="waline-comment-count" id="waline-comment-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}

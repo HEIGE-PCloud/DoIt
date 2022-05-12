@@ -79,7 +79,8 @@ libFiles:
   vssueGithubJS: vssue@1.4.8/dist/vssue.github.min.js
   vssueGitlabJS: vssue@1.4.8/dist/vssue.gitlab.min.js
   vssueCSS: vssue@1.4.8/dist/vssue.min.css
-  # waline@1.5.2 https://github.com/walinejs/waline
-  walineJS: "@waline/client@1.5.2/dist/Waline.min.js"
+  # waline@2.3.2 https://github.com/walinejs/waline
+  walineJS: "@waline/client@2.3.2/dist/waline.js"
+  walineCSS: "@waline/client@2.3.2/dist/waline.css"
   # tablesort@5.3.0 https://github.com/tristen/tablesort
   tablesort: "tablesort@5.3.0/src/tablesort.min.js"
