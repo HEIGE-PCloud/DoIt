@@ -73,7 +73,7 @@
         {{- $waline := $comment.waline | default dict -}}
         {{- if $waline.enable -}}
             <div id="waline" class="comment"></div>
-            {{- $source := $cdn.walineCSS | default "lib/waline/waline.css" -}}
+            {{- $source := $cdn.walineCSS | default "https://unpkg.com/@waline/client@v2/dist/waline.css" -}}
             {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
             {{- $commentConfig = dict "el" "#waline" "serverURL" $waline.serverURL "lang" .Lang "dark" "body[theme='dark'], body[theme='black']" "copyright" true | dict "waline" | merge $commentConfig -}}
             {{- with $waline.pageview -}}
