@@ -53,7 +53,6 @@ math:
 * :(fas fa-comment-dots fa-fw): 支持 **[Commento](https://commento.io/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Utterances](https://utteranc.es/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Twikoo](https://twikoo.js.org/)** 评论系统
-* :(far fa-comment-alt fa-fw): 支持 **[Vssue](https://vssue.js.org/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Remark42](https://remark42.com/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[giscus](https://giscus.app/)** 评论系统
 
@@ -111,7 +110,6 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
 * [Twikoo](https://twikoo.js.org/)
-* [Vssue](https://vssue.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
 * [Pjax](https://github.com/PaperStrike/Pjax)
 * [Topbar](https://github.com/buunguyen/topbar)

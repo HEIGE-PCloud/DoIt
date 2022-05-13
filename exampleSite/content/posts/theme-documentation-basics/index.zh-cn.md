@@ -644,14 +644,6 @@ hugo
         path = ""
         visitor = true
         commentCount = true
-      # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} 评论系统设置
-      [params.page.comment.vssue]
-        enable = false
-        platform = "" # ("bitbucket", "gitea", "gitee", "github", "gitlab")
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
       # {{< version 0.2.13 >}} {{< link "https://remark42.com/" "Remark42" >}} 评论系统设置
       [params.page.comment.remark42]
         enable = false
