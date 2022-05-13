@@ -41,8 +41,6 @@
         {{- $valine := $comment.valine | default dict -}}
         {{- if $valine.enable -}}
             <div id="valine" class="comment"></div>
-            {{- $options := dict "targetPath" "lib/valine/valine.min.css" -}}
-            {{- dict "Source" "lib/valine/Valine.scss" "ToCSS" $options | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
             {{- $commentConfig = dict "el" "#valine" "appId" $valine.appId "appKey" $valine.appKey "lang" ($valine.lang | default (T "valineLang")) "visitor" $valine.visitor "recordIP" $valine.recordIP "placeholder" ($valine.placeholder | default (T "valinePlaceholder")) "highlight" (ne $valine.highlight false) "enableQQ" $valine.enableQQ | dict "valine" | merge $commentConfig -}}
             {{- with $valine.avatar -}}
                 {{- $commentConfig = dict "avatar" . | dict "valine" | merge $commentConfig -}}
@@ -57,7 +55,6 @@
                 {{- $commentConfig = dict "serverURLs" . | dict "valine" | merge $commentConfig -}}
             {{- end -}}
             {{- $commentConfig = $valine.emoji | default "google.yml" | printf "data/emoji/%v" | resources.Get | transform.Unmarshal | dict "valine" | merge $commentConfig -}}
-            {{- $shims := dict "valine" "js/shims/valine.js" -}}
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/valine.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
