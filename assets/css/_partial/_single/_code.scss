@@ -129,8 +129,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     > .chroma {
       position: relative;
       max-height: 0;
-      overflow-y: hidden;
-      @include details-transition-open;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
 
       .lntd:first-child {
         min-width: 1.6rem;
@@ -211,9 +211,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     }
 
     .highlight>.chroma {
-      max-height: calc(100vh - 6rem);
-      overflow: auto;
-      @include details-transition-close;
+      max-height: none;
     }
 
     .arrow {

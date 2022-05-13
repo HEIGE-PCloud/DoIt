@@ -401,6 +401,12 @@ function initDetails () {
   forEach(document.getElementsByClassName('details'), $details => {
     const $summary = $details.getElementsByClassName('details-summary')[0]
     $summary.addEventListener('click', () => {
+      const content = $summary.nextElementSibling
+      if ($details.classList.contains('open')) {
+        content.style.maxHeight = null
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px'
+      }
       $details.classList.toggle('open')
     }, false)
   })
@@ -417,6 +423,12 @@ function initHighlight () {
     // Click the code title to toggle open
     const codeTitle = codeBlock.getElementsByClassName('code-title')[0]
     codeTitle.addEventListener('click', () => {
+      const content = codeBlock.getElementsByClassName('chroma')[0]
+      if (codeBlock.classList.contains('open')) {
+        content.style.maxHeight = null
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px'
+      }
       codeBlock.classList.toggle('open')
     })
 
