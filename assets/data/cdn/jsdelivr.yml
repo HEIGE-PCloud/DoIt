@@ -42,8 +42,6 @@ libFiles:
   mapboxGLJS: mapbox-gl@2.3.1/dist/mapbox-gl.min.js
   # meting@2.0.1 https://github.com/metowolf/MetingJS
   metingJS: meting@2.0.1/dist/Meting.min.js
-  # normalize.css@8.0.1 https://github.com/necolas/normalize.css
-  normalizeCSS: normalize.css@8.0.1/normalize.min.css
   # pjax@2.4.0 https://github.com/PaperStrike/Pjax
   pjaxJS: "@sliphua/pjax@2.4.0/dist/pjax.min.js"
   # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
