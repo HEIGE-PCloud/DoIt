@@ -44,8 +44,6 @@ libFiles:
   metingJS: meting@2.0.1/dist/Meting.min.js
   # pjax@2.4.0 https://github.com/PaperStrike/Pjax
   pjaxJS: "@sliphua/pjax@2.4.0/dist/pjax.min.js"
-  # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
-  sharerJS: sharer.js@0.4.2/sharer.min.js
   # twikoo@1.4.10 https://github.com/imaegoo/twikoo
   twikooJS: twikoo@1.4.10/dist/twikoo.all.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit

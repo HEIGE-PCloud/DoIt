@@ -4,6 +4,7 @@
 import * as topbar from 'topbar'
 import Fuse from 'fuse.js'
 import ClipboardJS from 'clipboard'
+import 'sharer.js'
 const Tablesort = require('tablesort')
 // const autocomplete = require('autocomplete.js')
 

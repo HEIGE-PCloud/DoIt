@@ -62,8 +62,6 @@
 
 {{- /* Sharer.js */ -}}
 {{- if $params.share.enable -}}
-    {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = dict "sharerjs" true | merge $config -}}
 {{- end -}}
 
