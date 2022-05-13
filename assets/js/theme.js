@@ -485,6 +485,12 @@ function initDetails () {
   forEach(document.getElementsByClassName('details'), $details => {
     const $summary = $details.getElementsByClassName('details-summary')[0]
     $summary.addEventListener('click', () => {
+      const content = $summary.nextElementSibling
+      if ($details.classList.contains('open')) {
+        content.style.maxHeight = null
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px'
+      }
       $details.classList.toggle('open')
     }, false)
   })
@@ -521,6 +527,12 @@ function initHighlight () {
       $title.classList.add('code-title')
       $title.insertAdjacentHTML('afterbegin', '<i class="arrow fas fa-chevron-right fa-fw"></i>')
       $title.addEventListener('click', () => {
+        const content = $chroma.getElementsByClassName('table-wrapper')[0]
+        if ($chroma.classList.contains('open')) {
+          content.style.maxHeight = null
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px'
+        }
         $chroma.classList.toggle('open')
       }, false)
       $header.appendChild($title)
