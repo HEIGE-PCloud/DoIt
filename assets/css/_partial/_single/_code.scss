@@ -176,8 +176,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
 
     .table-wrapper {
       max-height: 0;
-      overflow-y: hidden;
-      @include details-transition-open;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
     }
 
     &.open {
@@ -191,11 +191,9 @@ code, pre, .highlight table, .highlight tr, .highlight td {
           background: darken($code-background-color-black, 3%);
         }
       }
-
+      
       .table-wrapper {
-        max-height: 60vh;
-        overflow-y: auto;
-        @include details-transition-close;
+        max-height: none;
       }
 
       .arrow {

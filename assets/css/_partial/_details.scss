@@ -20,7 +20,7 @@
   .details-content {
     max-height: 0;
     overflow-y: hidden;
-    @include details-transition-open;
+    transition: max-height 0.5s ease-out;
   }
 
   &.open {
@@ -29,8 +29,7 @@
     }
 
     .details-content {
-      max-height: 12000px;
-      @include details-transition-close;
+      max-height: none;
     }
   }
 }
