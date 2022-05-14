@@ -129,7 +129,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     > .chroma {
       position: relative;
       max-height: 0;
-      overflow: hidden;
+      overflow: auto hidden;
       transition: max-height 0.5s ease-out;
 
       .lntd:first-child {
