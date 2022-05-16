@@ -49,7 +49,7 @@ other = "Más"
 
 # === partials/header.html ===
 [selectLanguage]
-other = "Selecciona el lenguage"
+other = "Seleccione el idioma"
 
 [switchTheme]
 other = "Cambia el tema"
@@ -57,10 +57,10 @@ other = "Cambia el tema"
 
 # === partials/footer.html ===
 [poweredBy]
-other = "Provisto por {{ .Hugo }}"
+other = "Impulsado por {{ .Hugo }}"
 
 [hostedOn]
-other = "Alejado en {{ .Host }}"
+other = "Alojado en {{ .Host }}"
 
 [theme]
 other = "Tema - {{ .Theme }}"
@@ -74,7 +74,7 @@ other = "en"
 other = "Tu comentario ..."
 
 [facebookLanguageCode]
-other = "es_MX"
+other = "es"
 # === partials/comment.html ===
 
 # === partials/assets.html ===
@@ -109,7 +109,7 @@ other = "Este sitio web utiliza Cookies para mejorar su experiencia."
 other = "De acuerdo"
 
 [cookieconsentLink]
-other = "Aprende más"
+other = "Saber más"
 # === partials/assets.html ===
 
 # === partials/plugin/share.html ===
@@ -119,7 +119,7 @@ other = "Compartir en"
 
 # === posts/single.html ===
 [contents]
-other = "Contenido"
+other = "Contenidos"
 
 [publishedOnDate]
 other = "publicado el {{ .Date }}"
@@ -131,7 +131,8 @@ other = "Incluido en "
 other = "y"
 
 [includedInCategories]
-other = "incluido en {{ .Categories }}"
+one = "categoría {{ .Categories }}"
+other = "categorías {{ .Categories }}"
 
 [includedInSeries]
 other = "series {{ .Series }}"
@@ -157,10 +158,10 @@ other = "Autor"
 other = "Actualizado el {{ .Date }}"
 
 [readMarkdown]
-other = "Leer Markdown"
+other = "Leer markdown"
 
 [viewSource]
-other = "Ver fuente"
+other = "Ver código"
 
 [editThisPage]
 other = "Editar esta página"
