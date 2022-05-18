@@ -44,12 +44,12 @@
     <div id="fixed-buttons">
         {{- /* top button */ -}}
         <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
-            <i class="fas fa-arrow-up fa-fw"></i>
+            {{- dict "type" "solid" "name" "arrow-up" | partial "fontawesome.html" -}}
         </a>
 
         {{- /* comment button */ -}}
         <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
-            <i class="fas fa-comment fa-fw"></i>
+            {{- dict "type" "solid" "name" "comment" | partial "fontawesome.html" -}}
         </a>
     </div>
 
