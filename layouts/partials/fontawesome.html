@@ -1,0 +1,8 @@
+{{/* Usage: {{- dict "type" $type "name" name | partial "fontawesome.html" -}} */}}
+{{- $cdn := printf "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/svgs/%v/%v.svg" .type .name -}}
+
+{{- $remote := resources.GetRemote $cdn -}}
+
+<div class="fa-svg">
+    {{ $remote.Content | safeHTML }}
+</div>
