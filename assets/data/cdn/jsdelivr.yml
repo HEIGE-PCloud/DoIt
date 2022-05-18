@@ -18,8 +18,6 @@ libFiles:
   # echarts@5.2.2 https://github.com/apache/echarts
   echartsJS: echarts@5.2.2/dist/echarts.min.js
   echartsMacaronsJS: echarts@5.2.2/theme/macarons.min.js
-  # fontawesome-free@5.15.4 https://github.com/FortAwesome/Font-Awesome
-  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
   # gitalk@1.7.2 https://github.com/gitalk/gitalk
   gitalkCSS: gitalk@1.7.2/dist/gitalk.min.css
   gitalkJS: gitalk@1.7.2/dist/gitalk.min.js
