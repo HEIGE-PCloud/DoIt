@@ -561,14 +561,6 @@ hugo
         enable = false
         # Disqus 的 shortname, 用来在文章中启用 Disqus 评论系统
         shortname = ""
-      # {{< link "https://github.com/gitalk/gitalk" Gitalk >}} 评论系统设置
-      [params.page.comment.gitalk]
-        # {{< version 0.1.1 >}}
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
       # {{< link "https://github.com/xCss/Valine" Valine >}} 评论系统设置
       [params.page.comment.valine]
         enable = false

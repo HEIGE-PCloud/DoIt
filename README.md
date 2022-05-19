@@ -114,7 +114,6 @@ the DoIt theme may be more suitable for you.
 * Up to **64** social links supported
 * Up to **28** share sites supported
 * **Disqus** comment system supported by [Disqus](https://disqus.com)
-* **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
 * **Valine** comment system supported by [Valine](https://valine.js.org/)
 * **Waline** comment system supported by [Waline](https://waline.js.org/)
 * **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
@@ -210,7 +209,6 @@ Thanks to the authors of following resources included in the theme:
 * [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
 * [APlayer](https://github.com/MoePlayer/APlayer)
 * [MetingJS](https://github.com/metowolf/MetingJS)
-* [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
 * [Twikoo](https://twikoo.js.org/)

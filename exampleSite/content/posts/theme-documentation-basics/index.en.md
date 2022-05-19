@@ -557,14 +557,6 @@ Please open the code block below to view the complete sample configuration :(far
         enable = false
         # Disqus shortname to use Disqus in posts
         shortname = ""
-      # {{< link "https://github.com/gitalk/gitalk" Gitalk >}} comment config
-      [params.page.comment.gitalk]
-        # {{< version 0.1.1 >}}
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
       # {{< link "https://github.com/xCss/Valine" Valine >}} comment config
       [params.page.comment.valine]
         enable = false

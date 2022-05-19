@@ -45,7 +45,6 @@ math:
 * :(far fa-id-card fa-fw): 支持多达 **64** 种社交链接
 * :(fas fa-share-square fa-fw): 支持多达 **28** 种网站分享
 * :(far fa-comment fa-fw): 支持 **[Disqus](https://disqus.com)** 评论系统
-* :(far fa-comment-dots fa-fw): 支持 **[Gitalk](https://github.com/gitalk/gitalk)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Valine](https://valine.js.org/)** 评论系统
 * :(far fa-comment-alt fa-fw): 支持 **[Waline](https://waline.js.org/)** 评论系统
 * :(far fa-comments fa-fw): 支持 **[Facebook](https://developers.facebook.com/docs/plugins/comments/) 评论**系统
@@ -106,7 +105,6 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
 * [APlayer](https://github.com/MoePlayer/APlayer)
 * [MetingJS](https://github.com/metowolf/MetingJS)
-* [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Waline](https://waline.js.org/)
 * [Twikoo](https://twikoo.js.org/)

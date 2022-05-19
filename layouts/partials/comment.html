@@ -16,27 +16,6 @@
             </noscript>
         {{- end -}}
 
-        {{- /* Gitalk Comment System */ -}}
-        {{- $gitalk := $comment.gitalk | default dict -}}
-        {{- if $gitalk.enable -}}
-            <div id="gitalk" class="comment"></div>
-            {{- $source := $cdn.gitalkCSS | default "lib/gitalk/gitalk.css" -}}
-            {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
-            {{- $source := $cdn.gitalkJS | default "lib/gitalk/gitalk.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-            {{- $commentConfig = dict "id" .Date "title" .Title "clientID" $gitalk.clientId "clientSecret" $gitalk.clientSecret "repo" $gitalk.repo "owner" $gitalk.owner "admin" (slice $gitalk.owner) | dict "gitalk" | merge $commentConfig -}}
-            {{- with $gitalk.proxy -}}
-                {{- $commentConfig = dict "proxy" . | dict "gitalk" | merge $commentConfig -}}
-            {{- end -}}
-            {{- $options := dict "targetPath" "js/gitalk.min.js" "minify" true -}}
-            {{- $js := resources.Get "js/lib/gitalk.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-            <noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
-            </noscript>
-        {{- end -}}
-
         {{- /* Valine Comment System */ -}}
         {{- $valine := $comment.valine | default dict -}}
         {{- if $valine.enable -}}

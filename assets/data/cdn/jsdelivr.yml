@@ -20,9 +20,6 @@ libFiles:
   echartsMacaronsJS: echarts@5.2.2/theme/macarons.min.js
   # fontawesome-free@5.15.4 https://github.com/FortAwesome/Font-Awesome
   fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
-  # gitalk@1.7.2 https://github.com/gitalk/gitalk
-  gitalkCSS: gitalk@1.7.2/dist/gitalk.min.css
-  gitalkJS: gitalk@1.7.2/dist/gitalk.min.js
   # katex@0.15.1 https://github.com/KaTeX/KaTeX
   katexCSS: katex@0.15.1/dist/katex.min.css
   katexJS: katex@0.15.1/dist/katex.min.js
