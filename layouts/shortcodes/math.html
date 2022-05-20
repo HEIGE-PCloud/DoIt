@@ -1,1 +1,4 @@
-{{ .Inner }}
+{{/* Usage: {{- dict "type" $type "name" name | partial "fontawesome.html" -}} */}}
+{{- $endpoint := printf "http://mathapi-env.eba-ar7atdae.eu-west-2.elasticbeanstalk.com/api/v1/katex?formula=%v" (urlquery  (trim .Inner " \n")) -}}
+{{- $remote := resources.GetRemote $endpoint -}}
+{{ $remote.Content | safeHTML }}

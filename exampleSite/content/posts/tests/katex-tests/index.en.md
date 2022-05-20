@@ -26,10 +26,10 @@ $$
 \text{This is short.}
 $$
 
-Math shortcode test: {{< math >}}$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}${{< /math >}}
+Math shortcode test: {{< math >}}\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}{{< /math >}}
 
 {{< math >}}
-$$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
+\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}
 {{< /math >}}
 
 
