@@ -56,6 +56,6 @@ User-agent: ZoominfoBot
 Disallow: /
 
 User-agent: *
-Allow: *
+Allow: /
 
 Sitemap: {{ "/sitemap.xml" | absLangURL }}
