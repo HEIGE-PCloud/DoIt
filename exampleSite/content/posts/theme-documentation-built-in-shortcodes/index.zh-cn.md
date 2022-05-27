@@ -131,8 +131,10 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 一个 `tweet` 示例:
 
 ```markdown
-{{</* tweet 877500564405444608 */>}}
+{{</* tweet user="SanDiegoZoo" id="1453110110599868418" */>}}
 ```
+
+{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
 ## vimeo
 

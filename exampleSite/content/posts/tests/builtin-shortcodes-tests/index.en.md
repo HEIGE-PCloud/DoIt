@@ -45,6 +45,8 @@ hiddenFromSearch: true
 
 ## tweet
 
+{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
+
 ## vimeo
 
 {{< vimeo 146022717 >}}

@@ -130,8 +130,10 @@ The rendered output looks like this:
 Example `tweet` input:
 
 ```markdown
-{{</* tweet 877500564405444608 */>}}
+{{</* tweet user="SanDiegoZoo" id="1453110110599868418" */>}}
 ```
+
+{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
 ## vimeo
 
