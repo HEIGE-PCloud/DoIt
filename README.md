@@ -160,6 +160,19 @@ Build Documentation Locally:
 hugo server --source=exampleSite
 ```
 
+Added instructions to README.md on how to add a hugo contact form
+
+## [Add hugo contact form](https://fabform.io/a/hugo-contact-form)
+
+```
+<form action="https://fabform.io/f/{form-id}" method="post">
+ <label for="email">Your Email</label>
+ <input name="email" type="email">
+ <button type="submit">Submit</button> 
+</form>
+```
+
+
 ## Multilingual and i18n
 
 DoIt supports the following languages:
