@@ -54,7 +54,7 @@
         {{- $title = replace $title "{h5}" $h5 -}}
         {{- $title = replace $title "{h6}" $h6 -}}
         {{- $title = replace $title "{title}" .Text -}}
-        {{- $title -}}
+        {{- $title | safeHTML -}}
 
     {{- else -}}
         {{- .Text | safeHTML -}}
