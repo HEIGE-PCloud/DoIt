@@ -16,15 +16,15 @@ const getPackageFile = async (packageName, version, path) => {
   return response.text()
 }
 
-const saveFile = async (path, text) => {
-  fs.writeFile(path, text, (err) => {
+const saveFile = (path, text) => {
+  fs.writeFileSync(path, text, (err) => {
     if (err) throw err
   })
 }
 
 const downloadPackage = async (name, version, remotePath, localPath) => {
   const file = await getPackageFile(name, version, remotePath)
-  await saveFile(localPath, file)
+  saveFile(localPath, file)
 }
 
 const readDependenciesInfo = (path) => {
@@ -34,13 +34,18 @@ const readDependenciesInfo = (path) => {
 const deps = readDependenciesInfo('dependencies.json')
 const LOCAL_BASE_PATH = deps.localBasePath
 
-deps.dependencies.forEach(async dependency => {
+const updatedDependencies = await Promise.all(deps.dependencies.map(async dependency => {
   const packageName = dependency.name
   const version = dependency.version
   const files = dependency.files
   const latestVersion = await getLatestPackageVersion(packageName)
-  if (latestVersion === version) return
+  if (latestVersion === version) return dependency
   files.forEach(async file => {
     await downloadPackage(packageName, latestVersion, file.remote, path.join(LOCAL_BASE_PATH, file.local))
   })
-})
+  dependency.version = latestVersion
+  return dependency
+}))
+
+deps.dependencies = updatedDependencies
+saveFile('./dependencies.json', JSON.stringify(deps, null, 4))
