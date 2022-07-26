@@ -1,0 +1,15 @@
+{
+  "localBasePath": "./assets/lib",
+  "dependencies": [
+    {
+      "name": "twikoo",
+      "version": "1.4.10",
+      "files": [
+        {
+          "remote": "dist/twikoo.all.min.js",
+          "local": "twikoo/twikoo.all.min.js"
+        }
+      ]
+    }
+  ]
+}
