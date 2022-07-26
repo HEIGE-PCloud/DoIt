@@ -10,6 +10,20 @@
                     "local": "twikoo/twikoo.all.min.js"
                 }
             ]
+        },
+        {
+            "name": "@waline/client",
+            "version": "2.6.2",
+            "files": [
+                {
+                    "remote": "dist/waline.css",
+                    "local": "waline/waline.css"
+                },
+                {
+                    "remote": "dist/waline.js",
+                    "local": "waline/waline.js"
+                }
+            ]
         }
     ]
 }
