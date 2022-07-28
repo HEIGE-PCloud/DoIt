@@ -957,6 +957,7 @@ enableEmoji = true
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
+        dataStrict = "0"
     # Third-party library config
     # 第三方库配置
     [params.page.library]
