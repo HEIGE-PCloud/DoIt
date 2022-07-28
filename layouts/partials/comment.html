@@ -321,6 +321,7 @@
             {{- $commentConfig = dict "dataCategory" $giscus.dataCategory | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = dict "dataCategoryId" $giscus.dataCategoryId | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.dataMapping | default "pathname" | dict "dataMapping" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataStrict | default "0" | dict "dataStrict" | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.dataReactionsEnabled | default "1" | dict "dataReactionsEnabled" | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.dataEmitMetadata | default "0" | dict "dataEmitMetadata" | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.dataInputPosition | default "bottom" | dict "dataInputPosition" | dict "giscus" | merge $commentConfig -}}

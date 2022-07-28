@@ -951,6 +951,7 @@ enableEmoji = true
         dataCategory = ""
         dataCategoryId = ""
         dataMapping = "pathname"
+        dataStrict = "0"
         dataReactionsEnabled = "1"
         dataEmitMetadata = "0"
         dataInputPosition = "bottom"
