@@ -194,6 +194,9 @@ other = ", the content may be out of date."
 
 [sponsor]
 other = "Sponsor"
+
+[relatedContent]
+other = "Related Content"
 # === posts/single.html ===
 
 # === 404.html ===
