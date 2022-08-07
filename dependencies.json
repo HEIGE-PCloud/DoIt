@@ -24,6 +24,16 @@
                     "local": "waline/waline.js"
                 }
             ]
+        },
+        {
+            "name": "mermaid",
+            "version": "9.1.4",
+            "files": [
+                {
+                    "remote": "dist/mermaid.min.js",
+                    "local": "mermaid/mermaid.min.js"
+                }
+            ]
         }
     ]
 }
