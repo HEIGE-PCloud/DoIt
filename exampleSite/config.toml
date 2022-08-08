@@ -991,6 +991,10 @@ enableEmoji = true
       [params.page.seo.publisher]
         name = "xxxx"
         logoUrl = "/images/avatar.webp"
+    # DoIt 新增 | v0.2.14 相关文章配置
+    [params.page.related]
+      enable = true
+      count = 5
 
   # Sponsor config
   # 赞助设置

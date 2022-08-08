@@ -204,7 +204,9 @@
         </div>
 
         {{/* Related Content */}}
-        {{- partial "related.html" . -}}
+        {{- if .Site.Params.page.related.enable -}}
+            {{- partial "related.html" . -}}
+        {{- end -}}
 
         {{/* Sponsor */}}
         {{- partial "single/sponsor.html" . -}}
