@@ -14,4 +14,4 @@ jobs:
           submodules: true
           fetch-depth: 0
       
-      - uses: Hugo-DoIt/update-dependencies@v0.1.0
+      - uses: Hugo-DoIt/update-dependencies@v0.2.0
