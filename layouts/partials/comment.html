@@ -2,7 +2,6 @@
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $comment := .Scratch.Get "comment" | default dict -}}
 {{- $commentConfig := dict -}}
-{{- $bundle := .Site.Params.bundle -}}
 
 {{- if $comment.enable -}}
     <div id="comments">
@@ -60,12 +59,9 @@
             {{- $commentConfig = $valine.emoji | default "google.yml" | printf "data/emoji/%v" | resources.Get | transform.Unmarshal | dict "valine" | merge $commentConfig -}}
             {{- $shims := dict "valine" "js/shims/valine.js" -}}
             {{- $options := dict -}}
-            {{- if $bundle -}}
-            {{- else -}}
-                {{- $source := $cdn.valineJS | default "lib/valine/Valine.min.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-                {{- $options = dict "shims" $shims | merge $options -}}
-            {{- end -}}
+            {{- $source := $cdn.valineJS | default "lib/valine/Valine.min.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
             {{- $options = dict "targetPath" "js/valine.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/valine.js" | js.Build $options -}}
@@ -118,12 +114,9 @@
             {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
-            {{- if $bundle -}}
-            {{- else -}}
-                {{- $source := $cdn.walineJS | default "lib/waline/waline.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-                {{- $options = dict "shims" $shims | merge $options -}}
-            {{- end -}}
+            {{- $source := $cdn.walineJS | default "lib/waline/waline.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
             {{- $options = dict "targetPath" "js/waline.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/waline.js" | js.Build $options -}}
@@ -218,12 +211,9 @@
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/twikoo.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
-            {{- if $bundle -}}
-            {{- else -}}
-                {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-                {{- $options = dict "shims" $shims | merge $options -}}
-            {{- end -}}
+            {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
             {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}

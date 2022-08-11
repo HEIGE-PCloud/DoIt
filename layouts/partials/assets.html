@@ -2,7 +2,6 @@
 {{- $cdn := .Scratch.Get "cdn" | default dict -}}
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $config := (.Scratch.Get "this").config -}}
-{{- $bundle := .Site.Params.bundle -}}
 
 {{- /* Search */ -}}
 {{- if .Site.Params.search | and .Site.Params.search.enable -}}
@@ -39,19 +38,13 @@
 {{- end -}}
 
 {{- /* lazysizes */ -}}
-{{- if $bundle -}}
-{{- else -}}
-    {{- $source := $cdn.lazysizesJS | default "lib/lazysizes/lazysizes.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- end -}}
+{{- $source := $cdn.lazysizesJS | default "lib/lazysizes/lazysizes.min.js" -}}
+{{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- /* tablesort */ -}}
 {{- if $params.table | and $params.table.sort -}}
-    {{- if $bundle -}}
-    {{- else -}}
-        {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- end -}}
+    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
 {{- end -}}
 
@@ -60,13 +53,10 @@
     {{- $config = dict "twemoji" true | merge $config -}}
     {{- $options := dict -}}
 
-    {{- if $bundle -}}
-    {{- else -}}
-        {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-    {{- end -}}
+    {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
 
     {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
@@ -93,9 +83,6 @@
 
 {{- /* clipboard.js */ -}}
 {{- if ne $code.copy false -}}
-    {{- if $bundle -}}
-    {{- else -}}
-    {{- end -}}
     {{- $source := $cdn.clipboardJS | default "lib/clipboard/clipboard.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
     {{- $config = T "copyToClipboard" | dict "copyTitle" | dict "code" | merge $config -}}
@@ -165,13 +152,10 @@
     {{- $options := dict "targetPath" "lib/mermaid/mermaid.min.css" "enableSourceMap" true -}}
     {{- dict "Source" "lib/mermaid/mermaid.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxStyle.html" -}}
     {{- $options := dict -}}
-    {{- if $bundle -}}
-    {{- else -}}
-        {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-    {{- end -}}
+    {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- $shims := dict "mermaid" "js/shims/mermaid.js" -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
     {{- $config = dict "mermaid" true | merge $config -}}
     {{- $options = dict "targetPath" "js/mermaid.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
@@ -189,21 +173,11 @@
     {{- $options = dict "minify" true | merge $options -}}
     {{- $options = dict "sourceMap" "inline" | merge $options -}}
 
-    {{- if $bundle -}}
-        {{- /* $options = dict "params" (dict "bundle" true) | merge $options */ -}}
-        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
-        {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-    {{- else -}}
-        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
-        {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-        {{- /* $options = dict "params" (dict "bundle" false) | merge $options */ -}}
-    {{- end -}}
+    {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
+    {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/pjaxScript.html" -}}
+    {{- $options = dict "shims" $shims | merge $options -}}
     
     {{- $js := resources.Get "js/lib/echarts.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
@@ -306,11 +280,8 @@
 {{- end -}}
 
 {{- /* topbar */ -}}
-{{- if $bundle -}}
-{{- else -}}
-    {{- $source := $cdn.topbarJS | default "lib/topbar/topbar.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- end -}}
+{{- $source := $cdn.topbarJS | default "lib/topbar/topbar.min.js" -}}
+{{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- /* pjax */ -}}
 {{- $source := $cdn.pjaxJS | default "lib/pjax/pjax.min.js" -}}
@@ -322,14 +293,11 @@
 {{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
 {{- $options = dict "minify" true | merge $options -}}
 {{- $shims := dict -}}
-{{- if $bundle -}}
-{{- else -}}
-    {{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
-    {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
-    {{- $shims = dict "lazysizes" "js/shims/lazysizes.js" | merge $shims -}}
-    {{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
-{{- end -}}
+{{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
+{{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
+{{- $shims = dict "lazysizes" "js/shims/lazysizes.js" | merge $shims -}}
+{{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
+{{- $options = dict "shims" $shims | merge $options -}}
 {{- if hugo.IsProduction -}}
 {{- else -}}
     {{- $options = dict "sourceMap" "inline" | merge $options -}}
