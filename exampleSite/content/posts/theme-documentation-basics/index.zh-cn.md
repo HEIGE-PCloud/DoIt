@@ -710,6 +710,11 @@ hugo
       [params.page.seo.publisher]
         name = ""
         logoUrl = ""
+    # {{< version 0.2.14>}} 相关文章推荐配置
+    [params.page.related]
+      enable = true
+      count = 5
+
 
   # {{< version 0.2.13 >}} 赞赏配置
   [params.sponsor]

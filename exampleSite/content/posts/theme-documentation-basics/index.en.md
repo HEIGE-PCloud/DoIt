@@ -706,6 +706,11 @@ Please open the code block below to view the complete sample configuration :(far
       [params.page.seo.publisher]
         name = ""
         logoUrl = ""
+    # {{< version 0.2.14>}} Related content config
+      [params.page.related]
+        enable = true
+        count = 5
+
 
   # {{< version 0.2.13 >}} Sponsor config
   [params.sponsor]

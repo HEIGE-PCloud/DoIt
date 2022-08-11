@@ -991,6 +991,11 @@ enableEmoji = true
       [params.page.seo.publisher]
         name = "xxxx"
         logoUrl = "/images/avatar.webp"
+    # Related content config
+    # 相关文章推荐配置
+    [params.page.related]
+      enable = true
+      count = 5
 
   # Sponsor config
   # 赞助设置

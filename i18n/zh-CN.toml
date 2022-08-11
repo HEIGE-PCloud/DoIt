@@ -198,6 +198,9 @@ other = "，文中内容可能已过时。"
 
 [sponsor]
 other = "赞赏"
+
+[relatedContent]
+other = "相关内容"
 # === posts/single.html ===
 
 # === 404.html ===

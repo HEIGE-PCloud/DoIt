@@ -169,6 +169,9 @@ outdatedArticleReminder:
 sponsor:
   enable: false
   # ...
+related:
+  enable: false
+  count: 5
 ---
 ```
 
@@ -216,6 +219,7 @@ sponsor:
 * **seo**: {{< version 0.2.10 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.seo` 部分相同.
 * **outdatedArticleReminder**: {{< version 0.2.13 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.outdatedArticleReminder` 部分相同.
 * **sponsor**: {{< version 0.2.13 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.sponsor` 部分相同.
+* **related**: {{< version 0.2.14 >}} 和 [网站配置](../theme-documentation-basics#site-configuration) 中的 `params.page.related` 部分相同.
 
 {{< admonition tip >}}
 {{< version 0.2.10 >}}

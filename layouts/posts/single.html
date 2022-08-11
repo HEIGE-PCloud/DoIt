@@ -203,6 +203,11 @@
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
+        {{/* Related Content */}}
+        {{- if $params.related.enable -}}
+            {{- partial "related.html" . -}}
+        {{- end -}}
+
         {{/* Sponsor */}}
         {{- partial "single/sponsor.html" . -}}
 
