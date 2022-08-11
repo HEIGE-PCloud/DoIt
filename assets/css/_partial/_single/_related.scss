@@ -17,8 +17,9 @@
     .related-item-container {
         flex-basis: 350px;
         flex-grow: 1;
-        flex-shrink: 0;
+        flex-shrink: 1;
         height: 300px;
+        min-width: 300px;
         margin-right: 20px;
         background: var(--related-background-color);
         position: relative;
@@ -96,11 +97,5 @@
                 color: var(--related-hover-color-black);
             }
         } 
-    }
-
-    @media screen and (max-width: 680px) {
-        .related-item-container {
-            flex-basis: 300px;
-        }
     }
 }
