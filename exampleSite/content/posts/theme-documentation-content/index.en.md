@@ -170,6 +170,9 @@ outdatedArticleReminder:
 sponsor:
   enable: false
   # ...
+related:
+  enable: false
+  count: 5
 ---
 ```
 
@@ -217,6 +220,7 @@ sponsor:
 * **seo**: {{< version 0.2.10 >}} the same as the `params.page.seo` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **outdatedArticleReminder**: {{< version 0.2.13 >}} the same as the `params.page.outdatedArticleReminder` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **sponsor**: {{< version 0.2.13 >}} the same as the `params.sponsor` part in the [site configuration](../theme-documentation-basics#site-configuration).
+* **related**: {{< version 0.2.14 >}} the same as the `params.page.related` part in the [site configuration](../theme-documentation-basics#site-configuration).
 
 {{< admonition tip >}}
 {{< version 0.2.10 >}}
