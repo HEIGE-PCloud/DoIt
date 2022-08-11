@@ -1,4 +1,6 @@
-{{ $related := first .Site.Params.page.related.count (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+{{- $params := .Scratch.Get "params" -}}
+
+{{ $related := first $params.related.count (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
 {{ with $related }}
 
 <h2>{{- T "relatedContent" -}}</h2>

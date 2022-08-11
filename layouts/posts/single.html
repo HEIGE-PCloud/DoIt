@@ -204,7 +204,7 @@
         </div>
 
         {{/* Related Content */}}
-        {{- if .Site.Params.page.related.enable -}}
+        {{- if $params.related.enable -}}
             {{- partial "related.html" . -}}
         {{- end -}}
 
