@@ -1,16 +1,13 @@
-$showcase-background-color: #f8f8f8;
-$showcase-background-color-dark: #252627;
-$showcase-background-color-black: #111111;
-
-$showcase-color: #2d96bd;
-$showcase-color-dark: #a9a9b3;
-$showcase-color-black: #d9d9d9;
-
-$showcase-hover-color: #ef3982;
-$showcase-hover-color-dark: #ffffff;
-$showcase-hover-color-black: #ffffff;
-
 .related-container {
+    --related-background-color: #f8f8f8;
+    --related-background-color-dark: #252627
+    --related-background-color-black: #111111;
+    --related-color: #2d96bd;
+    --related-color-dark: #a9a9b3;
+    --related-color-black: #d9d9d9;
+    --related-hover-color: #ef3982;
+    --related-hover-color-dark: #ffffff;
+    --related-hover-color-black: #ffffff;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -23,45 +20,39 @@ $showcase-hover-color-black: #ffffff;
         flex-shrink: 0;
         height: 300px;
         margin-right: 20px;
-
-        display: inline-block !important;
-        background: $showcase-background-color;
+        background: var(--related-background-color);
         position: relative;
         [theme="dark"] & {
-            background: $showcase-background-color-dark;
+            background: var(--related-background-color-dark);
         }
         [theme="black"] & {
-            background: $showcase-background-color-black;
+            background: var(--related-background-color-black);
         }
     }
     
     .related-image {
         @include transition(transform 0.4s ease);
-    
         img {
             width: 100%;
             height: 200px;
-            max-width: none;
             @include object-fit(none);
         }
-    
         img.lazyloaded {
             @include object-fit(cover);
         }
-    
         &:hover {
             @include transform(scale(1.01));
         }
     }
     
     .related-title {
+        position: absolute;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        position: absolute;
         top: 210px;
-        width: 96%;
-        margin: 3% 3% 3% 2%;
+        width: 95%;
+        margin: 10px;
         font-size: 1.25rem;
         line-height: 140%;
     }
@@ -69,34 +60,44 @@ $showcase-hover-color-black: #ffffff;
     .related-title a {
         color: black;
         &:hover {
-            color: $showcase-hover-color;
+            color: var(--related-hover-color);
         }
         [theme="dark"] & {
-            color: $showcase-color-dark;
+            color: var(--related-color-dark);
             &:hover {
-                color: $showcase-hover-color-dark;
+                color: var(--related-hover-color-dark);
             }
         }
         [theme="black"] & {
-            color: $showcase-color-black;
+            color: var(--related-color-black);
             &:hover {
-                color: $showcase-hover-color-black;
+                color: var(--related-hover-color-black);
             }
         }
     }
     
     .related-link {
-        color: $showcase-color;
         position: absolute;
-        bottom: 2%;
-        left: 2%;
+        left: 5px;
+        bottom: 5px;
+        color: var(--related-color);
+        &:hover {
+            color: var(--related-hover-color);
+        }
         [theme="dark"] & {
-            color: $showcase-color-dark;
+            color: var(--related-color-dark);
+            &:hover {
+                color: var(--related-hover-color-dark);
+            }    
         } 
         [theme="black"] & {
-            color: $showcase-color-black;
+            color: var(--related-color-black);
+            &:hover {
+                color: var(--related-hover-color-black);
+            }
         } 
     }
+
     @media screen and (max-width: 680px) {
         .related-item-container {
             flex-basis: 300px;
