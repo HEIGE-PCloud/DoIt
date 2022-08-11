@@ -56,10 +56,6 @@
                     "local": "katex/copy-tex.min.js"
                 },
                 {
-                    "remote": "dist/contrib/copy-tex.min.css",
-                    "local": "katex/copy-tex.min.css"
-                },
-                {
                     "remote": "dist/contrib/mhchem.min.js",
                     "local": "katex/mhchem.min.js"
                 }
