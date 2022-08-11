@@ -1,5 +1,14 @@
 {{- $params := .Page.Params | merge .Site.Params.Page | merge (dict "author" .Site.Author.name) -}}
-
+{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+{{- with .Page.Resources.GetMatch (printf "%s" ($image)) -}}
+    {{- $image = .RelPermalink -}}
+{{- end -}}
+{{- with .Page.Resources.GetMatch "featured-image" -}}
+    {{- $image = .RelPermalink -}}
+{{- end -}}
+{{- with .Page.Resources.GetMatch "featured-image-preview" -}}
+    {{- $image = .RelPermalink -}}
+{{- end -}}
 <item>
     <title>
         {{- .Page.Title -}}
@@ -37,9 +46,9 @@
     </guid>
     <description>
         {{- "<![CDATA[" | safeHTML -}}
-        {{- with $params.featuredimage -}}
+        {{- with $image -}}
             <div class="featured-image">
-                <img src="{{ . | relURL }}" referrerpolicy="no-referrer">
+                <img src="{{ . }}" referrerpolicy="no-referrer">
             </div>
         {{- end -}}
         {{- $content := .Page.Description -}}
