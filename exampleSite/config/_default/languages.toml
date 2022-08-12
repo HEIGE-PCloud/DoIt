@@ -1,0 +1,497 @@
+[en]
+  weight = 1
+  # language code
+  languageCode = "en"
+  # language name
+  languageName = "English"
+  # whether to include Chinese/Japanese/Korean
+  hasCJKLanguage = false
+  # default amount of posts in each pages
+  paginate = 12
+  # [UA-XXXXXXXX-X] google analytics code (replaced by params.analytics.google)
+  googleAnalytics = ""
+  # copyright description used only for seo schema
+  copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+  # Menu config
+  [en.menu]
+    [[en.menu.main]]
+      identifier = "posts"
+      # you can add extra information before the name (HTML format is supported), such as icons
+      pre = ""
+      # you can add extra information after the name (HTML format is supported), such as icons
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      # title will be shown when you hover on this menu link.
+      title = ""
+      weight = 1
+    [[en.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[en.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "Categories"
+      url = "/categories/"
+      title = ""
+      weight = 3
+    [[en.menu.main]]
+      identifier = "series"
+      pre = ""
+      post = ""
+      name = "Series"
+      url = "/series/"
+      title = ""
+      weight = 4
+    [[en.menu.main]]
+      identifier = "authors"
+      pre = ""
+      post = ""
+      name = "Authors"
+      url = "/authors/"
+      title = ""
+      weight = 5
+    [[en.menu.main]]
+      identifier = "showcase"
+      pre = ""
+      post = ""
+      name = "Showcase"
+      url = "/showcase/"
+      title = ""
+      weight = 6
+    [[en.menu.main]]
+      identifier = "documentation"
+      pre = ""
+      post = ""
+      name = "Docs"
+      url = "/categories/documentation/"
+      title = ""
+      weight = 7
+    [[en.menu.main]]
+      identifier = "about"
+      pre = ""
+      post = ""
+      name = "About"
+      url = "/about/"
+      title = ""
+      weight = 8
+    [[en.menu.main]]
+      identifier = "github"
+      pre = "<i class='fab fa-github fa-fw'></i>"
+      post = ""
+      name = ""
+      url = "https://github.com/HEIGE-PCloud/DoIt"
+      title = "GitHub"
+      weight = 9
+  [en.params]
+    # site description
+    description = "The official documentation for the Hugo DoIt theme"
+    # site keywords
+    keywords = ["Theme", "Hugo"]
+    # App icon config
+    [en.params.app]
+      # optional site title override for the app when added to an iOS home screen or Android launcher
+      title = "DoIt"
+      # whether to omit favicon resource links
+      noFavicon = false
+      # modern SVG favicon to use in place of older style .png and .ico files
+      svgFavicon = ""
+      # Safari mask icon color
+      iconColor = "#5bbad5"
+      # Windows v8-10 tile color
+      tileColor = "#da532c"
+    # Search config
+    [en.params.search]
+      enable = true
+      # type of search engine ("lunr", "algolia", "fuse")
+      type = "algolia"
+      # max index length of the chunked content
+      contentLength = 4000
+      # placeholder of the search bar
+      placeholder = ""
+      # max number of results length
+      maxResultLength = 10
+      # snippet length of the result
+      snippetLength = 300
+      # HTML tag name of the highlight part in results
+      highlightTag = "em"
+      # whether to use the absolute URL based on the baseURL in search index
+      absoluteURL = false
+      [en.params.search.algolia]
+        index = "en_index"
+        appID = "5YGRNRQK1G"
+        searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+      [en.params.search.fuse]
+        # https://fusejs.io/api/options.html
+        isCaseSensitive = false
+        minMatchCharLength = 2
+        findAllMatches = false
+        location = 0
+        threshold = 0.1
+        distance = 100
+        ignoreLocation = true
+        useExtendedSearch = false
+        ignoreFieldNorm = false
+    # Home page config
+    [en.params.home]
+      # amount of RSS pages
+      rss = 10
+      # Home page profile
+      [en.params.home.profile]
+        enable = true
+        # Gravatar Email for preferred avatar in home page
+        gravatarEmail = ""
+        # URL of avatar shown in home page
+        avatarURL = "/images/avatar.webp"
+        # title shown in home page (HTML format is supported)
+        title = ""
+        # subtitle shown in home page
+        subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+        # whether to use typeit animation for subtitle
+        typeit = true
+        # whether to show social links
+        social = true
+        # disclaimer (HTML format is supported)
+        disclaimer = ""
+      # Home page posts
+      [en.params.home.posts]
+        enable = true
+        # special amount of posts in each home posts page
+        paginate = 7
+    # Social config in home page
+    [en.params.social]
+      GitHub = "xxxx"
+      Linkedin = ""
+      Twitter = "xxxx"
+      Instagram = ""
+      Facebook = "xxxx"
+      Telegram = "xxxx"
+      Medium = ""
+      Gitlab = ""
+      Youtubelegacy = "xxxx"
+      Youtubecustom = ""
+      Youtubechannel = ""
+      Tumblr = ""
+      Quora = ""
+      Keybase = ""
+      Pinterest = ""
+      Reddit = ""
+      Codepen = ""
+      FreeCodeCamp = ""
+      Bitbucket = ""
+      Stackoverflow = ""
+      Weibo = ""
+      Odnoklassniki = ""
+      VK = ""
+      Flickr = ""
+      Xing = ""
+      Snapchat = ""
+      Soundcloud = ""
+      Spotify = ""
+      Bandcamp = ""
+      Paypal = ""
+      Fivehundredpx = ""
+      Mix = ""
+      Goodreads = ""
+      Lastfm = ""
+      Foursquare = ""
+      Hackernews = ""
+      Kickstarter = ""
+      Patreon = ""
+      Steam = ""
+      Twitch = ""
+      Strava = ""
+      Skype = ""
+      Whatsapp = ""
+      Zhihu = ""
+      Douban = ""
+      Angellist = ""
+      Slidershare = ""
+      Jsfiddle = ""
+      Deviantart = ""
+      Behance = ""
+      Dribbble = ""
+      Wordpress = ""
+      Vine = ""
+      Googlescholar = ""
+      Researchgate = ""
+      Thingiverse = ""
+      Devto = ""
+      Gitea = ""
+      XMPP = ""
+      Matrix = ""
+      Bilibili = ""
+      ORCID = ""
+      QQ = ""
+      QQGroup = ""
+      Liberapay = "xxx"
+      Ko-Fi = "xxx"
+      BuyMeACoffee = ""
+      Linktree = ""
+      Email = "xxxx@xxxx.com"
+      RSS = true
+      [en.params.social.Mastodon]
+        id = "@xxxx"
+        prefix = "https://mastodon.technology/"
+      [en.params.social.Diaspora]
+        id = "@xxxx"
+        prefix = "https://yyyy/"
+    # Sponsor config
+    [en.params.sponsor]
+      enable = false
+      bio = "If you find this post helpful, please consider sponsoring."
+      link = "https://github.com/sponsors/HEIGE-PCloud"
+      # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
+
+[zh-cn]
+  weight = 2
+  # 网站语言, 仅在这里 CN 大写
+  languageCode = "zh-CN"
+  # 语言名称
+  languageName = "简体中文"
+  # 是否包括中日韩文字
+  hasCJKLanguage = true
+  # 默认每页列表显示的文章数目
+  paginate = 12
+  # [UA-XXXXXXXX-X] 谷歌分析代号 (被 params.analytics.google 替代)
+  googleAnalytics = ""
+  # 版权描述，仅仅用于 SEO
+  copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+  # 菜单配置
+  [zh-cn.menu]
+    [[zh-cn.menu.main]]
+      identifier = "posts"
+      # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+      pre = ""
+      # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+      post = ""
+      name = "所有文章"
+      url = "/posts/"
+      title = ""
+      weight = 1
+    [[zh-cn.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "标签"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[zh-cn.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "分类"
+      url = "/categories/"
+      title = ""
+      weight = 3
+    [[zh-cn.menu.main]]
+      identifier = "series"
+      pre = ""
+      post = ""
+      name = "系列"
+      url = "/series/"
+      title = ""
+      weight = 4
+    [[zh-cn.menu.main]]
+      identifier = "authors"
+      pre = ""
+      post = ""
+      name = "作者"
+      url = "/authors/"
+      title = ""
+      weight = 5
+    [[zh-cn.menu.main]]
+      identifier = "showcase"
+      pre = ""
+      post = ""
+      name = "作品"
+      url = "/showcase/"
+      title = ""
+      weight = 6
+    [[zh-cn.menu.main]]
+      identifier = "documentation"
+      pre = ""
+      name = "文档"
+      url = "/categories/documentation/"
+      title = ""
+      weight = 7
+    [[zh-cn.menu.main]]
+      identifier = "about"
+      pre = ""
+      post = ""
+      name = "关于"
+      url = "/about/"
+      title = ""
+      weight = 8
+    [[zh-cn.menu.main]]
+      identifier = "github"
+      pre = "<i class='fab fa-github fa-fw'></i>"
+      post = ""
+      name = ""
+      url = "https://github.com/HEIGE-PCloud/DoIt"
+      title = "GitHub"
+      weight = 9
+  [zh-cn.params]
+    # 网站描述
+    description = "Hugo DoIt 主题官方文档"
+    # 网站关键词
+    keywords = ["Theme", "Hugo"]
+    # 应用图标配置
+    [zh-cn.params.app]
+      # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
+      title = "DoIt"
+      # 是否隐藏网站图标资源链接
+      noFavicon = false
+      # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
+      svgFavicon = ""
+      # Safari 图标颜色
+      iconColor = "#5bbad5"
+      # Windows v8-10 磁贴颜色
+      tileColor = "#da532c"
+    # 搜索配置
+    [zh-cn.params.search]
+      enable = true
+      # 搜索引擎的类型 ("lunr", "algolia", "fuse")
+      type = "algolia"
+      # 文章内容最长索引长度
+      contentLength = 4000
+      # 搜索框的占位提示语
+      placeholder = ""
+      # 最大结果数目
+      maxResultLength = 10
+      # 结果内容片段长度
+      snippetLength = 50
+      # 搜索结果中高亮部分的 HTML 标签
+      highlightTag = "em"
+      # 是否在搜索索引中使用基于 baseURL 的绝对路径
+      absoluteURL = false
+      [zh-cn.params.search.algolia]
+        index = "zh_cn_index"
+        appID = "5YGRNRQK1G"
+        searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+      [zh-cn.params.search.fuse]
+        # https://fusejs.io/api/options.html
+        isCaseSensitive = false
+        minMatchCharLength = 2
+        findAllMatches = false
+        location = 0
+        threshold = 0.1
+        distance = 100
+        ignoreLocation = true
+        useExtendedSearch = false
+        ignoreFieldNorm = false
+    # 主页信息设置
+    [zh-cn.params.home]
+      # RSS 文章数目
+      rss = 10
+      # 主页个人信息
+      [zh-cn.params.home.profile]
+        enable = true
+        # Gravatar 邮箱，用于优先在主页显示的头像
+        gravatarEmail = ""
+        # 主页显示头像的 URL
+        avatarURL = "/images/avatar.webp"
+        # 主页显示的网站标题 (支持 HTML 格式)
+        title = ""
+        # 主页显示的网站副标题
+        subtitle = "一个简洁、优雅且高效的 Hugo 主题"
+        # 是否为副标题显示打字机动画
+        typeit = true
+        # 是否显示社交账号
+        social = true
+        # 免责声明 (支持 HTML 格式)
+        disclaimer = ""
+      # 主页文章列表
+      [zh-cn.params.home.posts]
+        enable = true
+        # 主页每页显示文章数量
+        paginate = 7
+    # 主页的社交信息设置
+    [zh-cn.params.social]
+      GitHub = "xxxx"
+      Linkedin = ""
+      Twitter = ""
+      Instagram = ""
+      Facebook = ""
+      Telegram = ""
+      Medium = ""
+      Gitlab = ""
+      Youtubelegacy = ""
+      Youtubecustom = ""
+      Youtubechannel = ""
+      Tumblr = ""
+      Quora = ""
+      Keybase = ""
+      Pinterest = ""
+      Reddit = ""
+      Codepen = ""
+      FreeCodeCamp = ""
+      Bitbucket = ""
+      Stackoverflow = ""
+      Weibo = "xxxx"
+      Odnoklassniki = ""
+      VK = ""
+      Flickr = ""
+      Xing = ""
+      Snapchat = ""
+      Soundcloud = ""
+      Spotify = ""
+      Bandcamp = ""
+      Paypal = ""
+      Fivehundredpx = ""
+      Mix = ""
+      Goodreads = ""
+      Lastfm = ""
+      Foursquare = ""
+      Hackernews = ""
+      Kickstarter = ""
+      Patreon = ""
+      Steam = "xxxx"
+      Twitch = ""
+      Strava = ""
+      Skype = ""
+      Whatsapp = ""
+      Zhihu = "xxxx"
+      Douban = "xxxx"
+      Angellist = ""
+      Slidershare = ""
+      Jsfiddle = ""
+      Deviantart = ""
+      Behance = ""
+      Dribbble = ""
+      Wordpress = ""
+      Vine = ""
+      Googlescholar = ""
+      Researchgate = ""
+      Mastodon = ""
+      Thingiverse = ""
+      Devto = "xxxx"
+      Gitea = ""
+      XMPP = ""
+      Matrix = ""
+      Bilibili = "xxxx"
+      ORCID = ""
+      Liberapay = ""
+      Ko-Fi = ""
+      BuyMeACoffee = ""
+      Linktree = ""
+      QQ = ""
+      QQGroup = ""
+      Email = "xxxx@xxxx.com"
+      RSS = true
+      # 赞助设置
+    [zh-cn.params.sponsor]
+      enable = false
+      bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+      link = "https://github.com/sponsors/HEIGE-PCloud"
+      # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
+
+

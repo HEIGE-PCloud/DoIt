@@ -1,0 +1,5 @@
+# Sitemap config
+# 网站地图配置
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
