@@ -918,7 +918,7 @@ enableEmoji = true
       # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
       [params.page.comment.twikoo]
         enable = true
-        envId = "https://doit-docs-comment-twikoo.vercel.app/"
+        envId = "https://twikoo-comments-doit.vercel.app/"
         region = ""
         path = ""
         visitor = true
