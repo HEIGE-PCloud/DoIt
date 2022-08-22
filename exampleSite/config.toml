@@ -748,6 +748,7 @@ enableEmoji = true
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
       enable = false
+      renderer = "mathjax"
       # default block delimiter is $$ ... $$ and \\[ ... \\]
       # 默认块定界符是 $$ ... $$ 和 \\[ ... \\]
       blockLeftDelimiter = ""
