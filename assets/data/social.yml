@@ -536,7 +536,7 @@ linktree:
 # 068: QQ
 qq:
   Weight: 68
-  Template: https://sighttp.qq.com/authd?IDKEY=%v
+  Template: http://wpa.qq.com/msgrd?v=3&uin=%v&site=qq&menu=yes
   Title: QQ
   Icon:
     Src: svg/icons/qq.svg
