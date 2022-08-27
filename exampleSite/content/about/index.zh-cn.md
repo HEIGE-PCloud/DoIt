@@ -18,7 +18,6 @@ math:
 ### 性能和 SEO
 
 * :(fas fa-rocket fa-fw): **性能**优化：在 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights) 中， [99]/[100] 的移动设备得分和 [100]/[100] 的桌面设备得分
-* :(fas fa-space-shuttle fa-fw): 支持 **PJAX**
 * :(fab fa-searchengin fa-fw): 使用基于 JSON-LD 格式 的 **SEO SCHEMA** 文件进行 SEO 优化
 * :(fab fa-google fa-fw): 支持 **[Google Analytics](https://analytics.google.com/analytics)**
 * :(far fa-chart-bar fa-fw): 支持 **[Fathom Analytics](https://usefathom.com/)**
@@ -116,6 +115,4 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Twikoo](https://twikoo.js.org/)
 * [Vssue](https://vssue.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Pjax](https://github.com/PaperStrike/Pjax)
-* [Topbar](https://github.com/buunguyen/topbar)
 * [Remark42](https://remark42.com/)

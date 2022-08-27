@@ -284,7 +284,6 @@
 {{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
 {{- $options = dict "minify" true | merge $options -}}
 {{- $shims := dict -}}
-{{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
 {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
 {{- $shims = dict "lazysizes" "js/shims/lazysizes.js" | merge $shims -}}
 {{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}

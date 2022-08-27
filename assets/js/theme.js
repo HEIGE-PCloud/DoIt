@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')

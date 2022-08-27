@@ -72,7 +72,6 @@ To see this theme in action, here is a live [demo site](https://hugodoit.pages.d
 * Custom style shortcodes supported
 * **CDN** for all third-party libraries supported
 * **Mulitple Authors** supported
-* **PJAX** supported
 * ...
 
 In short,
@@ -222,8 +221,6 @@ Thanks to the authors of following resources included in the theme:
 * [Vssue](https://vssue.js.org/)
 * [Remark42](https://remark42.com/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Pjax](https://github.com/PaperStrike/Pjax)
-* [Topbar](https://github.com/buunguyen/topbar)
 
 ## Author
 

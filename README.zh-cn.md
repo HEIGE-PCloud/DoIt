@@ -72,7 +72,6 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持自定义样式的 shortcode
 * 支持所有第三方库的 **CDN**
 * 支持**多作者分类**
-* 支持 **PJAX**
 * ...
 
 所以，如果你更偏好 DoIt 主题的设计语言和自由度，如果你想便捷地使用扩展的 Font Awesome 图标，如果你想在文章内嵌数学公式、流程图、音乐或是 Bilibili 视频，
@@ -218,8 +217,6 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Twikoo](https://twikoo.js.org/)
 * [Vssue](https://vssue.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Pjax](https://github.com/PaperStrike/Pjax)
-* [Topbar](https://github.com/buunguyen/topbar)
 * [Remark42](https://remark42.com/)
 
 ## 作者
