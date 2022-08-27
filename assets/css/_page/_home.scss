@@ -103,11 +103,11 @@
 
       img {
         position: absolute;
+        object-fit: cover;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
-        @include object-fit(none);
       }
 
       img.lazyloaded {
