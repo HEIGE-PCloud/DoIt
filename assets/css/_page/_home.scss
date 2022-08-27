@@ -110,10 +110,6 @@
         top: 0;
       }
 
-      img.lazyloaded {
-        @include object-fit(cover);
-      }
-
       &:hover {
         @include transform(scale(1.01));
       }
