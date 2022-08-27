@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-import * as topbar from 'topbar'
 import lazySizes from 'lazysizes'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
@@ -209,7 +208,7 @@ function initSearch () {
       searchClear.style.display = 'none'
       window._searchMobile && window._searchMobile.autocomplete.setVal('')
     }, false)
-    // Remove the mask when click on it or pjax:send
+    // Remove the mask when click on it
     window._searchMobileOnClickMask = () => {
       header.classList.remove('open')
       searchLoading.style.display = 'none'
@@ -217,7 +216,6 @@ function initSearch () {
       window._searchMobile && window._searchMobile.autocomplete.setVal('')
     }
     window.clickMaskEventSet.add(window._searchMobileOnClickMask)
-    window.pjaxSendEventSet.add(window._searchMobileOnClickMask)
   } else {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
@@ -238,7 +236,7 @@ function initSearch () {
         searchToggle.click()
       }
     })
-    // Remove the mask when click on it or pjax:send
+    // Remove the mask when click on it
     window._searchDesktopOnClickMask = () => {
       header.classList.remove('open')
       searchLoading.style.display = 'none'
@@ -246,10 +244,7 @@ function initSearch () {
       window._searchDesktop && window._searchDesktop.autocomplete.setVal('')
     }
     window.clickMaskEventSet.add(window._searchDesktopOnClickMask)
-    window.pjaxSendEventSet.add(window._searchDesktopOnClickMask)
   }
-  // Reset _searchDesktopOnce when pjax:send
-  window.pjaxSendEventSet.add(() => { window._searchDesktopOnce = false; window._searchMobileOnce = false })
   // Display the clear button only when the search box is not empty
   searchInput.addEventListener('input', () => {
     if (searchInput.value === '') searchClear.style.display = 'none'
@@ -820,9 +815,6 @@ function onScroll () {
     window.oldScrollTop = window.newScrollTop
   }
   window.addEventListener('scroll', handleScrollEvent, false)
-  document.addEventListener('pjax:send', function () {
-    window.removeEventListener('scroll', handleScrollEvent)
-  })
 }
 
 function onResize () {
@@ -852,7 +844,6 @@ function init () {
   window.resizeEventSet = new Set()
   window.switchThemeEventSet = new Set()
   window.clickMaskEventSet = new Set()
-  window.pjaxSendEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
   initSVGIcon()
   initMenuMobile()
@@ -874,56 +865,3 @@ function init () {
 }
 
 init()
-
-new Pjax({
-  selectors: [
-    '.pjax-title',
-    'main',
-    '.menu-item',
-    '.pjax-assets',
-    '#fixed-buttons',
-    '.search-dropdown',
-    '.header-title'
-  ]
-})
-
-document.addEventListener('pjax:success', function () {
-  init()
-  // refresh analytics
-  if (typeof gtag === 'function') {
-    gtag('event', 'pageview', { page_location: window.location.href })
-  }
-
-  if (typeof fathom === 'function') {
-    fathom('trackPageview')
-  }
-
-  if (typeof _hmt !== 'undefined' && typeof _hmt.push === 'function') {
-    _hmt.push(['_trackPageview', window.location.pathname])
-  }
-})
-
-document.addEventListener('pjax:send', function () {
-  for (const event of window.pjaxSendEventSet) event()
-  for (const event of window.clickMaskEventSet) event()
-  document.body.classList.remove('blur')
-  delete window._tocOnScroll
-  const el = document.getElementById('content')
-  if (el) {
-    window.lgData[el?.getAttribute('lg-uid')]?.destroy(true)
-  }
-})
-
-topbar.config({
-  autoRun: true,
-  barThickness: 3,
-  barColors: {
-    0: '#55bde2'
-  },
-  shadowBlur: 0,
-  shadowColor: 'rgba(0, 0, 0, .5)',
-  className: 'topbar'
-})
-document.addEventListener('pjax:send', topbar.show)
-document.addEventListener('pjax:complete', topbar.hide)
-document.addEventListener('pjax:error', topbar.hide)
