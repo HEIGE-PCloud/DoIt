@@ -37,9 +37,6 @@
     {{- end -}}
 {{- end -}}
 
-{{- /* lazysizes */ -}}
-{{- $source := $cdn.lazysizesJS | default "lib/lazysizes/lazysizes.min.js" -}}
-{{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- /* tablesort */ -}}
 {{- if $params.table | and $params.table.sort -}}
@@ -285,7 +282,6 @@
 {{- $options = dict "minify" true | merge $options -}}
 {{- $shims := dict -}}
 {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
-{{- $shims = dict "lazysizes" "js/shims/lazysizes.js" | merge $shims -}}
 {{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
 {{- $options = dict "shims" $shims | merge $options -}}
 {{- if hugo.IsProduction -}}

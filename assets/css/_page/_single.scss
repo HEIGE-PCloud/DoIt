@@ -328,10 +328,6 @@
       }
     }
 
-    .lazyloading {
-      @include object-fit(none);
-    }
-
     blockquote {
       display: block;
       border-left: .5rem solid $blockquote-color;

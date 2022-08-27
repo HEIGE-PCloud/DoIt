@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-import lazySizes from 'lazysizes'
 // import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
 // const autocomplete = require('autocomplete.js')
@@ -861,7 +860,6 @@ function init () {
   onScroll()
   onResize()
   onClickMask()
-  lazySizes.init()
 }
 
 init()

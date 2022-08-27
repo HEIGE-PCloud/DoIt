@@ -40,15 +40,11 @@ $showcase-hover-color-black: #ffffff;
     @include transition(transform 0.4s ease);
 
     img {
+        object-fit: cover;
         width: 96%;
         margin: 2% 2% 0% 2%;
         height: 200px;
         max-width: none;
-        @include object-fit(none);
-    }
-
-    img.lazyloaded {
-        @include object-fit(cover);
     }
 
     &:hover {
