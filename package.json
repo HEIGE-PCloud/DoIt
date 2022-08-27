@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "@sliphua/pjax": "^2.4.0",
     "@waline/client": "^2.6.3",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
@@ -36,9 +35,7 @@
     "katex": "^0.16.0",
     "lazysizes": "^5.3.2",
     "mermaid": "^9.1.6",
-    "node-fetch": "^3.2.10",
     "tablesort": "^5.3.0",
-    "topbar": "^1.0.1",
     "twemoji": "^14.0.2",
     "twikoo": "^1.6.7",
     "valine": "^1.5.1"

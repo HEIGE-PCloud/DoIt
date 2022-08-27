@@ -13,6 +13,3 @@ Array.from(aplayers).forEach(aplayer => {
   const ap = new APlayer(options)
   aplayerInstances.push(ap)
 })
-
-// Destroy all instances on pjax:send
-document.addEventListener('pjax:send', () => aplayerInstances.forEach((aplayer) => aplayer.destroy()))
