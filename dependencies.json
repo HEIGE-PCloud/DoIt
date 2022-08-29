@@ -37,7 +37,7 @@
         },
         {
             "name": "katex",
-            "version": "0.16.0",
+            "version": "0.16.1",
             "files": [
                 {
                     "remote": "dist/katex.min.js",
