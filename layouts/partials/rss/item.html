@@ -22,17 +22,23 @@
     {{- if .Page.Params.authors -}}
     {{- $lang := ( .Page.Language.Lang | default $.Lang ) -}}
         {{- range $i, $name := .Page.Params.authors -}}
-            {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+            {{- if $.Site.Data.authors -}}
+                {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+                    <author>
+                        <name>{{- .name -}}</name>
+                        {{- if .absLink -}}
+                            <uri>{{ .absLink | absURL }}</uri>
+                        {{- else -}}
+                            <uri>{{ .link | absURL }}</uri>
+                        {{- end -}}
+                        {{- if .email -}}
+                            <email>{{ .email }}</email>
+                        {{- end -}}
+                    </author>
+                {{- end -}}
+            {{- else -}}
                 <author>
-                    <name>{{- .name -}}</name>
-                    {{- if .absLink -}}
-                        <uri>{{ .absLink | absURL }}</uri>
-                    {{- else -}}
-                        <uri>{{ .link | absURL }}</uri>
-                    {{- end -}}
-                    {{- if .email -}}
-                        <email>{{ .email }}</email>
-                    {{- end -}}
+                    <name>{{- $name -}}</name>
                 </author>
             {{- end -}}
         {{- end -}}

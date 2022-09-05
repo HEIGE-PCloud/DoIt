@@ -14,11 +14,13 @@
             {{- if $authors -}}
                 {{- $lang := ( $.Params.lang | default $.Lang ) -}}
                 {{- range $i, $name := $authors -}}
-                    {{- with partial "function/author.html" (dict
-                        "name" $name
-                        "author" (index $.Site.Data.authors $name)
-                        "lang" $lang) -}}
-                        {{- dict "Src" .avatar | partial "plugin/image.html" -}}
+                    {{- if $.Site.Data.authors -}}
+                        {{- with partial "function/author.html" (dict
+                            "name" $name
+                            "author" (index $.Site.Data.authors $name)
+                            "lang" $lang) -}}
+                            {{- dict "Src" .avatar | partial "plugin/image.html" -}}
+                        {{- end -}}                    
                     {{- end -}}
                 {{- end -}}
             {{- else if $avatar -}}

@@ -151,12 +151,19 @@
         "authors": [
         {{- $lang := ( $.Params.lang | default $.Lang ) -}}
         {{- range $i, $name := .Params.authors -}}
-            {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
-                {{- if gt $i 0 }},{{ end -}}
-                {
-                    "@type": "Person",
-                    "name": "{{ .name }}"
-                }
+            {{- if $.Site.Data.author -}}
+                {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+                    {{- if gt $i 0 }},{{ end -}}
+                    {
+                        "@type": "Person",
+                        "name": "{{ .name }}"
+                    }
+                {{- end -}}
+            {{- else -}}
+                    {
+                        "@type": "Person",
+                        "name": "{{ $name }}"                    
+                    }
             {{- end -}}
         {{- end -}}
         ],

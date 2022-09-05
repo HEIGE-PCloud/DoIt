@@ -5,13 +5,23 @@
         {{- partial "plugin/icon.html" $icon -}}
         <span class='screen-reader-text'> {{ i18n "by" }} </span>
         {{- range $i, $name := .Params.authors -}}
-            {{- with partial "function/author.html" (dict
-                "name" $name
-                "author" (index $.Site.Data.authors $name)
-                "lang" $lang
-            ) -}}
-                {{- if gt $i 0 }}, {{ end -}}
-                <a href='{{ .link | absURL }}'>{{- .name -}}</a>
+            {{- if $.Site.Data.authors -}}
+                {{- with partial "function/author.html" (dict
+                    "name" $name
+                    "author" (index $.Site.Data.authors $name)
+                    "lang" $lang
+                ) -}}
+                    {{- if gt $i 0 }}, {{ end -}}
+                    <a href='{{ .link | absURL }}'>{{- .name -}}</a>
+                {{- end -}}
+            {{- else -}}
+                {{- with partial "function/author.html" (dict
+                    "name" $name
+                    "lang" $lang
+                ) -}}
+                    {{- if gt $i 0 }}, {{ end -}}
+                    <a href='{{ .link | absURL }}'>{{- .name -}}</a>
+                {{- end -}}
             {{- end -}}
         {{- end -}}
     </span>
