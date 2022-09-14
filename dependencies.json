@@ -27,7 +27,7 @@
         },
         {
             "name": "mermaid",
-            "version": "9.1.6",
+            "version": "9.1.7",
             "files": [
                 {
                     "remote": "dist/mermaid.min.js",
