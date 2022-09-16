@@ -326,6 +326,12 @@
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript>
         {{- end -}}
+
+        {{/*  Echo Comment System  */}}
+        {{- $echo := $comment.echo | default dict -}}
+        {{- if $echo.enable -}}
+            {{- $echo.embedCode | safeHTML -}}
+        {{- end -}}
     </div>
 {{- end -}}
 

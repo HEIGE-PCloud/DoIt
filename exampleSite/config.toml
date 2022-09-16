@@ -958,6 +958,9 @@ enableEmoji = true
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
+      [params.page.comment.echo]
+        enable = true
+        embedCode = '<iframe src="https://embed.0xecho.com.ipns.page?color-theme=auto&desc=klmlk&has-h-padding=true&has-v-padding=true&modules=comment%2Clike-lite%2Ctip%2Cdislike-lite&receiver=llml&target_uri=klkl" frameborder="0"></iframe>'
     # Third-party library config
     # 第三方库配置
     [params.page.library]
