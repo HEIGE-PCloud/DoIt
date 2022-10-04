@@ -3,18 +3,22 @@
 {{- $link := "" -}}
 {{- $summary := "" -}}
 {{- $column := "2" -}}
+{{- $linkExtra := "" -}}
 {{ if .IsNamedParams }}
 {{- $title = .Get "title" | default $title -}}
 {{- $summary = .Get "summary" | default $summary -}}
 {{- $link = .Get "link" | default $link -}}
 {{- $image = .Get "image" | default $image -}}
 {{- $column = .Get "column" | default $column -}}
+{{- $linkExtra = .Get "link_extra" | default $linkExtra -}}
 {{- else -}}
 {{- $title = .Get 0 | default $title -}}
 {{- $summary = .Get 1 | default $summary -}}
 {{- $image = .Get 2 | default $image -}}
 {{- $link = .Get 3 | default $link -}}
 {{- $column = .Get 4 | default $column -}}
+{{- $linkExtra = .Get 5 | default $linkExtra -}}
+
 {{ end }}
 <div class="showcase-box column-{{ $column }}">
     <div class="showcase-image">
@@ -31,4 +35,9 @@
     <a class="showcase-link" href={{ $link }}>
         {{ T "readMore" }}
     </a>
+    {{- if .Get "linkExtra" -}}
+    <a class="showcase-link-extra" href={{ $linkExtra }}>
+        {{ T "abstract" }}
+    </a>
+    {{ end }}
 </div>

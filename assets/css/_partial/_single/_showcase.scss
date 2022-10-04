@@ -103,6 +103,12 @@ $showcase-hover-color-black: #ffffff;
     left: 2%;
 }
 
+.showcase-link-extra {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
 @media screen and (max-width: 680px) {
     .showcase-box {
         width: 100% !important;
