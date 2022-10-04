@@ -60,6 +60,20 @@
                     "local": "katex/mhchem.min.js"
                 }
             ]
+        },
+        {
+            "name": "echarts",
+            "version": "5.3.3",
+            "files": [
+                {
+                    "remote": "dist/echarts.min.js",
+                    "local": "echarts/echarts.min.js"
+                },
+                {
+                    "remote": "theme/macarons.min.js",
+                    "local": "echarts/macarons.min.js"
+                }
+            ]
         }
     ]
 }
