@@ -3,6 +3,8 @@
 {{- end -}}
 
 {{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+
     <div class="page archive">
         {{- /* Title */ -}}
         <h2 class="single-title animate__animated animate__pulse animate__faster">
@@ -39,9 +41,11 @@
             {{- end -}}
         </h2>
         {{- /* Introduction*/ -}}
-        {{- with .Params.introduction -}}
+        {{- if .Content -}}
         <div class="introduction">
-            <blockquote>{{- . -}}</blockquote>
+            <blockquote>
+                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            </blockquote>
         </div>
         {{- end -}}
         {{- /* Paginate */ -}}
