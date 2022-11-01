@@ -28,6 +28,6 @@
     {{- $linkTag = printf `<a href="%s" class="archive-item-link" title="%s" target="_blank"> %s </a>` $link $name $name -}}
 {{- end -}}
 
-{{- $link :=  (printf "/authors/%s" .name) | urlize | relLangURL -}}
+{{- $link :=  (printf "authors/%s" .name) | urlize | relLangURL -}}
 
 {{- return dict "author" .author "email" $email "name" $name "link" $link "absLink" $absLink "avatar" $avatar -}}
