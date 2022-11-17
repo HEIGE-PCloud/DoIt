@@ -31,7 +31,7 @@ other = "Danh mục"
 other = "Danh mục"
 
 [series]
-other = "Series"
+other = "Sê-ri"
 # === Taxonomy ===
 
 # === Section ===
@@ -143,7 +143,7 @@ one = "thể loại {{ .Categories }}"
 other = "thể loại {{ .Categories }}"
 
 [includedInSeries]
-other = "series {{ .Series }}"
+other = "sê-ri {{ .Series }}"
 
 [wordCount]
 one = "Một từ"
