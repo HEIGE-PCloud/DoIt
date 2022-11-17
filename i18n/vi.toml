@@ -29,7 +29,17 @@ other = "Danh mục"
 
 [categories]
 other = "Danh mục"
+
+[series]
+other = "Series"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Cập nhật gần đây"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -42,11 +52,29 @@ other = "Chọn Ngôn ngữ"
 
 [switchTheme]
 other = "Đổi chủ đề"
+
+[Light]
+other = "Sáng"
+
+[Dark]
+other = "Tối"
+
+[Black]
+other = "Đen"
+
+[Auto]
+other = "Tự động"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "Cung cấp bởi {{ .Hugo }} | Chủ đề - {{ .Theme }}"
+[poweredBy]
+other = "Cung cấp bởi {{ .Hugo }}"
+
+[hostedOn]
+other = "Chạy trên {{ .Host }}"
+
+[theme]
+other = "Chủ đề - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
@@ -79,9 +107,6 @@ other = "Không tìm thấy"
 [lunrLanguageCode]
 other = "vi"
 
-[lunrLanguageLib]
-other = "lib/lunr/lunr.vi.js"
-
 [copyToClipboard]
 other = "Sao chép vào bộ nhớ tạm"
 
@@ -105,30 +130,52 @@ other = "Chia sẻ trên"
 other = "Nội dung"
 
 [publishedOnDate]
-other = "đăng ngày {{ .Date }}"
+other = "đăng vào {{ .Date }}"
+
+[includedIn]
+other = "trong "
+
+[includedInAnd]
+other = "và"
 
 [includedInCategories]
-other = "trong {{ .Categories }}"
+one = "thể loại {{ .Categories }}"
+other = "thể loại {{ .Categories }}"
+
+[includedInSeries]
+other = "series {{ .Series }}"
 
 [wordCount]
-one = "One word"
+one = "Một từ"
 other = "{{ .Count }} từ"
 
 [readingTime]
-one = "One minute"
+one = "Một phút"
 other = "{{ .Count }} phút"
 
 [views]
 other = "lượt xem"
 
+[comments]
+other = "bình luận"
+
 [author]
 other = "Tác giả"
 
 [updatedOnDate]
-other = "Cập nhật ngày {{ .Date }}"
+other = "Cập nhật vào {{ .Date }}"
 
 [readMarkdown]
-other = "Đọc với định dạng Markdown"
+other = "Đọc Markdown"
+
+[viewSource]
+other = "Xem mã nguồn"
+
+[editThisPage]
+other = "Sửa trang này"
+
+[reportThisPage]
+other = "Báo cáo vấn đề"
 
 [back]
 other = "Quay lại"
@@ -138,6 +185,18 @@ other = "Trang chủ"
 
 [readMore]
 other = "Đọc thêm"
+
+[outdatedInfoWarningBefore]
+other = "Bài viết này được cập nhật vào "
+
+[outdatedInfoWarningAfter]
+other = ", nội dung có thể đã lỗi thời."
+
+[sponsor]
+other = "Tài trợ"
+
+[relatedContent]
+other = "Nội Dung Liên Quan"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -145,7 +204,7 @@ other = "Đọc thêm"
 other = "Không tìm thấy trang"
 
 [pageNotFoundText]
-other = "Trang bạn đang tìm kiếm không tồn tại. Xin lỗi."
+other = "Xin lỗi. Trang bạn đang tìm không tồn tại."
 # === 404.html ===
 
 # === shortcodes/admonition.html ===
