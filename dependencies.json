@@ -13,7 +13,7 @@
         },
         {
             "name": "@waline/client",
-            "version": "2.13.0",
+            "version": "2.14.0",
             "files": [
                 {
                     "remote": "dist/waline.css",
@@ -27,7 +27,7 @@
         },
         {
             "name": "mermaid",
-            "version": "9.2.0",
+            "version": "9.2.2",
             "files": [
                 {
                     "remote": "dist/mermaid.min.js",

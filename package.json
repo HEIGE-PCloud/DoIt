@@ -26,7 +26,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
     "@sliphua/pjax": "^2.4.0",
-    "@waline/client": "^2.13.0",
+    "@waline/client": "^2.14.0",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
@@ -35,8 +35,8 @@
     "echarts": "^5.4.0",
     "katex": "^0.16.3",
     "lazysizes": "^5.3.2",
-    "mermaid": "^9.2.0",
-    "node-fetch": "^3.2.10",
+    "mermaid": "^9.2.2",
+    "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
     "topbar": "^1.0.1",
     "twemoji": "^14.0.2",
@@ -44,10 +44,10 @@
     "valine": "^1.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.26.0",
+    "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.4.0",
+    "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-promise": "^6.1.1"
   }
 }
