@@ -110,12 +110,17 @@ function initSwitchTheme () {
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
-      if (currentTheme === 'dark') {
-        setColorTheme('black')
-      } else if (currentTheme === 'black') {
+      // if (currentTheme === 'dark') {
+      //   setColorTheme('black')
+      // } else if (currentTheme === 'black') {
+      //   setColorTheme('light')
+      // } else {
+      //   setColorTheme('dark')
+      // }
+      if (currentTheme === 'black') {
         setColorTheme('light')
       } else {
-        setColorTheme('dark')
+        setColorTheme('black')
       }
       for (const event of window.switchThemeEventSet) event()
     })
