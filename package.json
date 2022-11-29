@@ -26,7 +26,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
     "@sliphua/pjax": "^2.4.0",
-    "@waline/client": "^2.14.0",
+    "@waline/client": "^2.14.1",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
@@ -44,7 +44,7 @@
     "valine": "^1.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.5.1",

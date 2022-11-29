@@ -6268,7 +6268,7 @@
             pageSize: f,
             login: k,
             copyright: b,
-            search: x || i(s),
+            search: x ?? i(s),
             recaptchaV3Key: S,
             reaction: Array.isArray(_) ? _ : !0 === _ ? l : [],
             commentSorting: $,
@@ -6488,7 +6488,7 @@
         onEdit: e => {
           w.value = e;
         },
-        version: "2.14.0"
+        version: "2.14.1"
       };
     }
   });
@@ -6699,7 +6699,7 @@
         }
       };
     },
-    tc = "2.14.0",
+    tc = "2.14.1",
     nc = _ref56 => {
       var _i$value;
       let {
