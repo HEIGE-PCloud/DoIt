@@ -150,7 +150,7 @@ function initSelectTheme () {
         setColorTheme(theme)
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          setColorTheme('dark')
+          setColorTheme('black')
         } else {
           setColorTheme('light')
         }
