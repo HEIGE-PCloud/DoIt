@@ -13,12 +13,14 @@ themesDir = "../.."
 # 网站标题
 title = "Exile"
 
+timeout = 1000000000
+
 # whether to use robots.txt
 # 是否使用 robots.txt
 enableRobotsTXT = true
 # whether to use git commit log
 # 是否使用 git 信息
-enableGitInfo = true
+enableGitInfo = false
 # whether to use emoji code
 # 是否使用 emoji 代码
 enableEmoji = true
@@ -546,10 +548,10 @@ thumbnailUrl = "/images/screenshot.png"
 # Analytics config
 # 网站分析配置
 [params.analytics]
-enable = false
+enable = true
 # Google Analytics
 [params.analytics.google]
-id = ""
+id = "1234"
 # whether to anonymize IP
 # 是否匿名化用户 IP
 anonymizeIP = true
@@ -561,7 +563,7 @@ id = ""
 server = ""
 # Baidu Analytics
 [params.analytics.baidu]
-id = ""
+id = "1234"
 # Umami Analytics
 [params.analytics.umami]
 data_website_id = ""
@@ -573,7 +575,14 @@ data_domain = ""
 src = ""
 # Cloudflare Analytics
 [params.analytics.cloudflare]
-token = ""
+token = "1234"
+# Splitbee Analytics
+[params.analytics.splitbee]
+enable = true
+No_cookie = false
+Do_not_track = true
+data_token = ""
+
 
 # Cookie consent config
 # Cookie 许可配置
