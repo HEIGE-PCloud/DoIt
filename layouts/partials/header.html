@@ -150,29 +150,29 @@
                 <i class="fas fa-adjust fa-fw"></i>
             </a>
             {{- end -}}
-<!--            {{- if .Site.IsMultiLingual -}}-->
-<!--                <a href="#" onclick="return false;" class="menu-item" title="{{ T "selectLanguage" }}">-->
-<!--                    {{- .Language.LanguageName -}}-->
-<!--                    <i class="fas fa-chevron-right fa-fw"></i>-->
-<!--                    <select class="language-select" title="Select Language" onchange="location = this.value;">-->
-<!--                        {{- if eq .Kind "404" -}}-->
-<!--                            {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}-->
-<!--                            {{- range .Sites -}}-->
-<!--                                {{- $link := printf "%v/404.html" .LanguagePrefix -}}-->
-<!--                                <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>-->
-<!--                                    {{- .Language.LanguageName -}}-->
-<!--                                </option>-->
-<!--                            {{- end -}}-->
-<!--                        {{- else -}}-->
-<!--                            {{- range .AllTranslations -}}-->
-<!--                                <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>-->
-<!--                                    {{- .Language.LanguageName -}}-->
-<!--                                </option>-->
-<!--                            {{- end -}}-->
-<!--                        {{- end -}}-->
-<!--                    </select>-->
-<!--                </a>-->
-<!--            {{- end -}}-->
+            {{- if .Site.IsMultiLingual -}}
+                <a href="#" onclick="return false;" class="menu-item" title="{{ T "selectLanguage" }}">
+                    {{- .Language.LanguageName -}}
+                    <i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;">
+                        {{- if eq .Kind "404" -}}
+                            {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
+                            {{- range .Sites -}}
+                                {{- $link := printf "%v/404.html" .LanguagePrefix -}}
+                                <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
+                                    {{- .Language.LanguageName -}}
+                                </option>
+                            {{- end -}}
+                        {{- else -}}
+                            {{- range .AllTranslations -}}
+                                <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
+                                    {{- .Language.LanguageName -}}
+                                </option>
+                            {{- end -}}
+                        {{- end -}}
+                    </select>
+                </a>
+            {{- end -}}
         </div>
     </div>
 </header>
