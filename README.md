@@ -93,6 +93,7 @@ the DoIt theme may be more suitable for you.
 * **[Umami Analytics](https://umami.is/)** supported
 * **[Plausible Analytics](https://plausible.io/)** supported
 * **[Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics)** supported
+* **[Splitbee Analytics](https://splitbee.io)** supported
 * Search engine **verification** supported (Google, Bind, Yandex and Baidu)
 * **CDN** for third-party libraries supported
 * Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
