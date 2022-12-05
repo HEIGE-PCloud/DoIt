@@ -140,12 +140,17 @@ function initSelectTheme () {
 
     themeSelect.addEventListener('change', () => {
       const theme = themeSelect.value
+      const defaultDarkTheme = document.body.getAttribute('defaultDarkTheme')
       window.localStorage && localStorage.setItem('theme', theme)
       if (theme !== 'auto') {
         setColorTheme(theme)
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          setColorTheme('dark')
+          if (defaultDarkTheme === 'black') {
+            setColorTheme('black')
+          } else {
+            setColorTheme('dark')
+          }
         } else {
           setColorTheme('light')
         }
