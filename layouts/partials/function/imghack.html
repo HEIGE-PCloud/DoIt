@@ -1,0 +1,19 @@
+{{- $resource := 0 -}}
+{{- $url := urls.Parse .Path -}}
+    {{- if not $url.Host | and $url.Path | and (strings.HasSuffix $url.Path "/" | not) -}}
+        {{- if .Resources -}}
+            {{- with resources.GetMatch $url.Path -}}
+                {{- $resource = . -}}
+            {{- end -}}
+        {{- else -}}
+            {{- with resources.Get $url.Path -}}
+                {{- $resource = . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- else -}}
+        {{- if eq $url.Host "img.sped0nwen.com" -}}
+            {{- $img := resources.GetRemote .Path -}}
+            {{- $resource = $img -}}
+        {{- end -}}
+    {{- end -}}
+{{- return $resource -}}

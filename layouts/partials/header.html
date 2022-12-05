@@ -39,29 +39,6 @@
                 {{- if .Site.Menus.main -}}
                     <span class="menu-item delimiter"></span>
                 {{- end -}}
-                {{- if .Site.IsMultiLingual -}}
-                    <a href="#" onclick="return false;" class="menu-item language" title="{{ T "selectLanguage" }}">
-                        {{- .Language.LanguageName -}}
-                        <i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;">
-                            {{- if eq .Kind "404" -}}
-                                {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                                {{- range .Sites -}}
-                                    {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                                    <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
-                                        {{- .Language.LanguageName -}}
-                                    </option>
-                                {{- end -}}
-                            {{- else -}}
-                                {{- range .AllTranslations -}}
-                                    <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
-                                        {{- .Language.LanguageName -}}
-                                    </option>
-                                {{- end -}}
-                            {{- end -}}
-                        </select>
-                    </a>
-                {{- end -}}
                 {{- if .Site.Params.search.enable -}}
                     <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-desktop">

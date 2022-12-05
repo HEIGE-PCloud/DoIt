@@ -1,0 +1,415 @@
+{{ $currentPage := . }}
+
+{{ $images := (.Page.Resources.ByType "image") }}
+{{ if .Get "match"}}
+{{ $images = (.Page.Resources.Match (.Get "match")) }}
+{{ end }}
+
+{{ $filterOptions := .Get "filterOptions" | default (.Site.Params.galleryFilterOptions | default "[]") }}
+{{ if not $filterOptions }}
+{{ $filterOptions = "[]" }}
+{{ end }}
+
+{{ $storeSelectedFilterInUrl := .Get "storeSelectedFilterInUrl" | default (.Site.Params.storeSelectedFilterInUrl | default false) }}
+
+{{ $sortOrder := .Get "sortOrder" | default (.Site.Params.gallerySortOrder | default "asc") }}
+
+{{ $rowHeight := .Get "rowHeight" | default (.Site.Params.galleryRowHeight | default 150) }}
+
+{{ $margins := .Get "margins" | default (.Site.Params.galleryRowMargins | default 5) }}
+
+{{ $randomize := .Get "randomize" | default (.Site.Params.galleryRandomize | default false) }}
+
+{{ $thumbnailResizeOptions := .Get "thumbnailResizeOptions" | default (.Site.Params.galleryThumbnailResizeOptions | default "300x150 q85 Lanczos") }}
+
+{{ $imageResizeOptions := .Get "imageResizeOptions" | default .Site.Params.galleryImageResizeOptions }}
+
+{{ $loadJQuery := .Get "loadJQuery" | default (.Site.Params.galleryLoadJQuery | default false) }}
+
+{{ $showExif := .Get "showExif" | default (.Site.Params.galleryShowExif | default false) }}
+
+{{ $justifiedGalleryParameters := .Get "justifiedGalleryParameters" | default (.Site.Params.galleryJustifiedGalleryParameters | default "") }}
+
+{{ $previewType := .Get "previewType" | default (.Site.Params.galleryPreviewType | default "blur") }}
+
+{{ $embedPreview := .Get "embedPreview" | default (.Site.Params.galleryEmbedPreview | default true) }}
+
+{{ $thumbnailHoverEffect := .Get "thumbnailHoverEffect" | default (.Site.Params.galleryThumbnailHoverEffect | default "none") }}
+
+<!-- hugos image processing saves images at resources/_gen/images, if the property resourceDir
+	 is changed in hugos config.toml file the images are save <resourceDir>/_gen/images.
+	 Because it is not possible to access the value of resourceDir, users who change resourceDir also have to change
+	[params] resourceDir. -->
+{{ $thumbnailResourceDir := printf "%s%s" (.Site.Params.resourceDir | default "resources") "/_gen/images/" }}
+
+<!-- Load jquery, jquery-lazy, swipebox and justified_gallery only once per page -->
+{{ if not (.Page.Scratch.Get "galleryLoaded") }}
+{{ .Page.Scratch.Set "galleryLoaded" true }}
+<!-- Use relURL to support hugo projects that run in a subdirectory (bug #18) -->
+
+{{ if $loadJQuery }}
+<script src="{{ "shortcode-gallery/jquery-3.6.1.min.js" | relURL }}"></script>
+{{ end }}
+
+{{ if not (eq $previewType "none") }}
+<script src="{{ "shortcode-gallery/lazy/jquery.lazy.min.js" | relURL }}"></script>
+{{ end }}
+
+<script src="{{ "shortcode-gallery/swipebox/js/jquery.swipebox.min.js" | relURL }}"></script>
+<link rel="stylesheet" href="{{ "shortcode-gallery/swipebox/css/swipebox.min.css"| relURL }}">
+
+<script src="{{ "shortcode-gallery/justified_gallery/jquery.justifiedGallery.min.js"| relURL }}"></script>
+<link rel="stylesheet" href="{{ "shortcode-gallery/justified_gallery/justifiedGallery.min.css"| relURL }}"/>
+{{ end }}
+
+<style>
+    {{ if (eq $thumbnailHoverEffect "enlarge") }}
+    .jg-entry img {
+        transition: transform .25s ease-in-out !important;
+    }
+
+    .jg-entry img:hover {
+        transform: scale(1.1);
+    }
+    {{ end }}
+
+    {{ if not (eq $filterOptions "[]") }}
+    /* inline css from assets folder */
+    {{ (resources.Get "shortcode-gallery/filterbar.sass" | toCSS).Content | safeCSS }}
+    {{ end }}
+</style>
+
+<!--
+Ordinal increases every time this shortcode is used in a document
+Ordinal: {{ .Ordinal}}
+-->
+{{ $galleryId := (printf "gallery-%v-%v" .Page.File.UniqueID .Ordinal)}}
+{{ $galleryWrapperId := (printf "gallery-%v-%v-wrapper" .Page.File.UniqueID .Ordinal)}}
+
+<div id="{{ $galleryWrapperId }}" class="gallery-wrapper">
+    <div id="{{ $galleryId }}" class="justified-gallery">
+        {{ range $original := sort $images "Name" $sortOrder}}
+        {{ if eq $original.ResourceType "image" }}
+
+        {{/* Get metadata from sidecar file, if present. Else an empty dictionary is used. */}}
+        {{ $metaFileName := print $original.Name ".meta"}}
+        {{ $metadata := $currentPage.Page.Resources.GetMatch ($metaFileName) }}
+        {{ if $metadata }}
+        {{ $metadata = $metadata.Content }}
+        {{ $metadata = $metadata | unmarshal }}
+        {{ else }}
+        {{ $metadata = dict }}
+        {{ end }}
+
+        {{/* If the image has exif informations, those are merged together with the metadata from the file */}}
+        {{ if in "jpg jpeg tiff" $original.MediaType.SubType }}
+        {{ with $original.Exif }}
+        {{ $metadata = merge .Tags $metadata }}
+        {{ end }}
+        {{ end }}
+
+
+        {{/* Compute rotation to correct orientation of thumbnail (and downscaled gallery images) in case the exif contains a value for orientation. See issue #22. */}}
+        {{ $rotation := "" }}
+        {{ with $metadata.Orientation }}
+        {{/* Exif orientation is explained here: https://www.impulseadventure.com/photo/exif-orientation.html */}}
+        {{/* Example images can be found here: https://github.com/recurser/exif-orientation-examples*/}}
+        {{/* We can fix orientation 3, 6 and 8 by rotating. */}}
+        {{/* To fix orientation 2, 4, 5, 6 we would need to flip the image, sadly hugo can not do that. */}}
+        {{/* So we can only fix them a "bit" by rotating them but they will be mirrored. */}}
+        {{/* An orientation of 2 means that the image only needs to be flipped so we do nothing in that case. */}}
+        {{/* An orientation of 1 means that the image has the correct rotation and is not mirrored. */}}
+        {{ if or (eq . 8) (eq . 7) }}
+        {{ $rotation = " r90" }}
+        {{ else if or (eq . 3) (eq . 4) }}
+        {{ $rotation = " r180" }}
+        {{ else if or (eq . 6) (eq . 5) }}
+        {{ $rotation = " r270" }}
+        {{ end }}
+        {{ end }}
+
+        {{/* Create thumbnail, rotate it if needed */}}
+        {{ $thumbnail := ($original.Fit (printf "%s %s" $thumbnailResizeOptions $rotation)) }}
+
+
+        <div>
+            {{ $full := "" }}
+            {{ if $imageResizeOptions }}
+            {{/* Downscale gallery image, rotate it if needed */}}
+            {{ $full = ($original.Fit (printf "%s %s" $imageResizeOptions $rotation)) }}
+            {{ else }}
+            {{ $full = $original }}
+            {{ end }}
+            <a href="{{ $full.RelPermalink }}"
+               class="galleryImg"
+               {{ with $metadata }}
+               {{ if .Title }}
+               title="{{ .Title }}"
+               {{ else if .ImageDescription }}
+               title="{{ .ImageDescription }}"
+               {{ end }}
+
+               {{ if $showExif }}
+               data-description="{{ .Model }} + {{ .LensModel }}<br/>{{ .FocalLength }}mm f/{{ .FNumber }} {{ .ExposureTime }}sec ISO {{ .ISOSpeedRatings }}"
+               {{ end }}
+
+               {{ if not (eq $filterOptions "[]")  }}
+            {{/* only include fields that are currently supported by the filter mechanism (in JS at the end of the file) */}}
+            data-meta="{{ (dict "Tags" $metadata.Tags "Rating" $metadata.Rating "ColorLabels" $metadata.ColorLabels "ImageDescription" $metadata.ImageDescription) | jsonify }}"
+            {{ end }}
+            {{ end }}
+            >
+            <img
+                    width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}"
+
+                    {{ if (eq $previewType "blur") }}
+            {{ $preview_b := ($thumbnail.Fit ("32x32 q70 box jpg")) }}
+            style="filter: blur(25px);"
+            {{ if $embedPreview }}
+            src="data:image/jpeg;base64,{{ $preview_b.Content | base64Encode }}"
+            {{ else }}
+            src="{{ $preview_b.RelPermalink }}"
+            {{ end }}
+            class="lazy"
+            data-src="{{ $thumbnail.RelPermalink }}"
+            {{ else if (eq $previewType "color") }}
+            {{ $preview_1p := ($thumbnail.Resize ("1x1 box png")) }}
+            {{ if $embedPreview }}
+            src="data:image/png;base64,{{ $preview_1p.Content | base64Encode }}"
+            {{ else }}
+            src="{{ $preview_1p.RelPermalink }}"
+            {{ end }}
+            class="lazy"
+            data-src="{{ $thumbnail.RelPermalink }}"
+            {{ else }}
+            src="{{ $thumbnail.RelPermalink }}"
+            {{ end }}
+
+            {{ with $metadata }}
+            {{ if .ImageDescription }}
+            alt="{{ .ImageDescription }}"
+            {{ end }}
+            {{ end }}
+            >
+            </a>
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+</div>
+
+<script>
+    if (!jQuery) {
+        alert("jquery is not loaded");
+    }
+
+    $( document ).ready(() => {
+        const gallery = $("#{{ $galleryId }}");
+        {{ $lastRowJustification := .Get "lastRow" | default (.Site.Params.galleryLastRow | default "justify") }}
+
+        // the instance of swipebox, it will be set once justifiedGallery is initialized
+        let swipeboxInstance = null;
+
+        // before the gallery initialization the listener has to be added
+        // else we can get a race condition and the listener is never called
+        gallery.on('jg.complete', () => {
+            {{ if or (eq $previewType "blur") (eq $previewType "color") }}
+            // if there is already some low resolution image data loaded, then we will wait for loading´
+            // the hi-res until the justified gallery has done the layout
+            $(() => {
+                $('.lazy').Lazy({
+                    visibleOnly: true,
+                    afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+                });
+            });
+            {{ end }}
+
+            swipeboxInstance = $('.galleryImg').swipebox(
+                jQuery.extend({},
+                    { {{ $justifiedGalleryParameters | safeJS }} }
+        )
+        );
+        });
+
+        // initialize the justified gallery
+        gallery.justifiedGallery({
+            rowHeight : {{ $rowHeight }},
+        margins : {{ $margins }},
+        border : 0,
+            randomize : {{ $randomize }},
+        waitThumbnailsLoad : false,
+            lastRow : {{ $lastRowJustification }},
+        captions : false,
+            // if there is at least one filter option
+            {{ if not (eq $filterOptions "[]") }}
+        // we first show no images at all
+        // till the code way below selects a filter and applies it
+        // this prevent creating the layout twice
+        filter : () => false
+        {{ end }}
+    });
+
+        // only include JS code for filter options if there at least one filter option
+        {{ if not (eq $filterOptions "[]") }}
+
+        // this function can be used to create a function that can be used by justifiedGallery
+        // for filtering images by their metadata
+        function createMetadataFilter(filterFunction) {
+            return (entry, index, array) => {
+                let meta = $(entry).find("a").attr("data-meta");
+                meta = meta ? JSON.parse(meta) : {};
+
+                let include = filterFunction(meta);
+
+                // only those images visible in justified gallery should be displayed
+                // in swipebox (only <a> with class galleryImg are displayed in swipebox)
+                $(entry).find("a").toggleClass("galleryImg", include);
+
+                return include;
+            }
+        }
+
+        // this function returns a function that can be used by justifiedGallery
+        // for filtering images by their tags
+        function createTagFilter(tagsRegexString) {
+            const tagsRegex = RegExp(tagsRegexString);
+            return createMetadataFilter(meta => {
+                let tags = meta.Tags;
+                tags = tags ? tags : [];
+                return tags.some(tag => tagsRegex.test(tag));
+            });
+        };
+
+        // this function returns a function that can be used by justifiedGallery
+        // for filtering images by their description
+        function createImageDescriptionFilter(descriptionRegexString) {
+            const descriptionRegex = RegExp(descriptionRegexString);
+            return createMetadataFilter(meta => {
+                let imageDescription = meta.ImageDescription;
+                return imageDescription !== null && descriptionRegex.test(imageDescription);
+            });
+        };
+
+        // this function returns a function that can be used by justifiedGallery
+        // for filtering images by their star rating
+        function createRatingFilter(min, max) {
+            return createMetadataFilter(meta => {
+                let rating = meta.Rating;
+                if(rating === null){
+                    rating = -1;
+                }
+                return rating >= min && rating <= max;
+            });
+        };
+
+        // this function returns a function that can be used by justifiedGallery
+        // for filtering images by their color labels
+        function createColorLabelFilter(color) {
+            color = color.charAt(0).toLowerCase()
+            return createMetadataFilter(meta => {
+                let colors = meta.ColorLabels;
+                return colors && colors.includes(color);
+            });
+        };
+
+
+        const filterOptions = {{ $filterOptions | safeJS }};
+
+        // insert a div for inserting filter buttons before the gallery
+        const filterBar = $("<div class='justified-gallery-filterbar'/>");
+        gallery.before(filterBar);
+
+        var wrapper = document.getElementById("{{ $galleryWrapperId }}");
+
+        // inline svg icons
+        const expandIcon = '{{ (resources.Get "shortcode-gallery/font-awesome/expand-alt-solid.svg").Content | safeHTML }}';
+        const compressIcon = '{{ (resources.Get "shortcode-gallery/font-awesome/compress-alt-solid.svg").Content | safeHTML }}';
+
+        function setFulltab(activate) {
+            if(activate == wrapper.classList.contains("fulltab")){
+                return;  // nothing to do, we are already in the right state
+            }
+
+            wrapper.classList.toggle("fulltab");
+            gallery.justifiedGallery({
+                rowHeight : {{ $rowHeight }} * (activate ? 1.5 : 1.0),
+                lastRow: (activate ? "nojustify": {{ $lastRowJustification }}),
+            // force justifiedGallery to refresh
+            refreshTime: 0,
+        });
+            // force justifiedGallery to refresh
+            gallery.data('jg.controller').startImgAnalyzer();
+            fullTabButton.html(wrapper.classList.contains("fulltab") ? compressIcon : expandIcon)
+        };
+
+        const fullTabButton = $("<button/>");
+        fullTabButton.html(expandIcon);
+        fullTabButton.click(() => setFulltab(!wrapper.classList.contains("fulltab")));
+        filterBar.append(fullTabButton);
+        $(document).keyup(e => {
+            // when ESC is pressed
+            if (e.keyCode === 27){
+                setFulltab(false);
+            }
+        });
+
+        function activateFilterButton(filterButton) {
+            // activate associated filter
+            gallery.justifiedGallery({filter : filterButton.filter});
+            // remove select class from all other selected buttons
+            filterBar.find('.selected').removeClass('selected');
+            filterButton.addClass("selected");
+        };
+
+        // check if the url contains an instruction to apply a specific filter
+        // eg. example.com/images/#gallery-filter=Birds
+        const params = new URLSearchParams(location.hash.replace(/^\#/,""));
+        let activeFilter = params.get('gallery-filter');
+        if (!activeFilter) {
+            // default to first filter
+            activeFilter = filterOptions[0].label;
+        }
+
+        // create a button for each filter entry
+        filterOptions.forEach(filterConfig => {
+            let filter; // create a filter function based on the available attributes of filterConfig
+            if(filterConfig.tags) {
+                filter = createTagFilter(filterConfig.tags);
+            } else if(filterConfig.rating){
+                if(filterConfig.rating.includes("-")){
+                    minMax = filterConfig.rating.split("-");  // e.g. "3-5"
+                } else {
+                    minMax = [filterConfig.rating, filterConfig.rating];  // e.g. "4"
+                }
+                filter = createRatingFilter(parseInt(minMax[0]), parseInt(minMax[1]));
+            } else if(filterConfig.color_label){
+                filter = createColorLabelFilter(filterConfig.color_label);
+            } else if(filterConfig.description){
+                filter = createImageDescriptionFilter(filterConfig.description);
+            } else {
+                // default to always true filter
+                filter = createMetadataFilter(meta => true);
+            }
+
+            const filterButton = $("<button/>");
+            filterButton.text(filterConfig.label);
+            filterButton.filter = filter;
+            filterButton.click(() => {
+                activateFilterButton(filterButton);
+
+                {{ if $storeSelectedFilterInUrl }}
+                // save applied filter in browser url
+                const params = new URLSearchParams(location.hash.replace(/^\#/,""));
+                params.set('gallery-filter', filterConfig.label);+
+                    window.history.replaceState("", "", location.pathname + location.search + "#" + params.toString());
+                {{ end }}
+            });
+            filterBar.append(filterButton);
+
+            if(filterConfig.label.toLowerCase() === activeFilter.toLowerCase()) {
+                activateFilterButton(filterButton);
+            }
+        });
+        {{ end }}
+    });
+</script>

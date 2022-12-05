@@ -48,4 +48,38 @@
         <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ $analytics.cloudflare.token }}"}'></script>
     {{- end -}}
 
+    {{- /* Splitbee Analytics */ -}}
+    {{- with $analytics.splitbee.enable -}}
+        {{- if $analytics.splitbee.data_token -}}
+            {{- if $analytics.splitbee.No_cookie -}}
+                {{- if $analytics.splitbee.Do_not_track -}}
+                    <script data-token="{{ $analytics.splitbee.data_token }}" data-respect-dnt data-no-cookie defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- else -}}
+                    <script data-token="{{ $analytics.splitbee.data_token }}" data-no-cookie defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- end -}}
+            {{- else -}}
+                {{- if $analytics.splitbee.Do_not_track -}}
+                    <script data-token="{{ $analytics.splitbee.data_token }}" data-respect-dnt defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- else -}}
+                    <script data-token="{{ $analytics.splitbee.data_token }}" defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- end -}}
+            {{- end -}}
+        {{- else -}}
+            {{- if $analytics.splitbee.No_cookie -}}
+                {{- if $analytics.splitbee.Do_not_track -}}
+                    <script data-respect-dnt data-no-cookie defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- else -}}
+                    <script data-no-cookie defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- end -}}
+            {{- else -}}
+                {{- if $analytics.splitbee.Do_not_track -}}
+                    <script data-respect-dnt defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- else -}}
+                    <script defer src="https://cdn.splitbee.io/sb.js"></script>
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+
+    {{- end -}}
+
 {{- end -}}
