@@ -110,12 +110,22 @@ function initSwitchTheme () {
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
-      if (currentTheme === 'dark') {
-        setColorTheme('black')
-      } else if (currentTheme === 'black') {
-        setColorTheme('light')
+      const themeChangeMode = document.body.getAttribute('themeChangeMode')
+      const defaultDarkTheme = document.body.getAttribute('defaultDarkTheme')
+      if (themeChangeMode === 'dual') {
+        if (currentTheme === defaultDarkTheme) {
+          setColorTheme('light')
+        } else {
+          setColorTheme(defaultDarkTheme)
+        }
       } else {
-        setColorTheme('dark')
+        if (currentTheme === 'dark') {
+          setColorTheme('black')
+        } else if (currentTheme === 'black') {
+          setColorTheme('light')
+        } else {
+          setColorTheme('dark')
+        }
       }
       for (const event of window.switchThemeEventSet) event()
     })
