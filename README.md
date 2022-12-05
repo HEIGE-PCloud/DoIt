@@ -21,7 +21,7 @@ If you are currently using the LoveIt theme, it is very easy to migrate to DoIt.
 You can add this repo as a submodule of your site directory.
 
 ```bash
-git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+git submodule add https://github.com/Sped0n/DoIt.git themes/DoIt
 ```
 
 And later you can update the submodule in your site directory to the latest commit using this command:
@@ -227,4 +227,4 @@ Thanks to the authors of following resources included in the theme:
 
 ## Author
 
-[PCloud](https://github.com/HEIGE-PCloud)
+[Spedon](https://github.com/Sped0n)
