@@ -4,10 +4,10 @@
 
 // ========== Global ========== //
 // Font and Line Height
-$global-font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
-$global-font-size: 16px;
-$global-font-weight: 400;
-$global-line-height: 1.5rem;
+$global-font-family: Menlo, Consolas, "Ubuntu Mono", "Roboto Mono", "DejaVu Sans Mono", system-ui;
+$global-font-size: 16px !default;
+$global-font-weight: 400 !default;
+$global-line-height: 1.5rem !default;
 
 // Color of the background
 $global-background-color: #fff !default;
@@ -20,9 +20,9 @@ $global-font-color-dark: #a9a9b3 !default;
 $global-font-color-black: #d9d9d9 !default;
 
 // Color of the secondary text
-$global-font-secondary-color: #4d4d4d !default;
+$global-font-secondary-color: #a9a9b3 !default;
 $global-font-secondary-color-dark: #b5b5b5 !default;
-$global-font-secondary-color-black: #a9a9b3 !default;
+$global-font-secondary-color-black: #838389 !default;
 
 // Color of the link
 $global-link-color: #161209 !default;

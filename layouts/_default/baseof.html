@@ -22,6 +22,7 @@
     <script type="text/javascript">
         function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
         document.body.setAttribute('defaultDarkTheme', {{ .Site.Params.defaultDarkTheme }})
+        document.body.setAttribute('themeChangeMode', {{ .Site.Params.header.themeChangeMode }})
         function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
         function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
         {{- with .Site.Params.defaultDarkTheme -}}

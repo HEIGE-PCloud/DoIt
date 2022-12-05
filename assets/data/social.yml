@@ -572,3 +572,10 @@ rss:
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
+
+inoreader:
+  weight: 73
+  Prefix: https://www.inoreader.com/u/
+  Title: Inoreader
+  Icon:
+    Class: fas fa-book-open fa-fw

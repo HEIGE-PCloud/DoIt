@@ -1,16 +1,16 @@
 {{- /* lazysizes and lightgallery.js */ -}}
 {{- $src := .Src -}}
-{{- with dict "Path" .Src "Resources" .Resources | partial "function/resource.html" -}}
+{{- with dict "Path" .Src "Resources" .Resources | partial "function/imghack.html" -}}
     {{- $src = .RelPermalink -}}
 {{- end -}}
 
 {{- $small := .SrcSmall | default $src -}}
-{{- with dict "Path" .SrcSmall "Resources" .Resources | partial "function/resource.html" -}}
+{{- with dict "Path" .SrcSmall "Resources" .Resources | partial "function/imghack.html" -}}
     {{- $small = .RelPermalink -}}
 {{- end -}}
 
 {{- $large := .SrcLarge | default $src -}}
-{{- with dict "Path" .SrcLarge "Resources" .Resources | partial "function/resource.html" -}}
+{{- with dict "Path" .SrcLarge "Resources" .Resources | partial "function/imghack.html" -}}
     {{- $large = .RelPermalink -}}
 {{- end -}}
 
