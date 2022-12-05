@@ -531,9 +531,6 @@ enableEmoji = true
   # site default theme ("light", "dark", "black", "auto")
   # 网站默认主题 ("light", "dark", "black", "auto")
   defaultTheme = "auto"
-  # site default theme for dark mode ("dark", "black")
-  # 网站黑暗模式默认主题 ("dark", "black")
-  defaultDarkTheme = "dark"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
   gitRepo = "https://github.com/HEIGE-PCloud/DoIt"
