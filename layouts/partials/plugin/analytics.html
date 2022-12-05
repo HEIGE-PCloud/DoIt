@@ -49,7 +49,7 @@
     {{- end -}}
 
     {{- /* Splitbee Analytics */ -}}
-    {{- with $analytics.splitbee.enable -}}
+    {{- if $analytics.splitbee.enable -}}
         {{- if $analytics.splitbee.data_token -}}
             {{- if $analytics.splitbee.No_cookie -}}
                 {{- if $analytics.splitbee.Do_not_track -}}
