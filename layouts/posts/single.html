@@ -144,7 +144,7 @@
                 {{- $width = .Width -}}
                 {{- $height = .Height -}}
             {{- else -}}
-                {{- warnf "invalid featured image detected!" }}
+                {{- warnf "invalid featured image detected!" -}}
             {{- end -}}
         {{- end -}}
         {{- with .Resources.GetMatch "featured-image" -}}
