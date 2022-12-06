@@ -139,9 +139,13 @@
         {{- $width := "auto" -}}
         {{- $height := "auto" -}}
         {{- with .Resources.GetMatch (printf "**%s" $params.featuredimage) -}}
-            {{- $image = .RelPermalink -}}
-            {{- $width = .Width -}}
-            {{- $height = .Height -}}
+            {{- if eq .ResourceType "image" -}}
+                {{- $image = .RelPermalink -}}
+                {{- $width = .Width -}}
+                {{- $height = .Height -}}
+            {{- else -}}
+                {{- warnf "invalid featured image detected!" }}
+            {{- end -}}
         {{- end -}}
         {{- with .Resources.GetMatch "featured-image" -}}
             {{- $image = .RelPermalink -}}
