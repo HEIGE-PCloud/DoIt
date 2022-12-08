@@ -89,6 +89,8 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持 **[百度统计](https://tongji.baidu.com/)**
 * 支持 **[Umami Analytics](https://umami.is/)**
 * 支持 **[Plausible Analytics](https://plausible.io/)**
+* 支持 **[Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics)**
+* 支持 **[Splitbee Analytics](https://splitbee.io)**
 * 支持搜索引擎的**网站验证** (Google, Bind, Yandex and Baidu)
 * 支持所有第三方库的 **CDN**
 * 基于 [lazysizes](https://github.com/aFarkas/lazysizes) 自动转换图片为**懒加载**

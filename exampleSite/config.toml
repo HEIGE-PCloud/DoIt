@@ -1073,6 +1073,18 @@ enableEmoji = true
     # Cloudflare Analytics
     [params.analytics.cloudflare]
       token = ""
+    # Splitbee Analytics
+    [params.analytics.splitbee]
+      enable = false
+      # no cookie mode
+      # 无cookie模式
+      No_cookie = true
+      # respect the do not track setting of the browser
+      # 遵循浏览器的”要求网站不跟踪我“设定
+      Do_not_track = true
+      # token(optional), more info on https://splitbee.io/docs/embed-the-script
+      # token(可选)，详细信息请前往 https://splitbee.io/docs/embed-the-script 查看
+      data_token = ""
 
   # Cookie consent config
   # Cookie 许可配置
