@@ -165,6 +165,7 @@ it is highly recommended that you add `--disableFastRender` parameter to `hugo s
 ```bash
 hugo serve --disableFastRender
 ```
+
 {{< /admonition >}}
 
 ### Build the Website
@@ -767,6 +768,7 @@ Please open the code block below to view the complete sample configuration :(far
     [params.analytics.umami]
       data_website_id = ""
       src = ""
+      data_host_url = ""
       data_domains = ""
     # {{< version 0.2.13 >}} Plausible Analytics
     [params.analytics.plausible]
