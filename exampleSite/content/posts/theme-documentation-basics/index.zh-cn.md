@@ -168,6 +168,7 @@ hugo serve
 ```bash
 hugo serve --disableFastRender
 ```
+
 {{< /admonition >}}
 
 ### 构建网站
@@ -771,6 +772,7 @@ hugo
     [params.analytics.umami]
       data_website_id = ""
       src = ""
+      data_host_url = ""
       data_domains = ""
     # {{< version 0.2.13 >}} Plausible Analytics
     [params.analytics.plausible]
@@ -914,6 +916,7 @@ series = "series"
   # 主页显示头像的 URL
   avatarURL = "/images/avatar.webp"
 ````
+
 你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像, 网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像.
 
 或者可以在`/assets`或`/static`目录下放置图片文件, 并配置`avatarURL`下的地址来显示头像.引用资源的文件路径是相对于`assets`或`static`目录的.详细的本地资源引用方法请查看[这篇文档](/zh-cn/theme-documentation-content/#contents-organization).

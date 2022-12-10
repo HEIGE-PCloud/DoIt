@@ -35,7 +35,7 @@
     
     {{- /* Umami Analytics */ -}}
     {{- with $analytics.umami.data_website_id -}}
-        <script async defer data-website-id="{{ . }}" src="{{ $analytics.umami.src }}" {{ with $analytics.umami.data_domains }} data-domains="{{ . }}" {{ end }}></script>
+        <script async defer data-website-id="{{ . }}" src="{{ $analytics.umami.src }}" {{ with $analytics.umami.data_host_url }} data-host-url="{{ . }}" {{ end }} {{ with $analytics.umami.data_domains }} data-domains="{{ . }}" {{ end }}></script>
     {{- end -}}
 
     {{- /* Plausible Analytics */ -}}
