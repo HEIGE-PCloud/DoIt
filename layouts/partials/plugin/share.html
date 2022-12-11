@@ -202,5 +202,13 @@
         <a href="#" onclick="return false;" title="{{ T `shareOn` }} Telegram" data-sharer="telegram" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
             {{- dict "Class" "fab fa-telegram-plane fa-fw" | partial "plugin/icon.html" -}}
         </a>
+    {{- end -}} 
+    
+   {{- /* 030: Weixin */ -}}
+    {{- if $share.Weixin -}}
+    <a href="#" class="weixin" onclick="return false;" title="{{ T `shareOn` }} 微信" data-sharer="weixin" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
+        {{- dict "Class" "fab fa-weixin fa-fw" | partial "plugin/icon.html" -}}
+        <img src="{{ $share.Weixin }}{{ .Permalink | safeURL }}" title="{{ .Title }}">
+    </a>
     {{- end -}}
 {{- end -}}
