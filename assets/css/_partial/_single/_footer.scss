@@ -5,10 +5,10 @@
     border-bottom: 1px solid $global-border-color;
     padding: 1rem 0 0.3rem;
 
-    [theme=dark] & {
+    [theme="dark"] & {
       border-bottom: 1px solid $global-border-color-dark;
     }
-    [theme=black] & {
+    [theme="black"] & {
       border-bottom: 1px solid $global-border-color-black;
     }
 
@@ -20,10 +20,10 @@
         font-size: 0.8em;
         color: $global-font-secondary-color;
 
-        [theme=dark] & {
+        [theme="dark"] & {
           color: $global-font-secondary-color-dark;
         }
-        [theme=black] & {
+        [theme="black"] & {
           color: $global-font-secondary-color-black;
         }
 
@@ -34,10 +34,10 @@
         font-size: 0.8em;
         color: $global-font-secondary-color;
 
-        [theme=dark] & {
+        [theme="dark"] & {
           color: $global-font-secondary-color-dark;
         }
-        [theme=black] & {
+        [theme="black"] & {
           color: $global-font-secondary-color-black;
         }
 
@@ -53,6 +53,32 @@
       .post-info-share {
         a * {
           vertical-align: text-bottom;
+        }
+
+        .weixin {
+          position: relative;
+          opacity: 1 !important;
+          img {
+            position: absolute;
+            z-index: 99;
+            top: -141px;
+            right: 2px;
+            width: 131px;
+            max-width: none;
+            height: 131px;
+            transform: scale(0);
+            transform-origin: bottom right;
+            opacity: 0;
+            border: 0.3125rem solid #222;
+            border-radius: 0.25rem;
+            transition: all 0.25s ease-in-out;
+          }
+          &:hover {
+            img {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
         }
       }
     }
@@ -76,7 +102,7 @@
   .post-nav {
     &::before,
     &::after {
-      content: ' ';
+      content: " ";
       display: table;
     }
 
