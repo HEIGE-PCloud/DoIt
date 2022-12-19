@@ -35,7 +35,7 @@
     "echarts": "^5.4.1",
     "katex": "^0.16.4",
     "lazysizes": "^5.3.2",
-    "mermaid": "^9.2.2",
+    "mermaid": "^9.3.0",
     "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
     "topbar": "^1.0.1",
