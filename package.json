@@ -26,7 +26,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
     "@sliphua/pjax": "^2.4.0",
-    "@waline/client": "^2.14.1",
+    "@waline/client": "^2.14.2",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
