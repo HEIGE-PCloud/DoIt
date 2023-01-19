@@ -650,8 +650,6 @@ function initToc () {
           parent = parent.parentElement.parentElement
         }
       }
-      // Update the broswer history
-      if (activeTocIndex !== -1) history.replaceState(history.state, null, tocLinkElements[activeTocIndex].href)
     })
     window._tocOnScroll()
     window.scrollEventSet.add(window._tocOnScroll)
