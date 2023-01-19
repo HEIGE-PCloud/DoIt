@@ -36,10 +36,7 @@
         img {
             width: 100%;
             height: 200px;
-            @include object-fit(none);
-        }
-        img.lazyloaded {
-            @include object-fit(cover);
+            object-fit: cover;
         }
         &:hover {
             @include transform(scale(1.01));

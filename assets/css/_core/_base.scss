@@ -67,17 +67,5 @@ body {
 @import "../_partial/cookieconsent";
 
 img {
-  @include object-fit(contain);
-}
-
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
-.lazyloaded {
-	opacity: 1;
-	transition: opacity 300ms;
-}
-img.lazyload:not([src]) {
-	visibility: hidden;
+  object-fit: cover;
 }
