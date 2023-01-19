@@ -72,7 +72,6 @@ To see this theme in action, here is a live [demo site](https://hugodoit.pages.d
 * Custom style shortcodes supported
 * **CDN** for all third-party libraries supported
 * **Mulitple Authors** supported
-* **PJAX** supported
 * ...
 
 In short,
@@ -96,7 +95,6 @@ the DoIt theme may be more suitable for you.
 * **[Splitbee Analytics](https://splitbee.io)** supported
 * Search engine **verification** supported (Google, Bind, Yandex and Baidu)
 * **CDN** for third-party libraries supported
-* Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
 
 ### Appearance and Layout
 
@@ -204,7 +202,6 @@ Thanks to the authors of following resources included in the theme:
 * [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
 * [Fuse.js](https://fusejs.io/)
-* [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)
 * [Twemoji](https://github.com/twitter/twemoji)
 * [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js)
@@ -224,8 +221,6 @@ Thanks to the authors of following resources included in the theme:
 * [Vssue](https://vssue.js.org/)
 * [Remark42](https://remark42.com/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Pjax](https://github.com/PaperStrike/Pjax)
-* [Topbar](https://github.com/buunguyen/topbar)
 
 ## Author
 

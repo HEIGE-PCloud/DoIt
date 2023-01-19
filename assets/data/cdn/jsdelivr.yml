@@ -34,8 +34,6 @@ libFiles:
   katexCopyTexCSS: katex@0.15.1/dist/contrib/copy-tex.min.css
   katexCopyTexJS: katex@0.15.1/dist/contrib/copy-tex.min.js
   katexMhchemJS: katex@0.15.1/dist/contrib/mhchem.min.js
-  # lazysizes@5.3.2 https://github.com/aFarkas/lazysizes
-  lazysizesJS: lazysizes@5.3.2/lazysizes.min.js
   # lightgallery.js@1.4.0 https://github.com/sachinchoolur/lightgallery.js
   # lg-thumbnail.js@1.4.0 https://github.com/sachinchoolur/lg-thumbnail.js
   # lg-zoom.js@1.3.0 https://github.com/sachinchoolur/lg-zoom.js
@@ -56,12 +54,8 @@ libFiles:
   normalizeCSS: normalize.css@8.0.1/normalize.min.css
   # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
   objectFitImagesJS: object-fit-images@3.2.4/dist/ofi.min.js
-  # pjax@2.4.0 https://github.com/PaperStrike/Pjax
-  pjaxJS: "@sliphua/pjax@2.4.0/dist/pjax.min.js"
   # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
   sharerJS: sharer.js@0.4.2/sharer.min.js
-  # topbar@1.0.1 https://github.com/buunguyen/topbar
-  topbarJS: topbar@1.0.1/topbar.min.js
   # twemoji@13.1.0 https://github.com/twitter/twemoji
   twemojiJS: twemoji@13.1.0/dist/twemoji.min.js
   # twikoo@1.4.10 https://github.com/imaegoo/twikoo
