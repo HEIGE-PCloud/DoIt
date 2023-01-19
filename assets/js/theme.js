@@ -189,6 +189,12 @@ function initSearch () {
     window._searchMobileOnce = true
     // Turn on the mask when clicking on the search button
     searchInput.addEventListener('focus', () => {
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      if (window.config?.search?.type === 'algolia') {
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+      } else {
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
+      }
       document.body.classList.add('blur')
       header.classList.add('open')
     })
@@ -219,13 +225,11 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
-      const head = document.querySelector('head')
-      if (document.querySelector('#autocomplete') === null) {
-        const autocomplete = document.createElement('script');
-        autocomplete.setAttribute('src', '/lib/autocomplete/autocomplete.min.js')
-        autocomplete.setAttribute('id', 'autocomplete')
-        autocomplete.onload = () => initAutosearch()
-        head.appendChild(autocomplete)
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      if (window.config?.search?.type === 'algolia') {
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+      } else {
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
       }
       document.body.classList.add('blur')
       header.classList.add('open')
@@ -395,6 +399,17 @@ function initSearch () {
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
+  function loadScript(id, url) {
+    if (document.querySelector(`#${id}`) === null) {
+      const head = document.querySelector('head')
+      const autocomplete = document.createElement('script');
+      autocomplete.setAttribute('src', url)
+      autocomplete.setAttribute('id', id)
+      autocomplete.onload = () => initAutosearch()
+      head.appendChild(autocomplete)
+    }
+  }
+  
 }
 
 function initDetails () {
