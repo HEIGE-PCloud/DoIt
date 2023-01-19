@@ -15,11 +15,13 @@
 {{- end -}}
 
 {{- $alt := .Alt | default $src -}}
+{{- $loading := .Loading | default "lazy" -}}
+
 {{- if .Linked -}}
     <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
         <img
-            class="{{ with .Class }} {{ . }}{{ end }}"
-            loading="lazy"
+            {{ with .Class }}class="{{ . }}"{{ end }}
+            loading="{{ $loading }}"
             src="{{ .Src | safeURL }}"
             srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
             sizes="auto"
@@ -28,7 +30,7 @@
 {{- else -}}
     <img
         class="{{ with .Class }} {{ . }}{{ end }}"
-        loading="lazy"
+        loading="{{ $loading }}"
         src="{{ .Src | safeURL }}"
         srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
         sizes="auto"
