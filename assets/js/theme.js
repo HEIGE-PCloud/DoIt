@@ -219,6 +219,14 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
+      const head = document.querySelector('head')
+      if (document.querySelector('#autocomplete') === null) {
+        const autocomplete = document.createElement('script');
+        autocomplete.setAttribute('src', '/lib/autocomplete/autocomplete.min.js')
+        autocomplete.setAttribute('id', 'autocomplete')
+        autocomplete.onload = () => initAutosearch()
+        head.appendChild(autocomplete)
+      }
       document.body.classList.add('blur')
       header.classList.add('open')
       searchInput.focus()
@@ -453,26 +461,26 @@ function initSearch () {
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
-  if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
-    const script = document.createElement('script')
-    script.id = 'lunr-segmentit'
-    script.type = 'text/javascript'
-    script.src = searchConfig.lunrSegmentitURL
-    script.async = true
-    if (script.readyState) {
-      script.onreadystatechange = () => {
-        if (script.readyState === 'loaded' || script.readyState === 'complete') {
-          script.onreadystatechange = null
-          initAutosearch()
-        }
-      }
-    } else {
-      script.onload = () => {
-        initAutosearch()
-      }
-    }
-    document.body.appendChild(script)
-  } else initAutosearch()
+  // if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
+  //   const script = document.createElement('script')
+  //   script.id = 'lunr-segmentit'
+  //   script.type = 'text/javascript'
+  //   script.src = searchConfig.lunrSegmentitURL
+  //   script.async = true
+  //   if (script.readyState) {
+  //     script.onreadystatechange = () => {
+  //       if (script.readyState === 'loaded' || script.readyState === 'complete') {
+  //         script.onreadystatechange = null
+  //         initAutosearch()
+  //       }
+  //     }
+  //   } else {
+  //     script.onload = () => {
+  //       initAutosearch()
+  //     }
+  //   }
+  //   document.body.appendChild(script)
+  // } else initAutosearch()
 }
 
 function initDetails () {
