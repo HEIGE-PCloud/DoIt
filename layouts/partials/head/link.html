@@ -36,6 +36,10 @@
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
 {{- partial "plugin/style.html" $style -}}
 
+{{/*  color.min.css  */}}
+{{- $style := dict "Source" "css/color.css" "Fingerprint" $fingerprint "Defer" false -}}
+{{- partial "plugin/style.html" $style -}}
+
 {{- /* style.min.css */ -}}
 {{- $style := dict "Source" "css/style.scss" "Fingerprint" $fingerprint -}}
 {{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" true -}}
