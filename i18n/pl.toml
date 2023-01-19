@@ -77,9 +77,6 @@ other = "Anuluj"
 [noResultsFound]
 other = "Nie znaleziono wyników"
 
-[lunrLanguageCode]
-other = "pl"
-
 [copyToClipboard]
 other = "Skopiuj do schowka"
 # === partials/assets.html ===

@@ -57,7 +57,7 @@ To see this theme in action, here is a live [demo site](https://hugodoit.pages.d
 * Some beautiful **CSS animations**
 * Easy-to-use and self-expanding **table of contents**
 * More **social links**, **share sites** and **comment system**
-* **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
+* **Search** supported by [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
 * **Copy code** to clipboard with one click
 * Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
 * Extended Markdown syntax for **ruby annotation**
@@ -129,7 +129,7 @@ the DoIt theme may be more suitable for you.
 
 ### Extended Features
 
-* **Search** supported by [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
+* **Search** supported by [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
 * **Twemoji** supported
 * Automatically **highlighting** code
 * **Copy code** to clipboard with one click
@@ -199,7 +199,6 @@ Thanks to the authors of following resources included in the theme:
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
 * [autocomplete.js](https://github.com/algolia/autocomplete.js)
-* [Lunr.js](https://lunrjs.com/)
 * [algoliasearch](https://github.com/algolia/algoliasearch-client-javascript)
 * [Fuse.js](https://fusejs.io/)
 * [object-fit-images](https://github.com/fregante/object-fit-images)

@@ -77,12 +77,6 @@ other = "Abbrechen"
 [noResultsFound]
 other = "Keine Ergebnisse gefunden"
 
-[lunrLanguageCode]
-other = "de"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.de.js"
-
 [copyToClipboard]
 other = "In Zwischenablage kopieren"
 
