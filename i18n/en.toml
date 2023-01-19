@@ -104,9 +104,6 @@ other = "Cancel"
 [noResultsFound]
 other = "No results found"
 
-[lunrLanguageCode]
-other = "en"
-
 [copyToClipboard]
 other = "Copy to clipboard"
 

@@ -189,6 +189,12 @@ function initSearch () {
     window._searchMobileOnce = true
     // Turn on the mask when clicking on the search button
     searchInput.addEventListener('focus', () => {
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      if (window.config?.search?.type === 'algolia') {
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+      } else {
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
+      }
       document.body.classList.add('blur')
       header.classList.add('open')
     })
@@ -219,6 +225,12 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      if (window.config?.search?.type === 'algolia') {
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+      } else {
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
+      }
       document.body.classList.add('blur')
       header.classList.add('open')
       searchInput.focus()
@@ -268,67 +280,7 @@ function initSearch () {
           searchClear.style.display = 'inline'
           callback(results)
         }
-        if (searchConfig.type === 'lunr') {
-          const search = () => {
-            if (lunr.queryHandler) query = lunr.queryHandler(query)
-            const results = {}
-            window._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
-              const matchData = window._indexData[ref]
-              let { uri, title, content: context } = matchData
-              if (results[uri]) return
-              let position = 0
-              Object.values(metadata).forEach(({ content }) => {
-                if (content) {
-                  const matchPosition = content.position[0][0]
-                  if (matchPosition < position || position === 0) position = matchPosition
-                }
-              })
-              position -= snippetLength / 5
-              if (position > 0) {
-                position += context.substr(position, 20).lastIndexOf(' ') + 1
-                context = '...' + context.substr(position, snippetLength)
-              } else {
-                context = context.substr(0, snippetLength)
-              }
-              Object.keys(metadata).forEach(key => {
-                title = title.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`)
-                context = context.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`)
-              })
-              results[uri] = {
-                uri: uri,
-                title: title,
-                date: matchData.date,
-                context: context
-              }
-            })
-            return Object.values(results).slice(0, maxResultLength)
-          }
-          if (!window._index) {
-            fetch(searchConfig.lunrIndexURL)
-              .then(response => response.json())
-              .then(data => {
-                const indexData = {}
-                window._index = lunr(function () {
-                  if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode])
-                  this.ref('objectID')
-                  this.field('title', { boost: 50 })
-                  this.field('tags', { boost: 20 })
-                  this.field('categories', { boost: 20 })
-                  this.field('content', { boost: 10 })
-                  this.metadataWhitelist = ['position']
-                  data.forEach((record) => {
-                    indexData[record.objectID] = record
-                    this.add(record)
-                  })
-                })
-                window._indexData = indexData
-                finish(search())
-              }).catch(err => {
-                console.error(err)
-                finish([])
-              })
-          } else finish(search())
-        } else if (searchConfig.type === 'algolia') {
+        if (searchConfig.type === 'algolia') {
           window._algoliaIndex = window._algoliaIndex || algoliasearch(searchConfig.algoliaAppID, searchConfig.algoliaSearchKey).initIndex(searchConfig.algoliaIndex)
           window._algoliaIndex
             .search(query, {
@@ -432,17 +384,11 @@ function initSearch () {
                 icon: '<i class="fab fa-algolia fa-fw"></i>',
                 href: 'https://www.algolia.com/'
               }
-            : (searchConfig.type === 'lunr'
-                ? {
-                    searchType: 'Lunr.js',
-                    icon: '',
-                    href: 'https://lunrjs.com/'
-                  }
-                : {
-                    searchType: 'Fuse.js',
-                    icon: '',
-                    href: 'https://fusejs.io/'
-                  })
+            : {
+                searchType: 'Fuse.js',
+                icon: '',
+                href: 'https://fusejs.io/'
+              }
           return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`
         }
       }
@@ -453,26 +399,17 @@ function initSearch () {
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
-  if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
-    const script = document.createElement('script')
-    script.id = 'lunr-segmentit'
-    script.type = 'text/javascript'
-    script.src = searchConfig.lunrSegmentitURL
-    script.async = true
-    if (script.readyState) {
-      script.onreadystatechange = () => {
-        if (script.readyState === 'loaded' || script.readyState === 'complete') {
-          script.onreadystatechange = null
-          initAutosearch()
-        }
-      }
-    } else {
-      script.onload = () => {
-        initAutosearch()
-      }
+  function loadScript(id, url) {
+    if (document.querySelector(`#${id}`) === null) {
+      const head = document.querySelector('head')
+      const autocomplete = document.createElement('script');
+      autocomplete.setAttribute('src', url)
+      autocomplete.setAttribute('id', id)
+      autocomplete.onload = () => initAutosearch()
+      head.appendChild(autocomplete)
     }
-    document.body.appendChild(script)
-  } else initAutosearch()
+  }
+  
 }
 
 function initDetails () {

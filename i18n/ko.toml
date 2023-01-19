@@ -91,9 +91,6 @@ other = "취소"
 [noResultsFound]
 other = "검색 결과 없음"
 
-[lunrLanguageCode]
-other = "ko"
-
 [copyToClipboard]
 other = "복사하기"
 
