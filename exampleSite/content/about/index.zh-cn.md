@@ -113,5 +113,4 @@ DoIt 主题中用到了以下项目，感谢它们的作者：
 * [Twikoo](https://twikoo.js.org/)
 * [Vssue](https://vssue.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Topbar](https://github.com/buunguyen/topbar)
 * [Remark42](https://remark42.com/)

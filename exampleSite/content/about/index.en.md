@@ -113,5 +113,4 @@ Thanks to the authors of following resources included in the theme:
 * [Twikoo](https://twikoo.js.org/)
 * [Vssue](https://vssue.js.org/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Topbar](https://github.com/buunguyen/topbar)
 * [Remark42](https://remark42.com/)

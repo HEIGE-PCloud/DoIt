@@ -221,7 +221,6 @@ Thanks to the authors of following resources included in the theme:
 * [Vssue](https://vssue.js.org/)
 * [Remark42](https://remark42.com/)
 * [cookieconsent](https://github.com/osano/cookieconsent)
-* [Topbar](https://github.com/buunguyen/topbar)
 
 ## Author
 

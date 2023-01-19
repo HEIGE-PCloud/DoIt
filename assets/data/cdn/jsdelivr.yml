@@ -56,8 +56,6 @@ libFiles:
   objectFitImagesJS: object-fit-images@3.2.4/dist/ofi.min.js
   # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
   sharerJS: sharer.js@0.4.2/sharer.min.js
-  # topbar@1.0.1 https://github.com/buunguyen/topbar
-  topbarJS: topbar@1.0.1/topbar.min.js
   # twemoji@13.1.0 https://github.com/twitter/twemoji
   twemojiJS: twemoji@13.1.0/dist/twemoji.min.js
   # twikoo@1.4.10 https://github.com/imaegoo/twikoo

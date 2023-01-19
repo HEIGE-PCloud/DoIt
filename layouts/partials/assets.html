@@ -275,16 +275,11 @@
     {{- dict "Content" $content "Path" (printf "%v.scss" $path) "ToCSS" $options | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
 {{- end -}}
 
-{{- /* topbar */ -}}
-{{- $source := $cdn.topbarJS | default "lib/topbar/topbar.min.js" -}}
-{{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-
 {{- /* Theme script */ -}}
 {{- $options := dict -}}
 {{- $options = dict "targetPath" "js/theme.min.js" | merge $options -}}
 {{- $options = dict "minify" true | merge $options -}}
 {{- $shims := dict -}}
-{{- $shims = dict "topbar" "js/shims/topbar.js" | merge $shims -}}
 {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
 {{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
 {{- $options = dict "shims" $shims | merge $options -}}

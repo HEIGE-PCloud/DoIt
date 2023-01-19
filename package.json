@@ -36,7 +36,6 @@
     "mermaid": "^9.3.0",
     "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
-    "topbar": "^1.0.1",
     "twemoji": "^14.0.2",
     "twikoo": "^1.6.8",
     "valine": "^1.5.1"
