@@ -29,7 +29,7 @@
     </a>
 {{- else -}}
     <img
-        class="{{ with .Class }} {{ . }}{{ end }}"
+        {{ with .Class }}class="{{ . }}"{{ end }}
         loading="{{ $loading }}"
         src="{{ .Src | safeURL }}"
         srcset="{{ $small | safeURL }}, {{ .Src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
