@@ -1,0 +1,5 @@
+# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
+# Permalinks 配置 (https://gohugo.io/content-management/urls/#permalinks)
+
+# posts = ":year/:month/:filename"
+posts = ":filename"
