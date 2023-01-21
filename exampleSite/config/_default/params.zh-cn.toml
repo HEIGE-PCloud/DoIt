@@ -1,0 +1,186 @@
+# site description
+# 网站描述
+description = "Hugo DoIt 主题官方文档"
+# site keywords
+# 网站关键词
+keywords = ["Theme", "Hugo"]
+# App icon config
+# 应用图标配置
+[app]
+  # optional site title override for the app when added to an iOS home screen or Android launcher
+  # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
+  title = "DoIt"
+  # whether to omit favicon resource links
+  # 是否隐藏网站图标资源链接
+  noFavicon = false
+  # modern SVG favicon to use in place of older style .png and .ico files
+  # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
+  svgFavicon = ""
+  # Safari mask icon color
+  # Safari 图标颜色
+  iconColor = "#5bbad5"
+  # Windows v8-10 tile color
+  # Windows v8-10 磁贴颜色
+  tileColor = "#da532c"
+# Search config
+# 搜索配置
+[search]
+  enable = true
+  # type of search engine ("algolia", "fuse")
+  # 搜索引擎的类型 ("algolia", "fuse")
+  type = "algolia"
+  # max index length of the chunked content
+  # 文章内容最长索引长度
+  contentLength = 4000
+  # placeholder of the search bar
+  # 搜索框的占位提示语
+  placeholder = ""
+  # max number of results length
+  # 最大结果数目
+  maxResultLength = 10
+  # snippet length of the result
+  # 结果内容片段长度
+  snippetLength = 50
+  # HTML tag name of the highlight part in results
+  # 搜索结果中高亮部分的 HTML 标签
+  highlightTag = "em"
+  # whether to use the absolute URL based on the baseURL in search index
+  # 是否在搜索索引中使用基于 baseURL 的绝对路径
+  absoluteURL = false
+  [search.algolia]
+    index = "zh_cn_index"
+    appID = "5YGRNRQK1G"
+    searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+  [search.fuse]
+    # https://fusejs.io/api/options.html
+    isCaseSensitive = false
+    minMatchCharLength = 2
+    findAllMatches = false
+    location = 0
+    threshold = 0.1
+    distance = 100
+    ignoreLocation = true
+    useExtendedSearch = false
+    ignoreFieldNorm = false
+# Home page config
+# 主页信息设置
+[home]
+  # amount of RSS pages
+  # RSS 文章数目
+  rss = 10
+  # Home page profile
+  # 主页个人信息
+  [home.profile]
+    enable = true
+    # Gravatar Email for preferred avatar in home page
+    # Gravatar 邮箱，用于优先在主页显示的头像
+    gravatarEmail = ""
+    # URL of avatar shown in home page
+    # 主页显示头像的 URL
+    avatarURL = "/images/avatar.webp"
+    # title shown in home page (HTML format is supported)
+    # 主页显示的网站标题 (支持 HTML 格式)
+    title = ""
+    # subtitle shown in home page
+    # 主页显示的网站副标题
+    subtitle = "一个简洁、优雅且高效的 Hugo 主题"
+    # whether to use typeit animation for subtitle
+    # 是否为副标题显示打字机动画
+    typeit = true
+    # whether to show social links
+    # 是否显示社交账号
+    social = true
+    # disclaimer (HTML format is supported)
+    # 免责声明 (支持 HTML 格式)
+    disclaimer = ""
+  # Home page posts
+  # 主页文章列表
+  [home.posts]
+    enable = true
+    # special amount of posts in each home posts page
+    # 主页每页显示文章数量
+    paginate = 7
+# Social config in home page
+# 主页的社交信息设置
+[social]
+  Angellist = ""
+  Bandcamp = ""
+  Behance = ""
+  Bilibili = "xxxx"
+  Bitbucket = ""
+  BuyMeACoffee = ""
+  Codepen = ""
+  Deviantart = ""
+  Devto = "xxxx"
+  Douban = "xxxx"
+  Dribbble = ""
+  Email = "xxxx@xxxx.com"
+  Facebook = ""
+  Fivehundredpx = ""
+  Flickr = ""
+  Foursquare = ""
+  FreeCodeCamp = ""
+  Gitea = ""
+  GitHub = "xxxx"
+  Gitlab = ""
+  Goodreads = ""
+  Googlescholar = ""
+  Hackernews = ""
+  Instagram = ""
+  Jsfiddle = ""
+  Keybase = ""
+  Kickstarter = ""
+  Ko-Fi = ""
+  Lastfm = ""
+  Liberapay = ""
+  Linkedin = ""
+  Linktree = ""
+  Mastodon = ""
+  Matrix = ""
+  Medium = ""
+  Mix = ""
+  Odnoklassniki = ""
+  ORCID = ""
+  Patreon = ""
+  Paypal = ""
+  Pinterest = ""
+  QQ = ""
+  QQGroup = ""
+  Quora = ""
+  Reddit = ""
+  Researchgate = ""
+  RSS = true
+  Skype = ""
+  Slidershare = ""
+  Snapchat = ""
+  Soundcloud = ""
+  Spotify = ""
+  Stackoverflow = ""
+  Steam = "xxxx"
+  Strava = ""
+  Telegram = ""
+  Thingiverse = ""
+  Tumblr = ""
+  Twitch = ""
+  Twitter = ""
+  Vine = ""
+  VK = ""
+  Weibo = "xxxx"
+  Whatsapp = ""
+  Wordpress = ""
+  Xing = ""
+  XMPP = ""
+  Youtubechannel = ""
+  Youtubecustom = ""
+  Youtubelegacy = ""
+  Zhihu = "xxxx"
+  [social.Diaspora]
+    id = "@xxxx"
+    prefix = "https://yyyy/"
+# Sponsor config
+# 赞助设置
+[sponsor]
+  enable = false
+  bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+  link = "https://github.com/sponsors/HEIGE-PCloud"
+  # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"

@@ -1,0 +1,81 @@
+# Menu config
+# 菜单配置
+
+[[main]]
+  identifier = "posts"
+  # you can add extra information before the name (HTML format is supported), such as icons
+  # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+  pre = ""
+  # you can add extra information after the name (HTML format is supported), such as icons
+  # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+  post = ""
+  name = "Posts"
+  url = "/posts/"
+  # title will be shown when you hover on this menu link.
+  # 将鼠标悬停在此菜单链接上时将显示标题。
+  title = ""
+  weight = 1
+[[main]]
+  identifier = "tags"
+  pre = ""
+  post = ""
+  name = "Tags"
+  url = "/tags/"
+  title = ""
+  weight = 2
+[[main]]
+  identifier = "categories"
+  pre = ""
+  post = ""
+  name = "Categories"
+  url = "/categories/"
+  title = ""
+  weight = 3
+[[main]]
+  identifier = "series"
+  pre = ""
+  post = ""
+  name = "Series"
+  url = "/series/"
+  title = ""
+  weight = 4
+[[main]]
+  identifier = "authors"
+  pre = ""
+  post = ""
+  name = "Authors"
+  url = "/authors/"
+  title = ""
+  weight = 5
+[[main]]
+  identifier = "showcase"
+  pre = ""
+  post = ""
+  name = "Showcase"
+  url = "/showcase/"
+  title = ""
+  weight = 6
+[[main]]
+  identifier = "documentation"
+  pre = ""
+  post = ""
+  name = "Docs"
+  url = "/categories/documentation/"
+  title = ""
+  weight = 7
+[[main]]
+  identifier = "about"
+  pre = ""
+  post = ""
+  name = "About"
+  url = "/about/"
+  title = ""
+  weight = 8
+[[main]]
+  identifier = "github"
+  pre = "<i class='fab fa-github fa-fw'></i>"
+  post = ""
+  name = ""
+  url = "https://github.com/HEIGE-PCloud/DoIt"
+  title = "GitHub"
+  weight = 9
