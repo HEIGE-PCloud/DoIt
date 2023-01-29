@@ -58,4 +58,4 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: {{ "/sitemap.xml" | absLangURL }}
+Sitemap: {{ "/sitemap.xml" | absURL }}
