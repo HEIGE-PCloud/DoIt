@@ -11,6 +11,8 @@
             {{- $resource = . -}}
         {{- end -}}
     {{- end -}}
+{{- else -}}
+    {{- $resource = partial "function/getRemoteImage.html" .Path -}}
 {{- end -}}
 
 {{- return $resource -}}
