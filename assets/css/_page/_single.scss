@@ -28,6 +28,7 @@
     [theme=dark] & {
       color: $global-font-secondary-color-dark;
     }
+
     [theme=black] & {
       color: $global-font-secondary-color-black;
     }
@@ -54,7 +55,7 @@
   }
 
   .content {
-    > h2 {
+    >h2 {
       font-size: 1.5rem;
 
       & code {
@@ -62,7 +63,7 @@
       }
     }
 
-    > h3 {
+    >h3 {
       font-size: 1.375rem;
 
       & code {
@@ -70,7 +71,7 @@
       }
     }
 
-    > h4 {
+    >h4 {
       font-size: 1.25rem;
 
       & code {
@@ -78,11 +79,11 @@
       }
     }
 
-    > h5 {
+    >h5 {
       font-size: 1.125rem;
     }
 
-    > h6 {
+    >h6 {
       font-size: 1rem;
     }
 
@@ -97,17 +98,18 @@
       [theme=dark] & {
         font-weight: bolder;
       }
+
       [theme=black] & {
         font-weight: bolder;
       }
     }
 
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-      > .header-mark::before {
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6 {
+      >.header-mark::before {
         content: "|";
         margin-right: .3125rem;
         color: $single-link-color;
@@ -115,13 +117,14 @@
         [theme=dark] & {
           color: $single-link-color-dark;
         }
+
         [theme=black] & {
           color: $single-link-color-black;
         }
       }
     }
 
-    > h2 > .header-mark::before {
+    >h2>.header-mark::before {
       content: "|";
     }
 
@@ -129,12 +132,14 @@
       margin: .5rem 0;
     }
 
-    b, strong {
+    b,
+    strong {
       font-weight: bold;
 
       [theme=dark] & {
         color: #ddd;
       }
+
       [theme=black] & {
         color: #ddd;
       }
@@ -145,22 +150,29 @@
     a {
       @include overflow-wrap(break-word);
 
-      [theme=dark] & b, [theme=dark] & strong {
+      [theme=dark] & b,
+      [theme=dark] & strong {
         color: $single-link-color-dark;
       }
-      [theme=black] & b, [theme=black] & strong {
+
+      [theme=black] & b,
+      [theme=black] & strong {
         color: $single-link-color-black;
       }
     }
 
-    [theme=dark] a:hover b, [theme=dark] a:hover strong {
+    [theme=dark] a:hover b,
+    [theme=dark] a:hover strong {
       color: $single-link-hover-color-dark;
     }
-    [theme=black] a:hover b, [theme=black] a:hover strong {
+
+    [theme=black] a:hover b,
+    [theme=black] a:hover strong {
       color: $single-link-hover-color-black;
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin: .5rem 0;
       padding-left: 2.5rem;
     }
@@ -183,6 +195,7 @@
           color: $global-font-secondary-color-dark;
         }
       }
+
       [theme=black] & {
         background: $code-background-color-black;
 
@@ -198,10 +211,11 @@
       @if $custom-scrollbar {
         &::-webkit-scrollbar {
           background-color: $table-background-color;
-  
+
           [theme=dark] & {
             background-color: $table-background-color-dark;
           }
+
           [theme=black] & {
             background-color: $table-background-color-black;
           }
@@ -213,13 +227,14 @@
           [theme=dark] & {
             background-color: $table-background-color-dark;
           }
+
           [theme=black] & {
             background-color: $table-background-color-black;
           }
         }
       }
 
-      > table {
+      >table {
         width: 100%;
         max-width: 100%;
         margin: .625rem 0;
@@ -230,6 +245,7 @@
         [theme=dark] & {
           background: $table-background-color-dark;
         }
+
         [theme=black] & {
           background: $table-background-color-dark;
         }
@@ -240,18 +256,28 @@
           [theme=dark] & {
             background-color: $table-thead-color-dark;
           }
+
           [theme=black] & {
             background-color: $table-thead-color-black;
           }
         }
 
-        th, td {
+        td:nth-child(2) {
+          max-width: 0;
+          overflow: auto;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        th,
+        td {
           padding: .3rem 1rem;
           border: 1px solid darken($table-thead-color, 2%);
 
           [theme=dark] & {
             border-color: darken($table-thead-color-dark, 2%);
           }
+
           [theme=black] & {
             border-color: darken($table-thead-color-black, 2%);
           }
@@ -260,7 +286,7 @@
         th[role=columnheader]:not(.no-sort) {
           cursor: pointer;
         }
-        
+
         th[role=columnheader]:not(.no-sort):after {
           content: '';
           float: right;
@@ -268,12 +294,15 @@
           border-width: 0 4px 4px;
           border-style: solid;
           border-color: $global-font-color transparent;
+
           [theme=dark] & {
             border-color: $global-font-color-dark transparent;
           }
+
           [theme=black] & {
             border-color: $global-font-color-black transparent;
           }
+
           visibility: hidden;
           opacity: 0;
           -ms-user-select: none;
@@ -281,17 +310,17 @@
           -moz-user-select: none;
           user-select: none;
         }
-        
+
         th[aria-sort=ascending]:not(.no-sort):after {
           border-bottom: none;
           border-width: 4px 4px 0;
         }
-        
+
         th[aria-sort]:not(.no-sort):after {
           visibility: visible;
           opacity: 0.4;
         }
-        
+
         th[role=columnheader]:not(.no-sort):hover:after {
           visibility: visible;
           opacity: 1;
@@ -337,6 +366,7 @@
         border-left-color: $blockquote-color-dark;
         background-color: rgba($blockquote-color-dark, .2);
       }
+
       [theme=black] & {
         border-left-color: $blockquote-color-black;
         background-color: rgba($blockquote-color-black, .2);
@@ -349,6 +379,7 @@
       [theme=dark] & {
         color: $global-font-secondary-color-dark;
       }
+
       [theme=black] & {
         color: $global-font-secondary-color-black;
       }
@@ -365,10 +396,11 @@
     .headerLink {
       scroll-margin-top: 3.5rem;
     }
-    
+
     sup {
       scroll-margin-top: 3.5rem;
     }
+
     @import "../_partial/_single/code";
     @import "../_partial/_single/katex";
     @import "../_partial/_single/admonition";
@@ -388,6 +420,7 @@
       [theme=dark] & {
         border-top: 3px dashed $global-border-color-dark;
       }
+
       [theme=black] & {
         border-top: 3px dashed $global-border-color-black;
       }
@@ -412,6 +445,7 @@
         @include box-shadow(inset 0 -1px 0 $global-border-color-dark);
         color: $code-color-dark;
       }
+
       [theme=black] & {
         background-color: $global-background-color-black;
         border: 1px solid $global-border-color-black;
