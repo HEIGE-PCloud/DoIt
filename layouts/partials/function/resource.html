@@ -12,7 +12,9 @@
         {{- end -}}
     {{- end -}}
 {{- else -}}
-    {{- $resource = partial "function/getRemoteImage.html" .Path -}}
+    {{- if eq site.Params.cacheRemoteImages true -}}
+        {{- $resource = partial "function/getRemoteImage.html" .Path -}}
+    {{- end -}}
 {{- end -}}
 
 {{- return $resource -}}
