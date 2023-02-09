@@ -194,7 +194,7 @@ Please open the code block below to view the complete sample configuration :(far
 ```toml
 [params]
   # {{< version 0.2.0 changed >}} DoIt theme version
-  version = "0.2.X"
+  version = "0.3.X"
   # website title
   title = "My New Hugo Site"
   # site description
