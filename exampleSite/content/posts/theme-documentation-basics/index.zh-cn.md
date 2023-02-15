@@ -197,7 +197,7 @@ hugo
 ```toml
 [params]
   # {{< version 0.2.0 changed >}} DoIt 主题版本
-  version = "0.2.X"
+  version = "0.3.X"
   # 网站名称
   title = "我的全新 Hugo 网站"
   # 网站描述

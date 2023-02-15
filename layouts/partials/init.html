@@ -1,7 +1,7 @@
-{{- .Scratch.Set "version" "0.2.13" -}}
+{{- .Scratch.Set "version" "0.3.0" -}}
 
 {{- /* DoIt theme version detection */ -}}
-{{- $VERSION := "0.2.X" -}}
+{{- $VERSION := "0.3.X" -}}
 {{- if eq .Site .Sites.First -}}
     {{- if not .Site.Params.version -}}
         {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the DoIt version param correctly yet. See https://hugodoit.pages.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 DoIt 的版本参数. 参考 https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration\n\n" -}}
