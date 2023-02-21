@@ -33,7 +33,7 @@
     "cookieconsent": "^3.1.1",
     "echarts": "^5.4.1",
     "katex": "^0.16.4",
-    "mermaid": "^9.4.0",
+    "mermaid": "^10.0.0",
     "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
     "twemoji": "^14.0.2",
