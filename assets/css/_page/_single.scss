@@ -262,7 +262,7 @@
           }
         }
 
-        td:nth-child(2) {
+        td:nth-child(2).lntd {
           max-width: 0;
           overflow: auto;
           text-overflow: ellipsis;
