@@ -160,6 +160,7 @@
                     }
                 {{- end -}}
             {{- else -}}
+                    {{- if gt $i 0 }},{{ end -}}
                     {
                         "@type": "Person",
                         "name": "{{ $name }}"                    
