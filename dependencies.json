@@ -26,16 +26,6 @@
             ]
         },
         {
-            "name": "mermaid",
-            "version": "9.4.0",
-            "files": [
-                {
-                    "remote": "dist/mermaid.min.js",
-                    "local": "mermaid/mermaid.min.js"
-                }
-            ]
-        },
-        {
             "name": "katex",
             "version": "0.16.4",
             "files": [

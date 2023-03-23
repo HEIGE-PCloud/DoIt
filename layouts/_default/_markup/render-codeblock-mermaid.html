@@ -1,3 +1,4 @@
-{{- $id := dict "Content" (trim .Inner "\n") "Scratch" .Page.Scratch | partial "function/id.html" -}}
-<div class="mermaid" id="{{ $id }}"></div>
+<pre class="mermaid">
+    {{- .Inner | safeHTML }}
+</pre>
 {{- .Page.Scratch.SetInMap "this" "mermaid" true -}}
