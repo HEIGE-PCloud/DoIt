@@ -147,6 +147,7 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 * 支持基于 [TypeIt](https://typeitjs.com/) 的**打字动画** shortcode
 * 支持基于原生CSS的**滚动动画**
 * 支持基于 [cookieconsent](https://github.com/osano/cookieconsent) 的 **Cookie 许可横幅**
+* 支持本地**缓存远程图床图片**
 * ...
 
 ## [文档](https://hugodoit.pages.dev/zh-cn/categories/documentation/)

@@ -27,6 +27,9 @@ enablePWA = false
 license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 # [Experimental] Bundle js
 bundle = false
+# [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+# [试验性功能] 缓存图床图片，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+cacheRemoteImages = false
 # Header config
 # 页面头部导航栏配置
 [header]

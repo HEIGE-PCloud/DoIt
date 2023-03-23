@@ -1,0 +1,21 @@
+{{- $resource := 0 -}}
+{{- $suffixValid := false -}}
+{{- $imgSuffix := slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" -}}
+{{- $url := strings.TrimSuffix "/" (. | lower) -}}
+{{- range $imgSuffix -}}
+    {{- $suffixValid = or (eq (path.Ext $url) .) $suffixValid -}}
+{{- end -}}
+
+{{- if $suffixValid -}}
+    {{- with $remoteResource := resources.GetRemote . -}}
+        {{- with .Err -}}
+            {{- warnf "%s" . -}}
+        {{ else }}
+            {{- if eq $remoteResource.ResourceType "image" -}}
+                {{- $resource = $remoteResource -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $resource -}}
