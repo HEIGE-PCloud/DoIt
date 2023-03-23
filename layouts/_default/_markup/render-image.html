@@ -6,5 +6,7 @@
         </figcaption>
     </figure>
 {{- else -}}
-    {{- dict "Src" .Destination "Title" .Text "Linked" true "Resources" .Page.Resources | partial "plugin/image.html" -}}
+    <figure>
+        {{- dict "Src" .Destination "Title" .Text "Linked" true "Resources" .Page.Resources | partial "plugin/image.html" -}}
+    </figure>
 {{- end -}}
