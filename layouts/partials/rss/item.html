@@ -65,7 +65,8 @@
                 {{- $content = dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
             {{- end -}}
         {{- end -}}
-        {{- $content | replaceRE `<figure[^>]*>.*</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML -}}
+        {{/*  {{- $content | replaceRE `<figure[^>]*>.*</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML -}}  */}}
+        {{- $content | safeHTML -}}
         {{- "]]>" | safeHTML -}}
     </description>
 </item>
