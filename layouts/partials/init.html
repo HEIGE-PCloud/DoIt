@@ -1,14 +1,16 @@
 {{- .Scratch.Set "version" "0.3.0" -}}
 
 {{- /* DoIt theme version detection */ -}}
-{{- $VERSION := "0.3.X" -}}
+{{/*  {{- $VERSION := "0.3.X" -}}
 {{- if eq .Site .Sites.First -}}
     {{- if not .Site.Params.version -}}
         {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the DoIt version param correctly yet. See https://hugodoit.pages.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 DoIt 的版本参数. 参考 https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration\n\n" -}}
     {{- else if ne .Site.Params.version $VERSION -}}
         {{- errorf (printf "Compatibility Error 兼容性错误\n\n%v -> %v:\nYou have an incompatible update. See https://github.com/HEIGE-PCloud/DoIt/releases\n你进行了一次不兼容的更新. 参考 https://github.com/HEIGE-PCloud/DoIt/releases\n\n" .Site.Params.version $VERSION) -}}
     {{- end -}}
-{{- end -}}
+{{- end -}}  */}}
+{{/*  temporarily disabling the version check, 0.3.X does not really contain a breaking change   */}}
+{{/*  TODO: properly restore DoIt using semiVer  */}}
 
 {{- /* Check Hugo version */ -}}
 {{- $OLDEST_SUPPORTED_HUGO_VERSION := "0.83.0" -}}
