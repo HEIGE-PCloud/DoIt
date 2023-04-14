@@ -3,16 +3,6 @@
   max-width: 800px;
   width: 60%;
   margin: 0 auto;
-  [pageStyle=wide][autoTOC=true] & {
-    margin-left: 10%;
-    margin-right: auto;
-    width: 67.5%;
-  }
-  [pageStyle=wide][autoTOC=false] & {
-      width: 70%;
-      margin-left: 15%;
-      margin-right: 15%;
-  }
   [header-desktop] & {
     padding-top: $header-height;
   }

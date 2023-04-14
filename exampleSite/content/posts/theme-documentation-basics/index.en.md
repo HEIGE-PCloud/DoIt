@@ -467,8 +467,6 @@ Please open the code block below to view the complete sample configuration :(far
     # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # {{< version 0.2.4 >}} whether to show the full text content in RSS
     rssFullText = false
-    # {{< version 0.2.11 >}} page layout style ("normal", "wide")
-    pageStyle = "normal"
     # {{< version 0.2.13 >}} whether to enable series navigation
     seriesNavigation = true
     # {{< version 0.2.13 >}} outdated article reminder config

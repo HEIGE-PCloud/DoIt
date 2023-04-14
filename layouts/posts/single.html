@@ -20,13 +20,6 @@
     </div>
     {{- end -}}
     
-    {{- /* Page Style */ -}}
-    {{- if eq $params.pageStyle "wide" -}}
-        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
-    {{- else -}}
-        <script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
-    {{- end -}}
-
     {{- /* TOC Style */ -}}
     {{- if eq $toc.enable true -}}
         {{- if eq $toc.keepStatic true -}}

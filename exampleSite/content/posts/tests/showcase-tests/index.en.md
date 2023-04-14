@@ -8,7 +8,6 @@ categories: [Tests]
 authors: [PCloud]
 hiddenFromHomePage: true
 toc: false
-pageStyle: wide
 hiddenFromSearch: true
 ---
 
