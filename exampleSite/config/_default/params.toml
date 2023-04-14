@@ -389,9 +389,9 @@ cacheRemoteImages = false
     # Utterances comment config (https://utteranc.es/)
     # Utterances comment 评论系统设置 (https://utteranc.es/)
     [page.comment.utterances]
-      enable = false
+      enable = true
       # owner/repo
-      repo = ""
+      repo = "Hugo-DoIt/utterances-comments"
       issueTerm = "pathname"
       label = ""
       lightTheme = "github-light"
@@ -399,7 +399,7 @@ cacheRemoteImages = false
     # Twikoo comment config (https://twikoo.js.org/)
     # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
     [page.comment.twikoo]
-      enable = true
+      enable = false
       envId = "https://twikoo-comments-doit.vercel.app/"
       region = ""
       path = ""

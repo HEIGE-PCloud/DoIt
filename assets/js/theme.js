@@ -775,7 +775,6 @@ function init () {
   window.oldScrollTop = window.newScrollTop
   window.scrollEventSet = new Set()
   window.resizeEventSet = new Set()
-  window.switchThemeEventSet = new Set()
   window.clickMaskEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
   initSVGIcon()
