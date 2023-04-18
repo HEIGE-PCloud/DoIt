@@ -2,9 +2,13 @@
 {{- $src := .Src -}}
 {{- $height := "" -}}
 {{- $width := "" -}}
+{{- $suffixList := slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" -}}
 {{- with dict "Path" .Src "Resources" .Resources | partial "function/resource.html" -}}
     {{- $src = .RelPermalink -}}
-    {{- if eq .ResourceType "image" -}}
+    {{- if and
+        (eq .ResourceType "image")
+        (dict "Path" $src "Suffixed" $suffixList | partial "function/suffixValidation.html")
+        -}}
         {{- $height = .Height -}}
         {{- $width = .Width -}}
     {{- end -}}
