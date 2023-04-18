@@ -1,0 +1,11 @@
+{{- $articleLink := .Context.RelPermalink -}}
+{{- $articleLinkTarget := "_self" -}}
+{{- if isset .Context.Params "external" -}} 
+    {{- $articleLink = .Context.Params.external -}}
+    {{- $articleLinkTarget = "_blank" -}}
+{{- end -}}
+
+<a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}" aria-label={{ .Title }}>
+    {{ .Content }}
+</a>
+
