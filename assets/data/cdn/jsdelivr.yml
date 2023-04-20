@@ -57,7 +57,7 @@ libFiles:
   # twemoji@13.1.0 https://github.com/twitter/twemoji
   twemojiJS: twemoji@13.1.0/dist/twemoji.min.js
   # twikoo@1.4.10 https://github.com/imaegoo/twikoo
-  twikooJS: twikoo@1.4.10/dist/twikoo.all.min.js
+  twikooJS: twikoo@1.6.11/dist/twikoo.all.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
   # valine@1.4.16 https://github.com/xCss/Valine
