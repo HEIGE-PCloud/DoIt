@@ -74,7 +74,7 @@ cacheRemoteImages = false
   # Hosted on (HTML format is supported)
   # 托管服务信息 (支持 HTML 格式)
   # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-  hostedOn = '' 
+  hostedOn = ''
   # whether to show copyright info
   # 是否显示版权信息
   copyright = true
@@ -403,6 +403,7 @@ cacheRemoteImages = false
       envId = "https://twikoo-comments-doit.vercel.app/"
       region = ""
       path = ""
+      cloudbase = true # boolean : true / false. # 是否部署在腾讯云 CloudBase
       visitor = true
       commentCount = true
     # Vssue comment config (https://vssue.js.org//)

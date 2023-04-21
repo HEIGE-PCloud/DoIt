@@ -8,6 +8,10 @@
                 {
                     "remote": "dist/twikoo.all.min.js",
                     "local": "twikoo/twikoo.all.min.js"
+                },
+                {
+                    "remote": "dist/twikoo.min.js",
+                    "local": "twikoo/twikoo.min.js"
                 }
             ]
         },

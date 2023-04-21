@@ -647,6 +647,7 @@ hugo
         envId = ""
         region = ""
         path = ""
+        cloudbase = true # boolean : true / false. # 是否部署在腾讯云 CloudBase
         visitor = true
         commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} 评论系统设置
@@ -1018,12 +1019,12 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 {{< version 0.2.10 changed >}}
 
-| 语言         | Hugo 代码 | HTML `lang` 属性 |           主题文档            | 
+| 语言         | Hugo 代码 | HTML `lang` 属性 |           主题文档            |
 | :----------- | :-------: | :--------------: | :---------------------------: |
 | 英语         |   `en`    |       `en`       | :(far fa-check-square fa-fw): |
 | 简体中文     |  `zh-cn`  |     `zh-CN`      | :(far fa-check-square fa-fw): |
 | 法语         |   `fr`    |       `fr`       |    :(far fa-square fa-fw):    |
-| 波兰语       |   `pl`    |       `pl`       |    :(far fa-square fa-fw):    | 
+| 波兰语       |   `pl`    |       `pl`       |    :(far fa-square fa-fw):    |
 | 巴西葡萄牙语 |  `pt-br`  |     `pt-BR`      |    :(far fa-square fa-fw):    |
 | 意大利语     |   `it`    |       `it`       |    :(far fa-square fa-fw):    |
 | 西班牙语     |   `es`    |       `es`       |    :(far fa-square fa-fw):    |
