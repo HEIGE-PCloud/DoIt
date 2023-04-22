@@ -5,7 +5,7 @@
     {{- $articleLinkTarget = "_blank" -}}
 {{- end -}}
 
-<a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}" aria-label={{ .Title }}>
+<a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}" aria-label={{ .Context.Title }}>
     {{ .Content }}
 </a>
 
