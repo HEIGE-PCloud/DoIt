@@ -97,7 +97,10 @@
 
     {{- /* Footer */ -}}
     <div class="post-footer">
-        <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
+        {{ $footer_content:= T "readMore"}}
+        {{ partial "articleLink.html" (dict "Context" .
+                "Content" $footer_content
+        )}}
         {{- with .Params.tags -}}
             <div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;
