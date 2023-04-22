@@ -32,7 +32,10 @@
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ partial "articleLink.html" (dict "Context" .
+                "Content" .Title
+        )}}
+
     </h1>
 
     {{- /* Meta */ -}}

@@ -18,7 +18,12 @@
     {{- end -}}
 {{- end -}}
 
-<link rel="canonical" href="{{ .Permalink }}" />
+{{- if isset .Params "external" -}}
+    <link rel="canonical" href="{{ .Params.external }}" />
+{{- else -}}
+    <link rel="canonical" href="{{ .Permalink }}" />
+{{- end -}}
+
 {{- if .PrevInSection -}}
     <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
 {{- end -}}
