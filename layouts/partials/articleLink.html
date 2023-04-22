@@ -5,7 +5,12 @@
     {{- $articleLinkTarget = "_blank" -}}
 {{- end -}}
 
-<a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}" aria-label={{ .Context.Title }}>
-    {{ .Content }}
-</a>
-
+{{- if isset . "isImage" -}}
+    <a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}" aria-label={{ .Context.Title }}>
+        {{ .Content }}
+    </a>
+{{- else -}}
+    <a href="{{ $articleLink }}" target="{{ $articleLinkTarget }}">
+        {{ .Content }}
+    </a>
+{{- end -}}

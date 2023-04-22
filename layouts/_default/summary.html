@@ -26,6 +26,7 @@
             {{ $Content:= dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width "Loading" "eager" | partial "plugin/image.html" }}
             {{ partial "articleLink.html" (dict "Context" $
                 "Content" $Content
+                "isImage" "true"
             )}}
         </div>
     {{- end -}}
