@@ -1,6 +1,7 @@
 {{- $cdn := .Scratch.Get "cdn" | default dict -}}
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $comment := .Scratch.Get "comment" | default dict -}}
+{{- $comment := .Site.Params.page.comment | default dict -}}
 {{- $commentConfig := dict -}}
 
 {{- if $comment.enable -}}
