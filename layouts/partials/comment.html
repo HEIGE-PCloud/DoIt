@@ -66,7 +66,7 @@
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/valine.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}       
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript>
@@ -121,7 +121,7 @@
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/waline.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}        
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Waline</a>.
             </noscript>
@@ -165,7 +165,7 @@
             {{- if $telegram.outlined -}}
                 {{- $attr = printf `%v data-outlined="1"` $attr -}}
             {{- end -}}
-            {{- if $telegram.dark -}}                                                                                                
+            {{- if $telegram.dark -}}
                 {{- $attr = printf `%v data-dark="1"` $attr -}}
             {{- end -}}
             <script type="text/javascript" src="https://comments.app/js/widget.js?3" defer {{ with $attr }} {{ . | safeHTMLAttr }}{{ end }}></script>
@@ -202,7 +202,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
         {{- end -}}
-        
+
         {{- /* Twikoo Comment System */ -}}
         {{- $twikoo := $comment.twikoo | default dict -}}
         {{- if $twikoo.enable -}}
@@ -211,8 +211,13 @@
             {{- $options := dict -}}
             {{- $options = dict "targetPath" "js/twikoo.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
-            {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.all.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- if eq $twikoo.cloudbase false -}}
+                {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.min.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- else -}}
+                {{- $source := $cdn.twikooAllJS | default "lib/twikoo/twikoo.all.min.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- end -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
@@ -232,7 +237,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://twikoo.js.org/">Twikoo</a>.
             </noscript>
         {{- end -}}
-        
+
         {{- /* Vssue Comment System */ -}}
         {{- $vssue := $comment.vssue | default dict -}}
         {{- if $vssue.enable -}}

@@ -643,6 +643,7 @@ Please open the code block below to view the complete sample configuration :(far
         envId = ""
         region = ""
         path = ""
+        cloudbase = true # boolean : true / false. #If you deploy your Twikoo on CloudBase, set it to true.
         visitor = true
         commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} comment config
