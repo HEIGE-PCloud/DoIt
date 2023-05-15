@@ -294,7 +294,7 @@ Please open the code block below to view the complete sample configuration :(far
     hugo = true
     # {{< version 0.2.14 >}} Hosted on (HTML format is supported)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '' 
+    hostedOn = ''
     # {{< version 0.2.0 >}} whether to show copyright info
     copyright = true
     # {{< version 0.2.0 >}} whether to show the author
@@ -1016,7 +1016,7 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 {{< version 0.2.10 changed >}}
 
 | Language             | Hugo Code | HTML `lang` Attribute | Theme Docs                    |
-|:-------------------- |:---------:|:---------------------:|:-----------------------------:|
+|:---------------------|:---------:|:---------------------:|:-----------------------------:|
 | English              | `en`      | `en`                  | :(far fa-check-square fa-fw): |
 | Simplified Chinese   | `zh-cn`   | `zh-CN`               | :(far fa-check-square fa-fw): |
 | French               | `fr`      | `fr`                  | :(far fa-square fa-fw):       |
@@ -1030,6 +1030,17 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 | Russian              | `ru`      | `ru`                  | :(far fa-square fa-fw):       |
 | Romanian             | `ro`      | `ro`                  | :(far fa-square fa-fw):       |
 | Vietnamese           | `vi`      | `vi`                  | :(far fa-square fa-fw):       |
+| Arabic               | `ar`      | `ar`                  | :(far fa-square fa-fw):       |
+| Catalan              | `ca`      | `ca`                  | :(far fa-square fa-fw):       |
+| Hindi                | `hi`      | `hi`                  | :(far fa-square fa-fw):       |
+| Indonesian           | `id`      | `id`                  | :(far fa-square fa-fw):       |
+| Telugu               | `te`      | `te`                  | :(far fa-square fa-fw):       |
+| Thai                 | `th`      | `th`                  | :(far fa-square fa-fw):       |
+| Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
+| Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
+| Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
+
+
 
 ### Basic Configuration
 

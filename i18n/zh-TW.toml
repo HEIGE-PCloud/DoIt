@@ -1,196 +1,191 @@
-# Translations for French
-# Traductions pour le français
+# Translations for Traditional Chinese
+# 繁體中文的翻譯
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
 # === baseof ==
 [backToTop]
-other = "Retour en haut"
+other = "回到頂部"
 
 [viewComments]
-other = "Afficher les commentaires"
+other = "查看評論"
 # === baseof ==
 
 # === Post ===
 [posts]
-other = "Posts"
+other = "文章"
 # === Post ===
 
 # === Taxonomy ===
 [allSome]
-other = "Toutes les {{ .Some }}"
+other = "所有{{ .Some }}"
 
 [tag]
-other = "Balise"
+other = "標籤"
 
 [tags]
-other = "Balises"
+other = "標籤"
 
 [category]
-other = "Catégorie"
+other = "分類"
 
 [categories]
-other = "Catégories"
+other = "分類"
 # === Taxonomy ===
 
 # === Pagination ===
 [more]
-other = "Voir plus"
+other = "更多"
 # === Pagination ===
 
 # === partials/header.html ===
 [selectLanguage]
-other = "Choisir la langue"
+other = "選擇語言"
 
 [switchTheme]
-other = "Changer de thème"
+other = "切換主題"
 # === partials/header.html ===
 
 # === partials/footer.html ===
 [poweredBySome]
-other = "Propulsé par {{ .Hugo }} | Thème - {{ .Theme }}"
+other = "由 {{ .Hugo }} 強力驅動 | 主題 - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
 [valineLang]
-other = "en"
+other = "zh-TW"
 
 [valinePlaceholder]
-other = "Votre commentaire ..."
+other = "你的評論 ..."
 
 [facebookLanguageCode]
-other = "fr"
-
-[giscusLang]
-other = "fr"
+other = "zh_TW"
 # === partials/comment.html ===
 
 # === partials/assets.html ===
 [search]
-other = "Chercher"
+other = "搜索"
 
 [searchPlaceholder]
-other = "Rechercher des titres, des contenus..."
+other = "搜索文章標題或內容..."
 
 [clear]
-other = "Effacer"
+other = "清空"
 
 [cancel]
-other = "Annuler"
+other = "取消"
 
 [noResultsFound]
-other = "Aucun résultat trouvé"
+other = "沒有找到結果"
 
 [copyToClipboard]
-other = "Copier dans le presse-papiers"
+other = "複製到剪貼板"
 
 [cookieconsentMessage]
-other = "Ce site Web utilise des Cookies pour améliorer votre expérience."
+other = "本網站使用 Cookies 來改善您的瀏覽體驗."
 
 [cookieconsentDismiss]
-other = "J'accepte"
+other = "同意"
 
 [cookieconsentLink]
-other = "En savoir plus"
+other = "了解更多"
 # === partials/assets.html ===
 
 # === partials/plugin/share.html ===
 [shareOn]
-other = "Partager sur"
+other = "分享到"
 # === partials/plugin/share.html ===
 
 # === posts/single.html ===
 [contents]
-other = "Contenu"
+other = "目錄"
 
 [publishedOnDate]
-other = "publié le {{ .Date }}"
+other = "發佈於 {{ .Date }}"
 
 [includedInCategories]
-other = "inclus dans {{ .Categories }}"
+other = "收錄於 {{ .Categories }}"
 
 [wordCount]
-one = "Un mot"
-other = "{{ .Count }} mots"
+other = "約 {{ .Count }} 字"
 
 [readingTime]
-one = "Une minute"
-other = "{{ .Count }} minutes"
+other = "預計閱讀 {{ .Count }} 分鐘"
 
 [views]
-other = "vues"
+other = "次閱讀"
 
 [author]
-other = "Auteur"
+other = "作者"
 
 [updatedOnDate]
-other = "Mis à jour le {{ .Date }}"
+other = "更新於 {{ .Date }}"
 
 [readMarkdown]
-other = "Lire en Markdown"
+other = "閱讀原始文檔"
 
 [back]
-other = "Retour"
+other = "返回"
 
 [home]
-other = "Accueil"
+other = "主頁"
 
 [readMore]
-other = "En savoir plus"
+other = "閱讀全文"
 # === posts/single.html ===
 
 # === 404.html ===
 [pageNotFound]
-other = "Page non trouvée"
+other = "頁面沒找到"
 
 [pageNotFoundText]
-other = "Désolé, la page recherchée n'existe pas."
+other = "抱歉，您要查找的頁面不存在。"
 # === 404.html ===
 
 # === shortcodes/admonition.html ===
 [note]
-other = "Remarque"
+other = "注意"
 
 [abstract]
-other = "Résumé"
+other = "摘要"
 
 [info]
-other = "Info"
+other = "信息"
 
 [tip]
-other = "Astuces"
+other = "技巧"
 
 [success]
-other = "Succès"
+other = "成功"
 
 [question]
-other = "Question"
+other = "問題"
 
 [warning]
-other = "Avertissement"
+other = "警告"
 
 [failure]
-other = "Échec"
+other = "失敗"
 
 [danger]
-other = "Danger"
+other = "危險"
 
 [bug]
 other = "Bug"
 
 [example]
-other = "Exemple"
+other = "示例"
 
 [quote]
-other = "Citation"
+other = "引用"
 # === shortcodes/admonition.html ===
 
 # === shortcodes/version.html ===
 [new]
-other = "NOUVEAU"
+other = "新增"
 
 [changed]
-other = "CHANGÉ"
+other = "更改"
 
 [deleted]
-other = "EFFACÉ"
+other = "刪除"
 # === shortcodes/version.html ===

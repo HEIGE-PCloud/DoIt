@@ -177,6 +177,17 @@ DoIt supports the following languages:
 * Russian
 * Romanian
 * Vietnamese
+* Arbic
+* Catalan
+* Hindi
+* Indonesian
+* Korean
+* European Portuguese
+* Tegulu
+* Thai
+* Turkish
+* Ukrainian
+* Traditional Chinese
 * [Contribute with a new language](https://github.com/HEIGE-PCloud/DoIt/pulls)
 
 [Languages Compatibility](https://hugodoit.pages.dev/theme-documentation-basics/#language-compatibility)

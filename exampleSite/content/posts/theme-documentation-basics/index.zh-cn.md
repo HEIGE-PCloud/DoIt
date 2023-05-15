@@ -298,7 +298,7 @@ hugo
     hugo = true
     # {{< version 0.2.14 >}} 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '' 
+    hostedOn = ''
     # {{< version 0.2.0 >}} 是否显示版权信息
     copyright = true
     # {{< version 0.2.0 >}} 是否显示作者
@@ -723,7 +723,7 @@ hugo
     enable = false
     bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
     link = "https://www.buymeacoffee.com" # 你的赞赏页面的地址
-    custom = "" # 自定义 HTML 
+    custom = "" # 自定义 HTML
 
   # {{< version 0.2.5 >}} TypeIt 配置
   [params.typeit]
@@ -1033,6 +1033,15 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 | 俄语         |   `ru`    |       `ru`       |    :(far fa-square fa-fw):    |
 | 罗马尼亚语   |   `ro`    |       `ro`       |    :(far fa-square fa-fw):    |
 | 越南语       |   `vi`    |       `vi`       |    :(far fa-square fa-fw):    |
+| Arabic               | `ar`      | `ar`                  | :(far fa-square fa-fw):       |
+| Catalan              | `ca`      | `ca`                  | :(far fa-square fa-fw):       |
+| Hindi                | `hi`      | `hi`                  | :(far fa-square fa-fw):       |
+| Indonesian           | `id`      | `id`                  | :(far fa-square fa-fw):       |
+| Telugu               | `te`      | `te`                  | :(far fa-square fa-fw):       |
+| Thai                 | `th`      | `th`                  | :(far fa-square fa-fw):       |
+| Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
+| Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
+| Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
 
 ### 基本配置
 

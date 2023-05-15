@@ -1,53 +1,53 @@
-# Translations for French
-# Traductions pour le français
+# Translations for Turkish
+# Türkçe Çeviriler
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
 # === baseof ==
 [backToTop]
-other = "Retour en haut"
+other = "Başa Dön"
 
 [viewComments]
-other = "Afficher les commentaires"
+other = "Yorumları Gör"
 # === baseof ==
 
 # === Post ===
 [posts]
-other = "Posts"
+other = "İçerikler"
 # === Post ===
 
 # === Taxonomy ===
 [allSome]
-other = "Toutes les {{ .Some }}"
+other = "All {{ .Some }}"
 
 [tag]
-other = "Balise"
+other = "Etiket"
 
 [tags]
-other = "Balises"
+other = "Etiketler"
 
 [category]
-other = "Catégorie"
+other = "Kategori"
 
 [categories]
-other = "Catégories"
+other = "Kategoriler"
 # === Taxonomy ===
 
 # === Pagination ===
 [more]
-other = "Voir plus"
+other = "Daha fazla"
 # === Pagination ===
 
 # === partials/header.html ===
 [selectLanguage]
-other = "Choisir la langue"
+other = "Dil Seç"
 
 [switchTheme]
-other = "Changer de thème"
+other = "Switch Theme"
 # === partials/header.html ===
 
 # === partials/footer.html ===
 [poweredBySome]
-other = "Propulsé par {{ .Hugo }} | Thème - {{ .Theme }}"
+other = "{{ .Hugo }} ile yapıldı | Tema - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
@@ -55,142 +55,140 @@ other = "Propulsé par {{ .Hugo }} | Thème - {{ .Theme }}"
 other = "en"
 
 [valinePlaceholder]
-other = "Votre commentaire ..."
+other = "Yorumun..."
 
 [facebookLanguageCode]
-other = "fr"
+other = "tr_TR"
 
-[giscusLang]
-other = "fr"
 # === partials/comment.html ===
 
 # === partials/assets.html ===
 [search]
-other = "Chercher"
+other = "Arama"
 
 [searchPlaceholder]
-other = "Rechercher des titres, des contenus..."
+other = "Başlık yada içerik arama..."
 
 [clear]
-other = "Effacer"
+other = "Temizle"
 
 [cancel]
-other = "Annuler"
+other = "İptal"
 
 [noResultsFound]
-other = "Aucun résultat trouvé"
+other = "Sonuç bulunamadı"
 
 [copyToClipboard]
-other = "Copier dans le presse-papiers"
+other = "Panoya kopyala"
 
 [cookieconsentMessage]
-other = "Ce site Web utilise des Cookies pour améliorer votre expérience."
+other = "Bu websitesi deneyiminizi iyileştirmek için çerezleri kullanmaktadır."
 
 [cookieconsentDismiss]
-other = "J'accepte"
+other = "Anladım!"
 
 [cookieconsentLink]
-other = "En savoir plus"
+other = "Daha fazla öğren"
 # === partials/assets.html ===
 
 # === partials/plugin/share.html ===
 [shareOn]
-other = "Partager sur"
+other = "Şurada Paylaş"
 # === partials/plugin/share.html ===
 
 # === posts/single.html ===
 [contents]
-other = "Contenu"
+other = "İçerikler"
 
 [publishedOnDate]
-other = "publié le {{ .Date }}"
+other = "{{ .Date }} tarihinde paylaşıldı"
 
 [includedInCategories]
-other = "inclus dans {{ .Categories }}"
+other = "{{ .Categories }} kategorileri içinde"
 
 [wordCount]
-one = "Un mot"
-other = "{{ .Count }} mots"
+one = "Bir kelime"
+other = "{{ .Count }} kelime"
 
 [readingTime]
-one = "Une minute"
+one = "One minute"
 other = "{{ .Count }} minutes"
 
 [views]
-other = "vues"
+other = "görüntülenme"
 
 [author]
-other = "Auteur"
+other = "Yazar"
 
 [updatedOnDate]
-other = "Mis à jour le {{ .Date }}"
+other = "{{ .Date }} tarihinde güncellendi"
 
 [readMarkdown]
-other = "Lire en Markdown"
+other = "Markdown Oku"
 
 [back]
-other = "Retour"
+other = "Geri"
 
 [home]
-other = "Accueil"
+other = "Anasayfa"
 
 [readMore]
-other = "En savoir plus"
+other = "Daha fazla oku"
 # === posts/single.html ===
 
 # === 404.html ===
 [pageNotFound]
-other = "Page non trouvée"
+other = "Sayfa Bulunamadı"
 
 [pageNotFoundText]
-other = "Désolé, la page recherchée n'existe pas."
+other = "Aradığınız sayfa bulunamadı. Üzgünüz."
 # === 404.html ===
 
 # === shortcodes/admonition.html ===
 [note]
-other = "Remarque"
+other = "Not"
 
 [abstract]
-other = "Résumé"
+other = "Öz"
 
 [info]
-other = "Info"
+other = "Bilgi"
 
 [tip]
-other = "Astuces"
+other = "İpucu"
 
 [success]
-other = "Succès"
+other = "Başarılı"
 
 [question]
-other = "Question"
+other = "Soru"
 
 [warning]
-other = "Avertissement"
+other = "Uyarı"
 
 [failure]
-other = "Échec"
+other = "Başarısız"
 
 [danger]
-other = "Danger"
+other = "Tehlike"
 
 [bug]
-other = "Bug"
+other = "Hata"
 
 [example]
-other = "Exemple"
+other = "Örnek"
 
 [quote]
-other = "Citation"
+other = "Alıntı"
 # === shortcodes/admonition.html ===
 
 # === shortcodes/version.html ===
 [new]
-other = "NOUVEAU"
+other = "YENİ"
 
 [changed]
-other = "CHANGÉ"
+other = "DEĞİŞTİRİLDİ"
 
 [deleted]
-other = "EFFACÉ"
+other = "SİLİNDİ"
 # === shortcodes/version.html ===
