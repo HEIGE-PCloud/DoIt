@@ -79,9 +79,6 @@ other = "Скасувати"
 [noResultsFound]
 other = "Нічого не знайдено"
 
-[lunrLanguageCode]
-other = "uk"
-
 [copyToClipboard]
 other = "Скопіювати до буфера обміну"
 

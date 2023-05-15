@@ -78,9 +78,6 @@ other = "İptal"
 [noResultsFound]
 other = "Sonuç bulunamadı"
 
-[lunrLanguageCode]
-other = "tr"
-
 [copyToClipboard]
 other = "Panoya kopyala"
 

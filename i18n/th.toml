@@ -78,12 +78,6 @@ other = "ยกเลิก"
 [noResultsFound]
 other = "ไม่พบเนื้อหา"
 
-[lunrLanguageCode]
-other = "th"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.th.js"
-
 [copyToClipboard]
 other = "คัดลอกไปยังคลิปบอร์ด"
 

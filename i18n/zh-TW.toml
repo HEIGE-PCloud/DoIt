@@ -77,15 +77,6 @@ other = "取消"
 [noResultsFound]
 other = "沒有找到結果"
 
-[lunrLanguageCode]
-other = "zh"
-
-[lunrLanguageLib]
-other = "lib/lunr/lunr.zh.js"
-
-[lunrSegmentitLib]
-other = "lib/lunr/lunr.segmentit.js"
-
 [copyToClipboard]
 other = "複製到剪貼板"
 
