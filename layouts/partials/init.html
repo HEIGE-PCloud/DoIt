@@ -33,7 +33,11 @@
         {{- $cdn = dict "simpleIconsPrefix" $cdnData.prefix.simpleIcons -}}
         {{- $prefix := $cdnData.prefix.libFiles | default "" -}}
         {{- range $key, $value := $cdnData.libFiles -}}
-            {{- $cdn = printf "%v%v" $prefix $value | dict $key | merge $cdn -}}
+            {{- if hasPrefix $value "https://" -}}
+                {{- $cdn = $value | dict $key | merge $cdn -}}
+            {{- else -}}
+                {{- $cdn = printf "%v%v" $prefix $value | dict $key | merge $cdn -}}
+            {{- end -}}
         {{- end -}}
     {{- end -}}
     {{- .Scratch.Set "cdn" $cdn -}}
