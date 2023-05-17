@@ -46,6 +46,10 @@
 {{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
 {{- partial "plugin/style.html" $style -}}
 
+{{ $style := resources.Get "css/main.min.css" }}    
+<link rel="stylesheet" href="{{ $style.Permalink }}"> 
+
+
 {{- /* Font Awesome */ -}}
 {{- $source := $cdn.fontawesomeFreeCSS | default "lib/fontawesome-free/all.min.css" -}}
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint "Defer" true -}}
