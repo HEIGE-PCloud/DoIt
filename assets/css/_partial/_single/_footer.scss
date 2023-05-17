@@ -55,6 +55,27 @@
           vertical-align: text-bottom;
         }
 
+        button {
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          outline: inherit; 
+          * {
+            vertical-align: text-bottom;
+          }   
+          :hover {
+              color: $global-link-hover-color;
+              [theme=dark] & {
+                color: $global-link-hover-color-dark;
+              }
+              [theme=black] & {
+                color: $global-link-hover-color-black;
+              }          
+          }    
+        }
+
         .weixin {
           position: relative;
           opacity: 1 !important;
