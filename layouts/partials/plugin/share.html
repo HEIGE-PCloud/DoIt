@@ -208,7 +208,7 @@
     {{- if $share.Weixin -}}
     <button class="weixin" title="{{ T `shareOn` }} 微信" data-sharer="weixin" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
         {{- dict "Class" "fab fa-weixin fa-fw" | partial "plugin/icon.html" -}}
-        <buttonmg src="{{ $share.Weixin }}{{ .Permalink | safeURL }}" title="{{ .Title }}">
+        <img src="{{ $share.Weixin }}{{ .Permalink | safeURL }}" title="{{ .Title }}">
     </a>
     {{- end -}}
 {{- end -}}
