@@ -68,6 +68,48 @@
                     "local": "echarts/macarons.min.js"
                 }
             ]
+        },
+        {
+            "name": "algoliasearch",
+            "version": "4.17.0",
+            "files": [
+                {
+                    "remote": "dist/algoliasearch-lite.umd.js",
+                    "local": "algoliasearch/algoliasearch-lite.umd.min.js"
+                }
+            ]
+        },
+        {
+            "name": "artalk",
+            "version": "2.5.5",
+            "files": [
+                {
+                    "remote": "dist/Artalk.js",
+                    "local": "artalk/Artalk.js"
+                },
+                {
+                    "remote": "theme/ArtalkLite.js",
+                    "local": "artalk/ArtalkLite.js"
+                },
+                {
+                    "remote": "theme/Artalk.css",
+                    "local": "artalk/Artalk.css"
+                },
+                {
+                    "remote": "theme/ArtalkLite.css",
+                    "local": "artalk/ArtalkLite.css"
+                }
+            ]
+        },
+        {
+            "name": "fuse",
+            "version": "6.6.2",
+            "files": [
+                {
+                    "remote": "dist/fuse.min.js",
+                    "local": "fuse/fuse.min.js"
+                }
+            ]
         }
     ]
 }
