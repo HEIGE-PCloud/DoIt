@@ -31,6 +31,10 @@
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
+{{/*  tailwind.css  */}}
+{{ $style := resources.Get "css/main.css" }}    
+<link rel="stylesheet" href="{{ $style.Permalink }}"> 
+
 {{- /* normalize.css */ -}}
 {{- $source := $cdn.normalizeCSS | default "lib/normalize/normalize.min.css" -}}
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
