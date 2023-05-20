@@ -559,6 +559,7 @@ hugo
       Skype = false
       Trello = false
       Mix = false
+      Mastodon = false
     # {{< version 0.2.0 changed >}} 评论系统设置
     [params.page.comment]
       enable = true

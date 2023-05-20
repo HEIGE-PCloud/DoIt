@@ -300,6 +300,7 @@ cacheRemoteImages = false
     Weixin = ""
     Whatsapp = false
     Xing = false
+    Mastodon = true
   # Comment config
   # 评论系统设置
   [page.comment]

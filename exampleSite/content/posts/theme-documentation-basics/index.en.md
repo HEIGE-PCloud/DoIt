@@ -555,6 +555,7 @@ Please open the code block below to view the complete sample configuration :(far
       Skype = false
       Trello = false
       Mix = false
+      Mastodon = false
     # {{< version 0.2.0 changed >}} Comment config
     [params.page.comment]
       enable = true
