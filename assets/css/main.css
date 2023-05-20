@@ -542,3 +542,25 @@ h3 {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.tw-rounded {
+  border-radius: 0.25rem;
+}
+
+.tw-rounded-b-none {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.tw-border-2 {
+  border-width: 2px;
+}
+
+.tw-border-b-0 {
+  border-bottom-width: 0px;
+}
+
+.tw-border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}

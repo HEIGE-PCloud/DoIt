@@ -1,0 +1,31 @@
+{{- .Page.Scratch.SetInMap "this" "tabs" true -}}
+
+<div class="tab-interface">
+    <div role="tablist" aria-label="Sample Tabs">
+        {{ $selects := .Scratch.Get "selects" | default 0 }}
+        {{/*  More than one default selection, throw error  */}}
+        {{ if gt $selects 1 }}
+            {{- errorf "At most one tab can be selected by default: %s" .Position -}}
+        {{ end }}
+        {{ $tabs := .Scratch.Get "tabs" }}
+        {{ range $index, $tab := $tabs }}
+            {{ $title := $tab.title }}
+            {{ $select := $tab.select }}
+            {{ if and (eq $selects 0) (eq $index 0)}}
+                {{ $select = true }}
+            {{ end }}
+            {{ $id := $tab.id }}
+            {{ $tabindex := 0 }}
+            {{ if ne $index 0 }}
+                {{ $tabindex = -1 }}
+            {{ end }}
+            <button class="tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none" role="tab" aria-selected="{{ $select }}" aria-controls="panel-{{ $id }}" id="tab-{{ $id }}" tabindex="{{ $tabindex }}" {{ if $select }}active{{ end }}>
+                {{ $title }}
+            </button>
+        {{ end }}
+    </div>
+    {{ .Inner }}
+</div>
+{{/* Reference https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls  */}}
+
+

@@ -44,7 +44,6 @@
     {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
     {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
@@ -214,6 +213,12 @@
     {{- $js := resources.Get "js/lib/cookieconsent.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- end -}}
+
+{{/* Tabs shortcode */}}
+{{- if (.Scratch.Get "this").tabs -}}
+{{ $js := resources.Get "js/tabs.ts" | js.Build (dict "minify" true) }}
+{{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- range $params.library.css -}}
