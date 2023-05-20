@@ -347,6 +347,8 @@ hugo
       # 将你的头像文件放置于 static 或者 assets 目录下
       # 文件路径是相对于 static 或者 assets 目录的
       avatarURL = "/images/avatar.webp"
+      # 头像的链接指向的 URL
+      avatarLinkURL = ""
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
@@ -916,6 +918,8 @@ series = "series"
   gravatarEmail = ""
   # 主页显示头像的 URL
   avatarURL = "/images/avatar.webp"
+  # 头像的链接指向的 URL
+  avatarLinkURL = ""
 ````
 
 你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像, 网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像.

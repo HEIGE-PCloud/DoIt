@@ -12,6 +12,9 @@
                 {{- with .Page -}}
                     {{- $url = .RelPermalink -}}
                 {{- end -}}
+                {{- with $profile.avatarLinkURL -}}
+                    {{- $url = . -}}
+                {{- end -}}
                 <a href="{{ $url }}"{{ with .Title | default .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
                     {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" | partial "plugin/image.html" -}}
                 </a>

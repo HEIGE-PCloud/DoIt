@@ -343,6 +343,8 @@ Please open the code block below to view the complete sample configuration :(far
       # Place your avatar file under static or assets directory
       # The filepath is relative to the static or assets directory
       avatarURL = "/images/avatar.webp"
+      # URL the avatar links to
+      avatarLinkURL = ""
       # {{< version 0.2.7 changed >}} title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page
@@ -912,6 +914,8 @@ You could enable these features with `hugo serve -e production`.
   gravatarEmail = ""
   # URL of avatar shown in home page
   avatarURL = "/images/avatar.webp"
+  # URL the avatar links to
+  avatarLinkURL = ""
 ````
 
 You can sign up and configure your avatar at [Gravatar](https://en.gravatar.com), the website will automatically obtain and set your avatar through the email address filled in `gravatarEmail`.
