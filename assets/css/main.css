@@ -443,6 +443,16 @@ h3 {
   font-weight: 700;
 }
 
+ol {
+  list-style-position: outside;
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-position: outside;
+  list-style-type: disc;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
