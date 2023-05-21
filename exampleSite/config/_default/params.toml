@@ -449,8 +449,8 @@ cacheRemoteImages = false
       server = ""
       site = ""
       lite = false
-      katex = false
-      lightbox = false
+      katex = true
+      lightbox = true
   # Third-party library config
   # 第三方库配置
   [page.library]
