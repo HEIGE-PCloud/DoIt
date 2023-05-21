@@ -13,19 +13,44 @@ hiddenFromSearch: true
 <!--more-->
 
 {{< tabs >}}
-{{% tab title="Tab 1" %}}
+{{< tab title="Tab 1" >}}
 Content 1
-{{% /tab %}}
-{{% tab title="Tab 2" select=true %}}
+{{< /tab >}}
+{{< tab title="Tab 2" select=true >}}
 Content 2
-{{% /tab %}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< tabs >}}
-{{% tab title="Tab 1" %}}
+{{< tab title="Tab 1" >}}
 Content 1
-{{% /tab %}}
-{{% tab title="Tab 2" %}}
+{{< /tab >}}
+{{< tab title="Tab 2" >}}
 Content 2
-{{% /tab %}}
+{{< /tab >}}
+{{< /tabs >}}
+
+
+{{< tabs >}}
+{{< tab title="Nested Tab 1" >}}
+    {{< tabs >}}
+    {{< tab title="SubTab 1" >}}
+    Content 1
+    {{< /tab >}}
+    {{< tab title="SubTab 2" >}}
+    Content 2
+    {{< /tab >}}
+    {{< /tabs >}}
+{{< /tab >}}
+{{< tab title="Nested Tab 2" >}}
+    {{< tabs >}}
+    {{< tab title="SubTab 3" >}}
+    Content 1
+    {{< /tab >}}
+    {{< tab title="SubTab 4" >}}
+    Content 2
+    {{< /tab >}}
+    {{< /tabs >}}
+
+{{< /tab >}}
 {{< /tabs >}}
