@@ -32,7 +32,7 @@
 {{- end -}}
 
 {{/*  tailwind.css  */}}
-{{ $style := dict "source" "css/main.css" "Fingerprint" $fingerprint }}
+{{ $style := dict "Source" "css/main.css" "Fingerprint" $fingerprint }}
 {{- partial "plugin/style.html" $style -}}
 
 {{- /* normalize.css */ -}}
