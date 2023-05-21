@@ -8,6 +8,12 @@
 {{ end }}
 {{ $id := dict "Content" "tab" "Scratch" .Page.Scratch | partial "function/id.html" }}
 {{ .Parent.Scratch.Add "tabs" (slice (dict "title" $title "select" $select "id" $id)) }}
-<div id="panel-{{ $id }}" class="" role="tabpanel" tabindex="0" aria-labelledby="tab-{{ $id }}">
+<div 
+    class="tab-panel" 
+    id="panel-{{ $id }}" 
+    role="tabpanel" 
+    tabindex="0" 
+    aria-labelledby="tab-{{ $id }}"
+    {{ if not $select }} style="display: none;" {{ end }}>
     {{ .Inner }}
 </div>

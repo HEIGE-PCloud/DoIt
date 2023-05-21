@@ -1,8 +1,12 @@
 {{- .Page.Scratch.SetInMap "this" "tabs" true -}}
+{{ $tabsId := dict "Content" "tabs" "Scratch" .Page.Scratch | partial "function/id.html" }}
+{{ $selects := .Scratch.Get "selects" | default 0 }}
 
-<div class="tab-interface">
-    <div role="tablist" aria-label="Sample Tabs">
-        {{ $selects := .Scratch.Get "selects" | default 0 }}
+<div class="tab-interface" id="{{ $tabsId }}">
+    <div 
+        class="tw-flex tw-flex-row tw-overflow-auto tw-border-b-red-500 tw-border-b-2" 
+        role="tablist" 
+        aria-label="Sample Tabs">
         {{/*  More than one default selection, throw error  */}}
         {{ if gt $selects 1 }}
             {{- errorf "At most one tab can be selected by default: %s" .Position -}}
@@ -19,11 +23,26 @@
             {{ if ne $index 0 }}
                 {{ $tabindex = -1 }}
             {{ end }}
-            <button class="tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none" role="tab" aria-selected="{{ $select }}" aria-controls="panel-{{ $id }}" id="tab-{{ $id }}" tabindex="{{ $tabindex }}" {{ if $select }}active{{ end }}>
+            <button 
+                class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 data-[active=true]:tw-bg-blue-400" 
+                role="tab" 
+                aria-selected="{{ $select }}" 
+                aria-controls="panel-{{ $id }}" 
+                id="tab-{{ $id }}" 
+                tabindex="{{ $tabindex }}" 
+                data-active="{{ if $select }}true{{ end }}"
+                data-panel-id="panel-{{ $id }}">
                 {{ $title }}
             </button>
         {{ end }}
     </div>
+    {{ if eq $selects 0}}
+    <style>
+        #{{ $tabsId }} :nth-child(3) {
+            display: block !important;
+        }
+    </style>
+    {{ end }}
     {{ .Inner }}
 </div>
 {{/* Reference https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls  */}}
