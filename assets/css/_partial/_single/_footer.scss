@@ -51,6 +51,9 @@
       }
 
       .post-info-share {
+        display: inline-flex;
+        justify-content: center;
+        
         a * {
           vertical-align: text-bottom;
         }
