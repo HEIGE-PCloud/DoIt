@@ -15,5 +15,9 @@
     tabindex="0" 
     aria-labelledby="tab-{{ $id }}"
     {{ if not $select }} style="display: none;" {{ end }}>
-    {{ .Inner | .Page.RenderString }}
+    {{ if .Get "markdown" }}
+    {{ .Inner | markdownify }}
+    {{ else }}
+    {{ .Inner }}
+    {{ end }}
 </div>
