@@ -32,8 +32,8 @@
 {{- end -}}
 
 {{/*  tailwind.css  */}}
-{{ $style := resources.Get "css/main.css" }}    
-<link rel="stylesheet" href="{{ $style.Permalink }}"> 
+{{ $style := dict "Source" "css/main.css" "Fingerprint" $fingerprint }}
+{{- partial "plugin/style.html" $style -}}
 
 {{- /* normalize.css */ -}}
 {{- $source := $cdn.normalizeCSS | default "lib/normalize/normalize.min.css" -}}

@@ -12,4 +12,11 @@
   h3 {
     @apply tw-text-xl tw-font-bold tw-m-4;
   }
+  ol {
+    @apply tw-list-decimal tw-list-outside;
+  }
+  ul {
+    @apply tw-list-disc tw-list-outside;
+  }
+  
 }
