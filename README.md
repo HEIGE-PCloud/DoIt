@@ -126,6 +126,7 @@ the DoIt theme may be more suitable for you.
 * **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
 * **Remark42** comment system supported by[Remark42](https://remark42.com/)
 * **giscus** comment system supported by [giscus](https://giscus.app/)
+* **Artalk** comment system supported by [Artalk](https://artalk.js.org/)
 
 ### Extended Features
 

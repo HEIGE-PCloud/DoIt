@@ -680,6 +680,14 @@ Please open the code block below to view the complete sample configuration :(far
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
+      # {{< link "https://artalk.js.org/" "artalk" >}} comment config
+      [page.comment.artalk]
+        enable = false
+        server = ""
+        site = ""
+        lite = false
+        katex = false
+        lightbox = false
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]

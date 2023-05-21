@@ -446,8 +446,8 @@ cacheRemoteImages = false
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]
       enable = true
-      server = ""
-      site = ""
+      server = "http://144.126.224.197:8080"
+      site = "Hugo DoIt"
       lite = false
       katex = true
       lightbox = true
