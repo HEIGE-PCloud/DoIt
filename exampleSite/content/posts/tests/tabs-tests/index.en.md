@@ -16,6 +16,8 @@ hiddenFromSearch: true
 {{% tab title="Tab 1" %}}
 ## Markdown Content 1
 
+### Markdown Content 2
+
 ```
 code
 ```
