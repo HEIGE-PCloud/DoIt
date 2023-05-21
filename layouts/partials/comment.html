@@ -335,10 +335,17 @@
         {{- $artalk := $comment.artalk | default dict -}}
         {{- if $artalk.enable -}}
             <div id="artalk"></div>
-            {{- $source := $cdn.artalkJS | default "lib/artalk/Artalk.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-            {{- $source := $cdn.artalkCSS | default "lib/artalk/Artalk.css" -}}
-            {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{ if $artalk.lite }}
+                {{- $source := $cdn.artalkLiteJS | default "lib/artalk/ArtalkLite.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- $source := $cdn.artalkLiteCSS | default "lib/artalk/ArtalkLite.css" -}}
+                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{ else }}
+                {{- $source := $cdn.artalkJS | default "lib/artalk/Artalk.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- $source := $cdn.artalkCSS | default "lib/artalk/Artalk.css" -}}
+                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{ end }}
             {{- $commentConfig = dict "el" "#artalk" "server" $artalk.server "site" $artalk.site | dict "artalk" | merge $commentConfig -}}
             {{- $shims := dict "artalk" "js/shims/artalk.js" -}}
             {{- $options := dict -}}

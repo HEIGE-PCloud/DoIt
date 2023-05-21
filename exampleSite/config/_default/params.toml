@@ -446,8 +446,7 @@ cacheRemoteImages = false
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]
       enable = true
-      server = ""
-      site = ""
+      lite = false
   # Third-party library config
   # 第三方库配置
   [page.library]
