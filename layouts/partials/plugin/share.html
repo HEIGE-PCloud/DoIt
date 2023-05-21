@@ -226,7 +226,8 @@
             url.searchParams.append('text', text)
             window.open(url, '_blank', "width=500,height=500,left=500,toolbar=0,status=0");
         }
-    </script><button title="{{ T `shareOn` }} Mastodon"onclick="javascript:shareOnMastodon({{ .Title }}, {{ .Permalink }})">
+    </script>
+    <button title="{{ T `shareOn` }} Mastodon"onclick="javascript:shareOnMastodon({{ .Title }}, {{ .Permalink }})">
         {{- dict "Class" "fab fa-mastodon fa-fw" | partial "plugin/icon.html" -}}
     </button>
     {{- end -}}
