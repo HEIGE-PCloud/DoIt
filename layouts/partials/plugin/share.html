@@ -219,6 +219,9 @@
             const SHARE_MASTODON_DOMAIN = "share_mastodon_domain"
             const savedDomain = localStorage.getItem(SHARE_MASTODON_DOMAIN) ?? "mastodon.social";
             const domain = prompt("Enter your Mastodon domain", savedDomain);
+            if (domain === null) {
+                return;
+            }
             localStorage.setItem(SHARE_MASTODON_DOMAIN, domain)
             const text = title + "\n\n" + link;
             const url = new URL("https://" + domain)
