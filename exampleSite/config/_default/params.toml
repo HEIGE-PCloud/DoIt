@@ -390,7 +390,7 @@ cacheRemoteImages = false
     # Utterances comment config (https://utteranc.es/)
     # Utterances comment 评论系统设置 (https://utteranc.es/)
     [page.comment.utterances]
-      enable = true
+      enable = false
       # owner/repo
       repo = "Hugo-DoIt/utterances-comments"
       issueTerm = "pathname"
@@ -442,6 +442,12 @@ cacheRemoteImages = false
       lightTheme = "light"
       darkTheme = "dark"
       dataLang = "en"
+    # artalk comment config (https://artalk.js.org/guide/frontend/config.html)
+    # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
+    [page.comment.artalk]
+      enable = true
+      server = ""
+      site = ""
   # Third-party library config
   # 第三方库配置
   [page.library]
