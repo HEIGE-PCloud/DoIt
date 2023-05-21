@@ -688,6 +688,8 @@ Please open the code block below to view the complete sample configuration :(far
         lite = false
         katex = false
         lightbox = false
+        pageview = true
+        commentCount = true
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]
