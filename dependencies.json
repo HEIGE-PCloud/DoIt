@@ -68,6 +68,48 @@
                     "local": "echarts/macarons.min.js"
                 }
             ]
+        },
+        {
+            "name": "artalk",
+            "version": "2.5.5",
+            "files": [
+                {
+                    "remote": "dist/Artalk.js",
+                    "local": "artalk/Artalk.js"
+                },
+                {
+                    "remote": "dist/Artalk.css",
+                    "local": "artalk/Artalk.css"
+                },
+                {
+                    "remote": "dist/ArtalkLite.js",
+                    "local": "artalk/ArtalkLite.js"
+                },
+                {
+                    "remote": "dist/ArtalkLite.css",
+                    "local": "artalk/ArtalkLite.css"
+                }
+            ]
+        },
+        {
+            "name": "@artalk/plugin-katex",
+            "version": "0.1.5",
+            "files": [
+                {
+                    "remote": "dist/artalk-plugin-katex.js",
+                    "local": "artalk/artalk-plugin-katex.js"
+                }
+            ]
+        },
+        {
+            "name": "@artalk/plugin-lightbox",
+            "version": "0.1.1",
+            "files": [
+                {
+                    "remote": "dist/artalk-plugin-lightbox.js",
+                    "local": "artalk/artalk-plugin-lightbox.js"
+                }
+            ]
         }
     ]
 }

@@ -346,6 +346,14 @@
                 {{- $source := $cdn.artalkCSS | default "lib/artalk/Artalk.css" -}}
                 {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
             {{ end }}
+            {{ if $artalk.katex }}
+                {{- $source := $cdn.artalkPluginKaTeXJS | default "lib/artalk/artalk-plugin-katex.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{ end }}
+            {{- if $artalk.lightbox -}}
+                {{- $source := $cdn.artalkPluginLightboxJS | default "lib/artalk/artalk-plugin-lightbox.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- end -}}
             {{- $commentConfig = dict "el" "#artalk" "server" $artalk.server "site" $artalk.site | dict "artalk" | merge $commentConfig -}}
             {{- $shims := dict "artalk" "js/shims/artalk.js" -}}
             {{- $options := dict -}}
