@@ -18,7 +18,5 @@ if (window.config?.comment?.utterances) {
     const iframe = document.querySelector('.utterances-frame')
     iframe.contentWindow.postMessage(message, 'https://utteranc.es')
   }
-  console.log(window.switchThemeEventSet)
   window.switchThemeEventSet.add(window._utterancesOnSwitchTheme)
-  console.log(window.switchThemeEventSet)
 }

@@ -288,6 +288,10 @@
     {{- range (.Scratch.Get "this").script -}}
         {{- partial "plugin/script.html" . -}}
     {{- end -}}
+
+    {{- range (.Scratch.Get "this").commentScript -}}
+        {{- partial "plugin/script.html" . -}}
+    {{- end -}}
     
     {{- partial "plugin/analytics.html" . -}}
 </div>
