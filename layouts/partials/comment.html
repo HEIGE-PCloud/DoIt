@@ -10,7 +10,7 @@
         {{- if $disqus.enable -}}
             <div id="disqus_thread" class="comment"></div>
             {{- $source := printf "https://%v.disqus.com/embed.js" $disqus.shortname -}}
-            {{- dict "Source" $source "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" $source "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript>
@@ -23,7 +23,7 @@
             {{- $source := $cdn.gitalkCSS | default "lib/gitalk/gitalk.css" -}}
             {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
             {{- $source := $cdn.gitalkJS | default "lib/gitalk/gitalk.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- $commentConfig = dict "id" .Date "title" .Title "clientID" $gitalk.clientId "clientSecret" $gitalk.clientSecret "repo" $gitalk.repo "owner" $gitalk.owner "admin" (slice $gitalk.owner) | dict "gitalk" | merge $commentConfig -}}
             {{- with $gitalk.proxy -}}
                 {{- $commentConfig = dict "proxy" . | dict "gitalk" | merge $commentConfig -}}
@@ -31,7 +31,7 @@
             {{- $options := dict "targetPath" "js/gitalk.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/gitalk.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript>
@@ -60,13 +60,13 @@
             {{- $shims := dict "valine" "js/shims/valine.js" -}}
             {{- $options := dict -}}
             {{- $source := $cdn.valineJS | default "lib/valine/Valine.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $options = dict "targetPath" "js/valine.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/valine.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript>
@@ -115,13 +115,13 @@
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
             {{- $source := $cdn.walineJS | default "lib/waline/waline.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $options = dict "targetPath" "js/waline.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/waline.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Waline</a>.
             </noscript>
@@ -138,7 +138,7 @@
                 data-numposts="{{ $facebook.numPosts }}"
             ></div>
             {{- $source := printf "https://connect.facebook.net/%v/sdk.js#xfbml=1&version=v5.0&appId=%v&autoLogAppEvents=1" ($facebook.languageCode | default (T "facebookLanguageCode")) $facebook.appId -}}
-            {{- dict "Source" $source "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" $source "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://developers.facebook.com/docs/plugins/comments/"></a>Facebook</a>.
             </noscript>
@@ -179,7 +179,7 @@
         {{- $commento := $comment.commento | default dict -}}
         {{- if $commento.enable -}}
             <div id="commento"></div>
-            {{- dict "Source" "https://cdn.commento.io/js/commento.js" "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Source" "https://cdn.commento.io/js/commento.js" "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://commento.io/">Commento</a>.
             </noscript>
@@ -197,7 +197,7 @@
             {{- $options := dict "targetPath" "js/utterances.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/utterances.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
@@ -213,15 +213,14 @@
             {{- $options = dict "minify" true | merge $options -}}
             {{- if eq $twikoo.cloudbase false -}}
                 {{- $source := $cdn.twikooJS | default "lib/twikoo/twikoo.min.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-                {{- else -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- else -}}
                 {{- $source := $cdn.twikooAllJS | default "lib/twikoo/twikoo.all.min.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- end -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
             {{- $commentConfig = dict "lang" .Lang | dict "twikoo" | merge $commentConfig -}}
             {{- with $twikoo.region -}}
@@ -245,22 +244,22 @@
                 {{- $source := $cdn.vssueCSS | default "lib/vssue/vssue.min.css" -}}
                 {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
                 {{- $source := $cdn.vueRuntimeJS | default "lib/vue/vue.runtime.min.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- if eq $vssue.platform "bitbucket" -}}
                     {{- $source := $cdn.vssueBitbucketJS | default "lib/vssue/vssue.bitbucket.min.js" -}}
-                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- else if eq $vssue.platform "gitea" -}}
                     {{- $source := $cdn.vssueGiteaJS | default "lib/vssue/vssue.gitea.min.js" -}}
-                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- else if eq $vssue.platform "gitee" -}}
                     {{- $source := $cdn.vssueGiteeJS | default "lib/vssue/vssue.gitee.min.js" -}}
-                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- else if eq $vssue.platform "github" -}}
                     {{- $source := $cdn.vssueGithubJS | default "lib/vssue/vssue.github.min.js" -}}
-                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- else if eq $vssue.platform "gitlab" -}}
                     {{- $source := $cdn.vssueGitlabJS | default "lib/vssue/vssue.gitlab.min.js" -}}
-                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
                 {{- end -}}
                 {{- $commentConfig = dict "el" "#vssue" "title" .Title | dict "vssue" | merge $commentConfig -}}
                 {{- with $vssue.owner -}}
@@ -278,7 +277,7 @@
                 {{- $options := dict "targetPath" "js/vssue.min.js" "minify" true -}}
                 {{- $js := resources.Get "js/lib/vssue.js" | js.Build $options -}}
                 {{- $_ := $js.RelPermalink -}}
-                {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+                {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
             </noscript>
@@ -301,7 +300,7 @@
             {{- $options := dict "targetPath" "js/remark42.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/remark42.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
             </noscript>
@@ -326,10 +325,43 @@
             {{- $options := dict "targetPath" "js/giscus.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/giscus.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript>
+        {{- end -}}
+
+        {{/*  Artalk Comment System  */}}
+        {{- $artalk := $comment.artalk | default dict -}}
+        {{- if $artalk.enable -}}
+            <div id="artalk"></div>
+            {{ if $artalk.lite }}
+                {{- $source := $cdn.artalkLiteJS | default "lib/artalk/ArtalkLite.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+                {{- $source := $cdn.artalkLiteCSS | default "lib/artalk/ArtalkLite.css" -}}
+                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{ else }}
+                {{- $source := $cdn.artalkJS | default "lib/artalk/Artalk.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+                {{- $source := $cdn.artalkCSS | default "lib/artalk/Artalk.css" -}}
+                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{ end }}
+            {{ if $artalk.katex }}
+                {{- $source := $cdn.artalkPluginKaTeXJS | default "lib/artalk/artalk-plugin-katex.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{ end }}
+            {{- if $artalk.lightbox -}}
+                {{- $source := $cdn.artalkPluginLightboxJS | default "lib/artalk/artalk-plugin-lightbox.js" -}}
+                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- end -}}
+            {{- $commentConfig = dict "el" "#artalk" "server" $artalk.server "site" $artalk.site | dict "artalk" | merge $commentConfig -}}
+            {{- $shims := dict "artalk" "js/shims/artalk.js" -}}
+            {{- $options := dict -}}
+            {{- $options = dict "targetPath" "js/artalk.min.js" | merge $options -}}
+            {{- $options = dict "minify" true | merge $options -}}
+            {{- $options = dict "shims" $shims | merge $options -}}
+            {{- $js := resources.Get "js/lib/artalk.js" | js.Build $options -}}
+            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}            
         {{- end -}}
     </div>
 {{- end -}}

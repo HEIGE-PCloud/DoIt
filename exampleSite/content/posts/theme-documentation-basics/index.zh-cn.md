@@ -684,6 +684,16 @@ hugo
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "zh-CN"
+      # {{< link "https://artalk.js.org/" "artalk" >}} 评论系统设置
+      [page.comment.artalk]
+        enable = false
+        server = ""
+        site = ""
+        lite = false
+        katex = false
+        lightbox = false
+        pageview = true
+        commentCount = true
     # {{< version 0.2.7 >}} 第三方库配置
     [params.page.library]
       [params.page.library.css]
