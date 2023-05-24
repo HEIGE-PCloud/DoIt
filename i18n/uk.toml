@@ -68,7 +68,7 @@ other = "uk"
 other = "Пошук"
 
 [searchPlaceholder]
-other = "Search titles or contents..."
+other = "Пошук за назвою або вмістом..."
 
 [clear]
 other = "Очистити"
