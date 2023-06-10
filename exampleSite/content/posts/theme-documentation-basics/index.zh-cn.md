@@ -475,6 +475,12 @@ hugo
     rssFullText = false
     # {{< version 0.2.13 >}} 是否在文章开头显示系列导航
     seriesNavigation = true
+    # 是否启用最后修改时间
+    enableLastMod = true
+    # 是否启用字数统计
+    enableWordCount = true
+    # 是否启用阅读时间估计
+    enableReadingTime = true
     # {{< version 0.2.13 >}} 过时文章提示
     [params.page.outdatedArticleReminder]
       enable = true

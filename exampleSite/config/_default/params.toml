@@ -172,6 +172,15 @@ cacheRemoteImages = false
   # whether to enable series navigation
   # 是否使用系列导航
   seriesNavigation = true
+  # whether to enable last modified time
+  # 是否启用最后修改时间
+  enableLastMod = true
+  # whether to enable word count
+  # 是否启用字数统计
+  enableWordCount = true
+  # whether to enable reading time estimation
+  # 是否启用阅读时间估计
+  enableReadingTime = true
   # Display a message at the beginning of an article to warn the reader that its content might be outdated.
   # 在文章开头显示提示信息，提醒读者文章内容可能过时。
   [page.outdatedArticleReminder]
