@@ -30,7 +30,17 @@ other = "Catégorie"
 
 [categories]
 other = "Catégories"
+
+[series]
+other = "Séries"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Récemment mis à jour"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -43,11 +53,29 @@ other = "Choisir la langue"
 
 [switchTheme]
 other = "Changer de thème"
+
+[Light]
+other = "Clair"
+
+[Dark]
+other = "Sombre"
+
+[Black]
+other = "Noir"
+
+[Auto]
+other = "Auto"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "Propulsé par {{ .Hugo }} | Thème - {{ .Theme }}"
+[poweredBy]
+other = "Propulsé par {{ .Hugo }}"
+
+[hostedOn]
+other = "Hébergé par {{ .Host }}"
+
+[theme]
+other = "Thème - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
@@ -105,8 +133,18 @@ other = "Contenu"
 [publishedOnDate]
 other = "publié le {{ .Date }}"
 
+[includedIn]
+other = "inclus dans "
+
+[includedInAnd]
+other = "et"
+
 [includedInCategories]
-other = "inclus dans {{ .Categories }}"
+one = "catégorie {{ .Categories }}"
+other = "catégories {{ .Categories }}"
+
+[includedInSeries]
+other = "séries {{ .Series }}"
 
 [wordCount]
 one = "Un mot"
@@ -119,6 +157,9 @@ other = "{{ .Count }} minutes"
 [views]
 other = "vues"
 
+[comments]
+other = "commentaires"
+
 [author]
 other = "Auteur"
 
@@ -128,6 +169,15 @@ other = "Mis à jour le {{ .Date }}"
 [readMarkdown]
 other = "Lire en Markdown"
 
+[viewSource]
+other = "Voir la source"
+
+[editThisPage]
+other = "Modifier cette page"
+
+[reportThisPage]
+other = "Signaler un problème"
+
 [back]
 other = "Retour"
 
@@ -136,6 +186,18 @@ other = "Accueil"
 
 [readMore]
 other = "En savoir plus"
+
+[outdatedInfoWarningBefore]
+other = "Dernière modification de cet article le "
+
+[outdatedInfoWarningAfter]
+other = ", le contenu pourrait être dépassé/obsolète."
+
+[sponsor]
+other = "Sponsor"
+
+[relatedContent]
+other = "Contenu connexe"
 # === posts/single.html ===
 
 # === 404.html ===
