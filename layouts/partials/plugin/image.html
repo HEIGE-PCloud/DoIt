@@ -24,7 +24,8 @@
     {{- $large = .RelPermalink -}}
 {{- end -}}
 
-{{- $alt := .Alt | default $src -}}
+{{- $alt := .Alt | default .Title -}}
+{{- $alt := $alt | default $src -}}
 {{- $loading := .Loading | default "lazy" -}}
 
 {{- with .Height -}}
