@@ -36,7 +36,7 @@
     "clipboard": "^2.0.11",
     "cookieconsent": "^3.1.1",
     "echarts": "^5.4.2",
-    "katex": "^0.16.7",
+    "katex": "^0.16.8",
     "node-fetch": "^3.3.1",
     "tablesort": "^5.3.0",
     "twemoji": "^14.0.2",
