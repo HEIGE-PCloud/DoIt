@@ -185,7 +185,7 @@ keywords = ["Theme", "Hugo"]
 # Sponsor config
 # 赞助设置
 [sponsor]
-  enable = false
+  enable = true
   bio = "If you find this post helpful, please consider sponsoring."
   link = "https://github.com/sponsors/HEIGE-PCloud"
   # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
