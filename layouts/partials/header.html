@@ -63,6 +63,11 @@
                     </a>
                 {{- end -}}
                 {{- if .Site.Params.search.enable -}}
+                    {{- if .Site.Params.search.searchJump -}}
+                      <script>
+                        document.body.setAttribute("searchJump", "true")
+                      </script>
+                    {{- end -}}
                     <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
@@ -130,6 +135,11 @@
         </div>
         <div class="menu" id="menu-mobile">
             {{- if .Site.Params.search.enable -}}
+                {{- if .Site.Params.search.searchJump -}}
+                  <script>
+                    document.body.setAttribute("searchJump", true)
+                  </script>
+                {{- end -}}
                 <div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-mobile">

@@ -394,7 +394,9 @@ function initSearch () {
       }
     })
     autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
-      window.location.assign(suggestion.uri)
+      document.body.getAttribute('searchJump') ?
+        window.open(suggestion.uri, "_newtab") :
+        window.location.assign(suggestion.uri)
     })
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
