@@ -375,7 +375,7 @@ function initSearch () {
         }
       },
       templates: {
-        suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${(context)}</div>`,
+        suggestion: ({ title, uri, date, context }) => `<div><a href=${uri}><span class="suggestion-title">${title}</span></a><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${(context)}</div>`,
         empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
         footer: () => {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
@@ -392,12 +392,7 @@ function initSearch () {
           return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`
         }
       }
-    })
-    autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
-      document.body.getAttribute('searchJump') ?
-        window.open(suggestion.uri, '_newtab') :
-        window.location.assign(suggestion.uri)
-    })
+    }) 
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
