@@ -392,7 +392,7 @@ function initSearch () {
           return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`
         }
       }
-    }) 
+    })
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
