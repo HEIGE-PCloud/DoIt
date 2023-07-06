@@ -47,9 +47,6 @@ keywords = ["Theme", "Hugo"]
   # whether to use the absolute URL based on the baseURL in search index
   # 是否在搜索索引中使用基于 baseURL 的绝对路径
   absoluteURL = false
-  # whether to open search result in a new tab
-  # 是否在新窗口打开搜索结果
-  searchJump = false
   [search.algolia]
     index = "en_index"
     appID = "5YGRNRQK1G"
