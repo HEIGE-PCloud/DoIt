@@ -443,6 +443,10 @@ header {
           font-size: 1rem;
           font-weight: bold;
           max-width: 75%;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         .suggestion-date {
@@ -474,6 +478,10 @@ header {
           [theme=black] & {
             color: $global-font-secondary-color-black;
           }
+
+          &:hover {
+            cursor: default;
+          }
         }
 
         em {
@@ -497,10 +505,6 @@ header {
           [theme=black] & {
             background: lighten($code-background-color-black, 5%);
           }
-        }
-
-        &:hover {
-          cursor: pointer;
         }
       }
     }
