@@ -267,7 +267,7 @@ function initSearch () {
       hint: false,
       autoselect: true,
       dropdownMenuContainer: `#search-dropdown-${suffix}`,
-      clearOnSelected: true,
+      clearOnSelected: false,
       cssClasses: { noPrefix: true },
       debug: true
     }, {
@@ -392,6 +392,9 @@ function initSearch () {
           return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`
         }
       }
+    })
+    autosearch.on('autocomplete:selected', (event, _suggestion, _dataset, _context) => {
+      event.preventDefault();
     })
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
