@@ -443,6 +443,10 @@ header {
           font-size: 1rem;
           font-weight: bold;
           max-width: 75%;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         .suggestion-date {
@@ -500,7 +504,7 @@ header {
         }
 
         &:hover {
-          cursor: pointer;
+          cursor: default;
         }
       }
     }
