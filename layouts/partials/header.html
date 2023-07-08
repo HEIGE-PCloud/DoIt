@@ -43,7 +43,7 @@
                     <a href="javascript:void(0);" class="menu-item language" title="{{ T "selectLanguage" }}">
                         {{- .Language.LanguageName -}}
                         <i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;">
+                        <select class="language-select" title="{{ T "selectLanguage" }}" id="language-select-desktop" onchange="location = this.value;">
                             {{- if eq .Kind "404" -}}
                                 {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
                                 {{- range .Sites -}}
@@ -177,7 +177,7 @@
                 <a href="javascript:void(0);" class="menu-item" title="{{ T "selectLanguage" }}">
                     {{- .Language.LanguageName -}}
                     <i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" title="Select Language" onchange="location = this.value;">
+                    <select class="language-select" title="{{ T "selectLanguage" }}" onchange="location = this.value;">
                         {{- if eq .Kind "404" -}}
                             {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
                             {{- range .Sites -}}
