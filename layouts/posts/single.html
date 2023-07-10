@@ -33,7 +33,7 @@
 
     <article class="page single">
         {{- /* Title */ -}}
-        <h1 class="single-title animate__animated animate__flipInX">{{ .Title }}</h1>
+        <h1 class="single-title" style="view-transition-name: {{ (replaceRE "[^A-Za-z0-9]" "" .Title) | safeCSS}}">{{ .Title }}</h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
@@ -164,7 +164,7 @@
         {{- end -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height "Loading" "eager" "ViewTransitionName" (printf "featured-image-%v" (replace $.Title " " "")) | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height "Loading" "eager" "ViewTransitionName" (printf "featured-image-%v" (replaceRE "[^A-Za-z0-9]" "" $.Title) | safeCSS) | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

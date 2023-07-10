@@ -23,10 +23,10 @@
 <div class="showcase-box column-{{ $column }}">
     <div class="showcase-image">
         <a href={{ $link }}>
-            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
+            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title "ViewTransitionName" (printf "featured-image-%v" (replaceRE "[^A-Za-z0-9]" "" $title) | safeCSS) | partial "plugin/image.html" -}}
         </a>
     </div>
-    <h2 class="showcase-title">
+    <h2 class="showcase-title" style="view-transition-name: {{ (replaceRE "[^A-Za-z0-9]" "" $title) | safeCSS }}">
         <a href={{ $link }}>{{ $title }}</a>
     </h2>
     <p class="showcase-summary">
