@@ -7,7 +7,7 @@
     {{- $src = .RelPermalink -}}
     {{- if and
         (eq .ResourceType "image")
-        (dict "Path" $src "Suffixed" $suffixList | partial "function/suffixValidation.html")
+        (dict "Path" $src "Suffixes" $suffixList | partial "function/suffixValidation.html")
         -}}
         {{- $height = .Height -}}
         {{- $width = .Width -}}
