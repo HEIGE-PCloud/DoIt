@@ -325,7 +325,7 @@ To use Mermaid, simply place the mermaid code inside a code block with the langu
 
 Here are some examples of generated SVGs using Mermaid.
 
-### Flowchat
+### Flowchart
 
 All [Flowcharts](https://mermaid-js.github.io/mermaid/#/./flowchart?id=flowcharts-basic-syntax
 ) are composed of nodes, geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
