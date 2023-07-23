@@ -183,7 +183,7 @@ related:
 * **draft**: if `true`, the content will not be rendered unless the `--buildDrafts`/`-D` flag is passed to the `hugo` command.
 * **authors**: {{< version 0.2.12 changed >}} the list of authors for the content.
 * **description**: the description for the content.
-* **license**: the special lisence for this content.
+* **license**: the special license for this content.
 * **images**: page images for Open Graph and Twitter Cards.
 
 * **tags**: the tags for the content.
