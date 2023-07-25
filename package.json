@@ -40,7 +40,7 @@
     "node-fetch": "^3.3.1",
     "tablesort": "^5.3.0",
     "twemoji": "^14.0.2",
-    "twikoo": "^1.6.16",
+    "twikoo": "^1.6.17",
     "valine": "^1.5.1"
   },
   "devDependencies": {
