@@ -1,0 +1,198 @@
+# Translations for Greek
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === baseof ==
+[backToTop]
+other = "Επιστροφή στην κορυφή"
+
+[viewComments]
+other = "Προβολή σχολίων"
+# === baseof ==
+
+# === Post ===
+[posts]
+other = "Αναρτήσεις"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "Όλα {{ .Some }}"
+
+[tag]
+other = "Ετικέτα"
+
+[tags]
+other = "Ετικέτες"
+
+[category]
+other = "Κατηγορία"
+
+[categories]
+other = "Κατηγορίες"
+# === Taxonomy ===
+
+# === Pagination ===
+[more]
+other = "Περισσότερα"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "Επιλέξτε γλώσσα"
+
+[switchTheme]
+other = "Εναλλαγή θέματος"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBySome]
+other = "Λειτουργεί με {{ .Hugo }} | Θέμα - {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
+[valineLang]
+other = "el_GR"
+
+[valinePlaceholder]
+other = "Το σχόλιό σου ..."
+
+[facebookLanguageCode]
+other = "el_GR"
+
+[giscusLang]
+other = "el_GR"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "Αναζήτηση"
+
+[searchPlaceholder]
+other = "Αναζήτηση τίτλων ή περιεχομένων..."
+
+[clear]
+other = "Καθαρισμός"
+
+[cancel]
+other = "Aκύρωση"
+
+[noResultsFound]
+other = "Δεν βρέθηκαν αποτελέσματα"
+
+[lunrLanguageCode]
+other = "el"
+
+[copyToClipboard]
+other = "Αντιγραφή στο πρόχειρο"
+
+[cookieconsentMessage]
+other = "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να διασφαλίσει ότι θα έχετε την καλύτερη εμπειρία στον ιστότοπό μας."
+
+[cookieconsentDismiss]
+other = "Εντάξει"
+
+[cookieconsentLink]
+other = "Μάθετε περισσότερα"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "Κοινοποίηση στο"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "Περιεχόμενα"
+
+[publishedOnDate]
+other = "δημοσιεύθηκε στις {{ .Date }}"
+
+[includedInCategories]
+other = "συμπεριλαμβανεται στο {{ .Categories }}"
+
+[wordCount]
+one = "Μια λέξη"
+other = "{{ .Count }} λέξεις"
+
+[readingTime]
+one = "Ένα λεπτό"
+other = "{{ .Count }} λεπτά"
+
+[views]
+other = "προβολές"
+
+[author]
+other = "Συγγραφέας"
+
+[updatedOnDate]
+other = "Ενημερώθηκε στις {{ .Date }}"
+
+[readMarkdown]
+other = "Διαβάστε Markdown"
+
+[back]
+other = "Πίσω"
+
+[home]
+other = "Αρχική"
+
+[readMore]
+other = "Διαβάστε περισσότερα"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "Η σελίδα δεν βρέθηκε"
+
+[pageNotFoundText]
+other = "Η σελίδα που αναζητάτε δεν υπάρχει. Συγνώμη."
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "Σημείωση"
+
+[abstract]
+other = "Περίληψη"
+
+[info]
+other = "Πληροφορίες"
+
+[tip]
+other = "Συμβουλή"
+
+[success]
+other = "Επιτυχία"
+
+[question]
+other = "Ερώτηση"
+
+[warning]
+other = "Προειδοποίηση"
+
+[failure]
+other = "Αποτυχία"
+
+[danger]
+other = "Κίνδυνος"
+
+[bug]
+other = "Σφάλμα"
+
+[example]
+other = "Παράδειγμα"
+
+[quote]
+other = "Παράθεση"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "ΝΕΟ"
+
+[changed]
+other = "ΑΛΛΑΓΜΕΝΟ"
+
+[deleted]
+other = "ΔΙΑΓΡΑΜΜΕΝΟ"
+# === shortcodes/version.html ===
