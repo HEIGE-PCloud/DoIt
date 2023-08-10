@@ -37,7 +37,7 @@
     "cookieconsent": "^3.1.1",
     "echarts": "^5.4.3",
     "katex": "^0.16.8",
-    "node-fetch": "^3.3.1",
+    "node-fetch": "^3.3.2",
     "tablesort": "^5.3.0",
     "twemoji": "^14.0.2",
     "twikoo": "^1.6.17",
