@@ -1,0 +1,254 @@
+# Translations for English
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === baseof ==
+[backToTop]
+other = "ወደላይ ተመለስ"
+
+[viewComments]
+other = "አስተያየቶችን ይመልከቱ"
+# === baseof ==
+
+# === Post ===
+[posts]
+other = "ልጥፎች"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "ሁሉም {{ .Some }}"
+
+[tag]
+other = "መለያ"
+
+[tags]
+other = "መለያዎች"
+
+[category]
+other = "ምድብ"
+
+[categories]
+other = "ምድቦች"
+
+[series]
+other = "ተከታታይ"
+# === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "በቅርብ ጊዜ ዘምኗል"
+
+# === Section ===
+
+# === Pagination ===
+[more]
+other = "ተጨማሪ"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "ቋንቋ ይምረጡ"
+
+[switchTheme]
+other = "ገጽታ ቀይር"
+
+[Light]
+other = "ብርሃን"
+
+[Dark]
+other = "ጨለማ"
+
+[Black]
+other = "ጥቁር"
+
+[Auto]
+other = "ራስ"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBy]
+other = "የተጎላበተው በ {{ .Hugo }}"
+
+[hostedOn]
+other = "{{ .Host }} ላይ ተስተናግዷል"
+
+[theme]
+other = "ገጽታ - {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
+[valineLang]
+other = "am"
+
+[valinePlaceholder]
+other = "የእርስዎ አስተያየት ..."
+
+[facebookLanguageCode]
+other = "am_ET"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "ፍለጋ"
+
+[searchPlaceholder]
+other = "ርዕሶችን ወይም ይዘቶችን ይፈልጉ..."
+
+[clear]
+other = "ግልጽ"
+
+[cancel]
+other = "መሰረዝ"
+
+[noResultsFound]
+other = "ምንም ውጤቶች አልተገኙም።"
+
+[copyToClipboard]
+other = "ወደ ቅንጥብ ሰሌዳ ቅዳ"
+
+[cookieconsentMessage]
+other = "ይህ ድር ጣቢያ የእርስዎን ተሞክሮ ለማሻሻል ኩኪዎችን ይጠቀማል።"
+
+[cookieconsentDismiss]
+other = "ገባኝ!"
+
+[cookieconsentLink]
+other = "ተጨማሪ እወቅ"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "ላይ አጋራ"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "ይዘቶች"
+
+[publishedOnDate]
+other = "{{ .Date }} ላይ ታትሟል"
+
+[includedIn]
+other = "ውስጥ ተካትቷል። "
+
+[includedInAnd]
+other = "እና"
+
+[includedInCategories]
+one = "ምድብ {{ .Categories }}"
+other = "ምድቦች {{ .Categories }}"
+
+[includedInSeries]
+other = "ተከታታይ {{ .Series }}"
+
+[wordCount]
+one = "አንድ ቃል"
+other = "{{ .Count }} ቃላት"
+
+[readingTime]
+one = "አንድ ደቂቃ"
+other = "{{ .Count }} ደቂቃዎች"
+
+[views]
+other = "እይታዎች"
+
+[comments]
+other = "አስተያየቶች"
+
+[author]
+other = "ደራሲ"
+
+[updatedOnDate]
+other = "{{ .Date }} ላይ ተዘምኗል"
+
+[readMarkdown]
+other = "ምልክት ማድረጊያ ያንብቡ"
+
+[viewSource]
+other = "ምንጭ ይመልከቱ"
+
+[editThisPage]
+other = "ይህን ገጽ አርትዕ ያድርጉ"
+
+[reportThisPage]
+other = "ጉዳይ ሪፖርት አድርግ"
+
+[back]
+other = "ተመለስ"
+
+[home]
+other = "መነሻ ገጽ"
+
+[readMore]
+other = "ተጨማሪ ያንብቡ..."
+
+[outdatedInfoWarningBefore]
+other = "ይህ ጽሑፍ ለመጨረሻ ጊዜ የዘመነው "
+
+[outdatedInfoWarningAfter]
+other = ", ይዘቱ ጊዜው ያለፈበት ሊሆን ይችላል."
+
+[sponsor]
+other = "ስፖንሰር"
+
+[relatedContent]
+other = "ተዛማጅ ይዘት"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "ገጹ አልተገኘም"
+
+[pageNotFoundText]
+other = "የሚፈልጉት ገጽ የለም። አዝናለሁ."
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "ማስታወሻ"
+
+[abstract]
+other = "ረቂቅ"
+
+[info]
+other = "መረጃ"
+
+[tip]
+other = "ጠቃሚ ምክር"
+
+[success]
+other = "ስኬት"
+
+[question]
+other = "ጥያቄ"
+
+[warning]
+other = "ማስጠንቀቂያ"
+
+[failure]
+other = "ውድቀት"
+
+[danger]
+other = "አደጋ"
+
+[bug]
+other = "ሳንካ"
+
+[example]
+other = "ለምሳሌ"
+
+[quote]
+other = "ጥቅስ"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "አዲስ"
+
+[changed]
+other = "ተለውጧል"
+
+[deleted]
+other = "ተሰርዟል።"
+# === shortcodes/version.html ===
