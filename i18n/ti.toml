@@ -1,0 +1,254 @@
+# Translations for English
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === baseof ==
+[backToTop]
+other = "ናብ ላዕሊ ተመለስ"
+
+[viewComments]
+other = "ርእይቶታት ርአ"
+# === baseof ==
+
+# === Post ===
+[posts]
+other = "ጽሑፋት"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "ኩሉ {{ .Some }}"
+
+[tag]
+other = "መፍለጢ"
+
+[tags]
+other = "መፍለጢታት"
+
+[category]
+other = "ምድብ"
+
+[categories]
+other = "ምድባት"
+
+[series]
+other = "ተኸታታሊ"
+# === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "ኣብ ቀረባ እዋን ዝተመሓየሸ"
+
+# === Section ===
+
+# === Pagination ===
+[more]
+other = "ተወሳኺ"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "ቋንቋ ምረጽ"
+
+[switchTheme]
+other = "መልክዕ ቐይር"
+
+[Light]
+other = "ብርሃን"
+
+[Dark]
+other = "ጸልማት"
+
+[Black]
+other = "ጸሊም"
+
+[Auto]
+other = "ዓርሰ"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBy]
+other = "ብ {{ .Hugo }} ተሰሪሑ"
+
+[hostedOn]
+other = "ኣብ {{ .Host }} ተቐሚጡ"
+
+[theme]
+other = "መልክዕ - {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
+[valineLang]
+other = "ti"
+
+[valinePlaceholder]
+other = "ርእይቶኻ ..."
+
+[facebookLanguageCode]
+other = "ti_ET"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "ኣልሽ"
+
+[searchPlaceholder]
+other = "ኣርእስታት ወይ ትሕዝቶታት ድለዩ..."
+
+[clear]
+other = "ኣፅሪ"
+
+[cancel]
+other = "ግደፍ"
+
+[noResultsFound]
+other = "ዝተረኽበ ውጽኢት የለን"
+
+[copyToClipboard]
+other = "ናብ ቅንጥብጣብ ሰሌዳ ቅዳሕ"
+
+[cookieconsentMessage]
+other = "እዚ መርበብ ሓበሬታ እዚ ንተመኩሮኻ ንምምሕያሽ ኩኪስ ይጥቀም።"
+
+[cookieconsentDismiss]
+other = "ተረዲእኒ!"
+
+[cookieconsentLink]
+other = "ተወሳኺ ሓበሬታ"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "ናይ ሓባር"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "ትሕዝቶ"
+
+[publishedOnDate]
+other = "ኣብ {{ .Date }} ተሓቲሙ"
+
+[includedIn]
+other = "ኣብ ዝተሓወሶ "
+
+[includedInAnd]
+other = "ከምኡውን"
+
+[includedInCategories]
+one = "ምድብ {{ .Categories }}"
+other = "ምድባት {{ .Categories }}"
+
+[includedInSeries]
+other = "series {{ .Series }}"
+
+[wordCount]
+one = "ሓደ ቃል"
+other = "{{ .Count }} ቃላት"
+
+[readingTime]
+one = "ሓደ ደቒቓ"
+other = "{{ .Count }} ደቒቓታት"
+
+[views]
+other = "ኣረኣእያታት"
+
+[comments]
+other = "ርኢቶታት"
+
+[author]
+other = "ፀሓፊ"
+
+[updatedOnDate]
+other = "ኣብ {{ .Date }} ተመሓይሹ"
+
+[readMarkdown]
+other = "ማርክዳውን ኣንብብ"
+
+[viewSource]
+other = "ምንጪ ርአ"
+
+[editThisPage]
+other = "ነዚ ገጽ ኣርትዕዎ"
+
+[reportThisPage]
+other = "ጸብጻብ ጉዳይ"
+
+[back]
+other = "ተመለስ"
+
+[home]
+other = "ፋልማይ ገፅ"
+
+[readMore]
+other = "ተወሳኺ ኣንብብ..."
+
+[outdatedInfoWarningBefore]
+other = "እዚ ጽሑፍ ንመወዳእታ ግዜ ኣብ... "
+
+[outdatedInfoWarningAfter]
+other = ", እቲ ትሕዝቶ ግዜኡ ዝሓለፎ ክኸውን ይኽእል እዩ።"
+
+[sponsor]
+other = "ስፖንሰር"
+
+[relatedContent]
+other = "ተዛማዲ ትሕዝቶ"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "ገጽ ኣይተረኽበን።"
+
+[pageNotFoundText]
+other = "እቲ ትደልዮ ገጽ የለን።"
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "መዝገብ"
+
+[abstract]
+other = "መመላኽዒ"
+
+[info]
+other = "ሓበሬታ"
+
+[tip]
+other = "መቅሹሽ"
+
+[success]
+other = "ዓወት"
+
+[question]
+other = "ሕቶ"
+
+[warning]
+other = "መጠንቀቕታ"
+
+[failure]
+other = "ፍሽለት"
+
+[danger]
+other = "ሓደጋ"
+
+[bug]
+other = "ኣበር"
+
+[example]
+other = "ኣብነት"
+
+[quote]
+other = "ጥቕሲ"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "ሓድሽ"
+
+[changed]
+other = "ተለዊጡ"
+
+[deleted]
+other = "ተደምሲሱ"
+# === shortcodes/version.html ===
