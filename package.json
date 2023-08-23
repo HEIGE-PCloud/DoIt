@@ -44,7 +44,7 @@
     "valine": "^1.5.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
+    "concurrently": "^8.2.1",
     "eslint": "^8.47.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.28.0",
