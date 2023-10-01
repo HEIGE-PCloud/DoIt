@@ -125,7 +125,7 @@ other = "Şurada Paylaş"
 
 # === posts/single.html ===
 [contents]
-other = "İçerikler"
+other = "İçindekiler"
 
 [publishedOnDate]
 other = "{{ .Date }} Tarihinde yayınlandı"
