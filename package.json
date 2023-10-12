@@ -30,7 +30,7 @@
   "dependencies": {
     "@waline/client": "^2.15.8",
     "aplayer": "^1.10.1",
-    "artalk": "^2.6.3",
+    "artalk": "^2.6.4",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
     "clipboard": "^2.0.11",
