@@ -236,6 +236,7 @@ function initSearch () {
       }
       document.body.classList.add('blur')
       header.classList.add('open')
+      searchInput.focus()
     })
     // Clear the search box when clicking on the clear button
     searchClear.addEventListener('click', () => {
