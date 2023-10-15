@@ -225,7 +225,10 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
-      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => initAutosearch())
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => {
+        initAutosearch();
+        searchInput.focus();
+      })
       if (window.config?.search?.type === 'algolia') {
         loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
       } else {
@@ -233,7 +236,6 @@ function initSearch () {
       }
       document.body.classList.add('blur')
       header.classList.add('open')
-      searchInput.focus()
     })
     // Clear the search box when clicking on the clear button
     searchClear.addEventListener('click', () => {
