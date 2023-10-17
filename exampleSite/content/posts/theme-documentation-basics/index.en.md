@@ -565,7 +565,7 @@ Please open the code block below to view the complete sample configuration :(far
 
     # instant.page config
     [params.page.instantpage]
-    enable = false
+      enable = false
 
     # {{< version 0.2.0 changed >}} Comment config
     [params.page.comment]
