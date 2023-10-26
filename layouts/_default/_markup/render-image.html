@@ -1,12 +1,15 @@
+{{/* Read the config */}}
+
+{{- $imagesLinked := .Page.Params.imagesLinked | default page.Site.Params.page.imagesLinked | default true -}}
 {{- if .Title -}}
     <figure>
-        {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" true "Resources" .Page.Resources | partial "plugin/image.html" -}}
+        {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $imagesLinked "Resources" .Page.Resources | partial "plugin/image.html" -}}
         <figcaption class="image-caption">
             {{- .Title | safeHTML -}}
         </figcaption>
     </figure>
 {{- else -}}
     <figure>
-        {{- dict "Src" .Destination "Title" .Text "Linked" true "Resources" .Page.Resources | partial "plugin/image.html" -}}
+        {{- dict "Src" .Destination "Title" .Text "Linked" $imagesLinked "Resources" .Page.Resources | partial "plugin/image.html" -}}
     </figure>
 {{- end -}}

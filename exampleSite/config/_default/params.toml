@@ -182,6 +182,9 @@ cacheRemoteImages = false
   # 是否启用阅读时间估计
   enableReadingTime = true
   # Display a message at the beginning of an article to warn the reader that its content might be outdated.
+  # Whether to enable images to be linked to themselves by default
+  imagesLinked = true
+
   # 在文章开头显示提示信息，提醒读者文章内容可能过时。
   [page.outdatedArticleReminder]
     enable = false
