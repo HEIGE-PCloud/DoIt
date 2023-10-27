@@ -687,7 +687,7 @@ Please open the code block below to view the complete sample configuration :(far
         darkTheme = "dark"
         dataLang = "en"
       # {{< link "https://artalk.js.org/" "artalk" >}} comment config
-      [page.comment.artalk]
+      [params.page.comment.artalk]
         enable = false
         server = ""
         site = ""
