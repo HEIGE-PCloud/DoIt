@@ -5,9 +5,9 @@
 {{- define "content" -}}
     <div class="page archive">
         {{- /* Title */ -}}
-        <h2 class="single-title animate__animated animate__pulse animate__faster">
+        <h1 class="single-title animate__animated animate__pulse animate__faster">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
-        </h2>
+        </h1>
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
@@ -19,7 +19,7 @@
             {{- end -}}
             {{- partial "recentlyUpdated.html" . -}}
             {{- range $pages.PageGroups -}}
-                <h3 class="group-title">{{ .Key }}</h3>
+                <h2 class="group-title">{{ .Key }}</h2>
                 {{- range .Pages -}}
                     <article class="archive-item">
                         <a href="{{ .RelPermalink }}" class="archive-item-link">
