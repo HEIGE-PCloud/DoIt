@@ -567,7 +567,7 @@ hugo
       Mix = false
       Mastodon = false
 
-    # instant.page 置
+    # instant.page 设置
     [params.page.instantpage]
       enable = false
 
