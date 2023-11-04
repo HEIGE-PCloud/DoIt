@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "twikoo",
-            "version": "1.6.21",
+            "version": "1.6.22",
             "files": [
                 {
                     "remote": "dist/twikoo.all.min.js",
@@ -71,7 +71,7 @@
         },
         {
             "name": "artalk",
-            "version": "2.6.3",
+            "version": "2.6.4",
             "files": [
                 {
                     "remote": "dist/Artalk.js",

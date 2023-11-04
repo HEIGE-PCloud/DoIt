@@ -13,3 +13,7 @@
 {{- with .Site.Params.app.tileColor -}}
     <meta name="msapplication-TileColor" content="{{ . }}">
 {{- end -}}
+
+{{- with .Site.Params.social.Twitter -}}
+<meta name="twitter:creator" content="@{{ . }}" />
+{{- end -}}
