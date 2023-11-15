@@ -562,6 +562,11 @@ Please open the code block below to view the complete sample configuration :(far
       Trello = false
       Mix = false
       Mastodon = false
+
+    # instant.page config
+    [params.page.instantpage]
+      enable = false
+
     # {{< version 0.2.0 changed >}} Comment config
     [params.page.comment]
       enable = true
