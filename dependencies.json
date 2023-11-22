@@ -17,7 +17,7 @@
         },
         {
             "name": "@waline/client",
-            "version": "2.15.8",
+            "version": "3.0.0-alpha.2",
             "files": [
                 {
                     "remote": "dist/waline.css",
