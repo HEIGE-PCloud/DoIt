@@ -566,6 +566,11 @@ hugo
       Trello = false
       Mix = false
       Mastodon = false
+
+    # instant.page 设置
+    [params.page.instantpage]
+      enable = false
+
     # {{< version 0.2.0 changed >}} 评论系统设置
     [params.page.comment]
       enable = true
@@ -691,7 +696,7 @@ hugo
         darkTheme = "dark"
         dataLang = "zh-CN"
       # {{< link "https://artalk.js.org/" "artalk" >}} 评论系统设置
-      [page.comment.artalk]
+      [params.page.comment.artalk]
         enable = false
         server = ""
         site = ""

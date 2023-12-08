@@ -7,7 +7,7 @@
 other = "Başa Dön"
 
 [viewComments]
-other = "Yorumları Gör"
+other = "Yorumları Görüntüle"
 # === baseof ==
 
 # === Post ===
@@ -17,7 +17,7 @@ other = "İçerikler"
 
 # === Taxonomy ===
 [allSome]
-other = "All {{ .Some }}"
+other = "Tüm {{ .Some }}"
 
 [tag]
 other = "Etiket"
@@ -30,7 +30,17 @@ other = "Kategori"
 
 [categories]
 other = "Kategoriler"
+
+[series]
+other = "Seri"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Yakın Zamanada Güncellendi"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -39,35 +49,52 @@ other = "Daha fazla"
 
 # === partials/header.html ===
 [selectLanguage]
-other = "Dil Seç"
+other = "Dil Seçin"
 
 [switchTheme]
-other = "Switch Theme"
+other = "Temayı Değiştirin"
+
+[Light]
+other = "Aydınlık"
+
+[Dark]
+other = "Karanlık"
+
+[Black]
+other = "Siyah"
+
+[Auto]
+other = "Oto"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "{{ .Hugo }} ile yapıldı | Tema - {{ .Theme }}"
+[poweredBy]
+other = "{{ .Hugo }} tarafından desteklenir"
+
+[hostedOn]
+other = "Hosted on {{ .Host }}"
+
+[theme]
+other = "Tema - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
 [valineLang]
-other = "en"
+other = "tr"
 
 [valinePlaceholder]
-other = "Yorumun..."
+other = "yorumunuz ..."
 
 [facebookLanguageCode]
 other = "tr_TR"
-
 # === partials/comment.html ===
 
 # === partials/assets.html ===
 [search]
-other = "Arama"
+other = "Ara"
 
 [searchPlaceholder]
-other = "Başlık yada içerik arama..."
+other = "Başlık veya İçerik arayın..."
 
 [clear]
 other = "Temizle"
@@ -82,10 +109,10 @@ other = "Sonuç bulunamadı"
 other = "Panoya kopyala"
 
 [cookieconsentMessage]
-other = "Bu websitesi deneyiminizi iyileştirmek için çerezleri kullanmaktadır."
+other = "Bu websitesi deneyiminizi geliştirmek için Çerezleri kullanır."
 
 [cookieconsentDismiss]
-other = "Anladım!"
+other = "Anladım"
 
 [cookieconsentLink]
 other = "Daha fazla öğren"
@@ -98,13 +125,23 @@ other = "Şurada Paylaş"
 
 # === posts/single.html ===
 [contents]
-other = "İçerikler"
+other = "İçindekiler"
 
 [publishedOnDate]
-other = "{{ .Date }} tarihinde paylaşıldı"
+other = "{{ .Date }} Tarihinde yayınlandı"
+
+[includedIn]
+other = "kapsar "
+
+[includedInAnd]
+other = "ve"
 
 [includedInCategories]
-other = "{{ .Categories }} kategorileri içinde"
+one = "Kategori {{ .Categories }}"
+other = "{{ .Categories }} Kategorileri içinde"
+
+[includedInSeries]
+other = "seri {{ .Series }}"
 
 [wordCount]
 one = "Bir kelime"
@@ -112,19 +149,31 @@ other = "{{ .Count }} kelime"
 
 [readingTime]
 one = "One minute"
-other = "{{ .Count }} minutes"
+other = "{{ .Count }} dakika" 
 
 [views]
 other = "görüntülenme"
+
+[comments]
+other = "yorumlar"
 
 [author]
 other = "Yazar"
 
 [updatedOnDate]
-other = "{{ .Date }} tarihinde güncellendi"
+other = "{{ .Date }} Tarihinde güncellendi"
 
 [readMarkdown]
-other = "Markdown Oku"
+other = "Markdown oku"
+
+[viewSource]
+other = "Kaynağı görüntüle"
+
+[editThisPage]
+other = "Sayfayı düzenle"
+
+[reportThisPage]
+other = "Sorun bildir"
 
 [back]
 other = "Geri"
@@ -133,7 +182,19 @@ other = "Geri"
 other = "Anasayfa"
 
 [readMore]
-other = "Daha fazla oku"
+other = "Devam et..."
+
+[outdatedInfoWarningBefore]
+other = "İçeriğin son güncellendiği tarih "
+
+[outdatedInfoWarningAfter]
+other = ", içerik güncel olmayabilir."
+
+[sponsor]
+other = "Sponsor"
+
+[relatedContent]
+other = "İlgili içerik"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -141,7 +202,7 @@ other = "Daha fazla oku"
 other = "Sayfa Bulunamadı"
 
 [pageNotFoundText]
-other = "Aradığınız sayfa bulunamadı. Üzgünüz."
+other = "Aradığınız sayfa mevcut değil. Üzgünüz."
 # === 404.html ===
 
 # === shortcodes/admonition.html ===
@@ -149,7 +210,7 @@ other = "Aradığınız sayfa bulunamadı. Üzgünüz."
 other = "Not"
 
 [abstract]
-other = "Öz"
+other = "Özet"
 
 [info]
 other = "Bilgi"
