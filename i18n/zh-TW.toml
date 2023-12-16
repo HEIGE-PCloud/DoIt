@@ -189,3 +189,9 @@ other = "更改"
 [deleted]
 other = "刪除"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "第"
+
+[suffixPageNumber]
+other = "頁"

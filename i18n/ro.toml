@@ -191,3 +191,9 @@ other = "SCHIMBAT"
 [deleted]
 other = "ȘTERS"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Pagină"
+
+[suffixPageNumber]
+other = " "

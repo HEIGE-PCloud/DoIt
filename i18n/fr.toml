@@ -256,3 +256,10 @@ other = "CHANGÉ"
 [deleted]
 other = "EFFACÉ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Page"
+
+[suffixPageNumber]
+other = " "
+

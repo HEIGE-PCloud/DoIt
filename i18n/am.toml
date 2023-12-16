@@ -1,4 +1,4 @@
-# Translations for English
+# Translations for Amharic
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
 # === baseof ==
@@ -252,3 +252,9 @@ other = "ተለውጧል"
 [deleted]
 other = "ተሰርዟል።"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "ገጽ"
+
+[suffixPageNumber]
+other = " "

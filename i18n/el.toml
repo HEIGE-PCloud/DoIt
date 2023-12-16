@@ -196,3 +196,9 @@ other = "ΑΛΛΑΓΜΕΝΟ"
 [deleted]
 other = "ΔΙΑΓΡΑΜΜΕΝΟ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Σελίδα"
+
+[suffixPageNumber]
+other = " "

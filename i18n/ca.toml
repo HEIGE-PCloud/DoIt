@@ -192,3 +192,9 @@ other = "CANVIAT"
 [deleted]
 other = "SUPRIMIT"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Página"
+
+[suffixPageNumber]
+other = " "

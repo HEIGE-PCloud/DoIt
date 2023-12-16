@@ -253,3 +253,9 @@ other = "DEĞİŞTİRİLDİ"
 [deleted]
 other = "SİLİNDİ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Sayfa"
+
+[suffixPageNumber]
+other = " "

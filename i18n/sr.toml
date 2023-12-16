@@ -191,3 +191,9 @@ other = "ПРОМЕЊЕНО"
 [deleted]
 other = "ОБРИСАНО"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Страница"
+
+[suffixPageNumber]
+other = " "

@@ -1,10 +1,14 @@
 {{- define "title" -}}
-    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+    {{- if (gt .Paginator.PageNumber 1) -}}
+        {{ $pageNumber := printf "%v %v %v" (T "prefixPageNumber" ) .Paginator.PageNumber (T "suffixPageNumber" ) }}
+        {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} {{ $pageNumber }} - {{ .Site.Title -}}
+    {{- else -}}
+        {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+    {{- end -}}
 {{- end -}}
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
-
     <div class="page archive">
         {{- /* Title */ -}}
         <h2 class="single-title animate__animated animate__pulse animate__faster">
@@ -49,16 +53,11 @@
         </div>
         {{- end -}}
         {{- /* Paginate */ -}}
+        {{- /* Paginate is first call on baseof.html */ -}}
         {{- if .Pages -}}
             {{- $taxonomy := .Data.Singular -}}
             {{- if eq $taxonomy "series" -}}
-                {{- $pages := .Pages.ByParam "series_weight" -}}
-                {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                    {{- $pages = $.Paginate $pages . -}}
-                {{- else -}}
-                    {{- $pages = .Paginate $pages -}}
-                {{- end -}}
-                {{- range $pages.Pages -}}
+                {{- range .Paginator.Pages -}}
                     <article class="archive-item">
                         <a href="{{ .RelPermalink }}" class="archive-item-link">
                             {{- .Title -}}
@@ -69,13 +68,7 @@
                     </article>
                 {{- end -}}
             {{- else -}}
-                {{- $pages := .Pages.GroupByDate "2006" -}}
-                {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                    {{- $pages = $.Paginate $pages . -}}
-                {{- else -}}
-                    {{- $pages = .Paginate $pages -}}
-                {{- end -}}
-                {{- range $pages.PageGroups -}}
+                {{- range .Paginator.PageGroups -}}
                     <h3 class="group-title">{{ .Key }}</h3>
                     {{- range .Pages -}}
                         <article class="archive-item">

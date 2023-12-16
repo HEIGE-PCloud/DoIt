@@ -252,3 +252,9 @@ other = "CHANGED"
 [deleted]
 other = "DELETED"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Page"
+
+[suffixPageNumber]
+other = " "

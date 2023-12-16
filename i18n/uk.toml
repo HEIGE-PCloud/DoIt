@@ -193,3 +193,9 @@ other = "ЗМІНЕНИЙ"
 [deleted]
 other = "ВИДАЛЕНИЙ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Cторінка"
+
+[suffixPageNumber]
+other = " "

@@ -193,3 +193,9 @@ other = "మార్చబడింది"
 [deleted]
 other = "తొలగించిన"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "పుట"
+
+[suffixPageNumber]
+other = " "
