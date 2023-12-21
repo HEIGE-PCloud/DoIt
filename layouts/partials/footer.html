@@ -34,17 +34,15 @@
                 {{- if ne .Site.Params.footer.copyright false -}}
                     <i class="far fa-copyright fa-fw"></i>
                     {{- with .Site.Params.footer.since -}}
-                        <span itemprop="copyrightYear">
-                            {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
-                        </span>
+                        {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
                     {{- else -}}
-                        <span itemprop="copyrightYear">{{ now.Year }}</span>
+                       {{ now.Year }}
                     {{- end -}}
                 {{- end -}}
 
                 {{- /* Author */ -}}
                 {{- if ne .Site.Params.footer.author false -}}
-                    <span class="author" itemprop="copyrightHolder">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{ .Site.Author.name }}</a></span>
+                    <span class="author">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{ .Site.Author.name }}</a></span>
                 {{- end -}}
 
                 {{- /* License */ -}}

@@ -776,6 +776,9 @@ hugo
     image = ""
     # 缩略图 URL
     thumbnailUrl = ""
+    # {{< version 0.4.1 >}}
+    # Google 搜索结果中网站备用名字
+    alternateName = ["Hugo DoIt"]
 
   # {{< version 0.2.0 >}} 网站分析配置
   [params.analytics]

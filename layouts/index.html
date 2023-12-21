@@ -1,10 +1,9 @@
 {{- define "title" }}
-    {{- with .Scratch.Get "paginatorPager" -}}
-        {{- if gt .PageNumber 1 -}}
-            {{- T "prefixPageNumber" }} {{ .PageNumber }} {{ T "suffixPageNumber" }} - {{ $.Site.Title -}}
-        {{ else }}
-            {{- $.Site.Title -}}
-        {{- end -}}
+    {{- $paginatorPager := .Scratch.Get "paginatorPager" -}}
+    {{- if and $paginatorPager (gt $paginatorPager.PageNumber 1) -}}
+        {{- T "prefixPageNumber" }} {{ $paginatorPager.PageNumber }} {{ T "suffixPageNumber" }} - {{ $.Site.Title -}}
+    {{ else }}
+        {{- $.Site.Title -}}
     {{- end -}}
 {{- end -}}
 
