@@ -3,9 +3,10 @@ import Artalk from 'artalk'
 if (window.config?.comment) {
   const config = window.config.comment.artalk
   if (config) {
-    Artalk.init(config)
+    const artalk =  Artalk.init(config)
+    artalk.setDarkMode(window.isDark)
     window._artalkOnSwitchTheme = () => {
-      Artalk.setDarkMode(window.isDark)
+       artalk.setDarkMode(window.isDark)
     }
     window.switchThemeEventSet.add(window._artalkOnSwitchTheme)
   }
