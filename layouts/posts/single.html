@@ -146,25 +146,9 @@
 
         {{- /* Featured image */ -}}
         {{- $image := $params.featuredimage -}}
-        {{- $width := "auto" -}}
-        {{- $height := "auto" -}}
-        {{- with .Resources.GetMatch (printf "**%s" $params.featuredimage) -}}
-            {{- if eq .ResourceType "image" -}}
-                {{- $image = .RelPermalink -}}
-                {{- $width = .Width -}}
-                {{- $height = .Height -}}
-            {{- else -}}
-                {{- warnf "invalid featured image detected!" -}}
-            {{- end -}}
-        {{- end -}}
-        {{- with .Resources.GetMatch "featured-image" -}}
-            {{- $image = .RelPermalink -}}
-            {{- $width = .Width -}}
-            {{- $height = .Height -}}
-        {{- end -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height "Loading" "eager" | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}
