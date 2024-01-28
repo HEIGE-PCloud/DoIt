@@ -1,7 +1,7 @@
 {{- $lightgallery := .Page.Params.lightgallery | default site.Params.Page.lightgallery | default false -}}
 {{- if .Title -}}
     <figure>
-        {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Resources" .Page.Resources "NoOptim" false "NoRemote" false | partial "plugin/image.html" -}}
+        {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Resources" .Page.Resources "Optim" true "Remote" true | partial "plugin/image.html" -}}
         <figcaption class="image-caption">
             {{- .Title | safeHTML -}}
         </figcaption>
