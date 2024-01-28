@@ -1,0 +1,17 @@
+{{- $path:= .Path -}}
+{{- $imageResource := 0 -}}
+
+{{- with dict "Path" $path "Resources" .Resources | partial "function/resource.html" -}}
+    {{- $imageResource = . -}}
+{{- else -}}
+    {{- $url := urls.Parse .Path -}}
+    {{- if (eq site.Params.cacheRemoteImages true) | and (partial "function/isUrlRemote.html" $url) | and .Remote -}}
+        {{- $imageResource = partial "function/getRemoteImage.html" $path -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if not (and (not (eq $imageResource 0)) (eq $imageResource.ResourceType "image")) -}}
+    {{- $imageResource = 0 -}}
+{{- end -}}
+
+{{- return $imageResource -}}
