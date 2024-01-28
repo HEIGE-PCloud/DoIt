@@ -2,7 +2,6 @@
 {{- $suffixList := slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" -}}
 
 {{- if not (eq .Optim true) -}}
-    {{- warnf .Image.RelPermalink -}}
     {{- $return = dict "S" .Image "M" .Image "L" .Image "Optimized" false -}}
 {{- else if or
     (not (eq site.Params.optimizeImages true))
@@ -14,7 +13,6 @@
     {{- $m := .Image.Resize (site.Params.srcsetDefaultResizeMethod | default "1200x webp Lanczos q60") -}}
     {{- $l := .Image.Resize (site.Params.srcsetLargeResizeMethod | default "2000x webp Lanczos q60") -}}
     {{- $return = dict "S" $s "M" $m "L" $l "Optimized" true -}}
-    {{- warnf $m.RelPermalink -}}
 {{- end -}}
 
 {{- return $return -}}

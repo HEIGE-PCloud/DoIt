@@ -8,8 +8,6 @@
 {{- $width := "" -}}
 {{- $optimized := false -}}
 
-{{- warnf "%#v" .NoOptim -}}
-
 {{- with dict "Path" .Src "Resources" .Resources "Remote" $remote | partial "function/getImage.html" -}}
     {{- $output := dict "Optim" $optimize "Image" . | partial "function/imageHandler.html" -}}
     {{- $small = $output.S -}}
