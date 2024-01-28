@@ -32,7 +32,7 @@ bundle = false
 cacheRemoteImages = false
 # [Experimental] generate image srcset attribute with hugo image processing feature.
 # [试验性功能] 使用 hugo 图片处理功能生成 srcset 属性
-optimizeImages = true
+optimizeImages = false
 # [Experimental] resize method for srcset attribute in optimizeImages, more info: https://gohugo.io/content-management/image-processing/#image-processing-options
 # [实验性功能] optimizeImages 中 srcset 属性的缩放方法, 详情请见：https://gohugo.io/content-management/image-processing/#image-processing-options
 srcsetSmallResizeMethod = "700x webp Lanczos q75"
