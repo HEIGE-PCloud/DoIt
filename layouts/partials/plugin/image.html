@@ -35,16 +35,16 @@
             {{ with .Class }}class="{{ . }}"{{ end }}
             loading="{{ $loading }}"
             src="{{ $default.RelPermalink | safeURL }}"
-            {{- if eq $optimized false -}}
-            srcset="{{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x"
-            {{- else -}}
             srcset="
-                  {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-                  {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-                  {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
-            "
+            {{- if eq $optimized false -}}
+                {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
+            {{- else -}}
+                {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
+                {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
+                {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
             {{- end -}}
-            {{/*  sizes="auto" https://github.com/HEIGE-PCloud/DoIt/issues/1165  */}}
+            "
+            sizes="auto"
             alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
     </a>
 {{- else -}}
@@ -52,16 +52,15 @@
         {{ with .Class }}class="{{ . }}"{{ end }}
         loading="{{ $loading }}"
         src="{{ $default.RelPermalink | safeURL }}"
-        {{- if eq $optimized false -}}
-        srcset="{{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x"
-        {{- else -}}
         srcset="
-              {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-              {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-              {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
-        "
+        {{- if eq $optimized false -}}
+            {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
+        {{- else -}}
+            {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
+            {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
+            {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
         {{- end -}}
-        {{/*  sizes="auto" https://github.com/HEIGE-PCloud/DoIt/issues/1165  */}}
-        alt="{{ $alt }}"
+        "
+        sizes="auto"
         title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
 {{- end -}}
