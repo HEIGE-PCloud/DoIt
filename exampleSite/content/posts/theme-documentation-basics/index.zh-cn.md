@@ -695,6 +695,7 @@ hugo
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "zh-CN"
+        dataLoading = "lazy"
       # {{< link "https://artalk.js.org/" "artalk" >}} 评论系统设置
       [params.page.comment.artalk]
         enable = false
