@@ -691,6 +691,7 @@ Please open the code block below to view the complete sample configuration :(far
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
+        dataLoading = "lazy"
       # {{< link "https://artalk.js.org/" "artalk" >}} comment config
       [params.page.comment.artalk]
         enable = false
@@ -1065,8 +1066,6 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 | Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
 | Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
 | Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
-
-
 
 ### Basic Configuration
 
