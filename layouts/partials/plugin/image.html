@@ -44,7 +44,6 @@
                 {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
             {{- end -}}
             "
-            sizes="auto"
             alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
     </a>
 {{- else -}}
@@ -61,6 +60,5 @@
             {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
         {{- end -}}
         "
-        sizes="auto"
         title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
 {{- end -}}
