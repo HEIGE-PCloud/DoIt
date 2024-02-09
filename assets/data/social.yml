@@ -572,3 +572,12 @@ rss:
   Newtab: true
   Icon:
     Class: fas fa-rss fa-fw
+
+# 073: Discord
+discord:
+  Weight: 73
+  Template: https://discordapp.com/users/%v
+  Title: Discord
+  Newtab: true
+  Icon:
+    Simpleicons: discord
