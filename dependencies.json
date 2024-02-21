@@ -57,7 +57,7 @@
         },
         {
             "name": "echarts",
-            "version": "5.4.3",
+            "version": "5.5.0",
             "files": [
                 {
                     "remote": "dist/echarts.min.js",
