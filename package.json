@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "@waline/client": "^2.15.8",
+    "@waline/client": "^3.1.2",
     "aplayer": "^1.10.1",
     "artalk": "^2.8.2",
     "atomic-algolia": "^0.3.19",
