@@ -42,17 +42,20 @@
             "description": {{ . | safeHTML }},
         {{- end -}}
         {{- $image := .Site.Params.seo.image -}}
-        {{- with dict "Path" $image "Resources" .Resources | partial "function/resource.html" -}}
-            "image": {
-                "@type": "ImageObject",
-                "url": {{ .Permalink }},
-                "width": {{ .Width }},
-                "height": {{ .Height }}
-            },
-        {{- else -}}
-            {{- with $image -}}
-                "image": {{ . | absURL }},
-            {{- end -}}
+        {{- with .Site.Params.seo.image -}}
+          {{- $image := . -}}
+          {{- with dict "Path" $image "Resources" $.Resources | partial "function/resource.html" -}}
+              "image": {
+                  "@type": "ImageObject",
+                  "url": {{ .Permalink }},
+                  "width": {{ .Width }},
+                  "height": {{ .Height }}
+              },
+          {{- else -}}
+              {{- with $image -}}
+                  "image": {{ . | absURL }},
+              {{- end -}}
+          {{- end -}}
         {{- end -}}
         {{- with .Site.Params.seo.thumbnailUrl -}}
             {{- with dict "Path" . "Resources" $.Resources | partial "function/resource.html" -}}
