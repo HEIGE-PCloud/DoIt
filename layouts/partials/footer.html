@@ -1,100 +1,112 @@
 {{- if ne .Site.Params.footer.enable false -}}
-    <footer class="footer">
-        <div class="footer-container">
-            {{- /* Custom Content */ -}}
-            {{- with .Site.Params.footer.custom -}}
-                <div class="footer-line">
-                    {{- safeHTML . -}}
-                </div>
-            {{- end -}}
-
-            {{- /* Hugo, Host and DoIt */ -}}
-            {{- $post_info := slice -}}
-            {{- if ne .Site.Params.footer.hugo false -}}
-                {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo %v">Hugo</a>` hugo.Version -}}
-                {{- $e := dict "Hugo" $hugo | T "poweredBy" -}}
-                {{- $post_info = $post_info | append $e -}}
-            {{- end -}}
-            {{- with .Site.Params.footer.hostedon -}}
-                {{- $e := dict "Host" . | T "hostedOn" -}}
-                {{- $post_info = $post_info | append $e -}}
-            {{- end -}}
-            {{- if ne .Site.Params.footer.hugo false -}}
-                {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
-                {{- $e := dict "Theme" $theme | T "theme" -}}
-                {{- $post_info = $post_info | append $e -}}
-            {{- end -}}
-            {{- with $post_info -}}
-                <div class="footer-line">
-                    {{ delimit . "&nbsp;|&nbsp;" | safeHTML }}
-                </div>
-            {{- end -}}
-            <div class="footer-line">
-                {{- /* Copyright year */ -}}
-                {{- if ne .Site.Params.footer.copyright false -}}
-                    <i class="far fa-copyright fa-fw"></i>
-                    {{- with .Site.Params.footer.since -}}
-                        <span itemprop="copyrightYear">
-                            {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
-                        </span>
-                    {{- else -}}
-                        <span itemprop="copyrightYear">{{ now.Year }}</span>
-                    {{- end -}}
-                {{- end -}}
-
-                {{- /* Author */ -}}
-                {{- if ne .Site.Params.footer.author false -}}
-                    <span class="author" itemprop="copyrightHolder">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{ .Site.Author.name }}</a></span>
-                {{- end -}}
-
-                {{- /* License */ -}}
-                {{- with .Site.Params.footer.license -}}
-                    &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
-                {{- end -}}
-
-                {{- /* ICP */ -}}
-                {{- with .Site.Params.footer.icp -}}
-                    <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
-                    <span class="icp">{{ . | safeHTML }}</span>
-                {{- end -}}
-            </div>
-            <div class="footer-line">
-                {{- /* 不蒜子 */ -}}
-                {{- if eq .Site.Params.ibruce.enable true -}}
-                    {{/*  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>  */}}
-                    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline;">
-                        <span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
-                        <span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span>
-                    </span>
-                {{- end -}}
-                {{- /* CNZZ */ -}}
-                {{- if eq .Site.Params.cnzz.enable true -}}
-                    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_{{ .Site.Params.cnzz.id }}'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D{{ .Site.Params.cnzz.id }}%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-                {{- end -}}
-            </div>
-            <div class="footer-line">
-            </div>
+  <footer class="footer">
+    <div class="footer-container">
+      {{- /* Custom Content */ -}}
+      {{- with .Site.Params.footer.custom -}}
+        <div class="footer-line">
+          {{- safeHTML . -}}
         </div>
-        {{- /* PWA */ -}}
-        {{- if eq .Site.Params.enablePWA true -}}
-            {{- if eq hugo.Environment "production" -}}
-                <script>
-                    if('serviceWorker' in navigator) {
-                        navigator.serviceWorker
-                            .register('/sw.min.js', { scope: '/' })
-                            .then(function(registration) {
-                            });
-                
-                        navigator.serviceWorker
-                            .ready
-                            .then(function(registration) {
-                            });
-                    }
-                </script>
-            {{- end -}}
+      {{- end -}}
+
+      {{- /* Hugo, Host and DoIt */ -}}
+      {{- $post_info := slice -}}
+      {{- if ne .Site.Params.footer.hugo false -}}
+        {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo %v">Hugo</a>` hugo.Version -}}
+        {{- $e := dict "Hugo" $hugo | T "poweredBy" -}}
+        {{- $post_info = $post_info | append $e -}}
+      {{- end -}}
+      {{- with .Site.Params.footer.hostedon -}}
+        {{- $e := dict "Host" . | T "hostedOn" -}}
+        {{- $post_info = $post_info | append $e -}}
+      {{- end -}}
+      {{- if ne .Site.Params.footer.hugo false -}}
+        {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
+        {{- $e := dict "Theme" $theme | T "theme" -}}
+        {{- $post_info = $post_info | append $e -}}
+      {{- end -}}
+      {{- with $post_info -}}
+        <div class="footer-line">
+          {{ delimit . "&nbsp;|&nbsp;" | safeHTML }}
+        </div>
+      {{- end -}}
+      <div class="footer-line">
+        {{- /* Copyright year */ -}}
+        {{- if ne .Site.Params.footer.copyright false -}}
+          <i class="far fa-copyright fa-fw"></i>
+          {{- with .Site.Params.footer.since -}}
+            <span itemprop="copyrightYear">
+              {{- if lt . now.Year }}{{ . }} -{{ end }}{{ now.Year -}}
+            </span>
+          {{- else -}}
+            <span itemprop="copyrightYear">{{ now.Year }}</span>
+          {{- end -}}
         {{- end -}}
-       
-    </footer>
+
+        {{- /* Author */ -}}
+        {{- if ne .Site.Params.footer.author false -}}
+          <span class="author" itemprop="copyrightHolder"
+            >&nbsp;<a
+              href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ .Site.Author.name }}</a
+            ></span
+          >
+        {{- end -}}
+
+        {{- /* License */ -}}
+        {{- with .Site.Params.footer.license -}}
+          &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
+        {{- end -}}
+
+        {{- /* ICP */ -}}
+        {{- with .Site.Params.footer.icp -}}
+          <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br" />
+          <span class="icp">{{ . | safeHTML }}</span>
+        {{- end -}}
+      </div>
+      <div class="footer-line">
+        {{- /* 不蒜子 */ -}}
+        {{- if eq .Site.Params.ibruce.enable true -}}
+          {{/* <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+          */}}
+          <script
+            async
+            src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+          ></script>
+          <span
+            class="post-meta-item"
+            id="busuanzi_container_site_pv"
+            style="display: inline;"
+          >
+            <span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="site-pv" title="总访问量"
+              ><span id="busuanzi_value_site_pv"></span
+            ></span>
+          </span>
+        {{- end -}}
+        {{- /* CNZZ */ -}}
+        {{- if eq .Site.Params.cnzz.enable true -}}
+                    <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_{{ .Site.Params.cnzz.id }}'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D{{ .Site.Params.cnzz.id }}%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+        {{- end -}}
+      </div>
+      <div class="footer-line"></div>
+    </div>
+    {{- /* PWA */ -}}
+    {{- if eq .Site.Params.enablePWA true -}}
+      {{- if eq hugo.Environment "production" -}}
+        <script>
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+              .register("/sw.min.js", { scope: "/" })
+              .then(function (registration) {});
+
+            navigator.serviceWorker.ready.then(function (registration) {});
+          }
+        </script>
+      {{- end -}}
+    {{- end -}}
+
+  </footer>
 {{- end -}}

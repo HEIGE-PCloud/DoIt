@@ -1,97 +1,127 @@
 {{- $params := .Scratch.Get "params" -}}
 
+
 <div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>
-                    {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                        {{- dict "Date" . | T "updatedOnDate" -}}
-                        {{- if $.Site.Params.gitRepo -}}
-                            {{- with $.GitInfo -}}
-                                &nbsp;<a class="git-hash" href="{{ printf `%v/commit/%v` $.Site.Params.gitRepo .Hash }}" target="_blank" title="commit by {{ .AuthorName }}({{ .AuthorEmail }}) {{ .Hash }}: {{ .Subject }}" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>{{- .AbbreviatedHash -}}
-                                </a>
-                            {{- end -}}
-                        {{- end -}}
-                    {{- end -}}
-                </span>
-            </div>
-            <div class="post-info-license">
-                {{- with $params.license | string -}}
-                    <span>
-                        {{- . | safeHTML -}}
-                    </span>
-                {{- end -}}
-            </div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md">
-                {{- if  .IsPage -}}
-                    {{- $post_info := slice -}}
-                    {{- if $params.linktomarkdown -}}
-                        {{- with .OutputFormats.Get "markdown" -}}
-                            {{- $d := dict "class" "link-to-mardown" "link" .RelPermalink "text" "readMarkdown" -}}
-                            {{- $post_info = $post_info | append $d -}}
-                        {{- end -}}
-                    {{- end -}}
-                    {{- with $params.linktosource -}}
-                        {{- $link := replace . "{path}" $.File.Path -}}
-                        {{- $d := dict "class" "link-to-source" "link" $link "text" "viewSource" -}}
-                        {{- $post_info = $post_info | append $d -}}
-                    {{- end -}}
-                    {{- with $params.linktoedit -}}
-                        {{- $link := replace . "{path}" $.File.Path -}}
-                        {{- $d := dict "class" "link-to-edit" "link" $link "text" "editThisPage" -}}
-                        {{- $post_info = $post_info | append $d -}}
-                    {{- end -}}
-                    {{- with $params.linktoreport -}}
-                        {{- $link := replace . "{title}" ($.Title | urlquery) -}}
-                        {{- $link := replace $link "{url}" $.Permalink -}}
-                        {{- $link := replace $link "{path}" $.File.Path -}}
-                        {{- $d := dict "class" "link-to-report" "link" $link "text" "reportThisPage" -}}
-                        {{- $post_info = $post_info | append $d -}}
-                    {{- end -}}
-                    {{- range $index, $value := $post_info -}}
-                    <span>
-                        {{- if gt $index 0 -}}
-                            |&nbsp;
-                        {{- end -}}
-                        <a class="{{ $value.class }}" {{ printf "href=%v" $value.link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
-                            {{- T $value.text -}}
-                        </a>
-                    </span>
-                    {{- end -}}
-                {{- end -}}
-            </div>
-            <div class="post-info-share">
-                {{- partial "plugin/share.html" . -}}
-            </div>
-        </div>
-    </div>
-
-    <div class="post-info-more">
-        <section class="post-tags">
-            {{- with .Params.tags -}}
-                <i class="fas fa-tags fa-fw"></i>&nbsp;
-                {{- range $index, $value := . -}}
-                    {{- if gt $index 0 }},&nbsp;{{ end -}}
-                    {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
-                    <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
-                {{- end -}}
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span>
+          {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
+            {{- dict "Date" . | T "updatedOnDate" -}}
+            {{- if $.Site.Params.gitRepo -}}
+              {{- with $.GitInfo -}}
+                &nbsp;<a
+                  class="git-hash"
+                  href="{{ printf `%v/commit/%v` $.Site.Params.gitRepo .Hash }}"
+                  target="_blank"
+                  title="commit by {{ .AuthorName }}({{ .AuthorEmail }}) {{ .Hash }}: {{ .Subject }}"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-hashtag fa-fw"></i>{{- .AbbreviatedHash -}}
+                </a>
+              {{- end -}}
             {{- end -}}
-        </section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">{{ T "back" }}</a></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ T "home" }}</a></span>
-        </section>
+          {{- end -}}
+        </span>
+      </div>
+      <div class="post-info-license">
+        {{- with $params.license | string -}}
+          <span>
+            {{- . | safeHTML -}}
+          </span>
+        {{- end -}}
+      </div>
     </div>
+    <div class="post-info-line">
+      <div class="post-info-md">
+        {{- if  .IsPage -}}
+          {{- $post_info := slice -}}
+          {{- if $params.linktomarkdown -}}
+            {{- with .OutputFormats.Get "markdown" -}}
+              {{- $d := dict "class" "link-to-mardown" "link" .RelPermalink "text" "readMarkdown" -}}
+              {{- $post_info = $post_info | append $d -}}
+            {{- end -}}
+          {{- end -}}
+          {{- with $params.linktosource -}}
+            {{- $link := replace . "{path}" $.File.Path -}}
+            {{- $d := dict "class" "link-to-source" "link" $link "text" "viewSource" -}}
+            {{- $post_info = $post_info | append $d -}}
+          {{- end -}}
+          {{- with $params.linktoedit -}}
+            {{- $link := replace . "{path}" $.File.Path -}}
+            {{- $d := dict "class" "link-to-edit" "link" $link "text" "editThisPage" -}}
+            {{- $post_info = $post_info | append $d -}}
+          {{- end -}}
+          {{- with $params.linktoreport -}}
+            {{- $link := replace . "{title}" ($.Title | urlquery) -}}
+            {{- $link := replace $link "{url}" $.Permalink -}}
+            {{- $link := replace $link "{path}" $.File.Path -}}
+            {{- $d := dict "class" "link-to-report" "link" $link "text" "reportThisPage" -}}
+            {{- $post_info = $post_info | append $d -}}
+          {{- end -}}
+          {{- range $index, $value := $post_info -}}
+            <span>
+              {{- if gt $index 0 -}}
+                |&nbsp;
+              {{- end -}}
+              <a
+                class="{{ $value.class }}"
+                {{ printf "href=%v" $value.link | safeHTMLAttr }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{- T $value.text -}}
+              </a>
+            </span>
+          {{- end -}}
+        {{- end -}}
+      </div>
+      <div class="post-info-share">
+        {{- partial "plugin/share.html" . -}}
+      </div>
+    </div>
+  </div>
 
-    <div class="post-nav">
-        {{- if .PrevInSection -}}
-            <a href="{{ .PrevInSection.RelPermalink }}" class="prev" rel="prev" title="{{ .PrevInSection.Title }}"><i class="fas fa-angle-left fa-fw"></i>{{ .PrevInSection.Title }}</a>
+  <div class="post-info-more">
+    <section class="post-tags">
+      {{- with .Params.tags -}}
+        <i class="fas fa-tags fa-fw"></i>&nbsp;
+        {{- range $index, $value := . -}}
+          {{- if gt $index 0 }},&nbsp;{{ end -}}
+          {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+          <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
         {{- end -}}
-        {{ if .NextInSection }}
-            <a href="{{ .NextInSection.RelPermalink }}" class="next" rel="next" title="{{ .NextInSection.Title }}">{{ .NextInSection.Title }}<i class="fas fa-angle-right fa-fw"></i></a>
-        {{- end -}}
-    </div>
+      {{- end -}}
+    </section>
+    <section>
+      <span
+        ><a href="javascript:void(0);" onclick="window.history.back();"
+          >{{ T "back" }}</a
+        ></span
+      >&nbsp;|&nbsp;<span
+        ><a href="{{ .Site.Home.RelPermalink }}">{{ T "home" }}</a></span
+      >
+    </section>
+  </div>
+
+  <div class="post-nav">
+    {{- if .PrevInSection -}}
+      <a
+        href="{{ .PrevInSection.RelPermalink }}"
+        class="prev"
+        rel="prev"
+        title="{{ .PrevInSection.Title }}"
+        ><i class="fas fa-angle-left fa-fw"></i>{{ .PrevInSection.Title }}</a
+      >
+    {{- end -}}
+    {{ if .NextInSection }}
+      <a
+        href="{{ .NextInSection.RelPermalink }}"
+        class="next"
+        rel="next"
+        title="{{ .NextInSection.Title }}"
+        >{{ .NextInSection.Title }}<i class="fas fa-angle-right fa-fw"></i
+      ></a>
+    {{- end -}}
+  </div>
 </div>

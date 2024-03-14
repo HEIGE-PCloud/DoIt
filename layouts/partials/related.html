@@ -3,42 +3,42 @@
 {{ $related := first $params.related.count (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
 {{ with $related }}
 
-<h2>{{- T "relatedContent" -}}</h2>
-<div class="related-container">
+  <h2>{{- T "relatedContent" -}}</h2>
+  <div class="related-container">
     {{ range . }}
-        {{- $params := .Params | merge .Site.Params.page -}}
-        <div class="related-item-container">
-            {{ $relPermalink := .RelPermalink}}
-            {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
-            {{- $height := "auto" -}}
-            {{- $width := "auto" -}}
-            {{- with .Resources.GetMatch (printf "%s" ($image)) -}}
-                {{- $image = .RelPermalink -}}
-                {{- $height = .Height -}}
-                {{- $width = .Width -}}
-            {{- end -}}
-            {{- with .Resources.GetMatch "featured-image" -}}
-                {{- $image = .RelPermalink -}}
-                {{- $height = .Height -}}
-                {{- $width = .Width -}}
-            {{- end -}}
-            {{- with .Resources.GetMatch "featured-image-preview" -}}
-                {{- $image = .RelPermalink -}}
-                {{- $height = .Height -}}
-                {{- $width = .Width -}}
-            {{- end -}}
-            {{- with $image -}}
-            <div class="related-image">
-                <a href="{{ $relPermalink }}">
-                    {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $.Description | partial "plugin/image.html" -}}
-                </a>
-            </div>
-            {{- end -}}
-            <h2 class="related-title">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h2>
-        </div>
+      {{- $params := .Params | merge .Site.Params.page -}}
+      <div class="related-item-container">
+        {{ $relPermalink := .RelPermalink }}
+        {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+        {{- $height := "auto" -}}
+        {{- $width := "auto" -}}
+        {{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+          {{- $image = .RelPermalink -}}
+          {{- $height = .Height -}}
+          {{- $width = .Width -}}
+        {{- end -}}
+        {{- with .Resources.GetMatch "featured-image" -}}
+          {{- $image = .RelPermalink -}}
+          {{- $height = .Height -}}
+          {{- $width = .Width -}}
+        {{- end -}}
+        {{- with .Resources.GetMatch "featured-image-preview" -}}
+          {{- $image = .RelPermalink -}}
+          {{- $height = .Height -}}
+          {{- $width = .Width -}}
+        {{- end -}}
+        {{- with $image -}}
+          <div class="related-image">
+            <a href="{{ $relPermalink }}">
+              {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $.Description | partial "plugin/image.html" -}}
+            </a>
+          </div>
+        {{- end -}}
+        <h2 class="related-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+      </div>
     {{ end }}
 
-</div>
+  </div>
 {{ end }}

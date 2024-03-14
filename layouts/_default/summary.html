@@ -1,89 +1,90 @@
 {{- $params := .Params | merge .Site.Params.page -}}
 
+
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
-    {{- /* Featured image */ -}}
-    {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
-    {{- with $image -}}
-        <div class="featured-image-preview">
-            <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
-            </a>
-        </div>
+  {{- /* Featured image */ -}}
+  {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+  {{- with $image -}}
+    <div class="featured-image-preview">
+      <a href="{{ $.RelPermalink }}" aria-label="{{ $.Title }}">
+        {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
+      </a>
+    </div>
+  {{- end -}}
+
+  {{- /* Title */ -}}
+  <h1 class="single-title" itemprop="name headline">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h1>
+
+  {{- /* Meta */ -}}
+  <div class="post-meta">
+    <span class="post-author">
+      {{- partial "meta/author" . }}
+    </span>
+
+    {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+      &nbsp;<span class="post-publish">
+        {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+      </span>
     {{- end -}}
 
-    {{- /* Title */ -}}
-    <h1 class="single-title" itemprop="name headline">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h1>
-
-    {{- /* Meta */ -}}
-    <div class="post-meta">
-        <span class="post-author">
-            {{- partial "meta/author" . }}
-        </span>
-
-        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
-            &nbsp;<span class="post-publish">
-                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
-            </span>
-        {{- end -}}
-
-        {{- with (or (.Params.categories) (.Params.series)) -}}
-        &nbsp;<span class="post-category">
-            {{- T "includedIn" | safeHTML -}}
-        </span>
+    {{- with (or (.Params.categories) (.Params.series)) -}}
+      &nbsp;<span class="post-category">
+        {{- T "includedIn" | safeHTML -}}
+      </span>
     {{- end -}}
-    
+
     {{- $categories := slice -}}
     {{- range .Params.categories -}}
-        {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
-        {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
+      {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
+      {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
     {{- end -}}
     {{- with delimit $categories "&nbsp;" -}}
-        &nbsp;<span class="post-category">
-            {{- dict "Categories" . "Count" (len $categories) | T "includedInCategories" | safeHTML -}}
-        </span>
+      &nbsp;<span class="post-category">
+        {{- dict "Categories" . "Count" (len $categories) | T "includedInCategories" | safeHTML -}}
+      </span>
     {{- end -}}
-    
+
     {{- with (and (.Params.categories) (.Params.series)) -}}
-        &nbsp;<span class="post-category">
-            {{- T "includedInAnd" | safeHTML -}}
-        </span>
+      &nbsp;<span class="post-category">
+        {{- T "includedInAnd" | safeHTML -}}
+      </span>
     {{- end -}}
 
     {{- $series := slice -}}
     {{- range .Params.series -}}
-        {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
-        {{- $series = $series | append (printf `<a href="%v"><i class="far fa-list-alt fa-fw"></i>%v</a>` $singleSeries.RelPermalink $singleSeries.Title) -}}
+      {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
+      {{- $series = $series | append (printf `<a href="%v"><i class="far fa-list-alt fa-fw"></i>%v</a>` $singleSeries.RelPermalink $singleSeries.Title) -}}
     {{- end -}}
     {{- with delimit $series "&nbsp;" -}}
-        &nbsp;<span class="post-series">
-            {{- dict "Series" . | T "includedInSeries" | safeHTML -}}
-        </span>
+      &nbsp;<span class="post-series">
+        {{- dict "Series" . | T "includedInSeries" | safeHTML -}}
+      </span>
     {{- end -}}
-    </div>
+  </div>
 
-    {{- /* Summary content */ -}}
-    <div class="content">
-        {{- with .Summary -}}
-            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-        {{- else -}}
-            {{- .Description | safeHTML -}}
-        {{- end -}}
-    </div>
+  {{- /* Summary content */ -}}
+  <div class="content">
+    {{- with .Summary -}}
+      {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+    {{- else -}}
+      {{- .Description | safeHTML -}}
+    {{- end -}}
+  </div>
 
-    {{- /* Footer */ -}}
-    <div class="post-footer">
-        <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
-        {{- with .Params.tags -}}
-            <div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;
-                {{- range $index, $value := . -}}
-                    {{- if gt $index 0 }},&nbsp;{{ end -}}
-                    {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
-                    <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
-                {{- end -}}
-            </div>
+  {{- /* Footer */ -}}
+  <div class="post-footer">
+    <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
+    {{- with .Params.tags -}}
+      <div class="post-tags">
+        <i class="fas fa-tags fa-fw"></i>&nbsp;
+        {{- range $index, $value := . -}}
+          {{- if gt $index 0 }},&nbsp;{{ end -}}
+          {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+          <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
         {{- end -}}
-    </div>
+      </div>
+    {{- end -}}
+  </div>
 </article>

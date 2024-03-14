@@ -1,13 +1,13 @@
 {{- with .Class -}}
-    <span class="{{ . }}"></span>
+  <span class="{{ . }}"></span>
 {{- else -}}
-    {{- $src := .Src -}}
-    {{- with .Simpleicons -}}
-        {{- $prefix := $.Prefix | default "lib/simple-icons/icons" | strings.TrimSuffix "/" -}}
-        {{- $src = printf "%v/%v.svg" $prefix . -}}
-    {{- end -}}
-    {{- if (urls.Parse $src).Host | not -}}
-        {{- $src = (resources.Get $src | minify).RelPermalink -}}
-    {{- end -}}
-    <span data-svg-src="{{ $src }}"></span>
+  {{- $src := .Src -}}
+  {{- with .Simpleicons -}}
+    {{- $prefix := $.Prefix | default "lib/simple-icons/icons" | strings.TrimSuffix "/" -}}
+    {{- $src = printf "%v/%v.svg" $prefix . -}}
+  {{- end -}}
+  {{- if (urls.Parse $src).Host | not -}}
+    {{- $src = (resources.Get $src | minify).RelPermalink -}}
+  {{- end -}}
+  <span data-svg-src="{{ $src }}"></span>
 {{- end -}}

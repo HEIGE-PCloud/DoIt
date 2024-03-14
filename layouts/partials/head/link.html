@@ -2,36 +2,47 @@
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 
 {{- if not .Site.Params.app.noFavicon -}}
-    {{- with .Site.Params.app.svgFavicon -}}
-        <link rel="icon" href="{{ . }}">
-    {{- else -}}
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    {{- end -}}
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    {{- with .Site.Params.app.iconColor -}}
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ . }}">
-    {{- end -}}
-    {{- if eq .Site.Params.enablePWA true -}}
-        <link rel="manifest" href="/site.webmanifest">
-    {{- end -}}
+  {{- with .Site.Params.app.svgFavicon -}}
+    <link rel="icon" href="{{ . }}" />
+  {{- else -}}
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  {{- end -}}
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  {{- with .Site.Params.app.iconColor -}}
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ . }}" />
+  {{- end -}}
+  {{- if eq .Site.Params.enablePWA true -}}
+    <link rel="manifest" href="/site.webmanifest" />
+  {{- end -}}
 {{- end -}}
+
 
 <link rel="canonical" href="{{ .Permalink }}" />
 {{- if .PrevInSection -}}
-    <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
+  <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
 {{- end -}}
 {{- if .NextInSection -}}
-    <link rel="next" href="{{ .NextInSection.Permalink }}" />
+  <link rel="next" href="{{ .NextInSection.Permalink }}" />
 {{- end -}}
 
 {{- with .OutputFormats.Get "RSS" -}}
-    <link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
-    <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
+  <link
+    rel="alternate"
+    href="{{ .RelPermalink }}"
+    type="application/rss+xml"
+    title="{{ $.Site.Title }}"
+  />
+  <link
+    rel="feed"
+    href="{{ .RelPermalink }}"
+    type="application/rss+xml"
+    title="{{ $.Site.Title }}"
+  />
 {{- end -}}
 
-{{/*  tailwind.css  */}}
+{{/* tailwind.css */}}
 {{ $style := dict "Source" "css/main.css" "Fingerprint" $fingerprint }}
 {{- partial "plugin/style.html" $style -}}
 
@@ -40,7 +51,7 @@
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
 {{- partial "plugin/style.html" $style -}}
 
-{{/*  color.min.css  */}}
+{{/* color.min.css */}}
 {{- $style := dict "Source" "css/color.css" "Fingerprint" $fingerprint "Defer" false -}}
 {{- partial "plugin/style.html" $style -}}
 
@@ -61,9 +72,9 @@
 {{- partial "plugin/style.html" $style -}}
 
 {{- if .Site.Params.enablePWA | and hugo.IsProduction -}}
-    {{ $options := dict }}
-    {{ $options = dict "targetPath" "sw.min.js" | merge $options }}
-    {{ $options = dict "minify" true | merge $options }}
-    {{ $js := resources.Get "js/sw.js" | js.Build $options }}
-    {{ $_ := $js.RelPermalink }}
+  {{ $options := dict }}
+  {{ $options = dict "targetPath" "sw.min.js" | merge $options }}
+  {{ $options = dict "minify" true | merge $options }}
+  {{ $js := resources.Get "js/sw.js" | js.Build $options }}
+  {{ $_ := $js.RelPermalink }}
 {{- end -}}

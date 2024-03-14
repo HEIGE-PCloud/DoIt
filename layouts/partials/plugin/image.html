@@ -9,56 +9,77 @@
 {{- $optimized := false -}}
 
 {{- with dict "Path" .Src "Resources" .Resources "Remote" $remote | partial "function/getImage.html" -}}
-    {{- $output := dict "Optim" $optimize "Image" . | partial "function/imageHandler.html" -}}
-    {{- $small = $output.S -}}
-    {{- $default = $output.M -}}
-    {{- $large = $output.L -}}
-    {{- $optimized = $output.Optimized -}}
-    {{- $height = $default.Height -}}
-    {{- $width = $default.Width -}}
+  {{- $output := dict "Optim" $optimize "Image" . | partial "function/imageHandler.html" -}}
+  {{- $small = $output.S -}}
+  {{- $default = $output.M -}}
+  {{- $large = $output.L -}}
+  {{- $optimized = $output.Optimized -}}
+  {{- $height = $default.Height -}}
+  {{- $width = $default.Width -}}
 {{- end -}}
 
 {{- $alt := .Alt | default .Title | default .Src -}}
 {{- $loading := .Loading | default "lazy" -}}
 
 {{- with .Height -}}
-    {{- $height = . -}}
+  {{- $height = . -}}
 {{- end -}}
 
 {{- with .Width -}}
-    {{- $width = . -}}
+  {{- $width = . -}}
 {{- end -}}
 
 {{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large.RelPermalink | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small.RelPermalink | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
-        <img
-            {{ with .Class }}class="{{ . }}"{{ end }}
-            loading="{{ $loading }}"
-            src="{{ $default.RelPermalink | safeURL }}"
-            srcset="
-            {{- if eq $optimized false -}}
-                {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
-            {{- else -}}
-                {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-                {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-                {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
-            {{- end -}}
-            "
-            alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
-    </a>
-{{- else -}}
+  <a
+    class="lightgallery"
+    href="{{ $large.RelPermalink | safeURL }}"
+    title="{{ .Title | default $alt }}"
+    data-thumbnail="{{ $small.RelPermalink | safeURL }}"
+    {{ with .Caption }}
+      data-sub-html="
+      <h2>{{ . }}</h2>
+      {{ with $.Title }}<p>{{ . }}</p>{{ end }}"
+    {{ end }}{{ with .Rel }}rel="{{ . }}"{{ end }}
+  >
     <img
-        {{ with .Class }}class="{{ . }}"{{ end }}
-        loading="{{ $loading }}"
-        src="{{ $default.RelPermalink | safeURL }}"
-        srcset="
+      {{ with .Class }}class="{{ . }}"{{ end }}
+      loading="{{ $loading }}"
+      src="{{ $default.RelPermalink | safeURL }}"
+      srcset="
         {{- if eq $optimized false -}}
-            {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
+          {{ $small.RelPermalink | safeURL }},
+          {{ $default.RelPermalink | safeURL }} 1.5x,
+          {{ $large.RelPermalink | safeURL }} 2x
         {{- else -}}
-            {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-            {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-            {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
+          {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
+          {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
+          {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
         {{- end -}}
-        "
-        title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
+      "
+      alt="{{ $alt }}"
+      {{ with $height }}height="{{ . }}"{{ end }}{{ with $width }}
+        width="{{ . }}"
+      {{ end }}
+    />
+  </a>
+{{- else -}}
+  <img
+    {{ with .Class }}class="{{ . }}"{{ end }}
+    loading="{{ $loading }}"
+    src="{{ $default.RelPermalink | safeURL }}"
+    srcset="
+      {{- if eq $optimized false -}}
+        {{ $small.RelPermalink | safeURL }},
+        {{ $default.RelPermalink | safeURL }} 1.5x,
+        {{ $large.RelPermalink | safeURL }} 2x
+      {{- else -}}
+        {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
+        {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
+        {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
+      {{- end -}}
+    "
+    title="{{ .Title | default $alt }}"
+    {{ with $height }}height="{{ . }}"{{ end }}
+    {{ with $width }}width="{{ . }}"{{ end }}
+  />
 {{- end -}}
