@@ -915,7 +915,6 @@ optimizeImages = true
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
-  taxonomyTerm = ["HTML"]
 
 # 用于分类的设置
 [taxonomies]
