@@ -1,34 +1,36 @@
 {{- $icon := dict "Class" "author fas fa-user-circle fa-fw" }}
 {{- if .Params.authors -}}
-    {{- $lang := ( $.Params.lang | default $.Lang ) -}}
-    <span class='author'>
-        {{- partial "plugin/icon.html" $icon -}}
-        <span class='screen-reader-text'> {{ i18n "by" }} </span>
-        {{- range $i, $name := .Params.authors -}}
-            {{- if $.Site.Data.authors -}}
-                {{- with partial "function/author.html" (dict
-                    "name" $name
-                    "author" (index $.Site.Data.authors $name)
-                    "lang" $lang
-                ) -}}
-                    {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'>{{- .name -}}</a>
-                {{- end -}}
-            {{- else -}}
-                {{- with partial "function/author.html" (dict
-                    "name" $name
-                    "lang" $lang
-                ) -}}
-                    {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'>{{- .name -}}</a>
-                {{- end -}}
-            {{- end -}}
-        {{- end -}}
-    </span>
-{{- else -}}
-    {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
-    {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
-    {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Content" $author -}}
+  {{- $lang := ( $.Params.lang | default $.Lang ) -}}
+  <span class="author">
     {{- partial "plugin/icon.html" $icon -}}
-    {{- partial "plugin/link.html" $options -}}
+    <span class="screen-reader-text"> {{ i18n "by" }} </span>
+    {{- range $i, $name := .Params.authors -}}
+      {{- if $.Site.Data.authors -}}
+        {{- with partial "function/author.html" (dict
+          "name" $name
+          "author" (index $.Site.Data.authors $name)
+          "lang" $lang
+          )
+        -}}
+          {{- if gt $i 0 }},{{ end -}}
+          <a href="{{ .link | absURL }}">{{- .name -}}</a>
+        {{- end -}}
+      {{- else -}}
+        {{- with partial "function/author.html" (dict
+          "name" $name
+          "lang" $lang
+          )
+        -}}
+          {{- if gt $i 0 }},{{ end -}}
+          <a href="{{ .link | absURL }}">{{- .name -}}</a>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  </span>
+{{- else -}}
+  {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
+  {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+  {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Content" $author -}}
+  {{- partial "plugin/icon.html" $icon -}}
+  {{- partial "plugin/link.html" $options -}}
 {{- end -}}

@@ -3,18 +3,18 @@
 
 {{- $valid := false -}}
 {{- if not (eq $suffixList false) -}}
-    {{- $valid = (dict "Path" . "Suffixes" $suffixList | partial "function/suffixValidation.html") -}}
+  {{- $valid = (dict "Path" . "Suffixes" $suffixList | partial "function/suffixValidation.html") -}}
 {{- end -}}
 
 {{- if (eq $suffixList false) | or $valid -}}
-    {{- with $remoteResource := resources.GetRemote . -}}
-        {{- with .Err -}}
-            {{- warnf "%s" . -}}
-        {{ else }}
-            {{- if eq $remoteResource.ResourceType "image" -}}
-                {{- $resource = $remoteResource -}}
-            {{- end -}}
-        {{- end -}}
+  {{- with $remoteResource := resources.GetRemote . -}}
+    {{- with .Err -}}
+      {{- warnf "%s" . -}}
+    {{ else }}
+      {{- if eq $remoteResource.ResourceType "image" -}}
+        {{- $resource = $remoteResource -}}
+      {{- end -}}
     {{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- return $resource -}}

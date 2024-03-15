@@ -1,20 +1,16 @@
 {{- $resource := 0 -}}
 {{- $url := urls.Parse .Path -}}
-{{- if not $url.Host | and $url.Path | and (strings.HasSuffix $url.Path "/" | not) -}}
-    {{- if .Resources -}}
-        {{- with .Resources.GetMatch $url.Path -}}
-            {{- $resource = . -}}
-        {{- end -}}
+{{- if not (partial "function/isUrlRemote.html" $url) -}}
+  {{- if .Resources -}}
+    {{- with .Resources.GetMatch $url.Path -}}
+      {{- $resource = . -}}
     {{- end -}}
-    {{- if not $resource -}}
-        {{- with resources.Get $url.Path -}}
-            {{- $resource = . -}}
-        {{- end -}}
+  {{- end -}}
+  {{- if not $resource -}}
+    {{- with resources.Get $url.Path -}}
+      {{- $resource = . -}}
     {{- end -}}
-{{- else -}}
-    {{- if eq site.Params.cacheRemoteImages true -}}
-        {{- $resource = partial "function/getRemoteImage.html" .Path -}}
-    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- return $resource -}}

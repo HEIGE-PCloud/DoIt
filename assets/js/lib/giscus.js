@@ -14,6 +14,7 @@ if (window.config?.comment?.giscus) {
   script.setAttribute('data-theme', window.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme)
   script.setAttribute('data-lang', giscusConfig.dataLang)
   script.setAttribute('data-strict', giscusConfig.dataStrict)
+  script.setAttribute('data-loading', giscusConfig.dataLoading)
   script.crossOrigin = 'anonymous'
   script.async = true
   document.getElementById('giscus').appendChild(script)

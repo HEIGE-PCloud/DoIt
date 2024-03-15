@@ -217,8 +217,14 @@ hugo
   images = ["/logo.png"]
   # {{< version 0.2.11 >}} 开启 PWA 支持
   enablePWA = false
-  # [试验性功能] 缓存图床图片，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-  cacheRemoteImages = false
+  # [试验性功能] 缓存markdown中的图片链接到本地，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+  cacheRemoteImages = true
+  # [试验性功能] 使用 hugo 自带的图片处理功能生成 srcset 属性
+optimizeImages = true
+  # [实验性功能] optimizeImages 中 srcset 属性的缩放方法, 详情请见：https://gohugo.io/content-management/image-processing/#image-processing-options
+  srcsetSmallResizeMethod = "700x webp Lanczos q75"
+  srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
+  srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # {{< version 0.2.14 >}} 版权信息
   license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   # {{< version 0.2.0 >}} 应用图标配置
@@ -695,6 +701,7 @@ hugo
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "zh-CN"
+        dataLoading = "lazy"
       # {{< link "https://artalk.js.org/" "artalk" >}} 评论系统设置
       [params.page.comment.artalk]
         enable = false
@@ -908,7 +915,6 @@ hugo
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
-  taxonomyTerm = ["HTML"]
 
 # 用于分类的设置
 [taxonomies]

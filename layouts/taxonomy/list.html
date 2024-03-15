@@ -1,95 +1,109 @@
 {{- define "title" -}}
-    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+  {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} -
+  {{ .Site.Title -}}
 {{- end -}}
 
 {{- define "content" -}}
-    {{- $params := .Scratch.Get "params" -}}
+  {{- $params := .Scratch.Get "params" -}}
 
-    <div class="page archive">
-        {{- /* Title */ -}}
-        <h2 class="single-title animate__animated animate__pulse animate__faster">
-            {{- $taxonomy := .Data.Singular -}}
-            {{- if eq $taxonomy "category" -}}
-                <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
-            {{- else if eq $taxonomy "tag" -}}
-                <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
-            {{- else if eq $taxonomy "author" -}}
-                {{- $icon := dict "Class" "author fas fa-user fa-fw" }}
-                {{- partial "plugin/icon.html" $icon -}}
 
-                {{- .Scratch.Set "name" .Title -}}
-                {{- if $.Site.Data.authors -}}
-                    {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
-                        {{- .name | safeHTML -}}
-                        <br>
-                        {{- if .absLink -}}
-                            <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon fa fa-link fa-fw"></i>
-                            </a>
-                            {{- end -}}
-                        {{- if .email -}}
-                            <a class="author-link-icon" href="mailto:{{ .email }}" title="Email" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon far fa-envelope fa-fw"></i>
-                            </a>
-                        {{- end -}}
-                    {{- end -}}
-                {{- else -}}
-                    {{- .Title | safeHTML -}}
-                {{- end -}}
-            {{- else -}}
-                {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
+  <div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animate__animated animate__pulse animate__faster">
+      {{- $taxonomy := .Data.Singular -}}
+      {{- if eq $taxonomy "category" -}}
+        <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
+      {{- else if eq $taxonomy "tag" -}}
+        <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
+      {{- else if eq $taxonomy "author" -}}
+        {{- $icon := dict "Class" "author fas fa-user fa-fw" }}
+        {{- partial "plugin/icon.html" $icon -}}
+
+        {{- .Scratch.Set "name" .Title -}}
+        {{- if $.Site.Data.authors -}}
+          {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
+            {{- .name | safeHTML -}}
+            <br />
+            {{- if .absLink -}}
+              <a
+                class="author-link-icon"
+                href="{{ .absLink }}"
+                title="Link"
+                rel="icon noopener noreferrer"
+                target="_blank"
+              >
+                <i class="author-link-icon fa fa-link fa-fw"></i>
+              </a>
             {{- end -}}
-        </h2>
-        {{- /* Introduction*/ -}}
-        {{- if .Content -}}
-        <div class="introduction">
-            <blockquote>
-                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-            </blockquote>
-        </div>
-        {{- end -}}
-        {{- /* Paginate */ -}}
-        {{- if .Pages -}}
-            {{- $taxonomy := .Data.Singular -}}
-            {{- if eq $taxonomy "series" -}}
-                {{- $pages := .Pages.ByParam "series_weight" -}}
-                {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                    {{- $pages = $.Paginate $pages . -}}
-                {{- else -}}
-                    {{- $pages = .Paginate $pages -}}
-                {{- end -}}
-                {{- range $pages.Pages -}}
-                    <article class="archive-item">
-                        <a href="{{ .RelPermalink }}" class="archive-item-link">
-                            {{- .Title -}}
-                        </a>
-                        <span class="archive-item-date">
-                            {{- $.Site.Params.dateFormat | default "2006-01-02" | .Date.Format -}}
-                        </span>
-                    </article>
-                {{- end -}}
-            {{- else -}}
-                {{- $pages := .Pages.GroupByDate "2006" -}}
-                {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
-                    {{- $pages = $.Paginate $pages . -}}
-                {{- else -}}
-                    {{- $pages = .Paginate $pages -}}
-                {{- end -}}
-                {{- range $pages.PageGroups -}}
-                    <h3 class="group-title">{{ .Key }}</h3>
-                    {{- range .Pages -}}
-                        <article class="archive-item">
-                            <a href="{{ .RelPermalink }}" class="archive-item-link">
-                                {{- .Title -}}
-                            </a>
-                            <span class="archive-item-date">
-                                {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
-                            </span>
-                        </article>
-                    {{- end -}}
-                {{- end -}}
+            {{- if .email -}}
+              <a
+                class="author-link-icon"
+                href="mailto:{{ .email }}"
+                title="Email"
+                rel="icon noopener noreferrer"
+                target="_blank"
+              >
+                <i class="author-link-icon far fa-envelope fa-fw"></i>
+              </a>
             {{- end -}}
-            {{- partial "paginator.html" . -}}
+          {{- end -}}
+        {{- else -}}
+          {{- .Title | safeHTML -}}
         {{- end -}}
-    </div>
+      {{- else -}}
+        {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
+      {{- end -}}
+    </h2>
+    {{- /* Introduction*/ -}}
+    {{- if .Content -}}
+      <div class="introduction">
+        <blockquote>
+          {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        </blockquote>
+      </div>
+    {{- end -}}
+    {{- /* Paginate */ -}}
+    {{- if .Pages -}}
+      {{- $taxonomy := .Data.Singular -}}
+      {{- if eq $taxonomy "series" -}}
+        {{- $pages := .Pages.ByParam "series_weight" -}}
+        {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+          {{- $pages = $.Paginate $pages . -}}
+        {{- else -}}
+          {{- $pages = .Paginate $pages -}}
+        {{- end -}}
+        {{- range $pages.Pages -}}
+          <article class="archive-item">
+            <a href="{{ .RelPermalink }}" class="archive-item-link">
+              {{- .Title -}}
+            </a>
+            <span class="archive-item-date">
+              {{- $.Site.Params.dateFormat | default "2006-01-02" | .Date.Format -}}
+            </span>
+          </article>
+        {{- end -}}
+      {{- else -}}
+        {{- $pages := .Pages.GroupByDate "2006" -}}
+        {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+          {{- $pages = $.Paginate $pages . -}}
+        {{- else -}}
+          {{- $pages = .Paginate $pages -}}
+        {{- end -}}
+        {{- range $pages.PageGroups -}}
+          <h3 class="group-title">{{ .Key }}</h3>
+          {{- range .Pages -}}
+            <article class="archive-item">
+              <a href="{{ .RelPermalink }}" class="archive-item-link">
+                {{- .Title -}}
+              </a>
+              <span class="archive-item-date">
+                {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
+              </span>
+            </article>
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- partial "paginator.html" . -}}
+    {{- end -}}
+  </div>
 {{- end -}}

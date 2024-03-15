@@ -1,25 +1,25 @@
 {{- $params := .Scratch.Get "params" -}}
 
 {{- with .Site.Params.verification.google -}}
-    <meta name="google-site-verification" content="{{ . }}" />
+  <meta name="google-site-verification" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.bing -}}
-    <meta name="msvalidate.01" content="{{ . }}" />
+  <meta name="msvalidate.01" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.yandex -}}
-    <meta name="yandex-verification" content="{{ . }}" />
+  <meta name="yandex-verification" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.pinterest -}}
-    <meta name="p:domain_verify" content="{{ . }}" />
+  <meta name="p:domain_verify" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.baidu -}}
-    <meta name="baidu-site-verification" content="{{ . }}" />
+  <meta name="baidu-site-verification" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.sogou -}}
-    <meta name="sogou_site_verification" content="{{ . }}" />
+  <meta name="sogou_site_verification" content="{{ . }}" />
 {{- end -}}
 {{- with .Site.Params.verification.so -}}
-    <meta name="360-site-verification" content="{{ . }}" />
+  <meta name="360-site-verification" content="{{ . }}" />
 {{- end -}}
 
 {{- /* Home SEO */ -}}
@@ -28,7 +28,7 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "{{ .Permalink }}",
+        "url": {{ .Permalink }},
         {{- with .Site.LanguageCode -}}
             "inLanguage": "{{ . }}",
         {{- end -}}
@@ -42,23 +42,26 @@
             "description": {{ . | safeHTML }},
         {{- end -}}
         {{- $image := .Site.Params.seo.image -}}
-        {{- with dict "Path" $image "Resources" .Resources | partial "function/resource.html" -}}
-            "image": {
-                "@type": "ImageObject",
-                "url": "{{ .Permalink }}",
-                "width": {{ .Width }},
-                "height": {{ .Height }}
-            },
-        {{- else -}}
-            {{- with $image -}}
-                "image": "{{ . | absURL }}",
-            {{- end -}}
+        {{- with .Site.Params.seo.image -}}
+          {{- $image := . -}}
+          {{- with dict "Path" $image "Resources" $.Resources | partial "function/resource.html" -}}
+              "image": {
+                  "@type": "ImageObject",
+                  "url": {{ .Permalink }},
+                  "width": {{ .Width }},
+                  "height": {{ .Height }}
+              },
+          {{- else -}}
+              {{- with $image -}}
+                  "image": {{ . | absURL }},
+              {{- end -}}
+          {{- end -}}
         {{- end -}}
         {{- with .Site.Params.seo.thumbnailUrl -}}
             {{- with dict "Path" . "Resources" $.Resources | partial "function/resource.html" -}}
-                "thumbnailUrl": "{{ .Permalink }}",
+                "thumbnailUrl": {{ .Permalink }},
             {{- else -}}
-                "thumbnailUrl": "{{ . | absURL }}",
+                "thumbnailUrl": {{ . | absURL }},
             {{- end -}}
         {{- end -}}
         {{- with .Site.Copyright -}}
@@ -66,9 +69,7 @@
         {{- end -}}
         "name": {{ .Site.Title | safeHTML }}
     }
-    </script>
-
-{{- /* Page SEO */ -}}
+    </script> {{- /* Page SEO */ -}}
 {{- else if .IsPage -}}
     <script type="application/ld+json">
     {
@@ -78,7 +79,7 @@
         "inLanguage": "{{ .Site.LanguageCode }}",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "{{ .Permalink }}"
+            "@id": {{ .Permalink }}
         },
         {{- $images := $params.seo.images | default slice -}}
         {{- if not $images -}}
@@ -99,13 +100,13 @@
                     {{- with dict "Path" $value "Resources" $.Resources | partial "function/resource.html" -}}
                         {
                             "@type": "ImageObject",
-                            "url": "{{ .Permalink }}",
+                            "url": {{ .Permalink }},
                             "width": {{ .Width }},
                             "height": {{ .Height }}
                         }
                     {{- else -}}
                         {{- with $value -}}
-                            "{{ . | absURL }}"
+                            {{ . | absURL }}
                         {{- end -}}
                     {{- end -}}
                 {{- end -}}
@@ -116,7 +117,7 @@
             "keywords": "{{ delimit . ", " }}",
         {{- end -}}
         "wordcount": {{ .WordCount }},
-        "url": "{{ .Permalink }}",
+        "url": {{ .Permalink }},
         {{- if not .PublishDate.IsZero -}}
             "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
         {{- else if not .Date.IsZero -}}
@@ -137,13 +138,13 @@
             {{- with dict "Path" $logo "Resources" .Resources | partial "function/resource.html" -}}
                 ,"logo": {
                     "@type": "ImageObject",
-                    "url": "{{ .Permalink }}",
+                    "url": {{ .Permalink }},
                     "width": {{ .Width }},
                     "height": {{ .Height }}
                 }
             {{- else -}}
                 {{- with $logo -}}
-                    ,"logo": "{{ . | absURL }}"
+                    ,"logo": {{ . | absURL }}
                 {{- end -}}
             {{- end -}}
         },
@@ -163,7 +164,7 @@
                     {{- if gt $i 0 }},{{ end -}}
                     {
                         "@type": "Person",
-                        "name": "{{ $name }}"                    
+                        "name": "{{ $name }}"
                     }
             {{- end -}}
         {{- end -}}

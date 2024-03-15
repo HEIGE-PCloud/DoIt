@@ -1,19 +1,30 @@
 {{- $params := .Scratch.Get "params" -}}
 
-<meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
+
+<meta
+  name="Description"
+  content="{{ $params.description | default .Site.Params.description }}"
+/>
 
 {{- template "_internal/opengraph.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
 
-<meta name="application-name" content="{{ .Site.Params.app.title | default .Site.Title }}">
-<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.app.title | default .Site.Title }}">
 
-<meta name="theme-color" content="#f8f8f8">
+<meta
+  name="application-name"
+  content="{{ .Site.Params.app.title | default .Site.Title }}"
+/>
+<meta
+  name="apple-mobile-web-app-title"
+  content="{{ .Site.Params.app.title | default .Site.Title }}"
+/>
+
+<meta name="theme-color" content="#f8f8f8" />
 
 {{- with .Site.Params.app.tileColor -}}
-    <meta name="msapplication-TileColor" content="{{ . }}">
+  <meta name="msapplication-TileColor" content="{{ . }}" />
 {{- end -}}
 
 {{- with .Site.Params.social.Twitter -}}
-<meta name="twitter:creator" content="@{{ . }}" />
+  <meta name="twitter:creator" content="@{{ . }}" />
 {{- end -}}

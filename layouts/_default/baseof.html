@@ -1,28 +1,36 @@
 {{- partial "init.html" . -}}
 
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
     <title>
-        {{- block "title" . }}{{ .Site.Title }}{{ end -}}
+      {{- block "title" . }}{{ .Site.Title }}{{ end -}}
     </title>
 
     {{- partial "head/meta.html" . -}}
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
-    
-{{- $instantpage := .Scratch.Get "instantpage" | default dict -}}
-{{- if $instantpage.enable -}}
-    <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-{{- end -}}
 
-</head>
+    {{- $instantpage := .Scratch.Get "instantpage" | default dict -}}
+    {{- if $instantpage.enable -}}
+      <script
+        src="//instant.page/5.2.0"
+        defer
+        type="module"
+        integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"
+      ></script>
+    {{- end -}}
 
-<body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+  </head>
+
+  <body
+    header-desktop="{{ .Site.Params.header.desktopMode }}"
+    header-mobile="{{ .Site.Params.header.mobileMode }}"
+  >
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
@@ -45,29 +53,38 @@
 
     {{- /* Body wrapper */ -}}
     <div class="wrapper">
-        {{- partial "header.html" . -}}
-        <main class="main">
-            <div class="container">
-                {{- block "content" . }}{{ end -}}
-            </div>
-        </main>
-        {{- partial "footer.html" . -}}
+      {{- partial "header.html" . -}}
+      <main class="main">
+        <div class="container">
+          {{- block "content" . }}{{ end -}}
+        </div>
+      </main>
+      {{- partial "footer.html" . -}}
     </div>
 
     <div id="fixed-buttons">
-        {{- /* top button */ -}}
-        <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
-            <i class="fas fa-arrow-up fa-fw"></i>
-        </a>
+      {{- /* top button */ -}}
+      <a
+        href="#back-to-top"
+        id="back-to-top-button"
+        class="fixed-button"
+        title="{{ T `backToTop` }}"
+      >
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a>
 
-        {{- /* comment button */ -}}
-        <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
-            <i class="fas fa-comment fa-fw"></i>
-        </a>
+      {{- /* comment button */ -}}
+      <a
+        href="#"
+        id="view-comments"
+        class="fixed-button"
+        title="{{ T `viewComments` }}"
+      >
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
     </div>
 
     {{- /* Load JavaScript scripts and CSS */ -}}
     {{- partial "assets.html" . -}}
-</body>
-
+  </body>
 </html>

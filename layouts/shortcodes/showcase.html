@@ -5,39 +5,38 @@
 {{- $column := "2" -}}
 {{- $linkExtra := "" -}}
 {{ if .IsNamedParams }}
-{{- $title = .Get "title" | default $title -}}
-{{- $summary = .Get "summary" | default $summary -}}
-{{- $link = .Get "link" | default $link -}}
-{{- $image = .Get "image" | default $image -}}
-{{- $column = .Get "column" | default $column -}}
-{{- $linkExtra = .Get "link_extra" | default $linkExtra -}}
+  {{- $title = .Get "title" | default $title -}}
+  {{- $summary = .Get "summary" | default $summary -}}
+  {{- $link = .Get "link" | default $link -}}
+  {{- $image = .Get "image" | default $image -}}
+  {{- $column = .Get "column" | default $column -}}
+  {{- $linkExtra = .Get "link_extra" | default $linkExtra -}}
 {{- else -}}
-{{- $title = .Get 0 | default $title -}}
-{{- $summary = .Get 1 | default $summary -}}
-{{- $image = .Get 2 | default $image -}}
-{{- $link = .Get 3 | default $link -}}
-{{- $column = .Get 4 | default $column -}}
-{{- $linkExtra = .Get 5 | default $linkExtra -}}
-
+  {{- $title = .Get 0 | default $title -}}
+  {{- $summary = .Get 1 | default $summary -}}
+  {{- $image = .Get 2 | default $image -}}
+  {{- $link = .Get 3 | default $link -}}
+  {{- $column = .Get 4 | default $column -}}
+  {{- $linkExtra = .Get 5 | default $linkExtra -}}
 {{ end }}
 <div class="showcase-box column-{{ $column }}">
-    <div class="showcase-image">
-        <a href={{ $link }}>
-            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
-        </a>
-    </div>
-    <h2 class="showcase-title">
-        <a href={{ $link }}>{{ $title }}</a>
-    </h2>
-    <p class="showcase-summary">
-        {{ $summary }}
-    </p>
-    <a class="showcase-link" href={{ $link }}>
-        {{ T "readMore" }}
+  <div class="showcase-image">
+    <a href="{{ $link }}">
+      {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
     </a>
-    {{- if .Get "linkExtra" -}}
-    <a class="showcase-link-extra" href={{ $linkExtra }}>
-        {{ T "abstract" }}
+  </div>
+  <h2 class="showcase-title">
+    <a href="{{ $link }}">{{ $title }}</a>
+  </h2>
+  <p class="showcase-summary">
+    {{ $summary }}
+  </p>
+  <a class="showcase-link" href="{{ $link }}">
+    {{ T "readMore" }}
+  </a>
+  {{- if .Get "linkExtra" -}}
+    <a class="showcase-link-extra" href="{{ $linkExtra }}">
+      {{ T "abstract" }}
     </a>
-    {{ end }}
+  {{ end }}
 </div>
