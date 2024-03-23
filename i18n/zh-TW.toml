@@ -30,7 +30,17 @@ other = "分類"
 
 [categories]
 other = "分類"
+
+[series]
+other = "系列"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "最近更新"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -43,16 +53,34 @@ other = "選擇語言"
 
 [switchTheme]
 other = "切換主題"
+
+[Light]
+other = "淺色"
+
+[Dark]
+other = "深色"
+
+[Black]
+other = "黑色"
+
+[Auto]
+other = "跟隨系統"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "由 {{ .Hugo }} 強力驅動 | 主題 - {{ .Theme }}"
+[poweredBy]
+other = "由 {{ .Hugo }} 驅動"
+
+[hostedOn]
+other = "託管在 {{ .Host }} 上"
+
+[theme]
+other = "主題 - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
 [valineLang]
-other = "zh-TW"
+other = "zh-tw"
 
 [valinePlaceholder]
 other = "你的評論 ..."
@@ -63,13 +91,13 @@ other = "zh_TW"
 
 # === partials/assets.html ===
 [search]
-other = "搜索"
+other = "搜尋"
 
 [searchPlaceholder]
-other = "搜索文章標題或內容..."
+other = "搜尋文章標題或內容..."
 
 [clear]
-other = "清空"
+other = "清除"
 
 [cancel]
 other = "取消"
@@ -102,8 +130,17 @@ other = "目錄"
 [publishedOnDate]
 other = "發佈於 {{ .Date }}"
 
+[includedIn]
+other = "收錄於 "
+
+[includedInAnd]
+other = "和"
+
 [includedInCategories]
-other = "收錄於 {{ .Categories }}"
+other = "類別 {{ .Categories }}"
+
+[includedInSeries]
+other = "系列 {{ .Series }}"
 
 [wordCount]
 other = "約 {{ .Count }} 字"
@@ -114,6 +151,9 @@ other = "預計閱讀 {{ .Count }} 分鐘"
 [views]
 other = "次閱讀"
 
+[comments]
+other = "則評論"
+
 [author]
 other = "作者"
 
@@ -121,7 +161,16 @@ other = "作者"
 other = "更新於 {{ .Date }}"
 
 [readMarkdown]
-other = "閱讀原始文檔"
+other = "閱讀原始文件"
+
+[viewSource]
+other = "查看原始程式碼"
+
+[editThisPage]
+other = "編輯此頁"
+
+[reportThisPage]
+other = "報告問題"
 
 [back]
 other = "返回"
@@ -131,6 +180,18 @@ other = "主頁"
 
 [readMore]
 other = "閱讀全文"
+
+[outdatedInfoWarningBefore]
+other = "本文最後更新於 "
+
+[outdatedInfoWarningAfter]
+other = "，文中內容可能已過時。"
+
+[sponsor]
+other = "讚賞"
+
+[relatedContent]
+other = "相關內容"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -138,21 +199,21 @@ other = "閱讀全文"
 other = "頁面沒找到"
 
 [pageNotFoundText]
-other = "抱歉，您要查找的頁面不存在。"
+other = "抱歉, 您要查詢的頁面不存在."
 # === 404.html ===
 
 # === shortcodes/admonition.html ===
 [note]
-other = "注意"
+other = "提醒"
 
 [abstract]
 other = "摘要"
 
 [info]
-other = "信息"
+other = "資訊"
 
 [tip]
-other = "技巧"
+other = "提示"
 
 [success]
 other = "成功"
@@ -173,7 +234,7 @@ other = "危險"
 other = "Bug"
 
 [example]
-other = "示例"
+other = "範例"
 
 [quote]
 other = "引用"
