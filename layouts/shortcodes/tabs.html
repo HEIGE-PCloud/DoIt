@@ -1,0 +1,45 @@
+{{/*  
+  <tab-container>
+    <button type="button" id="tab-one" role="tab" aria-selected="true" class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 data-[active=true]:tw-bg-blue-400">Tab one</button>
+    <button type="button" id="tab-two" role="tab" tabindex="-1">Tab two</button>
+    <button type="button" id="tab-three" role="tab" tabindex="-1">Tab three</button>
+    <div role="tabpanel" aria-labelledby="tab-one">
+      Panel 1
+    </div>
+    <div role="tabpanel" aria-labelledby="tab-two" hidden>
+      Panel 2
+    </div>
+    <div role="tabpanel" aria-labelledby="tab-three" hidden>
+      Panel 3
+    </div>
+</tab-container>
+*/}}
+
+
+{{- .Page.Scratch.SetInMap "this" "tabs" true -}}
+{{- $tabsId := dict "Content" "tabs" "Scratch" .Page.Scratch | partial "function/id.html" -}}
+{{- $selects := .Scratch.Get "selects" | default 0 -}}
+
+<tab-container id="{{- $tabsId -}}">
+  {{/*  More than one default selection, throw error  */}}
+  {{- if gt $selects 1 -}}
+      {{- errorf "At most one tab can be selected by default: %s" .Position -}}
+  {{- end -}}
+  {{- $tabs := .Scratch.Get "tabs" -}}
+  {{- range $index, $tab := $tabs -}}
+      {{- $title := $tab.title -}}
+      {{- $select := $tab.select -}}
+      {{- if and (eq $selects 0) (eq $index 0)}}
+          {{- $select = true -}}
+      {{- end -}}
+      {{- $id := $tab.id -}}
+      {{- $tabindex := 0 -}}
+      {{- if ne $index 0 -}}
+          {{- $tabindex = -1 -}}
+      {{- end -}}
+      <button class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 data-[active=true]:tw-bg-blue-400"  type="button" role="tab" id="tab-{{- $id -}}">
+          {{- $title -}}
+      </button>
+  {{ end }}
+  {{- .Inner -}}
+</tab-container>
