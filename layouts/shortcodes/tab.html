@@ -6,7 +6,8 @@
 {{ .Parent.Scratch.Add "tabs" (slice (dict "title" $title "id" $id)) }}
 <div 
     role="tabpanel" 
-    aria-labelledby="tab-{{ $id }}">
+    aria-labelledby="tab-{{ $id }}"
+    class=" tw-border-2 tw-rounded-t-none tw-rounded tw-p-4 tw-border-red-500 dark:tw-border-blue-500">
     {{ if .Get "markdown" }}
         {{ .Inner | markdownify }}
     {{ else }}
