@@ -17,10 +17,9 @@
 
 
 {{- .Page.Scratch.SetInMap "this" "tabs" true -}}
-{{- $tabsId := dict "Content" "tabs" "Scratch" .Page.Scratch | partial "function/id.html" -}}
 {{- $selects := .Scratch.Get "selects" | default 0 -}}
 
-<tab-container id="{{- $tabsId -}}">
+<tab-container>
   {{/*  More than one default selection, throw error  */}}
   {{- if gt $selects 1 -}}
       {{- errorf "At most one tab can be selected by default: %s" .Position -}}
@@ -37,7 +36,7 @@
       {{- if ne $index 0 -}}
           {{- $tabindex = -1 -}}
       {{- end -}}
-      <button class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 data-[active=true]:tw-bg-blue-400"  type="button" role="tab" id="tab-{{- $id -}}">
+      <button class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 aria-selected:tw-bg-blue-400"  type="button" role="tab" id="tab-{{- $id -}}">
           {{- $title -}}
       </button>
   {{ end }}
