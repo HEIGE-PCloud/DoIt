@@ -28,7 +28,7 @@ Content 2
 
 {{< /tabs >}}
 
-## Tabs
+## Tabs with Markdown
 
 {{< tabs >}}
 {{% tab title="Tab 1" %}}
@@ -45,6 +45,24 @@ code
 
 {{< tab title="Tab 2" select=true >}}
 Content 2
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## Vertical Tabs
+
+{{< tabs vertical="true" >}}
+
+{{< tab title="Tab 1" >}}
+
+Content 1
+
+{{< /tab >}}
+
+{{< tab title="Tab 2" >}}
+
+Content 2
+
 {{< /tab >}}
 
 {{< /tabs >}}

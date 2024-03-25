@@ -617,7 +617,12 @@ ul {
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
-.data-\[active\=true\]\:tw-bg-blue-400[data-active=true] {
+:is(.tw-dark .dark\:tw-bg-black) {
   --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+:is(.tw-dark .dark\:aria-selected\:tw-bg-slate-500[aria-selected="true"]) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }

@@ -1,28 +1,14 @@
-{{/*  
-  <tab-container>
-    <button type="button" id="tab-one" role="tab" aria-selected="true" class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 data-[active=true]:tw-bg-blue-400">Tab one</button>
-    <button type="button" id="tab-two" role="tab" tabindex="-1">Tab two</button>
-    <button type="button" id="tab-three" role="tab" tabindex="-1">Tab three</button>
-    <div role="tabpanel" aria-labelledby="tab-one">
-      Panel 1
-    </div>
-    <div role="tabpanel" aria-labelledby="tab-two" hidden>
-      Panel 2
-    </div>
-    <div role="tabpanel" aria-labelledby="tab-three" hidden>
-      Panel 3
-    </div>
-</tab-container>
-*/}}
-
-
+{{/*  Update the global config map so the JavaScript dependency will be loaded  */}}
 {{- .Page.Scratch.SetInMap "this" "tabs" true -}}
-{{- $defaultTab := .Get "defaultTab" | default 0 -}}
+{{/*  Get all children tabs  */}}
 {{- $tabs := .Scratch.Get "tabs" -}}
 {{- $lenTabs := len $tabs -}}
+{{/*  Load the defaultTab config  */}}
+{{- $defaultTab := .Get "defaultTab" | default 0 -}}
 {{- if ge $defaultTab $lenTabs -}}
     {{- errorf "defaultTab index out of range. The number of tabs is %d, but got index %s. The index should be between 0 and length - 1. See %s %s" $lenTabs $defaultTab .Name .Position -}}
 {{- end -}}
+
 <tab-container default-tab="{{ $defaultTab }}">
   {{- range $index, $tab := $tabs -}}
       {{- $title := $tab.title -}}
@@ -31,7 +17,11 @@
       {{- if ne $index 0 -}}
           {{- $tabindex = -1 -}}
       {{- end -}}
-      <button class="tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 aria-selected:tw-bg-blue-400"  type="button" role="tab" id="tab-{{- $id -}}">
+      <button class="
+        tab-button tw-border-red-600 tw-border-2 tw-rounded tw-border-b-0 tw-rounded-b-none tw-bg-white tw-px-4 tw-py-2 aria-selected:tw-bg-blue-400 dark:tw-bg-black dark:aria-selected:tw-bg-slate-500"  
+        type="button" 
+        role="tab" 
+        id="tab-{{- $id -}}">
           {{- $title -}}
       </button>
   {{ end }}
