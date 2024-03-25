@@ -16,7 +16,7 @@ sponsor:
 
 ## Tabs 
 
-{{< tabs >}}
+{{< tabs defaultTab="1" >}}
 
 {{< tab title="Tab 1" >}}
 Content 1

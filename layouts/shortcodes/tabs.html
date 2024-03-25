@@ -17,20 +17,15 @@
 
 
 {{- .Page.Scratch.SetInMap "this" "tabs" true -}}
-{{- $selects := .Scratch.Get "selects" | default 0 -}}
-
-<tab-container>
-  {{/*  More than one default selection, throw error  */}}
-  {{- if gt $selects 1 -}}
-      {{- errorf "At most one tab can be selected by default: %s" .Position -}}
-  {{- end -}}
-  {{- $tabs := .Scratch.Get "tabs" -}}
+{{- $defaultTab := .Get "defaultTab" | default 0 -}}
+{{- $tabs := .Scratch.Get "tabs" -}}
+{{- $lenTabs := len $tabs -}}
+{{- if ge $defaultTab $lenTabs -}}
+    {{- errorf "defaultTab index out of range. The number of tabs is %d, but got index %s. The index should be between 0 and length - 1. See %s %s" $lenTabs $defaultTab .Name .Position -}}
+{{- end -}}
+<tab-container default-tab="{{ $defaultTab }}">
   {{- range $index, $tab := $tabs -}}
       {{- $title := $tab.title -}}
-      {{- $select := $tab.select -}}
-      {{- if and (eq $selects 0) (eq $index 0)}}
-          {{- $select = true -}}
-      {{- end -}}
       {{- $id := $tab.id -}}
       {{- $tabindex := 0 -}}
       {{- if ne $index 0 -}}
