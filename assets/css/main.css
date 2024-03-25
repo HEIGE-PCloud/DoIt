@@ -602,19 +602,9 @@ ul {
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
-.tw-border-red-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(220 38 38 / var(--tw-border-opacity));
-}
-
 .tw-bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.tw-bg-doit-grey-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(32 37 43 / var(--tw-bg-opacity));
 }
 
 .tw-p-4 {
@@ -636,23 +626,9 @@ ul {
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
-.aria-selected\:tw-text-white[aria-selected="true"] {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-:is(.tw-dark .dark\:tw-bg-black) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 :is(.tw-dark .dark\:tw-bg-doit-grey-800) {
   --tw-bg-opacity: 1;
   background-color: rgb(60 69 78 / var(--tw-bg-opacity));
-}
-
-:is(.tw-dark .dark\:aria-selected\:tw-bg-doit-blue-400\/50[aria-selected="true"]) {
-  background-color: rgb(85 189 226 / 0.5);
 }
 
 :is(.tw-dark .dark\:aria-selected\:tw-bg-doit-grey-950[aria-selected="true"]) {
