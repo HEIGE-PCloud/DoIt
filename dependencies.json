@@ -110,6 +110,16 @@
                     "local": "artalk/artalk-plugin-lightbox.js"
                 }
             ]
+        },
+        {
+            "name": "instant.page",
+            "version": "5.2.0",
+            "files": [
+                {
+                    "remote": "instantpage.min.js",
+                    "local": "instant.page/instantpage.min.js"
+                }
+            ]
         }
     ]
 }
