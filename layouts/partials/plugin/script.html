@@ -23,8 +23,16 @@
             {{- $src = $resource.RelPermalink -}}
         {{- end -}}
     {{- end -}}
-    {{- with .Link -}}
-        {{- $src = . -}}
-    {{- end -}}
-    <script type="text/javascript" src="{{ $src }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ if .Async }} async{{ end }}{{ if .Defer }} defer{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}></script>
+  {{- end -}}
+  {{- with .Link -}}
+    {{- $src = . -}}
+  {{- end -}}
+  <script
+    src="{{ $src }}"
+    {{ if .Crossorigin }}crossorigin="anonymous"{{ end }}{{ with $integrity }}
+      integrity="{{ . }}"
+    {{ end }}{{ if .Async }}async{{ end }}{{ if .Defer }}
+      defer
+    {{ end }}{{ if .Module }}type="module"{{ end }}{{ with .Attr }}{{ . | safeHTMLAttr }}{{ end }}
+  ></script>
 {{- end -}}

@@ -168,6 +168,12 @@
     {{- $config = dict "accessToken" $params.mapbox.accessToken "RTLTextPlugin" "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.0/mapbox-gl-rtl-text.js" | dict "mapbox" | merge $config -}}
 {{- end -}}
 
+{{- if (.Scratch.Get "this").tabs -}}
+{{- /*   <script type="module" src="https://cdn.jsdelivr.net/npm/@github/tab-container-element@4.5.0/dist/bundle.js"></script> */ -}}
+  {{- $source := $cdn.tabsjs | default "lib/tabs/tabs.min.js" -}}
+  {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true "Module" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- end -}}
+
 {{- /* Music */ -}}
 {{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "this").music -}}
     {{- /* APlayer */ -}}
@@ -231,18 +237,18 @@
 {{- end -}}
 
 {{- range $params.library.js -}}
-    {{- /* Check if it is string for compatibility */ -}}
-    {{- /* somejs = "src" */ -}}
-    {{- /* [params.page.library.js.somejs] */ -}}
-    {{- /*   src = "src" */ -}}
-    {{- /*   async = true */ -}}
-    {{- /*   defer = true */ -}}
-    {{- /*   attr = "attr" */ -}}
-    {{- if eq (printf "%T" . ) "string" -}}
-        {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
-    {{- else -}}
-        {{- dict "Source" .src "Fingerprint" $fingerprint "Defer" .defer "Async" .async "Attr" .attr| dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
-    {{- end -}}
+  {{- /* Check if it is string for compatibility */ -}}
+  {{- /* somejs = "src" */ -}}
+  {{- /* [params.page.library.js.somejs] */ -}}
+  {{- /*   src = "src" */ -}}
+  {{- /*   async = true */ -}}
+  {{- /*   defer = true */ -}}
+  {{- /*   attr = "attr" */ -}}
+  {{- if eq (printf "%T" . ) "string" -}}
+    {{- dict "Source" . "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
+  {{- else -}}
+    {{- dict "Source" .src "Fingerprint" $fingerprint "Defer" .defer "Module" .module "Async" .async "Attr" .attr| dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
+  {{- end -}}
 {{- end -}}
 
 {{/*  Custom style  */}}
