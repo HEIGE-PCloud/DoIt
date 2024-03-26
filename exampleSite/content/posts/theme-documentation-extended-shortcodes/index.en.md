@@ -1469,3 +1469,63 @@ The rendered output looks like this:
 {{< math >}}
 $$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
 {{< /math >}}
+
+## tabs and tab
+
+`tabs` and `tab` are two shortcodes, when used together, can create a tab component for your content.
+
+Example `tabs` and `tab` input:
+
+````markdown
+{{</* tabs */>}}
+
+{{%/* tab title="Tab 1" */%}}
+
+### Title 1
+
+Hi there!
+
+#### Title 2
+
+```py
+print("Hello world!")
+```
+
+{{%/* /tab */%}}
+
+{{%/* tab title="Tab 2" */%}}
+
+Yet another tab
+
+{{%/* /tab */%}}
+
+{{</* /tabs */>}}
+````
+
+The rendered output looks like this:
+
+{{< tabs >}}
+
+{{% tab title="Tab 1" %}}
+
+### Title 1
+
+Hi there!
+
+#### Title 2
+
+```py
+print("Hello world!")
+```
+
+{{% /tab %}}
+
+{{% tab title="Tab 2" %}}
+
+Yet another tab
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+Due to limitations in the Hugo shortcode system, nested tabs may not work as expected.

@@ -89,7 +89,7 @@ keywords = ["Theme", "Hugo"]
     subtitle = "一个简洁、优雅且高效的 Hugo 主题"
     # whether to use typeit animation for subtitle
     # 是否为副标题显示打字机动画
-    typeit = true
+    typeit = false
     # whether to show social links
     # 是否显示社交账号
     social = true

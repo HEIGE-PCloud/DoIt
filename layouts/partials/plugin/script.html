@@ -27,12 +27,11 @@
     {{- $src = . -}}
   {{- end -}}
   <script
-    type="text/javascript"
     src="{{ $src }}"
     {{ if .Crossorigin }}crossorigin="anonymous"{{ end }}{{ with $integrity }}
       integrity="{{ . }}"
     {{ end }}{{ if .Async }}async{{ end }}{{ if .Defer }}
       defer
-    {{ end }}{{ with .Attr }}{{ . | safeHTMLAttr }}{{ end }}
+    {{ end }}{{ if .Module }}type="module"{{ end }}{{ with .Attr }}{{ . | safeHTMLAttr }}{{ end }}
   ></script>
 {{- end -}}
