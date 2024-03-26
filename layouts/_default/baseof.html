@@ -15,13 +15,13 @@
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
 
-    {{- $instantpage := .Scratch.Get "instantpage" | default dict -}}
-    {{- if $instantpage.enable -}}
+    {{- $instantpage := .Site.Params.page.instantpage.enable -}}
+    {{- if $instantpage -}}
+    {{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
       <script
-        src="//instant.page/5.2.0"
+        src="{{ $js.RelPermalink }}"
         defer
         type="module"
-        integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"
       ></script>
     {{- end -}}
 
