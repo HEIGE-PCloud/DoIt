@@ -589,6 +589,25 @@ ul {
   margin-right: 0.25rem;
 }
 
+.tw-mr-1 {
+  margin-right: 0.25rem;
+}
+
+.tw-translate-y-1 {
+  --tw-translate-y: 0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-translate-y-\[-1\] {
+  --tw-translate-y: -1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-translate-y-\[-1px\] {
+  --tw-translate-y: -1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .tw-border-t-2 {
   border-top-width: 2px;
 }
@@ -612,6 +631,11 @@ ul {
 .tw-border-\[\#363636\] {
   --tw-border-opacity: 1;
   border-color: rgb(54 54 54 / var(--tw-border-opacity));
+}
+
+.tw-border-\[\#f0f0f0\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(240 240 240 / var(--tw-border-opacity));
 }
 
 .tw-bg-white {
@@ -648,6 +672,14 @@ ul {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.tw-outline {
+  outline-style: solid;
+}
+
+.tw-outline-offset-1 {
+  outline-offset: 1px;
+}
+
 .tw-transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -671,6 +703,15 @@ ul {
 .hover\:tw-bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.hover\:tw-bg-\[\]:hover {
+  background-color: ;
+}
+
+.hover\:tw-bg-\[\#f0f0f0\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 240 240 / var(--tw-bg-opacity));
 }
 
 .hover\:tw-font-semibold:hover {
@@ -751,6 +792,11 @@ ul {
 :is(.tw-dark .dark\:tw-border-doit-grey-800) {
   --tw-border-opacity: 1;
   border-color: rgb(60 69 78 / var(--tw-border-opacity));
+}
+
+:is(.tw-dark .dark\:tw-border-\[\#363636\]) {
+  --tw-border-opacity: 1;
+  border-color: rgb(54 54 54 / var(--tw-border-opacity));
 }
 
 :is(.tw-dark .dark\:tw-bg-doit-grey-800) {
