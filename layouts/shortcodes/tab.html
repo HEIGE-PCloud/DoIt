@@ -7,7 +7,7 @@
 <div 
     role="tabpanel" 
     aria-labelledby="tab-{{ $id }}"
-    class=" tw-border-2 tw-rounded-t-none tw-rounded tw-p-4 tw-border-red-500 ">
+    class="tw-p-4 tw-border-t-2 tw-border-grey-200">
     {{ if .Get "markdown" }}
         {{ .Inner | markdownify }}
     {{ else }}
