@@ -14,13 +14,11 @@
             {{- else if eq $taxonomy "tag" -}}
                 <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "author" -}}
-                {{- $icon := dict "Class" "author fas fa-user fa-fw" }}
-                {{- partial "plugin/icon.html" $icon -}}
-
                 {{- .Scratch.Set "name" .Title -}}
                 {{- if $.Site.Data.authors -}}
                     {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
                         {{- .name | safeHTML -}}
+                        <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-8 tw-rounded-full tw-translate-y-[-2px] tw-ml-4"/>
                         <br>
                         {{- if .absLink -}}
                             <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon noopener noreferrer" target="_blank">
