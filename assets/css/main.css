@@ -584,10 +584,6 @@ ul {
   margin-right: 0.25rem;
 }
 
-.tw-w-full {
-  width: 100%;
-}
-
 .tw-border-t-2 {
   border-top-width: 2px;
 }
@@ -689,10 +685,6 @@ ul {
     display: block !important;
   }
 
-  .print\:tw-block {
-    display: block;
-  }
-
   .print\:\!tw-hidden {
     display: none !important;
   }
@@ -705,16 +697,8 @@ ul {
     width: 100% !important;
   }
 
-  .print\:tw-w-full {
-    width: 100%;
-  }
-
   .print\:\!tw-max-w-none {
     max-width: none !important;
-  }
-
-  .print\:tw-p-0 {
-    padding: 0px;
   }
 
   .print\:\!tw-p-0 {
