@@ -32,7 +32,7 @@
         {{- end -}}
       </div>
     </div>
-    <div class="post-info-line">
+    <div class="post-info-line print:!tw-hidden">
       <div class="post-info-md">
         {{- if  .IsPage -}}
           {{- $post_info := slice -}}
@@ -93,7 +93,7 @@
         {{- end -}}
       {{- end -}}
     </section>
-    <section>
+    <section class="print:tw-hidden">
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
           >{{ T "back" }}</a
@@ -104,7 +104,7 @@
     </section>
   </div>
 
-  <div class="post-nav">
+  <div class="post-nav print:!tw-hidden">
     {{- if .PrevInSection -}}
       <a
         href="{{ .PrevInSection.RelPermalink }}"

@@ -1,5 +1,5 @@
 {{- /* Desktop header */ -}}
-<header class="desktop" id="header-desktop">
+<header class="desktop print:!tw-hidden" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
       <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
@@ -152,7 +152,7 @@
 </header>
 
 {{- /* Mobile header */ -}}
-<header class="mobile" id="header-mobile">
+<header class="mobile print:!tw-hidden" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">

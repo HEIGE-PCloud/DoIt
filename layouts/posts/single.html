@@ -11,7 +11,7 @@
 
   {{- /* Auto TOC */ -}}
   {{- if $toc.enable | and (eq $toc.keepStatic false) -}}
-    <div class="toc" id="toc-auto">
+    <div class="toc print:!tw-hidden" id="toc-auto">
       <h2 class="toc-title">{{ T "contents" }}</h2>
       <div
         class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}"
@@ -44,7 +44,7 @@
   {{- end -}}
 
 
-  <article class="page single">
+  <article class="page single print:!tw-max-w-none print:!tw-m-0 print:!tw-w-full">
     {{- /* Title */ -}}
     <h1 class="single-title animate__animated animate__flipInX">
       {{ .Title }}
@@ -265,7 +265,7 @@
     {{- /* Static TOC */ -}}
     {{- if $toc.enable -}}
       <div
-        class="details toc"
+        class="details toc print:!tw-block"
         id="toc-static"
         kept="{{ if $toc.keepStatic }}true{{ end }}"
       >
