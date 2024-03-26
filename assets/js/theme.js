@@ -440,6 +440,7 @@ function initLightGallery () {
 }
 
 function initHighlight () {
+  return;
   forEach(document.querySelectorAll('.highlight > pre.chroma'), $preChroma => {
     const $chroma = document.createElement('div')
     $chroma.className = $preChroma.className
@@ -511,6 +512,7 @@ function initHighlight () {
 
 function initTable () {
   forEach(document.querySelectorAll('.content table'), $table => {
+    if ($table.classList.contains('lntable')) return
     const $wrapper = document.createElement('div')
     $wrapper.className = 'table-wrapper'
     $table.parentElement.replaceChild($wrapper, $table)

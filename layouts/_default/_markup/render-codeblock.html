@@ -1,0 +1,24 @@
+{{ $result := transform.HighlightCodeBlock . }}
+{{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
+
+<style>
+    pre>code>span::before {
+        counter-increment: codeblock;
+        content: counter(codeblock);
+        margin: 10px;
+    }
+</style>
+<script>
+    async function writeClipboardText(id) {
+        try {
+            const el = document.getElementById(id);
+          await navigator.clipboard.writeText(el.innerText);
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+      
+    
+</script>
+<button onclick="writeClipboardText('codeblock-{{ $id }}')">Copy</button>
+<pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="highlight !tw-block tw-text-wrap">{{ $result.Inner }}</code></pre>
