@@ -18,19 +18,24 @@ sponsor:
 
 {{< tabs defaultTab="1" >}}
 
-{{< tab title="Tab 1" >}}
-Content 1
-{{< /tab >}}
+{{% tab title="Tab 1" %}}
 
-{{< tab title="Tab 2" >}}
+Content 1
+
+{{% /tab %}}
+
+{{% tab title="Tab 2" %}}
+
 Content 2
-{{< /tab >}}
+
+{{% /tab %}}
 
 {{< /tabs >}}
 
 ## Tabs with Markdown
 
 {{< tabs >}}
+
 {{% tab title="Tab 1" %}}
 
 ## Markdown Content 1
@@ -43,9 +48,11 @@ code
 
 {{% /tab %}}
 
-{{< tab title="Tab 2" select=true >}}
+{{% tab title="Tab 2" select=true %}}
+
 Content 2
-{{< /tab >}}
+
+{{% /tab %}}
 
 {{< /tabs >}}
 
@@ -53,11 +60,11 @@ Content 2
 
 {{< tabs >}}
 
-{{< tab title="Tab 1" >}}
+{{% tab title="Tab 1" %}}
 
 Content 1
 
-{{< /tab >}}
+{{% /tab %}}
 
 {{< /tabs >}}
 
@@ -85,7 +92,6 @@ Content 2
 
 {{< /tabs >}}
 
-
 {{< /tab >}}
 
 {{< tab title="Tab 2" >}}
@@ -108,7 +114,6 @@ Content 2
 
 {{< /tabs >}}
 
-
 {{< /tab >}}
 
 {{< /tabs >}}
@@ -117,94 +122,96 @@ Content 2
 
 {{< tabs >}}
 
-{{< tab title="Tab 1" >}}
+{{% tab title="Tab 1" %}}
 
 Content 1
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 2" >}}
+{{% tab title="Tab 2" %}}
 
 Content 2
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 3" >}}
+{{% tab title="Tab 3" %}}
 
 Content 3
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 4" >}}
+{{% tab title="Tab 4" %}}
 
 Content 4
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 5" >}}
+{{% tab title="Tab 5" %}}
 
 Content 5
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 6" >}}
+{{% tab title="Tab 6" %}}
 
 Content 6
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 7" >}}
+{{% tab title="Tab 7" %}}
 
 Content 7
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 8" >}}
+{{% tab title="Tab 8" %}}
 
 Content 8
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 9" >}}
+{{% tab title="Tab 9" %}}
 
 Content 9
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 10" >}}
+{{% tab title="Tab 10" %}}
 
 Content 10
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 11" >}}
+{{% tab title="Tab 11" %}}
 
 Content 11
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 12" >}}
+{{% tab title="Tab 12" %}}
 
 Content 12
 
-{{< /tab >}}
+{{% /tab %}}
 
 {{< /tabs >}}
+
+---
 
 ## Tab with super long name
 
 {{< tabs >}}
 
-{{< tab title="Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab " >}}
+{{% tab title="Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab Tab " %}}
 
 Content 1
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab title="Tab 2" >}}
+{{% tab title="Tab 2" %}}
 
 Content 2
 
-{{< /tab >}}
+{{% /tab %}}
 
 {{< /tabs >}}
