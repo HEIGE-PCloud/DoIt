@@ -2,7 +2,6 @@
 {{- if .Params.authors -}}
     {{- $lang := ( $.Params.lang | default $.Lang ) -}}
     <span class='author'>
-        {{- partial "plugin/icon.html" $icon -}}
         <span class='screen-reader-text'> {{ i18n "by" }} </span>
         {{- range $i, $name := .Params.authors -}}
             {{- if $.Site.Data.authors -}}
@@ -12,7 +11,9 @@
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'>{{- .name -}}</a>
+                    <a href='{{ .link | absURL }}'><img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"/>
+                        {{- .name -}}
+                    </a>
                 {{- end -}}
             {{- else -}}
                 {{- with partial "function/author.html" (dict
@@ -28,7 +29,16 @@
 {{- else -}}
     {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
     {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+    {{- $gravatar := 0 -}}
+    {{- with .Site.Author.gravataremail -}}
+        {{- $gravatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
+    {{- end -}}
+    {{- $avatar := .Params.authoravatar | default .Site.Author.avatar | default $gravatar | default false -}}
     {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Content" $author -}}
-    {{- partial "plugin/icon.html" $icon -}}
+    {{- if $avatar -}}
+        <img src="{{ $avatar | absURL }}" alt="{{ $author }} avatar" class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1">
+    {{- else -}}
+        {{- partial "plugin/icon.html" $icon -}}
+    {{- end -}}
     {{- partial "plugin/link.html" $options -}}
 {{- end -}}

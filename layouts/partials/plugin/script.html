@@ -3,28 +3,35 @@
         {{- .Content | safeJS -}}
     </script>
 {{- else if strings.HasPrefix .Source "<script" -}}
-    {{- safeHTML .Source -}}
+  {{- safeHTML .Source -}}
 {{- else -}}
-    {{- $src := .Source -}}
-    {{- $integrity := .Integrity -}}
-    {{- if $src -}}
-        {{- if (urls.Parse $src).Host | not -}}
-            {{- $resource := resources.Get $src -}}
-            {{- with .Template -}}
-                {{- $resource = $resource | resources.ExecuteAsTemplate . $.Context -}}
-            {{- end -}}
-            {{- if .Minify -}}
-                {{- $resource = $resource | minify -}}
-            {{- end -}}
-            {{- with .Fingerprint -}}
-                {{- $resource = $resource | fingerprint . -}}
-                {{- $integrity = $resource.Data.Integrity -}}
-            {{- end -}}
-            {{- $src = $resource.RelPermalink -}}
-        {{- end -}}
+  {{- $src := .Source -}}
+  {{- $integrity := .Integrity -}}
+  {{- if $src -}}
+    {{- if (urls.Parse $src).Host | not -}}
+      {{- $resource := resources.Get $src -}}
+      {{- with .Template -}}
+        {{- $resource = $resource | resources.ExecuteAsTemplate . $.Context -}}
+      {{- end -}}
+      {{- if .Minify -}}
+        {{- $resource = $resource | minify -}}
+      {{- end -}}
+      {{- with .Fingerprint -}}
+        {{- $resource = $resource | fingerprint . -}}
+        {{- $integrity = $resource.Data.Integrity -}}
+      {{- end -}}
+      {{- $src = $resource.RelPermalink -}}
     {{- end -}}
-    {{- with .Link -}}
-        {{- $src = . -}}
-    {{- end -}}
-    <script type="text/javascript" src="{{ $src }}"{{ if .Crossorigin }} crossorigin="anonymous"{{ end }}{{ with $integrity }} integrity="{{ . }}"{{ end }}{{ if .Async }} async{{ end }}{{ if .Defer }} defer{{ end }}{{ with .Attr }} {{ . | safeHTMLAttr }}{{ end }}></script>
+  {{- end -}}
+  {{- with .Link -}}
+    {{- $src = . -}}
+  {{- end -}}
+  <script
+    src="{{ $src }}"
+    {{ if .Crossorigin }}crossorigin="anonymous"{{ end }}{{ with $integrity }}
+      integrity="{{ . }}"
+    {{ end }}{{ if .Async }}async{{ end }}{{ if .Defer }}
+      defer
+    {{ end }}{{ if .Module }}type="module"{{ end }}{{ with .Attr }}{{ . | safeHTMLAttr }}{{ end }}
+  ></script>
 {{- end -}}

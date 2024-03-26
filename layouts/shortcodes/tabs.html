@@ -1,0 +1,49 @@
+{{/*  Update the global config map so the JavaScript dependency will be loaded  */}}
+{{- .Page.Scratch.SetInMap "this" "tabs" true -}}
+{{/*  Get all children tabs  */}}
+{{- $tabs := .Scratch.Get "tabs" -}}
+{{ if not $tabs -}}
+    {{- errorf "No tabs found. Please add at least one tab to the tabs shortcode. See %s %s" .Name .Position -}}
+{{- end -}}
+{{/*  Get the number of tabs  */}}
+{{- $lenTabs := len $tabs -}}
+{{/*  Load the defaultTab config  */}}
+{{- $defaultTab := .Get "defaultTab" | default 0 -}}
+{{- if ge $defaultTab $lenTabs -}}
+    {{- errorf "defaultTab index out of range. The number of tabs is %d, but got index %s. The index should be between 0 and length - 1. See %s %s" $lenTabs $defaultTab .Name .Position -}}
+{{- end -}}
+
+<tab-container default-tab="{{ $defaultTab }}" class="tw-my-4">
+  {{- range $index, $tab := $tabs -}}
+      {{- $title := $tab.title -}}
+      {{- $id := $tab.id -}}
+      {{- $tabindex := 0 -}}
+      {{- if ne $index 0 -}}
+          {{- $tabindex = -1 -}}
+      {{- end -}}
+      <button class="
+        tw-transition 
+        tw-ease-in-out 
+        tw-duration-300
+        tab-button  
+        tw-bg-transparent
+        tw-px-4 
+        tw-py-2
+        tw-mr-1
+        hover:tw-bg-gray-200
+        hover:tw-shadow-md
+        tw-shadow-black
+        aria-selected:tw-font-bold
+        aria-selected:tw-border-b-4
+        aria-selected:tw-text-doit-blue-light
+        aria-selected:tw-border-doit-blue-light
+        dark:hover:tw-bg-doit-grey-950
+        dark:aria-selected:tw-text-doit-blue-400"
+        type="button" 
+        role="tab" 
+        id="tab-{{- $id -}}">
+          {{- $title -}}
+      </button>
+  {{ end }}
+  {{- .Inner -}}
+</tab-container>

@@ -214,8 +214,14 @@ Please open the code block below to view the complete sample configuration :(far
   images = ["/logo.png"]
   # {{< version 0.2.11 >}} enable PWA support
   enablePWA = false
-  # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-  cacheRemoteImages = false
+  # [Experimental] cache remote images in markdown, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+  cacheRemoteImages = true
+  # [Experimental] generate image srcset attribute with hugo image processing feature.
+  optimizeImages = true
+  # [Experimental] resize method for srcset attribute in optimizeImages, more info: https://gohugo.io/content-management/image-processing/#image-processing-options
+  srcsetSmallResizeMethod = "700x webp Lanczos q75"
+  srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
+  srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # {{< version 0.2.0 >}} App icon config
   # {{< version 0.2.14 >}} License information
   license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
@@ -691,6 +697,7 @@ Please open the code block below to view the complete sample configuration :(far
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
+        dataLoading = "lazy"
       # {{< link "https://artalk.js.org/" "artalk" >}} comment config
       [params.page.comment.artalk]
         enable = false
@@ -826,7 +833,8 @@ Please open the code block below to view the complete sample configuration :(far
 
   # {{< version 0.2.8 >}} Compatibility config
   [params.compatibility]
-    # whether to use Polyfill.io to be compatible with older browsers
+    # whether to use Polyfill.io on cdnjs to be compatible with older browsers
+    # https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
     polyfill = false
     # whether to use object-fit-images to be compatible with older browsers
     objectFit = false
@@ -907,7 +915,6 @@ Please open the code block below to view the complete sample configuration :(far
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
-  taxonomyTerm = ["HTML"]
 
 # Options for taxonomies
 [taxonomies]
@@ -1068,8 +1075,6 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 | Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
 | Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
 | Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
-
-
 
 ### Basic Configuration
 

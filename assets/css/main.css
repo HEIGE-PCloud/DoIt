@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -32,9 +32,11 @@
 4. Use the user's configured `sans` font-family by default.
 5. Use the user's configured `sans` font-feature-settings by default.
 6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
 */
 
-html {
+html,
+:host {
   line-height: 1.5;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -44,12 +46,14 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
   font-variation-settings: normal;
   /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
 }
 
 /*
@@ -121,8 +125,10 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font family by default.
-2. Correct the odd `em` font sizing in all browsers.
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
@@ -131,8 +137,12 @@ samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
-  font-size: 1em;
+  font-feature-settings: normal;
   /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
 }
 
 /*
@@ -563,4 +573,160 @@ ul {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+}
+
+.tw-my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tw-ml-4 {
+  margin-left: 1rem;
+}
+
+.tw-mr-1 {
+  margin-right: 0.25rem;
+}
+
+.tw-inline-block {
+  display: inline-block;
+}
+
+.tw-max-h-4 {
+  max-height: 1rem;
+}
+
+.tw-max-h-8 {
+  max-height: 2rem;
+}
+
+.tw-translate-y-\[-2px\] {
+  --tw-translate-y: -2px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-rounded-full {
+  border-radius: 9999px;
+}
+
+.tw-border-t-2 {
+  border-top-width: 2px;
+}
+
+.tw-border-\[\#f0f0f0\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(240 240 240 / var(--tw-border-opacity));
+}
+
+.tw-bg-transparent {
+  background-color: transparent;
+}
+
+.tw-p-4 {
+  padding: 1rem;
+}
+
+.tw-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.tw-py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.tw-shadow-black {
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.tw-transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tw-duration-300 {
+  transition-duration: 300ms;
+}
+
+.tw-ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover\:tw-bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.hover\:tw-shadow-md:hover {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.aria-selected\:tw-border-b-4[aria-selected="true"] {
+  border-bottom-width: 4px;
+}
+
+.aria-selected\:tw-border-doit-blue-light[aria-selected="true"] {
+  --tw-border-opacity: 1;
+  border-color: rgb(45 150 189 / var(--tw-border-opacity));
+}
+
+.aria-selected\:tw-font-bold[aria-selected="true"] {
+  font-weight: 700;
+}
+
+.aria-selected\:tw-text-doit-blue-light[aria-selected="true"] {
+  --tw-text-opacity: 1;
+  color: rgb(45 150 189 / var(--tw-text-opacity));
+}
+
+:is(.tw-dark .dark\:tw-border-\[\#363636\]) {
+  --tw-border-opacity: 1;
+  border-color: rgb(54 54 54 / var(--tw-border-opacity));
+}
+
+:is(.tw-dark .dark\:hover\:tw-bg-doit-grey-950:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(32 37 43 / var(--tw-bg-opacity));
+}
+
+:is(.tw-dark .dark\:aria-selected\:tw-text-doit-blue-400[aria-selected="true"]) {
+  --tw-text-opacity: 1;
+  color: rgb(85 189 226 / var(--tw-text-opacity));
+}
+
+@media print {
+  .print\:\!tw-m-0 {
+    margin: 0px !important;
+  }
+
+  .print\:\!tw-block {
+    display: block !important;
+  }
+
+  .print\:\!tw-hidden {
+    display: none !important;
+  }
+
+  .print\:tw-hidden {
+    display: none;
+  }
+
+  .print\:\!tw-w-full {
+    width: 100% !important;
+  }
+
+  .print\:\!tw-max-w-none {
+    max-width: none !important;
+  }
+
+  .print\:\!tw-p-0 {
+    padding: 0px !important;
+  }
 }

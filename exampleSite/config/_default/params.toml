@@ -27,9 +27,17 @@ enablePWA = false
 license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 # [Experimental] Bundle js
 bundle = false
-# [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-# [试验性功能] 缓存图床图片，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-cacheRemoteImages = false
+# [Experimental] cache remote images in markdown, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+# [试验性功能] 缓存 markdown 中的图片链接到本地，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+cacheRemoteImages = true
+# [Experimental] generate image srcset attribute with hugo image processing feature.
+# [试验性功能] 使用 hugo 自带的图片处理功能生成 srcset 属性
+optimizeImages = true
+# [Experimental] resize method for srcset attribute in optimizeImages, more info: https://gohugo.io/content-management/image-processing/#image-processing-options
+# [实验性功能] optimizeImages 中 srcset 属性的缩放方法, 详情请见：https://gohugo.io/content-management/image-processing/#image-processing-options
+srcsetSmallResizeMethod = "700x webp Lanczos q75"
+srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
+srcsetLargeResizeMethod = "2000x webp Lanczos q75"
 # Header config
 # 页面头部导航栏配置
 [header]
@@ -59,7 +67,7 @@ cacheRemoteImages = false
     post = ""
     # whether to use typeit animation for title name
     # 是否为标题显示打字机动画
-    typeit = true
+    typeit = false
 
 # Footer config
 # 页面底部信息配置
@@ -183,6 +191,9 @@ cacheRemoteImages = false
   enableReadingTime = true
   # Display a message at the beginning of an article to warn the reader that its content might be outdated.
   # 在文章开头显示提示信息，提醒读者文章内容可能过时。
+  # instant.page config
+  [page.instantpage]
+    enable = true
   [page.outdatedArticleReminder]
     enable = false
     # Display the reminder if the last modified time is more than 90 days ago.
@@ -451,6 +462,7 @@ cacheRemoteImages = false
       lightTheme = "light"
       darkTheme = "dark"
       dataLang = "en"
+      dataLoading = "lazy"
     # artalk comment config (https://artalk.js.org/guide/frontend/config.html)
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]

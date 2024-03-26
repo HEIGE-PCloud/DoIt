@@ -1,0 +1,21 @@
+{{ if (not .IsNamedParams) }}
+    {{- errorf "Only named params is supported: %s" .Position -}}
+{{ end }}
+{{ $title := .Get "title" }}
+{{ $id := dict "Content" "tab" "Scratch" .Page.Scratch | partial "function/id.html" }}
+{{ .Parent.Scratch.Add "tabs" (slice (dict "title" $title "id" $id)) }}
+<div 
+    role="tabpanel" 
+    aria-labelledby="tab-{{ $id }}"
+    class="
+    tw-p-4 
+    tw-border-t-2
+    tw-border-[#f0f0f0]
+    dark:tw-border-[#363636]
+    ">
+    {{ if .Get "markdown" }}
+        {{ .Inner | markdownify }}
+    {{ else }}
+        {{ .Inner }}
+    {{ end }}
+</div>

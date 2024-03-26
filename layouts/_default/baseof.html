@@ -28,13 +28,32 @@
     <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 {{- end -}}
 
+{{- $instantpage := .Site.Params.page.instantpage.enable -}}
+{{- if $instantpage -}}
+{{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
+  <script
+    src="{{ $js.RelPermalink }}"
+    defer
+    type="module"
+  ></script>
+{{- end -}}
 </head>
 
 <body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
-        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function setTheme(theme) {
+          document.body.setAttribute('theme', theme); 
+          document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
+          if (theme === 'light') {
+            document.documentElement.classList.remove('tw-dark')
+          } else {
+            document.documentElement.classList.add('tw-dark')
+          }
+          window.theme = theme;   
+          window.isDark = window.theme !== 'light' 
+        }
         function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
         function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
         if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark' || '{{ $theme }}' === 'black') setTheme('{{ $theme }}'), saveTheme('{{ $theme }}'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
@@ -56,7 +75,7 @@
         {{- partial "footer.html" . -}}
     </div>
 
-    <div id="fixed-buttons">
+    <div id="fixed-buttons" class="print:!tw-hidden">
         {{- /* top button */ -}}
         <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
             <i class="fas fa-arrow-up fa-fw"></i>

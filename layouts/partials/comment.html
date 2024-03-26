@@ -4,7 +4,7 @@
 {{- $commentConfig := dict -}}
 
 {{- if $comment.enable -}}
-    <div id="comments">
+    <div id="comments" class="print:!tw-hidden">
         {{- /* Disqus Comment System */ -}}
         {{- $disqus := $comment.disqus | default dict -}}
         {{- if $disqus.enable -}}
@@ -322,6 +322,7 @@
             {{- $commentConfig = $giscus.lightTheme | default "light" | dict "lightTheme" | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.darkTheme | default "dark" | dict "darkTheme" | dict "giscus" | merge $commentConfig -}}
             {{- $commentConfig = $giscus.dataLang | default "en" | dict "dataLang" | dict "giscus" | merge $commentConfig -}}
+            {{- $commentConfig = $giscus.dataLoading | default "lazy" | dict "dataLoading" | dict "giscus" | merge $commentConfig -}}
             {{- $options := dict "targetPath" "js/giscus.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/giscus.js" | js.Build $options -}}
             {{- $_ := $js.RelPermalink -}}

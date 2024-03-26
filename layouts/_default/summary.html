@@ -3,27 +3,10 @@
 <article class="single summary">
     {{- /* Featured image */ -}}
     {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
-    {{- $height := "auto" -}}
-    {{- $width := "auto" -}}
-    {{- with .Resources.GetMatch (printf "%s" ($image)) -}}
-        {{- $image = .RelPermalink -}}
-        {{- $height = .Height -}}
-        {{- $width = .Width -}}
-    {{- end -}}
-    {{- with .Resources.GetMatch "featured-image" -}}
-        {{- $image = .RelPermalink -}}
-        {{- $height = .Height -}}
-        {{- $width = .Width -}}
-    {{- end -}}
-    {{- with .Resources.GetMatch "featured-image-preview" -}}
-        {{- $image = .RelPermalink -}}
-        {{- $height = .Height -}}
-        {{- $width = .Width -}}
-    {{- end -}}
     {{- with $image -}}
         <div class="featured-image-preview">
             <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width "Loading" "eager" | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
             </a>
         </div>
     {{- end -}}

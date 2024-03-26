@@ -30,7 +30,7 @@ code:
 {{< admonition type=note title="Note" open=true >}}
 你需要使用 Hugo [**v0.93.0**](https://github.com/gohugoio/hugo/releases/tag/v0.93.0) 或更新的版本来创建自定义图表。
 
-如果你不得不使用旧版的 Hugo，你可以使用 [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.zh-cn.md/#5-mermaid" >}})。
+如果你不得不使用旧版的 Hugo，你可以使用 [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.zh-cn.md#mermaid" >}})。
 {{< /admonition >}}
 
 ## GoAT

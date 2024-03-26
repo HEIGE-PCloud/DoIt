@@ -30,7 +30,7 @@ code:
 {{< admonition type=note title="Note" open=true >}}
 Hugo [**v0.93.0**](https://github.com/gohugoio/hugo/releases/tag/v0.93.0) or later is required for drawing custom diagrams.
 
-Check out the [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.en.md/#5-mermaid" >}}) if you have to use an older version of Hugo.
+Check out the [`mermaid` shortcode]({{< relref "../../theme-documentation-extended-shortcodes/index.en.md#mermaid" >}}) if you have to use an older version of Hugo.
 {{< /admonition >}}
 
 ## GoAT

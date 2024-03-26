@@ -90,15 +90,8 @@ function initMenuMobile () {
  * @param {string} theme
  */
 function setColorTheme (theme) {
-  // set body attribute for CSS selector
-  document.body.setAttribute('theme', theme)
-  // set root color scheme
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
-  document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark')
-  // save to local storage
-  window.localStorage && localStorage.setItem('theme', theme)
-  // set window.isDark for js
-  window.isDark = !(theme === 'light')
+  window.setTheme(theme)
+  window.saveTheme(theme)
 }
 
 /**
@@ -430,6 +423,13 @@ function initDetails () {
       }
       $details.classList.toggle('open')
     }, false)
+    addEventListener("beforeprint", (event) => {
+      if ($details.classList.contains('open')) {
+        return;
+      }
+      $summary.click();
+    });
+
   })
 }
 
@@ -472,6 +472,12 @@ function initHighlight () {
         }
         $chroma.classList.toggle('open')
       }, false)
+      addEventListener("beforeprint", (event) => {
+        if ($chroma.classList.contains('open')) {
+          return;
+        }
+        $title.click();
+      });
       $header.appendChild($title)
       const $ellipses = document.createElement('span')
       $ellipses.insertAdjacentHTML('afterbegin', '<i class="fas fa-ellipsis-h fa-fw"></i>')
