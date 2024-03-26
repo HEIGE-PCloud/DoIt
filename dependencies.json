@@ -120,6 +120,16 @@
                     "local": "instant.page/instantpage.min.js"
                 }
             ]
+        },
+        {
+            "name": "typeit",
+            "version": "8.8.3",
+            "files": [
+                {
+                    "remote": "dist/index.umd.min.js",
+                    "local": "typeit/typeit.min.js"
+                }
+            ]
         }
     ]
 }
