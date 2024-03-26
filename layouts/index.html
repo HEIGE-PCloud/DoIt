@@ -1,3 +1,12 @@
+{{- define "title" }}
+    {{- $paginatorPager := .Scratch.Get "paginatorPager" -}}
+    {{- if and $paginatorPager (gt $paginatorPager.PageNumber 1) -}}
+        {{- T "prefixPageNumber" }} {{ $paginatorPager.PageNumber }} {{ T "suffixPageNumber" }} - {{ $.Site.Title -}}
+    {{ else }}
+        {{- $.Site.Title -}}
+    {{- end -}}
+{{- end -}}
+
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
     {{- $profile := .Site.Params.home.profile -}}
@@ -21,18 +30,8 @@
         {{- /* Posts */ -}}
         {{- if ne $posts.enable false | and .Site.RegularPages -}}
             {{- /* Paginate */ -}}
-            {{- $pages := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
-            {{- if .Site.Params.page.hiddenFromHomePage -}}
-                {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
-            {{- else -}}
-                {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
-            {{- end -}}
-            {{- with $posts.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
-            {{- range $pages.Pages -}}
+            {{- /* Paginate is first call on baseof.html */ -}}
+            {{- range .Paginator.Pages -}}
                 {{- .Render "summary" -}}
             {{- end -}}
             {{- partial "paginator.html" . -}}

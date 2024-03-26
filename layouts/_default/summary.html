@@ -1,6 +1,6 @@
 {{- $params := .Params | merge .Site.Params.page -}}
 
-<article class="single summary" itemscope itemtype="http://schema.org/Article">
+<article class="single summary">
     {{- /* Featured image */ -}}
     {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
     {{- with $image -}}
@@ -12,7 +12,7 @@
     {{- end -}}
 
     {{- /* Title */ -}}
-    <h1 class="single-title" itemprop="name headline">
+    <h1 class="single-title">
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
 

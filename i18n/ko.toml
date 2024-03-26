@@ -218,3 +218,9 @@ other = "변경"
 [deleted]
 other = "삭제"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = " "
+
+[suffixPageNumber]
+other = "페이지"

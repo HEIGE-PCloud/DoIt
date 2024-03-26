@@ -192,3 +192,9 @@ other = "تم تعديله"
 [deleted]
 other = "حُذف"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = " "
+
+[suffixPageNumber]
+other = "الصفحة"

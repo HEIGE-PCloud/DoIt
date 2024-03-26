@@ -18,7 +18,11 @@
     {{- end -}}
 {{- end -}}
 
-<link rel="canonical" href="{{ .Permalink }}" />
+{{ $canonicalURL := .Permalink }}
+{{ with .Scratch.Get "paginatorPager"  }}
+  {{ $canonicalURL = .URL | absLangURL }}
+{{ end }}
+<link rel="canonical" href="{{ $canonicalURL }}" />
 {{- if .PrevInSection -}}
     <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
 {{- end -}}

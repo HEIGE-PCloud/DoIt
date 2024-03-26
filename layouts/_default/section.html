@@ -1,5 +1,10 @@
 {{- define "title" }}
-    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+    {{- if (gt .Paginator.PageNumber 1) -}}
+        {{ $pageNumber := printf "%v %v %v" (T "prefixPageNumber" ) .Paginator.PageNumber (T "suffixPageNumber" ) }}
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} {{ $pageNumber }} - {{ .Site.Title -}}
+    {{- else -}}
+         {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+    {{- end -}}
 {{- end -}}
 
 {{- define "content" -}}
@@ -10,15 +15,10 @@
         </h2>
 
         {{- /* Paginate */ -}}
+        {{- /* Paginate is first call on baseof.html */ -}}
         {{- if .Pages -}}
-            {{- $pages := .Pages.GroupByDate "2006" -}}
-            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
             {{- partial "recentlyUpdated.html" . -}}
-            {{- range $pages.PageGroups -}}
+            {{- range .Paginator.PageGroups -}}
                 <h3 class="group-title">{{ .Key }}</h3>
                 {{- range .Pages -}}
                     <article class="archive-item">

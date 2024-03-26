@@ -779,6 +779,9 @@ Please open the code block below to view the complete sample configuration :(far
     image = ""
     # thumbnail URL
     thumbnailUrl = ""
+    # {{< version 0.4.1 >}}
+    # alternate site name in Google search result
+    alternateName = ["Hugo DoIt"]
 
   # {{< version 0.2.0 >}} Analytics config
   [params.analytics]

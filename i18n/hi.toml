@@ -192,3 +192,9 @@ other = "बदला हुआ"
 [deleted]
 other = "हटाए गए"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "पृष्ठ"
+
+[suffixPageNumber]
+other = " "

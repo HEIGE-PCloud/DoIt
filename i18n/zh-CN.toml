@@ -251,3 +251,8 @@ other = "更改"
 other = "删除"
 # === shortcodes/version.html ===
 
+[prefixPageNumber]
+other = "第"
+
+[suffixPageNumber]
+other = "页"

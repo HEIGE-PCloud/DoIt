@@ -252,3 +252,9 @@ other = "ИЗМЕНЕН"
 [deleted]
 other = "УДАЛЕН"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Стр."
+
+[suffixPageNumber]
+other = " "

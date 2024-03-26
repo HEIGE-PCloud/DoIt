@@ -252,3 +252,9 @@ other = "THAY ĐỔI"
 [deleted]
 other = "XOÁ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Trang"
+
+[suffixPageNumber]
+other = " "

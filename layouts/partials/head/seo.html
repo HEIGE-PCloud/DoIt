@@ -1,5 +1,3 @@
-{{- $params := .Scratch.Get "params" -}}
-
 {{- with .Site.Params.verification.google -}}
     <meta name="google-site-verification" content="{{ . }}" />
 {{- end -}}
@@ -22,60 +20,13 @@
     <meta name="360-site-verification" content="{{ . }}" />
 {{- end -}}
 
-{{- /* Home SEO */ -}}
-{{- if .IsHome -}}
-    <script type="application/ld+json">
+{{- define "blogPosting" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- with .Page -}}
     {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "url": {{ .Permalink }},
-        {{- with .Site.LanguageCode -}}
-            "inLanguage": "{{ . }}",
+        {{- if not $.IsHome | and .IsPage -}}
+        "@context": "https://schema.org",
         {{- end -}}
-        {{- with .Site.Author.name -}}
-            "author": {
-                "@type": "Person",
-                "name": {{ . | safeHTML }}
-            },
-        {{- end -}}
-        {{- with .Site.Params.description -}}
-            "description": {{ . | safeHTML }},
-        {{- end -}}
-        {{- $image := .Site.Params.seo.image -}}
-        {{- with .Site.Params.seo.image -}}
-          {{- $image := . -}}
-          {{- with dict "Path" $image "Resources" $.Resources | partial "function/resource.html" -}}
-              "image": {
-                  "@type": "ImageObject",
-                  "url": {{ .Permalink }},
-                  "width": {{ .Width }},
-                  "height": {{ .Height }}
-              },
-          {{- else -}}
-              {{- with $image -}}
-                  "image": {{ . | absURL }},
-              {{- end -}}
-          {{- end -}}
-        {{- end -}}
-        {{- with .Site.Params.seo.thumbnailUrl -}}
-            {{- with dict "Path" . "Resources" $.Resources | partial "function/resource.html" -}}
-                "thumbnailUrl": {{ .Permalink }},
-            {{- else -}}
-                "thumbnailUrl": {{ . | absURL }},
-            {{- end -}}
-        {{- end -}}
-        {{- with .Site.Copyright -}}
-            "license": "{{ . | safeHTML }}",
-        {{- end -}}
-        "name": {{ .Site.Title | safeHTML }}
-    }
-    </script>
-
-{{- /* Page SEO */ -}}
-{{- else if .IsPage -}}
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": {{ .Title | safeHTML }},
         "inLanguage": "{{ .Site.LanguageCode }}",
@@ -84,6 +35,14 @@
             "@id": {{ .Permalink }}
         },
         {{- $images := $params.seo.images | default slice -}}
+        {{- if not $images -}}
+            {{- with $params.featuredImage -}}
+                {{- $images = slice $params.featuredImage -}}
+            {{- end -}}
+            {{- with $params.featuredImagePreview -}}
+                {{- $images = $images | append $params.featuredImagePreview -}}
+            {{- end -}}
+        {{- end -}}
         {{- if not $images -}}
             {{- with .Resources.GetMatch "featured-image-preview" -}}
                 {{- $images = slice "featured-image-preview" -}}
@@ -115,8 +74,10 @@
             ],
         {{- end -}}
         "genre": "{{ .Type }}",
-        {{- with .Params.tags -}}
-            "keywords": "{{ delimit . ", " }}",
+        {{- if .Params.keywords -}}
+            "keywords": {{- apply .Params.keywords "safeHTML" "." -}},
+        {{- else if .Params.tags -}}
+            "keywords": {{- apply .Params.tags "safeHTML" "." -}},
         {{- end -}}
         "wordcount": {{ .WordCount }},
         "url": {{ .Permalink }},
@@ -151,35 +112,134 @@
             {{- end -}}
         },
         {{- if .Params.authors -}}
-        "authors": [
+        "author": [
         {{- $lang := ( $.Params.lang | default $.Lang ) -}}
         {{- range $i, $name := .Params.authors -}}
-            {{- if $.Site.Data.author -}}
+            {{- if $.Site.Data.authors -}}
                 {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
                     {{- if gt $i 0 }},{{ end -}}
                     {
                         "@type": "Person",
-                        "name": "{{ .name }}"
+                        "name": "{{ .name }}",
+                        "url": {{ .absLink }}
                     }
                 {{- end -}}
             {{- else -}}
+                {{- with partial "function/author.html" (dict "name" $name "lang" $lang) -}}
                     {{- if gt $i 0 }},{{ end -}}
                     {
                         "@type": "Person",
-                        "name": "{{ $name }}"                    
+                        "name": "{{ $name }}",
+                        "url": {{ .link | absURL }}
                     }
+                {{- end -}}
             {{- end -}}
         {{- end -}}
         ],
         {{- else -}}
+            {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
             {{- with .Params.author | default .Site.Author.name | default (T "author") -}}
             "author": {
                 "@type": "Person",
-                "name": {{ . | safeHTML }}
+                "name": {{ . | safeHTML }},
+                "url": {{ $link }}
             },
             {{- end -}}
         {{- end -}}
         "description": {{ .Description | safeHTML }}
     }
+    {{- end -}}
+{{- end -}}
+
+
+{{- /* Home SEO */ -}}
+{{- if .IsHome -}}
+    {{- $showBlogPosting := and .Site.RegularPages .Site.Params.home.posts.enable -}}
+    {{- $paginatorPager := .Scratch.Get "paginatorPager" -}}
+    {{- /* If the post is disabled then it is the homepage */ -}}
+    {{- $postDisable := not $.Site.Params.home.posts.enable -}}
+    {{- $isPaginationAndHomepage := and $paginatorPager (eq $paginatorPager.PageNumber 1) (eq $paginatorPager.URL "/") -}}
+    {{- $showWebSite := or $isPaginationAndHomepage $postDisable -}}
+    {{- if or $showBlogPosting $showWebSite -}}
+        <script type="application/ld+json">
+        {"@context": "https://schema.org",
+        "@graph": [
+        {{- if $showWebSite -}}
+            {
+                "@type": "WebSite",
+                "url": {{ .Permalink }},
+                {{- with .Site.LanguageCode -}}
+                    "inLanguage": "{{ . }}",
+                {{- end -}}
+                {{- with .Site.Author.name -}}
+                    "author": {
+                        "@type": "Person",
+                        "name": {{ . | safeHTML }}
+                    },
+                {{- end -}}
+                {{- with .Site.Params.description -}}
+                    "description": {{ . | safeHTML }},
+                {{- end -}}
+                {{- $image := .Site.Params.seo.image -}}
+                {{- with dict "Path" $image "Resources" .Resources | partial "function/resource.html" -}}
+                    "image": {
+                        "@type": "ImageObject",
+                        "url": {{ .Permalink }},
+                        "width": {{ .Width }},
+                        "height": {{ .Height }}
+                    },
+                {{- else -}}
+                    {{- with $image -}}
+                        "image": {{ . | absURL }},
+                    {{- end -}}
+                {{- end -}}
+                {{- with .Site.Params.seo.thumbnailUrl -}}
+                    {{- with dict "Path" . "Resources" $.Resources | partial "function/resource.html" -}}
+                        "thumbnailUrl": {{ .Permalink }},
+                    {{- else -}}
+                        "thumbnailUrl": {{ . | absURL }},
+                    {{- end -}}
+                {{- end -}}
+                {{- with .Site.Copyright -}}
+                    "license": "{{ . | safeHTML }}",
+                {{- end -}}
+                {{- with .Site.Params.seo.alternateName -}}
+                    "alternateName": {{- apply . "safeHTML" "." -}},
+                {{- end -}}
+                {{- with .Site.Params.footer.since -}}
+                    "copyrightYear": {{ . }},
+                {{- else -}}
+                    "copyrightYear": {{ now.Year }},
+                {{- end -}}
+                {{- if .Site.Params.footer.author -}}
+                    "copyrightHolder": {
+                        "@type": "Person",
+                        "name": {{ .Site.Params.footer.author | safeHTML }}
+                    },
+                {{- else if .Site.Author.name -}}
+                    "copyrightHolder": {
+                        "@type": "Person",
+                        "name": {{ .Site.Author.name | safeHTML }}
+                    },
+                {{- end -}}
+                "name": {{ .Site.Title | safeHTML }}
+            }
+            {{- if $showBlogPosting -}},{{- end -}}
+        {{- end -}}
+        {{- if $showBlogPosting -}}
+            {{- /* Paginate is first call on baseof.html */ -}}
+            {{- range $index, $page :=  $paginatorPager.Pages -}}
+            {{- if gt $index 0 -}},{{- end -}}
+                {{- template "blogPosting" dict "IsHome" $.IsHome "Page" $page -}}
+            {{- end -}}
+        {{- end -}}
+        ]}
+        </script>
+    {{- end -}}
+
+{{- /* Page SEO */ -}}
+{{- else if .IsPage -}}
+    <script type="application/ld+json">
+        {{- template "blogPosting" . -}}
     </script>
 {{- end -}}

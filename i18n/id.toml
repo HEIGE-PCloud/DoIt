@@ -192,3 +192,9 @@ other = "BERUBAH"
 [deleted]
 other = "DIHAPUS"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Halaman"
+
+[suffixPageNumber]
+other = " "

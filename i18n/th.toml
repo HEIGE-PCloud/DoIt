@@ -192,3 +192,9 @@ other = "เปลี่ยนแปลง"
 [deleted]
 other = "ลบ"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "หน้า"
+
+[suffixPageNumber]
+other = " "

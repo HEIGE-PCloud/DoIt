@@ -191,3 +191,9 @@ other = "Zmieniono"
 [deleted]
 other = "Usunięte"
 # === shortcodes/version.html ===
+
+[prefixPageNumber]
+other = "Strona"
+
+[suffixPageNumber]
+other = " "
