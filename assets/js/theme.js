@@ -423,6 +423,13 @@ function initDetails () {
       }
       $details.classList.toggle('open')
     }, false)
+    addEventListener("beforeprint", (event) => {
+      if ($details.classList.contains('open')) {
+        return;
+      }
+      $summary.click();
+    });
+
   })
 }
 
@@ -465,6 +472,12 @@ function initHighlight () {
         }
         $chroma.classList.toggle('open')
       }, false)
+      addEventListener("beforeprint", (event) => {
+        if ($chroma.classList.contains('open')) {
+          return;
+        }
+        $title.click();
+      });
       $header.appendChild($title)
       const $ellipses = document.createElement('span')
       $ellipses.insertAdjacentHTML('afterbegin', '<i class="fas fa-ellipsis-h fa-fw"></i>')
