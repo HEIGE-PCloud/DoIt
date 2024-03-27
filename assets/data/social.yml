@@ -581,3 +581,19 @@ discord:
   Newtab: true
   Icon:
     Simpleicons: discord
+
+# 074: Pixelfed
+pixelfed:
+  Weight: 74
+  Prefix: https://pixelfed.social/
+  Title: Pixelfed
+  Icon:
+    Simpleicons: pixelfed
+
+# 075: Lemmy
+lemmy:
+  Weight: 75
+  Prefix: https://lemmy.world/u/
+  Title: Lemmy
+  Icon:
+    Simpleicons: lemmy
