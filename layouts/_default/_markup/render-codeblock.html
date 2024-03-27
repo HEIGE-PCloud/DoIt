@@ -9,16 +9,46 @@
     }
 </style>
 <script>
-    async function writeClipboardText(id) {
-        try {
-            const el = document.getElementById(id);
-          await navigator.clipboard.writeText(el.innerText);
-        } catch (error) {
-          console.error(error.message);
-        }
-      }
-      
-    
+  async function writeClipboardText(id) {
+    const elementId = `codeblock-${id}`;
+    try {
+      const el = document.getElementById(elementId);
+      await navigator.clipboard.writeText(el.innerText);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  function toggleCodeblockWrap(id) {
+    const codeId = `codeblock-${id}`;
+    const buttonId = `wrap-code-${id}`;
+    const codeblock = document.getElementById(codeId);
+    const button = document.getElementById(buttonId);
+    codeblock.classList.toggle('tw-text-wrap');
+    button.innerText = codeblock.classList.contains('tw-text-wrap') ? 'Wrap' : 'Unwrap';
+  }
+
+  function toggleCodeblock(id) {
+    console.log('toggleCodeblock', id);
+    const codeId = `codeblock-${id}`;
+    const codeblock = document.getElementById(codeId);
+    codeblock.classList.toggle('!tw-max-h-0');
+  }
 </script>
-<button onclick="writeClipboardText('codeblock-{{ $id }}')">Copy</button>
-<pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="highlight !tw-block tw-text-wrap">{{ $result.Inner }}</code></pre>
+
+<div class="highlight " id="highlight-{{ $id }}">
+  <div class="tw-flex tw-flex-row tw-justify-between tw-w-full" >
+    <div class="tw-w-full" onclick="toggleCodeblock('{{ $id }}')">
+      <p class="tw-select-none">{{ .Type | default "text" }}</p>
+    </div>
+    <div class="tw-flex">
+      <button class="tw-select-none tw-mx-2" id="wrap-code-{{ $id }}" onclick="toggleCodeblockWrap('{{ $id }}')">Wrap</button><button class="tw-select-none  tw-mx-2" id="copy-code-{{ $id }}" onclick="writeClipboardText('{{ $id }}')">Copy</button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="!tw-block tw-text-wrap tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
+</div>
+
+<script>
+  var codeblock = document.getElementById('codeblock-{{ $id }}');
+  codeblock.style.maxHeight = codeblock.scrollHeight + 'px';
+</script>
