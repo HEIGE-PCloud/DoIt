@@ -575,6 +575,11 @@ ul {
   --tw-backdrop-sepia:  ;
 }
 
+.tw-mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .tw-my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -588,8 +593,24 @@ ul {
   margin-right: 0.25rem;
 }
 
+.\!tw-block {
+  display: block !important;
+}
+
+.tw-block {
+  display: block;
+}
+
 .tw-inline-block {
   display: inline-block;
+}
+
+.tw-flex {
+  display: flex;
+}
+
+.\!tw-max-h-0 {
+  max-height: 0px !important;
 }
 
 .tw-max-h-4 {
@@ -600,9 +621,31 @@ ul {
   max-height: 2rem;
 }
 
+.tw-w-full {
+  width: 100%;
+}
+
 .tw-translate-y-\[-2px\] {
   --tw-translate-y: -2px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.tw-flex-row {
+  flex-direction: row;
+}
+
+.tw-justify-between {
+  justify-content: space-between;
+}
+
+.tw-text-wrap {
+  text-wrap: wrap;
 }
 
 .tw-rounded-full {
@@ -649,8 +692,18 @@ ul {
   transition-duration: 150ms;
 }
 
+.tw-transition-\[max-height\] {
+  transition-property: max-height;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .tw-duration-300 {
   transition-duration: 300ms;
+}
+
+.tw-duration-500 {
+  transition-duration: 500ms;
 }
 
 .tw-ease-in-out {
