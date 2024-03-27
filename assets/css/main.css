@@ -575,6 +575,14 @@ ul {
   --tw-backdrop-sepia:  ;
 }
 
+.tw-absolute {
+  position: absolute;
+}
+
+.tw-m-0 {
+  margin: 0px;
+}
+
 .tw-my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -592,6 +600,10 @@ ul {
   display: inline-block;
 }
 
+.tw-flex {
+  display: flex;
+}
+
 .tw-max-h-4 {
   max-height: 1rem;
 }
@@ -603,6 +615,20 @@ ul {
 .tw-translate-y-\[-2px\] {
   --tw-translate-y: -2px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.tw-list-none {
+  list-style-type: none;
+}
+
+.tw-flex-col {
+  flex-direction: column;
 }
 
 .tw-rounded-full {
@@ -622,6 +648,11 @@ ul {
   background-color: transparent;
 }
 
+.tw-bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .tw-p-4 {
   padding: 1rem;
 }
@@ -634,6 +665,10 @@ ul {
 .tw-py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.tw-leading-normal {
+  line-height: 1.5;
 }
 
 .tw-shadow-black {
@@ -655,6 +690,14 @@ ul {
 
 .tw-ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marker\:tw-hidden *::marker {
+  display: none;
+}
+
+.marker\:tw-hidden::marker {
+  display: none;
 }
 
 .hover\:tw-bg-gray-200:hover {
