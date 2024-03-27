@@ -575,14 +575,14 @@ ul {
   --tw-backdrop-sepia:  ;
 }
 
-.tw-my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .tw-mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.tw-my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .tw-ml-4 {
@@ -688,12 +688,6 @@ ul {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.tw-transition-\[\] {
-  transition-property: ;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

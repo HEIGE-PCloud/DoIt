@@ -25,7 +25,8 @@
     const codeblock = document.getElementById(codeId);
     const button = document.getElementById(buttonId);
     codeblock.classList.toggle('tw-text-wrap');
-    button.innerText = codeblock.classList.contains('tw-text-wrap') ? 'Wrap' : 'Unwrap';
+    button.innerText = codeblock.classList.contains('tw-text-wrap') ? 'Unwrap' : 'Wrap';
+    codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
   }
 
   function toggleCodeblock(id) {
@@ -45,10 +46,10 @@
       <button class="tw-select-none tw-mx-2" id="wrap-code-{{ $id }}" onclick="toggleCodeblockWrap('{{ $id }}')">Wrap</button><button class="tw-select-none  tw-mx-2" id="copy-code-{{ $id }}" onclick="writeClipboardText('{{ $id }}')">Copy</button>
     </div>
   </div>
-  <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="!tw-block tw-text-wrap tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
+  <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="!tw-block tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
 </div>
 
 <script>
   var codeblock = document.getElementById('codeblock-{{ $id }}');
-  codeblock.style.maxHeight = codeblock.scrollHeight + 'px';
+  codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
 </script>
