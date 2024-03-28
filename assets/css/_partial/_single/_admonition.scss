@@ -22,7 +22,7 @@
     padding: .5rem 0;
   }
 
-  i.icon {
+  span.icon > svg {
     font-size: 0.85rem;
     color: map-get($admonition-color-map, 'note');
     position: absolute;
@@ -30,7 +30,7 @@
     left: .4rem;
   }
 
-  i.details-icon {
+  span.details-icon > svg {
     position: absolute;
     top: .6rem;
     right: .3rem;
@@ -40,7 +40,7 @@
     &.#{$type} {
       border-left-color: $color;
 
-      i.icon {
+      span.icon > svg {
         color: $color;
       }
     }

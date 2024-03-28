@@ -5,7 +5,7 @@
     }
   }
 
-  i.details-icon {
+  .details-icon > svg {
     color: $global-font-secondary-color;
     @include transition(transform 0.2s ease);
 
@@ -24,7 +24,7 @@
   }
 
   &.open {
-    i.details-icon {
+    .details-icon > svg {
       @include transform(rotate(90deg));
     }
 
