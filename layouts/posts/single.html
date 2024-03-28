@@ -82,18 +82,18 @@
             </div>
             <div class="post-meta-line">
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-                    <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}</span>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                    <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}</span>&nbsp;<time class="tw-align-middle" datetime="{{ . }}">{{ . }}</time>&nbsp;
                     {{- end -}}
                 {{- if $params.enableLastMod | default true -}}
                     {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                        <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") }}</span>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                        <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") }}</span>&nbsp;<time class="tw-align-middle" datetime="{{ . }}">{{ . }}</time>&nbsp;
                     {{- end -}}
                 {{- end -}}
                 {{- if $params.enableWordCount | default true -}}
-                    <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}</span>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+                    <span class="tw-text-xs">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}</span>&nbsp;<p class="tw-inline tw-align-middle">{{ T "wordCount" .WordCount }}</p>&nbsp;
                 {{- end -}}
                 {{- if $params.enableReadingTime | default true -}}
-                    <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                    <i class="far fa-clock fa-fw"></i>&nbsp;<p class="tw-inline tw-align-middle">{{ T "readingTime" .ReadingTime }}</p>&nbsp;
                 {{- end -}}
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
                 {{- /* Visitor Count */ -}}
