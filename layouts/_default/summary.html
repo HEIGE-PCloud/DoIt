@@ -79,7 +79,7 @@
             <div class="post-tags">
                 {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") -}}&nbsp;
                 {{- range $index, $value := . -}}
-                    {{- if gt $index 0 }},&nbsp;{{ end -}}
+                    {{- if gt $index 0 }}<p class="tw-align-text-bottom">,</p>&nbsp;{{ end -}}
                     {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
                     <a href="{{ $tag.RelPermalink }}" class="tw-align-text-bottom">{{ $tag.Title }}</a>
                 {{- end -}}
