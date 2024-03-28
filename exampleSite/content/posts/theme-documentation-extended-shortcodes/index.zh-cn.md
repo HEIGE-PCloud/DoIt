@@ -1532,3 +1532,17 @@ print("Hello world!")
 {{< /tabs >}}
 
 由于 Hugo shortcode 系统的限制，嵌套的选项卡可能无法正常工作。
+
+## fa-icon
+
+`fa-icon` shortcode 用于插入 [{{< fa-icon brands font-awesome >}}**Font Awesome 5**](https://fontawesome.com/v5/search?m=free) 图标。
+
+一个 `fa-icon` 示例:
+
+```markdown
+{{</* fa-icon regular smile */>}}
+```
+
+呈现的输出效果如下:
+
+{{< fa-icon regular smile >}}

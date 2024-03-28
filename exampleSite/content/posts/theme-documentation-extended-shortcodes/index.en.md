@@ -1529,3 +1529,17 @@ Yet another tab
 {{< /tabs >}}
 
 Due to limitations in the Hugo shortcode system, nested tabs may not work as expected.
+
+## fa-icon
+
+`fa-icon` shortcode is used to insert [{{< fa-icon brands font-awesome >}}**Font Awesome 5**](https://fontawesome.com/v5/search?m=free) icons.
+
+A `fa-icon` example:
+
+```markdown
+{{</* fa-icon regular smile */>}}
+```
+
+The rendered output looks like this:
+
+{{< fa-icon regular smile >}}
