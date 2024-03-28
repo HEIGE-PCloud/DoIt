@@ -26,14 +26,14 @@ Discover what the Hugo - **DoIt** theme is all about and the core-concepts behin
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
-Just install latest version of [:(far fa-file-archive fa-fw): Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
+Just install latest version of [{{< fa-icon regular file-archive >}} Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
 
 {{< admonition note "Why not support earlier versions of Hugo?" >}}
 Since [WebP Image Processing](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) was introduced in the [Hugo 0.83.0](https://gohugo.io/news/0.83.0-relnotes/), this theme only supports Hugo versions above **0.83.0**.
 {{< /admonition >}}
 
 {{< admonition tip "Hugo extended version is recommended" >}}
-Since some features of this theme need to processes :(fab fa-sass fa-fw): SCSS to :(fab fa-css3 fa-fw): CSS, it is recommended to use Hugo **extended** version for better experience.
+Since some features of this theme need to processes {{< fa-icon brands sass >}} SCSS to {{< fa-icon brands css3 >}} CSS, it is recommended to use Hugo **extended** version for better experience.
 {{< /admonition >}}
 
 ## Installation
@@ -53,7 +53,7 @@ cd my_website
 
 The **DoIt** theme’s repository is: [https://github.com/HEIGE-PCloud/DoIt](https://github.com/HEIGE-PCloud/DoIt).
 
-You can download the [latest release :(far fa-file-archive fa-fw): .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the `themes` directory.
+You can download the [latest release {{< fa-icon regular file-archive >}} .zip file](https://github.com/HEIGE-PCloud/DoIt/releases) of the theme and extract it in the `themes` directory.
 
 Alternatively, clone this repository to the `themes` directory:
 
@@ -189,7 +189,7 @@ Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deploymen
 
 In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **DoIt** lets you define the following parameters in your site configuration (here is a `config.toml`, whose values are default).
 
-Please open the code block below to view the complete sample configuration :(far fa-hand-point-down fa-fw)::
+Please open the code block below to view the complete sample configuration {{< fa-icon regular hand-point-down >}}:
 
 ```toml
 [params]
@@ -1053,28 +1053,28 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 
 | Language             | Hugo Code | HTML `lang` Attribute | Theme Docs                    |
 |:---------------------|:---------:|:---------------------:|:-----------------------------:|
-| English              | `en`      | `en`                  | :(far fa-check-square fa-fw): |
-| Simplified Chinese   | `zh-cn`   | `zh-CN`               | :(far fa-check-square fa-fw): |
-| French               | `fr`      | `fr`                  | :(far fa-square fa-fw):       |
-| Polish               | `pl`      | `pl`                  | :(far fa-square fa-fw):       |
-| Brazilian Portuguese | `pt-br`   | `pt-BR`               | :(far fa-square fa-fw):       |
-| Italian              | `it`      | `it`                  | :(far fa-square fa-fw):       |
-| Spanish              | `es`      | `es`                  | :(far fa-square fa-fw):       |
-| German               | `de`      | `de`                  | :(far fa-square fa-fw):       |
-| German               | `de`      | `de`                  | :(far fa-square fa-fw):       |
-| Serbian              | `sr`      | `sr`                  | :(far fa-square fa-fw):       |
-| Russian              | `ru`      | `ru`                  | :(far fa-square fa-fw):       |
-| Romanian             | `ro`      | `ro`                  | :(far fa-square fa-fw):       |
-| Vietnamese           | `vi`      | `vi`                  | :(far fa-square fa-fw):       |
-| Arabic               | `ar`      | `ar`                  | :(far fa-square fa-fw):       |
-| Catalan              | `ca`      | `ca`                  | :(far fa-square fa-fw):       |
-| Hindi                | `hi`      | `hi`                  | :(far fa-square fa-fw):       |
-| Indonesian           | `id`      | `id`                  | :(far fa-square fa-fw):       |
-| Telugu               | `te`      | `te`                  | :(far fa-square fa-fw):       |
-| Thai                 | `th`      | `th`                  | :(far fa-square fa-fw):       |
-| Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
-| Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
-| Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
+| English              | `en`      | `en`                  | {{< fa-icon regular check-square >}} |
+| Simplified Chinese   | `zh-cn`   | `zh-CN`               | {{< fa-icon regular check-square >}} |
+| French               | `fr`      | `fr`                  | {{< fa-icon regular square >}}       |
+| Polish               | `pl`      | `pl`                  | {{< fa-icon regular square >}}       |
+| Brazilian Portuguese | `pt-br`   | `pt-BR`               | {{< fa-icon regular square >}}       |
+| Italian              | `it`      | `it`                  | {{< fa-icon regular square >}}       |
+| Spanish              | `es`      | `es`                  | {{< fa-icon regular square >}}       |
+| German               | `de`      | `de`                  | {{< fa-icon regular square >}}       |
+| German               | `de`      | `de`                  | {{< fa-icon regular square >}}       |
+| Serbian              | `sr`      | `sr`                  | {{< fa-icon regular square >}}       |
+| Russian              | `ru`      | `ru`                  | {{< fa-icon regular square >}}       |
+| Romanian             | `ro`      | `ro`                  | {{< fa-icon regular square >}}       |
+| Vietnamese           | `vi`      | `vi`                  | {{< fa-icon regular square >}}       |
+| Arabic               | `ar`      | `ar`                  | {{< fa-icon regular square >}}       |
+| Catalan              | `ca`      | `ca`                  | {{< fa-icon regular square >}}       |
+| Hindi                | `hi`      | `hi`                  | {{< fa-icon regular square >}}       |
+| Indonesian           | `id`      | `id`                  | {{< fa-icon regular square >}}       |
+| Telugu               | `te`      | `te`                  | {{< fa-icon regular square >}}       |
+| Thai                 | `th`      | `th`                  | {{< fa-icon regular square >}}       |
+| Turkish              | `tr`      | `tr`                  | {{< fa-icon regular square >}}       |
+| Ukrainian            | `uk`      | `uk`                  | {{< fa-icon regular square >}}       |
+| Traditional Chinese  | `zh-tw`   | `zh-tw`               | {{< fa-icon regular square >}}       |
 
 ### Basic Configuration
 
@@ -1172,7 +1172,7 @@ Translations strings are used for common default values used in the theme. Trans
 
 To override these values, create a new file in your local i18n folder `i18n/<languageCode>.toml` and inspire yourself from `themes/DoIt/i18n/en.toml`.
 
-By the way, as these translations could be used by other people, please take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
+By the way, as these translations could be used by other people, please take the time to propose a translation by [{{< fa-icon solid code-branch >}} making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
 
 ## Search
 

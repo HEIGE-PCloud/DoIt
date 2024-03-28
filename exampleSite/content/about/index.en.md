@@ -47,14 +47,14 @@ math:
 * {{< fa-icon regular comment-alt >}} **Valine** comment system supported by [Valine](https://valine.js.org/)
 * {{< fa-icon regular comment-alt >}} **Waline** comment system supported by [Waline](https://waline.js.org/)
 * {{< fa-icon regular comments >}} **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
-* {{< fa-icon solid comment >}} **Telegram comments** system supported by [Comments](https://comments.app/)
-* {{< fa-icon solid comment-dots >}} **Commento** comment system supported by [Commento](https://commento.io/)
-* {{< fa-icon solid comment-alt >}} **Utterances** comment system supported by [Utterances](https://utteranc.es/)
-* {{< fa-icon solid comment-alt >}} **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
-* {{< fa-icon solid comment-alt >}} **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
-* {{< fa-icon solid comment-alt >}} **Remark42** comment system supported by [Remark42](https://remark42.com/)
-* {{< fa-icon solid gem >}} **giscus** comment system supported by [giscus](https://giscus.app/)
-* {{< fa-icon solid comment-alt >}} **Artalk** comment system supported by [Artalk](https://artalk.js.org/)
+* {{< fa-icon regular comment >}} **Telegram comments** system supported by [Comments](https://comments.app/)
+* {{< fa-icon regular comment-dots >}} **Commento** comment system supported by [Commento](https://commento.io/)
+* {{< fa-icon regular comment-alt >}} **Utterances** comment system supported by [Utterances](https://utteranc.es/)
+* {{< fa-icon regular comment-alt >}} **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
+* {{< fa-icon regular comment-alt >}} **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
+* {{< fa-icon regular comment-alt >}} **Remark42** comment system supported by [Remark42](https://remark42.com/)
+* {{< fa-icon regular gem >}} **giscus** comment system supported by [giscus](https://giscus.app/)
+* {{< fa-icon regular comment-alt >}} **Artalk** comment system supported by [Artalk](https://artalk.js.org/)
 
 ### Extended Features
 
