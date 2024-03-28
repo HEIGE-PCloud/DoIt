@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-// import ClipboardJS from 'clipboard'
 const Tablesort = require('tablesort')
 // const autocomplete = require('autocomplete.js')
 

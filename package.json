@@ -33,7 +33,6 @@
     "artalk": "^2.8.3",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
-    "clipboard": "^2.0.11",
     "cookieconsent": "^3.1.1",
     "echarts": "^5.5.0",
     "katex": "^0.16.10",
