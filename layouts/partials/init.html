@@ -13,8 +13,8 @@
 {{/*  TODO: properly restore DoIt using semiVer  */}}
 
 {{- /* Check Hugo version */ -}}
-{{- $OLDEST_SUPPORTED_HUGO_VERSION := "0.83.0" -}}
-{{- if lt hugo.Version "0.83.0" -}}
+{{- $OLDEST_SUPPORTED_HUGO_VERSION := "0.122.0" -}}
+{{- if lt hugo.Version $OLDEST_SUPPORTED_HUGO_VERSION -}}
     {{- errorf "\n\nHugo version is too low.\nHugo 版本过低。\n\nCurrent Hugo version is %v, the oldest supported version is %v.\n目前使用的 Hugo 版本为 %v， DoIt 支持的最老的 Hugo 版本为 %v。\n\nIf you are running Hugo on your own computer, check out https://gohugo.io/getting-started/installing/#upgrade-hugo for upgrading guide.\n如果你正在自己的计算机上运行 Hugo，请访问 https://gohugo.io/getting-started/installing/#upgrade-hugo 以查阅升级指南。\n\nIf you are deploying on a third-party platform, please configure Hugo version accordingly.\n如果你正在第三方平台上部署，请按照相应文档配置 Hugo 版本。\n\n" hugo.Version $OLDEST_SUPPORTED_HUGO_VERSION hugo.Version $OLDEST_SUPPORTED_HUGO_VERSION -}}
 {{- end -}}
 
