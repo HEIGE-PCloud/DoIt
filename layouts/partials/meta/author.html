@@ -10,7 +10,7 @@
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'><img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"/>
+                    <a href='{{ .link | absURL }}'><img width="16" height="16" src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"/>
                         {{- .name -}}
                     </a>
                 {{- end -}}
