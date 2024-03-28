@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -211,6 +211,8 @@ textarea {
   /* 1 */
   line-height: inherit;
   /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
   color: inherit;
   /* 1 */
   margin: 0;
@@ -234,9 +236,9 @@ select {
 */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -523,6 +525,10 @@ ul {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 ::backdrop {
@@ -573,6 +579,10 @@ ul {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 .tw-my-4 {
@@ -696,17 +706,17 @@ ul {
   color: rgb(45 150 189 / var(--tw-text-opacity));
 }
 
-:is(.tw-dark .dark\:tw-border-\[\#363636\]) {
+.dark\:tw-border-\[\#363636\]:is(.tw-dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(54 54 54 / var(--tw-border-opacity));
 }
 
-:is(.tw-dark .dark\:hover\:tw-bg-doit-grey-950:hover) {
+.dark\:hover\:tw-bg-doit-grey-950:hover:is(.tw-dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(32 37 43 / var(--tw-bg-opacity));
 }
 
-:is(.tw-dark .dark\:aria-selected\:tw-text-doit-blue-400[aria-selected="true"]) {
+.dark\:aria-selected\:tw-text-doit-blue-400[aria-selected="true"]:is(.tw-dark *) {
   --tw-text-opacity: 1;
   color: rgb(85 189 226 / var(--tw-text-opacity));
 }
