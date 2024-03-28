@@ -1,6 +1,6 @@
 {{ $path := printf "lib/fontawesome-free/svgs/%v/%v.svg" .Style .Icon }}
 {{ $resource := resources.Get $path }}
 
-<span class="fontawesome-icon">
+<span class="fontawesome-icon tw-align-text-bottom">
     {{ $resource.Content | safeHTML }}
 </span>

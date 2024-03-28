@@ -658,6 +658,18 @@ ul {
   padding-bottom: 0.5rem;
 }
 
+.tw-align-top {
+  vertical-align: top;
+}
+
+.tw-align-middle {
+  vertical-align: middle;
+}
+
+.tw-align-text-bottom {
+  vertical-align: text-bottom;
+}
+
 .tw-align-\[\] {
   vertical-align: ;
 }
@@ -672,6 +684,14 @@ ul {
 
 .tw-align-\[0\.1em\] {
   vertical-align: 0.1em;
+}
+
+.tw-align-\[0em\] {
+  vertical-align: 0em;
+}
+
+.tw-align-\[1px\] {
+  vertical-align: 1px;
 }
 
 .tw-text-sm {
