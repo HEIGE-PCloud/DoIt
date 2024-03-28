@@ -1,4 +1,3 @@
 {{ $path := printf "lib/fontawesome-free/svgs/%v/%v.svg" .Style .Icon }}
-{{ $resource := resources.Get $path }}
-
-<div class="fontawesome-icon tw-h-fit tw-w-fit tw-align-text-bottom">{{ $resource.Content | safeHTML }}</div>
+{{ $resource := (resources.Get $path).Content }}
+{{ $resource | replaceRE `<svg xmlns="http://www.w3.org/2000/svg"` `<svg class="fontawesome-icon" xmlns="http://www.w3.org/2000/svg"` | safeHTML }}

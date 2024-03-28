@@ -17,12 +17,12 @@ img.emoji {
   display: inline-block !important;
 }
 
-.fontawesome-icon > svg {
+svg.fontawesome-icon {
   display: inline-block;
+  height: 1em;
   width: 1.25em;
-  height: 1.25em;
+  vertical-align: -0.125em;
   color: $global-font-color;
-  vertical-align: text-bottom;
   [theme=dark] & {
     color: $global-font-color-dark;
   }
@@ -30,6 +30,6 @@ img.emoji {
     color: $global-font-color-black;
   }
 }
-.fontawesome-icon > svg > path {
+.fontawesome-icon svg > path {
   fill: currentColor;
 }
