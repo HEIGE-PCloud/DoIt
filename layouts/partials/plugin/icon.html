@@ -2,10 +2,13 @@
 {{- partial "plugin/fontawesome.html" . -}}
 {{- else -}}
 {{- with .Simpleicons -}}
-    {{ partial "plugin/simpleicons.html" . }}
+{{ partial "plugin/simpleicons.html" . }}
 {{- else -}}
-{{- with .Class -}}
-    {{- errorf "Deprecated %v" . -}}
+{{- with .Src -}}
+{{- $resource := resources.Get . -}}
+{{ if not $resource }}
+{{- errorf "Icon does not exist %v" . -}}
 {{- end -}}
-{{- end -}}
-{{- end }}
+{{- $resource := $resource.Content -}}
+{{- $resource | replaceRE `<svg ` `<svg class="icon" ` | safeHTML -}} {{- end -}} {{- with .Class -}} {{-
+    errorf "Deprecated %v" . -}} {{- end -}} {{- end -}} {{- end }}

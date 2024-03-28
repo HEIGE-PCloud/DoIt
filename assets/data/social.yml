@@ -597,7 +597,7 @@ bilibili:
   Prefix: https://space.bilibili.com/
   Title: bilibili
   Icon:
-    Simpleicons: bilibili
+    Src: svg/icons/bilibili.svg
 
 # 063: ORCID
 orcid:
