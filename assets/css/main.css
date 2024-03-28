@@ -596,12 +596,22 @@ ul {
   display: inline;
 }
 
+.tw-h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .tw-max-h-4 {
   max-height: 1rem;
 }
 
 .tw-max-h-8 {
   max-height: 2rem;
+}
+
+.tw-w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .tw-translate-x-1 {
@@ -647,6 +657,10 @@ ul {
 
 .tw-align-middle {
   vertical-align: middle;
+}
+
+.tw-align-text-bottom {
+  vertical-align: text-bottom;
 }
 
 .tw-text-xs {

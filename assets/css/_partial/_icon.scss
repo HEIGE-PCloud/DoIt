@@ -21,8 +21,8 @@ img.emoji {
   display: inline-block;
   width: 1.25em;
   height: 1.25em;
-  vertical-align: -0.25em;
   color: $global-font-color;
+  vertical-align: text-bottom;
   [theme=dark] & {
     color: $global-font-color-dark;
   }
