@@ -421,82 +421,8 @@ function initLightGallery () {
   }
 }
 
-function initHighlight () {
-  return;
-  forEach(document.querySelectorAll('.highlight > pre.chroma'), $preChroma => {
-    const $chroma = document.createElement('div')
-    $chroma.className = $preChroma.className
-    const $table = document.createElement('table')
-    $chroma.appendChild($table)
-    const $tbody = document.createElement('tbody')
-    $table.appendChild($tbody)
-    const $tr = document.createElement('tr')
-    $tbody.appendChild($tr)
-    const $td = document.createElement('td')
-    $tr.appendChild($td)
-    $preChroma.parentElement.replaceChild($chroma, $preChroma)
-    $td.appendChild($preChroma)
-  })
-  forEach(document.querySelectorAll('.highlight > .chroma'), $chroma => {
-    const $codeElements = $chroma.querySelectorAll('pre.chroma > code')
-    if ($codeElements.length) {
-      const $code = $codeElements[$codeElements.length - 1]
-      const $header = document.createElement('div')
-      $header.className = 'code-header ' + $code.className.toLowerCase()
-      const $title = document.createElement('span')
-      $title.classList.add('code-title')
-      $title.insertAdjacentHTML('afterbegin', `<svg class="arrow icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>`)
-      $title.addEventListener('click', () => {
-        const content = $chroma.getElementsByClassName('table-wrapper')[0]
-        if ($chroma.classList.contains('open')) {
-          content.style.maxHeight = null
-        } else {
-          content.style.maxHeight = content.scrollHeight + 'px'
-        }
-        $chroma.classList.toggle('open')
-      }, false)
-      addEventListener("beforeprint", (event) => {
-        if ($chroma.classList.contains('open')) {
-          return;
-        }
-        $title.click();
-      });
-      $header.appendChild($title)
-      const $ellipses = document.createElement('span')
-      $ellipses.insertAdjacentHTML('afterbegin', '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg>')
-      $ellipses.classList.add('ellipses')
-      $ellipses.addEventListener('click', () => {
-        $chroma.classList.add('open')
-      }, false)
-      $header.appendChild($ellipses)
-      const $copy = document.createElement('span')
-      const copyHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg>`;
-      const checkHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>`;
-      $copy.insertAdjacentHTML('afterbegin', copyHTML)
-      $copy.classList.add('copy')
-      const code = $code.innerText
-      if (window.config.code.maxShownLines < 0 || code.split('\n').length < window.config.code.maxShownLines + 2) $chroma.classList.add('open')
-      if (window.config.code.copyTitle) {
-        $copy.setAttribute('data-clipboard-text', code)
-        $copy.title = window.config.code.copyTitle
-        const clipboard = new ClipboardJS($copy)
-        clipboard.on('success', _e => {
-          animateCSS($code, 'animate__flash')
-          $copy.firstElementChild.innerHTML = checkHTML
-          setTimeout(() => {
-            $copy.firstElementChild.innerHTML = copyHTML
-          }, 3000)
-        })
-        $header.appendChild($copy)
-      }
-      $chroma.insertBefore($header, $chroma.firstChild)
-    }
-  })
-}
-
 function initTable () {
   forEach(document.querySelectorAll('.content table'), $table => {
-    if ($table.classList.contains('lntable')) return
     const $wrapper = document.createElement('div')
     $wrapper.className = 'table-wrapper'
     $table.parentElement.replaceChild($wrapper, $table)
@@ -783,7 +709,6 @@ function init () {
   initSearch()
   initDetails()
   initLightGallery()
-  initHighlight()
   initTable()
   initTypeit()
   initMapbox()

@@ -13,12 +13,11 @@ hiddenFromSearch: true
 
 <!--more-->
 
-
 ```cpp
 #include <iostream>
 int main()
 {
-    std::cout << "Hello world!" << endl;
+    std::cout << "Hello world!" << std::endl;
     return 0;
 }
 ```
@@ -27,7 +26,7 @@ int main()
 #include <iostream>
 int main()
 {
-    std::cout << "Hello world!" << endl;
+    std::cout << "Hello world!" << std::endl;
     return 0;
 }
 ```
