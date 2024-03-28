@@ -72,7 +72,7 @@
 {{- end -}}
 
 {{- /* Sharer.js */ -}}
-{{- if $params.share.enable -}}
+{{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
     {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "sharerjs" true | merge $config -}}
