@@ -42,10 +42,10 @@
                 <span class="menu-item delimiter"></span>
                 {{- end -}}
                 {{- if .Site.IsMultiLingual -}}
-                <button class="menu-item language" title="{{ T " selectLanguage" }}">
+                <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
                     {{- .Language.LanguageName -}}
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
-                    <select class="language-select" title="{{ T " selectLanguage" }}" id="language-select-desktop"
+                    <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
                         onchange="location = this.value;">
                         {{- if eq .Kind "404" -}}
                         {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
@@ -82,9 +82,9 @@
                 </span>
                 {{- end -}}
                 {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <button class="menu-item theme-select" title="{{ T " switchTheme" }}">
+                <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-                    <select class="color-theme-select" id="theme-select-desktop" title="{{ T " switchTheme" }}">
+                    <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                         <option value="light">{{ T "Light" }}</option>
                         <option value="dark">{{ T "Dark" }}</option>
                         <option value="black">{{ T "Black" }}</option>
@@ -92,7 +92,7 @@
                     </select>
                 </button>
                 {{- else -}}
-                <button class="menu-item theme-switch" title="{{ T " switchTheme" }}">
+                <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                 </button>
                 {{- end -}}
@@ -169,9 +169,9 @@
             </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-            <button class="menu-item theme-select" title="{{ T " switchTheme" }}">
+            <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-                <select class="color-theme-select" id="theme-select-mobile" title="{{ T " switchTheme" }}">
+                <select class="color-theme-select" id="theme-select-mobile" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     <option value="light">{{ T "Light" }}</option>
                     <option value="dark">{{ T "Dark" }}</option>
                     <option value="black">{{ T "Black" }}</option>
@@ -179,7 +179,7 @@
                 </select>
             </button>
             {{- else -}}
-            <button class="menu-item theme-switch" title="{{ T " switchTheme" }}">
+            <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
             </button>
             {{- end -}}
