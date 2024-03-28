@@ -42,25 +42,7 @@ function animateCSS (element, animation, reserved, callback) {
   }
   if (!reserved) element.addEventListener('animationend', handler)
 }
-/**
- * Fetch and initialize all SVG icons.
- */
-function initSVGIcon () {
-  Array.from(document.querySelectorAll('[data-svg-src]')).forEach(icon => {
-    fetch(icon.getAttribute('data-svg-src'))
-      .then(response => response.text())
-      .then(svg => {
-        const temp = document.createElement('div')
-        temp.insertAdjacentHTML('afterbegin', svg)
-        const dataSvg = temp.firstChild
-        dataSvg.setAttribute('data-svg-src', icon.getAttribute('data-svg-src'))
-        dataSvg.classList.add('icon')
-        const titleElements = dataSvg.getElementsByTagName('title')
-        if (titleElements.length) dataSvg.removeChild(titleElements[0])
-        icon.parentElement.replaceChild(dataSvg, icon)
-      })
-  })
-}
+
 
 /**
  * Initialize the mobile menu bar.
@@ -381,7 +363,7 @@ function initSearch () {
           const { searchType, icon, href } = searchConfig.type === 'algolia'
             ? {
                 searchType: 'algolia',
-                icon: '<i class="fab fa-algolia fa-fw"></i>',
+                icon: '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M229.3 182.6c-49.3 0-89.2 39.9-89.2 89.2 0 49.3 39.9 89.2 89.2 89.2s89.2-39.9 89.2-89.2c0-49.3-40-89.2-89.2-89.2zm62.7 56.6l-58.9 30.6c-1.8.9-3.8-.4-3.8-2.3V201c0-1.5 1.3-2.7 2.7-2.6 26.2 1 48.9 15.7 61.1 37.1.7 1.3.2 3-1.1 3.7zM389.1 32H58.9C26.4 32 0 58.4 0 90.9V421c0 32.6 26.4 59 58.9 59H389c32.6 0 58.9-26.4 58.9-58.9V90.9C448 58.4 421.6 32 389.1 32zm-202.6 84.7c0-10.8 8.7-19.5 19.5-19.5h45.3c10.8 0 19.5 8.7 19.5 19.5v15.4c0 1.8-1.7 3-3.3 2.5-12.3-3.4-25.1-5.1-38.1-5.1-13.5 0-26.7 1.8-39.4 5.5-1.7.5-3.4-.8-3.4-2.5v-15.8zm-84.4 37l9.2-9.2c7.6-7.6 19.9-7.6 27.5 0l7.7 7.7c1.1 1.1 1 3-.3 4-6.2 4.5-12.1 9.4-17.6 14.9-5.4 5.4-10.4 11.3-14.8 17.4-1 1.3-2.9 1.5-4 .3l-7.7-7.7c-7.6-7.5-7.6-19.8 0-27.4zm127.2 244.8c-70 0-126.6-56.7-126.6-126.6s56.7-126.6 126.6-126.6c70 0 126.6 56.6 126.6 126.6 0 69.8-56.7 126.6-126.6 126.6z"/></svg>',
                 href: 'https://www.algolia.com/'
               }
             : {
@@ -463,7 +445,7 @@ function initHighlight () {
       $header.className = 'code-header ' + $code.className.toLowerCase()
       const $title = document.createElement('span')
       $title.classList.add('code-title')
-      $title.insertAdjacentHTML('afterbegin', '<i class="arrow fas fa-chevron-right fa-fw"></i>')
+      $title.insertAdjacentHTML('afterbegin', `<svg class="arrow icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>`)
       $title.addEventListener('click', () => {
         const content = $chroma.getElementsByClassName('table-wrapper')[0]
         if ($chroma.classList.contains('open')) {
@@ -481,14 +463,16 @@ function initHighlight () {
       });
       $header.appendChild($title)
       const $ellipses = document.createElement('span')
-      $ellipses.insertAdjacentHTML('afterbegin', '<i class="fas fa-ellipsis-h fa-fw"></i>')
+      $ellipses.insertAdjacentHTML('afterbegin', '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg>')
       $ellipses.classList.add('ellipses')
       $ellipses.addEventListener('click', () => {
         $chroma.classList.add('open')
       }, false)
       $header.appendChild($ellipses)
       const $copy = document.createElement('span')
-      $copy.insertAdjacentHTML('afterbegin', '<i class="far fa-copy fa-fw"></i>')
+      const copyHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg>`;
+      const checkHTML = `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>`;
+      $copy.insertAdjacentHTML('afterbegin', copyHTML)
       $copy.classList.add('copy')
       const code = $code.innerText
       if (window.config.code.maxShownLines < 0 || code.split('\n').length < window.config.code.maxShownLines + 2) $chroma.classList.add('open')
@@ -498,9 +482,9 @@ function initHighlight () {
         const clipboard = new ClipboardJS($copy)
         clipboard.on('success', _e => {
           animateCSS($code, 'animate__flash')
-          $copy.firstElementChild.className = 'fas fa-check fa-fw'
+          $copy.firstElementChild.innerHTML = checkHTML
           setTimeout(() => {
-            $copy.firstElementChild.className = 'far fa-copy fa-fw'
+            $copy.firstElementChild.innerHTML = copyHTML
           }, 3000)
         })
         $header.appendChild($copy)
@@ -792,7 +776,6 @@ function init () {
   window.resizeEventSet = new Set()
   window.clickMaskEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
-  initSVGIcon()
   initMenuMobile()
   initSwitchTheme()
   initSelectTheme()

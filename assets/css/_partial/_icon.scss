@@ -16,3 +16,21 @@ img.emoji {
   vertical-align: -.1em;
   display: inline-block !important;
 }
+
+svg.icon {
+  display: inline-block;
+  height: 1em;
+  width: 1.25em;
+  vertical-align: -0.125em;
+  color: $global-font-color default;
+  [theme=dark] & {
+    color: $global-font-color-dark default;
+  }
+  [theme=black] & {
+    color: $global-font-color-black default;
+  }
+}
+
+svg.icon > path {
+  fill: currentColor;
+}

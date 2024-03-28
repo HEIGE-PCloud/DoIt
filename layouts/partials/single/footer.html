@@ -10,7 +10,7 @@
                         {{- if $.Site.Params.gitRepo -}}
                             {{- with $.GitInfo -}}
                                 &nbsp;<a class="git-hash" href="{{ printf `%v/commit/%v` $.Site.Params.gitRepo .Hash }}" target="_blank" title="commit by {{ .AuthorName }}({{ .AuthorEmail }}) {{ .Hash }}: {{ .Subject }}" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>{{- .AbbreviatedHash -}}
+                                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "hashtag") }}{{- .AbbreviatedHash -}}
                                 </a>
                             {{- end -}}
                         {{- end -}}
@@ -73,7 +73,7 @@
     <div class="post-info-more">
         <section class="post-tags">
             {{- with .Params.tags -}}
-                <i class="fas fa-tags fa-fw"></i>&nbsp;
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") }}&nbsp;
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }},&nbsp;{{ end -}}
                     {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
@@ -88,10 +88,10 @@
 
     <div class="post-nav print:tw-hidden">
         {{- if .PrevInSection -}}
-            <a href="{{ .PrevInSection.RelPermalink }}" class="prev" rel="prev" title="{{ .PrevInSection.Title }}"><i class="fas fa-angle-left fa-fw"></i>{{ .PrevInSection.Title }}</a>
+            <a href="{{ .PrevInSection.RelPermalink }}" class="prev" rel="prev" title="{{ .PrevInSection.Title }}">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-left") }}{{ .PrevInSection.Title }}</a>
         {{- end -}}
         {{ if .NextInSection }}
-            <a href="{{ .NextInSection.RelPermalink }}" class="next" rel="next" title="{{ .NextInSection.Title }}">{{ .NextInSection.Title }}<i class="fas fa-angle-right fa-fw"></i></a>
+            <a href="{{ .NextInSection.RelPermalink }}" class="next" rel="next" title="{{ .NextInSection.Title }}">{{ .NextInSection.Title }}{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") }}</a>
         {{- end -}}
     </div>
 </div>

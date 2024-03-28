@@ -2,7 +2,7 @@ $showcase-background-color: #f8f8f8;
 $showcase-background-color-dark: #252627;
 $showcase-background-color-black: #111111;
 
-$showcase-color: #2d96bd;
+$showcase-color: #2D809A;
 $showcase-color-dark: #a9a9b3;
 $showcase-color-black: #d9d9d9;
 
@@ -17,9 +17,11 @@ $showcase-hover-color-black: #ffffff;
     display: inline-block !important;
     background: $showcase-background-color;
     position: relative;
+
     [theme="dark"] & {
         background: $showcase-background-color-dark;
     }
+
     [theme="black"] & {
         background: $showcase-background-color-black;
     }
@@ -29,9 +31,11 @@ $showcase-hover-color-black: #ffffff;
     width: 100%;
     margin: 1% 0% 0% 0%;
 }
+
 .column-2 {
     width: 48%;
 }
+
 .column-3 {
     width: 32%;
 }
@@ -66,17 +70,22 @@ $showcase-hover-color-black: #ffffff;
 
 .showcase-title a {
     color: black;
+
     &:hover {
         color: $showcase-hover-color;
     }
+
     [theme="dark"] & {
         color: $showcase-color-dark;
+
         &:hover {
             color: $showcase-hover-color-dark;
         }
     }
+
     [theme="black"] & {
         color: $showcase-color-black;
+
         &:hover {
             color: $showcase-hover-color-black;
         }
@@ -111,6 +120,7 @@ $showcase-hover-color-black: #ffffff;
         margin: 1% 0% 0% 0%;
     }
 }
+
 @media screen and (max-width: 1000px) {
     .column-3 {
         width: 48%;

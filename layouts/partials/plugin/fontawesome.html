@@ -1,0 +1,9 @@
+{{- $path := printf "lib/fontawesome-free/svgs/%v/%v.svg" .Style .Icon -}}
+
+{{- $resource := (resources.Get $path) -}}
+{{ if not $resource }}
+    {{- errorf "Fontawesome icon does not exist %v" $path -}}
+{{- end -}}
+{{- $resource := $resource.Content -}}
+{{- $resource | replaceRE `<svg xmlns="http://www.w3.org/2000/svg" ` `<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" ` | safeHTML -}}

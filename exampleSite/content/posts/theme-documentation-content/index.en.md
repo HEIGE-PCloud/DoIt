@@ -51,7 +51,7 @@ such as **links**, **images**, `image` shortcode, `music` shortcode and some par
 
 Images in page resources or assets directory [processing](https://gohugo.io/content-management/image-processing/)
 will be supported in the future.
-It's really cool! :(far fa-grin-squint fa-fw):
+It's really cool! {{< fa-icon regular grin-squint >}}
 {{< /admonition >}}
 
 ## Author Settings {#author-setup}
@@ -121,7 +121,6 @@ twemoji: false
 lightgallery: true
 ruby: true
 fraction: true
-fontawesome: true
 linkToMarkdown: true
 linkToSource: false
 linkToEdit: false
@@ -200,7 +199,6 @@ related:
 * **lightgallery**: if `true`, images in the content will be shown as the gallery.
 * **ruby**: {{< version 0.2.0 >}} if `true`, the content will enable the [ruby extended syntax](#ruby).
 * **fraction**: {{< version 0.2.0 >}} if `true`, the content will enable the [fraction extended syntax](#fraction).
-* **fontawesome**: {{< version 0.2.0 >}} if `true`, the content will enable the [Font Awesome extended syntax](#fontawesome).
 * **linkToMarkdown**: if `true`, the footer of the content will be shown the link to the original Markdown file.
 * **linkToSource**: {{< version 0.2.14 >}} if `false`, turn off the **view source** link in the footer. You can set it to the link to the source file of the post. Use the magic variable `{path}` to specify the relative path of the post, for example, the `{path}` for this post is `posts/theme-documentation-content/index.en.md`.
 * **linkToEdit**: {{< version 0.2.13 >}} if `false`, turn off the **edit this page** link in the footer. You can set it to the link to edit the page. Use the magic variable `{path}` to specify the relative path of the post, for example, the `{path}` for this post is `posts/theme-documentation-content/index.en.md`.
@@ -406,57 +404,3 @@ The rendered output looks like this:
 [Light]/[Dark]
 
 [90]/[100]
-
-### Font Awesome {#fontawesome}
-
-**DoIt** theme uses [Font Awesome](https://fontawesome.com/) as the icon library.
-You can easily use these icons in your articles.
-
-Get the `class` of icons you wanted from the [Font Awesome website](https://fontawesome.com/icons?d=gallery).
-
-```markdown
-Gone camping! {?:}(fas fa-campground fa-fw): Be back soon.
-
-That is so funny! {?:}(far fa-grin-tears):
-```
-
-The rendered output looks like this:
-
-Gone camping! :(fas fa-campground fa-fw): Be back soon.
-
-That is so funny! :(far fa-grin-tears):
-
-### Escape character {#escape-character}
-
-In some special cases (when writing this theme documentation :(far fa-grin-squint-tears):),
-your content will conflict with basic or extended Markdown syntax, and it is inevitable.
-
-The escape character syntax can help you build the content you wanted:
-
-```markdown
-{{??}X} -> X
-```
-
-For example, two `:` will enable emoji syntax, which is not the behavior you want. The escape character syntax is like this:
-
-```markdown
-{{??}:}joy:
-```
-
-The rendered output looks like this:
-
-**{?:}joy{?:}** instead of **:joy:**
-
-{{< admonition tip >}}
-This is related to **[an issue for Hugo](https://github.com/gohugoio/hugo/issues/4978)**, which has not been resolved.
-{{< /admonition >}}
-
-Another example is:
-
-```markdown
-[link{{??}]}(#escape-character)
-```
-
-The rendered output looks like this:
-
-**[link{?]}(#escape-character)** instead of **[link](#escape-character)**.

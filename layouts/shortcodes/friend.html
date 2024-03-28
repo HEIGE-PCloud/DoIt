@@ -20,7 +20,7 @@
         </div>
         <div class="friend-link-info">
             <div class="friend-name-div">
-                <i class="fas fa-user-circle fa-fw"></i>
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "user-circle") }}
                 <i class="friend-name">{{- $title -}}</i>
             </div>
             <p class="friend-bio">{{- $bio -}}</p>

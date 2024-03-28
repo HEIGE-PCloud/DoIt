@@ -36,7 +36,7 @@
 {{- end -}}
 
 {{/*  tailwind.css  */}}
-{{ $style := dict "Source" "css/main.css" "Fingerprint" $fingerprint }}
+{{ $style := dict "Source" "css/main.css" "Minify" true }}
 {{- partial "plugin/style.html" $style -}}
 
 {{- /* normalize.css */ -}}
@@ -44,19 +44,10 @@
 {{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
 {{- partial "plugin/style.html" $style -}}
 
-{{/*  color.min.css  */}}
-{{- $style := dict "Source" "css/color.css" "Fingerprint" $fingerprint "Defer" false -}}
-{{- partial "plugin/style.html" $style -}}
-
 {{- /* style.min.css */ -}}
-{{- $style := dict "Source" "css/style.scss" "Fingerprint" $fingerprint -}}
+{{- $style := dict "Source" "css/style.scss" -}}
 {{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" true -}}
 {{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
-{{- partial "plugin/style.html" $style -}}
-
-{{- /* Font Awesome */ -}}
-{{- $source := $cdn.fontawesomeFreeCSS | default "lib/fontawesome-free/all.min.css" -}}
-{{- $style := dict "Source" $source "Fingerprint" $fingerprint "Defer" true -}}
 {{- partial "plugin/style.html" $style -}}
 
 {{- /* Animate.css */ -}}

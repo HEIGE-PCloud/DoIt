@@ -36,7 +36,7 @@ Hugo **extended** version is necessary for `style` shortcode.
 The `style` shortcode has two positional parameters.
 
 The **first** one is the custom style content,
-which supports nesting syntax in [:(fab fa-sass fa-fw): SASS](https://sass-lang.com/documentation/style-rules/declarations#nesting)
+which supports nesting syntax in [{{< fa-icon brands sass >}} SASS](https://sass-lang.com/documentation/style-rules/declarations#nesting)
 and `&` referring to this parent HTML element.
 
 And the **second** one is the tag name of the HTML element wrapping the content you want to change the style, and whose default value is `div`.
@@ -1350,7 +1350,7 @@ The rendered output looks like this:
 
 {{< version 0.2.8 >}}
 
-`script` is a shortcode to insert custom **:(fab fa-js fa-fw): Javascript** in your post.
+`script` is a shortcode to insert custom **{{< fa-icon brands js >}} Javascript** in your post.
 
 {{< admonition >}}
 The script content can be guaranteed to be executed in order after all third-party libraries are loaded. So you are free to use third-party libraries.
@@ -1529,3 +1529,17 @@ Yet another tab
 {{< /tabs >}}
 
 Due to limitations in the Hugo shortcode system, nested tabs may not work as expected.
+
+## fa-icon
+
+`fa-icon` shortcode is used to insert [{{< fa-icon brands font-awesome >}}**Font Awesome 5**](https://fontawesome.com/v5/search?m=free) icons.
+
+A `fa-icon` example:
+
+```markdown
+{{</* fa-icon regular smile */>}}
+```
+
+The rendered output looks like this:
+
+{{< fa-icon regular smile >}}

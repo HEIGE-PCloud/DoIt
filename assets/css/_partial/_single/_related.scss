@@ -2,7 +2,7 @@
     --related-background-color: #f8f8f8;
     --related-background-color-dark: #252627;
     --related-background-color-black: #111111;
-    --related-color: #2d96bd;
+    --related-color: #2D809A;
     --related-color-dark: #a9a9b3;
     --related-color-black: #d9d9d9;
     --related-hover-color: #ef3982;
@@ -23,26 +23,30 @@
         margin-right: 20px;
         background: var(--related-background-color);
         position: relative;
+
         [theme="dark"] & {
             background: var(--related-background-color-dark);
         }
+
         [theme="black"] & {
             background: var(--related-background-color-black);
         }
     }
-    
+
     .related-image {
         @include transition(transform 0.4s ease);
+
         img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
+
         &:hover {
             @include transform(scale(1.01));
         }
     }
-    
+
     .related-title {
         position: absolute;
         text-overflow: ellipsis;
@@ -54,20 +58,25 @@
         font-size: 1.25rem;
         line-height: 140%;
     }
-    
+
     .related-title a {
         color: black;
+
         &:hover {
             color: var(--related-hover-color);
         }
+
         [theme="dark"] & {
             color: var(--related-color-dark);
+
             &:hover {
                 color: var(--related-hover-color-dark);
             }
         }
+
         [theme="black"] & {
             color: var(--related-color-black);
+
             &:hover {
                 color: var(--related-hover-color-black);
             }

@@ -630,6 +630,16 @@ ul {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes tw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tw-animate-spin {
+  animation: tw-spin 1s linear infinite;
+}
+
 .tw-select-none {
   -webkit-user-select: none;
      -moz-user-select: none;

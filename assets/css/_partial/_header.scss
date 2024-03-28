@@ -175,11 +175,11 @@ header {
   }
 }
 
-.theme-switch i {
+.theme-switch svg {
   @include transform(rotate(225deg));
 }
 
-.theme-select i {
+.theme-select svg {
   @include transform(rotate(225deg));
 }
 
