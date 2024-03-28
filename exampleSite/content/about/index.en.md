@@ -8,7 +8,6 @@ lightgallery: true
 math:
   enable: true
 ---
-:(far fa-grin-tears):
 
 > [{{< fa-icon regular edit >}} DoIt](https://github.com/HEIGE-PCloud/DoIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [HEIGE-PCloud](https://github.com/HEIGE-PCloud).
 >
