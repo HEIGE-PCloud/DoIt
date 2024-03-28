@@ -5,8 +5,7 @@
             <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                 {{- with .Site.Params.header.title -}}
                     {{- with .logo -}}
-                        {{- dict "Src" . "Class" "logo" | partial "plugin/image.html" -}}
-                    {{- end -}}
+                        {{- dict "Src" . "Class" "logo" "Height" "36" "Width" "36" | partial "plugin/image.html" -}}                    {{- end -}}
                     {{- with .pre -}}
                         <span class="header-title-pre">{{ . | safeHTML }}</span>
                     {{- end -}}
