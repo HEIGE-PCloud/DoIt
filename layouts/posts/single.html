@@ -1,6 +1,7 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 
 {{- define "content" -}}
+    {{- .Page.Scratch.SetInMap "this" "tablesort" true -}}
     {{- $params := .Scratch.Get "params" -}}
     {{- $toc := $params.toc -}}
     {{- if eq $toc true -}}
