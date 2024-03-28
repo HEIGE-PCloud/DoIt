@@ -26,12 +26,12 @@
                         <br>
                         {{- if .absLink -}}
                             <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon fa fa-link fa-fw"></i>
+                                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "link") -}}
                             </a>
                             {{- end -}}
                         {{- if .email -}}
                             <a class="author-link-icon" href="mailto:{{ .email }}" title="Email" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon far fa-envelope fa-fw"></i>
+                                {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "envelope") -}}
                             </a>
                         {{- end -}}
                     {{- end -}}
