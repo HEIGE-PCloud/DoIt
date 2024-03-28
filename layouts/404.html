@@ -7,7 +7,7 @@
         <h1 id="error-emoji"></h1>
         <p class="error-text">
             {{- T "pageNotFoundText" -}}&nbsp;
-            <a href="javascript:void(0);" title="{{ T `back` }}" onclick="window.history.back();"><i class="far fa-hand-point-left fa-fw"></i></a>
+            <button onclick="window.history.back();">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "hand-point-left") }}</button>
         </p>
     </div>
     <script type="text/javascript">
