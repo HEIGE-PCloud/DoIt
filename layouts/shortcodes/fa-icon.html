@@ -1,0 +1,4 @@
+{{- $options := cond .IsNamedParams (.Get "style") (.Get 0) | dict "Style" -}}
+{{- $options = cond .IsNamedParams (.Get "icon") (.Get 1) | dict "Icon" | merge $options -}}
+
+{{- partial "plugin/fontawesome.html" $options -}}

@@ -17,20 +17,20 @@ img.emoji {
   display: inline-block !important;
 }
 
-svg.fontawesome-icon {
+svg.icon {
   display: inline-block;
   height: 1em;
   width: 1.25em;
   vertical-align: -0.125em;
-  color: $global-font-color;
+  color: $global-font-color default;
   [theme=dark] & {
-    color: $global-font-color-dark;
+    color: $global-font-color-dark default;
   }
   [theme=black] & {
-    color: $global-font-color-black;
+    color: $global-font-color-black default;
   }
 }
 
-svg.fontawesome-icon > path {
+svg.icon > path {
   fill: currentColor;
 }

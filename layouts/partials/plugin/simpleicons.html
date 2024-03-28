@@ -1,0 +1,3 @@
+{{- $path := printf "lib/simple-icons/icons/%v.svg" . -}}
+{{- $resource := (resources.Get $path).Content -}}
+{{- $resource | replaceRE `<svg role="img"` `<svg class="icon" role="img"` | safeHTML -}}

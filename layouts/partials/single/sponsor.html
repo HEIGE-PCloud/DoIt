@@ -36,7 +36,7 @@
             </div>
         {{- else -}}
             <a href="{{- $link -}}" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
-                <i class="far fa-heart fa-fw icon" style="color: #ec6cb9;"></i>
+                <span style="color: #ec6cb9;">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "heart") }}</span>
                 <span>{{- T "sponsor" -}}</span>
             </a>
         {{- end -}}

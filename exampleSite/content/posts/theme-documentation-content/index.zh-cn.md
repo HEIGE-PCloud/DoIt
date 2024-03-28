@@ -50,7 +50,7 @@ math:
 例如 **链接**, **图片**, `image` shortcode, `music` shortcode 和**前置参数**中的部分参数.
 
 页面资源或者 **assets** 目录中的[图片处理](https://gohugo.io/content-management/image-processing/)会在未来的版本中得到支持.
-非常酷的功能! :(far fa-grin-squint fa-fw):
+非常酷的功能! {{< fa-icon regular grin-squint >}}
 {{< /admonition >}}
 
 ## 作者配置 {#author-setup}
@@ -120,7 +120,6 @@ twemoji: false
 lightgallery: true
 ruby: true
 fraction: true
-fontawesome: true
 linkToMarkdown: true
 linkToSource: false
 linkToEdit: false
@@ -199,7 +198,6 @@ related:
 * **lightgallery**: 如果设为 `true`, 文章中的图片将可以按照画廊形式呈现.
 * **ruby**: {{< version 0.2.0 >}} 如果设为 `true`, 这篇文章会使用 [上标注释扩展语法](#ruby).
 * **fraction**: {{< version 0.2.0 >}} 如果设为 `true`, 这篇文章会使用 [分数扩展语法](#fraction).
-* **fontawesome**: {{< version 0.2.0 >}} 如果设为 `true`, 这篇文章会使用 [Font Awesome 扩展语法](#fontawesome).
 * **linkToMarkdown**: 如果设为 `true`, 内容的页脚将显示指向原始 Markdown 文件的链接.
 * **linkToSource**: {{< version 0.2.14 >}} 如果设为 `false`, 则关闭页脚 **view source** 的链接. 你可以将其设置为一个指向文章原始文件的链接. 使用魔法变量 `{path}` 来获取文章的相对路径, 这篇文章的 `{path}` 是 `posts/theme-documentation-content/index.en.md`.
 * **linkToEdit**:{{< version 0.2.13 >}} 如果设为 `false`, 则关闭页脚 **编辑此页** 的链接. 你可以将其设置为一个用于编辑这个页面的链接. 使用魔法变量 `{path}` 来获取这篇文章的相对路径, 这篇文章的 `{path}` 是 `posts/theme-documentation-content/index.zh-cn.md`.
@@ -405,57 +403,3 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 [浅色]/[深色]
 
 [90]/[100]
-
-### Font Awesome {#fontawesome}
-
-**DoIt** 主题使用 [Font Awesome](https://fontawesome.com/) 作为图标库.
-你同样可以在文章中轻松使用这些图标.
-
-从 [Font Awesome 网站](https://fontawesome.com/icons?d=gallery) 上获取所需的图标 `class`.
-
-```markdown
-去露营啦! {?:}(fas fa-campground fa-fw): 很快就回来.
-
-真开心! {?:}(far fa-grin-tears):
-```
-
-呈现的输出效果如下:
-
-去露营啦! :(fas fa-campground fa-fw): 很快就回来.
-
-真开心! :(far fa-grin-tears):
-
-### 转义字符 {#escape-character}
-
-在某些特殊情况下 (编写这个主题文档时 :(far fa-grin-squint-tears):),
-你的文章内容会与 Markdown 的基本或者扩展语法冲突, 并且无法避免.
-
-转义字符语法可以帮助你渲染出想要的内容:
-
-```markdown
-{{??}X} -> X
-```
-
-例如, 两个 `:` 会启用 emoji 语法. 但有时候这不是你想要的结果. 可以像这样使用转义字符语法:
-
-```markdown
-{{??}:}joy:
-```
-
-呈现的输出效果如下:
-
-**{?:}joy{?:}** 而不是 **:joy:**
-
-{{< admonition tip >}}
-这个方法可以间接解决一个还未解决的 **[Hugo 的 issue](https://github.com/gohugoio/hugo/issues/4978)**.
-{{< /admonition >}}
-
-另一个例子是:
-
-```markdown
-[link{{??}]}(#escape-character)
-```
-
-呈现的输出效果如下:
-
-**[link{?]}(#escape-character)** 而不是 **[link](#escape-character)**.

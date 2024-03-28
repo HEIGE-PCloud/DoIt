@@ -14,9 +14,9 @@
         <h2 class="single-title animate__animated animate__pulse animate__faster">
             {{- $taxonomy := .Data.Singular -}}
             {{- if eq $taxonomy "category" -}}
-                <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
+                {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "folder-open") }}&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "tag" -}}
-                <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tag") }}&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "author" -}}
                 {{- .Scratch.Set "name" .Title -}}
                 {{- if $.Site.Data.authors -}}
@@ -26,12 +26,12 @@
                         <br>
                         {{- if .absLink -}}
                             <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon fa fa-link fa-fw"></i>
+                                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "link") -}}
                             </a>
                             {{- end -}}
                         {{- if .email -}}
                             <a class="author-link-icon" href="mailto:{{ .email }}" title="Email" rel="icon noopener noreferrer" target="_blank">
-                                <i class="author-link-icon far fa-envelope fa-fw"></i>
+                                {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "envelope") -}}
                             </a>
                         {{- end -}}
                     {{- end -}}

@@ -55,7 +55,8 @@
                 {{- $categories := slice -}}
                 {{- range .Params.categories -}}
                     {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
-                    {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
+                    {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "folder") -}}
+                    {{- $categories = $categories | append (printf `<a href="%v">%v%v</a>` $category.RelPermalink $icon $category.Title) -}}
                 {{- end -}}
                 {{- with delimit $categories "&nbsp;" -}}
                     &nbsp;<span class="post-category">
@@ -72,7 +73,8 @@
                 {{- $series := slice -}}
                 {{- range .Params.series -}}
                     {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
-                    {{- $series = $series | append (printf `<a href="%v"><i class="far fa-list-alt fa-fw"></i>%v</a>` $singleSeries.RelPermalink $singleSeries.Title) -}}
+                    {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "list-alt") -}}
+                    {{- $series = $series | append (printf `<a href="%v">%v%v</a>` $singleSeries.RelPermalink $icon $singleSeries.Title) -}}
                 {{- end -}}
                 {{- with delimit $series "&nbsp;" -}}
                     &nbsp;<span class="post-series">
@@ -82,63 +84,63 @@
             </div>
             <div class="post-meta-line">
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}<time datetime="{{ . }}">{{ . }}</time>
-                    {{- end -}}
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- end -}}
                 {{- if $params.enableLastMod | default true -}}
                     {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") }}<time datetime="{{ . }}">{{ . }}</time>
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") }}&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
                     {{- end -}}
                 {{- end -}}
                 {{- if $params.enableWordCount | default true -}}
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}{{ T "wordCount" .WordCount }}&nbsp;
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 {{- end -}}
                 {{- if $params.enableReadingTime | default true -}}
-                    <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "clock") }}&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- end -}}
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
                 {{- /* Visitor Count */ -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count"></span>&nbsp;{{ T "views" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="leancloud-visitors-count"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.pageview -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count waline-pageview-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "views" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="leancloud-visitors-count waline-pageview-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="twikoo_visitors"></span>&nbsp;{{ T "views" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="leancloud-visitors-count" id="twikoo_visitors"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.pageview -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="leancloud-visitors-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                  {{- end -}}
 
                 {{- /* Comment Count */ -}}
                 {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.comment -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
-                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="waline-comment-count" id="waline-comment-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "comments" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "comments") }}&nbsp;<span class="waline-comment-count" id="waline-comment-count" data-path="{{ .RelPermalink }}"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
-                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "comments") }}&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.commentCount -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
-                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="artalk-comment-count" id="ArtalkCount"></span>&nbsp;{{ T "comments" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "comments") }}&nbsp;<span class="artalk-comment-count" id="ArtalkCount"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- /* License */ -}}
                 {{- $license := $params.license -}}
                 {{- with $license -}}
                     <span>
-                        <i class="fas fa-balance-scale fa-fw"></i>&nbsp;<span>{{- . | safeHTML -}}</span>&nbsp;
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "balance-scale") }}&nbsp;<span>{{- . | safeHTML -}}</span>&nbsp;
                     </span>&nbsp;
                 {{- end -}}
             </div>

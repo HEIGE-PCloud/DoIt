@@ -20,7 +20,8 @@
                 {{- $post_info = $post_info | append $e -}}
             {{- end -}}
             {{- if ne .Site.Params.footer.hugo false -}}
-                {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
+                {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") -}}
+                {{- $theme := printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v">%v DoIt</a>` (.Scratch.Get "version") $icon -}}
                 {{- $e := dict "Theme" $theme | T "theme" -}}
                 {{- $post_info = $post_info | append $e -}}
             {{- end -}}
@@ -32,7 +33,7 @@
             <div class="footer-line">
                 {{- /* Copyright year */ -}}
                 {{- if ne .Site.Params.footer.copyright false -}}
-                    <i class="far fa-copyright fa-fw"></i>
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copyright") }}
                     {{- with .Site.Params.footer.since -}}
                         {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
                     {{- else -}}
@@ -63,7 +64,7 @@
                     <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>  */}}
                     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline;">
-                        <span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+                        <span class="post-meta-item-icon">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}</span>
                         <span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span>
                     </span>
                 {{- end -}}

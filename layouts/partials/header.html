@@ -4,81 +4,87 @@
         <div class="header-title">
             <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                 {{- with .Site.Params.header.title -}}
-                    {{- with .logo -}}
-                        {{- dict "Src" . "Class" "logo" "Height" "36" "Width" "36" | partial "plugin/image.html" -}}                    {{- end -}}
-                    {{- with .pre -}}
-                        <span class="header-title-pre">{{ . | safeHTML }}</span>
-                    {{- end -}}
-                    {{- if .typeit -}}
-                        {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial "function/id.html" -}}
-                        <span id="{{ $id }}" class="typeit"></span>
-                        {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
-                    {{- else -}}
-                        {{- .name -}}
-                    {{- end -}}
-                    {{- with .post -}}
-                        <span class="header-title-post">{{ . | safeHTML }}</span>
-                    {{- end -}}
+                {{- with .logo -}}
+                {{- dict "Src" . "Class" "logo" "Height" "36" "Width" "36" | partial "plugin/image.html" -}} {{- end -}}
+                {{- with .pre -}}
+                <span class="header-title-pre">{{ . | safeHTML }}</span>
+                {{- end -}}
+                {{- if .typeit -}}
+                {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial
+                "function/id.html" -}}
+                <span id="{{ $id }}" class="typeit"></span>
+                {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
                 {{- else -}}
-                    {{- .Site.Title -}}
+                {{- .name -}}
+                {{- end -}}
+                {{- with .post -}}
+                <span class="header-title-post">{{ . | safeHTML }}</span>
+                {{- end -}}
+                {{- else -}}
+                {{- .Site.Title -}}
                 {{- end -}}
             </a>
         </div>
         <div class="menu">
             <div class="menu-inner">
                 {{- range .Site.Menus.main -}}
-                    {{- $url := .URL | relLangURL -}}
-                    {{- with .Page -}}
-                        {{- $url = .RelPermalink -}}
-                    {{- end -}}
-                    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
-                        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-                    </a>
+                {{- $url := .URL | relLangURL -}}
+                {{- with .Page -}}
+                {{- $url = .RelPermalink -}}
+                {{- end -}}
+                <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}"
+                    href="{{ $url }}" {{ with .Title }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }}
+                    rel="noopener noreferrer" target="_blank" {{ end }}>
+                    {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+                </a>
                 {{- end -}}
                 {{- if .Site.Menus.main -}}
-                    <span class="menu-item delimiter"></span>
+                <span class="menu-item delimiter"></span>
                 {{- end -}}
                 {{- if .Site.IsMultiLingual -}}
-                    <button class="menu-item language" title="{{ T "selectLanguage" }}">
-                        {{- .Language.LanguageName -}}
-                        <i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="{{ T "selectLanguage" }}" id="language-select-desktop" onchange="location = this.value;">
-                            {{- if eq .Kind "404" -}}
-                                {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                                {{- range .Sites -}}
-                                    {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                                    <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
-                                        {{- .Language.LanguageName -}}
-                                    </option>
-                                {{- end -}}
-                            {{- else -}}
-                                {{- range .AllTranslations -}}
-                                    <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
-                                        {{- .Language.LanguageName -}}
-                                    </option>
-                                {{- end -}}
-                            {{- end -}}
-                        </select>
-                    </button>
+                <button class="menu-item language" title="{{ T " selectLanguage" }}">
+                    {{- .Language.LanguageName -}}
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
+                    <select class="language-select" title="{{ T " selectLanguage" }}" id="language-select-desktop"
+                        onchange="location = this.value;">
+                        {{- if eq .Kind "404" -}}
+                        {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
+                        {{- range .Sites -}}
+                        {{- $link := printf "%v/404.html" .LanguagePrefix -}}
+                        <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
+                            {{- .Language.LanguageName -}}
+                        </option>
+                        {{- end -}}
+                        {{- else -}}
+                        {{- range .AllTranslations -}}
+                        <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
+                            {{- .Language.LanguageName -}}
+                        </option>
+                        {{- end -}}
+                        {{- end -}}
+                    </select>
+                </button>
                 {{- end -}}
                 {{- if .Site.Params.search.enable -}}
-                    <span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-desktop">
-                        <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                        <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </button>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
+                <span class="menu-item search" id="search-desktop">
+                    <input type="text"
+                        placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}"
+                        id="search-input-desktop">
+                    <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "search") }}
+                    </button>
+                    <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "times-circle") }}
+                    </button>
+                    <span class="search-button search-loading tw-animate-spin" id="search-loading-desktop">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "spinner") }}
                     </span>
+                </span>
                 {{- end -}}
                 {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <button class="menu-item theme-select" title="{{ T "switchTheme" }}">
-                    <i class="fas fa-adjust fa-fw"></i>
-                    <select class="color-theme-select" id="theme-select-desktop" title="{{ T "switchTheme" }}">
+                <button class="menu-item theme-select" title="{{ T " switchTheme" }}">
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
+                    <select class="color-theme-select" id="theme-select-desktop" title="{{ T " switchTheme" }}">
                         <option value="light">{{ T "Light" }}</option>
                         <option value="dark">{{ T "Dark" }}</option>
                         <option value="black">{{ T "Black" }}</option>
@@ -86,8 +92,8 @@
                     </select>
                 </button>
                 {{- else -}}
-                <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
-                    <i class="fas fa-adjust fa-fw"></i>
+                <button class="menu-item theme-switch" title="{{ T " switchTheme" }}">
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                 </button>
                 {{- end -}}
             </div>
@@ -102,24 +108,26 @@
             <div class="header-title">
                 <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                     {{- with .Site.Params.header.title -}}
-                        {{- with .logo -}}
-                            {{- dict "Src" . "Class" "logo" | partial "plugin/image.html" -}}
-                        {{- end -}}
-                        {{- with .pre -}}
-                            <span class="header-title-pre">{{ . | safeHTML }}</span>
-                        {{- end -}}
-                        {{- if .typeit -}}
-                            {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "mobile-header-typeit" | partial "function/id.html" -}}
-                            <span id="{{ $id }}" class="typeit"></span>
-                            {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
-                        {{- else -}}
-                            {{- .name -}}
-                        {{- end -}}
-                        {{- with .post -}}
-                            <span class="header-title-post">{{ . | safeHTML }}</span>
-                        {{- end -}}
+                    {{- with .logo -}}
+                    {{- dict "Src" . "Class" "logo" | partial "plugin/image.html" -}}
+                    {{- end -}}
+                    {{- with .pre -}}
+                    <span class="header-title-pre">{{ . | safeHTML }}</span>
+                    {{- end -}}
+                    {{- if .typeit -}}
+                    {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "mobile-header-typeit" | partial
+                    "function/id.html" -}}
+                    <span id="{{ $id }}" class="typeit"></span>
+                    {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this"
+                    -}}
                     {{- else -}}
-                        {{- .Site.Title -}}
+                    {{- .name -}}
+                    {{- end -}}
+                    {{- with .post -}}
+                    <span class="header-title-post">{{ . | safeHTML }}</span>
+                    {{- end -}}
+                    {{- else -}}
+                    {{- .Site.Title -}}
                     {{- end -}}
                 </a>
             </div>
@@ -129,38 +137,41 @@
         </div>
         <div class="menu" id="menu-mobile">
             {{- if .Site.Params.search.enable -}}
-                <div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-mobile">
-                        <button class="search-button search-toggle" id="search-toggle-mobile" title="{{ T `search` }}">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                        <button class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </button>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <button class="search-cancel" id="search-cancel-mobile">
-                        {{ T `cancel` }}
+            <div class="search-wrapper">
+                <div class="search mobile" id="search-mobile">
+                    <input type="text"
+                        placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}"
+                        id="search-input-mobile">
+                    <button class="search-button search-toggle" id="search-toggle-mobile" title="{{ T `search` }}">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "search") }}
                     </button>
+                    <button class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "times-circle") }}
+                    </button>
+                    <span class="search-button search-loading tw-animate-spin" id="search-loading-mobile">
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "spinner") }}
+                    </span>
                 </div>
+                <button class="search-cancel" id="search-cancel-mobile">
+                    {{ T `cancel` }}
+                </button>
+            </div>
             {{- end -}}
             {{- $currentPage := . -}}
             {{- range .Site.Menus.main -}}
-                {{- $url := .URL | relLangURL -}}
-                {{- with .Page -}}
-                    {{- $url = .RelPermalink -}}
-                {{- end -}}
-                <a class="menu-item" href="{{ $url }}" title="{{ .Title }}"{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
-                    {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
-                </a>
+            {{- $url := .URL | relLangURL -}}
+            {{- with .Page -}}
+            {{- $url = .RelPermalink -}}
+            {{- end -}}
+            <a class="menu-item" href="{{ $url }}" title="{{ .Title }}" {{ if (urls.Parse $url).Host }}
+                rel="noopener noreferrer" target="_blank" {{ end }}>
+                {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
+            </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-            <button class="menu-item theme-select" title="{{ T "switchTheme" }}">
-                <i class="fas fa-adjust fa-fw"></i>
-                <select class="color-theme-select" id="theme-select-mobile" title="{{ T "switchTheme" }}">
+            <button class="menu-item theme-select" title="{{ T " switchTheme" }}">
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
+                <select class="color-theme-select" id="theme-select-mobile" title="{{ T " switchTheme" }}">
                     <option value="light">{{ T "Light" }}</option>
                     <option value="dark">{{ T "Dark" }}</option>
                     <option value="black">{{ T "Black" }}</option>
@@ -168,32 +179,32 @@
                 </select>
             </button>
             {{- else -}}
-            <button class="menu-item theme-switch" title="{{ T "switchTheme" }}">
-                <i class="fas fa-adjust fa-fw"></i>
+            <button class="menu-item theme-switch" title="{{ T " switchTheme" }}">
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
             </button>
             {{- end -}}
             {{- if .Site.IsMultiLingual -}}
-                <button class="menu-item" title="{{ T "selectLanguage" }}">
-                    {{- .Language.LanguageName -}}
-                    <i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" title="{{ T "selectLanguage" }}" onchange="location = this.value;">
-                        {{- if eq .Kind "404" -}}
-                            {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                            {{- range .Sites -}}
-                                {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                                <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- else -}}
-                            {{- range .AllTranslations -}}
-                                <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- end -}}
-                    </select>
-                </button>
+            <button class="menu-item" title="{{ T " selectLanguage" }}">
+                {{- .Language.LanguageName -}}
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
+                <select class="language-select" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
+                    {{- if eq .Kind "404" -}}
+                    {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
+                    {{- range .Sites -}}
+                    {{- $link := printf "%v/404.html" .LanguagePrefix -}}
+                    <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
+                        {{- .Language.LanguageName -}}
+                    </option>
+                    {{- end -}}
+                    {{- else -}}
+                    {{- range .AllTranslations -}}
+                    <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
+                        {{- .Language.LanguageName -}}
+                    </option>
+                    {{- end -}}
+                    {{- end -}}
+                </select>
+            </button>
             {{- end -}}
         </div>
     </div>
