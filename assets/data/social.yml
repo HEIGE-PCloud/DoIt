@@ -556,7 +556,7 @@ thingiverse:
   Prefix: https://www.thingiverse.com/
   Title: Thingiverse
   Icon:
-    Src: svg/icons/thingiverse.svg
+    Simpleicons: thingiverse
 
 # 058: Dev.To
 devto:
@@ -597,7 +597,7 @@ bilibili:
   Prefix: https://space.bilibili.com/
   Title: bilibili
   Icon:
-    Src: svg/icons/bilibili.svg
+    Simpleicons: bilibili
 
 # 063: ORCID
 orcid:
@@ -647,7 +647,7 @@ qq:
   Template: http://wpa.qq.com/msgrd?v=3&uin=%v&site=qq&menu=yes
   Title: QQ
   Icon:
-    Src: svg/icons/qq.svg
+    Simpleicons: tencentqq
 
 # 069: QQGroup
 qqgroup:
@@ -655,7 +655,7 @@ qqgroup:
   Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v&jump_from=webapi
   Title: QQGroup
   Icon:
-    Src: svg/icons/qqGroup.svg
+    Simpleicons: tencentqq
 
 # 070: Diaspora
 diaspora:
