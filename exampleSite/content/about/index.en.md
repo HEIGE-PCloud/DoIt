@@ -8,8 +8,7 @@ lightgallery: true
 math:
   enable: true
 ---
-
-> [:(far fa-edit fa-fw): DoIt](https://github.com/HEIGE-PCloud/DoIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [HEIGE-PCloud](https://github.com/HEIGE-PCloud).
+> [{{< fa-icon regular edit >}} DoIt](https://github.com/HEIGE-PCloud/DoIt) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by [HEIGE-PCloud](https://github.com/HEIGE-PCloud).
 >
 > It is based on the [LoveIt Theme](https://github.com/dillonzq/LoveIt), [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
@@ -17,67 +16,67 @@ math:
 
 ### Performance and SEO
 
-* :(fas fa-rocket fa-fw): Optimized for **performance**: [99]/[100] on mobile and [100]/[100] on desktop in [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights)
-* :(fab fa-searchengin fa-fw): Optimized SEO performance with a correct **SEO SCHEMA** based on JSON-LD
-* :(fab fa-google fa-fw): **[Google Analytics](https://analytics.google.com/analytics)** supported
-* :(far fa-chart-bar fa-fw): **[Fathom Analytics](https://usefathom.com/)** supported
-* :(far fa-chart-bar fa-fw): **[Baidu Analytics](https://tongji.baidu.com/)** supported
-* :(far fa-chart-bar fa-fw): **[Umami Analytics](https://umami.is/)** supported
-* :(far fa-chart-bar fa-fw): **[Plausible Analytics](https://plausible.io/)** supported
-* :(fas fa-search fa-fw): Search engine **verification** supported (Google, Bind, Yandex and Baidu)
-* :(fas fa-tachometer-alt fa-fw): **CDN** for third-party libraries supported
+* {{< fa-icon solid rocket >}} Optimized for **performance**: [99]/[100] on mobile and [100]/[100] on desktop in [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights)
+* {{< fa-icon brands searchengin >}} Optimized SEO performance with a correct **SEO SCHEMA** based on JSON-LD
+* {{< fa-icon brands google >}} **[Google Analytics](https://analytics.google.com/analytics)** supported
+* {{< fa-icon regular chart-bar >}} **[Fathom Analytics](https://usefathom.com/)** supported
+* {{< fa-icon regular chart-bar >}} **[Baidu Analytics](https://tongji.baidu.com/)** supported
+* {{< fa-icon regular chart-bar >}} **[Umami Analytics](https://umami.is/)** supported
+* {{< fa-icon regular chart-bar >}} **[Plausible Analytics](https://plausible.io/)** supported
+* {{< fa-icon solid search >}} Search engine **verification** supported (Google, Bind, Yandex and Baidu)
+* {{< fa-icon solid tachometer-alt >}} **CDN** for third-party libraries supported
 
 ### Appearance and Layout
 
-* [:(fas fa-desktop):]/[:(fas fa-mobile):] **Responsive** layout
-* [:(fas fa-sun):]/[:(fas fa-moon):] **[Light]/[Dark]** mode
-* :(fas fa-layer-group fa-fw): Globally consistent **design language**
-* :(fas fa-ellipsis-h fa-fw): **Pagination** supported
-* :(far fa-list-alt fa-fw): Easy-to-use and self-expanding **table of contents**
-* :(fas fa-language fa-fw): **Multilanguage** supported and i18n ready
-* :(fab fa-css3-alt fa-fw): Beautiful **CSS animation**
+* [{{< fa-icon solid desktop >}}]/[{{< fa-icon solid mobile >}}] **Responsive** layout
+* [{{< fa-icon solid sun >}}]/[{{< fa-icon solid moon >}}] **[Light]/[Dark]** mode
+* {{< fa-icon solid layer-group >}} Globally consistent **design language**
+* {{< fa-icon solid ellipsis-h >}} **Pagination** supported
+* {{< fa-icon regular list-alt >}} Easy-to-use and self-expanding **table of contents**
+* {{< fa-icon solid language >}} **Multilanguage** supported and i18n ready
+* {{< fa-icon brands css3-alt >}} Beautiful **CSS animation**
 
 ### Social and Comment Systems
 
-* :(far fa-user fa-fw): **Gravatar** supported by [Gravatar](https://gravatar.com)
-* :(fas fa-user-circle fa-fw): Local **Avatar** supported
-* :(far fa-id-card fa-fw): Up to **64** social links supported
-* :(fas fa-share-square fa-fw): Up to **28** share sites supported
-* :(far fa-comment fa-fw): **Disqus** comment system supported by [Disqus](https://disqus.com)
-* :(far fa-comment-dots fa-fw): **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
-* :(far fa-comment-alt fa-fw): **Valine** comment system supported by [Valine](https://valine.js.org/)
-* :(far fa-comment-alt fa-fw): **Waline** comment system supported by [Waline](https://waline.js.org/)
-* :(far fa-comments fa-fw): **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
-* :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
-* :(fas fa-comment-dots fa-fw): **Commento** comment system supported by [Commento](https://commento.io/)
-* :(fas fa-comment-alt fa-fw): **Utterances** comment system supported by [Utterances](https://utteranc.es/)
-* :(fas fa-comment-alt fa-fw): **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
-* :(fas fa-comment-alt fa-fw): **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
-* :(fas fa-comment-alt fa-fw): **Remark42** comment system supported by [Remark42](https://remark42.com/)
-* :(fas fa-gem fa-fw): **giscus** comment system supported by [giscus](https://giscus.app/)
-* :(fas fa-comment-alt fa-fw): **Artalk** comment system supported by [Artalk](https://artalk.js.org/)
+* {{< fa-icon regular user >}} **Gravatar** supported by [Gravatar](https://gravatar.com)
+* {{< fa-icon solid user-circle >}} Local **Avatar** supported
+* {{< fa-icon regular id-card >}} Up to **64** social links supported
+* {{< fa-icon solid share-square >}} Up to **28** share sites supported
+* {{< fa-icon regular comment >}} **Disqus** comment system supported by [Disqus](https://disqus.com)
+* {{< fa-icon regular comment-dots >}} **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
+* {{< fa-icon regular comment-alt >}} **Valine** comment system supported by [Valine](https://valine.js.org/)
+* {{< fa-icon regular comment-alt >}} **Waline** comment system supported by [Waline](https://waline.js.org/)
+* {{< fa-icon regular comments >}} **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
+* {{< fa-icon solid comment >}} **Telegram comments** system supported by [Comments](https://comments.app/)
+* {{< fa-icon solid comment-dots >}} **Commento** comment system supported by [Commento](https://commento.io/)
+* {{< fa-icon solid comment-alt >}} **Utterances** comment system supported by [Utterances](https://utteranc.es/)
+* {{< fa-icon solid comment-alt >}} **Twikoo** comment system supported by [Twikoo](https://twikoo.js.org/)
+* {{< fa-icon solid comment-alt >}} **Vssue** comment system supported by [Vssue](https://vssue.js.org/)
+* {{< fa-icon solid comment-alt >}} **Remark42** comment system supported by [Remark42](https://remark42.com/)
+* {{< fa-icon solid gem >}} **giscus** comment system supported by [giscus](https://giscus.app/)
+* {{< fa-icon solid comment-alt >}} **Artalk** comment system supported by [Artalk](https://artalk.js.org/)
 
 ### Extended Features
 
-* :(fas fa-search fa-fw): **Search** supported by [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
-* :(far fa-grin-tongue-wink fa-fw): **Twemoji** supported
-* :(fas fa-code fa-fw): Automatically **highlighting** code
-* :(far fa-copy fa-fw): **Copy code** to clipboard with one click
-* :(far fa-images fa-fw): **Images gallery** supported by [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js)
-* :(fab fa-font-awesome fa-fw): Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
-* :(far fa-sticky-note fa-fw): Extended Markdown syntax for **ruby annotation**
-* :(fas fa-percentage fa-fw): Extended Markdown syntax for **fraction**
-* :(fas fa-square-root-alt fa-fw): **Mathematical formula** supported by [$ \KaTeX $](https://katex.org/)
-* :(fas fa-project-diagram fa-fw): **Diagrams** shortcode supported by [mermaid](https://github.com/knsv/mermaid)
-* :(fas fa-chart-pie fa-fw): **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
-* :(fas fa-map-marked-alt fa-fw): **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
-* :(fas fa-music fa-fw): **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
-* :(fas fa-video fa-fw): **Bilibili player** shortcode
-* :(far fa-bell fa-fw): Kinds of **admonitions** shortcode
-* :(fas fa-align-left fa-fw): **Custom style** shortcode
-* :(fab fa-js-square fa-fw): **Custom script** shortcode
-* :(fas fa-i-cursor fa-fw): **Animated typing** supported by [TypeIt](https://typeitjs.com/)
-* :(fas fa-cookie-bite fa-fw): **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
+* {{< fa-icon solid search >}} **Search** supported by [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
+* {{< fa-icon regular grin-tongue-wink >}} **Twemoji** supported
+* {{< fa-icon solid code >}} Automatically **highlighting** code
+* {{< fa-icon regular copy >}} **Copy code** to clipboard with one click
+* {{< fa-icon regular images >}} **Images gallery** supported by [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js)
+* {{< fa-icon brands font-awesome >}} Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
+* {{< fa-icon regular sticky-note >}} Extended Markdown syntax for **ruby annotation**
+* {{< fa-icon solid percentage >}} Extended Markdown syntax for **fraction**
+* {{< fa-icon solid square-root-alt >}} **Mathematical formula** supported by [$ \KaTeX $](https://katex.org/)
+* {{< fa-icon solid project-diagram >}} **Diagrams** shortcode supported by [mermaid](https://github.com/knsv/mermaid)
+* {{< fa-icon solid chart-pie >}} **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
+* {{< fa-icon solid map-marked-alt >}} **Mapbox** shortcode supported by [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
+* {{< fa-icon solid music >}} **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
+* {{< fa-icon solid video >}} **Bilibili player** shortcode
+* {{< fa-icon regular bell >}} Kinds of **admonitions** shortcode
+* {{< fa-icon solid align-left >}} **Custom style** shortcode
+* {{< fa-icon brands js-square >}} **Custom script** shortcode
+* {{< fa-icon solid i-cursor >}} **Animated typing** supported by [TypeIt](https://typeitjs.com/)
+* {{< fa-icon solid cookie-bite >}} **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
 * ...
 
 ## License
