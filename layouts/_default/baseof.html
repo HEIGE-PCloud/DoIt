@@ -78,12 +78,12 @@
     <div id="fixed-buttons" class="print:!tw-hidden">
         {{- /* top button */ -}}
         <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
-            {{ partialCached "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
         </a>
 
         {{- /* comment button */ -}}
         <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
-            {{ partialCached "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>
     </div>
 

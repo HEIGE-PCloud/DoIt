@@ -77,7 +77,7 @@
         <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
         {{- with .Params.tags -}}
             <div class="post-tags">
-                {{- partialCached "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") -}}
+                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") -}}
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }},&nbsp;{{ end -}}
                     {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}

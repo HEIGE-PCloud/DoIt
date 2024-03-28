@@ -64,7 +64,7 @@
                 {{- if .Site.Params.search.enable -}}
                     <span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}" id="search-input-desktop">
-                        <button class="search-button search-toggle tw-translate-x-1" id="search-toggle-desktop" title="{{ T `search` }}">
+                        <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
                             <i class="fas fa-search fa-fw"></i>
                         </button>
                         <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">

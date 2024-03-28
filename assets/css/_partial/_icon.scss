@@ -30,6 +30,7 @@ svg.fontawesome-icon {
     color: $global-font-color-black;
   }
 }
-.fontawesome-icon svg > path {
+
+svg.fontawesome-icon > path {
   fill: currentColor;
 }
