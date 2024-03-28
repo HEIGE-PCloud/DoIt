@@ -20,7 +20,8 @@
                 {{- $post_info = $post_info | append $e -}}
             {{- end -}}
             {{- if ne .Site.Params.footer.hugo false -}}
-                {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v"><i class="far fa-edit fa-fw"></i> DoIt</a>` -}}
+                {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") -}}
+                {{- $theme := printf `<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt %v">%v DoIt</a>` (.Scratch.Get "version") $icon -}}
                 {{- $e := dict "Theme" $theme | T "theme" -}}
                 {{- $post_info = $post_info | append $e -}}
             {{- end -}}
