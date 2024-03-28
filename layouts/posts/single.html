@@ -82,15 +82,15 @@
             </div>
             <div class="post-meta-line">
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-                    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-                {{- end -}}
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}<time datetime="{{ . }}">{{ . }}</time>
+                    {{- end -}}
                 {{- if $params.enableLastMod | default true -}}
                     {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                        <i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "edit") }}<time datetime="{{ . }}">{{ . }}</time>
                     {{- end -}}
                 {{- end -}}
                 {{- if $params.enableWordCount | default true -}}
-                    <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}{{ T "wordCount" .WordCount }}&nbsp;
                 {{- end -}}
                 {{- if $params.enableReadingTime | default true -}}
                     <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
