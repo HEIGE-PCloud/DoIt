@@ -16,3 +16,24 @@ img.emoji {
   vertical-align: -.1em;
   display: inline-block !important;
 }
+
+.fontawesome-icon {
+  display: inline-block;
+}
+
+.fontawesome-icon > svg {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.25em;
+  color: $global-font-color;
+  [theme=dark] & {
+    color: $global-font-color-dark;
+  }
+  [theme=black] & {
+    color: $global-font-color-black;
+  }
+}
+.fontawesome-icon > svg > path {
+  fill: currentColor;
+}
