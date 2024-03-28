@@ -2,21 +2,21 @@
 
 {{- if $content -}}
 
-    {{- if .Ruby -}}
-        {{- $content = partial "function/ruby.html" $content -}}
-    {{- end -}}
+{{- if .Ruby -}}
+{{- $content = partial "function/ruby.html" $content -}}
+{{- end -}}
 
-    {{- if .Fraction -}}
-        {{- $content = partial "function/fraction.html" $content -}}
-    {{- end -}}
+{{- if .Fraction -}}
+{{- $content = partial "function/fraction.html" $content -}}
+{{- end -}}
 
-    {{- if .Fontawesome -}}
-        {{- $content = partial "function/fontawesome.html" $content -}}
-    {{- end -}}
+{{- if .Fontawesome -}}
+    {{ errorf "Inline fontawesome icons are deprecated. Remove params.page.fontawesome and audit all usage of :( fa icons ): on your site. Use the fa-icon shortcode instead. See https://hugodoit.pages.dev/theme-documentation-extended-shortcodes/#fa-icon" }}
+{{- end -}}
 
-    {{- $content = partial "function/checkbox.html" $content -}}
+{{- $content = partial "function/checkbox.html" $content -}}
 
-    {{- $content = partial "function/escape.html" $content -}}
+{{- $content = partial "function/escape.html" $content -}}
 
 {{- end -}}
 

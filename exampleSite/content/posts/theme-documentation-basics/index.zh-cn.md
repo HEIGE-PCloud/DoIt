@@ -462,8 +462,6 @@ optimizeImages = true
     ruby = true
     # {{< version 0.2.0 >}} 是否使用 fraction 扩展语法
     fraction = true
-    # {{< version 0.2.0 >}} 是否使用 fontawesome 扩展语法
-    fontawesome = true
     # 是否在文章页面显示原始 Markdown 文档链接
     linkToMarkdown = true
     # {{< version 0.2.14 >}} 配置文章原始文件的链接

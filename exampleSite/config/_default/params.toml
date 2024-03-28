@@ -153,9 +153,7 @@ srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # whether to enable the fraction extended syntax
   # 是否使用 fraction 扩展语法
   fraction = true
-  # whether to enable the fontawesome extended syntax
-  # 是否使用 fontawesome 扩展语法
-  fontawesome = true
+
   # whether to show link to Raw Markdown content of the content
   # 是否显示原始 Markdown 文档内容的链接
   linkToMarkdown = true

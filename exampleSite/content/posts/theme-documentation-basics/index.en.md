@@ -458,8 +458,6 @@ Please open the code block below to view the complete sample configuration {{< f
     ruby = true
     # {{< version 0.2.0 >}} whether to enable the fraction extended syntax
     fraction = true
-    # {{< version 0.2.0 >}} whether to enable the fontawesome extended syntax
-    fontawesome = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
     # {{< version 0.2.14 >}} configure the link to the source file of the post
