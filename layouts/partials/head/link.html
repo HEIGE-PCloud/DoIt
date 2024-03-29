@@ -35,6 +35,10 @@
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
+{{- with .OutputFormats.Get "JsonFeed" -}}
+    <link rel="alternate" type="application/feed+json" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}" />
+{{- end -}}
+
 {{/*  tailwind.css  */}}
 {{ $style := dict "Source" "css/main.css" "Minify" true }}
 {{- partial "plugin/style.html" $style -}}
