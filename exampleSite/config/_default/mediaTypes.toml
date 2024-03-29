@@ -3,3 +3,6 @@
 
 ["text/plain"]
   suffixes = ["md"]
+
+["application/feed+json"]
+  suffixes = ["feed"]
