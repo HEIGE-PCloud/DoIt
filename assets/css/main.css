@@ -602,12 +602,20 @@ ul {
   display: inline-block;
 }
 
+.tw-h-10 {
+  height: 2.5rem;
+}
+
 .tw-max-h-4 {
   max-height: 1rem;
 }
 
 .tw-max-h-8 {
   max-height: 2rem;
+}
+
+.tw-w-full {
+  width: 100%;
 }
 
 .tw-translate-y-\[-2px\] {

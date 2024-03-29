@@ -142,7 +142,7 @@
                     <input type="text"
                         placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}"
                         id="search-input-mobile">
-                    <button class="search-button search-toggle" id="search-toggle-mobile" title="{{ T `search` }}">
+                    <button class="search-button search-toggle tw-h-10" id="search-toggle-mobile" title="{{ T `search` }}">
                         {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "search") }}
                     </button>
                     <button class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
@@ -169,7 +169,7 @@
             </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-            <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <button class="menu-item theme-select tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                 <select class="color-theme-select" id="theme-select-mobile" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     <option value="light">{{ T "Light" }}</option>
@@ -179,12 +179,12 @@
                 </select>
             </button>
             {{- else -}}
-            <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <button class="menu-item theme-switch tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
             </button>
             {{- end -}}
             {{- if .Site.IsMultiLingual -}}
-            <button class="menu-item" title="{{ T " selectLanguage" }}">
+            <button class="menu-item tw-w-full" title="{{ T " selectLanguage" }}">
                 {{- .Language.LanguageName -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                 <select class="language-select" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
