@@ -1,13 +1,13 @@
 ---
 title: "Echarts Tests"
-date: 2021-04-16T14:41:49+01:00
-lastmod: 2021-04-16T14:41:49+01:00
-draft: true
+date: 2024-03-16T14:41:49+01:00
+lastmod: 2024-03-16T14:41:49+01:00
+draft: false
 description: "Echarts Tests"
 categories: [Tests]
 authors: [PCloud]
-hiddenFromHomePage: true
-hiddenFromSearch: true
+hiddenFromHomePage: false
+hiddenFromSearch: false
 ---
 
 <!--more-->
