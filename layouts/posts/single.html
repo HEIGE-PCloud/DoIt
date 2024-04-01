@@ -189,7 +189,7 @@
             <div class="details toc print:!tw-block" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
                 <div class="details-summary toc-title">
                     <span>{{ T "contents" }}</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span class="details-icon">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") }}</span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static">
                     {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
