@@ -43,11 +43,6 @@
 {{ $style := dict "Source" "css/main.css" "Minify" true }}
 {{- partial "plugin/style.html" $style -}}
 
-{{- /* normalize.css */ -}}
-{{- $source := $cdn.normalizeCSS | default "lib/normalize/normalize.min.css" -}}
-{{- $style := dict "Source" $source "Fingerprint" $fingerprint -}}
-{{- partial "plugin/style.html" $style -}}
-
 {{- /* style.min.css */ -}}
 {{- $style := dict "Source" "css/style.scss" -}}
 {{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" true -}}
