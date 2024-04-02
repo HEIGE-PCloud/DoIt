@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 10.x
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
