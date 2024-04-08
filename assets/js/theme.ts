@@ -1,3 +1,11 @@
+export {};
+
+// TODO: add more global states to the window object
+declare global {
+  interface Window { isDark: boolean; }
+}
+
+
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
 const Tablesort = require('tablesort')
