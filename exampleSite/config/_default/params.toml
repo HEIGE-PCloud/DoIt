@@ -35,9 +35,9 @@ cacheRemoteImages = true
 optimizeImages = true
 # [Experimental] resize method for srcset attribute in optimizeImages, more info: https://gohugo.io/content-management/image-processing/#image-processing-options
 # [实验性功能] optimizeImages 中 srcset 属性的缩放方法, 详情请见：https://gohugo.io/content-management/image-processing/#image-processing-options
-srcsetSmallResizeMethod = "700x webp Lanczos q75"
-srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
-srcsetLargeResizeMethod = "2000x webp Lanczos q75"
+srcsetSmallResizeMethod = "400x webp Lanczos q75"
+srcsetDefaultResizeMethod = "600x webp Lanczos q75"
+srcsetLargeResizeMethod = "800x webp Lanczos q75"
 # Header config
 # 页面头部导航栏配置
 [header]
