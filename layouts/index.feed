@@ -1,0 +1,45 @@
+{{ $list := .Pages -}}
+{{ $length := (len $list) -}}
+{
+    "version" : "https://jsonfeed.org/version/1.1",
+    "title" : "{{- .Site.Title -}}",
+    "description": "{{- .Site.Params.description | default .Site.Title -}}",
+    "home_page_url" : "{{ .Site.BaseURL }}",
+    {{ with .OutputFormats.Get "JsonFeed" -}}
+    "feed_url" : "{{ .Permalink }}",
+    {{ end -}}
+    "icon" : "{{ `/apple-touch-icon.png` | absURL }}",
+    "favicon" : "{{ `/favicon.ico` | absURL }}",
+    {{ with .Site.Author.name -}}
+    "author" : {
+        "name" : "{{ . }}"{{ with $.Site.Author.link }},
+        "url": "{{ . }}"{{ end }}{{ with $.Site.Author.avatar }},
+        "avatar": "{{ . | absURL }}"{{ end }}
+    },
+    {{ end -}}
+    "items" : [
+    {{ range $index, $element := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {
+        "title" : {{ .Title | jsonify }},
+        "date_published" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        {{ if .Lastmod -}}
+        "date_modified" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        {{ else -}}
+        "date_modified" : "{{ .LastMod.Format "2006-01-02T15:04:05Z07:00" }}",
+        {{ end -}}
+        "id" : "{{ .Permalink }}",
+        "url" : "{{ .Permalink }}",
+        {{ with .Summary -}}
+        "summary": {{ . | plainify | jsonify }},
+        {{ end -}}
+        {{ with .Params.author -}}
+        "author" : {
+          "name" : "{{ . }}"
+        },
+        {{ end -}}
+        "content_html" : {{ .Content | jsonify }},
+        "language": {{ .Language.Lang | default $.Lang | jsonify }}
+    }{{ if ne (add $index 1) $length }},{{ end }}
+    {{ end -}}
+    ]
+}

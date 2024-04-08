@@ -26,10 +26,10 @@ toc:
 
 由于 Hugo 提供的便利性, [Hugo](https://gohugo.io/) 本身是这个主题唯一的依赖.
 
-直接安装满足你操作系统 (**Windows**, **Linux**, **macOS**) 的最新版本 [{{< fa-icon regular file-archive >}} Hugo (> 0.83.0)](https://gohugo.io/getting-started/installing/).
+直接安装满足你操作系统 (**Windows**, **Linux**, **macOS**) 的最新版本 [{{< fa-icon regular file-archive >}} Hugo (> 0.122.0)](https://gohugo.io/getting-started/installing/).
 
 {{< admonition note "为什么不支持早期版本的 Hugo?" >}}
-由于 [WebP 图像处理](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) 在 [Hugo 0.83.0版本](https://gohugo.io/news/0.83.0-relnotes/) 中被引入, 本主题只支持高于 **0.83.0** 的 Hugo 版本.
+由于 [WebP 图像处理](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) 在 [Hugo 0.122.0版本](https://gohugo.io/news/0.122.0-relnotes/) 中被引入, 本主题只支持高于 **0.122.0** 的 Hugo 版本.
 {{< /admonition >}}
 
 {{< admonition tip "推荐使用 Hugo extended 版本" >}}

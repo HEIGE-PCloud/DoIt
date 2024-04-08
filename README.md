@@ -207,7 +207,6 @@ DoIt is licensed under the **MIT** license. Check the [LICENSE file](https://git
 
 Thanks to the authors of following resources included in the theme:
 
-* [normalize.css](https://github.com/necolas/normalize.css)
 * [Font Awesome](https://fontawesome.com/)
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
