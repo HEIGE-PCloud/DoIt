@@ -569,3 +569,9 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     }
   }
 }
+
+pre > code > span::before {
+  counter-increment: codeblock;
+  content: counter(codeblock);
+  margin: 10px;
+}

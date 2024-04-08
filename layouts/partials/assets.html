@@ -263,7 +263,7 @@
 {{- else -}}
     {{- $options = dict "sourceMap" "inline" | merge $options -}}
 {{- end -}}
-{{- $js := resources.Get "js/theme.js" | js.Build $options -}}
+{{- $js := resources.Get "js/theme.ts" | js.Build $options -}}
 {{- $_ := $js.RelPermalink -}}
 {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 

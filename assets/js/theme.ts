@@ -693,6 +693,26 @@ function onClickMask () {
   }, false)
 }
 
+window.copyCode = (id: string) => {
+  const el = document.getElementById(`codeblock-${id}`);
+  navigator.clipboard.writeText(el.innerText);
+}
+
+window.toggleCodeblockWrap = (id: string) => {
+  const codeblock = document.getElementById(`codeblock-${id}`);
+  const highlight = document.getElementById(`highlight-${id}`);
+  codeblock.classList.toggle('tw-text-wrap');
+  codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
+  highlight.classList.toggle('is-wrap')
+}
+
+window.toggleCodeblock = (id: string) => {
+  const highlight = document.getElementById(`highlight-${id}`);
+  const codeblock = document.getElementById(`codeblock-${id}`);
+  codeblock.classList.toggle('!tw-max-h-0');
+  highlight.classList.toggle('is-open');
+}
+
 function init () {
   window.isDark = document.body.getAttribute('theme') !== 'light'
   window.newScrollTop = getScrollTop()
