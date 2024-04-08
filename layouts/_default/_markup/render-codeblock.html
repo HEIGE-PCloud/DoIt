@@ -20,30 +20,28 @@
   }
 
   function toggleCodeblockWrap(id) {
-    const codeId = `codeblock-${id}`;
-    const buttonId = `wrap-code-${id}`;
-    const codeblock = document.getElementById(codeId);
-    const button = document.getElementById(buttonId);
+    const codeblock = document.getElementById(`codeblock-${id}`);
+    const button = document.getElementById(`wrap-code-${id}`);
     codeblock.classList.toggle('tw-text-wrap');
     button.innerText = codeblock.classList.contains('tw-text-wrap') ? 'Unwrap' : 'Wrap';
     codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
   }
 
   function toggleCodeblock(id) {
-    console.log('toggleCodeblock', id);
-    const codeId = `codeblock-${id}`;
-    const codeblock = document.getElementById(codeId);
+    const highlight = document.getElementById(`highlight-${id}`);
+    const codeblock = document.getElementById(`codeblock-${id}`);
     codeblock.classList.toggle('!tw-max-h-0');
+    highlight.classList.toggle('is-open');
   }
 </script>
 
-<div class="highlight" id="highlight-{{ $id }}">
+<div class="highlight is-open tw-group" id="highlight-{{ $id }}">
   <div class="tw-flex tw-flex-row tw-justify-between tw-w-full" >
     <div class="tw-w-full" onclick="toggleCodeblock('{{ $id }}')">
       <p class="tw-select-none">{{ .Type | default "text" }}</p>
     </div>
     <div class="tw-flex">
-      <button class="tw-select-none tw-mx-2" id="wrap-code-{{ $id }}" onclick="toggleCodeblockWrap('{{ $id }}')">Wrap</button><button class="tw-select-none  tw-mx-2" id="copy-code-{{ $id }}" onclick="writeClipboardText('{{ $id }}')">Copy</button>
+      <button class="tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block" id="wrap-code-{{ $id }}" onclick="toggleCodeblockWrap('{{ $id }}')">Wrap</button><button class="tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block" id="copy-code-{{ $id }}" onclick="writeClipboardText('{{ $id }}')">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") }}</button><button class="tw-select-none tw-mx-2 tw-block group-[.is-open]:tw-hidden" id="copy-code-{{ $id }}">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</button>
     </div>
   </div>
   <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="!tw-block tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
