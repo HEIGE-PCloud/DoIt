@@ -207,6 +207,7 @@
    {{- /* 030: Weixin */ -}}
     {{- if $share.Weixin -}}
     <button class="weixin" title="{{ T `shareOn` }} 微信" data-sharer="weixin" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
+        {{- partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "weixin") -}}
         <img src="{{ $share.Weixin }}{{ .Permalink | safeURL }}" title="{{ .Title }}">
     </button>
     {{- end -}}
@@ -230,6 +231,7 @@
         }
     </script>
     <button title="{{ T `shareOn` }} Mastodon"onclick="javascript:shareOnMastodon({{ .Title }}, {{ .Permalink }})">
+        {{- partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "mastodon") -}}
     </button>
     {{- end -}}
 {{- end -}}
