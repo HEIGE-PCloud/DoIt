@@ -28,50 +28,51 @@
     {{- $mutedPara = printf "&muted=%d" $muted -}}
 {{- end -}}
 
-{{- $hasMuteButtonRaw := cond .IsNamedParams (.Get "hasMuteButton") (.Get 5) -}}
+{{- $t := cond .IsNamedParams (.Get "t") (.Get 5) -}}
+{{- $tPara := "" -}}
+{{- if not (eq $t "") -}}
+    {{- $tPara = printf "&t=%d" $t -}}
+{{- end -}}
+
+{{/*  These options seem not working anymore, but we added in case if these options works again  */}}
+{{- $hasMuteButtonRaw := cond .IsNamedParams (.Get "hasMuteButton") (.Get 6) -}}
 {{- $hasMuteButtonPara := "" -}}
 {{- if not (eq $hasMuteButtonRaw "") -}}
     {{- $hasMuteButton := partial "function/convertBoolToNum.html" (dict "value" $hasMuteButtonRaw) -}}
     {{- $hasMuteButtonPara = printf "&hasMuteButton=%d" $hasMuteButton -}}
 {{- end -}}
 
-{{- $hideCoverInfoRaw := cond .IsNamedParams (.Get "hideCoverInfo") (.Get 6) -}}
+{{- $hideCoverInfoRaw := cond .IsNamedParams (.Get "hideCoverInfo") (.Get 7) -}}
 {{- $hideCoverInfoPara := "" -}}
 {{- if not (eq $hideCoverInfoRaw "") -}}
     {{- $hideCoverInfo := partial "function/convertBoolToNum.html" (dict "value" $hideCoverInfoRaw) -}}
     {{- $hideCoverInfoPara = printf "&hideCoverInfo=%d" $hideCoverInfo -}}
 {{- end -}}
 
-{{- $hideDanmakuButtonRaw := cond .IsNamedParams (.Get "hideDanmakuButton") (.Get 7) -}}
+{{- $hideDanmakuButtonRaw := cond .IsNamedParams (.Get "hideDanmakuButton") (.Get 8) -}}
 {{- $hideDanmakuButtonPara := "" -}}
 {{- if not (eq $hideDanmakuButtonRaw "") -}}
     {{- $hideDanmakuButton := partial "function/convertBoolToNum.html" (dict "value" $hideDanmakuButtonRaw) -}}
     {{- $hideDanmakuButtonPara = printf "&hideDanmakuButton=%d" $hideDanmakuButton -}}
 {{- end -}}
 
-{{- $noFullScreenButtonRaw := cond .IsNamedParams (.Get "noFullScreenButton") (.Get 8) -}}
+{{- $noFullScreenButtonRaw := cond .IsNamedParams (.Get "noFullScreenButton") (.Get 9) -}}
 {{- $noFullScreenButtonPara := "" -}}
 {{- if not (eq $noFullScreenButtonRaw "") -}}
     {{- $noFullScreenButton := partial "function/convertBoolToNum.html" (dict "value" $noFullScreenButtonRaw) -}}
     {{- $noFullScreenButtonPara = printf "&noFullScreenButton=%d" $noFullScreenButton -}}
 {{- end -}}
 
-{{- $fjwRaw := cond .IsNamedParams (.Get "fjw") (.Get 9) -}}
+{{- $fjwRaw := cond .IsNamedParams (.Get "fjw") (.Get 10) -}}
 {{- $fjwPara := "" -}}
 {{- if not (eq $fjwRaw "") -}}
     {{- $fjw := partial "function/convertBoolToNum.html" (dict "value" $fjwRaw) -}}
     {{- $fjwPara = printf "&fjw=%d" $fjw -}}
 {{- end -}}
 
-{{- $t := cond .IsNamedParams (.Get "t") (.Get 10) -}}
-{{- $tPara := "" -}}
-{{- if not (eq $t "") -}}
-    {{- $tPara = printf "&t=%d" $t -}}
-{{- end -}}
-
 {{/*  TODO: make the 'player.bilibili.com/player.html' part configurable. This URL can be replaced by '//www.bilibili.com/blackboard/html5mobileplayer.html' to get a mobile version of the iframe player, which is even cleaner. See https://blog.zezeshe.com/archives/use-bilibili-iframe-player.html */}}
 
-{{- $url := printf "//player.bilibili.com/player.html?bvid=%s&page=%v%s%s%s%s%s%s%s%s%s" $bvid $page $autoplayPara $danmakuPara $mutedPara $hasMuteButtonPara $hideCoverInfoPara $hideDanmakuButtonPara $noFullScreenButtonPara $fjwPara $tPara -}}
+{{- $url := printf "//player.bilibili.com/player.html?bvid=%s&page=%v%s%s%s%s%s%s%s%s%s" $bvid $page $autoplayPara $danmakuPara $mutedPara $tPara $hasMuteButtonPara $hideCoverInfoPara $hideDanmakuButtonPara $noFullScreenButtonPara $fjwPara -}}
 
 <div class="bilibili">
     <iframe src="{{ $url }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>

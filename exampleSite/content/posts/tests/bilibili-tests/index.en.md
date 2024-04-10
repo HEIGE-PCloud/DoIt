@@ -24,6 +24,6 @@ Enable autoplay with annoying unmute `{{</* bilibili id=BV1TJ411C7An p=3 autopla
 
 {{< bilibili id=BV1TJ411C7An p=3 autoplay=true muted=false >}}
 
-A player with everything diabled `{{</* bilibili id=BV1w84y1b7Wq p=9 autoplay=0 muted=1 danmaku=0 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=0 t=10 */>}}`
+A player with everything diabled `{{</* bilibili id=BV1TJ411C7An p=3 autoplay=0 muted=1 danmaku=0 t=100 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 */>}}` (Looks like only `autoplay`, `muted`, `danmaku` and `t` are working)
 
-{{< bilibili id=BV1w84y1b7Wq p=9 autoplay=0 muted=1 danmaku=0 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=0 t=10 >}}
+{{< bilibili id=BV1TJ411C7An p=3 autoplay=0 muted=1 danmaku=0 t=100 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 >}}
