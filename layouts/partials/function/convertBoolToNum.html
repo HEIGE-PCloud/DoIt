@@ -1,0 +1,11 @@
+{{- $value := .value -}}
+{{- if or (eq .value 1) (eq .value 0) -}}
+  {{/*  Do nothing  */}}
+{{- else if eq (lower .value) "true" -}}
+  {{- $value = 1 -}}
+{{- else if eq (lower .value) "false" -}}
+  {{- $value = 0 -}}
+{{- else -}}
+  {{- errorf "Invalid value: %s. Expected true, false, 1, or 0." .value -}}
+{{- end -}}
+{{- return $value -}}
