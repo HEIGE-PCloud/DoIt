@@ -1,7 +1,79 @@
+{{- $bvid := cond .IsNamedParams (.Get "id") (.Get 0) -}}
+{{- $page := cond .IsNamedParams (.Get "p") (.Get 1) | default 1 -}}
+
+{{- $autoplayRaw := cond .IsNamedParams (.Get "autoplay") (.Get 2) -}}
+{{- $autoplayPara := "" -}}
+{{- if not (eq $autoplayRaw "") -}}
+    {{- $autoplay := partial "function/convertBoolToNum.html" (dict "value" $autoplayRaw) -}}
+    {{- $autoplayPara = printf "&autoplay=%d" $autoplay -}}
+    {{/*  {{- warnf "The 'autoplay' parameter is set." -}}  */}}
+{{- else -}}
+    {{- $autoplayPara = "&autoplay=0" -}}
+    {{/*  {{- warnf "The 'autoplay' parameter is not set. Default to 0." -}}  */}}
+{{- end -}}
+
+{{/*  Optional parameters  */}}
+{{- $danmakuRaw := cond .IsNamedParams (.Get "danmaku") (.Get 3) -}}
+{{- $danmakuPara := "" -}}
+{{- if not (eq $danmakuRaw "") -}}
+    {{- $danmaku := partial "function/convertBoolToNum.html" (dict "value" $danmakuRaw) -}}
+    {{- $danmakuPara = printf "&danmaku=%d" $danmaku -}}
+{{- end -}}
+
+{{- $mutedRaw := cond .IsNamedParams (.Get "muted") (.Get 4) -}}
+{{- $mutedPara := "" -}}
+{{- if not (eq $mutedRaw "") -}}
+    {{/*  {{- warnf "The 'muted' parameter is set." -}}  */}}
+    {{- $muted := partial "function/convertBoolToNum.html" (dict "value" $mutedRaw) -}}
+    {{- $mutedPara = printf "&muted=%d" $muted -}}
+{{- end -}}
+
+{{- $t := cond .IsNamedParams (.Get "t") (.Get 5) -}}
+{{- $tPara := "" -}}
+{{- if not (eq $t "") -}}
+    {{- $tPara = printf "&t=%d" $t -}}
+{{- end -}}
+
+{{/*  These options seem not working anymore, but we added in case if these options works again  */}}
+{{- $hasMuteButtonRaw := cond .IsNamedParams (.Get "hasMuteButton") (.Get 6) -}}
+{{- $hasMuteButtonPara := "" -}}
+{{- if not (eq $hasMuteButtonRaw "") -}}
+    {{- $hasMuteButton := partial "function/convertBoolToNum.html" (dict "value" $hasMuteButtonRaw) -}}
+    {{- $hasMuteButtonPara = printf "&hasMuteButton=%d" $hasMuteButton -}}
+{{- end -}}
+
+{{- $hideCoverInfoRaw := cond .IsNamedParams (.Get "hideCoverInfo") (.Get 7) -}}
+{{- $hideCoverInfoPara := "" -}}
+{{- if not (eq $hideCoverInfoRaw "") -}}
+    {{- $hideCoverInfo := partial "function/convertBoolToNum.html" (dict "value" $hideCoverInfoRaw) -}}
+    {{- $hideCoverInfoPara = printf "&hideCoverInfo=%d" $hideCoverInfo -}}
+{{- end -}}
+
+{{- $hideDanmakuButtonRaw := cond .IsNamedParams (.Get "hideDanmakuButton") (.Get 8) -}}
+{{- $hideDanmakuButtonPara := "" -}}
+{{- if not (eq $hideDanmakuButtonRaw "") -}}
+    {{- $hideDanmakuButton := partial "function/convertBoolToNum.html" (dict "value" $hideDanmakuButtonRaw) -}}
+    {{- $hideDanmakuButtonPara = printf "&hideDanmakuButton=%d" $hideDanmakuButton -}}
+{{- end -}}
+
+{{- $noFullScreenButtonRaw := cond .IsNamedParams (.Get "noFullScreenButton") (.Get 9) -}}
+{{- $noFullScreenButtonPara := "" -}}
+{{- if not (eq $noFullScreenButtonRaw "") -}}
+    {{- $noFullScreenButton := partial "function/convertBoolToNum.html" (dict "value" $noFullScreenButtonRaw) -}}
+    {{- $noFullScreenButtonPara = printf "&noFullScreenButton=%d" $noFullScreenButton -}}
+{{- end -}}
+
+{{- $fjwRaw := cond .IsNamedParams (.Get "fjw") (.Get 10) -}}
+{{- $fjwPara := "" -}}
+{{- if not (eq $fjwRaw "") -}}
+    {{- $fjw := partial "function/convertBoolToNum.html" (dict "value" $fjwRaw) -}}
+    {{- $fjwPara = printf "&fjw=%d" $fjw -}}
+{{- end -}}
+
+{{/*  TODO: make the 'player.bilibili.com/player.html' part configurable. This URL can be replaced by '//www.bilibili.com/blackboard/html5mobileplayer.html' to get a mobile version of the iframe player, which is even cleaner. See https://blog.zezeshe.com/archives/use-bilibili-iframe-player.html */}}
+
+{{- $url := printf "//player.bilibili.com/player.html?bvid=%s&page=%v%s%s%s%s%s%s%s%s%s" $bvid $page $autoplayPara $danmakuPara $mutedPara $tPara $hasMuteButtonPara $hideCoverInfoPara $hideDanmakuButtonPara $noFullScreenButtonPara $fjwPara -}}
+
 <div class="bilibili">
-    {{- if .IsNamedParams -}}
-        <iframe src="//player.bilibili.com/player.html?bvid={{ .Get `id` }}&page={{ .Get `p` | default 1 }}&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-    {{- else -}}
-        <iframe src="//player.bilibili.com/player.html?bvid={{ .Get 0 }}&page={{ .Get 1 | default 1 }}&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-    {{- end -}}
+    <iframe src="{{ $url }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>

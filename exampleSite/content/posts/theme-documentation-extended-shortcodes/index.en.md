@@ -1251,6 +1251,43 @@ The rendered output looks like this:
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
+### Advanced Usage
+
+The `bilibili` shortcode supports all named parameters shown in [this blog post](https://zyc420.com/6143.html)
+
+Here is a list of all named parameters:
+
+| Parameter Name | Position | Purpose | How to Use |
+|---|---|---|---|
+| id | 0 | Video BVID, required | BV1TJ411C7An |
+| p | 1 | Video part (default 1) | Enter a number |
+| autoplay | 2 | Auto-play (default no) | `1` or `true`: Enable, `0` or `false`: Disable |
+| danmaku | 3 | Default danmaku switch (default on) | `1` or `true`: Enable, `0` or `false`: Disable |
+| muted | 4 | Default muted (default no) | `1` or `true`: Enable, `0` or `false`: Disable |
+| t | 5 | Default start time (default 0) | Enter the value directly, in seconds |
+
+The following options seems not to work, but these are still added to the shortcode in case if they work in the future:
+
+| Parameter Name | Position | Purpose | How to Use |
+|---|---|---|---|
+| hasMuteButton | 6 | Whether the mute button is displayed (default not displayed) | `1` or `true`: Enable, `0` or `false`: Disable |
+| hideCoverInfo | 7 | Whether the information under the video cover like play count and danmaku count is displayed (default displayed) | `1` or `true`: Enable, `0` or `false`: Disable |
+| hideDanmakuButton | 8 | Whether to hide the danmaku button (default not hidden) | `1` or `true`: Enable, `0` or `false`: Disable |
+| noFullScreenButton | 9 | Whether to hide the full screen button (default displayed) | `1` or `true`: Enable, `0` or `false`: Disable |
+| fjw | 10 | Whether to start memory play (default on) | `1` or `true`: Enable, `0` or `false`: Disable |
+
+Example `bilibili` input with all named parameters:
+
+```markdown
+{{</* bilibili BV1TJ411C7An 3 0 0 1 30 0 1 1 1 1 */>}}
+or
+{{</* bilibili id=BV1TJ411C7An p=3 autoplay=0 danmaku=0 muted=1 t=30 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 */>}}
+```
+
+The rendered output looks like this:
+
+{{< bilibili id=BV1TJ411C7An p=3 autoplay=0 danmaku=0 muted=1 t=30 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 >}}
+
 ## typeit
 
 The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/).

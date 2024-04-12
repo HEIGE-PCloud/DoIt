@@ -1253,6 +1253,43 @@ https://www.bilibili.com/video/BV1TJ411C7An?p=3
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
+### 高级用法
+
+`bilibili` shortcode 支持[此博客文章](https://zyc420.com/6143.html)中展示的所有命名参数。
+
+以下是所有命名参数的列表：
+
+| 参数名 | 参数位置 | 参数用途 | 使用方法 |
+|---|---|---|---|
+| id | 0 | 视频BVID，必须项 | BV1TJ411C7An |
+| p | 1 | 视频分P（默认为1） | 输入数字 |
+| autoplay | 2 | 是否自动播放（默认为否） | `1`或`true`：启用，`0`或`false`：关闭 |
+| danmaku | 3 | 默认弹幕开关（默认为开启） | `1`或`true`：启用，`0`或`false`：关闭 |
+| muted | 4 | 是否默认静音（默认为否） | `1`或`true`：启用，`0`或`false`：关闭 |
+| t | 5 | 默认开始时间（默认为0） | 直接输入数值，单位为秒 |
+
+以下选项目前似乎不起作用，但仍然被加进shortcode中，以希望未来这些选项能够被正常使用：
+
+| 参数名 | 参数位置 | 参数用途 | 使用方法 |
+|---|---|---|---|
+| hasMuteButton | 6 | 一键静音按钮是否显示（默认不显示） | `1`或`true`：启用，`0`或`false`：关闭 |
+| hideCoverInfo | 7 | 视频封面下方是否显示播放量弹幕量等信息（默认显示） | `1`或`true`：启用，`0`或`false`：关闭 |
+| hideDanmakuButton | 8 | 是否隐藏弹幕按钮（默认不隐藏） | `1`或`true`：启用，`0`或`false`：关闭 |
+| noFullScreenButton | 9 | 是否隐藏全屏按钮（默认显示） | `1`或`true`：启用，`0`或`false`：关闭 |
+| fjw | 10 | 是否启用记忆播放（默认开启） | `1`或`true`：启用，`0`或`false`：关闭 |
+
+一个带有所有命名参数的`bilibili`示例：
+
+```markdown
+{{</* bilibili BV1TJ411C7An 3 0 0 1 30 0 1 1 1 1 */>}}
+或者
+{{</* bilibili id=BV1TJ411C7An p=3 autoplay=0 danmaku=0 muted=1 t=30 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 */>}}
+```
+
+呈现的输出效果如下:
+
+{{< bilibili id=BV1TJ411C7An p=3 autoplay=0 danmaku=0 muted=1 t=30 hasMuteButton=0 hideCoverInfo=1 hideDanmakuButton=1 noFullScreenButton=1 fjw=1 >}}
+
 ## typeit
 
 `typeit` shortcode 基于 [TypeIt](https://typeitjs.com/) 提供了打字动画.
