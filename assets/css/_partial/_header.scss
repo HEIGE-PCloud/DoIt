@@ -4,13 +4,6 @@ header {
   background-color: $header-background-color;
   @include transition(box-shadow 0.3s ease);
 
-  [theme=dark] & {
-    background-color: $header-background-color-dark;
-  }
-  [theme=black] & {
-    background-color: $header-background-color-black;
-  }
-
   .logo {
     display: inline-block;
     min-height: 1.5em;
@@ -94,13 +87,6 @@ header {
     background-color: $header-background-color;
     vertical-align: baseline !important;
     @include transition(width 0.3s ease);
-
-    [theme=dark] & {
-      background-color: $header-background-color-dark;
-    }
-    [theme=black] & {
-      background-color: $header-background-color-black;
-    }
   }
 
   @include placeholder(transparent);
@@ -135,34 +121,10 @@ header {
       padding: 0 2rem 0 2rem;
     }
 
-    [theme=dark] & {
-      input {
-        color: $global-font-color-dark;
-        background-color: $search-background-color-dark;
-      }
-
-      @include placeholder($global-font-secondary-color-dark);
-    }
-    [theme=black] & {
-      input {
-        color: $global-font-color-black;
-        background-color: $search-background-color-black;
-      }
-
-      @include placeholder($global-font-secondary-color-black);
-    }
-
     @include placeholder($global-font-secondary-color);
 
     .search-button {
       color: $global-font-secondary-color;
-
-      [theme=dark] & {
-        color: $global-font-secondary-color-dark;
-      }
-      [theme=black] & {
-        color: $global-font-secondary-color-black;
-      }
     }
 
     .search-clear:hover {
@@ -213,13 +175,7 @@ header {
 
         &.delimiter {
           border-left: 1.5px solid $global-font-color;
-
-          [theme=dark] & {
-            border-left-color: $global-border-color-dark;
-          }
-          [theme=black] & {
-            border-left-color: $global-border-color-black;
-          }
+          border-left-color: $header-delimiter;
         }
 
         &.language {
@@ -238,13 +194,6 @@ header {
       a.active {
         font-weight: 900;
         color: $header-hover-color;
-
-        [theme=dark] & {
-          color: $header-hover-color-dark;
-        }
-        [theme=black] & {
-          color: $header-hover-color-black;
-        }
       }
     }
   }
@@ -294,13 +243,6 @@ header {
           height: 2px;
           @include border-radius(3px);
           @include transition(all 0.3s ease-in-out);
-
-          [theme=dark] & {
-            background: $global-font-color-dark;
-          }
-          [theme=black] & {
-            background: $global-font-color-black;
-          }
         }
 
         span:nth-child(1) {
@@ -369,15 +311,6 @@ header {
       &.active {
         display: block;
       }
-
-      [theme=dark] & {
-        background: $header-background-color-dark;
-        border-top-color: $global-border-color-dark;
-      }
-      [theme=black] & {
-        background: $header-background-color-black;
-        border-top-color: $global-border-color-black;
-      }
     }
   }
 
@@ -421,13 +354,6 @@ header {
     right: 0 !important;
     background-color: $global-background-color;
 
-    [theme=dark] & {
-      background-color: $global-background-color-dark;
-    }
-    [theme=black] & {
-      background-color: $global-background-color-black;
-    }
-
     .suggestions {
       overflow-y: auto;
       max-height: calc(100vh - #{$header-height});
@@ -454,13 +380,6 @@ header {
           float: right;
           text-align: right;
           color: $global-font-secondary-color;
-
-          [theme=dark] & {
-            color: $global-font-secondary-color-dark;
-          }
-          [theme=black] & {
-            color: $global-font-secondary-color-black;
-          }
         }
 
         .suggestion-context {
@@ -471,36 +390,15 @@ header {
           text-overflow: ellipsis;
           @include overflow-wrap(break-word);
           color: $global-font-secondary-color;
-
-          [theme=dark] & {
-            color: $global-font-secondary-color-dark;
-          }
-          [theme=black] & {
-            color: $global-font-secondary-color-black;
-          }
         }
 
         em {
           font-style: normal;
           background-color: $selection-color;
-
-          [theme=dark] & {
-            background-color: $selection-color-dark;
-          }
-          [theme=black] & {
-            background-color: $selection-color-black;
-          }
         }
 
         &.cursor {
-          background: darken($code-background-color, 5%);
-
-          [theme=dark] & {
-            background: lighten($code-background-color-dark, 5%);
-          }
-          [theme=black] & {
-            background: lighten($code-background-color-black, 5%);
-          }
+          background: $code-background-color-darken-5;
         }
 
         &:hover {
@@ -515,13 +413,7 @@ header {
 
       .search-query {
         font-weight: bold;
-
-        [theme=dark] & {
-          color: #ddd;
-        }
-        [theme=black] & {
-          color: #ddd;
-        }
+        color: $search-empty-font-color;
       }
     }
 
@@ -530,13 +422,6 @@ header {
       float: right;
       font-size: .8rem;
       color: $global-font-secondary-color;
-
-      [theme=dark] {
-        color: $global-font-secondary-color-dark;
-      }
-      [theme=black] {
-        color: $global-font-secondary-color-black;
-      }
 
       @include link(false, false);
 

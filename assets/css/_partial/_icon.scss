@@ -23,12 +23,6 @@ svg.icon {
   width: 1.25em;
   vertical-align: -0.125em;
   color: $global-font-color default;
-  [theme=dark] & {
-    color: $global-font-color-dark default;
-  }
-  [theme=black] & {
-    color: $global-font-color-black default;
-  }
 }
 
 svg.icon > path {
