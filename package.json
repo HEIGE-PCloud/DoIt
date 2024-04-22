@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run server\" \"npm run server:tailwind --watch\"",
     "build": "hugo --logLevel info --source=exampleSite --themesDir ../.. --gc",
     "build:preview": "hugo --logLevel info --source=exampleSite --themesDir ../.. -D --gc",
-    "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
+    "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender --noHTTPCache",
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
     "server:tailwind": "npx tailwindcss --watch -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "algolia": "atomic-algolia",
