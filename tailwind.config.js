@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "doit-blue": {
+        'doit-blue': {
           '50': '#f2f9fd',
           '100': '#e4f2fa',
           '200': '#c2e5f5',
@@ -34,7 +34,55 @@ module.exports = {
           '900': '#353c44',
           '950': '#20252b',
         },
-      },
+        'global-background-color': 'var(--global-background-color)',
+        'global-font-color': 'var(--global-font-color)',
+        'global-font-secondary-color': 'var(--global-font-secondary-color)',
+        'global-link-color': 'var(--global-link-color)',
+        'global-link-hover-color': 'var(--global-link-hover-color)',
+        'global-border-color': 'var(--global-border-color)',
+        'selection-color': 'var(--selection-color)',
+        'header-background-color': 'var(--header-background-color)',
+        'header-hover-color': 'var(--header-hover-color)',
+        'header-delimiter': 'var(--header-delimiter)',
+        'search-background-color': 'var(--search-background-color)',
+        'search-empty-font-color': 'var(--search-empty-font-color)',
+        'single-h-font-weight': 'var(--single-h-font-weight)',
+        'single-content-strong-color': 'var(--single-content-strong-color)',
+        'single-link-color': 'var(--single-link-color)',
+        'single-link-hover-color': 'var(--single-link-hover-color)',
+        'table-background-color': 'var(--table-background-color)',
+        'table-thead-color': 'var(--table-thead-color)',
+        'table-thead-color-darken': 'var(--table-thead-color-darken)',
+        'blockquote-color': 'var(--blockquote-color)',
+        'blockquote-bg-color': 'var(--blockquote-bg-color)',
+        'pagination-link-color': 'var(--pagination-link-color)',
+        'pagination-link-hover-color': 'var(--pagination-link-hover-color)',
+        'friend-link-background-color': 'var(--friend-link-background-color)',
+        'friend-link-color': 'var(--friend-link-color)',
+        'friend-link-hover-color': 'var(--friend-link-hover-color)',
+        'sponsor-button-background-color': 'var(--sponsor-button-background-color)',
+        'sponsor-button-hover-background-color': 'var(--sponsor-button-hover-background-color)',
+        // Code
+        'code-color': 'var(--code-color)',
+        'code-background-color': 'var(--code-background-color)',
+        'code-background-color-darken-3': 'var(--code-background-color-darken-3)',
+        'code-background-color-darken-5': 'var(--code-background-color-darken-5)',
+        'code-background-color-darken-6': 'var(--code-background-color-darken-6)',
+        'code-background-color-darken-8': 'var(--code-background-color-darken-8)',
+        'code-background-color-darken-10': 'var(--code-background-color-darken-10)',
+        'code-background-color-code-header': 'var(--code-background-color-code-header)',
+        'code-background-color-code-hl': 'var(--code-background-color-code-hl)',
+        'code-info-color': 'var(--code-info-color)',
+
+        'cookie-background-color': 'var(--cookie-background-color)',
+        'related-background-color': 'var(--related-background-color)',
+        'related-color': 'var(--related-color)',
+        'related-hover-color': 'var(--related-hover-color)',
+
+        'showcase-background-color': 'var(--showcase-background-color)',
+        'showcase-color': 'var(--showcase-color)',
+        'showcase-hover-color': 'var(--showcase-hover-color)'
+      }
     }
   },
   plugins: [
