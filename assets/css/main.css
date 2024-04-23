@@ -618,10 +618,8 @@ html.dark {
   /* TODO */
   --single-content-strong-color: #ddd;
   /* TODO */
-  --single-link-color: #55bde2;
-  /* TODO */
-  --single-link-hover-color: #bdebfc;
-  /* TODO */
+  --single-link-color: #4493f8;
+  --single-link-hover-color: #61adff;
   --table-background-color: #272c34;
   /* TODO */
   --table-thead-color: #20252b;

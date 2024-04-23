@@ -161,8 +161,8 @@
     --search-empty-font-color: #ddd; /* TODO */
     --single-h-font-weight: bolder; /* TODO */
     --single-content-strong-color: #ddd; /* TODO */
-    --single-link-color: #55bde2; /* TODO */
-    --single-link-hover-color: #bdebfc; /* TODO */
+    --single-link-color: #4493f8;
+    --single-link-hover-color: #61adff;
     --table-background-color: #272c34; /* TODO */
     --table-thead-color: #20252b; /* TODO */
     --blockquote-color: #59c5ec; /* TODO */
