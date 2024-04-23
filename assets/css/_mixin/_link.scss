@@ -6,18 +6,12 @@
     .dark & {
       color: if($dark, $global-link-color, $single-link-color);
     }
-    .black & {
-      color: if($dark, $global-link-color, $single-link-color);
-    }
   }
 
   a:active,
   a:hover {
     color: if($light, $global-link-hover-color, $single-link-hover-color);
     .dark & {
-      color: if($dark, $global-link-hover-color, $single-link-hover-color);
-    }
-    .black & {
       color: if($dark, $global-link-hover-color, $single-link-hover-color);
     }
   }

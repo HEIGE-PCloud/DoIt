@@ -197,11 +197,6 @@ pre,
   //     .#{$class} { color: $color; }
   //   }
   // }
-  // [theme=black] & {
-  //   @each $class, $color in $code-highlight-color-map-black {
-  //     .#{$class} { color: $color; }
-  //   }
-  // }
 }
 
 .gist {
