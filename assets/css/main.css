@@ -600,49 +600,82 @@ ul {
 /* Theme dark */
 
 html.dark {
-  --global-background-color: #292a2d;
-  --global-font-color: #a9a9b3;
-  --global-font-secondary-color: #b5b5b5;
-  --global-link-color: #a9a9b3;
-  --global-link-hover-color: #fff;
-  --global-border-color: #363636;
+  --global-background-color: #0d1117;
+  --global-font-color: #e6edf3;
+  --global-font-secondary-color: #848d97;
+  --global-link-color: #e6edf3;
+  --global-link-hover-color: #ffffff;
+  --global-border-color: #30363d;
   --selection-color: rgba(50, 112, 194, 0.4);
-  --header-background-color: #252627;
-  --header-hover-color: #fff;
-  --header-delimiter: #363636;
+  --header-background-color: #161b22;
+  --header-hover-color: #ffffff;
+  --header-delimiter: #848d97;
   --search-background-color: #363636;
+  /* TODO */
   --search-empty-font-color: #ddd;
+  /* TODO */
   --single-h-font-weight: bolder;
+  /* TODO */
   --single-content-strong-color: #ddd;
+  /* TODO */
   --single-link-color: #55bde2;
+  /* TODO */
   --single-link-hover-color: #bdebfc;
+  /* TODO */
   --table-background-color: #272c34;
+  /* TODO */
   --table-thead-color: #20252b;
+  /* TODO */
   --blockquote-color: #59c5ec;
+  /* TODO */
   --blockquote-bg-color: rgba(89, 197, 236, 0.2);
+  /* TODO */
   --pagination-link-color: #a9a9b3;
+  /* TODO */
   --pagination-link-hover-color: #fff;
+  /* TODO */
   --friend-link-background-color: #252627;
+  /* TODO */
   --friend-link-color: #a9a9b3;
+  /* TODO */
   --friend-link-hover-color: #ffffff;
+  /* TODO */
   --sponsor-button-background-color: #363636;
+  /* TODO */
   --sponsor-button-hover-background-color: #363636;
+  /* TODO */
   --cookie-background-color: #fff;
+  /* TODO */
   --code-color: #e5bf78;
+  /* TODO */
   --code-background-color: #272c34;
+  /* TODO */
   --code-background-color-darken-3: #20252b;
+  /* TODO */
   --code-background-color-darken-5: #1c2025;
+  /* TODO */
   --code-background-color-darken-6: #1a1d23;
+  /* TODO */
   --code-background-color-darken-8: #16181d;
+  /* TODO */
   --code-background-color-darken-10: #111317;
+  /* TODO */
   --code-background-color-code-header: var(--code-background-color-darken-6);
+  /* TODO */
   --code-background-color-code-hl: #1c2025;
+  /* TODO */
   --code-info-color: #b1b0b0;
+  /* TODO */
   --related-background-color: #252627;
+  /* TODO */
   --related-color: #a9a9b3;
+  /* TODO */
   --related-hover-color: #ffffff;
+  /* TODO */
   --showcase-background-color: #252627;
+  /* TODO */
   --showcase-color: #a9a9b3;
+  /* TODO */
   --showcase-hover-color: #ffffff;
 }
 
