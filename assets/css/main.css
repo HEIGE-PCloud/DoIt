@@ -543,7 +543,7 @@ ul {
   --table-background-color: #fff;
   /* Color of the table thead */
   --table-thead-color: #ededed;
-  --table-thead-color-darken: darken(#ededed, 2%);
+  --table-border-color: darken(#ededed, 2%);
   /* Color of the blockquote */
   --blockquote-color: #6bd6fd;
   --blockquote-bg-color: rgba(107, 214, 253, 0.2);
@@ -573,12 +573,10 @@ ul {
   --code-color: #e74c3c;
   /* Color of the code background */
   --code-background-color: #f5f5f5;
-  --code-background-color-darken-3: #ededed;
+  --code-header-color: #ededed;
   --code-background-color-darken-5: #e8e8e8;
   --code-background-color-darken-6: #e6e6e6;
-  --code-background-color-darken-8: #e1e1e1;
-  --code-background-color-darken-10: gainsboro;
-  --code-background-color-code-header: var(--code-background-color-darken-8);
+  --code-background-color-code-header: var(--code-background-color-darken-6);
   --code-background-color-code-hl: gainsboro;
   --code-info-color: #9c9c9c;
   /* ========== Code ========== */
@@ -602,7 +600,7 @@ ul {
 html.dark {
   --global-background-color: #0d1117;
   --global-font-color: #e6edf3;
-  --global-font-secondary-color: #848d97;
+  --global-font-secondary-color: #d4dbe1;
   --global-link-color: #e6edf3;
   --global-link-hover-color: #ffffff;
   --global-border-color: #30363d;
@@ -620,13 +618,12 @@ html.dark {
   /* TODO */
   --single-link-color: #4493f8;
   --single-link-hover-color: #61adff;
-  --table-background-color: #272c34;
+  --table-background-color: #0d1117;
+  --table-thead-color: #161b22;
+  --table-border-color: #30363d;
+  --blockquote-color: #1f6feb;
   /* TODO */
-  --table-thead-color: #20252b;
-  /* TODO */
-  --blockquote-color: #59c5ec;
-  /* TODO */
-  --blockquote-bg-color: rgba(89, 197, 236, 0.2);
+  --blockquote-bg-color: #388bfd1a;
   /* TODO */
   --pagination-link-color: #a9a9b3;
   /* TODO */
@@ -646,17 +643,11 @@ html.dark {
   /* TODO */
   --code-color: #e5bf78;
   /* TODO */
-  --code-background-color: #272c34;
-  /* TODO */
-  --code-background-color-darken-3: #20252b;
-  /* TODO */
+  --code-background-color: #1b2029;
+  --code-header-color: #161b22;
   --code-background-color-darken-5: #1c2025;
   /* TODO */
   --code-background-color-darken-6: #1a1d23;
-  /* TODO */
-  --code-background-color-darken-8: #16181d;
-  /* TODO */
-  --code-background-color-darken-10: #111317;
   /* TODO */
   --code-background-color-code-header: var(--code-background-color-darken-6);
   /* TODO */
@@ -710,11 +701,9 @@ html.black  {
   --cookie-background-color: #fff;
   --code-color: #e5bf78;
   --code-background-color: #272c34;
-  --code-background-color-darken-3: #20252b;
+  --code-header-color: #20252b;
   --code-background-color-darken-5: #1c2025;
   --code-background-color-darken-6: #1a1d23;
-  --code-background-color-darken-8: #16181d;
-  --code-background-color-darken-10: #111317;
   --code-background-color-code-header: var(--code-background-color-darken-6);
   --code-background-color-code-hl: #1c2025;
   --code-info-color: #b1b0b0;

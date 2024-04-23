@@ -62,7 +62,7 @@
       display: block;
     }
 
-    > nav > ul {
+    >nav>ul {
       margin: .625rem 0;
     }
 
@@ -71,7 +71,7 @@
         display: none;
       }
 
-      .has-active > ul {
+      .has-active>ul {
         display: block;
       }
     }
@@ -106,7 +106,7 @@
   .toc-content {
     background-color: $code-background-color;
 
-    > nav > ul {
+    >nav>ul {
       margin: 0;
       padding: .4rem 1rem .4rem 1.8rem;
     }
@@ -114,7 +114,7 @@
 
   &.open {
     .toc-title {
-      background: $code-background-color-darken-3;
+      background: $code-header-color;
     }
   }
 }

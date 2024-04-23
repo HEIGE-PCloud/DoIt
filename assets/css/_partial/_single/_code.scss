@@ -1,5 +1,5 @@
 code {
-  display:inline-block;
+  display: inline-block;
   max-width: 100%;
   padding: 0 .4rem;
   @include overflow-wrap(break-word);
@@ -26,19 +26,25 @@ pre {
   }
 }
 
-code, pre, .highlight table, .highlight tr, .highlight td {
+code,
+pre,
+.highlight table,
+.highlight tr,
+.highlight td {
   background: $code-background-color;
 }
 
-.highlight, .gist {
+.highlight,
+.gist {
   font-family: $code-font-family;
   font-size: $code-font-size;
 
   .table-wrapper {
-    > table,
-    > table thead,
-    > table tr,
-    > table td {
+
+    >table,
+    >table thead,
+    >table tr,
+    >table td {
       margin: 0;
       padding: 0;
       border: none !important;
@@ -50,7 +56,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
   line-height: 1.4em;
   margin: .5rem 0;
 
-  > .chroma {
+  >.chroma {
     position: relative;
 
     .code-header {
@@ -107,7 +113,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
       background-color: $code-background-color-code-hl;
     }
 
-    .ln, .lnt {
+    .ln,
+    .lnt {
       color: $global-font-secondary-color;
     }
 
@@ -138,9 +145,9 @@ code, pre, .highlight table, .highlight tr, .highlight td {
 
     &.open {
       .code-header {
-        background: $code-background-color-darken-3;
+        background: $code-header-color;
       }
-      
+
       .table-wrapper {
         max-height: none;
       }
@@ -159,14 +166,27 @@ code, pre, .highlight table, .highlight tr, .highlight td {
     }
   }
 
-  /* Comment */  .c,
-  /* CommentHashbang */  .ch,
-  /* CommentMultiline */  .cm,
-  /* CommentSingle */  .c1,
-  /* CommentSpecial */  .cs,
-  /* CommentPreproc */  .cp,
-  /* CommentPreprocFile */  .cpf { font-style: italic }
-  /* GenericUnderline */  .gl { text-decoration: underline }
+  /* Comment */
+  .c,
+  /* CommentHashbang */
+  .ch,
+  /* CommentMultiline */
+  .cm,
+  /* CommentSingle */
+  .c1,
+  /* CommentSpecial */
+  .cs,
+  /* CommentPreproc */
+  .cp,
+  /* CommentPreprocFile */
+  .cpf {
+    font-style: italic
+  }
+
+  /* GenericUnderline */
+  .gl {
+    text-decoration: underline
+  }
 
   // @each $class, $color in $code-highlight-color-map {
   //   .#{$class} { color: $color; }
@@ -185,7 +205,10 @@ code, pre, .highlight table, .highlight tr, .highlight td {
 }
 
 .gist {
-  .gist-file, .gist-data, .gist-meta {
+
+  .gist-file,
+  .gist-data,
+  .gist-meta {
     border: none;
   }
 

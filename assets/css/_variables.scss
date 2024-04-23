@@ -83,7 +83,7 @@ $table-background-color: var(--table-background-color) !default;
 
 // Color of the table thead
 $table-thead-color: var(--table-thead-color) !default;
-$table-thead-color-darken: var(--table-thead-color-darken) !default;
+$table-border-color: var(--table-border-color) !default;
 
 // Color of the blockquote
 $blockquote-color: var(--blockquote-color) !default;
@@ -104,11 +104,9 @@ $code-color: var(--code-color) !default;
 
 // Color of the code background
 $code-background-color: var(--code-background-color) !default;
-$code-background-color-darken-3: var(--code-background-color-darken-3) !default;
+$code-header-color: var(--code-header-color) !default;
 $code-background-color-darken-5: var(--code-background-color-darken-5) !default;
 $code-background-color-darken-6: var(--code-background-color-darken-6) !default;
-$code-background-color-darken-8: var(--code-background-color-darken-8) !default;
-$code-background-color-darken-10: var(--code-background-color-darken-10) !default;
 $code-background-color-code-header: var(--code-background-color-code-header) !default;
 $code-background-color-code-hl: var(--code-background-color-code-hl) !default;
 
