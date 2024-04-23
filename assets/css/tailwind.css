@@ -152,29 +152,39 @@
     --global-link-hover-color: #ffffff;
     --global-border-color: #30363d;
     --selection-color: #1f6febb3;
+
     --header-background-color: #161b22;
     --header-hover-color: #ffffff;
     --header-delimiter: #848d97;
+
     --search-background-color: #363636; /* TODO */
     --search-empty-font-color: #ddd; /* TODO */
-    --single-h-font-weight: bolder; /* TODO */
+
+    --single-h-font-weight: bolder;
     --single-content-strong-color: #ddd; /* TODO */
     --single-link-color: #4493f8;
     --single-link-hover-color: #61adff;
+
     --table-background-color: #0d1117;
     --table-thead-color: #161b22;
     --table-border-color: #30363d;
-    --blockquote-color: #1f6feb; /* TODO */
-    --blockquote-bg-color: #388bfd1a; /* TODO */
-    --pagination-link-color: #a9a9b3; /* TODO */
-    --pagination-link-hover-color: #fff; /* TODO */
+
+    --blockquote-color: #1f6feb;
+    --blockquote-bg-color: #388bfd1a;
+
+    --pagination-link-color: #e6edf3;
+    --pagination-link-hover-color: #d4dbe1;
+
     --friend-link-background-color: #252627; /* TODO */
     --friend-link-color: #a9a9b3; /* TODO */
     --friend-link-hover-color: #ffffff; /* TODO */
+
     --sponsor-button-background-color: #363636; /* TODO */
     --sponsor-button-hover-background-color: #363636; /* TODO */
-    --cookie-background-color: #fff; /* TODO */
-    --code-color: #e5bf78; /* TODO */
+
+    --cookie-background-color: #fff;
+
+    --code-color: #e5bf78;
     --code-background-color: #1b2029;
     --code-header-color: #161b22;
     --code-background-color-darken-5: #1c2025; /* TODO */
@@ -182,9 +192,11 @@
     --code-background-color-code-header: var(--code-background-color-darken-6); /* TODO */
     --code-background-color-code-hl: #1c2025; /* TODO */
     --code-info-color: #b1b0b0; /* TODO */
+
     --related-background-color: #252627; /* TODO */
     --related-color: #a9a9b3; /* TODO */
     --related-hover-color: #ffffff; /* TODO */
+
     --showcase-background-color: #252627; /* TODO */
     --showcase-color: #a9a9b3; /* TODO */
     --showcase-hover-color: #ffffff;
