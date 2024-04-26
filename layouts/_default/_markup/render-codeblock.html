@@ -7,7 +7,46 @@
       <p class="tw-select-none">{{ .Type | default "text" }}</p>
     </div>
     <div class="tw-flex">
-      <button class="tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block group-[.is-wrap]:tw-text-doit-blue-light dark:group-[.is-wrap]:tw-text-doit-blue-dark print:!tw-hidden" aria-label="Toggle code wrap" id="wrap-code-{{ $id }}" onclick="toggleCodeblockWrap('{{ $id }}')">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") }}</button><button class="tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block hover:tw-text-doit-blue-light dark:hover:tw-text-doit-blue-dark print:!tw-hidden" id="copy-code-{{ $id }}" onclick="copyCode('{{ $id }}')">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") }}</button><button disabled class="tw-select-none tw-mx-2 tw-block group-[.is-open]:tw-hidden print:!tw-hidden" id="copy-code-{{ $id }}">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</button>
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-doit-blue-light 
+          dark:group-[.is-wrap]:tw-text-doit-blue-dark 
+          print:!tw-hidden" 
+        aria-label="Toggle code wrap" 
+        id="wrap-code-{{ $id }}" 
+        onclick="toggleCodeblockWrap('{{ $id }}')">
+          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
+      </button>
+      
+      <button 
+        class="
+          tw-select-none
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          hover:tw-text-doit-blue-light 
+          dark:hover:tw-text-doit-blue-dark 
+          print:!tw-hidden" 
+        id="copy-code-{{ $id }}" 
+        onclick="copyCode('{{ $id }}')">
+          {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
+        </button>
+        
+        <button 
+          class="
+            tw-select-none 
+            tw-mx-2 
+            tw-block 
+            group-[.is-open]:tw-hidden 
+            print:!tw-hidden" 
+          id="copy-code-{{ $id }}" 
+          disabled>
+          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
+        </button>
     </div>
   </div>
   <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="chroma !tw-block tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
