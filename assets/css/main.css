@@ -477,30 +477,6 @@ ul {
   list-style-type: disc;
 }
 
-/* Themes Example */
-
-/* :root {
-    --color-primary: 247 147 34;
-    --color-text: 33 33 33;
-    --color-success: 0 200 81;
-    --color-info: 51 181 229;
-    --color-warn: 255 187 51;
-    --color-error: 254 78 78;
-  }
-
-  :root[class~="dark"] {
-    --color-primary: 247 147 34;
-    --color-text: 33 33 33;
-    --color-success: 0 200 81;
-    --color-info: 51 181 229;
-    --color-warn: 255 187 51;
-    --color-error: 254 78 78;
-  } */
-
-/* Themes TODO  */
-
-/* Theme Light */
-
 :root {
   /* ========== Global ========== */
   /* Color of the background */
@@ -518,7 +494,7 @@ ul {
   /* ========== Global ========== */
   /* ========== Selection ========== */
   /* Color of the selected text */
-  --selection-color: rgba(53, 166, 247, 0.25);
+  --selection-color: #35a6f740;
   /* ========== Selection ========== */
   /* ========== Header ========== */
   /* Color of the header background */
@@ -593,6 +569,21 @@ ul {
   --showcase-color: black;
   --showcase-hover-color: #ef3982;
   /* ========== showcase ========== */
+  /* ========== primitives ========== */
+  --fgColor-default: #161209;
+  --fgColor-secondary: #4d4d4d;
+  --fgColor-muted: unset;
+  --fgColor-link: #2d809a;
+  --fgColor-link-hover: #ef3982;
+  --bgColor-default: #fff;
+  --bgColor-secondary: #ededed;
+  --bgColor-accent-emphasis: #6bd6fd;
+  --bgColor-accent-muted: #388bfd1a;
+  --borderColor-default: #f0f0f0;
+  --selection-bgColor: #35a6f740;
+  --button-default-bgColor-rest: #f0f0f0;
+  --button-default-bgColor-hover: #f0f0f0;
+  /* ========== primitives ========== */
 }
 
 /* Theme dark */
