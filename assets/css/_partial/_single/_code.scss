@@ -187,16 +187,6 @@ pre,
   .gl {
     text-decoration: underline
   }
-
-  // @each $class, $color in $code-highlight-color-map {
-  //   .#{$class} { color: $color; }
-  // }
-
-  // [theme=dark] & {
-  //   @each $class, $color in $code-highlight-color-map-dark {
-  //     .#{$class} { color: $color; }
-  //   }
-  // }
 }
 
 .gist {
@@ -220,5 +210,6 @@ pre,
 pre > code > span::before {
   counter-increment: codeblock;
   content: counter(codeblock);
-  margin: 10px;
+  margin: 0 1rem;
+  color: var(--global-font-color);
 }
