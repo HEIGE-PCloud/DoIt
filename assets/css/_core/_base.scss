@@ -33,13 +33,6 @@ html {
 
 ::selection {
   background-color: $selection-color;
-
-  [theme=dark] & {
-    background-color: $selection-color-dark;
-  }
-  [theme=black] & {
-    background-color: $selection-color-black;
-  }
 }
 
 body {
@@ -47,14 +40,6 @@ body {
   color: $global-font-color;
   @include overflow-wrap(break-word);
   scrollbar-color: auto;
-  &[theme=dark] {
-    color: $global-font-color-dark;
-    background-color: $global-background-color-dark;
-  }
-  &[theme=black] {
-    color: $global-font-color-black;
-    background-color: $global-background-color-black;
-  }
 }
 
 @include ms;

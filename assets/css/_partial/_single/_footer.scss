@@ -5,13 +5,6 @@
     border-bottom: 1px solid $global-border-color;
     padding: 1rem 0 0.3rem;
 
-    [theme="dark"] & {
-      border-bottom: 1px solid $global-border-color-dark;
-    }
-    [theme="black"] & {
-      border-bottom: 1px solid $global-border-color-black;
-    }
-
     .post-info-line {
       display: flex;
       justify-content: space-between;
@@ -20,26 +13,12 @@
         font-size: 0.8em;
         color: $global-font-secondary-color;
 
-        [theme="dark"] & {
-          color: $global-font-secondary-color-dark;
-        }
-        [theme="black"] & {
-          color: $global-font-secondary-color-black;
-        }
-
         @include link(false, false);
       }
 
       .post-info-license {
         font-size: 0.8em;
         color: $global-font-secondary-color;
-
-        [theme="dark"] & {
-          color: $global-font-secondary-color-dark;
-        }
-        [theme="black"] & {
-          color: $global-font-secondary-color-black;
-        }
 
         @include link(false, false);
       }
@@ -70,12 +49,6 @@
           }   
           :hover {
               color: $global-link-hover-color;
-              [theme=dark] & {
-                color: $global-link-hover-color-dark;
-              }
-              [theme=black] & {
-                color: $global-link-hover-color-black;
-              }          
           }    
         }
 

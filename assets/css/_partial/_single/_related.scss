@@ -1,13 +1,5 @@
 .related-container {
-    --related-background-color: #f8f8f8;
-    --related-background-color-dark: #252627;
-    --related-background-color-black: #111111;
-    --related-color: #2D809A;
-    --related-color-dark: #a9a9b3;
-    --related-color-black: #d9d9d9;
-    --related-hover-color: #ef3982;
-    --related-hover-color-dark: #ffffff;
-    --related-hover-color-black: #ffffff;
+
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -21,16 +13,8 @@
         height: 270px;
         min-width: 300px;
         margin-right: 20px;
-        background: var(--related-background-color);
+        background: $related-background-color;
         position: relative;
-
-        [theme="dark"] & {
-            background: var(--related-background-color-dark);
-        }
-
-        [theme="black"] & {
-            background: var(--related-background-color-black);
-        }
     }
 
     .related-image {
@@ -60,26 +44,10 @@
     }
 
     .related-title a {
-        color: black;
+        color: $related-color;
 
         &:hover {
-            color: var(--related-hover-color);
-        }
-
-        [theme="dark"] & {
-            color: var(--related-color-dark);
-
-            &:hover {
-                color: var(--related-hover-color-dark);
-            }
-        }
-
-        [theme="black"] & {
-            color: var(--related-color-black);
-
-            &:hover {
-                color: var(--related-hover-color-black);
-            }
+            color: $related-hover-color;
         }
     }
 }

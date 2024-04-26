@@ -3,24 +3,16 @@
     text-decoration: none;
 
     color: if($light, $global-link-color, $single-link-color);
-
-    [theme=dark] & {
-      color: if($dark, $global-link-color-dark, $single-link-color-dark);
-    }
-    [theme=black] & {
-      color: if($dark, $global-link-color-black, $single-link-color-black);
+    .dark & {
+      color: if($dark, $global-link-color, $single-link-color);
     }
   }
 
   a:active,
   a:hover {
     color: if($light, $global-link-hover-color, $single-link-hover-color);
-
-    [theme=dark] & {
-      color: if($dark, $global-link-hover-color-dark, $single-link-hover-color-dark);
-    }
-    [theme=black] & {
-      color: if($dark, $global-link-hover-color-black, $single-link-hover-color-black);
+    .dark & {
+      color: if($dark, $global-link-hover-color, $single-link-hover-color);
     }
   }
 }

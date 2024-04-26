@@ -53,25 +53,13 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  color: $global-link-color;
+
   &:hover {
     color: $global-link-hover-color;
     background-color: transparent;
   }
 
-  [theme=dark] & {
-    color: $global-link-color-dark;
-
-    &:hover {
-      color: $global-link-hover-color-dark;
-    }
-  }
-  [theme=black] & {
-    color: $global-link-color-black;
-
-    &:hover {
-      color: $global-link-hover-color-black;
-    }
-  }
 }
 
 .archive-item-date {
@@ -79,12 +67,6 @@
   color: $global-font-secondary-color;
   font-variant-numeric: tabular-nums;
   min-width: fit-content;
-  [theme=dark] & {
-    color: $global-font-secondary-color-dark;
-  }
-  [theme=black] & {
-    color: $global-font-secondary-color-black;
-  }
 }
 
 .more-post {

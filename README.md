@@ -99,7 +99,7 @@ the DoIt theme may be more suitable for you.
 ### Appearance and Layout
 
 * **Responsive** layout
-* **Light/Dark/Black** mode
+* **Light/Dark** mode
 * Globally consistent **design language**
 * **Pagination** supported
 * Easy-to-use and self-expanding **table of contents**
