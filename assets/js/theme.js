@@ -84,8 +84,6 @@ function initSwitchTheme () {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
       if (currentTheme === 'dark') {
-        setColorTheme('black')
-      } else if (currentTheme === 'black') {
         setColorTheme('light')
       } else {
         setColorTheme('dark')
@@ -689,8 +687,7 @@ function initMeta () {
   const themeColorMeta = getMeta('theme-color')
   const metaColors = {
     light: '#f8f8f8',
-    dark: '#252627',
-    black: '#000000'
+    dark: '#161b22'
   }
   window._metaThemeColorOnSwitchTheme = () => {
     themeColorMeta.content = metaColors[document.body.getAttribute('theme')]

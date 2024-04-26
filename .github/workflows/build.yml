@@ -32,4 +32,4 @@ jobs:
         run: npm install
 
       - name: Build
-        run: hugo -v --source=exampleSite --themesDir ../.. --gc
+        run: npm run build

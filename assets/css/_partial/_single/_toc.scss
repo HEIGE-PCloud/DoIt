@@ -18,13 +18,6 @@
         font-weight: bolder;
         margin-right: .5rem;
         color: $single-link-color;
-
-        [theme=dark] & {
-          color: $single-link-color-dark;
-        }
-        [theme=black] & {
-          color: $single-link-color-black;
-        }
       }
 
       ul {
@@ -40,20 +33,6 @@
       color: $global-font-secondary-color;
     }
 
-    [theme=dark] & {
-      background: $code-background-color-dark;
-
-      rt {
-        color: $global-font-secondary-color-dark;
-      }
-    }
-    [theme=black] & {
-      background: $code-background-color-black;
-
-      rt {
-        color: $global-font-secondary-color-black;
-      }
-    }
   }
 }
 
@@ -74,13 +53,6 @@
 
   @include blur;
 
-  [theme=dark] & {
-    border-left-color: $global-border-color-dark;
-  }
-  [theme=black] & {
-    border-left-color: $global-border-color-black;
-  }
-
   .toc-title {
     margin: .8rem 0;
   }
@@ -90,7 +62,7 @@
       display: block;
     }
 
-    > nav > ul {
+    >nav>ul {
       margin: .625rem 0;
     }
 
@@ -99,7 +71,7 @@
         display: none;
       }
 
-      .has-active > ul {
+      .has-active>ul {
         display: block;
       }
     }
@@ -108,22 +80,8 @@
       font-weight: bold;
       color: $single-link-color;
 
-      [theme=dark] & {
-        color: $single-link-color-dark;
-      }
-      [theme=black] & {
-        color: $single-link-color-black;
-      }
-
       &::before {
         color: $single-link-hover-color;
-
-        [theme=dark] & {
-          color: $single-link-hover-color-dark;
-        }
-        [theme=black] & {
-          color: $single-link-hover-color-black;
-        }
       }
     }
   }
@@ -142,42 +100,21 @@
     justify-content: space-between;
     line-height: 2em;
     padding: 0 .75rem;
-    background: darken($code-background-color, 6%);
-
-    [theme=dark] & {
-      background: darken($code-background-color-dark, 6%);
-    }
-    [theme=black] & {
-      background: darken($code-background-color-black, 6%);
-    }
+    background: $code-background-color-darken-6;
   }
 
   .toc-content {
     background-color: $code-background-color;
 
-    > nav > ul {
+    >nav>ul {
       margin: 0;
       padding: .4rem 1rem .4rem 1.8rem;
-    }
-
-    [theme=dark] & {
-      background-color: $code-background-color-dark;
-    }
-    [theme=black] & {
-      background-color: $code-background-color-black;
     }
   }
 
   &.open {
     .toc-title {
-      background: darken($code-background-color, 3%);
-
-      [theme=dark] & {
-        background: darken($code-background-color-dark, 3%);
-      }
-      [theme=black] & {
-        background: darken($code-background-color-black, 3%);
-      }
+      background: $code-header-color;
     }
   }
 }

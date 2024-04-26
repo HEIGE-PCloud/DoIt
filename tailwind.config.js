@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "doit-blue": {
+        'doit-blue': {
           '50': '#f2f9fd',
           '100': '#e4f2fa',
           '200': '#c2e5f5',
@@ -34,7 +34,20 @@ module.exports = {
           '900': '#353c44',
           '950': '#20252b',
         },
-      },
+        'fgColor-default' : 'var(--fgColor-default)',
+        'fgColor-secondary' : 'var(--fgColor-secondary)',
+        'fgColor-muted' : 'var(--fgColor-muted)',
+        'fgColor-link' : 'var(--fgColor-link)',
+        'fgColor-link-hover' : 'var(--fgColor-link-hover)',
+        'bgColor-default' : 'var(--bgColor-default)',
+        'bgColor-secondary' : 'var(--bgColor-secondary)',
+        'bgColor-accent-emphasis' : 'var(--bgColor-accent-emphasis)',
+        'bgColor-accent-muted' : 'var(--bgColor-accent-muted)',
+        'borderColor-default' : 'var(--borderColor-default)',
+        'selection-bgColor' : 'var(--selection-bgColor)',
+        'button-default-bgColor-rest' : 'var(--button-default-bgColor-rest)',
+        'button-default-bgColor-hover' : 'var(--button-default-bgColor-hover)',
+      }
     }
   },
   plugins: [

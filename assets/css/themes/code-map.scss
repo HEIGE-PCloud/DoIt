@@ -1,0 +1,300 @@
+// Now is was despecated
+// It is removed from assets/css/_variables.scss
+// This three variables was for code highlight assets/css/_partial/_single/_code.scss before rewrite
+// Color map of the code highlight
+$code-highlight-color-map: (
+  /* Parentheses */
+  'p': #a9a9b3,
+  /* Keyword */
+  'k': #b501a9,
+  /* KeywordConstant */
+  'kc': #b501a9,
+  /* KeywordDeclaration */
+  'kd': #b501a9,
+  /* KeywordNamespace */
+  'kn': #b501a9,
+  /* KeywordPseudo */
+  'kp': #b501a9,
+  /* KeywordReserved */
+  'kr': #b501a9,
+  /* KeywordType */
+  'kt': #b501a9,
+  /* Name */
+  'n': #333333,
+  /* NameAttribute */
+  'na': #2b77fa,
+  /* NameBuiltin */
+  'nb': #f74840,
+  /* NameBuiltinPseudo */
+  'bp': #f74840,
+  /* NameClass */
+  'nc': #cb8100,
+  /* NameConstant */
+  'no': #2b77fa,
+  /* NameDecorator */
+  'nd': #0086c1,
+  /* NameEntity */
+  'ni': #2b77fa,
+  /* NameException */
+  'ne': #2b77fa,
+  /* NameFunction */
+  'nf': #2b77fa,
+  /* NameFunctionMagic */
+  'fm': #1ccad6,
+  /* NameLabel */
+  'nl': #2b77fa,
+  /* NameNamespace */
+  'nn': #2b77fa,
+  /* NameOther */
+  'nx': #333333,
+  /* NameProperty */
+  'py': #2b77fa,
+  /* NameTag */
+  'nt': #2b77fa,
+  /* NameVariable */
+  'nv': #2b77fa,
+  /* NameVariableClass */
+  'vc': #2b77fa,
+  /* NameVariableGlobal */
+  'vg': #2b77fa,
+  /* NameVariableInstance */
+  'vi': #2b77fa,
+  /* NameVariableMagic */
+  'vm': #2b77fa,
+  /* Literal */
+  'l': #2aa198,
+  /* LiteralDate */
+  'ld': #2aa198,
+  /* LiteralString */
+  's': #24a443,
+  /* LiteralStringAffix */
+  'sa': #24a443,
+  /* LiteralStringBacktick */
+  'sb': #24a443,
+  /* LiteralStringChar */
+  'sc': #24a443,
+  /* LiteralStringDelimiter */
+  'dl': #24a443,
+  /* LiteralStringDoc */
+  'sd': #24a443,
+  /* LiteralStringDouble */
+  's2': #24a443,
+  /* LiteralStringEscape */
+  'se': #24a443,
+  /* LiteralStringHeredoc */
+  'sh': #24a443,
+  /* LiteralStringInterpol */
+  'si': #24a443,
+  /* LiteralStringOther */
+  'sx': #24a443,
+  /* LiteralStringRegex */
+  'sr': #24a443,
+  /* LiteralStringSingle */
+  's1': #24a443,
+  /* LiteralStringSymbol */
+  'ss': #24a443,
+  /* LiteralNumber */
+  'm': #e2893c,
+  /* LiteralNumberBin */
+  'mb': #e2893c,
+  /* LiteralNumberFloat */
+  'mf': #e2893c,
+  /* LiteralNumberHex */
+  'mh': #e2893c,
+  /* LiteralNumberInteger */
+  'mi': #e2893c,
+  /* LiteralNumberIntegerLong */
+  'il': #e2893c,
+  /* LiteralNumberOct */
+  'mo': #e2893c,
+  /* Operator */
+  'o': #f19b04,
+  /* OperatorWord */
+  'ow': #b501a9,
+  /* Comment */
+  'c': #a0a1a8,
+  /* CommentHashbang */
+  'ch': #a0a1a8,
+  /* CommentMultiline */
+  'cm': #a0a1a8,
+  /* CommentSingle */
+  'c1': #a0a1a8,
+  /* CommentSpecial */
+  'cs': #a0a1a8,
+  /* CommentPreproc */
+  'cp': #a0a1a8,
+  /* CommentPreprocFile */
+  'cpf': #a0a1a8,
+  /* Generic */
+  'g': #e72d40,
+  /* GenericDeleted */
+  'gd': #e72d40,
+  /* GenericEmph */
+  'ge': #e72d40,
+  /* GenericError */
+  'gr': #e72d40,
+  /* GenericHeading */
+  'gh': #e72d40,
+  /* GenericInserted */
+  'gi': #e72d40,
+  /* GenericOutput */
+  'go': #e72d40,
+  /* GenericPrompt */
+  'gp': #e72d40,
+  /* GenericStrong */
+  'gs': #e72d40,
+  /* GenericSubheading */
+  'gu': #e72d40,
+  /* GenericTraceback */
+  'gt': #e72d40,
+  /* TextWhitespace */
+  'w': #bbbbbb,
+  ) !default;
+$code-highlight-color-map-dark: (
+  /* Parentheses */
+  'p': #a9a9b3,
+  /* Keyword */
+  'k': #d371e3,
+  /* KeywordConstant */
+  'kc': #d371e3,
+  /* KeywordDeclaration */
+  'kd': #d371e3,
+  /* KeywordNamespace */
+  'kn': #d371e3,
+  /* KeywordPseudo */
+  'kp': #d371e3,
+  /* KeywordReserved */
+  'kr': #d371e3,
+  /* KeywordType */
+  'kt': #d371e3,
+  /* Name */
+  'n': #a9b2c0,
+  /* NameAttribute */
+  'na': #41b0f5,
+  /* NameBuiltin */
+  'nb': #19b9c4,
+  /* NameBuiltinPseudo */
+  'bp': #ecbf6f,
+  /* NameClass */
+  'nc': #ecbf6f,
+  /* NameConstant */
+  'no': #41b0f5,
+  /* NameDecorator */
+  'nd': #ecbf6f,
+  /* NameEntity */
+  'ni': #41b0f5,
+  /* NameException */
+  'ne': #41b0f5,
+  /* NameFunction */
+  'nf': #41b0f5,
+  /* NameFunctionMagic */
+  'fm': #19b9c4,
+  /* NameLabel */
+  'nl': #41b0f5,
+  /* NameNamespace */
+  'nn': #41b0f5,
+  /* NameOther */
+  'nx': #a9a9b3,
+  /* NameProperty */
+  'py': #41b0f5,
+  /* NameTag */
+  'nt': #41b0f5,
+  /* NameVariable */
+  'nv': #41b0f5,
+  /* NameVariableClass */
+  'vc': #41b0f5,
+  /* NameVariableGlobal */
+  'vg': #41b0f5,
+  /* NameVariableInstance */
+  'vi': #41b0f5,
+  /* NameVariableMagic */
+  'vm': #41b0f5,
+  /* Literal */
+  'l': #2aa198,
+  /* LiteralDate */
+  'ld': #2aa198,
+  /* LiteralString */
+  's': #8cc570,
+  /* LiteralStringAffix */
+  'sa': #8cc570,
+  /* LiteralStringBacktick */
+  'sb': #8cc570,
+  /* LiteralStringChar */
+  'sc': #8cc570,
+  /* LiteralStringDelimiter */
+  'dl': #8cc570,
+  /* LiteralStringDoc */
+  'sd': #8cc570,
+  /* LiteralStringDouble */
+  's2': #8cc570,
+  /* LiteralStringEscape */
+  'se': #8cc570,
+  /* LiteralStringHeredoc */
+  'sh': #8cc570,
+  /* LiteralStringInterpol */
+  'si': #8cc570,
+  /* LiteralStringOther */
+  'sx': #8cc570,
+  /* LiteralStringRegex */
+  'sr': #8cc570,
+  /* LiteralStringSingle */
+  's1': #8cc570,
+  /* LiteralStringSymbol */
+  'ss': #8cc570,
+  /* LiteralNumber */
+  'm': #db985c,
+  /* LiteralNumberBin */
+  'mb': #db985c,
+  /* LiteralNumberFloat */
+  'mf': #db985c,
+  /* LiteralNumberHex */
+  'mh': #db985c,
+  /* LiteralNumberInteger */
+  'mi': #db985c,
+  /* LiteralNumberIntegerLong */
+  'il': #db985c,
+  /* LiteralNumberOct */
+  'mo': #db985c,
+  /* Operator */
+  'o': #ecbf6f,
+  /* OperatorWord */
+  'ow': #d371e3,
+  /* Comment */
+  'c': #7e848f,
+  /* CommentHashbang */
+  'ch': #7e848f,
+  /* CommentMultiline */
+  'cm': #7e848f,
+  /* CommentSingle */
+  'c1': #7e848f,
+  /* CommentSpecial */
+  'cs': #7e848f,
+  /* CommentPreproc */
+  'cp': #7e848f,
+  /* CommentPreprocFile */
+  'cpf': #7e848f,
+  /* Generic */
+  'g': #f16372,
+  /* GenericDeleted */
+  'gd': #f16372,
+  /* GenericEmph */
+  'ge': #f16372,
+  /* GenericError */
+  'gr': #f16372,
+  /* GenericHeading */
+  'gh': #f16372,
+  /* GenericInserted */
+  'gi': #f16372,
+  /* GenericOutput */
+  'go': #f16372,
+  /* GenericPrompt */
+  'gp': #f16372,
+  /* GenericStrong */
+  'gs': #f16372,
+  /* GenericSubheading */
+  'gu': #f16372,
+  /* GenericTraceback */
+  'gt': #f16372,
+  /* TextWhitespace */
+  'w': #bbbbbb,
+  ) !default;
