@@ -31,7 +31,7 @@ pre,
 .highlight table,
 .highlight tr,
 .highlight td {
-  background: $code-background-color;
+  background-color: $code-background-color !important;
 }
 
 .highlight,
