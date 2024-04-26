@@ -145,60 +145,76 @@
   }
   /* Theme dark */
   html.dark {
-    --global-background-color: #0d1117;
-    --global-font-color: #e6edf3;
-    --global-font-secondary-color: #d4dbe1;
-    --global-link-color: #e6edf3;
+    /* ========== primitives ========== */
+    --fgColor-default: #e6edf3;
+    --fgColor-secondary: #d4dbe1;
+    --fgColor-muted: #848d97;
+    --fgColor-link: #4493f8;
+    --fgColor-link-hover: #61adff;
+    --bgColor-default: #0d1117;
+    --bgColor-secondary: #161b22;
+    --bgColor-accent-emphasis: #1f6feb;
+    --bgColor-accent-muted: #388bfd1a;
+    --borderColor-default: #30363d;
+    --selection-bgColor: #1f6febb3;
+    --button-default-bgColor-rest: #21262d;
+    --button-default-bgColor-hover: #292e36;  
+    /* ========== primitives ========== */
+
+    --global-background-color: var(--bgColor-default);
+    --global-font-color: var(--fgColor-default);
+    --global-font-secondary-color: var(--fgColor-secondary);
+    --global-link-color: var(--fgColor-default);
     --global-link-hover-color: #ffffff;
-    --global-border-color: #30363d;
-    --selection-color: #1f6febb3;
+    --global-border-color: var(--borderColor-default);
+    --selection-color: var(--selection-bgColor);
 
-    --header-background-color: #161b22;
+    --header-background-color: var(--bgColor-secondary);
     --header-hover-color: #ffffff;
-    --header-delimiter: #848d97;
+    --header-delimiter: var(--fgColor-muted);
 
-    --search-background-color: #363636; /* TODO */
-    --search-empty-font-color: #ddd; /* TODO */
+    --search-background-color: var(--bgColor-default);
+    --search-empty-font-color: var(--fgColor-secondary);
 
     --single-h-font-weight: bolder;
-    --single-content-strong-color: #ddd; /* TODO */
-    --single-link-color: #4493f8;
-    --single-link-hover-color: #61adff;
+    --single-content-strong-color: var(--fgColor-default);
+    --single-link-color: var(--fgColor-link);
+    --single-link-hover-color: var(--fgColor-link-hover);
 
-    --table-background-color: #0d1117;
-    --table-thead-color: #161b22;
-    --table-border-color: #30363d;
+    --table-background-color: var(--bgColor-default);
+    --table-thead-color: var(--bgColor-secondary);
+    --table-border-color: var(--borderColor-default);
 
-    --blockquote-color: #1f6feb;
-    --blockquote-bg-color: #388bfd1a;
+    --blockquote-color: var(--bgColor-accent-emphasis);
+    --blockquote-bg-color: var(--bgColor-accent-muted);
 
-    --pagination-link-color: #e6edf3;
-    --pagination-link-hover-color: #d4dbe1;
+    --pagination-link-color: var(--fgColor-default);
+    --pagination-link-hover-color: white;
 
-    --friend-link-background-color: #252627; /* TODO */
-    --friend-link-color: #a9a9b3; /* TODO */
-    --friend-link-hover-color: #ffffff; /* TODO */
+    --friend-link-background-color: var(--bgColor-secondary);
+    --friend-link-color: var(--fgColor-link);
+    --friend-link-hover-color: var(--fgColor-link-hover);
 
-    --sponsor-button-background-color: #363636; /* TODO */
-    --sponsor-button-hover-background-color: #363636; /* TODO */
+    --sponsor-button-background-color: var(--button-default-bgColor-rest);
+    --sponsor-button-hover-background-color: var(--button-default-bgColor-hover);
 
-    --cookie-background-color: #fff;
+    --cookie-background-color: white;
 
     --code-color: #e5bf78;
     --code-background-color: #1b2029;
-    --code-header-color: #161b22;
+    --code-header-color: var(--bgColor-secondary);
     --code-background-color-darken-5: #1c2025; /* TODO */
     --code-background-color-darken-6: #1a1d23; /* TODO */
     --code-background-color-code-header: var(--code-background-color-darken-6); /* TODO */
     --code-background-color-code-hl: #1c2025; /* TODO */
     --code-info-color: #b1b0b0; /* TODO */
 
-    --related-background-color: #252627; /* TODO */
-    --related-color: #a9a9b3; /* TODO */
-    --related-hover-color: #ffffff; /* TODO */
+    --related-background-color: var(--bgColor-secondary);
+    --related-color: var(--fgColor-default);
+    --related-hover-color: white;
 
-    --showcase-background-color: #252627; /* TODO */
-    --showcase-color: #a9a9b3; /* TODO */
-    --showcase-hover-color: #ffffff;
+    --showcase-background-color: var(--bgColor-secondary);
+    --showcase-color: var(--fgColor-default);
+    --showcase-hover-color: white;
   }
 }
