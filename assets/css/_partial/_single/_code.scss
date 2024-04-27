@@ -208,8 +208,10 @@ pre,
 }
 
 pre > code > span::before {
+  // line number for code block
   counter-increment: codeblock;
   content: counter(codeblock);
   margin: 0 1rem;
   color: var(--global-font-color);
+  text-wrap: nowrap;
 }
