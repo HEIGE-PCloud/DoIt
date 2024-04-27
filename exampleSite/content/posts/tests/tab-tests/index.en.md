@@ -216,3 +216,47 @@ Content 2
 
 {{< /tabs >}}
 
+## Tab codeblock
+
+{{< tabs >}}
+
+{{% tab title="HTML" %}}
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+    <h1>Hello HTML!</h1>
+</body>
+</html>
+```
+
+{{% /tab %}}
+
+{{% tab title="CSS" %}}
+
+```css
+body {
+    background-color: lightblue;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+```
+
+{{% /tab %}}
+
+{{% tab title="JavaScript" %}}
+
+```javascript
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}

@@ -22,23 +22,21 @@
           {{- $tabindex = -1 -}}
       {{- end -}}
       <button class="
+        tab-button  
         tw-transition 
         tw-ease-in-out 
         tw-duration-300
-        tab-button  
         tw-bg-transparent
         tw-px-4 
         tw-py-2
         tw-mr-1
-        hover:tw-bg-gray-200
-        hover:tw-shadow-md
         tw-shadow-black
+        hover:tw-bg-bgColor-secondary
+        hover:tw-shadow-md
         aria-selected:tw-font-bold
         aria-selected:tw-border-b-4
-        aria-selected:tw-text-doit-blue-light
-        aria-selected:tw-border-doit-blue-light
-        dark:hover:tw-bg-doit-grey-950
-        dark:aria-selected:tw-text-doit-blue-400"
+        aria-selected:tw-text-fgColor-link
+        aria-selected:tw-border-fgColor-link"
         type="button" 
         role="tab" 
         id="tab-{{- $id -}}">
