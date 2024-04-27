@@ -60,5 +60,8 @@
             {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
         {{- end -}}
         "
+        {{- if $optimized -}}
+        sizes="(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1200px) 60vw, (max-width: 1440px) 50vw, 800px"
+        {{- end -}}
         title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
 {{- end -}}
