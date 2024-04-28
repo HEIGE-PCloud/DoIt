@@ -35,3 +35,12 @@ int main()
 I2luY2x1ZGUgPGlvc3RyZWFtPgppbnQgbWFpbigpCnsKICAgIHN0ZDo6Y291dCA8PCAiSGVsbG8gd29ybGQhIiA8PCBlbmRsOwogICAgcmV0dXJuIDA7Cn0KI2luY2x1ZGUgPGlvc3RyZWFtPgppbnQgbWFpbigpCnsKICAgIHN0ZDo6Y291dCA8PCAiSGVsbG8gd29ybGQhIiA8PCBlbmRsOwogICAgcmV0dXJuIDA7Cn0KI2luY2x1ZGUgPGlvc3RyZWFtPgppbnQgbWFpbigpCnsKICAgIHN0ZDo6Y291dCA8PCAiSGVsbG8gd29ybGQhIiA8PCBlbmRsOwogICAgcmV0dXJuIDA7Cn0KI2luY2x1ZGUgPGlvc3RyZWFtPgppbnQgbWFpbigpCnsKICAgIHN0ZDo6Y291dCA8PCAiSGVsbG8gd29ybGQhIiA8PCBlbmRsOwogICAgcmV0dXJuIDA7Cn0K
 I2luY2x1ZGUgPGlvc3RyZWFtPgppbnQgbWFpbigpCnsKICAgIHN0ZDo6Y291dCA8PCAiSGVsbG8gd29ybGQhIiA8PCBlbmRsOwogICAgcmV0dXJuIDA7Cn0K
 ```
+
+```cpp {title="main.cpp"}
+#include <iostream>
+int main()
+{
+    std::cout << "Hello world!" << std::endl;
+    return 0;
+}
+```

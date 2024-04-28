@@ -1,6 +1,6 @@
 {{ $result := transform.HighlightCodeBlock . }}
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
-
+{{- $title := .Attributes.title | default .Type | default "text" -}}
 <div class="code-block highlight is-open show-line-numbers tw-group tw-my-2">
   <div class="
     code-block-title 
@@ -24,7 +24,7 @@
     </button>
 
     <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">{{ .Type | default "text" }}</p>
+      <p class="tw-select-none !tw-my-1">{{ $title }}</p>
     </div>
     <div class="tw-flex">
       <button 
