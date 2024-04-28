@@ -698,31 +698,35 @@ function onClickMask () {
   }, false)
 }
 
-window.toggleCodeblockWrap = (id: string) => {
-  const codeblock = document.getElementById(`codeblock-${id}`);
-  const highlight = document.getElementById(`highlight-${id}`);
-  // codeblock.classList.toggle('tw-text-wrap');
-  highlight.classList.toggle('is-wrap')
-  codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
-}
-
 function initCodeblocks() {
   document.querySelectorAll('.code-block').forEach((codeBlock) => {
     // the queries are guaranteed to be successful
     const titleBar = codeBlock.querySelector('div.code-block-title-bar') as HTMLDivElement;
     const chroma = codeBlock.querySelector('code.chroma') as HTMLElement;
     const copyCodeButton = codeBlock.querySelector('button.copy-code-button') as HTMLButtonElement;
+    const copyIcon = copyCodeButton.querySelector('span.copy-icon') as SVGElement;
+    const checkIcon = copyCodeButton.querySelector('span.check-icon') as SVGElement;
     const wrapCodeButton = codeBlock.querySelector('button.wrap-code-button') as HTMLButtonElement;
 
+    // handle expanding and collapsing code blocks
     titleBar.addEventListener('click', () => {
       codeBlock.classList.toggle('is-open');
       codeBlock.classList.toggle('is-closed');
     });
 
+    // handle copying code to clipboard
     copyCodeButton?.addEventListener('click', () => {
       navigator.clipboard.writeText(chroma.innerText);
+      // toggle icons
+      copyIcon.style.display = 'none';
+      checkIcon.style.display = 'block';
+      setTimeout(() => {
+        copyIcon.style.display = 'block';
+        checkIcon.style.display = 'none';
+      }, 3000);
     });
 
+    // handle wrapping lines in code blocks
     wrapCodeButton?.addEventListener('click', () => {
       chroma.style.maxHeight = 'fit-content';
       codeBlock.classList.toggle('is-wrap');

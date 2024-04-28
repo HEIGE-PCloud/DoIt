@@ -46,24 +46,29 @@
           copy-code-button
           tw-select-none
           tw-mx-2 
-          tw-hidden 
-          group-[.is-open]:tw-block 
+          tw-hidden
+          group-[.is-open]:tw-block
           hover:tw-text-doit-blue-light 
           dark:hover:tw-text-doit-blue-dark 
           print:!tw-hidden">
-          {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
-        </button>
+          <span class="copy-icon tw-block">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
+          </span>
+          <span class="check-icon tw-hidden">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "check") -}}
+          </span>
+      </button>
         
-        <button 
-          class="
-            tw-select-none 
-            tw-mx-2 
-            tw-block 
-            group-[.is-open]:tw-hidden 
-            print:!tw-hidden" 
-          disabled>
-          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
-        </button>
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled>
+        {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
+      </button>
     </div>
   </div>
   <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
