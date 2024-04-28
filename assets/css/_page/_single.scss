@@ -153,16 +153,6 @@
     .table-wrapper {
       overflow-x: auto;
 
-      @if $custom-scrollbar {
-        &::-webkit-scrollbar {
-          background-color: $table-background-color;
-        }
-
-        ::-webkit-scrollbar-corner {
-          background-color: $table-background-color;
-        }
-      }
-
       >table {
         width: 100%;
         max-width: 100%;

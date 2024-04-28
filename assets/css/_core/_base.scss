@@ -15,22 +15,6 @@ html {
 	}
 }
 
-/* scrollbar, only support webkit */
-@if $custom-scrollbar {
-  ::-webkit-scrollbar {
-    width: .5rem;
-    height: .5rem;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: $custom-scrollbar-color;
-  
-    &:hover {
-      background-color: $custom-scrollbar-hover-color;
-    }
-  }
-}
-
 ::selection {
   background-color: $selection-color;
 }

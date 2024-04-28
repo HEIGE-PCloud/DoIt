@@ -28,17 +28,6 @@ $global-link-hover-color: var(--global-link-hover-color) !default;
 $global-border-color: var(--global-border-color) !default;
 // ========== Global ========== //
 
-// ========== Scrollbar ========== //
-// Whether enable custom scrollbar
-$custom-scrollbar: true;
-$custom-scrollbar-width: .5rem;
-$custom-scrollbar-height: .5rem;
-// Color of the scrollbar
-$custom-scrollbar-color: #87878d !default;
-// Color of the hover scrollbar
-$custom-scrollbar-hover-color: #a9a9b3 !default;
-// ========== Scrollbar ========== //
-
 // ========== Selection ========== //
 // Color of the selected text
 $selection-color: var(--selection-color) !default;
