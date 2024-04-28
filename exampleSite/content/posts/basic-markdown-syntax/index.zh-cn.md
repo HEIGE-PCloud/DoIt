@@ -562,12 +562,13 @@ grunt.initConfig({
 | ------ | ----------- |
 | `open` | 是否展开代码块。默认值由 `maxShownLines` 决定。 |
 | `lineNos` | 是否显示行数 |
+| `wrap` | 长度溢出是否换行。 |
 | `title` | 自定义代码块的标题。 |
 
 以下是一个例子
 
-````markdown
-```go {open=true, lineNos=false, title="main.go"}
+````markdown {open=true}
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
 package main
 
 import "fmt"
@@ -614,7 +615,7 @@ func main() {
 
 输出的效果如下：
 
-```go {open=true, lineNos=false, title="main.go"}
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
 package main
 
 import "fmt"

@@ -561,12 +561,13 @@ You can supply extra options to the code block.
 | ------ | ----------- |
 | `open` | Whether to expand the code block. The default value is determined by the `maxShownLines` option. |
 | `lineNos` | Whether to show line numbers. |
+| `wrap` | Whether to wrap lines when they overflow. |
 | `title` | Set the title of the code block. |
 
 Here is an example
 
-````markdown
-```go {open=true, lineNos=false, title="main.go"}
+````markdown {open=true}
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
 package main
 
 import "fmt"
@@ -613,7 +614,7 @@ func main() {
 
 The rendered output looks like this:
 
-```go {open=true, lineNos=false, title="main.go"}
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
 package main
 
 import "fmt"

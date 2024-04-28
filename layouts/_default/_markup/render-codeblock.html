@@ -10,8 +10,9 @@
 {{- else -}}
   {{- $open = cond (eq .Attributes.open false) "is-closed" "is-open" -}}
 {{- end -}}
+{{- $wrap := cond (eq .Attributes.wrap true) "is-wrap" "" -}}
 
-<div class="code-block highlight {{ $open }} {{ $lineNos }} tw-group tw-my-2">
+<div class="code-block highlight {{ $open }} {{ $lineNos }} {{ $wrap }} tw-group tw-my-2">
   <div class="
     code-block-title 
     tw-flex 
