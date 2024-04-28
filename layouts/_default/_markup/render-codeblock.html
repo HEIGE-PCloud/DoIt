@@ -44,8 +44,7 @@
           tw-mx-2 
           tw-hidden 
           group-[.is-open]:tw-block 
-          group-[.show-line-numbers]:tw-text-doit-blue-light 
-          dark:group-[.show-line-numbers]:tw-text-doit-blue-dark 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
           print:!tw-hidden" 
         aria-label="Toggle line number">
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "list-ol") -}}
@@ -58,8 +57,7 @@
           tw-mx-2 
           tw-hidden 
           group-[.is-open]:tw-block 
-          group-[.is-wrap]:tw-text-doit-blue-light 
-          dark:group-[.is-wrap]:tw-text-doit-blue-dark 
+          group-[.is-wrap]:tw-text-fgColor-link 
           print:!tw-hidden" 
         aria-label="Toggle code wrap">
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
@@ -72,8 +70,7 @@
           tw-mx-2 
           tw-hidden
           group-[.is-open]:tw-block
-          hover:tw-text-doit-blue-light 
-          dark:hover:tw-text-doit-blue-dark 
+          hover:tw-text-fgColor-link 
           print:!tw-hidden"
         aria-label="Copy code">
           <span class="copy-icon tw-block">

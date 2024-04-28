@@ -955,6 +955,10 @@ html.dark {
   background-color: var(--bgColor-secondary);
 }
 
+.hover\:tw-text-fgColor-link:hover {
+  color: var(--fgColor-link);
+}
+
 .hover\:tw-shadow-md:hover {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -980,6 +984,14 @@ html.dark {
 
 .tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-wrap {
   text-wrap: wrap;
+}
+
+.tw-group.show-line-numbers .group-\[\.show-line-numbers\]\:tw-text-fgColor-link {
+  color: var(--fgColor-link);
+}
+
+.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-fgColor-link {
+  color: var(--fgColor-link);
 }
 
 .aria-selected\:tw-border-b-4[aria-selected="true"] {
