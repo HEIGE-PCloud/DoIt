@@ -1,7 +1,7 @@
 {{ $result := transform.HighlightCodeBlock . }}
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
 
-<div class="code-block highlight is-open tw-group tw-my-2">
+<div class="code-block highlight is-open show-line-numbers tw-group tw-my-2">
   <div class="
     code-block-title 
     tw-flex 
@@ -29,6 +29,20 @@
     <div class="tw-flex">
       <button 
         class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-doit-blue-light 
+          dark:group-[.show-line-numbers]:tw-text-doit-blue-dark 
+          print:!tw-hidden" 
+        aria-label="Toggle line number">
+          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "list-ol") -}}
+      </button>
+
+      <button 
+        class="
           wrap-code-button
           tw-select-none 
           tw-mx-2 
@@ -50,7 +64,8 @@
           group-[.is-open]:tw-block
           hover:tw-text-doit-blue-light 
           dark:hover:tw-text-doit-blue-dark 
-          print:!tw-hidden">
+          print:!tw-hidden"
+        aria-label="Copy code">
           <span class="copy-icon tw-block">
             {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
           </span>
@@ -66,7 +81,8 @@
           tw-block 
           group-[.is-open]:tw-hidden 
           print:!tw-hidden" 
-        disabled>
+        disabled
+        aria-hidden="true">
         {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
       </button>
     </div>

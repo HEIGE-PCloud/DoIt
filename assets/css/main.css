@@ -1032,6 +1032,21 @@ html.dark {
   color: rgb(45 150 189 / var(--tw-text-opacity));
 }
 
+.tw-group.has-line-number .group-\[\.has-line-number\]\:tw-text-doit-blue-light {
+  --tw-text-opacity: 1;
+  color: rgb(45 150 189 / var(--tw-text-opacity));
+}
+
+.tw-group.show-line-number .group-\[\.show-line-number\]\:tw-text-doit-blue-light {
+  --tw-text-opacity: 1;
+  color: rgb(45 150 189 / var(--tw-text-opacity));
+}
+
+.tw-group.show-line-numbers .group-\[\.show-line-numbers\]\:tw-text-doit-blue-light {
+  --tw-text-opacity: 1;
+  color: rgb(45 150 189 / var(--tw-text-opacity));
+}
+
 .aria-selected\:tw-border-b-4[aria-selected="true"] {
   border-bottom-width: 4px;
 }
@@ -1066,6 +1081,21 @@ html.dark {
 }
 
 .tw-group.is-wrap .dark\:group-\[\.is-wrap\]\:tw-text-doit-blue-dark:is(.tw-dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(85 189 226 / var(--tw-text-opacity));
+}
+
+.tw-group.has-line-number .dark\:group-\[\.has-line-number\]\:tw-text-doit-blue-dark:is(.tw-dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(85 189 226 / var(--tw-text-opacity));
+}
+
+.tw-group.show-line-number .dark\:group-\[\.show-line-number\]\:tw-text-doit-blue-dark:is(.tw-dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(85 189 226 / var(--tw-text-opacity));
+}
+
+.tw-group.show-line-numbers .dark\:group-\[\.show-line-numbers\]\:tw-text-doit-blue-dark:is(.tw-dark *) {
   --tw-text-opacity: 1;
   color: rgb(85 189 226 / var(--tw-text-opacity));
 }

@@ -60,7 +60,7 @@ pre,
 
 }
 
-pre > code > span::before {
+.show-line-numbers > pre > code > span::before {
   // line number for code block
   counter-increment: codeblock;
   content: counter(codeblock);
@@ -69,4 +69,12 @@ pre > code > span::before {
   background: var(--code-background-color);
   color: var(--global-font-color);
   text-wrap: nowrap;
+}
+
+pre > code > span > span.cl {
+  margin-left: 1rem;
+}
+
+.show-line-numbers > pre > code > span > span.cl {
+  margin-left: 0;
 }

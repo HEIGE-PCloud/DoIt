@@ -707,6 +707,7 @@ function initCodeblocks() {
     const copyIcon = copyCodeButton.querySelector('span.copy-icon') as SVGElement;
     const checkIcon = copyCodeButton.querySelector('span.check-icon') as SVGElement;
     const wrapCodeButton = codeBlock.querySelector('button.wrap-code-button') as HTMLButtonElement;
+    const toggleLineNumbersButton = codeBlock.querySelector('button.line-number-button') as HTMLButtonElement;
 
     // handle expanding and collapsing code blocks
     titleBar.addEventListener('click', () => {
@@ -731,6 +732,10 @@ function initCodeblocks() {
       chroma.style.maxHeight = 'fit-content';
       codeBlock.classList.toggle('is-wrap');
       chroma.style.maxHeight = chroma.scrollHeight + 10 + 'px';
+    });
+
+    toggleLineNumbersButton.addEventListener('click', () => {
+      codeBlock.classList.toggle('show-line-numbers');
     });
   });
 }  
