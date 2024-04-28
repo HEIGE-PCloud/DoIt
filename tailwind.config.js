@@ -22,6 +22,10 @@ module.exports = {
       }
     }
   },
+  safelist: [
+    'tw-text-wrap',
+    '!tw-max-h-0',
+  ],
   plugins: [
     require('tailwindcss-aria-attributes')
   ]

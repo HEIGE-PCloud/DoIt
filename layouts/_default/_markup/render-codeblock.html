@@ -1,0 +1,112 @@
+{{ $result := transform.HighlightCodeBlock . }}
+{{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
+{{- $title := .Attributes.title | default .Type | default "text" -}}
+{{- $lineNos := cond (eq .Options.linenos false) "" "show-line-numbers" -}}
+{{- $lines := len (split .Inner "\n") -}}
+{{- $maxShownLines := .Page.Params.code.maxshownlines | default site.Params.page.code.maxshownlines -}}
+{{- $open := "is-open" -}}
+{{- if eq .Attributes.open nil -}}
+  {{- $open = cond (gt $lines $maxShownLines) "is-closed" "is-open" -}}
+{{- else -}}
+  {{- $open = cond (eq .Attributes.open false) "is-closed" "is-open" -}}
+{{- end -}}
+{{- $wrap := cond (eq .Attributes.wrap true) "is-wrap" "" -}}
+
+<div class="code-block highlight {{ $open }} {{ $lineNos }} {{ $wrap }} tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled>
+      {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}
+    </button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">{{ $title }}</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers">
+          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "list-ol") -}}
+      </button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap">
+          {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
+      </button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
+          </span>
+          <span class="check-icon tw-hidden">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "check") -}}
+          </span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true">
+        {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
+      </button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-{{ $id }}" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto">{{ $result.Inner }}</code></pre>
+</div>

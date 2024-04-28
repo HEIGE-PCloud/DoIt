@@ -762,6 +762,25 @@ html.dark {
   --tw-contain-style:  ;
 }
 
+.tw-m-0 {
+  margin: 0px;
+}
+
+.\!tw-my-1 {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.tw-mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.tw-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .tw-my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -775,12 +794,32 @@ html.dark {
   margin-right: 0.25rem;
 }
 
+.\!tw-block {
+  display: block !important;
+}
+
+.tw-block {
+  display: block;
+}
+
 .tw-inline-block {
   display: inline-block;
 }
 
+.tw-flex {
+  display: flex;
+}
+
+.tw-hidden {
+  display: none;
+}
+
 .tw-h-10 {
   height: 2.5rem;
+}
+
+.\!tw-max-h-0 {
+  max-height: 0px !important;
 }
 
 .tw-max-h-4 {
@@ -810,6 +849,32 @@ html.dark {
   animation: tw-spin 1s linear infinite;
 }
 
+.tw-select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.tw-flex-row {
+  flex-direction: row;
+}
+
+.tw-justify-between {
+  justify-content: space-between;
+}
+
+.tw-overflow-x-auto {
+  overflow-x: auto;
+}
+
+.tw-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.tw-text-wrap {
+  text-wrap: wrap;
+}
+
 .tw-rounded-full {
   border-radius: 9999px;
 }
@@ -823,8 +888,16 @@ html.dark {
   border-color: rgb(240 240 240 / var(--tw-border-opacity));
 }
 
+.tw-bg-bgColor-secondary {
+  background-color: var(--bgColor-secondary);
+}
+
 .tw-bg-transparent {
   background-color: transparent;
+}
+
+.tw-p-0 {
+  padding: 0px;
 }
 
 .tw-p-4 {
@@ -854,8 +927,24 @@ html.dark {
   transition-duration: 150ms;
 }
 
+.tw-transition-\[max-height\] {
+  transition-property: max-height;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tw-transition-\[transform\] {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .tw-duration-300 {
   transition-duration: 300ms;
+}
+
+.tw-duration-500 {
+  transition-duration: 500ms;
 }
 
 .tw-ease-in-out {
@@ -866,10 +955,43 @@ html.dark {
   background-color: var(--bgColor-secondary);
 }
 
+.hover\:tw-text-fgColor-link:hover {
+  color: var(--fgColor-link);
+}
+
 .hover\:tw-shadow-md:hover {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:tw-block {
+  display: block;
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:tw-hidden {
+  display: none;
+}
+
+.tw-group.is-closed .group-\[\.is-closed\]\:\!tw-max-h-0 {
+  max-height: 0px !important;
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:tw-rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-wrap {
+  text-wrap: wrap;
+}
+
+.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-fgColor-link {
+  color: var(--fgColor-link);
+}
+
+.tw-group.show-line-numbers .group-\[\.show-line-numbers\]\:tw-text-fgColor-link {
+  color: var(--fgColor-link);
 }
 
 .aria-selected\:tw-border-b-4[aria-selected="true"] {

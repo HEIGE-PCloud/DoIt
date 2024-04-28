@@ -487,11 +487,11 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 使用 "围栏" <code>```</code> 来生成一段带有语言属性的代码块.
 
-{{< highlight markdown >}}
+````markdown
 ```markdown
 Sample text here...
 ```
-{{< / highlight >}}
+````
 
 输出的 HTML 看起来像这样:
 
@@ -510,7 +510,7 @@ Sample text here...
 
 例如, 在以下 JavaScript 代码中应用语法高亮:
 
-{{< highlight markdown >}}
+````markdown
 ```js
 grunt.initConfig({
   assemble: {
@@ -531,7 +531,7 @@ grunt.initConfig({
   }
 };
 ```
-{{< / highlight >}}
+````
 
 呈现的输出效果如下:
 
@@ -556,10 +556,108 @@ grunt.initConfig({
 };
 ```
 
-{{< admonition >}}
-**Hugo** 文档中的 [语法高亮页面](https://gohugo.io/content-management/syntax-highlighting/) 介绍了有关语法高亮的更多信息,
-包括语法高亮的 shortcode.
-{{< /admonition >}}
+您可以通过以下选项来自定义你的代码块。
+
+| 选项 | 描述 |
+| ------ | ----------- |
+| `open` | 是否展开代码块。默认值由 `maxShownLines` 决定。 |
+| `lineNos` | 是否显示行数 |
+| `wrap` | 长度溢出是否换行。 |
+| `title` | 自定义代码块的标题。 |
+
+以下是一个例子
+
+````markdown {open=true}
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
+package main
+
+import "fmt"
+
+// calculateSquares calculates the sum of the squares of the digits of the given number
+// and sends the result to the squareop channel.
+func calculateSquares(number int, squareop chan int) {
+  sum := 0
+  for number != 0 {
+    digit := number % 10
+    sum += digit * digit
+    number /= 10
+  }
+  squareop <- sum
+}
+
+// calculateCubes calculates the sum of the cubes of the digits of the given number
+// and sends the result to the cubeop channel.
+func calculateCubes(number int, cubeop chan int) {
+  sum := 0
+  for number != 0 {
+    digit := number % 10
+    sum += digit * digit * digit
+    number /= 10
+  }
+  cubeop <- sum
+}
+
+func main() {
+  number := 589
+  sqrch := make(chan int)
+  cubech := make(chan int)
+
+  // Start two goroutines to calculate the sum of squares and cubes of the digits.
+  go calculateSquares(number, sqrch)
+  go calculateCubes(number, cubech)
+
+  // Receive the results from the channels and add them.
+  squares, cubes := <-sqrch, <-cubech
+  fmt.Println("Final result", squares+cubes)
+}
+```
+````
+
+输出的效果如下：
+
+```go {open=true, lineNos=false, wrap=true, title="main.go"}
+package main
+
+import "fmt"
+
+// calculateSquares calculates the sum of the squares of the digits of the given number
+// and sends the result to the squareop channel.
+func calculateSquares(number int, squareop chan int) {
+  sum := 0
+  for number != 0 {
+    digit := number % 10
+    sum += digit * digit
+    number /= 10
+  }
+  squareop <- sum
+}
+
+// calculateCubes calculates the sum of the cubes of the digits of the given number
+// and sends the result to the cubeop channel.
+func calculateCubes(number int, cubeop chan int) {
+  sum := 0
+  for number != 0 {
+    digit := number % 10
+    sum += digit * digit * digit
+    number /= 10
+  }
+  cubeop <- sum
+}
+
+func main() {
+  number := 589
+  sqrch := make(chan int)
+  cubech := make(chan int)
+
+  // Start two goroutines to calculate the sum of squares and cubes of the digits.
+  go calculateSquares(number, sqrch)
+  go calculateCubes(number, cubech)
+
+  // Receive the results from the channels and add them.
+  squares, cubes := <-sqrch, <-cubech
+  fmt.Println("Final result", squares+cubes)
+}
+```
 
 ## 表格
 

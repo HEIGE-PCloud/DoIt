@@ -61,16 +61,6 @@
     {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
 {{- end -}}
 
-{{- $code := $params.code | default dict -}}
-{{- $config = cond (ne $code.maxShownLines nil) $code.maxShownLines 10 | dict "maxShownLines" | dict "code" | merge $config -}}
-
-{{- /* clipboard.js */ -}}
-{{- if ne $code.copy false -}}
-    {{- $source := $cdn.clipboardJS | default "lib/clipboard/clipboard.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = T "copyToClipboard" | dict "copyTitle" | dict "code" | merge $config -}}
-{{- end -}}
-
 {{- /* Sharer.js */ -}}
 {{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
     {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
@@ -265,13 +255,12 @@
 {{- $options = dict "minify" true | merge $options -}}
 {{- $shims := dict -}}
 {{- $shims = dict "tablesort" "js/shims/tablesort.js" | merge $shims -}}
-{{- /* $shims = dict "clipboard" "js/shims/clipboard.js" | merge $shims */ -}}
 {{- $options = dict "shims" $shims | merge $options -}}
 {{- if hugo.IsProduction -}}
 {{- else -}}
     {{- $options = dict "sourceMap" "inline" | merge $options -}}
 {{- end -}}
-{{- $js := resources.Get "js/theme.js" | js.Build $options -}}
+{{- $js := resources.Get "js/theme.ts" | js.Build $options -}}
 {{- $_ := $js.RelPermalink -}}
 {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
