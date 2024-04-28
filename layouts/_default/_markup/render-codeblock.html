@@ -46,7 +46,7 @@
           group-[.is-open]:tw-block 
           group-[.show-line-numbers]:tw-text-fgColor-link 
           print:!tw-hidden" 
-        aria-label="Toggle line number">
+        title="Toggle line number">
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "list-ol") -}}
       </button>
 
@@ -59,7 +59,7 @@
           group-[.is-open]:tw-block 
           group-[.is-wrap]:tw-text-fgColor-link 
           print:!tw-hidden" 
-        aria-label="Toggle code wrap">
+        title="Toggle code wrap">
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
       </button>
       
@@ -72,7 +72,7 @@
           group-[.is-open]:tw-block
           hover:tw-text-fgColor-link 
           print:!tw-hidden"
-        aria-label="Copy code">
+        title="Copy code">
           <span class="copy-icon tw-block">
             {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
           </span>
