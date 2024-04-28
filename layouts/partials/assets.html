@@ -61,9 +61,6 @@
     {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
 {{- end -}}
 
-{{- $code := $params.code | default dict -}}
-{{- $config = cond (ne $code.maxShownLines nil) $code.maxShownLines 10 | dict "maxShownLines" | dict "code" | merge $config -}}
-
 {{- /* Sharer.js */ -}}
 {{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
     {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}

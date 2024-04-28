@@ -896,6 +896,14 @@ html.dark {
   overflow: auto;
 }
 
+.tw-overflow-x-auto {
+  overflow-x: auto;
+}
+
+.tw-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 .tw-text-wrap {
   text-wrap: wrap;
 }

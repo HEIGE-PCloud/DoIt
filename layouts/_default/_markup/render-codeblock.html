@@ -1,8 +1,15 @@
 {{ $result := transform.HighlightCodeBlock . }}
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
 {{- $title := .Attributes.title | default .Type | default "text" -}}
-{{- $open := cond (eq .Attributes.open false) "is-closed" "is-open" -}}
 {{- $lineNos := cond (eq .Options.linenos false) "" "show-line-numbers" -}}
+{{- $lines := len (split .Inner "\n") -}}
+{{- $maxShownLines := .Page.Params.code.maxshownlines | default site.Params.page.code.maxshownlines -}}
+{{- $open := "is-open" -}}
+{{- if eq .Attributes.open nil -}}
+  {{- $open = cond (gt $lines $maxShownLines) "is-closed" "is-open" -}}
+{{- else -}}
+  {{- $open = cond (eq .Attributes.open false) "is-closed" "is-open" -}}
+{{- end -}}
 
 <div class="code-block highlight {{ $open }} {{ $lineNos }} tw-group tw-my-2">
   <div class="
@@ -102,5 +109,6 @@
       tw-ease-in-out 
       group-[.is-closed]:!tw-max-h-0 
       group-[.is-wrap]:tw-text-wrap
-      tw-overflow-auto">{{ $result.Inner }}</code></pre>
+      tw-overflow-y-hidden
+      tw-overflow-x-auto">{{ $result.Inner }}</code></pre>
 </div>
