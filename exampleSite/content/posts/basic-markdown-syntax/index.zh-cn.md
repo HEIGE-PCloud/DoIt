@@ -556,16 +556,16 @@ grunt.initConfig({
 };
 ```
 
-您可以通过以下选项来自定义你的代码块。
+您可以通过以下选项来自定义你的代码块：
 
 | 选项 | 描述 |
 | ------ | ----------- |
 | `open` | 是否展开代码块。默认值由 `maxShownLines` 决定。 |
-| `lineNos` | 是否显示行数 |
-| `wrap` | 长度溢出是否换行。 |
+| `lineNos` | 是否显示行数。 |
+| `wrap` | 长度溢出时是否换行。 |
 | `title` | 自定义代码块的标题。 |
 
-以下是一个例子
+以下是一个例子：
 
 ````markdown {open=true}
 ```go {open=true, lineNos=false, wrap=true, title="main.go"}
