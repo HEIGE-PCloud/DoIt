@@ -709,6 +709,8 @@ function initCodeblocks() {
     const wrapCodeButton = codeBlock.querySelector('button.wrap-code-button') as HTMLButtonElement;
     const toggleLineNumbersButton = codeBlock.querySelector('button.line-number-button') as HTMLButtonElement;
 
+    chroma.style.maxHeight = chroma.scrollHeight + 10 + 'px';
+
     // handle expanding and collapsing code blocks
     titleBar.addEventListener('click', () => {
       codeBlock.classList.toggle('is-open');
