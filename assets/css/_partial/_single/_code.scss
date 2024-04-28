@@ -209,16 +209,11 @@ pre,
 
 pre > code > span::before {
   // line number for code block
-  position: absolute;
   counter-increment: codeblock;
   content: counter(codeblock);
-  width: 5ch;
+  min-width: 6ch;
   text-align: center;
   background: var(--code-background-color);
   color: var(--global-font-color);
   text-wrap: nowrap;
-}
-
-pre > code > span > .cl {
-  margin-left: 3rem;
 }
