@@ -1,7 +1,10 @@
 {{ $result := transform.HighlightCodeBlock . }}
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
 {{- $title := .Attributes.title | default .Type | default "text" -}}
-<div class="code-block highlight is-open show-line-numbers tw-group tw-my-2">
+{{- $open := cond (eq .Attributes.open false) "is-closed" "is-open" -}}
+{{- $lineNos := cond (eq .Options.linenos false) "" "show-line-numbers" -}}
+
+<div class="code-block highlight {{ $open }} {{ $lineNos }} tw-group tw-my-2">
   <div class="
     code-block-title 
     tw-flex 
