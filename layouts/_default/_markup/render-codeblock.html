@@ -1,14 +1,35 @@
 {{ $result := transform.HighlightCodeBlock . }}
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
 
-<div class="highlight is-open tw-group" id="highlight-{{ $id }}">
-  <div class="tw-flex tw-flex-row tw-justify-between tw-w-full" >
-    <div class="tw-w-full" onclick="toggleCodeblock('{{ $id }}')">
-      <p class="tw-select-none">{{ .Type | default "text" }}</p>
+<div class="code-block highlight is-open tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled>
+      {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}
+    </button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">{{ .Type | default "text" }}</p>
     </div>
     <div class="tw-flex">
       <button 
         class="
+          wrap-code-button
           tw-select-none 
           tw-mx-2 
           tw-hidden 
@@ -16,23 +37,20 @@
           group-[.is-wrap]:tw-text-doit-blue-light 
           dark:group-[.is-wrap]:tw-text-doit-blue-dark 
           print:!tw-hidden" 
-        aria-label="Toggle code wrap" 
-        id="wrap-code-{{ $id }}" 
-        onclick="toggleCodeblockWrap('{{ $id }}')">
+        aria-label="Toggle code wrap">
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
       </button>
       
       <button 
         class="
+          copy-code-button
           tw-select-none
           tw-mx-2 
           tw-hidden 
           group-[.is-open]:tw-block 
           hover:tw-text-doit-blue-light 
           dark:hover:tw-text-doit-blue-dark 
-          print:!tw-hidden" 
-        id="copy-code-{{ $id }}" 
-        onclick="copyCode('{{ $id }}')">
+          print:!tw-hidden">
           {{- partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "copy") -}}
         </button>
         
@@ -43,13 +61,24 @@
             tw-block 
             group-[.is-open]:tw-hidden 
             print:!tw-hidden" 
-          id="copy-code-{{ $id }}" 
           disabled>
           {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") -}}
         </button>
     </div>
   </div>
-  <pre style="counter-reset: codeblock;" class="tw-block"><code id="codeblock-{{ $id }}" class="chroma !tw-block tw-transition-[max-height] tw-duration-500 tw-ease-in-out">{{ $result.Inner }}</code></pre>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-{{ $id }}" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-auto">{{ $result.Inner }}</code></pre>
 </div>
 
 <script>

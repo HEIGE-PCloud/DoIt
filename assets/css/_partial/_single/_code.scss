@@ -1,7 +1,6 @@
 code {
   display: inline-block;
   max-width: 100%;
-  padding: 0 .4rem;
   @include overflow-wrap(break-word);
   @include line-break(anywhere);
   font-size: $code-font-size;
@@ -10,15 +9,6 @@ code {
 }
 
 pre {
-  padding: 0;
-  margin: .25rem .5rem .25rem .5rem;
-  @include tab-size(4);
-
-  code {
-    padding: 0;
-    overflow: auto hidden;
-  }
-
   img {
     min-height: 1em;
     max-height: 1.2em;
@@ -52,143 +42,6 @@ pre,
   }
 }
 
-.highlight {
-  line-height: 1.4em;
-  margin: .5rem 0;
-
-  >.chroma {
-    position: relative;
-
-    .code-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-sizing: border-box;
-      width: 100%;
-      font-family: $global-font-family;
-      font-weight: bold;
-      color: $code-info-color;
-      background: $code-background-color-code-header;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      .code-title {
-        width: 100%;
-        padding: .4rem;
-      }
-
-      .code-title::after {
-        padding-left: .2rem;
-        content: 'Code';
-      }
-
-      @each $type, $text in $code-type-map {
-        &.#{$type} .code-title::after {
-          content: $text;
-        }
-      }
-    }
-
-    .lntd:first-child {
-      min-width: 1.6rem;
-      text-align: right;
-    }
-
-    .lntd:last-child {
-      width: 100%;
-
-      pre {
-        @include max-content(min-width);
-      }
-    }
-
-    .ln {
-      padding-right: .75rem;
-    }
-
-    .hl {
-      display: block;
-      background-color: $code-background-color-code-hl;
-    }
-
-    .ln,
-    .lnt {
-      color: $global-font-secondary-color;
-    }
-
-    .arrow {
-      padding: 0 .2rem;
-      @include transition(transform 0.2s ease);
-    }
-
-    .ellipses {
-      padding: .4rem;
-    }
-
-    .copy {
-      display: none;
-      padding: .4rem;
-
-      &:hover {
-        cursor: pointer;
-        color: $global-link-hover-color;
-      }
-    }
-
-    .table-wrapper {
-      max-height: 0;
-      overflow: auto hidden;
-      transition: max-height 0.5s ease-out;
-    }
-
-    &.open {
-      .code-header {
-        background: $code-header-color;
-      }
-
-      .table-wrapper {
-        max-height: none;
-      }
-
-      .arrow {
-        @include transform(rotate(90deg));
-      }
-
-      .ellipses {
-        display: none;
-      }
-
-      .copy {
-        display: inline;
-      }
-    }
-  }
-
-  /* Comment */
-  .c,
-  /* CommentHashbang */
-  .ch,
-  /* CommentMultiline */
-  .cm,
-  /* CommentSingle */
-  .c1,
-  /* CommentSpecial */
-  .cs,
-  /* CommentPreproc */
-  .cp,
-  /* CommentPreprocFile */
-  .cpf {
-    font-style: italic
-  }
-
-  /* GenericUnderline */
-  .gl {
-    text-decoration: underline
-  }
-}
-
 .gist {
 
   .gist-file,
@@ -211,7 +64,7 @@ pre > code > span::before {
   // line number for code block
   counter-increment: codeblock;
   content: counter(codeblock);
-  min-width: 6ch;
+  min-width: 5ch;
   text-align: center;
   background: var(--code-background-color);
   color: var(--global-font-color);

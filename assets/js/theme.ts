@@ -698,25 +698,39 @@ function onClickMask () {
   }, false)
 }
 
-window.copyCode = (id: string) => {
-  const el = document.getElementById(`codeblock-${id}`);
-  navigator.clipboard.writeText(el.innerText);
-}
-
 window.toggleCodeblockWrap = (id: string) => {
   const codeblock = document.getElementById(`codeblock-${id}`);
   const highlight = document.getElementById(`highlight-${id}`);
-  codeblock.classList.toggle('tw-text-wrap');
-  codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
+  // codeblock.classList.toggle('tw-text-wrap');
   highlight.classList.toggle('is-wrap')
+  codeblock.style.maxHeight = codeblock.scrollHeight + 10 + 'px';
 }
 
-window.toggleCodeblock = (id: string) => {
-  const highlight = document.getElementById(`highlight-${id}`);
-  const codeblock = document.getElementById(`codeblock-${id}`);
-  codeblock.classList.toggle('!tw-max-h-0');
-  highlight.classList.toggle('is-open');
-}
+function initCodeblocks() {
+  document.querySelectorAll('.code-block').forEach((codeBlock) => {
+    // the queries are guaranteed to be successful
+    const titleBar = codeBlock.querySelector('div.code-block-title-bar') as HTMLDivElement;
+    const chroma = codeBlock.querySelector('code.chroma') as HTMLElement;
+    const copyCodeButton = codeBlock.querySelector('button.copy-code-button') as HTMLButtonElement;
+    const wrapCodeButton = codeBlock.querySelector('button.wrap-code-button') as HTMLButtonElement;
+
+    titleBar.addEventListener('click', () => {
+      codeBlock.classList.toggle('is-open');
+      codeBlock.classList.toggle('is-closed');
+    });
+
+    copyCodeButton?.addEventListener('click', () => {
+      navigator.clipboard.writeText(chroma.innerText);
+    });
+
+    wrapCodeButton?.addEventListener('click', () => {
+      chroma.style.maxHeight = 'fit-content';
+      codeBlock.classList.toggle('is-wrap');
+      chroma.style.maxHeight = chroma.scrollHeight + 10 + 'px';
+    });
+  });
+}  
+
 
 function init () {
   window.isDark = document.body.getAttribute('theme') !== 'light'
@@ -731,6 +745,7 @@ function init () {
   initSelectTheme()
   initMeta()
   initSearch()
+  initCodeblocks()
   initDetails()
   initLightGallery()
   initTable()

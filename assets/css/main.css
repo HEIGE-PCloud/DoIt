@@ -762,6 +762,10 @@ html.dark {
   --tw-contain-style:  ;
 }
 
+.tw-m-0 {
+  margin: 0px;
+}
+
 .tw-mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -772,12 +776,46 @@ html.dark {
   margin-bottom: 1rem;
 }
 
+.tw-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tw-my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.tw-my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.\!tw-my-0 {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.\!tw-my-2 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.\!tw-my-1 {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
 .tw-ml-4 {
   margin-left: 1rem;
 }
 
 .tw-mr-1 {
   margin-right: 0.25rem;
+}
+
+.tw-ml-2 {
+  margin-left: 0.5rem;
 }
 
 .\!tw-block {
@@ -825,6 +863,11 @@ html.dark {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.tw-rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes tw-spin {
   to {
     transform: rotate(360deg);
@@ -849,6 +892,10 @@ html.dark {
   justify-content: space-between;
 }
 
+.tw-overflow-auto {
+  overflow: auto;
+}
+
 .tw-text-wrap {
   text-wrap: wrap;
 }
@@ -870,8 +917,16 @@ html.dark {
   background-color: transparent;
 }
 
+.tw-bg-bgColor-secondary {
+  background-color: var(--bgColor-secondary);
+}
+
 .tw-p-4 {
   padding: 1rem;
+}
+
+.tw-p-0 {
+  padding: 0px;
 }
 
 .tw-px-4 {
@@ -899,6 +954,18 @@ html.dark {
 
 .tw-transition-\[max-height\] {
   transition-property: max-height;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tw-transition-\[rotate\] {
+  transition-property: rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tw-transition-\[transform\] {
+  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -937,6 +1004,27 @@ html.dark {
 
 .tw-group.is-open .group-\[\.is-open\]\:tw-hidden {
   display: none;
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:tw-max-h-0 {
+  max-height: 0px;
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:\!tw-max-h-0 {
+  max-height: 0px !important;
+}
+
+.tw-group.is-closed .group-\[\.is-closed\]\:\!tw-max-h-0 {
+  max-height: 0px !important;
+}
+
+.tw-group.is-open .group-\[\.is-open\]\:tw-rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-wrap {
+  text-wrap: wrap;
 }
 
 .tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-doit-blue-light {
