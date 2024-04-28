@@ -11,10 +11,11 @@
   {{- $open = cond (eq .Attributes.open false) "is-closed" "is-open" -}}
 {{- end -}}
 {{- $wrap := cond (eq .Attributes.wrap true) "is-wrap" "" -}}
-
+{{- $header := cond (eq .Attributes.header false) "tw-hidden" "" -}}
 <div class="code-block highlight {{ $open }} {{ $lineNos }} {{ $wrap }} tw-group tw-my-2">
   <div class="
     code-block-title 
+    {{ $header }}
     tw-flex 
     tw-flex-row 
     tw-justify-between 

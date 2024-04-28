@@ -557,17 +557,18 @@ grunt.initConfig({
 
 You can supply extra options to the code block.
 
-| Option | Description |
-| ------ | ----------- |
-| `open` | Whether to expand the code block. The default value is determined by the `maxShownLines` option. |
-| `lineNos` | Whether to show line numbers. |
-| `wrap` | Whether to wrap lines when they overflow. |
-| `title` | Set the title of the code block. |
+| Option | Description | Type |
+| ------ | ----------- | ---- |
+| open | Whether to expand the code block. The default value is determined by the `maxShownLines` option. | bool |
+| lineNos | Whether to show line numbers. | int |
+| wrap | Whether to wrap lines when they overflow. | bool |
+| title | Set the title of the code block. | string |
+| header | Whether to display the code header and control buttons. | bool |
 
 Here is an example
 
 ````markdown {open=true}
-```go {open=true, lineNos=false, wrap=true, title="main.go"}
+```go {open=true, lineNos=false, wrap=true, title="main.go", header=false}
 package main
 
 import "fmt"
@@ -614,7 +615,7 @@ func main() {
 
 The rendered output looks like this:
 
-```go {open=true, lineNos=false, wrap=true, title="main.go"}
+```go {open=true, lineNos=false, wrap=true, title="main.go", header=false}
 package main
 
 import "fmt"
