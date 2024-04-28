@@ -64,7 +64,7 @@
     --table-background-color: #fff;
     /* Color of the table thead */
     --table-thead-color: #ededed;
-    --table-border-color: darken(#ededed, 2%);
+    --table-border-color: var(--borderColor-default);
     /* Color of the blockquote */
     --blockquote-color: #6bd6fd;
     --blockquote-bg-color: rgba(107, 214, 253, 0.2);
