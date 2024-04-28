@@ -986,11 +986,11 @@ html.dark {
   text-wrap: wrap;
 }
 
-.tw-group.show-line-numbers .group-\[\.show-line-numbers\]\:tw-text-fgColor-link {
+.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-fgColor-link {
   color: var(--fgColor-link);
 }
 
-.tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-fgColor-link {
+.tw-group.show-line-numbers .group-\[\.show-line-numbers\]\:tw-text-fgColor-link {
   color: var(--fgColor-link);
 }
 

@@ -739,6 +739,15 @@ function initCodeblocks() {
     toggleLineNumbersButton.addEventListener('click', () => {
       codeBlock.classList.toggle('show-line-numbers');
     });
+
+    addEventListener("beforeprint", (_) => {
+      if (codeBlock.classList.contains('is-closed')) {
+        titleBar.click();
+      }
+      if (!codeBlock.classList.contains('is-wrap')) {
+        wrapCodeButton.click();
+      }
+    });
   });
 }  
 
