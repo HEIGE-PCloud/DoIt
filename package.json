@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run server:tailwind --watch\"",
-    "build": "hugo --logLevel info --source=exampleSite --themesDir ../.. --gc",
+    "build": "hugo --logLevel info --minify --source=exampleSite --themesDir ../.. --gc",
     "build:preview": "hugo --logLevel info --source=exampleSite --themesDir ../.. -D --gc",
     "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender --noHTTPCache",
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
