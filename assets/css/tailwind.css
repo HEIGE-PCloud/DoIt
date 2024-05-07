@@ -18,6 +18,9 @@
   ul {
     @apply tw-list-disc tw-list-outside;
   }
+  .tw-scrollbar-thin {
+    scrollbar-width: thin;
+  }
   
   :root {
     /* ========== Global ========== */
