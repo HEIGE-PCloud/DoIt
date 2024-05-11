@@ -164,19 +164,21 @@ function initSearch () {
   const searchToggle = document.getElementById(`search-toggle-${suffix}`)
   const searchLoading = document.getElementById(`search-loading-${suffix}`)
   const searchClear = document.getElementById(`search-clear-${suffix}`)
-
+  const autocompleteJs = window.config['autocomplete.min.js']
+  const algoliaJs = window.config['algoliasearch.min.js']
+  const fuseJs = window.config['fuse.min.js']
   if (isMobile) {
     window._searchMobileOnce = true
     // Turn on the mask when clicking on the search button
     searchInput.addEventListener('focus', () => {
-      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => {
+      loadScript('autocomplete-script', autocompleteJs, () => {
         initAutosearch();
         searchInput.focus();
       })
       if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
+        loadScript('algolia-script', algoliaJs, null)
       } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
+        loadScript('fuse-script', fuseJs, null)
       }
       document.body.classList.add('blur')
       header.classList.add('open')
@@ -209,14 +211,14 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
-      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => {
+      loadScript('autocomplete-script', autocompleteJs, () => {
         initAutosearch();
         searchInput.focus();
       })
       if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
+        loadScript('algolia-script', algoliaJs, null)
       } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
+        loadScript('fuse-script', fuseJs, null)
       }
       document.body.classList.add('blur')
       header.classList.add('open')
