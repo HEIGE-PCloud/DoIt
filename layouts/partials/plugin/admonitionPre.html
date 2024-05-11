@@ -23,7 +23,6 @@
     {{- dict "Inner" $inner "Type" "note" "Title" "title" "Open" false | partial "plugin/admonition.html" -}}
 */}}
 
-{{- $inner := .Inner -}}
 {{- $type := .Type | default "note" -}}
 {{- $title := .Title | default (T $type) -}}
 {{- $open := .Open | default true -}}
@@ -40,7 +39,3 @@
     </div>
     <div class="details-content">
         <div class="admonition-content">
-            {{- $inner -}}
-        </div>
-    </div>
-</div>

@@ -2,4 +2,6 @@
 {{- $type := cond .IsNamedParams (.Get "type") (.Get 0) | default "note" -}}
 {{- $title := cond .IsNamedParams (.Get "title") (.Get 1) | default (T $type) -}}
 {{- $open := cond .IsNamedParams (.Get "open") (.Get 2) -}}
-{{- dict "Inner" $inner "Type" $type "Title" $title "Open" $open | partial "plugin/admonition.html" -}}
+{{- partial "plugin/admonitionPre.html" (dict "Type" $type "Title" $title "Open" $open) -}}
+{{- $inner -}}
+{{- partial "plugin/admonitionPost.html" -}}
