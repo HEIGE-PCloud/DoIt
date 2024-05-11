@@ -130,6 +130,16 @@
                     "local": "typeit/typeit.min.js"
                 }
             ]
+        },
+        {
+            "name": "mathjax",
+            "version": "3.2.1",
+            "files": [
+                {
+                    "remote": "es5/tex-mml-chtml.min.js",
+                    "local": "mathjax/tex-mml-chtml.min.js"
+                }
+            ]
         }
     ]
 }
