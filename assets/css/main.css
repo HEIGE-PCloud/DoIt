@@ -481,6 +481,10 @@ ul {
   scrollbar-width: thin;
 }
 
+.tw-align-image {
+  vertical-align: -0.125em;
+}
+
 :root {
   /* ========== Global ========== */
   /* Color of the background */
@@ -916,6 +920,10 @@ html.dark {
 .tw-py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.tw-align-\[-0\.125em\] {
+  vertical-align: -0.125em;
 }
 
 .tw-text-fgColor-link-muted {

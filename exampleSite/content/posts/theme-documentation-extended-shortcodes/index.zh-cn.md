@@ -1583,3 +1583,45 @@ print("Hello world!")
 呈现的输出效果如下:
 
 {{< fa-icon regular smile >}}
+
+## person
+
+`person` shortcode 用来在你的文章中以 [h-card](http://microformats.org/wiki/h-card) 的格式插入个人网站链接。
+
+`person` shortcode 有以下命名参数：
+
+* **url** *[必需]* (**第一个**位置参数)
+
+    个人网站的链接。
+
+* **name** *[必需]* (**第二个**位置参数)
+
+    个人的名字。
+
+* **text** *[可选]* (**第三个**位置参数)
+
+    个人的简介。
+
+* **picture** *[可选]* (**第四个**位置参数)
+
+    个人的头像。
+
+* **nick** *[可选]*
+
+    个人的昵称。
+
+一个 `person` 示例:
+
+```markdown
+{{</* person url="https://evgenykuznetsov.org" name="Evgeny Kuznetsov" nick="nekr0z" text="author of this shortcode" picture="https://evgenykuznetsov.org/img/avatar.jpg" */>}}
+```
+
+呈现的输出效果为 {{< person url="https://evgenykuznetsov.org" name="Evgeny Kuznetsov" nick="nekr0z" text="author of this shortcode" picture="https://evgenykuznetsov.org/img/avatar.jpg" >}}.
+
+一个使用通用图标的 `person` 示例:
+
+```markdown
+{{</* person "https://dillonzq.com/" Dillon "author of the LoveIt theme" */>}}
+```
+
+呈现的输出效果为 {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
