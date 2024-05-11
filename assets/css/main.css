@@ -481,6 +481,10 @@ ul {
   scrollbar-width: thin;
 }
 
+.tw-align-image {
+  vertical-align: -0.125em;
+}
+
 :root {
   /* ========== Global ========== */
   /* Color of the background */
