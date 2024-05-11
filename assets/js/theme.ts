@@ -399,24 +399,26 @@ function initSearch () {
 }
 
 function initDetails () {
-  forEach(document.getElementsByClassName('details'), $details => {
-    const $summary = $details.getElementsByClassName('details-summary')[0]
+  document.querySelectorAll('.details').forEach($details => {
+    const $summary = $details.getElementsByClassName('details-summary')[0] as HTMLDivElement
+    const content = $summary.nextElementSibling as HTMLDivElement
+    if ($details.classList.contains('open')) {
+      content.style.maxHeight = content.scrollHeight + 'px'
+    }
     $summary.addEventListener('click', () => {
-      const content = $summary.nextElementSibling
       if ($details.classList.contains('open')) {
-        content.style.maxHeight = null
+        content.style.maxHeight = "0px"
       } else {
         content.style.maxHeight = content.scrollHeight + 'px'
       }
       $details.classList.toggle('open')
     }, false)
-    addEventListener("beforeprint", (event) => {
+    addEventListener("beforeprint", () => {
       if ($details.classList.contains('open')) {
         return;
       }
       $summary.click();
     });
-
   })
 }
 

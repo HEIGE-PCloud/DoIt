@@ -1,52 +1,7 @@
 {{- $inner := .Inner | .Page.RenderString -}}
-
-{{- $iconMap := dict "note" (dict "Style" "solid" "Icon" "pencil-alt") -}}
-{{- $iconMap  = dict "abstract" (dict "Style" "solid" "Icon" "list-ul") | merge $iconMap -}}
-{{- $iconMap  = dict "info" (dict "Style" "solid" "Icon" "info-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "tip" (dict "Style" "solid" "Icon" "lightbulb") | merge $iconMap -}}
-{{- $iconMap  = dict "success" (dict "Style" "solid" "Icon" "check-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "question" (dict "Style" "solid" "Icon" "question-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "warning" (dict "Style" "solid" "Icon" "exclamation-triangle") | merge $iconMap -}}
-{{- $iconMap  = dict "failure" (dict "Style" "solid" "Icon" "times-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "danger" (dict "Style" "solid" "Icon" "skull-crossbones") | merge $iconMap -}}
-{{- $iconMap  = dict "bug" (dict "Style" "solid" "Icon" "bug") | merge $iconMap -}}
-{{- $iconMap  = dict "example" (dict "Style" "solid" "Icon" "list-ol") | merge $iconMap -}}
-{{- $iconMap  = dict "quote" (dict "Style" "solid" "Icon" "quote-right") | merge $iconMap -}}
-
-{{- if .IsNamedParams -}}
-    {{- $type := .Get "type" | default "note" -}}
-    <div class="details admonition {{ $type }}{{ if .Get `open` | ne false }} open{{ end }}">
-        <div class="details-summary admonition-title">
-            <span class="icon">
-                {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
-            </span>
-            {{- .Get "title" | default (T $type) -}}
-            <span class="details-icon">
-                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
-            </span>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">
-                {{- $inner -}}
-            </div>
-        </div>
-    </div>
-{{- else -}}
-    {{- $type := .Get 0 | default "note" -}}
-    <div class="details admonition {{ $type }}{{ if .Get 2 | ne false }} open{{ end }}">
-        <div class="details-summary admonition-title">
-            <span class="icon">
-                {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
-            </span>
-            {{ .Get 1 | default (T $type) }}
-            <span class="details-icon">
-                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
-            </span>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">
-                {{- $inner -}}
-            </div>
-        </div>
-    </div>
-{{- end -}}
+{{- $type := cond .IsNamedParams (.Get "type") (.Get 0) | default "note" -}}
+{{- $title := cond .IsNamedParams (.Get "title") (.Get 1) | default (T $type) -}}
+{{- $open := cond .IsNamedParams (.Get "open") (.Get 2) -}}
+{{- partial "plugin/admonitionPre.html" (dict "Type" $type "Title" $title "Open" $open) -}}
+{{- $inner -}}
+{{- partial "plugin/admonitionPost.html" -}}

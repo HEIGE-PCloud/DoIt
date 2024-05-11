@@ -1,0 +1,41 @@
+{{- $iconMap := dict "note" (dict "Style" "solid" "Icon" "pencil-alt") -}}
+{{- $iconMap  = dict "abstract" (dict "Style" "solid" "Icon" "list-ul") | merge $iconMap -}}
+{{- $iconMap  = dict "info" (dict "Style" "solid" "Icon" "info-circle") | merge $iconMap -}}
+{{- $iconMap  = dict "tip" (dict "Style" "solid" "Icon" "lightbulb") | merge $iconMap -}}
+{{- $iconMap  = dict "success" (dict "Style" "solid" "Icon" "check-circle") | merge $iconMap -}}
+{{- $iconMap  = dict "question" (dict "Style" "solid" "Icon" "question-circle") | merge $iconMap -}}
+{{- $iconMap  = dict "warning" (dict "Style" "solid" "Icon" "exclamation-triangle") | merge $iconMap -}}
+{{- $iconMap  = dict "failure" (dict "Style" "solid" "Icon" "times-circle") | merge $iconMap -}}
+{{- $iconMap  = dict "danger" (dict "Style" "solid" "Icon" "skull-crossbones") | merge $iconMap -}}
+{{- $iconMap  = dict "bug" (dict "Style" "solid" "Icon" "bug") | merge $iconMap -}}
+{{- $iconMap  = dict "example" (dict "Style" "solid" "Icon" "list-ol") | merge $iconMap -}}
+{{- $iconMap  = dict "quote" (dict "Style" "solid" "Icon" "quote-right") | merge $iconMap -}}
+
+
+{{/*  
+    This partial is used to render an admonition block.
+    The following parameters are available:
+    - Inner: The content of the admonition block.
+    - Type: The type of the admonition block. The default value is "note".
+    - Title: The title of the admonition block. The default value is the translated value of the type.
+    - Open: A boolean value to determine whether the admonition block is open. The default value is true.
+    Usage example: 
+    {{- dict "Inner" $inner "Type" "note" "Title" "title" "Open" false | partial "plugin/admonition.html" -}}
+*/}}
+
+{{- $type := .Type | default "note" -}}
+{{- $title := .Title | default (T $type) -}}
+{{- $open := .Open | default true -}}
+
+<div class="details admonition {{ $type }}{{ if $open | ne false }} open{{ end }}">
+    <div class="details-summary admonition-title">
+        <span class="icon">
+            {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
+        </span>
+        {{- $title -}}
+        <span class="details-icon">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
+        </span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content">
