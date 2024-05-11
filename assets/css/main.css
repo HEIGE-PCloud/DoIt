@@ -477,6 +477,10 @@ ul {
   list-style-type: disc;
 }
 
+.tw-scrollbar-thin {
+  scrollbar-width: thin;
+}
+
 :root {
   /* ========== Global ========== */
   /* Color of the background */
