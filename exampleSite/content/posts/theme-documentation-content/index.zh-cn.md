@@ -301,48 +301,60 @@ resources:
 
 **DoIt** 基于 [$ \KaTeX $](https://katex.org/) 提供数学公式的支持.
 
-在你的 [网站配置](../theme-documentation-basics#site-configuration) 中的 `[params.math]` 下面设置属性 `enable = true`,
-并在文章的前置参数中设置属性 `math: true`来启用数学公式的自动渲染.
+在你的 [网站配置](../theme-documentation-basics#site-configuration) 中添加如下设置来启用数学公式支持：
+
+```toml {title="hugo.toml"}
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]']]
+          inline = [['\(', '\)']]
+[params]
+  [page]
+    [page.math]
+      enable = true
+      blockLeftDelimiter = '\['
+      blockRightDelimiter = '\]'
+      inlineLeftDelimiter = '\('
+      inlineRightDelimiter = '\)'
+      copyTex = true
+      mhchem = true
+```
 
 {{< admonition tip >}}
-有一份 [$ \KaTeX $ 中支持的 $ \TeX $ 函数](https://katex.org/docs/supported.html) 清单.
+这是一份 [$ \KaTeX $ 中支持的 $ \TeX $ 函数](https://katex.org/docs/supported.html) 列表。
 {{< /admonition >}}
 
 #### 公式块
 
-默认的公式块分割符是 `$$`/`$$` 和 `\\[`/`\\]`:
+默认的公式块分割符是 `\[ \]`：
 
-```markdown
-$$ c = \pm\sqrt{a^2 + b^2} $$
+```markdown {linenos=false}
+\[ c = \pm\sqrt{a^2 + b^2} \]
 
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \]
 ```
 
-呈现的输出效果如下:
+呈现的输出效果如下：
 
-$$ c = \pm\sqrt{a^2 + b^2} $$
+\[ c = \pm\sqrt{a^2 + b^2} \]
 
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \]
 
 #### 行内公式
 
-默认的行内公式分割符是  `$`/`$` 和 `\\(`/`\\)`:
+默认的行内公式分割符是 `\( \)`：
 
 ```markdown
-$ c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
+\( c = \pm\sqrt{a^2 + b^2} \) and \( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \)
 ```
 
 呈现的输出效果如下:
 
-$ c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
-
-{{< admonition tip >}}
-你可以在 [网站配置](../theme-documentation-basics#site-configuration) 中自定义公式块和行内公式的分割符.
-{{< /admonition >}}
-
-{{< admonition info >}}
-你可以使用 [`math` shortcode](../theme-documentation-extended-shortcodes/#14-math) 以避免特殊字符造成[问题](https://github.com/HEIGE-PCloud/DoIt/issues/126).
-{{< /admonition >}}
+\( c = \pm\sqrt{a^2 + b^2} \) and \( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \)
 
 #### Copy-tex
 
@@ -363,16 +375,16 @@ $ c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^
 在你的 [网站配置](../theme-documentation-basics#site-configuration) 中的 `[params.math]` 下面设置属性 `mhchem = true` 来启用 mhchem.
 
 ```markdown
-$$ \ce{CO2 + C -> 2 CO} $$
+\[ \ce{CO2 + C -> 2 CO} \]
 
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
+\[ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} \]
 ```
 
 呈现的输出效果如下:
 
-$$ \ce{CO2 + C -> 2 CO} $$
+\[ \ce{CO2 + C -> 2 CO} \]
 
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
+\[ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} \]
 
 ### 字符注音或者注释 {#ruby}
 

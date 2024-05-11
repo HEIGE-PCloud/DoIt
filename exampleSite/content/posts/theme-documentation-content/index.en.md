@@ -302,8 +302,28 @@ This part is shown in the [emoji support page](../emoji-support/).
 
 **DoIt** theme supports mathematical formulas based on [$ \KaTeX $](https://katex.org/).
 
-Set the property `enable = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration)
-and the property `math: true` of the article front matter to enable the automatic rendering of mathematical formulas.
+Set the followings in your [site configuration](../theme-documentation-basics#site-configuration) to enable mathematical formulas.
+
+```toml {title="hugo.toml"}
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]']]
+          inline = [['\(', '\)']]
+[params]
+  [page]
+    [page.math]
+      enable = true
+      blockLeftDelimiter = '\['
+      blockRightDelimiter = '\]'
+      inlineLeftDelimiter = '\('
+      inlineRightDelimiter = '\)'
+      copyTex = true
+      mhchem = true
+```
 
 {{< admonition tip >}}
 Here is a list of [$ \TeX $ functions supported by $ \KaTeX $](https://katex.org/docs/supported.html).
@@ -311,39 +331,31 @@ Here is a list of [$ \TeX $ functions supported by $ \KaTeX $](https://katex.org
 
 #### Block Formula
 
-The default block delimiters are `$$`/`$$` and `\\[`/`\\]`:
+The default block delimiters is `\[ \]`:
 
-```markdown
-$$ c = \pm\sqrt{a^2 + b^2} $$
+```markdown {linenos=false}
+\[ c = \pm\sqrt{a^2 + b^2} \]
 
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \]
 ```
 
 The rendered output looks like this:
 
-$$ c = \pm\sqrt{a^2 + b^2} $$
+\[ c = \pm\sqrt{a^2 + b^2} \]
 
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \]
 
 #### Inline Formula
 
-The default inline delimiters are `$`/`$` and `\\(`/`\\)`:
+The default inline delimiters is `\( \)`:
 
 ```markdown
-$ c = \pm\sqrt{a^2 + b^2} $ and \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
+\( c = \pm\sqrt{a^2 + b^2} \) and \( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \)
 ```
 
 The rendered output looks like this:
 
-$ c = \pm\sqrt{a^2 + b^2} $ and \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
-
-{{< admonition tip >}}
-You can add more block and inline delimiters in your [site configuration](../theme-documentation-basics#site-configuration).
-{{< /admonition >}}
-
-{{< admonition info >}}
-You can use the [`math` shortcode](../theme-documentation-extended-shortcodes/#14-math) to avoid [issues](https://github.com/HEIGE-PCloud/DoIt/issues/126) causing by special characters.
-{{< /admonition >}}
+\( c = \pm\sqrt{a^2 + b^2} \) and \( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \)
 
 #### Copy-tex
 
@@ -364,16 +376,16 @@ By the extension, you can write beautiful chemical equations easily in the artic
 Set the property `mhchem = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration) to enable mhchem.
 
 ```markdown
-$$ \ce{CO2 + C -> 2 CO} $$
+\[ \ce{CO2 + C -> 2 CO} \]
 
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
+\[ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} \]
 ```
 
 The rendered output looks like this:
 
-$$ \ce{CO2 + C -> 2 CO} $$
+\[ \ce{CO2 + C -> 2 CO} \]
 
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
+\[ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} \]
 
 ### Ruby Annotation {#ruby}
 

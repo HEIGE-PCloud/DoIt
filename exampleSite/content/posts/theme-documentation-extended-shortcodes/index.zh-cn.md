@@ -1487,30 +1487,6 @@ Or
 
 {{< showcase title="主题文档 - 基本概念" summary="探索 Hugo - DoIt 主题的全部内容和背后的核心概念." image="/theme-documentation-basics/featured-image.webp" link="/theme-documentation-basics" >}}
 
-## math
-
-{{< version 0.2.12 >}}
-
-`math` 用于插入数学公式. 它可以阻止 [Goldmark](https://gohugo.io/getting-started/configuration-markup/#goldmark) 将数学表达式中的特殊字符解析为 HTML 从而避免很多问题. 在 `math` 中, 你不再需要转义特殊字符.
-
-一个 `math` 示例:
-
-```markdown
-{{</* math */>}}$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}${{</* /math */>}}
-Or
-{{</* math */>}}
-$$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
-{{</* /math */>}}
-```
-
-呈现的输出效果如下:
-
-{{< math >}}$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}${{< /math >}}
-
-{{< math >}}
-$$\|\boldsymbol{x}\|_{0}=\sqrt[0]{\sum_{i} x_{i}^{0}}$$
-{{< /math >}}
-
 ## tabs 和 tab
 
 `tabs` 和 `tab` 是两个 shortcodes, 当一起使用时, 可以为你的内容创建一个选项卡组件。
