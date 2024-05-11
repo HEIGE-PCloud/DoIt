@@ -31,6 +31,7 @@
 
 {{- if .Linked -}}
     <a class="lightgallery" href="{{ $large.RelPermalink | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small.RelPermalink | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+{{- end -}}
         <img
             {{ with .Class }}class="{{ . }}"{{ end }}
             loading="{{ $loading }}"
@@ -45,20 +46,6 @@
             {{- end -}}
             "
             alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
+{{- if .Linked -}}
     </a>
-{{- else -}}
-    <img
-        {{ with .Class }}class="{{ . }}"{{ end }}
-        loading="{{ $loading }}"
-        src="{{ $default.RelPermalink | safeURL }}"
-        srcset="
-        {{- if eq $optimized false -}}
-            {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
-        {{- else -}}
-            {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-            {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-            {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
-        {{- end -}}
-        "
-        title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
 {{- end -}}
