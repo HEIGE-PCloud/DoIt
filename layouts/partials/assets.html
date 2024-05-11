@@ -84,30 +84,45 @@
     {{- $math = dict "enable" false -}}
 {{- end -}}
 {{- if $math.enable -}}
-    {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $source := $cdn.katexJS | default "lib/katex/katex.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.katexAutoRenderJS | default "lib/katex/auto-render.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- if $math.copyTex -}}
-        {{- $source := $cdn.katexCopyTexCSS | default "lib/katex/copy-tex.min.css" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-        {{- $source := $cdn.katexCopyTexJS | default "lib/katex/copy-tex.min.js" -}}
+    {{- if $math.mathjax -}}
+        {{- $source := "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- end -}}
-    {{- if $math.mhchem -}}
-        {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
+        {{- $options := dict -}}
+        {{- $options = dict "targetPath" "js/mathjax.min.js" | merge $options -}}
+        {{- $options = dict "minify" true | merge $options -}}
+        {{- $js := resources.Get "js/lib/mathjax.js" | js.Build $options -}}
+        {{- $_ := $js.RelPermalink -}}
+        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
+    {{- else -}}
+
+        {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+        {{- $source := $cdn.katexJS | default "lib/katex/katex.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- $source := $cdn.katexAutoRenderJS | default "lib/katex/auto-render.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- if $math.copyTex -}}
+            {{- $source := $cdn.katexCopyTexCSS | default "lib/katex/copy-tex.min.css" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+            {{- $source := $cdn.katexCopyTexJS | default "lib/katex/copy-tex.min.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- end -}}
+        {{- if $math.mhchem -}}
+            {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
+            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- end -}}
+        {{- $shims := dict "katex/dist/contrib/auto-render" "js/shims/katex.js" -}}
+        {{- $options := dict -}}
+        {{- $options = dict "targetPath" "js/katex.min.js" | merge $options -}}
+        {{- $options = dict "minify" true | merge $options -}}
+        {{- $options = dict "shims" $shims | merge $options -}}
+        {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
+        {{- $_ := $js.RelPermalink -}}
+        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
     {{- end -}}
-    {{- $shims := dict "katex/dist/contrib/auto-render" "js/shims/katex.js" -}}
-    {{- $options := dict -}}
-    {{- $options = dict "targetPath" "js/katex.min.js" | merge $options -}}
-    {{- $options = dict "minify" true | merge $options -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
-    {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
     {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
     {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
         {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}

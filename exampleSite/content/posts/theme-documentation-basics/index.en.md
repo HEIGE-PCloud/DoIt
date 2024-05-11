@@ -509,6 +509,8 @@ Please open the code block below to view the complete sample configuration {{< f
       copyTex = true
       # KaTeX extension mhchem
       mhchem = true
+      # Use MathJax instead of KaTeX
+      mathjax = false
     # {{< version 0.2.0 >}} Code config
     [params.page.code]
       # the maximum number of lines of displayed code by default

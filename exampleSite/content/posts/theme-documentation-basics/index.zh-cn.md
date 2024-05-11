@@ -521,6 +521,8 @@ optimizeImages = true
       copyTex = true
       # KaTeX 插件 mhchem
       mhchem = true
+      # 使用 MathJax 替代 KaTeX
+      mathjax = false
     # {{< version 0.2.0 >}} {{< link "https://docs.mapbox.com/mapbox-gl-js" "Mapbox GL JS" >}} 配置
     [params.page.mapbox]
       # Mapbox GL JS 的 access token
