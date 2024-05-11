@@ -256,6 +256,9 @@ srcsetLargeResizeMethod = "2000x webp Lanczos q75"
     # KaTeX extension mhchem
     # KaTeX 插件 mhchem
     mhchem = true
+    # Use MathJax instead of KaTeX
+    # 使用 MathJax 替代 KaTeX
+    mathjax = false
   # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
   # Mapbox GL JS 配置 (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
   [page.mapbox]
