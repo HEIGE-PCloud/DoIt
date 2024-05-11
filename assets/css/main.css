@@ -922,10 +922,6 @@ html.dark {
   padding-bottom: 0.5rem;
 }
 
-.tw-align-\[-0\.125em\] {
-  vertical-align: -0.125em;
-}
-
 .tw-text-fgColor-link-muted {
   color: var(--global-link-color);
 }
