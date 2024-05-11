@@ -74,38 +74,6 @@ Hugo 附带了一组预定义的 shortcodes, 它们实现了一些非常常见�
 <script type="application/javascript" src="https://gist.github.com/spf13/7896402.js"></script>
 ```
 
-## highlight
-
-[`highlight` 的文档](https://gohugo.io/content-management/shortcodes#highlight)
-
-一个 `highlight` 示例:
-
-```markdown
-{{</* highlight html */>}}
-<section id="main">
-    <div>
-        <h1 id="title">{{ .Title }}</h1>
-        {{ range .Pages }}
-            {{ .Render "summary"}}
-        {{ end }}
-    </div>
-</section>
-{{</* /highlight */>}}
-```
-
-呈现的输出效果如下:
-
-{{< highlight html >}}
-<section id="main">
-    <div>
-        <h1 id="title">{{ .Title }}</h1>
-        {{ range .Pages }}
-            {{ .Render "summary"}}
-        {{ end }}
-    </div>
-</section>
-{{< /highlight >}}
-
 ## param
 
 [`param` 的文档](https://gohugo.io/content-management/shortcodes#param)
