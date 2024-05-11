@@ -12,41 +12,23 @@
 {{- $iconMap  = dict "bug" (dict "Style" "solid" "Icon" "bug") | merge $iconMap -}}
 {{- $iconMap  = dict "example" (dict "Style" "solid" "Icon" "list-ol") | merge $iconMap -}}
 {{- $iconMap  = dict "quote" (dict "Style" "solid" "Icon" "quote-right") | merge $iconMap -}}
+{{- $type := cond .IsNamedParams (.Get "type") (.Get 0) | default "note" -}}
+{{- $title := cond .IsNamedParams (.Get "title") (.Get 1) | default (T $type) -}}
+{{- $open := cond .IsNamedParams (.Get "open") (.Get 2) -}}
 
-{{- if .IsNamedParams -}}
-    {{- $type := .Get "type" | default "note" -}}
-    <div class="details admonition {{ $type }}{{ if .Get `open` | ne false }} open{{ end }}">
-        <div class="details-summary admonition-title">
-            <span class="icon">
-                {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
-            </span>
-            {{- .Get "title" | default (T $type) -}}
-            <span class="details-icon">
-                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
-            </span>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">
-                {{- $inner -}}
-            </div>
+<div class="details admonition {{ $type }}{{ if $open | ne false }} open{{ end }}">
+    <div class="details-summary admonition-title">
+        <span class="icon">
+            {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
+        </span>
+        {{- $title -}}
+        <span class="details-icon">
+            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
+        </span>
+    </div>
+    <div class="details-content">
+        <div class="admonition-content">
+            {{- $inner -}}
         </div>
     </div>
-{{- else -}}
-    {{- $type := .Get 0 | default "note" -}}
-    <div class="details admonition {{ $type }}{{ if .Get 2 | ne false }} open{{ end }}">
-        <div class="details-summary admonition-title">
-            <span class="icon">
-                {{- partial "plugin/fontawesome.html" (index $iconMap $type | default (index $iconMap "note")) -}}
-            </span>
-            {{ .Get 1 | default (T $type) }}
-            <span class="details-icon">
-                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") -}}
-            </span>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">
-                {{- $inner -}}
-            </div>
-        </div>
-    </div>
-{{- end -}}
+</div>
