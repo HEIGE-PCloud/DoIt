@@ -291,16 +291,14 @@
     <script src="{{ $js.RelPermalink }}" type="module"></script>
 {{- end -}}
 
-{{- /* Config script */ -}}
-{{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/configScript.html" -}}
-
 {{- range (.Scratch.Get "this").style -}}
     {{- partial "plugin/style.html" . -}}
 {{- end -}}
 
-{{- range (.Scratch.Get "this").configScript -}}
-    {{- partial "plugin/script.html" . -}}
-{{- end -}}
+{{/*  Config script  */}}
+<script>
+    {{- $config | jsonify | printf "window.config=%s;" | safeJS -}}
+</script>
 
 {{- range (.Scratch.Get "this").script -}}
     {{- partial "plugin/script.html" . -}}
