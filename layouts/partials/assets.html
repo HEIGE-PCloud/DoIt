@@ -26,21 +26,6 @@
     {{- end -}}
 {{- end -}}
 
-{{- /* Sharer.js */ -}}
-{{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
-    {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "sharerjs" true | merge $config -}}
-{{- end -}}
-
-{{- /* TypeIt */ -}}
-{{- with (.Scratch.Get "this").typeitMap -}}
-    {{- $typeit := $.Site.Params.typeit -}}
-    {{- $source := $cdn.typeitJS | default "lib/typeit/typeit.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "data" . | dict "typeit" | merge $config -}}
-{{- end -}}
-
 {{- /* KaTeX */ -}}
 {{- $math := $params.math -}}
 {{- if eq $math true -}}
@@ -263,13 +248,11 @@
 {{- /* twemoji */ -}}
 {{/*  Run only when twemoji is enabled  */}}
 {{- if $params.twemoji -}}
-    {{- $config = dict "twemoji" true | merge $config -}}
-
     {{- $src := dict "cdn" $cdn.twemojiJS "default" "lib/twemoji/twemoji.min.js" | partial "partials/assets/RelPermalink.html" -}}
     <script src="{{ $src }}" defer></script>
 
     {{- $options := dict "shims" (dict "twemoji" "js/shims/twemoji.js") "targetPath" "js/twemoji.min.js" "minify" true -}}
-    {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
+    {{- $js := resources.Get "js/lib/twemoji.ts" | js.Build $options -}}
     <script src="{{ $js.RelPermalink }}" defer></script>
 {{- end -}}
 
@@ -289,6 +272,24 @@
     <script defer src="{{ $src }}"></script>
     
     {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
+{{- end -}}
+
+{{- /* Sharer.js */ -}}
+{{/*  Run only when enabled and on page that's sharable  */}}
+{{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
+    {{- $src := dict "cdn" $cdn.sharerJS "default" "lib/sharer/sharer.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script defer src="{{ $src }}"></script>
+
+    {{- $config = dict "sharerjs" true | merge $config -}}
+{{- end -}}
+
+{{- /* TypeIt */ -}}
+{{- with (.Scratch.Get "this").typeitMap -}}
+    {{- $typeit := $.Site.Params.typeit -}}
+    {{- $src := dict "cdn" $cdn.typeitJS "default" "lib/typeit/typeit.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script defer src="{{ $src }}"></script>
+
+    {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "data" . | dict "typeit" | merge $config -}}
 {{- end -}}
 
 {{/*  Instant page  */}}
