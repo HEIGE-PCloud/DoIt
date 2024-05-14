@@ -26,22 +26,6 @@
     {{- end -}}
 {{- end -}}
 
-{{- /* twemoji */ -}}
-{{- if $params.twemoji -}}
-    {{- $config = dict "twemoji" true | merge $config -}}
-    {{- $options := dict -}}
-
-    {{- $source := $cdn.twemojiJS | default "lib/twemoji/twemoji.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $shims := dict "twemoji" "js/shims/twemoji.js" -}}
-    {{- $options = dict "shims" $shims | merge $options -}}
-
-    {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
-    {{- $options = dict "minify" true | merge $options -}}
-    {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- end -}}
 
 {{- /* lightgallery.js */ -}}
 {{- if $params.lightgallery -}}
@@ -291,10 +275,22 @@
 {{- /* tablesort */ -}}
 {{/*  Run only when table sort is enabled and there are actual tables on this page  */}}
 {{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
-    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
-    {{- $resource := resources.Get $source -}}
-    <script src="{{ $resource.RelPermalink }}" defer fetchpriority="low"></script>
+    {{- $src := dict "cdn" $cdn.tablesort "default" "lib/tablesort/tablesort.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script src="{{ $src }}" defer fetchpriority="low"></script>
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
+{{- end -}}
+
+{{- /* twemoji */ -}}
+{{/*  Run only when twemoji is enabled  */}}
+{{- if $params.twemoji -}}
+    {{- $config = dict "twemoji" true | merge $config -}}
+
+    {{- $src := dict "cdn" $cdn.twemojiJS "default" "lib/twemoji/twemoji.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script src="{{ $src }}" defer></script>
+
+    {{- $options := dict "shims" (dict "twemoji" "js/shims/twemoji.js") "targetPath" "js/twemoji.min.js" "minify" true -}}
+    {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
+    <script src="{{ $js.RelPermalink }}" defer></script>
 {{- end -}}
 
 {{/*  Config script  */}}
@@ -311,3 +307,12 @@
 {{- end -}}
 
 {{- partial "plugin/analytics.html" . -}}
+
+{{/*  This function get the relative permalink of an asset   */}}
+{{/*  cdn: the link to the cdn  */}}
+{{/*  default: the path to the local asset  */}}
+{{- define "partials/assets/RelPermalink.html" -}}
+    {{- $src := .cdn | default .default -}}
+    {{- $value := resources.Get $src -}}
+    {{- return $value.RelPermalink -}}
+{{- end -}}
