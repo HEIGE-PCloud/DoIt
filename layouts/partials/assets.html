@@ -26,65 +26,6 @@
     {{- end -}}
 {{- end -}}
 
-{{- /* KaTeX */ -}}
-{{- $math := $params.math -}}
-{{- if eq $math true -}}
-    {{- $math = .Site.Params.page.math | default dict -}}
-{{- else if eq $math false -}}
-    {{- $math = dict "enable" false -}}
-{{- end -}}
-{{- if $math.enable -}}
-    {{- if $math.mathjax -}}
-        {{- $source := "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- $options := dict -}}
-        {{- $options = dict "targetPath" "js/mathjax.min.js" | merge $options -}}
-        {{- $options = dict "minify" true | merge $options -}}
-        {{- $js := resources.Get "js/lib/mathjax.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-
-    {{- else -}}
-
-        {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-        {{- $source := $cdn.katexJS | default "lib/katex/katex.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- $source := $cdn.katexAutoRenderJS | default "lib/katex/auto-render.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- if $math.copyTex -}}
-            {{- $source := $cdn.katexCopyTexCSS | default "lib/katex/copy-tex.min.css" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-            {{- $source := $cdn.katexCopyTexJS | default "lib/katex/copy-tex.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- end -}}
-        {{- if $math.mhchem -}}
-            {{- $source := $cdn.katexMhchemJS | default "lib/katex/mhchem.min.js" -}}
-            {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- end -}}
-        {{- $shims := dict "katex/dist/contrib/auto-render" "js/shims/katex.js" -}}
-        {{- $options := dict -}}
-        {{- $options = dict "targetPath" "js/katex.min.js" | merge $options -}}
-        {{- $options = dict "minify" true | merge $options -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-        {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-
-    {{- end -}}
-
-    {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
-    {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
-        {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}
-    {{- end -}}
-    {{- $inlineDelimiters := slice (dict "left" "$" "right" "$" "display" false) (dict "left" "\\(" "right" "\\)" "display" false) -}}
-    {{- if and $math.inlineLeftDelimiter $math.inlineRightDelimiter -}}
-        {{- $inlineDelimiters = slice (dict "left" $math.inlineLeftDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
-    {{- end -}}
-    {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
-    {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
-{{- end -}}
-
 {{- /* mermaid */ -}}
 {{- if (.Scratch.Get "this").mermaid -}}
 <script type="module">
@@ -240,16 +181,14 @@
 {{- /* tablesort */ -}}
 {{/*  Run only when table sort is enabled and there are actual tables on this page  */}}
 {{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
-    {{- $src := dict "cdn" $cdn.tablesort "default" "lib/tablesort/tablesort.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script src="{{ $src }}" defer fetchpriority="low"></script>
+    {{- dict "cdn" $cdn.tablesort "default" "lib/tablesort/tablesort.min.js" | partial "partials/assets/deferScript.html" -}}
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
 {{- end -}}
 
 {{- /* twemoji */ -}}
 {{/*  Run only when twemoji is enabled  */}}
 {{- if $params.twemoji -}}
-    {{- $src := dict "cdn" $cdn.twemojiJS "default" "lib/twemoji/twemoji.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script src="{{ $src }}" defer></script>
+    {{- dict "cdn" $cdn.twemojiJS "default" "lib/twemoji/twemoji.min.js" | partial "partials/assets/deferScript.html" -}}
 
     {{- $options := dict "shims" (dict "twemoji" "js/shims/twemoji.js") "targetPath" "js/twemoji.min.js" "minify" true -}}
     {{- $js := resources.Get "js/lib/twemoji.ts" | js.Build $options -}}
@@ -259,17 +198,10 @@
 {{- /* lightgallery.js */ -}}
 {{/*  Run only when lightgallary is enabled  */}}
 {{- if $params.lightgallery -}}
-    {{- $href := dict "cdn" $cdn.lightgalleryCSS "default" "lib/lightgallery/lightgallery.min.css" | partial "partials/assets/RelPermalink.html" -}}
-    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ $href }}"><noscript><link rel="stylesheet" href="{{ $href }}"></noscript>
-
-    {{- $src := dict "cdn" $cdn.lightgalleryJS "default" "lib/lightgallery/lightgallery.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script defer src="{{ $src }}"></script>
-    
-    {{- $src := dict "cdn" $cdn.lightgalleryThumbnailJS "default" "lib/lightgallery/lg-thumbnail.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script defer src="{{ $src }}"></script>
-    
-    {{- $src := dict "cdn" $cdn.lightgalleryZoomJS "default" "lib/lightgallery/lg-zoom.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script defer src="{{ $src }}"></script>
+    {{- dict "cdn" $cdn.lightgalleryCSS "default" "lib/lightgallery/lightgallery.min.css" | partial "partials/assets/deferStyle.html" -}}
+    {{- dict "cdn" $cdn.lightgalleryJS "default" "lib/lightgallery/lightgallery.min.js" | partial "partials/assets/deferScript.html" -}}
+    {{- dict "cdn" $cdn.lightgalleryThumbnailJS "default" "lib/lightgallery/lg-thumbnail.min.js" | partial "partials/assets/deferScript.html" -}}
+    {{- dict "cdn" $cdn.lightgalleryZoomJS "default" "lib/lightgallery/lg-zoom.min.js" | partial "partials/assets/deferScript.html" -}}
     
     {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
 {{- end -}}
@@ -277,8 +209,7 @@
 {{- /* Sharer.js */ -}}
 {{/*  Run only when enabled and on page that's sharable  */}}
 {{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
-    {{- $src := dict "cdn" $cdn.sharerJS "default" "lib/sharer/sharer.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script defer src="{{ $src }}"></script>
+    {{- $src := dict "cdn" $cdn.sharerJS "default" "lib/sharer/sharer.min.js" | partial "partials/assets/deferScript.html" -}}
 
     {{- $config = dict "sharerjs" true | merge $config -}}
 {{- end -}}
@@ -286,15 +217,60 @@
 {{- /* TypeIt */ -}}
 {{- with (.Scratch.Get "this").typeitMap -}}
     {{- $typeit := $.Site.Params.typeit -}}
-    {{- $src := dict "cdn" $cdn.typeitJS "default" "lib/typeit/typeit.min.js" | partial "partials/assets/RelPermalink.html" -}}
-    <script defer src="{{ $src }}"></script>
+    {{- dict "cdn" $cdn.typeitJS "default" "lib/typeit/typeit.min.js" | partial "partials/assets/deferScript.html" -}}
 
     {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "data" . | dict "typeit" | merge $config -}}
 {{- end -}}
 
+{{- /* Math (KaTeX or mathjax) */ -}}
+{{- $math := $params.math -}}
+{{- if eq $math true -}}
+    {{- $math = .Site.Params.page.math | default dict -}}
+{{- else if eq $math false -}}
+    {{- $math = dict "enable" false -}}
+{{- end -}}
+{{- if $math.enable -}}
+    {{- if $math.mathjax -}}
+        <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        {{- $options := dict "targetPath" "js/mathjax.min.js" "minify" true -}}
+        {{- $js := resources.Get "js/lib/mathjax.ts" | js.Build $options -}}
+        <script defer src="{{ $js.RelPermalink }}"></script>
+    {{- else -}}
+        {{- dict "cdn" $cdn.katexCSS "default" "lib/katex/katex.min.css" | partial "partials/assets/deferStyle.html" -}}
+        {{- dict "cdn" $cdn.katexJS "default" "lib/katex/katex.min.js" | partial "partials/assets/deferScript.html" -}}
+
+        {{- dict "cdn" $cdn.katexAutoRenderJS "default" "lib/katex/auto-render.min.js" | partial "partials/assets/deferScript.html" -}}
+
+        {{- if $math.copyTex -}}
+            {{- dict "cdn" $cdn.katexCopyTexCSS "default" "lib/katex/copy-tex.min.css" | partial "partials/assets/deferStyle.html" -}}
+            {{- dict "cdn" $cdn.katexCopyTexJS "default" "lib/katex/copy-tex.min.js" | partial "partials/assets/deferScript.html"  -}}
+        {{- end -}}
+
+        {{- if $math.mhchem -}}
+            {{- dict "cdn" $cdn.katexMhchemJS "default" "lib/katex/mhchem.min.js" | partial "partials/assets/deferScript.html" -}}
+        {{- end -}}
+
+        {{- $options := dict "targetPath" "js/katex.min.js" "minify" true "shims" (dict "katex/dist/contrib/auto-render" "js/shims/katex.js") -}}
+        {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
+        <script defer src="{{ $js.RelPermalink }}"></script>
+    {{- end -}}
+
+    {{- $blockDelimiters := slice (dict "left" "$$" "right" "$$" "display" true) (dict "left" "\\[" "right" "\\]" "display" true) -}}
+    {{- if and $math.blockLeftDelimiter $math.blockRightDelimiter -}}
+        {{- $blockDelimiters = slice (dict "left" $math.blockLeftDelimiter "right" $math.blockRightDelimiter "display" true) -}}
+    {{- end -}}
+    {{- $inlineDelimiters := slice (dict "left" "$" "right" "$" "display" false) (dict "left" "\\(" "right" "\\)" "display" false) -}}
+    {{- if and $math.inlineLeftDelimiter $math.inlineRightDelimiter -}}
+        {{- $inlineDelimiters = slice (dict "left" $math.inlineLeftDelimiter "right" $math.inlineRightDelimiter "display" false) -}}
+    {{- end -}}
+    {{- $delimiters := $blockDelimiters | append $inlineDelimiters -}}
+    {{- $config = dict "strict" false "delimiters" $delimiters | dict "math" | merge $config -}}
+{{- end -}}
+
 {{/*  Instant page  */}}
 {{- if $params.instantpage.enable -}}
-{{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
+    {{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
     <script src="{{ $js.RelPermalink }}" type="module"></script>
 {{- end -}}
 
@@ -320,4 +296,16 @@
     {{- $src := .cdn | default .default -}}
     {{- $value := resources.Get $src -}}
     {{- return $value.RelPermalink -}}
+{{- end -}}
+
+{{- define "partials/assets/deferScript.html" -}}
+    {{- $src := .cdn | default .default -}}
+    {{- $value := resources.Get $src -}}
+    <script defer src="{{ $value.RelPermalink }}"></script>
+{{- end -}}
+
+{{- define "partials/assets/deferStyle.html" -}}
+    {{- $src := .cdn | default .default -}}
+    {{- $value := resources.Get $src -}}
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ $value.RelPermalink }}"><noscript><link rel="stylesheet" href="{{ $value.RelPermalink }}"></noscript>
 {{- end -}}
