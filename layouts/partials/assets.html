@@ -26,20 +26,6 @@
     {{- end -}}
 {{- end -}}
 
-
-{{- /* lightgallery.js */ -}}
-{{- if $params.lightgallery -}}
-    {{- $source := $cdn.lightgalleryCSS | default "lib/lightgallery/lightgallery.min.css" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $source := $cdn.lightgalleryJS | default "lib/lightgallery/lightgallery.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.lightgalleryThumbnailJS | default "lib/lightgallery/lg-thumbnail.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.lightgalleryZoomJS | default "lib/lightgallery/lg-zoom.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
-{{- end -}}
-
 {{- /* Sharer.js */ -}}
 {{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
     {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
@@ -262,12 +248,6 @@
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
-{{/*  Instant page  */}}
-{{- if $params.instantpage.enable -}}
-{{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
-    <script src="{{ $js.RelPermalink }}" type="module"></script>
-{{- end -}}
-
 {{- range (.Scratch.Get "this").style -}}
     {{- partial "plugin/style.html" . -}}
 {{- end -}}
@@ -291,6 +271,30 @@
     {{- $options := dict "shims" (dict "twemoji" "js/shims/twemoji.js") "targetPath" "js/twemoji.min.js" "minify" true -}}
     {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
     <script src="{{ $js.RelPermalink }}" defer></script>
+{{- end -}}
+
+{{- /* lightgallery.js */ -}}
+{{/*  Run only when lightgallary is enabled  */}}
+{{- if $params.lightgallery -}}
+    {{- $href := dict "cdn" $cdn.lightgalleryCSS "default" "lib/lightgallery/lightgallery.min.css" | partial "partials/assets/RelPermalink.html" -}}
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ $href }}"><noscript><link rel="stylesheet" href="{{ $href }}"></noscript>
+
+    {{- $src := dict "cdn" $cdn.lightgalleryJS "default" "lib/lightgallery/lightgallery.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script defer src="{{ $src }}"></script>
+    
+    {{- $src := dict "cdn" $cdn.lightgalleryThumbnailJS "default" "lib/lightgallery/lg-thumbnail.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script defer src="{{ $src }}"></script>
+    
+    {{- $src := dict "cdn" $cdn.lightgalleryZoomJS "default" "lib/lightgallery/lg-zoom.min.js" | partial "partials/assets/RelPermalink.html" -}}
+    <script defer src="{{ $src }}"></script>
+    
+    {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
+{{- end -}}
+
+{{/*  Instant page  */}}
+{{- if $params.instantpage.enable -}}
+{{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
+    <script src="{{ $js.RelPermalink }}" type="module"></script>
 {{- end -}}
 
 {{/*  Config script  */}}
