@@ -26,13 +26,6 @@
     {{- end -}}
 {{- end -}}
 
-{{- /* tablesort */ -}}
-{{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
-    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "sort" true | dict "table" | merge $config -}}
-{{- end -}}
-
 {{- /* twemoji */ -}}
 {{- if $params.twemoji -}}
     {{- $config = dict "twemoji" true | merge $config -}}
@@ -293,6 +286,15 @@
 
 {{- range (.Scratch.Get "this").style -}}
     {{- partial "plugin/style.html" . -}}
+{{- end -}}
+
+{{- /* tablesort */ -}}
+{{/*  Run only when table sort is enabled and there are actual tables on this page  */}}
+{{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
+    {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
+    {{- $resource := resources.Get $source -}}
+    <script src="{{ $resource.RelPermalink }}" defer fetchpriority="low"></script>
+    {{- $config = dict "sort" true | dict "table" | merge $config -}}
 {{- end -}}
 
 {{/*  Config script  */}}
