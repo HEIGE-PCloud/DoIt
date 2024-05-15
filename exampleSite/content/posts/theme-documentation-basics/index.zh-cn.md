@@ -275,10 +275,6 @@ optimizeImages = true
 
   # 页面头部导航栏配置
   [params.header]
-    # 桌面端导航栏模式 ("fixed", "normal", "auto")
-    desktopMode = "fixed"
-    # 移动端导航栏模式 ("fixed", "normal", "auto")
-    mobileMode = "auto"
     # {{< version 0.2.11 >}} 主题切换模式
     # 主题切换模式 ("switch", "select")
     themeChangeMode = "select"

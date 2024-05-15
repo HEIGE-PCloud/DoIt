@@ -47,10 +47,6 @@
   left: 80%;
   width: 20%;
 
-  [header-desktop=normal] & {
-    top: 5rem;
-  }
-
   @include blur;
 
   .toc-title {

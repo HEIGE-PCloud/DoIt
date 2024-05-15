@@ -24,7 +24,7 @@
     {{- partial "head/seo.html" . -}}
 </head>
 
-<body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+<body>
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
@@ -83,9 +83,11 @@
         </a>
 
         {{- /* comment button */ -}}
-        <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+        {{- if  (.Page.Scratch.Get "this").commentEnabled -}}
+        <a href="#comments" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>
+        {{- end -}}
     </div>
 
     {{- /* Load JavaScript scripts and CSS */ -}}

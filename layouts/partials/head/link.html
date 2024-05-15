@@ -49,11 +49,6 @@
 {{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
 {{- partial "plugin/style.html" $style -}}
 
-{{- /* Animate.css */ -}}
-{{- $source := $cdn.animateCSS | default "lib/animate/animate.min.css" -}}
-{{- $style := dict "Source" $source "Fingerprint" $fingerprint "Defer" true -}}
-{{- partial "plugin/style.html" $style -}}
-
 {{- if .Site.Params.enablePWA | and hugo.IsProduction -}}
     {{ $options := dict }}
     {{ $options = dict "targetPath" "sw.min.js" | merge $options }}

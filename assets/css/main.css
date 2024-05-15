@@ -926,6 +926,10 @@ html.dark {
   color: var(--global-link-color);
 }
 
+.tw-opacity-0 {
+  opacity: 0;
+}
+
 .tw-shadow-black {
   --tw-shadow-color: #000;
   --tw-shadow: var(--tw-shadow-colored);
@@ -947,6 +951,12 @@ html.dark {
 
 .tw-transition-\[transform\] {
   transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tw-transition-opacity {
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

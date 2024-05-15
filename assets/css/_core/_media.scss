@@ -63,14 +63,7 @@
   .page {
     width: 100% !important;
     margin-left: auto !important;
-
-    [header-mobile] & {
-      padding-top: $header-height;
-    }
-
-    [header-mobile=normal] & {
-      padding-top: 0;
-    }
+    padding-top: $header-height;
 
     .categories-card, .author-card, .series-card {
       .card-item {

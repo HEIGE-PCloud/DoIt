@@ -1,9 +1,4 @@
-#fixed-buttons {
-  display: none;
-}
-
 .fixed-button {
-  display: none;
   z-index: 100;
   position: fixed;
   right: 1.5rem;
@@ -17,10 +12,8 @@
   @include transition(color 0.4s ease);
 
   @include blur;
-
   &:hover, &:active {
     color: $global-font-color;
-    cursor: pointer;
   }
 
   &:active, &:focus, &:hover {

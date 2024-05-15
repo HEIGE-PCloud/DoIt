@@ -4,6 +4,7 @@
 {{- $commentConfig := dict -}}
 
 {{- if $comment.enable -}}
+    {{- .Scratch.SetInMap "this" "commentEnabled" true -}}
     <div id="comments" class="print:!tw-hidden">
         {{- /* Disqus Comment System */ -}}
         {{- $disqus := $comment.disqus | default dict -}}
