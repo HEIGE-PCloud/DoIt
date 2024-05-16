@@ -1,9 +1,4 @@
-#fixed-buttons {
-  display: none;
-}
-
 .fixed-button {
-  display: none;
   z-index: 100;
   position: fixed;
   right: 1.5rem;
@@ -14,13 +9,9 @@
   // background: $global-border-color; // 原 light $global-border-color dark,black $header-background-color
   background: $header-background-color;
   @include border-radius(2rem);
-  @include transition(color 0.4s ease);
-
   @include blur;
-
   &:hover, &:active {
     color: $global-font-color;
-    cursor: pointer;
   }
 
   &:active, &:focus, &:hover {

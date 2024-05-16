@@ -151,10 +151,6 @@ header {
   height: $header-height;
   line-height: $header-height;
 
-  [header-desktop=normal] & {
-    position: static;
-  }
-
   .header-wrapper {
     padding: 0 2rem 0 10%;
 
@@ -212,10 +208,6 @@ header {
   position: fixed;
   height: $header-height;
   line-height: $header-height;
-
-  [header-mobile=normal] & {
-    position: static;
-  }
 
   .header-container {
     padding: 0;

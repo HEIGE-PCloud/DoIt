@@ -271,10 +271,6 @@ Please open the code block below to view the complete sample configuration {{< f
       ignoreFieldNorm = false
   # Header config
   [params.header]
-    # desktop header mode ("fixed", "normal", "auto")
-    desktopMode = "fixed"
-    # mobile header mode ("fixed", "normal", "auto")
-    mobileMode = "auto"
     # {{< version 0.2.11 >}} Theme change mode
     # theme change mode ("switch", "select")
     themeChangeMode = "select"

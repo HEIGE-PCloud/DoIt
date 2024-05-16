@@ -24,7 +24,7 @@
     {{- partial "head/seo.html" . -}}
 </head>
 
-<body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+<body>
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
@@ -78,14 +78,16 @@
 
     <div id="fixed-buttons" class="print:!tw-hidden">
         {{- /* top button */ -}}
-        <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
+        <a href="#back-to-top" id="back-to-top-button" class="fixed-button tw-transition-opacity tw-opacity-0" title="{{ T `backToTop` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
         </a>
 
         {{- /* comment button */ -}}
-        <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+        {{- if  (.Page.Scratch.Get "this").commentEnabled -}}
+        <a href="#comments" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>
+        {{- end -}}
     </div>
 
     {{- /* Load JavaScript scripts and CSS */ -}}

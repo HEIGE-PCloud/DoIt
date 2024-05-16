@@ -32,24 +32,6 @@ function isMobileWindow () {
   return window.matchMedia('only screen and (max-width: 680px)').matches
 }
 
-/**
- * Animate the element with AnimateCSS. https://animate.style/
- * @param {HTMLElement} element The element to animate.
- * @param {Array} animation The animation selected.
- * @param {boolean} reserved Whether to execute the callback after the animation is ended.
- * @param {function} callback The callback gets exectued after the element is animated.
- */
-function animateCSS (element, animation, reserved, callback) {
-  if (!Array.isArray(animation)) animation = [animation]
-  element.classList.add('animate__animated', ...animation)
-  const handler = () => {
-    element.classList.remove('animate__animated', ...animation)
-    element.removeEventListener('animationend', handler)
-    if (typeof callback === 'function') callback()
-  }
-  if (!reserved) element.addEventListener('animationend', handler)
-}
-
 
 /**
  * Initialize the mobile menu bar.
@@ -636,46 +618,13 @@ function initMeta () {
 }
 
 function onScroll () {
-  const $headers = []
-  const $viewComments = document.getElementById('view-comments')
-  if (document.body.getAttribute('header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'))
-  if (document.body.getAttribute('header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'))
-  if (document.getElementById('comments')) {
-    $viewComments.href = '#comments'
-    $viewComments.style.display = 'block'
-  } else {
-    $viewComments.style.display = 'null'
-  }
-  const $fixedButtons = document.getElementById('fixed-buttons')
-  const ACCURACY = 20; const MINIMUM = 100
+  const backToTop = document.getElementById("back-to-top-button")
   function handleScrollEvent () {
     window.newScrollTop = getScrollTop()
-    const scroll = window.newScrollTop - window.oldScrollTop
-    const isMobile = isMobileWindow()
-    forEach($headers, $header => {
-      if (scroll > ACCURACY) {
-        $header.classList.remove('animate__fadeInDown')
-        animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true)
-      } else if (scroll < -ACCURACY || window.newScrollTop <= 20) {
-        $header.classList.remove('animate__fadeOutUp')
-        animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true)
-      }
-    })
-    if (window.newScrollTop > MINIMUM) {
-      if (isMobile && scroll > ACCURACY) {
-        $fixedButtons.classList.remove('animate__fadeIn')
-        animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true)
-      } else if (!isMobile || scroll < -ACCURACY) {
-        $fixedButtons.style.display = 'block'
-        $fixedButtons.classList.remove('animate__fadeOut')
-        animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true)
-      }
+    if (window.newScrollTop > 20) {
+      backToTop.style.opacity = '1'
     } else {
-      if (!isMobile) {
-        $fixedButtons.classList.remove('animate__fadeIn')
-        animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true)
-      }
-      $fixedButtons.style.display = 'none'
+      backToTop.style.opacity = '0'
     }
     for (const event of window.scrollEventSet) event()
     window.oldScrollTop = window.newScrollTop
