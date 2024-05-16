@@ -3,3 +3,4 @@ assets/lib
 *.md
 **/public
 main.css
+*.json
