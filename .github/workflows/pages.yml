@@ -44,8 +44,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Hugo
-        run: |
-          npm run build
+        run: hugo --logLevel info --minify --source=exampleSite --themesDir ../.. --baseURL=https://pages.hugodoit.com
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
