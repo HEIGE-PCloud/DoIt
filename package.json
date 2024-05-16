@@ -27,29 +27,8 @@
     "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
-  "dependencies": {
-    "@waline/client": "^2.15.8",
-    "aplayer": "^1.10.1",
-    "artalk": "^2.8.6",
-    "atomic-algolia": "^0.3.19",
-    "autocomplete.js": "^0.38.1",
-    "cookieconsent": "^3.1.1",
-    "echarts": "^5.5.0",
-    "katex": "^0.16.10",
-    "node-fetch": "^3.3.2",
-    "tablesort": "^5.3.0",
-    "twemoji": "^14.0.2",
-    "twikoo": "^1.6.32",
-    "valine": "^1.5.1"
-  },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "tailwindcss": "^3.4.3",
-    "tailwindcss-aria-attributes": "^2.0.1"
+    "tailwindcss": "^3.4.3"
   }
 }
