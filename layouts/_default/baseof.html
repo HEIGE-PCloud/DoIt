@@ -22,6 +22,9 @@
     {{- partial "head/meta.html" . -}}
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
+    {{- /* Load JavaScript scripts and CSS */ -}}
+    {{- partial "assets.html" . -}}
+
 </head>
 
 <body>
@@ -89,9 +92,6 @@
         </a>
         {{- end -}}
     </div>
-
-    {{- /* Load JavaScript scripts and CSS */ -}}
-    {{- partial "assets.html" . -}}
 </body>
 
 </html>
