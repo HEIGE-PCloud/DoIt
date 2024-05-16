@@ -24,7 +24,13 @@
     {{- partial "head/seo.html" . -}}
 </head>
 
-<body>
+{{/*  
+    data-instant-intensity:
+        https://instant.page/intensity
+            By default, instant.page preloads 65 ms after hovering a link and when a mobile user starts touching their display. There are other options.
+            Preloading links as soon as they’re visible. On small mobile devices (such as smartphones) if you want your pages to be instant in more situations you can preload links as soon as they’re visible.
+*/}}
+<body data-instant-intensity="viewport" >
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
@@ -92,6 +98,20 @@
 
     {{- /* Load JavaScript scripts and CSS */ -}}
     {{- partial "assets.html" . -}}
+
+    {{/*  Speculation Rules  */}}
+    {{/*  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules  */}}
+    <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "where": { "href_matches": "/*" },
+              "eagerness": "moderate"
+            }
+          ]
+        }
+    </script>
+      
 </body>
 
 </html>

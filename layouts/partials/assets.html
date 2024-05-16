@@ -288,7 +288,14 @@
 {{/*  Instant page  */}}
 {{- if $params.instantpage.enable -}}
 {{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
-    <script src="{{ $js.RelPermalink }}" type="module"></script>
+    <script type="module">
+        (async () => {
+            const supportSpeculationRules = HTMLScriptElement.supports && HTMLScriptElement.supports("speculationrules");
+            if (!supportSpeculationRules) {
+              await import("{{ $js.RelPermalink | safeJS }}");
+            }
+        })();
+    </script>
 {{- end -}}
 
 {{- range (.Scratch.Get "this").style -}}
