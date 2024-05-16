@@ -639,7 +639,9 @@ html.dark {
   --friend-link-color: var(--fgColor-link);
   --friend-link-hover-color: var(--fgColor-link-hover);
   --sponsor-button-background-color: var(--button-default-bgColor-rest);
-  --sponsor-button-hover-background-color: var(--button-default-bgColor-hover);
+  --sponsor-button-hover-background-color: var(
+      --button-default-bgColor-hover
+    );
   --cookie-background-color: white;
   --code-color: #e5bf78;
   --code-background-color: #1b2029;
@@ -648,7 +650,9 @@ html.dark {
   /* TODO */
   --code-background-color-darken-6: #1a1d23;
   /* TODO */
-  --code-background-color-code-header: var(--code-background-color-darken-6);
+  --code-background-color-code-header: var(
+      --code-background-color-darken-6
+    );
   /* TODO */
   --code-background-color-code-hl: #1c2025;
   /* TODO */

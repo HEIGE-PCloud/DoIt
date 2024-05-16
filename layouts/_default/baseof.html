@@ -24,7 +24,7 @@
     {{- partial "head/seo.html" . -}}
 </head>
 
-<body>
+<body data-instant-intensity="viewport" >
     {{- /* Check theme isDark before body rendering */ -}}
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
@@ -92,6 +92,20 @@
 
     {{- /* Load JavaScript scripts and CSS */ -}}
     {{- partial "assets.html" . -}}
+
+    {{/*  Speculation Rules  */}}
+    {{/*  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules  */}}
+    <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "where": { "href_matches": "/*" },
+              "eagerness": "immediate"
+            }
+          ]
+        }
+    </script>
+      
 </body>
 
 </html>
