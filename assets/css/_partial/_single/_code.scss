@@ -30,11 +30,10 @@ pre,
   font-size: $code-font-size;
 
   .table-wrapper {
-
-    >table,
-    >table thead,
-    >table tr,
-    >table td {
+    > table,
+    > table thead,
+    > table tr,
+    > table td {
       margin: 0;
       padding: 0;
       border: none !important;
@@ -43,7 +42,6 @@ pre,
 }
 
 .gist {
-
   .gist-file,
   .gist-data,
   .gist-meta {
@@ -51,13 +49,11 @@ pre,
   }
 
   .gist-meta {
-    padding: .4rem .8rem;
+    padding: 0.4rem 0.8rem;
     background-color: $code-background-color-darken-5;
 
     @include link(false, false);
-
   }
-
 }
 
 .show-line-numbers > pre > code > span::before {

@@ -1,1 +1,1 @@
-module.exports = window.Artalk
+module.exports = window.Artalk;

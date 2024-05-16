@@ -1,1 +1,1 @@
-module.exports = window.APlayer
+module.exports = window.APlayer;

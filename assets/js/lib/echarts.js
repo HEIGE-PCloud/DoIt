@@ -1,5 +1,5 @@
-import params from '@params'
-import * as echarts from 'echarts'
+import params from "@params";
+import * as echarts from "echarts";
 if (params.bundle === true) {
   // // Import themes
   // import 'echarts/theme/macarons.js'
@@ -22,7 +22,6 @@ if (params.bundle === true) {
   // // Import the Canvas renderer
   // // Note that introducing the CanvasRenderer or SVGRenderer is a required step
   // import { CanvasRenderer } from 'echarts/renderers'
-
   // // Register the required components
   // echarts.use([
   //   TitleComponent,
@@ -39,22 +38,22 @@ if (params.bundle === true) {
 }
 
 window._echartsOnSwitchTheme = () => {
-  window._echartsArr = window._echartsArr || []
+  window._echartsArr = window._echartsArr || [];
   for (let i = 0; i < window._echartsArr.length; i++) {
-    window._echartsArr[i].dispose()
+    window._echartsArr[i].dispose();
   }
-  window._echartsArr = []
-  Array.from(document.getElementsByClassName('echarts')).forEach(e => {
-    const chart = echarts.init(e, window.isDark ? 'dark' : 'macarons')
-    chart.setOption(JSON.parse(window.config.data[e.id]))
-    window._echartsArr.push(chart)
-  })
-}
-window.switchThemeEventSet.add(window._echartsOnSwitchTheme)
-window._echartsOnSwitchTheme()
+  window._echartsArr = [];
+  Array.from(document.getElementsByClassName("echarts")).forEach((e) => {
+    const chart = echarts.init(e, window.isDark ? "dark" : "macarons");
+    chart.setOption(JSON.parse(window.config.data[e.id]));
+    window._echartsArr.push(chart);
+  });
+};
+window.switchThemeEventSet.add(window._echartsOnSwitchTheme);
+window._echartsOnSwitchTheme();
 window._echartsOnResize = () => {
   for (let i = 0; i < window._echartsArr.length; i++) {
-    window._echartsArr[i].resize()
+    window._echartsArr[i].resize();
   }
-}
-window.resizeEventSet.add(window._echartsOnResize)
+};
+window.resizeEventSet.add(window._echartsOnResize);

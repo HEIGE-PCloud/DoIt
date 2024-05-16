@@ -1,1 +1,1 @@
-module.exports = window.twemoji
+module.exports = window.twemoji;

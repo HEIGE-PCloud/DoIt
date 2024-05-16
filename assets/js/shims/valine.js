@@ -1,1 +1,1 @@
-module.exports = window.Valine
+module.exports = window.Valine;

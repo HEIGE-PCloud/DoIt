@@ -20,7 +20,7 @@ body:
     attributes:
       label: Screenshots 屏幕截图
       description: |
-       If applicable, add screenshots to help explain your problem. 如果可以的话, 提供屏幕截图对解决问题很有帮助.
+        If applicable, add screenshots to help explain your problem. 如果可以的话, 提供屏幕截图对解决问题很有帮助.
   - type: textarea
     id: environment
     attributes:
@@ -30,7 +30,7 @@ body:
       placeholder: |
         - OS: [e.g. Windows 10, macOS, Ubuntu]
         - Theme version/commit [e.g. 0.2.0, 2ccba79]
-        - Hugo version [e.g. 0.69.0]        
+        - Hugo version [e.g. 0.69.0]
   - type: textarea
     id: preview
     attributes:

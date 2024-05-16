@@ -1,1 +1,1 @@
-module.exports = window.Tablesort
+module.exports = window.Tablesort;

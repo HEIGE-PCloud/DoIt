@@ -14,8 +14,8 @@
   }
 
   #toc-auto {
-    left: 76%;    
-    width: 24%;    
+    left: 76%;
+    width: 24%;
   }
 
   #header-desktop .header-wrapper {
@@ -65,7 +65,9 @@
     margin-left: auto !important;
     padding-top: $header-height;
 
-    .categories-card, .author-card, .series-card {
+    .categories-card,
+    .author-card,
+    .series-card {
       .card-item {
         width: 100%;
       }

@@ -1,6 +1,6 @@
-emojiCDN: 'https://cdn.jsdelivr.net/npm/emoji-datasource-twitter@5.0.1/img/twitter/64/'
+emojiCDN: "https://cdn.jsdelivr.net/npm/emoji-datasource-twitter@5.0.1/img/twitter/64/"
 emojiMaps:
-  '100': 1f4af.png
+  "100": 1f4af.png
   grinning: 1f600.png
   smiley: 1f603.png
   smile: 1f604.png

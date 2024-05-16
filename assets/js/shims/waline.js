@@ -1,1 +1,1 @@
-module.exports = window.Waline
+module.exports = window.Waline;

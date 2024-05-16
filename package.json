@@ -11,7 +11,8 @@
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
     "server:tailwind": "npx tailwindcss --watch -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "algolia": "atomic-algolia",
-    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css"
+    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css",
+    "format": "npx prettier . --write"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,8 @@
   .cc-btn {
     color: $global-font-color;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $cookie-background-color;
     }
   }

@@ -1,135 +1,135 @@
 {
-    "localBasePath": "./assets/lib",
-    "dependencies": [
+  "localBasePath": "./assets/lib",
+  "dependencies": [
+    {
+      "name": "twikoo",
+      "version": "1.6.34",
+      "files": [
         {
-            "name": "twikoo",
-            "version": "1.6.34",
-            "files": [
-                {
-                    "remote": "dist/twikoo.all.min.js",
-                    "local": "twikoo/twikoo.all.min.js"
-                },
-                {
-                    "remote": "dist/twikoo.min.js",
-                    "local": "twikoo/twikoo.min.js"
-                }
-            ]
+          "remote": "dist/twikoo.all.min.js",
+          "local": "twikoo/twikoo.all.min.js"
         },
         {
-            "name": "@waline/client",
-            "version": "3.2.0",
-            "files": [
-                {
-                    "remote": "dist/waline.css",
-                    "local": "waline/waline.css"
-                },
-                {
-                    "remote": "dist/waline.umd.min.js",
-                    "local": "waline/waline.js"
-                }
-            ]
-        },
-        {
-            "name": "katex",
-            "version": "0.16.10",
-            "files": [
-                {
-                    "remote": "dist/katex.min.js",
-                    "local": "katex/katex.min.js"
-                },
-                {
-                    "remote": "dist/katex.min.css",
-                    "local": "katex/katex.min.css"
-                },
-                {
-                    "remote": "dist/contrib/auto-render.min.js",
-                    "local": "katex/auto-render.min.js"
-                },
-                {
-                    "remote": "dist/contrib/copy-tex.min.js",
-                    "local": "katex/copy-tex.min.js"
-                },
-                {
-                    "remote": "dist/contrib/mhchem.min.js",
-                    "local": "katex/mhchem.min.js"
-                }
-            ]
-        },
-        {
-            "name": "echarts",
-            "version": "5.5.0",
-            "files": [
-                {
-                    "remote": "dist/echarts.min.js",
-                    "local": "echarts/echarts.min.js"
-                },
-                {
-                    "remote": "theme/macarons.min.js",
-                    "local": "echarts/macarons.min.js"
-                }
-            ]
-        },
-        {
-            "name": "artalk",
-            "version": "2.8.6",
-            "files": [
-                {
-                    "remote": "dist/Artalk.js",
-                    "local": "artalk/Artalk.js"
-                },
-                {
-                    "remote": "dist/Artalk.css",
-                    "local": "artalk/Artalk.css"
-                },
-                {
-                    "remote": "dist/ArtalkLite.js",
-                    "local": "artalk/ArtalkLite.js"
-                },
-                {
-                    "remote": "dist/ArtalkLite.css",
-                    "local": "artalk/ArtalkLite.css"
-                }
-            ]
-        },
-        {
-            "name": "@artalk/plugin-katex",
-            "version": "0.1.6",
-            "files": [
-                {
-                    "remote": "dist/artalk-plugin-katex.js",
-                    "local": "artalk/artalk-plugin-katex.js"
-                }
-            ]
-        },
-        {
-            "name": "@artalk/plugin-lightbox",
-            "version": "0.1.2",
-            "files": [
-                {
-                    "remote": "dist/artalk-plugin-lightbox.js",
-                    "local": "artalk/artalk-plugin-lightbox.js"
-                }
-            ]
-        },
-        {
-            "name": "instant.page",
-            "version": "5.2.0",
-            "files": [
-                {
-                    "remote": "instantpage.min.js",
-                    "local": "instant.page/instantpage.min.js"
-                }
-            ]
-        },
-        {
-            "name": "typeit",
-            "version": "8.8.3",
-            "files": [
-                {
-                    "remote": "dist/index.umd.min.js",
-                    "local": "typeit/typeit.min.js"
-                }
-            ]
+          "remote": "dist/twikoo.min.js",
+          "local": "twikoo/twikoo.min.js"
         }
-    ]
+      ]
+    },
+    {
+      "name": "@waline/client",
+      "version": "3.2.0",
+      "files": [
+        {
+          "remote": "dist/waline.css",
+          "local": "waline/waline.css"
+        },
+        {
+          "remote": "dist/waline.umd.min.js",
+          "local": "waline/waline.js"
+        }
+      ]
+    },
+    {
+      "name": "katex",
+      "version": "0.16.10",
+      "files": [
+        {
+          "remote": "dist/katex.min.js",
+          "local": "katex/katex.min.js"
+        },
+        {
+          "remote": "dist/katex.min.css",
+          "local": "katex/katex.min.css"
+        },
+        {
+          "remote": "dist/contrib/auto-render.min.js",
+          "local": "katex/auto-render.min.js"
+        },
+        {
+          "remote": "dist/contrib/copy-tex.min.js",
+          "local": "katex/copy-tex.min.js"
+        },
+        {
+          "remote": "dist/contrib/mhchem.min.js",
+          "local": "katex/mhchem.min.js"
+        }
+      ]
+    },
+    {
+      "name": "echarts",
+      "version": "5.5.0",
+      "files": [
+        {
+          "remote": "dist/echarts.min.js",
+          "local": "echarts/echarts.min.js"
+        },
+        {
+          "remote": "theme/macarons.min.js",
+          "local": "echarts/macarons.min.js"
+        }
+      ]
+    },
+    {
+      "name": "artalk",
+      "version": "2.8.6",
+      "files": [
+        {
+          "remote": "dist/Artalk.js",
+          "local": "artalk/Artalk.js"
+        },
+        {
+          "remote": "dist/Artalk.css",
+          "local": "artalk/Artalk.css"
+        },
+        {
+          "remote": "dist/ArtalkLite.js",
+          "local": "artalk/ArtalkLite.js"
+        },
+        {
+          "remote": "dist/ArtalkLite.css",
+          "local": "artalk/ArtalkLite.css"
+        }
+      ]
+    },
+    {
+      "name": "@artalk/plugin-katex",
+      "version": "0.1.6",
+      "files": [
+        {
+          "remote": "dist/artalk-plugin-katex.js",
+          "local": "artalk/artalk-plugin-katex.js"
+        }
+      ]
+    },
+    {
+      "name": "@artalk/plugin-lightbox",
+      "version": "0.1.2",
+      "files": [
+        {
+          "remote": "dist/artalk-plugin-lightbox.js",
+          "local": "artalk/artalk-plugin-lightbox.js"
+        }
+      ]
+    },
+    {
+      "name": "instant.page",
+      "version": "5.2.0",
+      "files": [
+        {
+          "remote": "instantpage.min.js",
+          "local": "instant.page/instantpage.min.js"
+        }
+      ]
+    },
+    {
+      "name": "typeit",
+      "version": "8.8.3",
+      "files": [
+        {
+          "remote": "dist/index.umd.min.js",
+          "local": "typeit/typeit.min.js"
+        }
+      ]
+    }
+  ]
 }

@@ -11,16 +11,17 @@ header {
     vertical-align: text-bottom;
   }
 
-  .logo, .header-title-pre {
-    padding-right: .25rem;
+  .logo,
+  .header-title-pre {
+    padding-right: 0.25rem;
   }
 
   .header-title-post {
-    padding-left: .25rem;
+    padding-left: 0.25rem;
   }
 
   &:hover {
-    @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, .1));
+    @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.1));
   }
 }
 
@@ -35,7 +36,7 @@ header {
 .header-title {
   font-family: $header-title-font-family;
   font-weight: bold;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   min-width: 10%;
   overflow: hidden;
   white-space: nowrap;
@@ -81,7 +82,7 @@ header {
     box-sizing: border-box;
     height: 2.5rem;
     width: 2.5rem;
-    @include border-radius(.5rem);
+    @include border-radius(0.5rem);
     border: none;
     outline: none;
     background-color: $header-background-color;
@@ -102,7 +103,7 @@ header {
   }
 
   .search-toggle {
-    left: .5rem;
+    left: 0.5rem;
     right: auto;
   }
 
@@ -114,7 +115,8 @@ header {
     display: none;
   }
 
-  .open &, &.mobile {
+  .open &,
+  &.mobile {
     input {
       color: $global-font-color;
       background-color: $search-background-color;
@@ -167,7 +169,7 @@ header {
       }
 
       .menu-item {
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
 
         &.delimiter {
           border-left: 1.5px solid $global-font-color;
@@ -183,7 +185,7 @@ header {
         }
 
         &.search {
-          margin: 0 -.5rem 0 0;
+          margin: 0 -0.5rem 0 0;
         }
       }
 
@@ -195,7 +197,7 @@ header {
   }
 
   &.open .header-wrapper .menu .menu-item.search {
-    margin: 0 .25rem 0 .5rem;
+    margin: 0 0.25rem 0 0.5rem;
 
     input {
       width: 24rem;
@@ -238,24 +240,24 @@ header {
         }
 
         span:nth-child(1) {
-          margin-bottom: .5rem;
+          margin-bottom: 0.5rem;
         }
 
         span:nth-child(3) {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
         }
 
         &.active {
           span:nth-child(1) {
-            @include transform(rotate(45deg) translate(.4rem, .5rem));
+            @include transform(rotate(45deg) translate(0.4rem, 0.5rem));
           }
 
           span:nth-child(2) {
-            opacity: 0
+            opacity: 0;
           }
 
           span:nth-child(3) {
-            @include transform(rotate(-45deg) translate(.4rem, -.5rem));
+            @include transform(rotate(-45deg) translate(0.4rem, -0.5rem));
           }
         }
       }
@@ -266,8 +268,8 @@ header {
       background: $header-background-color;
       border-top: 2px solid $global-border-color;
       display: none;
-      padding-top: .5rem;
-      @include box-shadow(0 .125rem .25rem rgba(0, 0, 0, .1));
+      padding-top: 0.5rem;
+      @include box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
 
       .search-wrapper {
         display: flex;
@@ -281,7 +283,8 @@ header {
       .search {
         flex-grow: 10;
 
-        .algolia-autocomplete, input {
+        .algolia-autocomplete,
+        input {
           width: 100%;
         }
       }
@@ -292,7 +295,7 @@ header {
 
       .search-cancel {
         display: none;
-        margin-left: .75rem;
+        margin-left: 0.75rem;
       }
 
       .menu-item {
@@ -330,7 +333,7 @@ header {
   position: fixed;
   z-index: 200;
   top: $header-height;
-  @include box-shadow(0 .125rem .25rem rgba(0, 0, 0, .1));
+  @include box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
 
   &.desktop {
     right: 2rem;
@@ -351,7 +354,7 @@ header {
       max-height: calc(100vh - #{$header-height});
 
       .suggestion {
-        padding: .75rem 1rem;
+        padding: 0.75rem 1rem;
 
         .suggestion-title {
           display: inline-block;
@@ -368,7 +371,7 @@ header {
         }
 
         .suggestion-date {
-          font-size: .875rem;
+          font-size: 0.875rem;
           float: right;
           text-align: right;
           color: $global-font-secondary-color;
@@ -410,9 +413,9 @@ header {
     }
 
     .search-footer {
-      padding: .5rem 1rem;
+      padding: 0.5rem 1rem;
       float: right;
-      font-size: .8rem;
+      font-size: 0.8rem;
       color: $global-font-secondary-color;
 
       @include link(false, false);

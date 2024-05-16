@@ -1,1 +1,1 @@
-module.exports = window.renderMathInElement
+module.exports = window.renderMathInElement;

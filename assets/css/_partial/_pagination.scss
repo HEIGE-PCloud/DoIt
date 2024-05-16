@@ -8,9 +8,9 @@
   padding: 1rem 0 0;
 
   a {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: $global-font-secondary-color;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     font-weight: 700;
     padding: 5px 5px;
     text-decoration: none;
@@ -31,7 +31,6 @@
     &:hover a {
       color: $pagination-link-hover-color;
     }
-
 
     &:before,
     &:after {
@@ -58,7 +57,6 @@
     }
 
     &:hover {
-
       &:before,
       &:after {
         width: 50%;

@@ -33,7 +33,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
       - name: Checkout
         uses: actions/checkout@v4

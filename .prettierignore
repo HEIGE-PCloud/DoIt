@@ -1,0 +1,5 @@
+assets/lib
+*.html
+*.md
+**/public
+main.css

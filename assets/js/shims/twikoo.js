@@ -1,1 +1,1 @@
-module.exports = window.twikoo
+module.exports = window.twikoo;

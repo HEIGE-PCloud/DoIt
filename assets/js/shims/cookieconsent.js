@@ -1,1 +1,1 @@
-module.exports = window.cookieconsent
+module.exports = window.cookieconsent;

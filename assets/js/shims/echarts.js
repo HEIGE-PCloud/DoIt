@@ -1,1 +1,1 @@
-module.exports = window.echarts
+module.exports = window.echarts;

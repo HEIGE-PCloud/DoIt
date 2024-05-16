@@ -3,14 +3,14 @@
 
 .single {
   .single-title {
-    margin: 1rem 0 .5rem;
+    margin: 1rem 0 0.5rem;
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 140%;
   }
 
   .single-subtitle {
-    margin: .4rem 0;
+    margin: 0.4rem 0;
     font-size: 1.2rem;
     font-weight: normal;
     font-style: italic;
@@ -18,7 +18,7 @@
   }
 
   .post-meta {
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: $global-font-secondary-color;
 
     span {
@@ -33,7 +33,7 @@
   }
 
   .featured-image {
-    margin: .5rem 0 1rem 0;
+    margin: 0.5rem 0 1rem 0;
 
     img {
       display: block;
@@ -43,11 +43,10 @@
       margin: 0 auto;
       overflow: hidden;
     }
-
   }
 
   .content {
-    >h2 {
+    > h2 {
       font-size: 1.5rem;
 
       & code {
@@ -55,7 +54,7 @@
       }
     }
 
-    >h3 {
+    > h3 {
       font-size: 1.375rem;
 
       & code {
@@ -63,7 +62,7 @@
       }
     }
 
-    >h4 {
+    > h4 {
       font-size: 1.25rem;
 
       & code {
@@ -71,11 +70,11 @@
       }
     }
 
-    >h5 {
+    > h5 {
       font-size: 1.125rem;
     }
 
-    >h6 {
+    > h6 {
       font-size: 1rem;
     }
 
@@ -88,24 +87,24 @@
       margin: 1.2rem 0;
     }
 
-    >h2,
-    >h3,
-    >h4,
-    >h5,
-    >h6 {
-      >.header-mark::before {
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      > .header-mark::before {
         content: "|";
-        margin-right: .3125rem;
+        margin-right: 0.3125rem;
         color: $single-link-color;
       }
     }
 
-    >h2>.header-mark::before {
+    > h2 > .header-mark::before {
       content: "|";
     }
 
     p {
-      margin: .5rem 0;
+      margin: 0.5rem 0;
     }
 
     b,
@@ -125,7 +124,6 @@
       }
     }
 
-
     a:hover b,
     a:hover strong {
       color: $single-link-hover-color;
@@ -133,7 +131,7 @@
 
     ul,
     ol {
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       padding-left: 2.5rem;
     }
 
@@ -147,16 +145,15 @@
       rt {
         color: $global-font-secondary-color;
       }
-
     }
 
     .table-wrapper {
       overflow-x: auto;
 
-      >table {
+      > table {
         width: 100%;
         max-width: 100%;
-        margin: .625rem 0;
+        margin: 0.625rem 0;
         border-spacing: 0;
         background: $table-background-color;
         border-collapse: collapse;
@@ -174,19 +171,18 @@
 
         th,
         td {
-          padding: .3rem 1rem;
+          padding: 0.3rem 1rem;
           border: 1px solid $table-border-color;
-
         }
 
-        th[role=columnheader]:not(.no-sort) {
+        th[role="columnheader"]:not(.no-sort) {
           cursor: pointer;
         }
 
-        th[role=columnheader]:not(.no-sort):after {
-          content: '';
+        th[role="columnheader"]:not(.no-sort):after {
+          content: "";
           float: right;
-          margin: .7rem -.5rem 0px .5rem;
+          margin: 0.7rem -0.5rem 0px 0.5rem;
           border-width: 0 4px 4px;
           border-style: solid;
           border-color: $global-font-color transparent;
@@ -199,7 +195,7 @@
           user-select: none;
         }
 
-        th[aria-sort=ascending]:not(.no-sort):after {
+        th[aria-sort="ascending"]:not(.no-sort):after {
           border-bottom: none;
           border-width: 4px 4px 0;
         }
@@ -209,7 +205,7 @@
           opacity: 0.4;
         }
 
-        th[role=columnheader]:not(.no-sort):hover:after {
+        th[role="columnheader"]:not(.no-sort):hover:after {
           visibility: visible;
           opacity: 1;
         }
@@ -222,16 +218,16 @@
     }
 
     figure {
-      margin: .5rem;
+      margin: 0.5rem;
       text-align: center;
 
       .image-caption:not(:empty) {
         min-width: 20%;
         max-width: 80%;
         display: inline-block;
-        padding: .5rem;
+        padding: 0.5rem;
         margin: 0 auto;
-        font-size: .875rem;
+        font-size: 0.875rem;
         color: #969696;
       }
 
@@ -245,18 +241,17 @@
 
     blockquote {
       display: block;
-      border-left: .25rem solid $blockquote-color;
+      border-left: 0.25rem solid $blockquote-color;
       background-color: $blockquote-bg-color;
-      padding: .25rem .75rem;
+      padding: 0.25rem 0.75rem;
       margin: 1rem 0;
-
     }
 
     .footnotes {
       color: $global-font-secondary-color;
 
       p {
-        margin: .25rem 0;
+        margin: 0.25rem 0;
       }
 
       li {
@@ -289,21 +284,19 @@
       position: relative;
       border-top: 3px dashed $global-border-color;
       border-bottom: none;
-
     }
 
     kbd {
       display: inline-block;
-      padding: .25rem;
+      padding: 0.25rem;
       background-color: $global-background-color;
       border: 1px solid $global-border-color;
       border-bottom-color: $global-border-color;
       @include border-radius(3px);
       @include box-shadow(inset 0 -1px 0 $global-border-color);
-      font-size: .8rem;
+      font-size: 0.8rem;
       font-family: $code-font-family;
       color: $code-color;
-
     }
 
     .version {
@@ -321,8 +314,8 @@
 
 .typeit {
   .highlight {
-    padding: .375rem;
-    font-size: .875rem;
+    padding: 0.375rem;
+    font-size: 0.875rem;
     font-family: $code-font-family;
     word-break: break-all;
     white-space: pre-wrap;
@@ -334,7 +327,6 @@
   --ti-cursor-line-height: #{$global-line-height};
   --ti-cursor-color: #{$global-font-secondary-color};
   --ti-cursor-margin-left: 0;
-
 }
 
 .lg-toolbar .lg-icon::after {

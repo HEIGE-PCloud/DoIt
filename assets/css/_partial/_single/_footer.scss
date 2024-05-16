@@ -32,7 +32,7 @@
       .post-info-share {
         display: inline-flex;
         justify-content: center;
-        
+
         a * {
           vertical-align: text-bottom;
         }
@@ -43,13 +43,13 @@
           border: none;
           padding: 0;
           font: inherit;
-          outline: inherit; 
+          outline: inherit;
           * {
             vertical-align: text-bottom;
-          }   
+          }
           :hover {
-              color: $global-link-hover-color;
-          }    
+            color: $global-link-hover-color;
+          }
         }
 
         .weixin {

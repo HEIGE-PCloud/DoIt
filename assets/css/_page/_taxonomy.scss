@@ -1,8 +1,7 @@
 .introduction blockquote {
-    display: block;
-    border-left: .25rem solid $blockquote-color;
-    background-color: $blockquote-bg-color;
-    padding: .25rem .75rem;
-    margin: 1rem 0;
-
+  display: block;
+  border-left: 0.25rem solid $blockquote-color;
+  background-color: $blockquote-bg-color;
+  padding: 0.25rem 0.75rem;
+  margin: 1rem 0;
 }

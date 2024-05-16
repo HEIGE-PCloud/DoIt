@@ -4,17 +4,20 @@
   right: 1.5rem;
   font-size: 1rem;
   line-height: 1.3rem;
-  padding: .6rem .6rem;
+  padding: 0.6rem 0.6rem;
   color: $global-font-secondary-color;
   // background: $global-border-color; // 原 light $global-border-color dark,black $header-background-color
   background: $header-background-color;
   @include border-radius(2rem);
   @include blur;
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $global-font-color;
   }
 
-  &:active, &:focus, &:hover {
+  &:active,
+  &:focus,
+  &:hover {
     outline: none;
   }
 }

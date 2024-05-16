@@ -1,60 +1,58 @@
 .series-nav {
-    margin: .8rem 0;
-    &[kept=true] {
-        display: block;
-    }
-    .series-title {
-      font-size: $toc-title-font-size;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      line-height: 2em;
-      padding: 0 .75rem;
-      background: $code-background-color-darken-6;
+  margin: 0.8rem 0;
+  &[kept="true"] {
+    display: block;
+  }
+  .series-title {
+    font-size: $toc-title-font-size;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2em;
+    padding: 0 0.75rem;
+    background: $code-background-color-darken-6;
+  }
 
+  .series-content {
+    font-size: $toc-content-font-size;
+    background-color: $code-background-color;
+
+    > nav > ul {
+      margin: 0;
+      padding: 0.4rem 1rem 0.4rem 1.8rem;
     }
-  
-    .series-content {
-      font-size: $toc-content-font-size;
-      background-color: $code-background-color;
-  
-      > nav > ul {
-        margin: 0;
-        padding: .4rem 1rem .4rem 1.8rem;
+
+    ul {
+      text-indent: -0.85rem;
+      padding-left: 0.8rem;
+      list-style: none;
+
+      a:first-child::before {
+        content: "|";
+        font-weight: bolder;
+        margin-right: 0.5rem;
+        color: $single-link-color;
       }
-  
-      ul {
-        text-indent: -0.85rem;
-        padding-left: .8rem;
-        list-style: none;
-  
-        a:first-child::before {
+      span.active {
+        &:first-child::before {
           content: "|";
-          font-weight: bolder;
-          margin-right: .5rem;
-          color: $single-link-color;
+          margin-right: 0.5rem;
         }
-        span.active {
-            &:first-child::before {
-                content: "|";
-                margin-right: .5rem;
-            }
-            font-weight: bolder;
-            color: $single-link-color;      
-      
-            &::before {
-              color: $single-link-hover-color;
-            }
-          }
-        ul {
-          padding-left: 1.5rem;
+        font-weight: bolder;
+        color: $single-link-color;
+
+        &::before {
+          color: $single-link-hover-color;
         }
+      }
+      ul {
+        padding-left: 1.5rem;
       }
     }
-    &.open {
-        .toc-title {
-          background: $code-header-color;
-        }
-      }
+  }
+  &.open {
+    .toc-title {
+      background: $code-header-color;
+    }
+  }
 }
-  
