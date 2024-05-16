@@ -618,8 +618,14 @@ function initMeta () {
 }
 
 function onScroll () {
+  const backToTop = document.getElementById("back-to-top-button")
   function handleScrollEvent () {
     window.newScrollTop = getScrollTop()
+    if (window.newScrollTop > 20) {
+      backToTop.style.opacity = '1'
+    } else {
+      backToTop.style.opacity = '0'
+    }
     for (const event of window.scrollEventSet) event()
     window.oldScrollTop = window.newScrollTop
   }
