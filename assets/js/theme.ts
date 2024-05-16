@@ -771,7 +771,6 @@ function onResize() {
       if (!window._resizeTimeout) {
         window._resizeTimeout = window.setTimeout(() => {
           window._resizeTimeout = null;
-          for (const event of window.resizeEventSet) event();
           initSearch();
         }, 100);
       }
@@ -861,7 +860,6 @@ function init() {
   window.newScrollTop = getScrollTop();
   window.oldScrollTop = window.newScrollTop;
   window.scrollEventSet = new Set();
-  window.resizeEventSet = new Set();
   window.clickMaskEventSet = new Set();
   if (window.objectFitImages) objectFitImages();
   initMenuMobile();
