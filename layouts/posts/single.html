@@ -34,7 +34,7 @@
 
     <article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0">
         {{- /* Title */ -}}
-        <h1 class="single-title">{{ .Title }}</h1>
+        <h1 class="single-title" style='view-transition-name: {{ (printf "single-title-%v" .Title) | partial "function/stringNormalise.html" | safeCSS }};'>{{ .Title }}</h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
@@ -44,7 +44,7 @@
         {{- /* Meta */ -}}
         <div class="post-meta">
             <div class="post-meta-line">
-                <span class="post-author">
+                <span class="post-author" style='view-transition-name: {{ (printf "post-author-%v" .Title) | partial "function/stringNormalise.html" | safeCSS }};'>
                     {{- partial "meta/author.html" . }}
                 </span>
                 {{- with .Params.categories | or .Params.series -}}
@@ -151,7 +151,7 @@
         {{- $image := $params.featuredimage -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true "ViewTransitionName" (printf "featured-image-%v" $.Title) | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

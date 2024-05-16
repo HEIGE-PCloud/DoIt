@@ -7,7 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-
+    {{/*  View Transition  */}}
+    {{/*  https://developer.chrome.com/docs/web-platform/view-transitions/cross-document  */}}
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
     {{- /* Paginate  */ -}}
     {{- /* Paginate in here, To solve the problem of the canonical URL being the same in the pagination */ -}}
     {{- /* see more https://github.com/gohugoio/hugo/issues/4507 */ -}}

@@ -6,19 +6,19 @@
     {{- with $image -}}
         <div class="featured-image-preview">
             <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true "ViewTransitionName" (printf "featured-image-%v" $.Title) | partial "plugin/image.html" -}}
             </a>
         </div>
     {{- end -}}
 
     {{- /* Title */ -}}
-    <h1 class="single-title">
+    <h1 class="single-title" style='view-transition-name: {{ (printf "single-title-%v" .Title) | partial "function/stringNormalise.html" | safeCSS }};'>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
 
     {{- /* Meta */ -}}
     <div class="post-meta">
-        <span class="post-author">
+        <span class="post-author" style='view-transition-name: {{ (printf "post-author-%v" .Title) | partial "function/stringNormalise.html" | safeCSS }};'>
             {{- partial "meta/author" . }}
         </span>
 
