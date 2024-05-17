@@ -34,6 +34,11 @@ code:not(.chroma) {
   color: var(--global-font-color);
 }
 
+a > code:not(.chroma) {
+  /* Inline code blocks inside links */
+  color: var(--single-link-color);
+}
+
 
 .highlight,
 .gist {
