@@ -824,7 +824,7 @@ function initCodeblocks() {
 
     // handle copying code to clipboard
     copyCodeButton?.addEventListener("click", () => {
-      navigator.clipboard.writeText(chroma.innerText);
+      navigator.clipboard.writeText(chroma.textContent);
       // toggle icons
       copyIcon.style.display = "none";
       checkIcon.style.display = "block";

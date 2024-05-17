@@ -37,6 +37,8 @@ code:not(.chroma) {
 a > code:not(.chroma) {
   /* Inline code blocks inside links */
   color: var(--single-link-color);
+  text-decoration: underline;
+  text-underline-offset: .2rem;
 }
 
 
