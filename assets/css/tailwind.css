@@ -105,6 +105,7 @@
     --code-color: #e74c3c;
     /* Color of the code background */
     --code-background-color: #f5f5f5;
+    --inline-code-background-color: var(--bgColor-neutral-muted);
 
     --code-header-color: #ededed;
     --code-background-color-darken-5: #e8e8e8;
@@ -139,6 +140,7 @@
     --bgColor-secondary: #ededed;
     --bgColor-accent-emphasis: #6bd6fd;
     --bgColor-accent-muted: #388bfd1a;
+    --bgColor-neutral-muted: #afb8c133;
     --borderColor-default: #f0f0f0;
     --selection-bgColor: #35a6f740;
     --button-default-bgColor-rest: #f0f0f0;
@@ -158,6 +160,7 @@
     --bgColor-accent-emphasis: #1f6feb;
     --bgColor-accent-muted: #388bfd1a;
     --borderColor-default: #30363d;
+    --bgColor-neutral-muted: #6e768166;
     --selection-bgColor: #1f6febb3;
     --button-default-bgColor-rest: #21262d;
     --button-default-bgColor-hover: #292e36;
