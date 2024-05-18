@@ -24,6 +24,24 @@ pre,
   background-color: $code-background-color !important;
 }
 
+code:not(.chroma) {
+  /* Inline code blocks */
+  background-color: var(--inline-code-background-color) !important;
+  border-radius: 6px;
+  padding: .2em .4em;
+  font-size: 85%;
+  line-height: 1.5;
+  color: var(--global-font-color);
+}
+
+a > code:not(.chroma) {
+  /* Inline code blocks inside links */
+  color: var(--single-link-color);
+  text-decoration: underline;
+  text-underline-offset: .2rem;
+}
+
+
 .highlight,
 .gist {
   font-family: $code-font-family;
