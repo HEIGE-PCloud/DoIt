@@ -9,9 +9,9 @@ Parameters:
 - Resources: If the image is a page resource, this parameter is required. It is the .Resources of the page.
 - Optim: optimisation parameter, defined like 
     {{- $optim := slice 
-        (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
-        (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
-        (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w")
+        (dict "Process" "resize 800x Center webp q75" "descriptor" "800w")
+        (dict "Process" "resize 1200x Center webp q75" "descriptor" "1200w")
+        (dict "Process" "resize 1600x Center webp q75" "descriptor" "1600w")
     -}}
     See https://gohugo.io/content-management/image-processing/ for more information.
 */}}
@@ -47,11 +47,17 @@ Parameters:
 {{- end -}}
 
 {{- $src := $resource.RelPermalink | default .Src -}}
-{{- $alt := .Alt | default .Title | default "alt text" -}}
+{{- $alt := .Alt | default .Title -}}
 {{- $height := .Height | default $resource.Height | default "" -}}
 {{- $width := .Width | default $resource.Width | default "" -}}
 
+{{- if .Linked -}}
+<a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+{{- end -}}
 <img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} src="{{ $src }}" {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt=""{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+{{- if .Linked -}}
+</a>
+{{- end -}}
 
 
 {{/* 
