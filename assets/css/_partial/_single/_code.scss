@@ -26,6 +26,7 @@ pre,
 
 code:not(.chroma) {
   /* Inline code blocks */
+  display: inline;
   background-color: var(--inline-code-background-color) !important;
   border-radius: 6px;
   padding: .2em .4em;
