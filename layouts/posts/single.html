@@ -151,7 +151,12 @@
         {{- $image := $params.featuredimage -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
+                {{- $optim := slice 
+                    (dict "Process" "resize 800x webp q75" "descriptor" "800w")
+                    (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
+                    (dict "Process" "resize 1600x webp q75" "descriptor" "1600w") 
+                -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" $optim | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

@@ -13,7 +13,12 @@ Parameters:
 {{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
 
 {{- $cacheRemote := true -}}
-
+{{/*  {{- $optim := slice 
+    (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
+    (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
+    (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w")
+-}}  */}}
+{{- $optim := .Optim -}}
 {{- if not $resource | and (partial "function/isUrlRemote.html" (urls.Parse .Src)) | and $cacheRemote -}}
     {{- with $remoteResource := resources.GetRemote .Src -}}
         {{- with .Err -}}
@@ -26,7 +31,27 @@ Parameters:
     {{- end -}}
 {{- end -}}
 
-{{- with $resource -}}
+{{- $srcset := "" -}}
+{{- if $optim | and $resource -}}
+    {{ $srcsetSlice := slice -}}
+    {{- range $optim -}}
+        {{- if .Process -}}
+            {{- $processed := $resource.Process .Process -}}
+            {{- $srcsetSlice = $srcsetSlice | append (printf "%s %s" $processed.RelPermalink .descriptor) -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $srcset = delimit $srcsetSlice ", " -}}
+{{- end -}}
+
+{{- $src := $resource.RelPermalink | default .Src -}}
+{{- $alt := .Alt | default .Title | default "alt text" -}}
+{{- $height := .Height | default $resource.Height | default "" -}}
+{{- $width := .Width | default $resource.Width | default "" -}}
+
+<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} src="{{ $src }}" {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt=""{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+
+
+{{/*  {{- with $resource -}}
 <h1>
     <p>
         {{- $resource -}}
@@ -44,17 +69,10 @@ Parameters:
     <p>This resource is not a page resource nor a global resources</p>
     {{- .Src -}}
 </h1>
-{{- end -}}
+{{- end -}}  */}}
 
-{{- $optim := slice 
-    (dict "Resize" "800x webp Lanczos q75" "descriptor" "")
-    (dict "Resize" "1200x webp Lanczos q75" "descriptor" "1.5x")
-    (dict "Resize" "1600x webp Lanczos q75" "descriptor" "2x")
--}}
-
-
-
-{{/*  {{- $remote := .Remote | default false -}}
+{{/* 
+{{- $remote := .Remote | default false -}}
 {{- $optimize := .Optim | default false -}}
 {{- $optimized := false -}}
 

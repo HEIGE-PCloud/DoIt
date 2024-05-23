@@ -6,7 +6,12 @@
     {{- with $image -}}
         <div class="featured-image-preview">
             <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
+                {{ $optim := slice 
+                    (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
+                    (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
+                    (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w") 
+                }}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" $optim | partial "plugin/image.html" -}}
             </a>
         </div>
     {{- end -}}
