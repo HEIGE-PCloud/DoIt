@@ -2,6 +2,11 @@
     {{- $lang := ( $.Params.lang | default $.Lang ) -}}
     <span class='author'>
         <span class='screen-reader-text'> {{ i18n "by" }} </span>
+        {{- $optim := slice 
+            (dict "Process" "resize 16x16 Center webp q75" "descriptor" "16w")
+            (dict "Process" "resize 24x24 Center webp q75" "descriptor" "24w")
+            (dict "Process" "resize 32x32 Center webp q75" "descriptor" "32w")
+        -}}
         {{- range $i, $name := .Params.authors -}}
             {{- if $.Site.Data.authors -}}
                 {{- with partial "function/author.html" (dict
@@ -10,9 +15,7 @@
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'><img width="16" height="16" src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1"/>
-                        {{- .name -}}
-                    </a>
+                    <a href='{{ .link | absURL }}'>{{- dict "Width" "16" "Height" "16" "Src" .avatar "Alt" .name "Optim" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px]" | partial "plugin/image.html" -}}{{- .name -}}</a>
                 {{- end -}}
             {{- else -}}
                 {{- with partial "function/author.html" (dict
