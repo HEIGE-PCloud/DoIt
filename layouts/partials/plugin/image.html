@@ -7,18 +7,20 @@ Parameters:
     or a global resource (inside the assets directory) https://gohugo.io/functions/resources/get/
     or a link to a remote resource, which can be cached if the site parameter is set https://gohugo.io/functions/resources/getremote/
 - Resources: If the image is a page resource, this parameter is required. It is the .Resources of the page.
+- Optim: optimisation parameter, defined like 
+    {{- $optim := slice 
+        (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
+        (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
+        (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w")
+    -}}
+    See https://gohugo.io/content-management/image-processing/ for more information.
 */}}
 
 
 {{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
 
 {{- $cacheRemote := true -}}
-{{/*  {{- $optim := slice 
-    (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
-    (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
-    (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w")
--}}  */}}
-{{- $optim := .Optim -}}
+
 {{- if not $resource | and (partial "function/isUrlRemote.html" (urls.Parse .Src)) | and $cacheRemote -}}
     {{- with $remoteResource := resources.GetRemote .Src -}}
         {{- with .Err -}}
@@ -31,6 +33,7 @@ Parameters:
     {{- end -}}
 {{- end -}}
 
+{{- $optim := .Optim -}}
 {{- $srcset := "" -}}
 {{- if $optim | and $resource -}}
     {{ $srcsetSlice := slice -}}
@@ -50,26 +53,6 @@ Parameters:
 
 <img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} src="{{ $src }}" {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt=""{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
 
-
-{{/*  {{- with $resource -}}
-<h1>
-    <p>
-        {{- $resource -}}
-    </p>
-    <p>
-        {{- $resource.Width -}}
-    </p>
-    <p>
-        {{- $resource.Height -}}
-    </p>
-</h1>
-{{- else -}}
-<h1>
-    <p>.Resource.Get and resources.Get failed</p>
-    <p>This resource is not a page resource nor a global resources</p>
-    {{- .Src -}}
-</h1>
-{{- end -}}  */}}
 
 {{/* 
 {{- $remote := .Remote | default false -}}
