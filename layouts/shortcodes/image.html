@@ -2,11 +2,16 @@
 {{- $options = cond .IsNamedParams (.Get "alt") (.Get 1) | .Page.RenderString | dict "Alt" | merge $options -}}
 {{- $caption := cond .IsNamedParams (.Get "caption") (.Get 2) | .Page.RenderString -}}
 {{- $options = dict "Caption" $caption | merge $options -}}
+{{- $optim := slice 
+    (dict "Process" "resize 800x webp q75" "descriptor" "800w")
+    (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
+    (dict "Process" "resize 1600x webp q75" "descriptor" "1600w")
+-}}
+{{- $options = dict "Optim" $optim | merge $options -}}
+
 
 {{- if .IsNamedParams -}}
     {{- $options = dict "Title" (.Get "title") | merge $options -}}
-    {{- $options = dict "SrcSmall" (.Get "src_s") | merge $options -}}
-    {{- $options = dict "SrcLarge" (.Get "src_l") | merge $options -}}
     {{- $options = dict "Height" (.Get "height") | merge $options -}}
     {{- $options = dict "Width" (.Get "width") | merge $options -}}
     {{- $options = .Get "linked" | ne false | dict "Linked" | merge $options -}}

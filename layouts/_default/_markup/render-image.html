@@ -1,13 +1,14 @@
 {{- $lightgallery := .Page.Params.lightgallery | default site.Params.Page.lightgallery | default false -}}
-{{- if .Title -}}
-    <figure>
-        {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Resources" .Page.Resources | partial "plugin/image.html" -}}
+{{- $optim := slice 
+    (dict "Process" "resize 800x webp q75" "descriptor" "800w")
+    (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
+    (dict "Process" "resize 1600x webp q75" "descriptor" "1600w")
+-}}
+<figure>
+    {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Resources" .Page.Resources "Optim" $optim | partial "plugin/image.html" -}}
+    {{- if .Title -}}
         <figcaption class="image-caption">
             {{- .Title | safeHTML -}}
         </figcaption>
-    </figure>
-{{- else -}}
-    <figure>
-        {{- dict "Src" .Destination "Title" .Text "Linked" $lightgallery "Resources" .Page.Resources | partial "plugin/image.html" -}}
-    </figure>
-{{- end -}}
+    {{- end -}}
+</figure>
