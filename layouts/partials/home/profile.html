@@ -24,7 +24,7 @@
                 {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" "Optim" $optim | partial "plugin/image.html" -}}
             </a>
         {{- else -}}
-            {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" "Optim" $optim | partial "plugin/image.html" -}}
+            {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" "Optim" $optim "Alt" "Home avatar" | partial "plugin/image.html" -}}
         {{- end -}}
     </div>
     {{- end -}}
