@@ -27,17 +27,14 @@ enablePWA = false
 license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 # [Experimental] Bundle js
 bundle = false
-# [Experimental] cache remote images in markdown, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-# [试验性功能] 缓存 markdown 中的图片链接到本地，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-cacheRemoteImages = true
-# [Experimental] generate image srcset attribute with hugo image processing feature.
-# [试验性功能] 使用 hugo 自带的图片处理功能生成 srcset 属性
-optimizeImages = true
-# [Experimental] resize method for srcset attribute in optimizeImages, more info: https://gohugo.io/content-management/image-processing/#image-processing-options
-# [实验性功能] optimizeImages 中 srcset 属性的缩放方法, 详情请见：https://gohugo.io/content-management/image-processing/#image-processing-options
-srcsetSmallResizeMethod = "400x webp Lanczos q75"
-srcsetDefaultResizeMethod = "600x webp Lanczos q75"
-srcsetLargeResizeMethod = "800x webp Lanczos q75"
+
+[image]
+  # cache remote images for better optimisations
+  # 缓存图片链接到本地
+  cacheRemote = true
+  # Image resizing and optimisation
+  optimise = true
+  
 # Header config
 # 页面头部导航栏配置
 [header]
