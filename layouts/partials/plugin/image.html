@@ -1,11 +1,61 @@
-{{- /* lightgallery.js */ -}}
-{{- $default := dict "RelPermalink" .Src -}}
-{{- $remote := .Remote | default false -}}
+{{/*  
+The image plugin is a partial that handles image resources.
+
+Parameters:
+- Src: The path to the image. 
+    It can be a page resource (inside a page bundle) https://gohugo.io/methods/page/resources/
+    or a global resource (inside the assets directory) https://gohugo.io/functions/resources/get/
+    or a link to a remote resource, which can be cached if the site parameter is set https://gohugo.io/functions/resources/getremote/
+- Resources: If the image is a page resource, this parameter is required. It is the .Resources of the page.
+*/}}
+
+
+{{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
+
+{{- $cacheRemote := true -}}
+
+{{- if not $resource | and (partial "function/isUrlRemote.html" (urls.Parse .Src)) | and $cacheRemote -}}
+    {{- with $remoteResource := resources.GetRemote .Src -}}
+        {{- with .Err -}}
+            {{- warnf "%s" . -}}
+        {{ else }}
+            {{- if $remoteResource.ResourceType | eq "image" -}}
+                {{- $resource = $remoteResource -}}
+            {{- end -}}
+    {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- with $resource -}}
+<h1>
+    <p>
+        {{- $resource -}}
+    </p>
+    <p>
+        {{- $resource.Width -}}
+    </p>
+    <p>
+        {{- $resource.Height -}}
+    </p>
+</h1>
+{{- else -}}
+<h1>
+    <p>.Resource.Get and resources.Get failed</p>
+    <p>This resource is not a page resource nor a global resources</p>
+    {{- .Src -}}
+</h1>
+{{- end -}}
+
+{{- $optim := slice 
+    (dict "Resize" "800x webp Lanczos q75" "descriptor" "")
+    (dict "Resize" "1200x webp Lanczos q75" "descriptor" "1.5x")
+    (dict "Resize" "1600x webp Lanczos q75" "descriptor" "2x")
+-}}
+
+
+
+{{/*  {{- $remote := .Remote | default false -}}
 {{- $optimize := .Optim | default false -}}
-{{- $small := $default -}}
-{{- $large := $default -}}
-{{- $height := "" -}}
-{{- $width := "" -}}
 {{- $optimized := false -}}
 
 {{- with dict "Path" .Src "Resources" .Resources "Remote" $remote | partial "function/getImage.html" -}}
@@ -48,4 +98,4 @@
             alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
 {{- if .Linked -}}
     </a>
-{{- end -}}
+{{- end -}}  */}}
