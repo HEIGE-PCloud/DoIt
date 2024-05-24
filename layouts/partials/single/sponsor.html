@@ -19,12 +19,12 @@
                             "name" $name
                             "author" (index $.Site.Data.authors $name)
                             "lang" $lang) -}}
-                            {{- dict "Src" .avatar | partial "plugin/image.html" -}}
+                            {{- dict "Src" .avatar "Resources" $.Resources | partial "plugin/image.html" -}}
                         {{- end -}}                    
                     {{- end -}}
                 {{- end -}}
             {{- else if $avatar -}}
-                {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+                {{- dict "Src" $avatar "Resources" $.Resources | partial "plugin/image.html" -}}
             {{- end -}}
         </div>
         {{- with $bio -}}

@@ -11,7 +11,7 @@
                     (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
                     (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w") 
                 }}
-                {{- dict "Src" . "Title" $.Title "Resources" $.Resources "Loading" "eager" "Optim" $optim "Alt" (printf "Featured image for %v" $.Title) | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Title "Resources" $.Resources "Loading" "eager" "Width" "800" "Height" "240" "Optim" $optim "Alt" (printf "Featured image for %v" $.Title) | partial "plugin/image.html" -}}
             </a>
         </div>
     {{- end -}}
