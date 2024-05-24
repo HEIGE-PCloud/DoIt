@@ -14,14 +14,27 @@ Parameters:
         (dict "Process" "resize 1600x Center webp q75" "descriptor" "1600w")
     -}}
     See https://gohugo.io/content-management/image-processing/ for more information.
+- Alt: alt text for the image. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#alt
+- Height: The intrinsic height of the image, in pixels. Must be an integer without a unit.
+    We try to generate this value automatically if possible. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#height
+- Width: The intrinsic width of the image, in pixels. Must be an integer without a unit.
+    We try to generate this value automatically if possible. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#width
+- Loading: Indicates how the browser should load the image: eager or lazy. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading
 */}}
-
 
 {{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
 
+{{/*  TODO: add documentation for the new params.toml settings  */}}
+{{/*  TODO: add documentation for the new image shortcode  */}}
+{{/*  TODO: allow override through options (from the image shortcode)  */}}
+{{/*  TODO: cacheRemote should read from config  */}}
 {{- $cacheRemote := true -}}
+{{/*  TODO: optimise should read from config  */}}
+{{- $optimise := true -}}
 
-{{- if not $resource | and (partial "function/isUrlRemote.html" (urls.Parse .Src)) | and $cacheRemote -}}
+{{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
+
+{{- if not $resource | and $isUrlRemote | and $cacheRemote -}}
     {{- with $remoteResource := resources.GetRemote .Src -}}
         {{- with .Err -}}
             {{- warnf "%s" . -}}
@@ -35,7 +48,7 @@ Parameters:
 
 {{- $optim := .Optim -}}
 {{- $srcset := "" -}}
-{{- if $optim | and $resource -}}
+{{- if $optim | and $resource | and $optimise -}}
     {{ $srcsetSlice := slice -}}
     {{- range $optim -}}
         {{- if .Process -}}
@@ -58,49 +71,3 @@ Parameters:
 {{- if .Linked -}}
 </a>
 {{- end -}}
-{{/* 
-{{- $remote := .Remote | default false -}}
-{{- $optimize := .Optim | default false -}}
-{{- $optimized := false -}}
-
-{{- with dict "Path" .Src "Resources" .Resources "Remote" $remote | partial "function/getImage.html" -}}
-    {{- $output := dict "Optim" $optimize "Image" . | partial "function/imageHandler.html" -}}
-    {{- $small = $output.S -}}
-    {{- $default = $output.M -}}
-    {{- $large = $output.L -}}
-    {{- $optimized = $output.Optimized -}}
-    {{- $height = $default.Height -}}
-    {{- $width = $default.Width -}}
-{{- end -}}
-
-{{- $alt := .Alt | default .Title | default .Src -}}
-{{- $loading := .Loading | default "lazy" -}}
-
-{{- with .Height -}}
-    {{- $height = . -}}
-{{- end -}}
-
-{{- with .Width -}}
-    {{- $width = . -}}
-{{- end -}}
-
-{{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large.RelPermalink | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small.RelPermalink | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
-{{- end -}}
-        <img
-            {{ with .Class }}class="{{ . }}"{{ end }}
-            loading="{{ $loading }}"
-            src="{{ $default.RelPermalink | safeURL }}"
-            srcset="
-            {{- if eq $optimized false -}}
-                {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
-            {{- else -}}
-                {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-                {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-                {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
-            {{- end -}}
-            "
-            alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
-{{- if .Linked -}}
-    </a>
-{{- end -}}  */}}
