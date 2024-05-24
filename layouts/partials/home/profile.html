@@ -8,9 +8,9 @@
     <div class="home-avatar">
         {{- $menus := $.Site.Menus.main | default slice -}}
         {{- $optim := slice 
-            (dict "Process" "fill center 96x96 webp q75" "descriptor" "800w")
-            (dict "Process" "fill center 144x144 webp q75" "descriptor" "1200w")
-            (dict "Process" "fill center 192x192 webp q75" "descriptor" "1600w") 
+            (dict "Process" "fill center 96x96 webp q75" "descriptor" "96w")
+            (dict "Process" "fill center 144x144 webp q75" "descriptor" "144w")
+            (dict "Process" "fill center 192x192 webp q75" "descriptor" "192w") 
         -}}
         {{- with index $menus 0 -}}
             {{- $url := .URL | relLangURL -}}
