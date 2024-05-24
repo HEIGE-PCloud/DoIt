@@ -929,6 +929,14 @@ html.dark {
   padding-bottom: 0.5rem;
 }
 
+.tw-pb-8 {
+  padding-bottom: 2rem;
+}
+
+.tw-pt-32 {
+  padding-top: 8rem;
+}
+
 .tw-text-fgColor-link-muted {
   color: var(--global-link-color);
 }
