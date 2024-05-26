@@ -1,51 +1,70 @@
-{{- /* lightgallery.js */ -}}
-{{- $default := dict "RelPermalink" .Src -}}
-{{- $remote := .Remote | default false -}}
-{{- $optimize := .Optim | default false -}}
-{{- $small := $default -}}
-{{- $large := $default -}}
-{{- $height := "" -}}
-{{- $width := "" -}}
-{{- $optimized := false -}}
+{{/*  
+The image plugin is a partial that handles image resources.
 
-{{- with dict "Path" .Src "Resources" .Resources "Remote" $remote | partial "function/getImage.html" -}}
-    {{- $output := dict "Optim" $optimize "Image" . | partial "function/imageHandler.html" -}}
-    {{- $small = $output.S -}}
-    {{- $default = $output.M -}}
-    {{- $large = $output.L -}}
-    {{- $optimized = $output.Optimized -}}
-    {{- $height = $default.Height -}}
-    {{- $width = $default.Width -}}
-{{- end -}}
+Parameters:
+- Src: The path to the image. 
+    It can be a page resource (inside a page bundle) https://gohugo.io/methods/page/resources/
+    or a global resource (inside the assets directory) https://gohugo.io/functions/resources/get/
+    or a link to a remote resource, which can be cached if the site parameter is set https://gohugo.io/functions/resources/getremote/
+- Resources: If the image is a page resource, this parameter is required. It is the .Resources of the page.
+- OptimConfig: optimisation parameter, defined like 
+    {{- $optim := slice 
+        (dict "Process" "resize 800x Center webp q75" "descriptor" "800w")
+        (dict "Process" "resize 1200x Center webp q75" "descriptor" "1200w")
+        (dict "Process" "resize 1600x Center webp q75" "descriptor" "1600w")
+    -}}
+    See https://gohugo.io/content-management/image-processing/ for more information.
+- Alt: alt text for the image. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#alt
+- Height: The intrinsic height of the image, in pixels. Must be an integer without a unit.
+    We try to generate this value automatically if possible. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#height
+- Width: The intrinsic width of the image, in pixels. Must be an integer without a unit.
+    We try to generate this value automatically if possible. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#width
+- Loading: Indicates how the browser should load the image: eager or lazy. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading
+- Optimise: Override the site parameter to optimise the image.
+- CacheRemote: Override the site parameter to cache remote images.
+*/}}
 
-{{- $alt := .Alt | default .Title | default .Src -}}
-{{- $loading := .Loading | default "lazy" -}}
+{{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
 
-{{- with .Height -}}
-    {{- $height = . -}}
-{{- end -}}
+{{- $cacheRemote := .CacheRemote | default site.Params.image.cacheRemote | default false -}}
+{{- $optimise := .Optimise | default site.Params.image.optimise | default false -}}
 
-{{- with .Width -}}
-    {{- $width = . -}}
-{{- end -}}
+{{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
 
-{{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large.RelPermalink | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small.RelPermalink | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
-{{- end -}}
-        <img
-            {{ with .Class }}class="{{ . }}"{{ end }}
-            loading="{{ $loading }}"
-            src="{{ $default.RelPermalink | safeURL }}"
-            srcset="
-            {{- if eq $optimized false -}}
-                {{ $small.RelPermalink | safeURL }}, {{ $default.RelPermalink | safeURL }} 1.5x, {{ $large.RelPermalink | safeURL }} 2x
-            {{- else -}}
-                {{ $small.RelPermalink | safeURL }} {{ $small.Width }}w,
-                {{ $default.RelPermalink | safeURL }} {{ $default.Width }}w,
-                {{ $large.RelPermalink | safeURL }} {{ $large.Width }}w
+{{- if not $resource | and $isUrlRemote | and $cacheRemote -}}
+    {{- with $remoteResource := resources.GetRemote .Src -}}
+        {{- with .Err -}}
+            {{- warnf "%s" . -}}
+        {{ else }}
+            {{- if $remoteResource.ResourceType | eq "image" -}}
+                {{- $resource = $remoteResource -}}
             {{- end -}}
-            "
-            alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
+    {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $optim := .OptimConfig -}}
+{{- $srcset := "" -}}
+{{- if $optim | and $resource | and $optimise -}}
+    {{ $srcsetSlice := slice -}}
+    {{- range $optim -}}
+        {{- if .Process -}}
+            {{- $processed := $resource.Process .Process -}}
+            {{- $srcsetSlice = $srcsetSlice | append (printf "%s %s" $processed.RelPermalink .descriptor) -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $srcset = delimit $srcsetSlice ", " -}}
+{{- end -}}
+
+{{- $src := $resource.RelPermalink | default .Src -}}
+{{- $alt := .Alt | default .Title -}}
+{{- $height := .Height | default $resource.Height | default "" -}}
+{{- $width := .Width | default $resource.Width | default "" -}}
+
 {{- if .Linked -}}
-    </a>
+<a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+{{- end -}}
+<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} src="{{ $src }}" {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+{{- if .Linked -}}
+</a>
 {{- end -}}

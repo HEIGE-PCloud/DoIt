@@ -7,20 +7,24 @@
     {{- if $avatar -}}
     <div class="home-avatar">
         {{- $menus := $.Site.Menus.main | default slice -}}
+        {{- $optim := slice 
+            (dict "Process" "fill center 96x96 webp q75" "descriptor" "96w")
+            (dict "Process" "fill center 144x144 webp q75" "descriptor" "144w")
+            (dict "Process" "fill center 192x192 webp q75" "descriptor" "192w") 
+        -}}
         {{- with index $menus 0 -}}
-        {{- $url := .URL | relLangURL -}}
-        {{- with .Page -}}
-        {{- $url = .RelPermalink -}}
-        {{- end -}}
-        {{- with $profile.avatarLinkURL -}}
-        {{- $url = . -}}
-        {{- end -}}
-        <a href="{{ $url }}" {{ with .Title | default .Name }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }}
-            rel="noopener noreferrer" target="_blank" {{ end }}>
-            {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" | partial "plugin/image.html" -}}
-        </a>
+            {{- $url := .URL | relLangURL -}}
+            {{- with .Page -}}
+                {{- $url = .RelPermalink -}}
+            {{- end -}}
+            {{- with $profile.avatarLinkURL -}}
+                {{- $url = . -}}
+            {{- end -}}
+            <a href="{{ $url }}" {{ with .Title | default .Name }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank" {{ end }}>
+                {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" "OptimConfig" $optim "Alt" "Home avatar" | partial "plugin/image.html" -}}
+            </a>
         {{- else -}}
-        {{- dict "Src" $avatar "Height" "100" "Width" "100" | partial "plugin/image.html" -}}
+            {{- dict "Src" $avatar "Height" "100" "Width" "100" "Loading" "eager" "OptimConfig" $optim "Alt" "Home avatar" | partial "plugin/image.html" -}}
         {{- end -}}
     </div>
     {{- end -}}

@@ -155,14 +155,6 @@ The `image` shortcode has the following named parameters:
 
     `class` attribute of the HTML `figure` tag.
 
-* **src_s** *[optional]*
-
-    URL of the image thumbnail, used for lightgallery, the default value is the value of the **src** parameter.
-
-* **src_l** *[optional]*
-
-    URL of the HD image, used for lightgallery, the default value is the value of the **src** parameter.
-
 * **height** *[optional]*
 
     `height` attribute of the image.
@@ -178,6 +170,14 @@ The `image` shortcode has the following named parameters:
 * **rel** *[optional]*
 
     Additional `rel` attributes of the HTML `a` tag, if **linked** parameter is set to `true`.
+
+* **optimise** *[optional]*
+
+    Whether to optimise the image, override the site configuration.
+
+* **cacheRemote** *[optional]*
+
+    Whether to cache the remote image, override the site configuration.
 
 Example `image` input:
 
