@@ -5,7 +5,7 @@
     (dict "Process" "resize 1600x webp q75" "descriptor" "1600w")
 -}}
 <figure>
-    {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Resources" .Page.Resources "OptimConfig" $optim | partial "plugin/image.html" -}}
+    {{- dict "Src" .Destination "Title" .Text "Caption" .Title "Linked" $lightgallery "Loading" "lazy" "Sizes" "auto" "Resources" .Page.Resources "OptimConfig" $optim | partial "plugin/image.html" -}}
     {{- if .Title -}}
         <figcaption class="image-caption">
             {{- .Title | safeHTML -}}
