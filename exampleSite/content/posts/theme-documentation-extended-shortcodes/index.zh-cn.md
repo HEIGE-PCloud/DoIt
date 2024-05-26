@@ -159,14 +159,6 @@ This is a **right-aligned** paragraph.
 
     HTML `figure` 标签的 `class` 属性.
 
-* **src_s** *[可选]*
-
-    图片缩略图的 URL, 用在画廊模式中, 默认值是 **src** 参数的值.
-
-* **src_l** *[可选]*
-
-    高清图片的 URL, 用在画廊模式中, 默认值是 **src** 参数的值.
-
 * **height** *[可选]*
 
     图片的 `height` 属性.
@@ -182,6 +174,14 @@ This is a **right-aligned** paragraph.
 * **rel** *[可选]*
 
     HTML `a` 标签 的 `rel` 补充属性, 仅在 **linked** 属性设置成 `true` 时有效.
+
+* **optimise** *[可选]*
+
+    图片是否需要被优化，覆盖全局配置。
+
+* **cacheRemote** *[可选]*
+
+    是否缓存远程图片，覆盖全局配置。
 
 一个 `image` 示例:
 
