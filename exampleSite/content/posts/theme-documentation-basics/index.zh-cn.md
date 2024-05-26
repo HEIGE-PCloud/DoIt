@@ -273,6 +273,11 @@ optimizeImages = true
       useExtendedSearch = false
       ignoreFieldNorm = false
 
+  [params.image]
+    # 缓存图片链接到本地
+    cacheRemote = true
+    # 图片缩放和优化
+    optimise = true
   # 页面头部导航栏配置
   [params.header]
     # {{< version 0.2.11 >}} 主题切换模式

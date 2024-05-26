@@ -269,6 +269,12 @@ Please open the code block below to view the complete sample configuration {{< f
       ignoreLocation = false
       useExtendedSearch = false
       ignoreFieldNorm = false
+
+  [params.image]
+    # cache remote images for better optimisations
+    cacheRemote = true
+    # Image resizing and optimisation
+    optimise = true
   # Header config
   [params.header]
     # {{< version 0.2.11 >}} Theme change mode

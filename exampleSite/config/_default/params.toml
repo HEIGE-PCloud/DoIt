@@ -33,6 +33,7 @@ bundle = false
   # 缓存图片链接到本地
   cacheRemote = true
   # Image resizing and optimisation
+  # 图片缩放和优化
   optimise = true
   
 # Header config

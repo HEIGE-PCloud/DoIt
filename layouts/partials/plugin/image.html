@@ -26,9 +26,6 @@ Parameters:
 
 {{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
 
-{{/*  TODO: add documentation for the new params.toml settings  */}}
-{{/*  TODO: add documentation for the new image shortcode  */}}
-{{/*  TODO: allow override through options (from the image shortcode)  */}}
 {{- $cacheRemote := .CacheRemote | default site.Params.image.cacheRemote | default false -}}
 {{- $optimise := .Optimise | default site.Params.image.optimise | default false -}}
 
