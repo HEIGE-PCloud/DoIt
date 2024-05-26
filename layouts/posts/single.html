@@ -156,7 +156,7 @@
                     (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
                     (dict "Process" "resize 1600x webp q75" "descriptor" "1600w") 
                 -}}
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" $optim | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "OptimConfig" $optim | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

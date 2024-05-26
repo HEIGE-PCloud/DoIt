@@ -7,7 +7,7 @@ Parameters:
     or a global resource (inside the assets directory) https://gohugo.io/functions/resources/get/
     or a link to a remote resource, which can be cached if the site parameter is set https://gohugo.io/functions/resources/getremote/
 - Resources: If the image is a page resource, this parameter is required. It is the .Resources of the page.
-- Optim: optimisation parameter, defined like 
+- OptimConfig: optimisation parameter, defined like 
     {{- $optim := slice 
         (dict "Process" "resize 800x Center webp q75" "descriptor" "800w")
         (dict "Process" "resize 1200x Center webp q75" "descriptor" "1200w")
@@ -20,6 +20,8 @@ Parameters:
 - Width: The intrinsic width of the image, in pixels. Must be an integer without a unit.
     We try to generate this value automatically if possible. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#width
 - Loading: Indicates how the browser should load the image: eager or lazy. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading
+- Optimise: Override the site parameter to optimise the image.
+- CacheRemote: Override the site parameter to cache remote images.
 */}}
 
 {{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
@@ -27,10 +29,8 @@ Parameters:
 {{/*  TODO: add documentation for the new params.toml settings  */}}
 {{/*  TODO: add documentation for the new image shortcode  */}}
 {{/*  TODO: allow override through options (from the image shortcode)  */}}
-{{/*  TODO: cacheRemote should read from config  */}}
-{{- $cacheRemote := true -}}
-{{/*  TODO: optimise should read from config  */}}
-{{- $optimise := true -}}
+{{- $cacheRemote := .CacheRemote | default site.Params.image.cacheRemote | default false -}}
+{{- $optimise := .Optimise | default site.Params.image.optimise | default false -}}
 
 {{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
 
@@ -46,7 +46,7 @@ Parameters:
     {{- end -}}
 {{- end -}}
 
-{{- $optim := .Optim -}}
+{{- $optim := .OptimConfig -}}
 {{- $srcset := "" -}}
 {{- if $optim | and $resource | and $optimise -}}
     {{ $srcsetSlice := slice -}}

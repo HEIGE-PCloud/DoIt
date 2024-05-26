@@ -15,7 +15,7 @@
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'>{{- dict "Width" "16" "Height" "16" "Src" .avatar "Alt" (printf "%v avatar" .name) "Optim" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px]" | partial "plugin/image.html" -}}{{- .name -}}</a>
+                    <a href='{{ .link | absURL }}'>{{- dict "Width" "16" "Height" "16" "Src" .avatar "Alt" (printf "%v avatar" .name) "OptimConfig" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px]" | partial "plugin/image.html" -}}{{- .name -}}</a>
                 {{- end -}}
             {{- else -}}
                 {{- with partial "function/author.html" (dict
@@ -38,7 +38,7 @@
     {{- $avatar := .Params.authoravatar | default .Site.Author.avatar | default $gravatar | default false -}}
     {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Content" $author -}}
     {{- if $avatar -}}
-        {{- dict "Width" "16" "Height" "16" "Src" $avatar "Alt" (printf "%v avatar" $author) "Optim" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px]" | partial "plugin/image.html" -}}
+        {{- dict "Width" "16" "Height" "16" "Src" $avatar "Alt" (printf "%v avatar" $author) "OptimConfig" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px]" | partial "plugin/image.html" -}}
     {{- else -}}
         {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "user-circle") -}}
     {{- end -}}

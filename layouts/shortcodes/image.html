@@ -7,7 +7,7 @@
     (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
     (dict "Process" "resize 1600x webp q75" "descriptor" "1600w")
 -}}
-{{- $options = dict "Optim" $optim | merge $options -}}
+{{- $options = dict "OptimConfig" $optim | merge $options -}}
 
 
 {{- if .IsNamedParams -}}
