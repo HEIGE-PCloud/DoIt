@@ -47,6 +47,8 @@
   align-items: center;
   box-sizing: border-box;
   margin: 0.25rem 0 0.25rem 1.5rem;
+  flex-wrap: wrap;
+  column-gap: 1rem;
 }
 
 .archive-item-link {
@@ -68,6 +70,7 @@
   color: $global-font-secondary-color;
   font-variant-numeric: tabular-nums;
   min-width: fit-content;
+  margin-left: auto;
 }
 
 .more-post {
