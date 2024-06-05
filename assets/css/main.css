@@ -833,6 +833,10 @@ html.dark {
   height: 2.5rem;
 }
 
+.tw-h-6 {
+  height: 1.5rem;
+}
+
 .\!tw-max-h-0 {
   max-height: 0px !important;
 }
@@ -935,6 +939,10 @@ html.dark {
 
 .tw-pt-32 {
   padding-top: 8rem;
+}
+
+.tw-align-text-bottom {
+  vertical-align: text-bottom;
 }
 
 .tw-text-fgColor-link-muted {

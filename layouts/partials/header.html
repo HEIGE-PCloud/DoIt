@@ -5,9 +5,9 @@
             <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                 {{- with .Site.Params.header.title -}}
                 {{- with .logo -}}
-                {{- dict "Src" . "Class" "logo" "Height" "36" "Width" "36" | partial "plugin/image.html" -}} {{- end -}}
+                {{- dict "Src" . "Class" "tw-inline-block tw-h-6 tw-align-text-bottom tw-mr-1" "Height" "36" "Width" "36" | partial "plugin/image.html" -}} {{- end -}}
                 {{- with .pre -}}
-                <span class="header-title-pre">{{ . | safeHTML }}</span>
+                <span class="tw-mr-1">{{ . | safeHTML }}</span>
                 {{- end -}}
                 {{- if .typeit -}}
                 {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial
@@ -18,7 +18,7 @@
                 {{- .name -}}
                 {{- end -}}
                 {{- with .post -}}
-                <span class="header-title-post">{{ . | safeHTML }}</span>
+                <span class="tw-mr-1">{{ . | safeHTML }}</span>
                 {{- end -}}
                 {{- else -}}
                 {{- .Site.Title -}}
@@ -108,10 +108,10 @@
                 <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                     {{- with .Site.Params.header.title -}}
                     {{- with .logo -}}
-                    {{- dict "Src" . "Class" "logo" | partial "plugin/image.html" -}}
+                    {{- dict "Src" . "Class" "tw-inline-block tw-h-6 tw-align-text-bottom tw-mr-1" "Height" "36" "Width" "36" | partial "plugin/image.html" -}}
                     {{- end -}}
                     {{- with .pre -}}
-                    <span class="header-title-pre">{{ . | safeHTML }}</span>
+                    <span class="tw-mr-1">{{ . | safeHTML }}</span>
                     {{- end -}}
                     {{- if .typeit -}}
                     {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "mobile-header-typeit" | partial
@@ -123,7 +123,7 @@
                     {{- .name -}}
                     {{- end -}}
                     {{- with .post -}}
-                    <span class="header-title-post">{{ . | safeHTML }}</span>
+                    <span class="tw-mr-1">{{ . | safeHTML }}</span>
                     {{- end -}}
                     {{- else -}}
                     {{- .Site.Title -}}
