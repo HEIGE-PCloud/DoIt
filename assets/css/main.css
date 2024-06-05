@@ -821,6 +821,10 @@ html.dark {
   display: inline-block;
 }
 
+.tw-inline {
+  display: inline;
+}
+
 .tw-flex {
   display: flex;
 }
@@ -831,10 +835,6 @@ html.dark {
 
 .tw-h-10 {
   height: 2.5rem;
-}
-
-.tw-h-6 {
-  height: 1.5rem;
 }
 
 .\!tw-max-h-0 {
