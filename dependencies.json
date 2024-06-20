@@ -103,7 +103,7 @@
         },
         {
             "name": "@artalk/plugin-lightbox",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "files": [
                 {
                     "remote": "dist/artalk-plugin-lightbox.js",
