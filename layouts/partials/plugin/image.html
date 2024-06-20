@@ -24,12 +24,15 @@ Parameters:
 - CacheRemote: Override the site parameter to cache remote images.
 */}}
 
-{{- $resource := (.Resources.Get .Src) | default (resources.Get .Src) | default nil -}}
+{{- $resource := dict -}}
+{{/*  Do not call resources.Get on remote resources. https://github.com/HEIGE-PCloud/DoIt/issues/1300  */}}
+{{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
+{{- if not $isUrlRemote -}}
+    {{- $resource = (.Resources.Get .Src) | default (resources.Get .Src) -}}
+{{- end -}}
 
 {{- $cacheRemote := .CacheRemote | default site.Params.image.cacheRemote | default false -}}
 {{- $optimise := .Optimise | default site.Params.image.optimise | default false -}}
-
-{{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
 
 {{- if not $resource | and $isUrlRemote | and $cacheRemote -}}
     {{- with $remoteResource := resources.GetRemote .Src -}}
