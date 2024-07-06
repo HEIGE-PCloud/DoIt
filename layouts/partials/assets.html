@@ -5,23 +5,20 @@
 
 {{- /* Search */ -}}
 {{- if .Site.Params.search | and .Site.Params.search.enable -}}
-    {{- $source := $cdn.autocompleteJS | default "lib/autocomplete/autocomplete.min.js" -}}
-    {{- $js := resources.Get $source -}}
-    {{- $config = dict "autocomplete.min.js" $js.RelPermalink | merge $config}}
+    {{- $src := cond (eq $cdn.autocompleteJS nil) (resources.Get "lib/autocomplete/autocomplete.min.js").RelPermalink $cdn.autocompleteJS -}}
+    {{- $config = dict "autocomplete.min.js" $src | merge $config}}
     {{- $search := .Site.Params.search -}}
     {{- $config = dict "maxResultLength" $search.maxResultLength "snippetLength" $search.snippetLength "highlightTag" $search.highlightTag "noResultsFound" (T "noResultsFound") | dict "search" | merge $config -}}
     {{- if eq $search.type "algolia" -}}
-        {{- $source := $cdn.algoliasearchJS | default "lib/algoliasearch/algoliasearch-lite.umd.min.js" -}}
-        {{- $js := resources.Get $source -}}
-        {{- $config = dict "algoliasearch.min.js" $js.RelPermalink | merge $config}}
+        {{- $src := cond (eq $cdn.algoliasearchJS nil) (resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js").RelPermalink $cdn.algoliasearchJS -}}
+        {{- $config = dict "algoliasearch.min.js" $src | merge $config}}
         {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
     {{- else -}}
         {{- with .Site.Home.OutputFormats.Get "json" -}}
             {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
         {{- end -}}
-        {{- $source := $cdn.fuseJS | default "lib/fuse/fuse.min.js" -}}
-        {{- $js := resources.Get $source -}}
-        {{- $config = dict "fuse.min.js" $js.RelPermalink | merge $config}}
+        {{- $src := cond (eq $cdn.fuseJS nil) (resources.Get "lib/fuse/fuse.min.js").RelPermalink $cdn.fuseJS -}}
+        {{- $config = dict "fuse.min.js" $src | merge $config}}
         {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
     {{- end -}}
 {{- end -}}
