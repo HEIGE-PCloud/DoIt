@@ -26,8 +26,8 @@ keywords = ["Theme", "Hugo"]
 # 搜索配置
 [search]
   enable = true
-  # type of search engine ("algolia", "fuse")
-  # 搜索引擎的类型 ("algolia", "fuse")
+  # type of search engine ("algolia", "fuse", "pagefind")
+  # 搜索引擎的类型 ("algolia", "fuse", "pagefind")
   type = "algolia"
   # max index length of the chunked content
   # 文章内容最长索引长度
@@ -40,7 +40,7 @@ keywords = ["Theme", "Hugo"]
   maxResultLength = 10
   # snippet length of the result
   # 结果内容片段长度
-  snippetLength = 300
+  snippetLength = 40
   # HTML tag name of the highlight part in results
   # 搜索结果中高亮部分的 HTML 标签
   highlightTag = "em"
@@ -62,6 +62,13 @@ keywords = ["Theme", "Hugo"]
     ignoreLocation = true
     useExtendedSearch = false
     ignoreFieldNorm = false
+  [search.pagefind]
+    # https://pagefind.app/docs/search-config/#available-options
+    # run `npx pagefind --site $YOUR_PUBLIC_DIR` after site build to create pagefind index
+    termFrequency = 1.0
+    pageLength = 0.75
+    termSimilarity = 1.0
+    termSaturation = 1.4
 # Home page config
 # 主页信息设置
 [home]

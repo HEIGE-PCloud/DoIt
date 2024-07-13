@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "twikoo",
-            "version": "1.6.38",
+            "version": "1.6.39",
             "files": [
                 {
                     "remote": "dist/twikoo.all.min.js",
@@ -71,7 +71,7 @@
         },
         {
             "name": "artalk",
-            "version": "2.8.7",
+            "version": "2.9.0",
             "files": [
                 {
                     "remote": "dist/Artalk.js",
@@ -93,7 +93,7 @@
         },
         {
             "name": "@artalk/plugin-katex",
-            "version": "0.1.9",
+            "version": "0.2.2",
             "files": [
                 {
                     "remote": "dist/artalk-plugin-katex.js",
@@ -103,7 +103,7 @@
         },
         {
             "name": "@artalk/plugin-lightbox",
-            "version": "0.2.1",
+            "version": "0.2.3",
             "files": [
                 {
                     "remote": "dist/artalk-plugin-lightbox.js",
@@ -123,7 +123,7 @@
         },
         {
             "name": "typeit",
-            "version": "8.8.3",
+            "version": "8.8.4",
             "files": [
                 {
                     "remote": "dist/index.umd.min.js",

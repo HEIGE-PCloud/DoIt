@@ -13,13 +13,17 @@
         {{- $src := cond (eq $cdn.algoliasearchJS nil) (resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js").RelPermalink $cdn.algoliasearchJS -}}
         {{- $config = dict "algoliasearch.min.js" $src | merge $config}}
         {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
-    {{- else -}}
+    {{- else if eq $search.type "fuse" -}}
         {{- with .Site.Home.OutputFormats.Get "json" -}}
             {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
         {{- end -}}
         {{- $src := cond (eq $cdn.fuseJS nil) (resources.Get "lib/fuse/fuse.min.js").RelPermalink $cdn.fuseJS -}}
         {{- $config = dict "fuse.min.js" $src | merge $config}}
         {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
+    {{- else -}}
+        {{- $config = dict "type" "pagefind" "termFrequency" $search.pagefind.termFrequency "pageLength" $search.pagefind.pageLength "termSimilarity" $search.pagefind.termSimilarity "termSaturation" $search.termSaturation  | dict "search" | merge $config -}}
+        {{- $src := "/pagefind/pagefind.js" -}}
+        {{- $config = dict "pagefind.js" $src | merge $config}}
     {{- end -}}
 {{- end -}}
 

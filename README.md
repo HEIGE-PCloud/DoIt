@@ -57,7 +57,7 @@ To see this theme in action, here is a live [demo site](https://hugodoit.pages.d
 * Some beautiful **CSS animations**
 * Easy-to-use and self-expanding **table of contents**
 * More **social links**, **share sites** and **comment system**
-* **Search** supported by [algolia](https://www.algolia.com/) or [Fuse.js](https://fusejs.io/)
+* **Search** supported by [algolia](https://www.algolia.com/), [Fuse.js](https://fusejs.io/) or [Pagefind](https://pagefind.app)
 * **Copy code** to clipboard with one click
 * Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
 * Extended Markdown syntax for **ruby annotation**
