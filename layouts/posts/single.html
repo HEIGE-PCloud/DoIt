@@ -117,7 +117,7 @@
                 {{- end -}}
                 {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.pageview -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="leancloud-visitors-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
+                        {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "eye") }}&nbsp;<span class="artalk-pv-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                  {{- end -}}
 

@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "twikoo",
-            "version": "1.6.36",
+            "version": "1.6.38",
             "files": [
                 {
                     "remote": "dist/twikoo.all.min.js",
@@ -17,7 +17,7 @@
         },
         {
             "name": "@waline/client",
-            "version": "3.2.2",
+            "version": "3.3.0",
             "files": [
                 {
                     "remote": "dist/waline.css",
@@ -31,7 +31,7 @@
         },
         {
             "name": "katex",
-            "version": "0.16.10",
+            "version": "0.16.11",
             "files": [
                 {
                     "remote": "dist/katex.min.js",
@@ -57,7 +57,7 @@
         },
         {
             "name": "echarts",
-            "version": "5.5.0",
+            "version": "5.5.1",
             "files": [
                 {
                     "remote": "dist/echarts.min.js",
@@ -103,7 +103,7 @@
         },
         {
             "name": "@artalk/plugin-lightbox",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "files": [
                 {
                     "remote": "dist/artalk-plugin-lightbox.js",

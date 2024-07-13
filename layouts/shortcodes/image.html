@@ -9,8 +9,6 @@
 -}}
 {{- $options = dict "OptimConfig" $optim | merge $options -}}
 {{- $options = dict "Loading" "lazy" | merge $options -}}
-{{- $options = dict "Sizes" "auto" | merge $options -}}
-
 
 {{- if .IsNamedParams -}}
     {{- $options = dict "Title" (.Get "title") | merge $options -}}
