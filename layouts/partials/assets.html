@@ -15,13 +15,20 @@
         {{- $js := resources.Get $source -}}
         {{- $config = dict "algoliasearch.min.js" $js.RelPermalink | merge $config}}
         {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
-    {{- else -}}
+    {{- else if eq $search.type "fuse" -}}
         {{- with .Site.Home.OutputFormats.Get "json" -}}
             {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
         {{- end -}}
         {{- $source := $cdn.fuseJS | default "lib/fuse/fuse.min.js" -}}
         {{- $js := resources.Get $source -}}
         {{- $config = dict "fuse.min.js" $js.RelPermalink | merge $config}}
+        {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
+    {{- else -}}
+      {{- with .Site.Home.OutputFormats.Get "json" -}}
+            {{- $config = dict "type" "pagefind" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
+        {{- end -}}
+        {{- $source := "/pagefind/pagefind.js" -}}
+        {{- $config = dict "pagefind.js" "/pagefind/pagefind.js" | merge $config}}
         {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
     {{- end -}}
 {{- end -}}

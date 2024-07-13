@@ -26,9 +26,9 @@ keywords = ["Theme", "Hugo"]
 # 搜索配置
 [search]
   enable = true
-  # type of search engine ("algolia", "fuse")
-  # 搜索引擎的类型 ("algolia", "fuse")
-  type = "algolia"
+  # type of search engine ("algolia", "fuse", "pagefind")
+  # 搜索引擎的类型 ("algolia", "fuse", "pagefind")
+  type = "pagefind"
   # max index length of the chunked content
   # 文章内容最长索引长度
   contentLength = 4000
