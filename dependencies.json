@@ -123,7 +123,7 @@
         },
         {
             "name": "typeit",
-            "version": "8.8.3",
+            "version": "8.8.4",
             "files": [
                 {
                     "remote": "dist/index.umd.min.js",
