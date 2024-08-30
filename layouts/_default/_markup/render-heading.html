@@ -15,7 +15,7 @@
 {{- end -}}
 
 <h{{ .Level }} id="{{ .Anchor | safeURL }}" class="headerLink">
-    <a href="#{{ .Anchor | safeURL }}" class="header-mark" aria-label="Header mark for '{{ .Text }}'"></a>
+    <a href="#{{ .Anchor | safeURL }}" class="header-mark"></a>
     {{- if $isEnable -}}
 
         {{/* Add 1 to the current level */}}
