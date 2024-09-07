@@ -96,7 +96,9 @@
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "pencil-alt") }}&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 {{- end -}}
                 {{- if $params.enableReadingTime | default true -}}
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "clock") }}&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                    {{ $reading_speed := .Site.Params.reading_speed | default 228 -}}
+                    {{ $readingTime := int (math.Ceil (div (float .WordCount) $reading_speed)) }}
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "clock") }}&nbsp;{{ T "readingTime" $readingTime }}&nbsp;
                 {{- end -}}
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
                 {{- /* Visitor Count */ -}}
