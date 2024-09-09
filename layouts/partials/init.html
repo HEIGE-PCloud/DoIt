@@ -53,6 +53,10 @@
     {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n\n" -}}
 {{- end -}}
 
+{{- if eq .Site.Params.search.type "pagefind" -}}
+    {{- warnf "Run `npx pagefind --site $YOUR_PUBLIC_DIR` after site build to create pagefind index" -}}
+{{- end -}}
+
 {{- .Scratch.Set "params" $params -}}
 {{- .Scratch.Set "this" dict -}}
 

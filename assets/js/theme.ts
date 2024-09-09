@@ -176,6 +176,16 @@ function initSearch() {
   const ignoreFieldNorm = searchConfig.ignoreFieldNorm
     ? searchConfig.ignoreFieldNorm
     : false;
+  const termFrequency = searchConfig.termFrequency
+    ? searchConfig.termFrequency
+    : 1.0;
+  const pageLength = searchConfig.pageLength ? searchConfig.pageLength : 0.75;
+  const termSimilarity = searchConfig.termSimilarity
+    ? searchConfig.termSimilarity
+    : 1.0;
+  const termSaturation = searchConfig.termSaturation
+    ? searchConfig.termSaturation
+    : 1.4;
   const suffix = isMobile ? "mobile" : "desktop";
   const header = document.getElementById(`header-${suffix}`);
   const searchInput = document.getElementById(`search-input-${suffix}`);
@@ -184,6 +194,7 @@ function initSearch() {
   const searchClear = document.getElementById(`search-clear-${suffix}`);
   const autocompleteJs = window.config["autocomplete.min.js"];
   const algoliaJs = window.config["algoliasearch.min.js"];
+  const pagefindJs = window.config["pagefind.js"];
   const fuseJs = window.config["fuse.min.js"];
   if (isMobile) {
     window._searchMobileOnce = true;
@@ -195,8 +206,10 @@ function initSearch() {
       });
       if (window.config?.search?.type === "algolia") {
         loadScript("algolia-script", algoliaJs, null);
-      } else {
+      } else if (window.config?.search?.type === "fuse") {
         loadScript("fuse-script", fuseJs, null);
+      } else {
+        loadPagefind();
       }
       document.body.classList.add("blur");
       header.classList.add("open");
@@ -243,8 +256,10 @@ function initSearch() {
       });
       if (window.config?.search?.type === "algolia") {
         loadScript("algolia-script", algoliaJs, null);
-      } else {
+      } else if (window.config?.search?.type === "fuse") {
         loadScript("fuse-script", fuseJs, null);
+      } else {
+        loadPagefind();
       }
       document.body.classList.add("blur");
       header.classList.add("open");
@@ -346,7 +361,7 @@ function initSearch() {
           } else if (searchConfig.type === "fuse") {
             const search = () => {
               const results = {};
-              window._index
+              window._fuseIndex
                 .search(query)
                 .forEach(({ item, refIndex, matches }) => {
                   let title = item.title;
@@ -397,9 +412,10 @@ function initSearch() {
                     context: content,
                   };
                 });
+              console.log(results);
               return Object.values(results).slice(0, maxResultLength);
             };
-            if (!window._index) {
+            if (!window._fuseIndex) {
               fetch(searchConfig.fuseIndexURL)
                 .then((response) => response.json())
                 .then((data) => {
@@ -418,7 +434,7 @@ function initSearch() {
                     includeMatches: true,
                     keys: ["content", "title"],
                   };
-                  window._index = new Fuse(data, options);
+                  window._fuseIndex = new Fuse(data, options);
                   finish(search());
                 })
                 .catch((err) => {
@@ -426,6 +442,44 @@ function initSearch() {
                   finish([]);
                 });
             } else finish(search());
+          } else {
+            if (window._pgfIndex === undefined) {
+              loadPagefind();
+            }
+            window._pgfIndex.debouncedSearch(query, 300).then((resp) => {
+              if (resp === null || !("results" in resp)) {
+                finish([]);
+                return;
+              }
+              Promise.all(
+                resp.results.slice(0, maxResultLength).map((r) => r.data()),
+              ).then((res) => {
+                const results = {};
+                for (const r of res) {
+                  for (const _r of r.sub_results) {
+                    if (
+                      _r.url === undefined ||
+                      !("anchor" in _r) ||
+                      _r.anchor.element != "h2"
+                    )
+                      continue;
+                    results[_r.url] = {
+                      uri: _r.url,
+                      title: r.meta.title,
+                      date: r.meta.date,
+                      context:
+                        highlightTag === "mark"
+                          ? _r.excerpt
+                          : _r.excerpt.replace(
+                              /<mark>(.*?)<\/mark>/gi,
+                              `<${highlightTag}>$1</${highlightTag}>`,
+                            ),
+                    };
+                  }
+                }
+                finish(Object.values(results));
+              });
+            });
           }
         },
         templates: {
@@ -441,11 +495,17 @@ function initSearch() {
                     icon: '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M229.3 182.6c-49.3 0-89.2 39.9-89.2 89.2 0 49.3 39.9 89.2 89.2 89.2s89.2-39.9 89.2-89.2c0-49.3-40-89.2-89.2-89.2zm62.7 56.6l-58.9 30.6c-1.8.9-3.8-.4-3.8-2.3V201c0-1.5 1.3-2.7 2.7-2.6 26.2 1 48.9 15.7 61.1 37.1.7 1.3.2 3-1.1 3.7zM389.1 32H58.9C26.4 32 0 58.4 0 90.9V421c0 32.6 26.4 59 58.9 59H389c32.6 0 58.9-26.4 58.9-58.9V90.9C448 58.4 421.6 32 389.1 32zm-202.6 84.7c0-10.8 8.7-19.5 19.5-19.5h45.3c10.8 0 19.5 8.7 19.5 19.5v15.4c0 1.8-1.7 3-3.3 2.5-12.3-3.4-25.1-5.1-38.1-5.1-13.5 0-26.7 1.8-39.4 5.5-1.7.5-3.4-.8-3.4-2.5v-15.8zm-84.4 37l9.2-9.2c7.6-7.6 19.9-7.6 27.5 0l7.7 7.7c1.1 1.1 1 3-.3 4-6.2 4.5-12.1 9.4-17.6 14.9-5.4 5.4-10.4 11.3-14.8 17.4-1 1.3-2.9 1.5-4 .3l-7.7-7.7c-7.6-7.5-7.6-19.8 0-27.4zm127.2 244.8c-70 0-126.6-56.7-126.6-126.6s56.7-126.6 126.6-126.6c70 0 126.6 56.6 126.6 126.6 0 69.8-56.7 126.6-126.6 126.6z"/></svg>',
                     href: "https://www.algolia.com/",
                   }
-                : {
-                    searchType: "Fuse.js",
-                    icon: "",
-                    href: "https://fusejs.io/",
-                  };
+                : searchConfig.type === "fuse"
+                  ? {
+                      searchType: "Fuse.js",
+                      icon: "",
+                      href: "https://fusejs.io/",
+                    }
+                  : {
+                      searchType: "pagefind",
+                      icon: "",
+                      href: "https://pagefind.app",
+                    };
             return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;
           },
         },
@@ -469,6 +529,22 @@ function initSearch() {
       script.onload = onload;
       head.appendChild(script);
     }
+  }
+  function loadPagefind() {
+    import(pagefindJs).then((p) => {
+      window._pgfIndex = p;
+      window._pgfIndex
+        .options({
+          excerptLength: snippetLength,
+          termFrequency: termFrequency,
+          pageLength: pageLength,
+          termSimilarity: termSimilarity,
+          termSaturation: termSaturation,
+        })
+        .then(() => {
+          window._pgfIndex.init();
+        });
+    });
   }
 }
 
@@ -540,7 +616,9 @@ function initToc() {
     const toc = document.getElementById("toc-auto");
     const tocLinkElements = tocCore.querySelectorAll("a:first-child");
     const tocLiElements = tocCore.getElementsByTagName("li");
-    const headerLinkElements = document.getElementsByClassName("headerLink") as HTMLCollectionOf<HTMLHeadingElement>;
+    const headerLinkElements = document.getElementsByClassName(
+      "headerLink",
+    ) as HTMLCollectionOf<HTMLHeadingElement>;
     const headerIsFixed =
       document.body.getAttribute("header-desktop") !== "normal";
     const headerHeight = document.getElementById("header-desktop").offsetHeight;

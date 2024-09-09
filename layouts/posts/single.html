@@ -34,7 +34,7 @@
 
     <article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0">
         {{- /* Title */ -}}
-        <h1 class="single-title">{{ .Title }}</h1>
+        <h1 class="single-title" data-pagefind-meta="date:{{- .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}" data-pagefind-body>{{ .Title }}</h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
@@ -205,7 +205,7 @@
         {{- end -}}
 
         {{- /* Content */ -}}
-        <div class="content" id="content">
+        <div class="content" id="content" data-pagefind-body>
             {{- /* Outdated Article Reminder */ -}}
             {{- partial "single/outdatedArticleReminder.html" . -}}
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}

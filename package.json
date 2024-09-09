@@ -11,6 +11,7 @@
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
     "server:tailwind": "npx tailwindcss --watch -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "algolia": "atomic-algolia",
+    "pagefind": "npx pagefind --site ./exampleSite/public",
     "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "format": "npx prettier . --write"
   },
