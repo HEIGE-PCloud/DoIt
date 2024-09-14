@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "devDependencies": {
-    "concurrently": "^9.0.0",
+    "concurrently": "^9.0.1",
     "tailwindcss": "^3.4.10"
   },
   "dependencies": {
