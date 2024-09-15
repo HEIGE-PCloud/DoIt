@@ -24,10 +24,14 @@ Parameters:
 - CacheRemote: Override the site parameter to cache remote images.
 */}}
 
+{{- $isInlineImage := strings.HasPrefix .Src "data:image" -}}
+
 {{- $resource := dict -}}
-{{/*  Do not call resources.Get on remote resources. https://github.com/HEIGE-PCloud/DoIt/issues/1300  */}}
+{{/*  Do not call resources.Get on remote resources. https://github.com/HEIGE-PCloud/DoIt/issues/1300
+      Do not call try to get a resource if the image is inline. https://github.com/HEIGE-PCloud/DoIt/issues/1345
+*/}}
 {{- $isUrlRemote := urls.Parse .Src | partial "function/isUrlRemote.html" -}}
-{{- if not $isUrlRemote -}}
+{{- if not $isUrlRemote | and (not $isInlineImage) -}}
     {{- $resource = (.Resources.Get .Src) | default (resources.Get .Src) -}}
 {{- end -}}
 
@@ -67,7 +71,7 @@ Parameters:
 {{- if .Linked -}}
 <a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
 {{- end -}}
-<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} src="{{ $src }}" {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} {{ print "src=" $src | safeHTMLAttr }} {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
 {{- if .Linked -}}
 </a>
 {{- end -}}
