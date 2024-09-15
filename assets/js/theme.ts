@@ -4,6 +4,11 @@ export {};
 declare global {
   interface Window {
     isDark: boolean;
+    config?: {
+      table?: {
+        sort?: boolean;
+      }
+    }
   }
 }
 
@@ -587,16 +592,10 @@ function initLightGallery() {
   }
 }
 
-function initTable() {
-  forEach(document.querySelectorAll(".content table"), ($table) => {
-    const $wrapper = document.createElement("div");
-    $wrapper.className = "table-wrapper";
-    $table.parentElement.replaceChild($wrapper, $table);
-    $wrapper.appendChild($table);
-    if (window.config?.table?.sort) {
-      new Tablesort($table);
-    }
-  });
+function initTablesort() {
+  if (window.config?.table?.sort) {
+    document.querySelectorAll(".content table").forEach((table) => new Tablesort(table));
+  }
 }
 
 function initToc() {
@@ -952,7 +951,7 @@ function init() {
   initCodeblocks();
   initDetails();
   initLightGallery();
-  initTable();
+  initTablesort();
   initTypeit();
   initMapbox();
   initToc();
