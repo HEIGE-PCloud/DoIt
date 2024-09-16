@@ -41,7 +41,7 @@
                 {{- if .Site.Menus.main -}}
                 <span class="menu-item delimiter"></span>
                 {{- end -}}
-                {{- if .Site.IsMultiLingual -}}
+                {{- if hugo.IsMultilingual -}}
                 <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
                     {{- .Language.LanguageName -}}
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
@@ -181,7 +181,7 @@
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
             </button>
             {{- end -}}
-            {{- if .Site.IsMultiLingual -}}
+            {{- if hugo.IsMultilingual -}}
             <button class="menu-item tw-w-full" title="{{ T " selectLanguage" }}">
                 {{- .Language.LanguageName -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
