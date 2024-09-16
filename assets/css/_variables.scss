@@ -201,6 +201,8 @@ $admonition-color-map: (
   "bug": #f50057,
   "example": #651fff,
   "quote": #9e9e9e,
+  "important": #8957e5,
+  "caution": #da3633,
 ) !default;
 
 // Color map of the admonition background
@@ -217,6 +219,8 @@ $admonition-background-color-map: (
   "bug": rgba(245, 0, 87, 0.1),
   "example": rgba(101, 31, 255, 0.1),
   "quote": rgba(159, 159, 159, 0.1),
+  "important": rgba(137, 87, 229, 0.1),
+  "caution": rgba(218, 54, 51, 0.1),
 ) !default;
 // ========== Friend Link ========== //
 // Color of friend link background
