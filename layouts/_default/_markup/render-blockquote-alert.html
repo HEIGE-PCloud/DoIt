@@ -1,0 +1,3 @@
+{{- partial "plugin/admonitionPre.html" (dict "Type" .AlertType "Title" (.AlertTitle | default (strings.FirstUpper .AlertType)) "Open" (not (eq .AlertSign "-"))) -}}
+{{- .Text -}}
+{{- partial "plugin/admonitionPost.html" -}}
