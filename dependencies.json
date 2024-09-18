@@ -93,7 +93,7 @@
         },
         {
             "name": "@artalk/plugin-katex",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "files": [
                 {
                     "remote": "dist/artalk-plugin-katex.js",
