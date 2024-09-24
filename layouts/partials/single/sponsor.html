@@ -1,6 +1,6 @@
 {{- $enable := .Params.sponsor.enable | default .Site.Params.sponsor.enable -}}
-{{- $avatar := .Site.Author.avatar -}}
-{{- with .Site.Author.gravataremail -}}
+{{- $avatar := .Site.Params.Author.avatar -}}
+{{- with .Site.Params.Author.gravataremail -}}
     {{- $avatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
 {{- end -}}
 {{- $bio := .Params.sponsor.bio | default .Site.Params.sponsor.bio -}}

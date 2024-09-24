@@ -43,7 +43,7 @@
 
                 {{- /* Author */ -}}
                 {{- if ne .Site.Params.footer.author false -}}
-                    <span class="author">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{ .Site.Author.name }}</a></span>
+                    <span class="author">&nbsp;<a href="{{ $.Site.Params.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{ .Site.Params.Author.name }}</a></span>
                 {{- end -}}
 
                 {{- /* License */ -}}

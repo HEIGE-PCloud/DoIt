@@ -222,9 +222,16 @@ Please open the code block below to view the complete sample configuration {{< f
   srcsetSmallResizeMethod = "700x webp Lanczos q75"
   srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
   srcsetLargeResizeMethod = "2000x webp Lanczos q75"
-  # {{< version 0.2.0 >}} App icon config
   # {{< version 0.2.14 >}} License information
   license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  # Author config
+  [params.author]
+    name = "xxxx"
+    email = ""
+    link = ""
+    avatar = ""
+    gravatarEmail = ""
+  # {{< version 0.2.0 >}} App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
     title = "DoIt"
@@ -867,14 +874,6 @@ Please open the code block below to view the complete sample configuration {{< f
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 6
-
-# Author config
-[author]
-  name = "xxxx"
-  email = ""
-  link = ""
-  avatar = ""
-  gravatarEmail = ""
 
 # Sitemap config
 [sitemap]

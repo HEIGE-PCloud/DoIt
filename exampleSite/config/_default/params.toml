@@ -28,6 +28,13 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://cr
 # [Experimental] Bundle js
 bundle = false
 
+[author]
+  name = "PCloud"
+  email = "heige.pcloud@outlook.com"
+  link = "https://github.com/HEIGE-PCloud"
+  avatar = "/images/avatar.webp"
+  gravatarEmail = "heige.pcloud@outlook.com"
+
 [image]
   # cache remote images for better optimisations
   # 缓存图片链接到本地

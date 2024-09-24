@@ -29,13 +29,13 @@
         {{- end -}}
     </span>
 {{- else -}}
-    {{- $author := .Params.author | default .Site.Author.name | default (T "author") -}}
-    {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+    {{- $author := .Params.author | default .Site.Params.Author.name | default (T "author") -}}
+    {{- $link := .Params.authorlink | default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
     {{- $gravatar := 0 -}}
-    {{- with .Site.Author.gravataremail -}}
+    {{- with .Site.Params.Author.gravataremail -}}
         {{- $gravatar = md5 . | printf "https://www.gravatar.com/avatar/%v?s=240&d=mp" -}}
     {{- end -}}
-    {{- $avatar := .Params.authoravatar | default .Site.Author.avatar | default $gravatar | default false -}}
+    {{- $avatar := .Params.authoravatar | default .Site.Params.Author.avatar | default $gravatar | default false -}}
     {{- $options := dict "Class" "author" "Destination" $link "Title" "Author" "Rel" "author" "Content" $author -}}
     {{- if $avatar -}}
         {{- dict "Width" "16" "Height" "16" "Src" $avatar "Alt" (printf "%v avatar" $author) "OptimConfig" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1" | partial "plugin/image.html" -}}

@@ -227,6 +227,13 @@ optimizeImages = true
   srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # {{< version 0.2.14 >}} 版权信息
   license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  # 作者配置
+  [params.author]
+    name = "xxxx"
+    email = ""
+    link = ""
+    avatar = ""
+    gravatarEmail = ""
   # {{< version 0.2.0 >}} 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
@@ -869,14 +876,6 @@ optimizeImages = true
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 6
-
-# 作者配置
-[author]
-  name = "xxxx"
-  email = ""
-  link = ""
-  avatar = ""
-  gravatarEmail = ""
 
 # 网站地图配置
 [sitemap]

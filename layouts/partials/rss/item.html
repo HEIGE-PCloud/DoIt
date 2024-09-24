@@ -1,4 +1,4 @@
-{{- $params := .Page.Params | merge .Site.Params.Page | merge (dict "author" .Site.Author.name) -}}
+{{- $params := .Page.Params | merge .Site.Params.Page | merge (dict "author" .Site.Params.Author.name) -}}
 {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
 {{- with .Page.Resources.GetMatch (printf "%s" ($image)) -}}
     {{- $image = .RelPermalink -}}

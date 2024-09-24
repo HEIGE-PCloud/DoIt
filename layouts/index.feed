@@ -10,10 +10,10 @@
     {{ end -}}
     "icon" : "{{ `/apple-touch-icon.png` | absURL }}",
     "favicon" : "{{ `/favicon.ico` | absURL }}",
-    {{ with .Site.Author.name -}}
+    {{ with .Site.Params.Author.name -}}
     "author" : {
-        "name" : "{{ . }}"{{ with $.Site.Author.link }},
-        "url": "{{ . }}"{{ end }}{{ with $.Site.Author.avatar }},
+        "name" : "{{ . }}"{{ with $.Site.Params.Author.link }},
+        "url": "{{ . }}"{{ end }}{{ with $.Site.Params.Author.avatar }},
         "avatar": "{{ . | absURL }}"{{ end }}
     },
     {{ end -}}
