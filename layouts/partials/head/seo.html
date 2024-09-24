@@ -92,7 +92,7 @@
         {{- with .Site.Copyright -}}
             "license": {{ . | safeHTML }},
         {{- end -}}
-        {{- $publisher := .Params.author | default .Site.Author.name | default (T "author") | dict "name" -}}
+        {{- $publisher := .Params.author | default .Site.Params.Author.name | default (T "author") | dict "name" -}}
         {{- $publisher = $params.seo.publisher | default dict | merge $publisher -}}
         "publisher": {
             "@type": "Organization",
@@ -137,8 +137,8 @@
         {{- end -}}
         ],
         {{- else -}}
-            {{- $link := .Params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
-            {{- with .Params.author | default .Site.Author.name | default (T "author") -}}
+            {{- $link := .Params.authorlink | default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
+            {{- with .Params.author | default .Site.Params.Author.name | default (T "author") -}}
             "author": {
                 "@type": "Person",
                 "name": {{ . | safeHTML }},
@@ -171,7 +171,7 @@
                 {{- with .Site.LanguageCode -}}
                     "inLanguage": "{{ . }}",
                 {{- end -}}
-                {{- with .Site.Author.name -}}
+                {{- with .Site.Params.Author.name -}}
                     "author": {
                         "@type": "Person",
                         "name": {{ . | safeHTML }}
@@ -216,10 +216,10 @@
                         "@type": "Person",
                         "name": {{ .Site.Params.footer.author | safeHTML }}
                     },
-                {{- else if .Site.Author.name -}}
+                {{- else if .Site.Params.Author.name -}}
                     "copyrightHolder": {
                         "@type": "Person",
-                        "name": {{ .Site.Author.name | safeHTML }}
+                        "name": {{ .Site.Params.Author.name | safeHTML }}
                     },
                 {{- end -}}
                 "name": {{ .Site.Title | safeHTML }}
