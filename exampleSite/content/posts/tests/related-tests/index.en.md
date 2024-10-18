@@ -14,7 +14,6 @@ hiddenFromHomePage: true
 hiddenFromSearch: true
 related:
     enable: true
-    count: 2
 ---
 
 <!--more-->

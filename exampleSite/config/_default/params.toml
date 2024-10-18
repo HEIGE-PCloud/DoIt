@@ -508,7 +508,6 @@ bundle = false
   # 相关文章推荐配置
   [page.related]
     enable = true
-    count = 5
 
 # Sponsor config
 # 赞助设置

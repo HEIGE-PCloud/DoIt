@@ -1,52 +1,103 @@
 .related-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 800px;
   width: 100%;
-  height: 280px;
+  padding: 1rem;
+}
 
-  .related-item-container {
-    flex-basis: 350px;
-    flex-grow: 1;
-    flex-shrink: 1;
-    height: 270px;
-    min-width: 300px;
-    margin-right: 20px;
-    background: $related-background-color;
-    position: relative;
+.related-item-container {
+  flex: 1;
+  min-width: 0; /* 允许flex项目缩小到比内容更小 */
+  background-color: $related-background-color;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  aspect-ratio: 2 / 1.5; /* 设置固定的宽高比 */
+}
+
+.related-item-container:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  h2.related-title {
+    color: $related-hover-color;
   }
+}
 
-  .related-image {
-    @include transition(transform 0.4s ease);
+.related-item-container > a {
+  // display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: $related-color;
+}
 
-    img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.related-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%; /* 保持 2:1 的宽高比 */
+  position: relative;
+  overflow: hidden;
+}
 
-    &:hover {
-      @include transform(scale(1.01));
-    }
+.related-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-title {
+  font-size: 0.9rem;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+
+/* 有图片时的标题样式 */
+.related-item-container:has(.related-image) .related-title {
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+
+/* 没有图片时的标题样式 */
+.related-item-container:not(:has(.related-image)) .related-title {
+display: -webkit-box;
+-webkit-line-clamp: 3; /* 显示3行 */
+-webkit-box-orient: vertical;
+max-height: 6.95em; /* 大约3行的高度，根据实际情况调整 */
+}
+
+/* 当没有图片时，确保整个区域可点击 */
+.related-item-container:not(:has(.related-image)) > a {
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .related-container {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.5rem;
   }
-
+  
   .related-title {
-    position: absolute;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    top: 210px;
-    width: 95%;
-    margin: 10px;
-    font-size: 1.25rem;
-    line-height: 140%;
+      font-size: 0.8rem;
   }
+}
 
-  .related-title a {
-    color: $related-color;
-
-    &:hover {
-      color: $related-hover-color;
-    }
+@media (max-width: 480px) {
+  .related-container {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+  }
+  
+  .related-title {
+      font-size: 0.7rem;
   }
 }
