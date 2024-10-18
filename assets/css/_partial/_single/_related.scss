@@ -3,19 +3,17 @@
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 2rem;
-  max-width: 800px;
-  width: 100%;
-  padding: 1rem;
+  // margin-top: 2rem;
+  padding: 0.8rem;
 }
 
 .related-item-container {
   flex: 1;
   min-width: 0; /* 允许flex项目缩小到比内容更小 */
   background-color: $related-background-color;
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--shadow-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @include border-radius(0.25rem);
+  @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  @include transition(transform 0.3s ease, box-shadow 0.3s ease);
   overflow: hidden;
   display: flex;
   aspect-ratio: 2 / 1.5; /* 设置固定的宽高比 */
@@ -23,9 +21,9 @@
 
 .related-item-container:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+  @include box-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   h2.related-title {
-    color: $related-hover-color;
+    color: $global-link-hover-color;
   }
 }
 
@@ -56,15 +54,15 @@
 }
 
 .related-title {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0.5rem;
   overflow: hidden;
 }
 
 /* 有图片时的标题样式 */
 .related-item-container:has(.related-image) .related-title {
-white-space: nowrap;
-text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* 没有图片时的标题样式 */
@@ -87,7 +85,7 @@ max-height: 6.95em; /* 大约3行的高度，根据实际情况调整 */
   }
   
   .related-title {
-      font-size: 0.8rem;
+      font-size: 1rem;
   }
 }
 
@@ -98,6 +96,6 @@ max-height: 6.95em; /* 大约3行的高度，根据实际情况调整 */
   }
   
   .related-title {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
   }
 }
