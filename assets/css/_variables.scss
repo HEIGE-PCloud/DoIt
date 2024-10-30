@@ -4,8 +4,7 @@
 
 // ========== Global ========== //
 // Font and Line Height
-$global-font-family:
-  system-ui,
+$global-font-family: system-ui,
   -apple-system,
   BlinkMacSystemFont,
   PingFang SC,
@@ -21,7 +20,7 @@ $global-font-family:
   Helvetica,
   Arial,
   sans-serif !default;
-$global-font-size: 16px;
+$global-font-size: 20px;
 $global-font-weight: 400;
 $global-line-height: 1.5rem;
 
@@ -112,9 +111,7 @@ $code-background-color: var(--code-background-color) !default;
 $code-header-color: var(--code-header-color) !default;
 $code-background-color-darken-5: var(--code-background-color-darken-5) !default;
 $code-background-color-darken-6: var(--code-background-color-darken-6) !default;
-$code-background-color-code-header: var(
-  --code-background-color-code-header
-) !default;
+$code-background-color-code-header: var(--code-background-color-code-header) !default;
 $code-background-color-code-hl: var(--code-background-color-code-hl) !default;
 
 $code-info-color: var(--code-info-color) !default;
@@ -123,8 +120,7 @@ $code-info-color: var(--code-info-color) !default;
 $code-font-size: 0.875rem !default;
 
 // Font family of the code
-$code-font-family:
-  Source Code Pro,
+$code-font-family: Source Code Pro,
   Menlo,
   Consolas,
   Monaco,
@@ -182,7 +178,7 @@ $code-type-map: (
   language-vue: "Vue",
   language-yml: "YAML",
   language-yaml: "YAML"
-) !default;
+  ) !default;
 
 // ========== Code ========== //
 
@@ -203,7 +199,7 @@ $admonition-color-map: (
   "quote": #9e9e9e,
   "important": #8957e5,
   "caution": #da3633,
-) !default;
+  ) !default;
 
 // Color map of the admonition background
 $admonition-background-color-map: (
@@ -221,7 +217,7 @@ $admonition-background-color-map: (
   "quote": rgba(159, 159, 159, 0.1),
   "important": rgba(137, 87, 229, 0.1),
   "caution": rgba(218, 54, 51, 0.1),
-) !default;
+  ) !default;
 // ========== Friend Link ========== //
 // Color of friend link background
 $friend-link-background-color: var(--friend-link-background-color) !default;
@@ -235,14 +231,10 @@ $friend-link-hover-color: var(--friend-link-hover-color) !default;
 
 // ========== Sponsor Button ========== //
 // Sponsor button background color
-$sponsor-button-background-color: var(
-  --sponsor-button-background-color
-) !default;
+$sponsor-button-background-color: var(--sponsor-button-background-color) !default;
 
 // Sponsor button background color while in the :hover state
-$sponsor-button-hover-background-color: var(
-  --sponsor-button-hover-background-color
-) !default;
+$sponsor-button-hover-background-color: var(--sponsor-button-hover-background-color) !default;
 // ========== Sponsor Button ========== //
 
 // ========== Cookie Consent ========== //
