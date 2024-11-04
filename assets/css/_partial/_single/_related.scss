@@ -54,8 +54,8 @@
 }
 
 .related-title {
-  font-size: 1rem;
-  margin: 0.5rem;
+  font-size: 0.85rem;
+  margin: 0.3rem;
   overflow: hidden;
 }
 
@@ -67,10 +67,14 @@
 
 /* 没有图片时的标题样式 */
 .related-item-container:not(:has(.related-image)) .related-title {
-display: -webkit-box;
--webkit-line-clamp: 3; /* 显示3行 */
--webkit-box-orient: vertical;
-max-height: 6.95em; /* 大约3行的高度，根据实际情况调整 */
+  // display: -webkit-box;
+  // -webkit-line-clamp: 5; /* 显示5行 */
+  // -webkit-box-orient: vertical;
+  // max-height: 7.8em; /* 大约5行的高度，根据实际情况调整 */
+  display: flex; /* 使用标准的 Flexbox */
+  flex-direction: column; /* 垂直方向排列 */
+  overflow: hidden; /* 隐藏超出部分 */
+  line-height: 1.5em;
 }
 
 /* 当没有图片时，确保整个区域可点击 */
