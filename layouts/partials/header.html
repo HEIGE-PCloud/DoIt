@@ -4,8 +4,9 @@
         <div class="header-title">
             <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                 {{- with .Site.Params.header.title -}}
+                {{- $alt := .name | default $.Site.Title -}}
                 {{- with .logo -}}
-                {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" | partial "plugin/image.html" -}} {{- end -}}
+                {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" "Alt" $alt | partial "plugin/image.html" -}} {{- end -}}
                 {{- with .pre -}}
                 <span class="tw-mr-1">{{ . | safeHTML }}</span>
                 {{- end -}}
@@ -107,8 +108,9 @@
             <div class="header-title">
                 <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                     {{- with .Site.Params.header.title -}}
+                    {{- $alt := .name | default $.Site.Title -}}
                     {{- with .logo -}}
-                    {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" | partial "plugin/image.html" -}}
+                    {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" "Alt" $alt | partial "plugin/image.html" -}}
                     {{- end -}}
                     {{- with .pre -}}
                     <span class="tw-mr-1">{{ . | safeHTML }}</span>
