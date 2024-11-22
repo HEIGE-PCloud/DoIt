@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.2.14] - 2024-01-24
+
+### Enhancement
+* Update dependencies to latest stable versions:
+  * Update `concurrently` from v9.1.0 to v8.2.2
+  * Update `tailwindcss` to v3.4.1
+  * Replace `atomic-algolia` with `@algolia/client-search` v4.22.1
+  * Add `core-js` v3.36.1
+* Improve compatibility with latest dependency versions
+* Remove deprecated packages and update to modern alternatives
+
 ## [0.2.13] - 2021-11-06
 
 ## What's Changed

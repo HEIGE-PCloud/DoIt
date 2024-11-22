@@ -7,6 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
 
     {{- /* Paginate  */ -}}
     {{- /* Paginate in here, To solve the problem of the canonical URL being the same in the pagination */ -}}
@@ -22,6 +25,21 @@
     {{- partial "head/meta.html" . -}}
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
+
+    <script>
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </head>
 
 {{/*  
@@ -35,38 +53,65 @@
     {{- $theme := .Site.Params.defaulttheme -}}
     <script type="text/javascript">
         function setTheme(theme) {
-          document.body.setAttribute('theme', theme); 
-          document.documentElement.className = theme;
-          document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
-          if (theme === 'light') {
-            document.documentElement.classList.remove('tw-dark')
-          } else {
-            document.documentElement.classList.add('tw-dark')
-          }
-          window.theme = theme;   
-          window.isDark = window.theme !== 'light' 
-        }
-        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
-        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
-        if (window.localStorage && localStorage.getItem('theme')) {
-            let theme = localStorage.getItem('theme');
-            if (theme === 'light' || theme === 'dark') {
-            setTheme(theme);
+            document.body.setAttribute('theme', theme); 
+            document.documentElement.className = theme;
+            document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
+            if (theme === 'light') {
+                document.documentElement.classList.remove('tw-dark')
             } else {
-                if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    setTheme('dark');
-                } else {
-                    setTheme('light');
-                }
+                document.documentElement.classList.add('tw-dark')
             }
-         } else { 
-            if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark') 
-                setTheme('{{ $theme }}'), saveTheme('{{ $theme }}'); 
-            else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
+            window.theme = theme;   
+            window.isDark = window.theme !== 'light';
+            
+            // 更新meta theme-color
+            let metaColors = {'light': '#f8f8f8','dark': '#161b22'};
+            getMeta('theme-color').content = metaColors[theme];
         }
-        let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
-        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
-        window.switchThemeEventSet = new Set()
+
+        function saveTheme(theme) {
+            window.localStorage && localStorage.setItem('theme', theme);
+        }
+
+        function getMeta(metaName) {
+            const metas = document.getElementsByTagName('meta');
+            for (let i = 0; i < metas.length; i++) 
+                if (metas[i].getAttribute('name') === metaName) return metas[i];
+            return '';
+        }
+
+        // 监听系统主题变化
+        function watchSystemTheme() {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', e => {
+                if (localStorage.getItem('theme') === 'auto') {
+                    setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+            return mediaQuery;
+        }
+
+        // 初始化主题
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                // 使用保存的主题
+                setTheme(savedTheme);
+            } else if (savedTheme === 'auto' || !savedTheme) {
+                // 使用系统主题
+                setTheme(systemDark ? 'dark' : 'light');
+                saveTheme('auto');
+            }
+            
+            // 开始监听系统主题变化
+            watchSystemTheme();
+        }
+
+        // 初始化主题
+        initTheme();
+        window.switchThemeEventSet = new Set();
     </script>
     <div id="back-to-top"></div>
     <div id="mask"></div>

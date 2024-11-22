@@ -1,0 +1,135 @@
+/* 代码块复制按钮 */
+.code-block {
+    position: relative;
+}
+
+.code-copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.25rem;
+    color: #fff;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.code-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 文章目录 */
+.toc {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 1rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc li {
+    margin: 0.5rem 0;
+}
+
+.toc a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.toc a:hover {
+    color: var(--primary-color);
+}
+
+.toc a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 阅读时间 */
+.reading-time {
+    color: var(--text-color-light);
+    font-size: 0.875rem;
+}
+
+/* 分享按钮 */
+.share-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.share-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.share-button:hover {
+    opacity: 0.8;
+}
+
+.share-button[data-platform="twitter"] {
+    background: #1DA1F2;
+}
+
+.share-button[data-platform="facebook"] {
+    background: #4267B2;
+}
+
+.share-button[data-platform="linkedin"] {
+    background: #0077B5;
+}
+
+/* Tippy主题自定义 */
+.tippy-box[data-theme~='custom'] {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.tippy-box[data-theme~='custom'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: var(--background-color);
+}
+
+/* 图片缩放 */
+.medium-zoom-overlay {
+    z-index: 1000;
+}
+
+.medium-zoom-image--opened {
+    z-index: 1001;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .toc {
+        position: static;
+        max-height: none;
+        border-left: none;
+        border-bottom: 2px solid var(--border-color);
+        margin-bottom: 2rem;
+    }
+    
+    .share-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .share-button {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}

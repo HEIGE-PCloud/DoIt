@@ -1,0 +1,13 @@
+{{ $code := .Inner }}
+{{ $lang := .Get "lang" }}
+{{ $title := .Get "title" }}
+
+<div class="code-block">
+    {{ if $title }}
+    <div class="code-title">{{ $title }}</div>
+    {{ end }}
+    <button class="code-copy-btn" data-clipboard-text="{{ $code }}" data-tippy-content="Copy">
+        Copy
+    </button>
+    <pre><code class="language-{{ $lang }}">{{ $code }}</code></pre>
+</div>

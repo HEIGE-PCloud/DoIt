@@ -23,3 +23,72 @@
         {{- partial "comment.html" . -}}
     </div>
 {{- end -}}
+
+{{ define "main" }}
+    <article class="post-single">
+        <header class="post-header">
+            <h1 class="post-title">{{ .Title }}</h1>
+            <div class="post-meta">
+                <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+                {{ if .Params.lastmod }}
+                <span class="post-updated">Updated: {{ .Params.lastmod.Format "2006-01-02" }}</span>
+                {{ end }}
+                <span class="reading-time"></span>
+                <span class="post-word-count">{{ .WordCount }} words</span>
+            </div>
+        </header>
+
+        <div class="post-toc-wrapper">
+            <div class="toc"></div>
+        </div>
+
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+
+        <footer class="post-footer">
+            {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            <div class="share-buttons">
+                <button class="share-button" data-platform="twitter">
+                    Share on Twitter
+                </button>
+                <button class="share-button" data-platform="facebook">
+                    Share on Facebook
+                </button>
+                <button class="share-button" data-platform="linkedin">
+                    Share on LinkedIn
+                </button>
+            </div>
+
+            {{ if .Site.Params.comments.enable }}
+            <div id="comments">
+                {{ if .Site.Params.comments.giscus.enable }}
+                <script src="https://giscus.app/client.js"
+                    data-repo="{{ .Site.Params.comments.giscus.repo }}"
+                    data-repo-id="{{ .Site.Params.comments.giscus.repoId }}"
+                    data-category="{{ .Site.Params.comments.giscus.category }}"
+                    data-category-id="{{ .Site.Params.comments.giscus.categoryId }}"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="preferred_color_scheme"
+                    data-lang="{{ .Site.Language.Lang }}"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+                {{ end }}
+            </div>
+            {{ end }}
+        </footer>
+    </article>
+{{ end }}

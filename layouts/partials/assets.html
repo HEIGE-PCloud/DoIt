@@ -3,27 +3,37 @@
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $config := (.Scratch.Get "this").config -}}
 
+{{/* Theme Switch */}}
+{{- $themeSwitch := resources.Get "js/theme-switch.js" -}}
+{{- if $themeSwitch -}}
+    {{- $themeSwitch = $themeSwitch | resources.Minify -}}
+    {{- if $fingerprint -}}
+        {{- $themeSwitch = $themeSwitch | resources.Fingerprint "sha384" -}}
+    {{- end -}}
+    <script src="{{ $themeSwitch.RelPermalink }}"{{ if $fingerprint }} integrity="{{ $themeSwitch.Data.Integrity }}"{{ end }}></script>
+{{- end -}}
+
 {{- /* Search */ -}}
 {{- if .Site.Params.search | and .Site.Params.search.enable -}}
     {{- $src := cond (eq $cdn.autocompleteJS nil) (resources.Get "lib/autocomplete/autocomplete.min.js").RelPermalink $cdn.autocompleteJS -}}
-    {{- $config = dict "autocomplete.min.js" $src | merge $config}}
+    {{- $config = dict "autocomplete.min.js" $src | merge $config -}}
     {{- $search := .Site.Params.search -}}
     {{- $config = dict "maxResultLength" $search.maxResultLength "snippetLength" $search.snippetLength "highlightTag" $search.highlightTag "noResultsFound" (T "noResultsFound") | dict "search" | merge $config -}}
     {{- if eq $search.type "algolia" -}}
         {{- $src := cond (eq $cdn.algoliasearchJS nil) (resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js").RelPermalink $cdn.algoliasearchJS -}}
-        {{- $config = dict "algoliasearch.min.js" $src | merge $config}}
+        {{- $config = dict "algoliasearch.min.js" $src | merge $config -}}
         {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
     {{- else if eq $search.type "fuse" -}}
         {{- with .Site.Home.OutputFormats.Get "json" -}}
             {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
         {{- end -}}
         {{- $src := cond (eq $cdn.fuseJS nil) (resources.Get "lib/fuse/fuse.min.js").RelPermalink $cdn.fuseJS -}}
-        {{- $config = dict "fuse.min.js" $src | merge $config}}
+        {{- $config = dict "fuse.min.js" $src | merge $config -}}
         {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
     {{- else -}}
         {{- $config = dict "type" "pagefind" "termFrequency" $search.pagefind.termFrequency "pageLength" $search.pagefind.pageLength "termSimilarity" $search.pagefind.termSimilarity "termSaturation" $search.termSaturation  | dict "search" | merge $config -}}
         {{- $src := "/pagefind/pagefind.js" -}}
-        {{- $config = dict "pagefind.js" $src | merge $config}}
+        {{- $config = dict "pagefind.js" $src | merge $config -}}
     {{- end -}}
 {{- end -}}
 
