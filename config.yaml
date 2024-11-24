@@ -1,0 +1,30 @@
+baseURL: "https://example.com"
+title: "My New Hugo Site"
+theme: "AIit"
+
+# 语言设置
+languageCode: "zh-CN"
+defaultContentLanguage: "zh-CN"
+
+# 作者信息，使用新的参数结构
+params:
+  author:
+    name: "Your Name"
+    link: "https://example.com"
+    email: "your-email@example.com"
+  
+  # SEO 设置
+  seo:
+    images: []
+    thumbnailUrl: ""
+    
+  # 网站描述
+  description: "Your site description"
+  
+  # 其他设置
+  dateFormat: "2006-01-02"
+  
+  # 主题特定设置
+  home:
+    posts:
+      enable: true
