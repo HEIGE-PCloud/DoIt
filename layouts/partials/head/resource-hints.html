@@ -1,0 +1,12 @@
+{{- /* Resource Hints */ -}}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+{{- /* Preload Critical Resources */ -}}
+<link rel="preload" href="{{ "css/style.min.css" | relURL }}" as="style">
+<link rel="preload" href="{{ "js/main.min.js" | relURL }}" as="script">
+
+{{- /* Prefetch Non-Critical Resources */ -}}
+{{ range .Site.RegularPages }}
+  <link rel="prefetch" href="{{ .RelPermalink }}">
+{{ end }}

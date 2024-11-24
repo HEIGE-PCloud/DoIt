@@ -1,0 +1,52 @@
+{{- /* Performance Optimizations */ -}}
+
+{{- /* Enable lazy loading for images */ -}}
+{{ if site.Params.lazyload.enable }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var images = document.querySelectorAll('img[data-src]');
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(function(img) {
+        imageObserver.observe(img);
+    });
+});
+</script>
+{{ end }}
+
+{{- /* Add resource hints */ -}}
+{{ if site.Params.cdn.enable }}
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+{{ end }}
+
+{{- /* Add cache control headers */ -}}
+{{ if site.Params.cache.enable }}
+<meta http-equiv="Cache-Control" content="max-age=86400, public">
+{{ end }}
+
+{{- /* Enable PWA if configured */ -}}
+{{ if site.Params.enablePWA }}
+<link rel="manifest" href="/manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
+</script>
+{{ end }}

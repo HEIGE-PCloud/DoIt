@@ -1,0 +1,38 @@
+# Performance-related parameters
+
+# Enable PWA support
+enablePWA = true
+
+# Enable JS bundling
+bundle = true
+
+# Image optimization settings
+[image]
+  cacheRemote = true
+  optimise = true
+  loading = "lazy"
+  quality = 85
+  format = "webp"
+
+# Resource optimization
+[resources]
+  bundle = true
+  minify = true
+  fingerprint = "sha256"
+  
+# CDN configuration
+[cdn]
+  enable = true
+  # Use jsdelivr as the default CDN provider
+  provider = "jsdelivr"
+  
+# Cache settings
+[cache]
+  enable = true
+  maxAge = "24h"
+  
+# Lazy loading
+[lazyload]
+  enable = true
+  loadingImage = "/svg/loading.svg"
+  exitImage = "/svg/exit.svg"

@@ -1,0 +1,41 @@
+# Hugo 性能优化配置
+
+# 启用资源优化
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  
+[imaging]
+  # 图片处理质量
+  quality = 85
+  # 默认图片格式转换
+  format = "webp"
+  
+[caches]
+  [caches.getjson]
+    maxAge = "10m"
+  [caches.getcsv]
+    maxAge = "10m"
+  [caches.images]
+    maxAge = "24h"
+  [caches.assets]
+    maxAge = "24h"
+  [caches.modules]
+    maxAge = "24h"
+
+[build]
+  writeStats = true
+  
+[server]
+  [[server.headers]]
+    for = "/**"
+    [server.headers.values]
+      Cache-Control = "public, max-age=31536000"
+      X-Content-Type-Options = "nosniff"
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
