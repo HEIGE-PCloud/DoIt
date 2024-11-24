@@ -1,7 +1,7 @@
 {
-  "name": "doit-src",
+  "name": "aiit-src",
   "version": "0.2.14",
-  "description": "DoIt theme source file",
+  "description": "AIit theme source file",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run server:tailwind --watch\"",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HEIGE-PCloud/DoIt.git"
+    "url": "git+https://github.com/techkoala/AIit.git"
   },
   "keywords": [
     "hugo",
@@ -26,9 +26,9 @@
   "author": "PCloud",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
+    "url": "https://github.com/techkoala/AIit/issues"
   },
-  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
+  "homepage": "https://github.com/techkoala/AIit#readme",
   "devDependencies": {
     "@giscus/react": "^2.4.0",
     "concurrently": "^8.2.2",

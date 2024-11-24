@@ -1,3 +1,3 @@
-module github.com/HEIGE-PCloud/DoIt
+module github.com/techkoala/AIit
 
 go 1.20
