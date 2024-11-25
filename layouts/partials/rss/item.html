@@ -44,29 +44,26 @@
         {{- end -}}
     {{- else -}}
     <author>
-        <name>{{- $params.author | default (T "author") -}}</name>
+        <name>{{ .Site.Params.author.name }}</name>
+        <email>{{ .Site.Params.author.email }}</email>
     </author>
     {{- end -}}
     <guid>
         {{- .Page.Permalink -}}
     </guid>
     <description>
-        {{- "<![CDATA[" | safeHTML -}}
-        {{- with $image -}}
-            <div class="featured-image">
-                <img src="{{ . }}" referrerpolicy="no-referrer">
-            </div>
-        {{- end -}}
-        {{- $content := .Page.Description -}}
-        {{- if $params.rssFullText -}}
-            {{- $content = dict "Content" .Page.Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+        {{- with .Page.Description -}}
+            {{- . | html -}}
         {{- else -}}
-            {{- with .Page.Summary -}}
-                {{- $content = dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
-            {{- end -}}
+            {{- .Page.Summary | plainify | html -}}
         {{- end -}}
-        {{/*  {{- $content | replaceRE `<figure[^>]*>.*</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML -}}  */}}
-        {{- $content | safeHTML -}}
-        {{- "]]>" | safeHTML -}}
     </description>
+    {{- if $params.rssFullText -}}
+    <content:encoded><![CDATA[
+        {{- .Page.Content | replaceRE "<div[^>]*>" "" | replaceRE "</div>" "" | replaceRE "<span[^>]*>" "" | replaceRE "</span>" "" | replaceRE "<button[^>]*>.*?</button>" "" | replaceRE "<pre[^>]*>.*?</pre>" "" | replaceRE "<svg[^>]*>.*?</svg>" "" | replaceRE "<code-block[^>]*>.*?</code-block>" "" | replaceRE "<code[^>]*>.*?</code>" "" | safeHTML -}}
+    ]]></content:encoded>
+    {{- end -}}
+    {{- with $image -}}
+        <media:content xmlns:media="http://search.yahoo.com/mrss/" url="{{ . | absURL }}" medium="image"/>
+    {{- end -}}
 </item>
