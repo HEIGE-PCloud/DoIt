@@ -64,6 +64,14 @@ class ThemeSwitch {
         // 保存主题设置
         saveTheme(theme);
         
+        // 更新下拉选择框的值
+        if (this.themeSelectDesktop) {
+            this.themeSelectDesktop.value = theme;
+        }
+        if (this.themeSelectMobile) {
+            this.themeSelectMobile.value = theme;
+        }
+        
         // 触发主题切换事件
         if (window.switchThemeEventSet) {
             window.switchThemeEventSet.forEach(handler => {
@@ -95,4 +103,12 @@ function saveTheme(theme) {
 // 当DOM加载完成后初始化主题切换
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeSwitch();
+    
+    // 监听系统颜色模式变化
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'auto') {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
 });
