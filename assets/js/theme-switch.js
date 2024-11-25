@@ -73,6 +73,25 @@ class ThemeSwitch {
     }
 }
 
+// 设置主题
+function setTheme(theme) {
+    document.body.setAttribute('theme', theme);
+    document.documentElement.className = theme;
+    document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
+    if (theme === 'light') {
+        document.documentElement.classList.remove('tw-dark');
+    } else {
+        document.documentElement.classList.add('tw-dark');
+    }
+    window.theme = theme;
+    window.isDark = window.theme !== 'light';
+}
+
+// 保存主题设置
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme);
+}
+
 // 当DOM加载完成后初始化主题切换
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeSwitch();

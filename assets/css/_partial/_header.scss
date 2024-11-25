@@ -216,7 +216,7 @@ header {
 
         span {
           display: block;
-          background: $global-font-color;
+          background: currentColor;
           width: 1.5rem;
           height: 2px;
           @include border-radius(3px);
