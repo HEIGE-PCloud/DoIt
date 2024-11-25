@@ -53,15 +53,15 @@
     </guid>
     <description>
         {{- with .Page.Description -}}
-            {{- . | plainify -}}
+            {{- . | plainify | safeHTML -}}
         {{- else -}}
-            {{- .Page.Summary | plainify -}}
+            {{- .Page.Summary | plainify | safeHTML -}}
         {{- end -}}
     </description>
     {{- if $params.rssFullText -}}
-    <content:encoded><![CDATA[
-        {{- .Page.Content -}}
-    ]]></content:encoded>
+    <content:encoded>
+        {{- .Page.Content | replaceRE "&" "&amp;" | replaceRE "<" "&lt;" | replaceRE ">" "&gt;" | safeHTML -}}
+    </content:encoded>
     {{- end -}}
     {{- with $image -}}
         <media:content xmlns:media="http://search.yahoo.com/mrss/" url="{{ . | absURL }}" medium="image"/>
