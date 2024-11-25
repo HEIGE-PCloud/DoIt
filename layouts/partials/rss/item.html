@@ -53,14 +53,14 @@
     </guid>
     <description>
         {{- with .Page.Description -}}
-            {{- . | html -}}
+            {{- . | htmlEscape -}}
         {{- else -}}
-            {{- .Page.Summary | plainify | html -}}
+            {{- .Page.Summary | plainify | htmlEscape -}}
         {{- end -}}
     </description>
     {{- if $params.rssFullText -}}
     <content:encoded><![CDATA[
-        {{- .Page.Content | replaceRE "<div[^>]*>" "" | replaceRE "</div>" "" | replaceRE "<span[^>]*>" "" | replaceRE "</span>" "" | replaceRE "<button[^>]*>.*?</button>" "" | replaceRE "<pre[^>]*>.*?</pre>" "" | replaceRE "<svg[^>]*>.*?</svg>" "" | replaceRE "<code-block[^>]*>.*?</code-block>" "" | replaceRE "<code[^>]*>.*?</code>" "" | safeHTML -}}
+        {{- .Page.Content | safeHTML -}}
     ]]></content:encoded>
     {{- end -}}
     {{- with $image -}}
