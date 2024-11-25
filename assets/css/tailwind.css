@@ -84,6 +84,23 @@
     --pagination-link-hover-color: #000;
     /* ========== Pagination ========== */
 
+    /* ========== primitives ========== */
+    --fgColor-default: #161209;
+    --fgColor-secondary: #4d4d4d;
+    --fgColor-muted: unset;
+    --fgColor-link: #2d809a;
+    --fgColor-link-hover: #ef3982;
+    --bgColor-default: #fff;
+    --bgColor-secondary: #ededed;
+    --bgColor-accent-emphasis: #6bd6fd;
+    --bgColor-accent-muted: #388bfd1a;
+    --bgColor-neutral-muted: #afb8c133;
+    --borderColor-default: #f0f0f0;
+    --selection-bgColor: #35a6f740;
+    --button-default-bgColor-rest: #f0f0f0;
+    --button-default-bgColor-hover: #f0f0f0;
+    /* ========== primitives ========== */
+
     /* ========== Friend Link ========== */
     /* Color of friend link background */
     --friend-link-background-color: #f8f8f8;
@@ -129,23 +146,6 @@
     --showcase-color: black;
     --showcase-hover-color: #ef3982;
     /* ========== showcase ========== */
-
-    /* ========== primitives ========== */
-    --fgColor-default: #161209;
-    --fgColor-secondary: #4d4d4d;
-    --fgColor-muted: unset;
-    --fgColor-link: #2d809a;
-    --fgColor-link-hover: #ef3982;
-    --bgColor-default: #fff;
-    --bgColor-secondary: #ededed;
-    --bgColor-accent-emphasis: #6bd6fd;
-    --bgColor-accent-muted: #388bfd1a;
-    --bgColor-neutral-muted: #afb8c133;
-    --borderColor-default: #f0f0f0;
-    --selection-bgColor: #35a6f740;
-    --button-default-bgColor-rest: #f0f0f0;
-    --button-default-bgColor-hover: #f0f0f0;
-    /* ========== primitives ========== */
   }
   /* Theme dark */
   html.dark {
