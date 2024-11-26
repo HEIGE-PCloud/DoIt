@@ -83,11 +83,19 @@
         // 监听系统主题变化
         function watchSystemTheme() {
             const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            mediaQuery.addEventListener('change', e => {
+            const handleThemeChange = e => {
                 if (localStorage.getItem('theme') === 'auto') {
                     setTheme(e.matches ? 'dark' : 'light');
                 }
-            });
+            };
+            
+            // 兼容新旧版本的 matchMedia API
+            if (mediaQuery.addEventListener) {
+                mediaQuery.addEventListener('change', handleThemeChange);
+            } else if (mediaQuery.addListener) {
+                mediaQuery.addListener(handleThemeChange);
+            }
+            
             return mediaQuery;
         }
 
