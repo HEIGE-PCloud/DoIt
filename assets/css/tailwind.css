@@ -155,15 +155,15 @@
     --fgColor-muted: #8d8d8d;
     --fgColor-link: #a0a0a0;
     --fgColor-link-hover: #c0c0c0;
-    --bgColor-default: #1a1a1a;
-    --bgColor-secondary: #2a2a2a;
+    --bgColor-default: #1c1c1c;
+    --bgColor-secondary: #2d2d2d;
     --bgColor-accent-emphasis: #404040;
     --bgColor-accent-muted: #3030301a;
-    --borderColor-default: #363636;
+    --borderColor-default: #404040;
     --bgColor-neutral-muted: #76767666;
     --selection-bgColor: #404040b3;
-    --button-default-bgColor-rest: #262626;
-    --button-default-bgColor-hover: #2e2e2e;
+    --button-default-bgColor-rest: #2d2d2d;
+    --button-default-bgColor-hover: #363636;
     /* ========== primitives ========== */
 
     --global-background-color: var(--bgColor-default);
@@ -183,15 +183,15 @@
 
     --single-h-font-weight: bolder;
     --single-content-strong-color: var(--fgColor-default);
-    --single-link-color: var(--fgColor-link);
-    --single-link-hover-color: var(--fgColor-link-hover);
+    --single-link-color: #a0a0a0;
+    --single-link-hover-color: #d4d4d4;
 
     --table-background-color: var(--bgColor-default);
     --table-thead-color: var(--bgColor-secondary);
     --table-border-color: var(--borderColor-default);
 
-    --blockquote-color: var(--bgColor-accent-emphasis);
-    --blockquote-bg-color: var(--bgColor-accent-muted);
+    --blockquote-color: #404040;
+    --blockquote-bg-color: rgba(64, 64, 64, 0.2);
 
     --pagination-link-color: var(--fgColor-default);
     --pagination-link-hover-color: white;
