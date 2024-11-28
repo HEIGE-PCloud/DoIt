@@ -2,3 +2,68 @@
 // Custom style
 // 自定义样式
 // ==============================
+
+html.dark {
+  // 基础颜色
+  --bgColor-default: #1c1c1c !important;
+  --bgColor-secondary: #2d2d2d !important;
+  --bgColor-accent-emphasis: #404040 !important;
+  --bgColor-accent-muted: rgba(64, 64, 64, 0.1) !important;
+  --borderColor-default: #404040 !important;
+  --bgColor-neutral-muted: rgba(118, 118, 118, 0.4) !important;
+  --selection-bgColor: rgba(64, 64, 64, 0.7) !important;
+  
+  // 按钮颜色
+  --button-default-bgColor-rest: #2d2d2d !important;
+  --button-default-bgColor-hover: #363636 !important;
+  
+  // 文字和链接颜色
+  --fgColor-default: #e6e6e6 !important;
+  --fgColor-secondary: #d4d4d4 !important;
+  --fgColor-muted: #8d8d8d !important;
+  --fgColor-link: #a0a0a0 !important;
+  --fgColor-link-hover: #c0c0c0 !important;
+  
+  // 全局颜色
+  --global-background-color: var(--bgColor-default) !important;
+  --global-font-color: var(--fgColor-default) !important;
+  --global-font-secondary-color: var(--fgColor-secondary) !important;
+  --global-link-color: var(--fgColor-default) !important;
+  --global-link-hover-color: #ffffff !important;
+  --global-border-color: var(--borderColor-default) !important;
+  
+  // 头部颜色
+  --header-background-color: var(--bgColor-secondary) !important;
+  --header-hover-color: #ffffff !important;
+  
+  // 表格颜色
+  --table-background-color: var(--bgColor-default) !important;
+  --table-thead-color: var(--bgColor-secondary) !important;
+  --table-border-color: var(--borderColor-default) !important;
+  
+  // 引用块颜色
+  --blockquote-color: #404040 !important;
+  --blockquote-bg-color: rgba(64, 64, 64, 0.2) !important;
+  
+  // 代码颜色
+  --code-background-color: #2d2d2d !important;
+  --code-header-color: #363636 !important;
+  --code-background-color-darken-5: #363636 !important;
+  --code-background-color-darken-6: #404040 !important;
+  --code-background-color-code-header: var(--code-background-color-darken-6) !important;
+  --code-background-color-code-hl: #4d4d4d !important;
+  --code-info-color: #8d8d8d !important;
+  
+  // 其他元素颜色
+  --friend-link-background-color: var(--bgColor-secondary) !important;
+  --friend-link-color: var(--fgColor-link) !important;
+  --friend-link-hover-color: var(--fgColor-link-hover) !important;
+  
+  --related-background-color: var(--bgColor-secondary) !important;
+  --related-color: var(--fgColor-default) !important;
+  --related-hover-color: #ffffff !important;
+  
+  --showcase-background-color: var(--bgColor-secondary) !important;
+  --showcase-color: var(--fgColor-default) !important;
+  --showcase-hover-color: #ffffff !important;
+}
