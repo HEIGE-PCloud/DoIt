@@ -1598,3 +1598,23 @@ Without an explicitly given picture, a generic icon is used. This input:
 ```
 
 This renders as {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+
+## bluesky
+
+`bluesky` is a shortcode to embed a post from [Bluesky](https://bsky.app).
+
+The `bluesky` shortcode has the following named parameters:
+
+* **link** *[required]*
+
+    URL of the Bluesky post.
+
+Example `bluesky` input:
+
+```markdown
+{{</* bluesky link="https://bsky.app/profile/bsky.app/post/3latotljnec2h" */>}}
+```
+
+The rendered output looks like this:
+
+{{< bluesky link="https://bsky.app/profile/bsky.app/post/3latotljnec2h" >}}

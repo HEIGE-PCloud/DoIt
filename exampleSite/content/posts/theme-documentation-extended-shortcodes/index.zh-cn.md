@@ -1601,3 +1601,21 @@ print("Hello world!")
 ```
 
 呈现的输出效果为 {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+
+## bluesky
+
+`bluesky` shortcode 用于嵌入 [Bluesky](https://bsky.app) 的帖子。
+
+`bluesky` shortcode 有以下命名参数：
+
+* **link** *[必需]*
+
+    Bluesky 帖子的 URL。
+
+一个 `bluesky` 示例:
+
+```markdown
+{{</* bluesky link="https://bsky.app/profile/bsky.app/post/3latotljnec2h" */>}}
+```
+
+呈现的输出效果为 {{< bluesky link="https://bsky.app/profile/bsky.app/post/3latotljnec2h" >}}
