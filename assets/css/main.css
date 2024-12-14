@@ -107,7 +107,7 @@
 }
 
 /*
-! tailwindcss v3.4.12 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -550,7 +550,7 @@ video {
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
-[hidden] {
+[hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
 
@@ -904,7 +904,7 @@ html.dark {
 
 .tw-border-\[\#f0f0f0\] {
   --tw-border-opacity: 1;
-  border-color: rgb(240 240 240 / var(--tw-border-opacity));
+  border-color: rgb(240 240 240 / var(--tw-border-opacity, 1));
 }
 
 .tw-bg-bgColor-secondary {
@@ -1061,7 +1061,7 @@ html.dark {
 
 .dark\:tw-border-\[\#363636\]:is(.tw-dark *) {
   --tw-border-opacity: 1;
-  border-color: rgb(54 54 54 / var(--tw-border-opacity));
+  border-color: rgb(54 54 54 / var(--tw-border-opacity, 1));
 }
 
 @media print {
