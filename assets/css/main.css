@@ -837,6 +837,11 @@ html.dark {
   height: 2.5rem;
 }
 
+.tw-h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .\!tw-max-h-0 {
   max-height: 0px !important;
 }
