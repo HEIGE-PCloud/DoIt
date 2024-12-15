@@ -664,9 +664,50 @@ diaspora:
   Icon:
     Simpleicons: diaspora
 
-# 071: Email
-email:
+# 071: Discord
+discord:
   Weight: 71
+  Template: https://discordapp.com/users/%v
+  Title: Discord
+  Newtab: true
+  Icon:
+    Simpleicons: discord
+
+# 072: Pixelfed
+pixelfed:
+  Weight: 72
+  Prefix: https://pixelfed.social/
+  Title: Pixelfed
+  Icon:
+    Simpleicons: pixelfed
+
+# 073: Lemmy
+lemmy:
+  Weight: 73
+  Prefix: https://lemmy.world/u/
+  Title: Lemmy
+  Icon:
+    Simpleicons: lemmy
+
+# 074: X
+x:
+  Weight: 74
+  Prefix: https://x.com/
+  Title: X
+  Icon:
+    Simpleicons: x
+
+# 075: Bluesky
+bluesky:
+  Weight: 75
+  Prefix: https://bsky.app/profile/
+  Title: Bluesky
+  Icon:
+    Simpleicons: bluesky
+
+# 076: Email
+email:
+  Weight: 76
   Template: mailto:%v
   Title: Email
   Icon:
@@ -674,42 +715,9 @@ email:
       Style: regular
       Icon: envelope
 
-# 072: Discord
-discord:
-  Weight: 72
-  Template: https://discordapp.com/users/%v
-  Title: Discord
-  Newtab: true
-  Icon:
-    Simpleicons: discord
-
-# 073: Pixelfed
-pixelfed:
-  Weight: 73
-  Prefix: https://pixelfed.social/
-  Title: Pixelfed
-  Icon:
-    Simpleicons: pixelfed
-
-# 074: Lemmy
-lemmy:
-  Weight: 74
-  Prefix: https://lemmy.world/u/
-  Title: Lemmy
-  Icon:
-    Simpleicons: lemmy
-
-# 075: X
-x:
-  Weight: 75
-  Prefix: https://x.com/
-  Title: X
-  Icon:
-    Simpleicons: x
-
-# 076: RSS
+# 077: RSS
 rss:
-  Weight: 76
+  Weight: 77
   Url: /index.xml
   Title: RSS
   Newtab: true

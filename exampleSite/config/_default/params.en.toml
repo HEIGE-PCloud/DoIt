@@ -183,6 +183,7 @@ keywords = ["Theme", "Hugo"]
   Youtubecustom = ""
   Youtubelegacy = "xxxx"
   Zhihu = ""
+  Bluesky = "did:plc:z72i7hdynmk6r22z27h6tvur"
   [social.Mastodon]
     id = "@xxxx"
     prefix = "https://mastodon.technology/"
