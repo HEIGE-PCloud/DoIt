@@ -55,9 +55,11 @@ Parameters:
 {{- if $optim | and $resource | and $optimise -}}
     {{ $srcsetSlice := slice -}}
     {{- range $optim -}}
-        {{- if .Process -}}
-            {{- $processed := $resource.Process .Process -}}
-            {{- $srcsetSlice = $srcsetSlice | append (printf "%s %s" $processed.RelPermalink .descriptor) -}}
+        {{- if not (eq $resource.MediaType.SubType "svg") -}}
+            {{- if .Process -}}
+                {{- $processed := $resource.Process .Process -}}
+                {{- $srcsetSlice = $srcsetSlice | append (printf "%s %s" $processed.RelPermalink .descriptor) -}}
+            {{- end -}}
         {{- end -}}
     {{- end -}}
     {{- $srcset = delimit $srcsetSlice ", " -}}
