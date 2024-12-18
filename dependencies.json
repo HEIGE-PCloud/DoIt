@@ -17,7 +17,7 @@
         },
         {
             "name": "@waline/client",
-            "version": "3.4.1",
+            "version": "3.4.2",
             "files": [
                 {
                     "remote": "dist/waline.css",
@@ -31,7 +31,7 @@
         },
         {
             "name": "katex",
-            "version": "0.16.15",
+            "version": "0.16.17",
             "files": [
                 {
                     "remote": "dist/katex.min.js",
