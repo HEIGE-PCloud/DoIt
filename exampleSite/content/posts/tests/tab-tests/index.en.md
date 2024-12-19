@@ -56,6 +56,41 @@ Content 2
 
 {{< /tabs >}}
 
+## Tabs with Codeblock
+
+{{< tabs >}}
+
+{{% tab title="Tab 1" %}}
+
+```python
+def hello():
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+```
+
+{{% /tab %}}
+
+{{% tab title="Tab 2" %}}
+
+```python
+def hello():
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+    print("Hello World!")
+```
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
 ## Single Tab
 
 {{< tabs >}}
