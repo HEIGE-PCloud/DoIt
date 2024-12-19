@@ -1,3 +1,9 @@
+/* Opt-in the whole page to interpolate sizes to/from keywords */
+// https://developer.chrome.com/docs/css-ui/animate-to-height-auto
+:root {
+  interpolate-size: allow-keywords;
+}
+
 html {
   font-family: $global-font-family;
   font-weight: $global-font-weight;
