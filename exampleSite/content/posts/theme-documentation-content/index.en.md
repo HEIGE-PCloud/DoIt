@@ -171,7 +171,6 @@ sponsor:
   # ...
 related:
   enable: false
-  count: 5
 ---
 ```
 
