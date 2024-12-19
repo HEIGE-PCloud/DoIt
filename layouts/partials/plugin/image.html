@@ -50,9 +50,14 @@ Parameters:
     {{- end -}}
 {{- end -}}
 
+{{- $isSvg := false -}}
+{{- if $resource -}}
+    {{- $isSvg = (eq $resource.MediaType.SubType "svg") -}}
+{{- end -}}
+
 {{- $optim := .OptimConfig -}}
 {{- $srcset := "" -}}
-{{- if $optim | and $resource | and $optimise -}}
+{{- if $optim | and $resource | and $optimise | and (not $isSvg) -}}
     {{ $srcsetSlice := slice -}}
     {{- range $optim -}}
         {{- if .Process -}}
@@ -65,8 +70,12 @@ Parameters:
 
 {{- $src := $resource.RelPermalink | default .Src -}}
 {{- $alt := .Alt | default .Title -}}
-{{- $height := .Height | default $resource.Height | default "" -}}
-{{- $width := .Width | default $resource.Width | default "" -}}
+{{- $height := .Height -}}
+{{- $width := .Width -}}
+{{- if not $isSvg -}}
+    {{- $height = $height | default $resource.Height | default "" -}}
+    {{- $width = $width | default $resource.Width | default "" -}}
+{{- end -}}
 
 {{- if .Linked -}}
 <a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
