@@ -180,7 +180,7 @@
     {{- $config = dict "accessToken" $params.mapbox.accessToken "RTLTextPlugin" "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.0/mapbox-gl-rtl-text.js" | dict "mapbox" | merge $config -}}
 {{- end -}}
 
-{{- if (.Scratch.Get "this").tabs -}}
+{{- if .Scratch.Get "enableTabs" -}}
 {{- /*   <script type="module" src="https://cdn.jsdelivr.net/npm/@github/tab-container-element@4.5.0/dist/bundle.js"></script> */ -}}
   {{- $source := $cdn.tabsjs | default "lib/tabs/tabs.min.js" -}}
   {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true "Module" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
