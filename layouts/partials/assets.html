@@ -28,7 +28,7 @@
 {{- end -}}
 
 {{- /* tablesort */ -}}
-{{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
+{{- if $params.table | and $params.table.sort | and (.Scratch.Get "enableTablesort") -}}
     {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
