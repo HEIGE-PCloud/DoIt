@@ -80,7 +80,7 @@
 {{- end -}}
 
 {{- /* KaTeX */ -}}
-{{- if (.Scratch.Get "this").math -}}
+{{- if .Scratch.Get "enableMath" -}}
     {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
 {{- end -}}
