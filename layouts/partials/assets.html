@@ -286,7 +286,7 @@
 {{- $_ := $js.RelPermalink -}}
 {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
-{{- with (.Scratch.Get "this").scriptArr -}}
+{{- with .Scratch.Get "scriptArr" -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
