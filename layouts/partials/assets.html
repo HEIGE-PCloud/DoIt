@@ -264,7 +264,7 @@
 {{- end -}}
 
 {{/*  Custom style  */}}
-{{- with (.Scratch.Get "this").styleArr -}}
+{{- with .Scratch.Get "styleArr" -}}
     {{- $content := delimit . "" -}}
     {{- $path := substr (md5 $content) 0 6 | printf "css/%v" -}}
     {{- $options := printf "%v.min.css" $path | dict "targetPath" -}}
