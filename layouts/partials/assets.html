@@ -143,7 +143,7 @@
 {{- end -}}
 
 {{- /* mermaid */ -}}
-{{- if (.Scratch.Get "this").mermaid -}}
+{{- if .Scratch.Get "enableMermaid" -}}
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true, theme: (window.theme === 'dark' ? 'dark' : 'default') });
