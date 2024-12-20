@@ -187,7 +187,7 @@
 {{- end -}}
 
 {{- /* Music */ -}}
-{{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "this").music -}}
+{{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "enableMusic") -}}
     {{- /* APlayer */ -}}
     {{- $source := $cdn.aplayerCSS | default "lib/aplayer/APlayer.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
@@ -196,7 +196,7 @@
     {{- $source := $cdn.aplayerJS | default "lib/aplayer/APlayer.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
-    {{- if (.Scratch.Get "this").music -}}
+    {{- if (.Scratch.Get "enableMusic") -}}
         {{- /* MetingJS */ -}}
         {{- $source := $cdn.metingJS | default "lib/meting/Meting.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
