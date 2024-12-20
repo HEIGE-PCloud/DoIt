@@ -187,7 +187,7 @@
 {{- end -}}
 
 {{- /* Music */ -}}
-{{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "enableMusic") -}}
+{{- if (.Scratch.Get "enableAplayer") | or (.Scratch.Get "enableMusic") -}}
     {{- /* APlayer */ -}}
     {{- $source := $cdn.aplayerCSS | default "lib/aplayer/APlayer.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
