@@ -893,8 +893,6 @@ function initCodeblocks() {
       "button.line-number-button",
     ) as HTMLButtonElement;
 
-    chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
-
     // handle expanding and collapsing code blocks
     titleBar.addEventListener("click", () => {
       codeBlock.classList.toggle("is-open");
@@ -917,7 +915,6 @@ function initCodeblocks() {
     wrapCodeButton?.addEventListener("click", () => {
       chroma.style.maxHeight = "fit-content";
       codeBlock.classList.toggle("is-wrap");
-      chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
     });
 
     toggleLineNumbersButton.addEventListener("click", () => {
