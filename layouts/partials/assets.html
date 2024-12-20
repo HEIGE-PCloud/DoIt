@@ -151,7 +151,7 @@
 {{- end -}}
 
 {{- /* ECharts */ -}}
-{{- if (.Scratch.Get "this").echarts -}}
+{{- if .Scratch.Get "enableEcharts" -}}
     {{- $config = dict "echarts" true | merge $config -}}
     {{- $options := dict -}}
     {{- $shims := dict "echarts" "js/shims/echarts.js" -}}
