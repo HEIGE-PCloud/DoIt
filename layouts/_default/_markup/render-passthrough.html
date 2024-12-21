@@ -1,4 +1,4 @@
-{{- .Page.Scratch.SetInMap "this" "math" true -}}
+{{- .Page.Scratch.Set "enableMath" true -}}
 {{- if eq .Type "block" -}}
   {{- $opts := dict "displayMode" true "output" "html" -}}
   {{- transform.ToMath .Inner $opts -}}

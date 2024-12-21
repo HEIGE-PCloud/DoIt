@@ -1,5 +1,5 @@
 {{/*  Update the global config map so the JavaScript dependency will be loaded  */}}
-{{- .Page.Scratch.SetInMap "this" "tabs" true -}}
+{{- .Page.Scratch.Set "enableTabs" true -}}
 {{/*  Get all children tabs  */}}
 {{- $tabs := .Scratch.Get "tabs" -}}
 {{ if not $tabs -}}

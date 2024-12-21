@@ -5,9 +5,9 @@
     {{- /* If an ID is specified, then just use it.*/ -}}
     {{- $id = printf "%v" . -}}
 {{- else -}}
-    {{- $count := ($.Scratch.Get "this").count | default 1 -}}
+    {{- $count := ($.Scratch.Get "counter") | default 1 -}}
     {{- $id = printf "id-%d" $count -}}
-    {{- $count | add 1 | $.Scratch.SetInMap "this" "count" -}}
+    {{- $count | add 1 | $.Scratch.Set "counter" -}}
 {{- end -}}
 {{- with .Content -}}
     {{- dict $id . | dict "data" | dict "config" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
