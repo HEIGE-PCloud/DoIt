@@ -560,7 +560,7 @@ function initDetails() {
     )[0] as HTMLDivElement;
     const content = $summary.nextElementSibling as HTMLDivElement;
     if ($details.classList.contains("open")) {
-      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.maxHeight = "fit-content";
     }
     $summary.addEventListener(
       "click",
@@ -568,7 +568,7 @@ function initDetails() {
         if ($details.classList.contains("open")) {
           content.style.maxHeight = "0px";
         } else {
-          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.maxHeight = "fit-content";
         }
         $details.classList.toggle("open");
       },
@@ -893,7 +893,7 @@ function initCodeblocks() {
       "button.line-number-button",
     ) as HTMLButtonElement;
 
-    chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
+    chroma.style.maxHeight = "fit-content";
 
     // handle expanding and collapsing code blocks
     titleBar.addEventListener("click", () => {
@@ -917,7 +917,6 @@ function initCodeblocks() {
     wrapCodeButton?.addEventListener("click", () => {
       chroma.style.maxHeight = "fit-content";
       codeBlock.classList.toggle("is-wrap");
-      chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
     });
 
     toggleLineNumbersButton.addEventListener("click", () => {
