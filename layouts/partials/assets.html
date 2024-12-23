@@ -28,7 +28,7 @@
 {{- end -}}
 
 {{- /* tablesort */ -}}
-{{- if $params.table | and $params.table.sort | and (.Scratch.Get "this").tablesort -}}
+{{- if $params.table | and $params.table.sort | and (.Scratch.Get "enableTablesort") -}}
     {{- $source := $cdn.tablesort | default "lib/tablesort/tablesort.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "sort" true | dict "table" | merge $config -}}
@@ -65,7 +65,7 @@
 {{- end -}}
 
 {{- /* Sharer.js */ -}}
-{{- if $params.share.enable | and (.Scratch.Get "this").sharer -}}
+{{- if $params.share.enable | and (.Scratch.Get "enableSharer") -}}
     {{- $source := $cdn.sharerJS | default "lib/sharer/sharer.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "sharerjs" true | merge $config -}}
@@ -80,7 +80,7 @@
 {{- end -}}
 
 {{- /* KaTeX */ -}}
-{{- if (.Scratch.Get "this").math -}}
+{{- if .Scratch.Get "enableMath" -}}
     {{- $source := $cdn.katexCSS | default "lib/katex/katex.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
 {{- end -}}
@@ -143,7 +143,7 @@
 {{- end -}}
 
 {{- /* mermaid */ -}}
-{{- if (.Scratch.Get "this").mermaid -}}
+{{- if .Scratch.Get "enableMermaid" -}}
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true, theme: (window.theme === 'dark' ? 'dark' : 'default') });
@@ -151,7 +151,7 @@
 {{- end -}}
 
 {{- /* ECharts */ -}}
-{{- if (.Scratch.Get "this").echarts -}}
+{{- if .Scratch.Get "enableEcharts" -}}
     {{- $config = dict "echarts" true | merge $config -}}
     {{- $options := dict -}}
     {{- $shims := dict "echarts" "js/shims/echarts.js" -}}
@@ -171,7 +171,7 @@
 {{- end -}}
 
 {{- /* Mapbox GL */ -}}
-{{- if (.Scratch.Get "this").mapbox -}}
+{{- if .Scratch.Get "enableMapbox" -}}
     {{- $source := $cdn.mapboxGLCSS | default "lib/mapbox-gl/mapbox-gl.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
     {{- $source := $cdn.mapboxGLJS | default "lib/mapbox-gl/mapbox-gl.min.js" -}}
@@ -180,14 +180,14 @@
     {{- $config = dict "accessToken" $params.mapbox.accessToken "RTLTextPlugin" "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.0/mapbox-gl-rtl-text.js" | dict "mapbox" | merge $config -}}
 {{- end -}}
 
-{{- if (.Scratch.Get "this").tabs -}}
+{{- if .Scratch.Get "enableTabs" -}}
 {{- /*   <script type="module" src="https://cdn.jsdelivr.net/npm/@github/tab-container-element@4.5.0/dist/bundle.js"></script> */ -}}
   {{- $source := $cdn.tabsjs | default "lib/tabs/tabs.min.js" -}}
   {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true "Module" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- /* Music */ -}}
-{{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "this").music -}}
+{{- if (.Scratch.Get "enableAplayer") | or (.Scratch.Get "enableMusic") -}}
     {{- /* APlayer */ -}}
     {{- $source := $cdn.aplayerCSS | default "lib/aplayer/APlayer.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
@@ -196,7 +196,7 @@
     {{- $source := $cdn.aplayerJS | default "lib/aplayer/APlayer.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
-    {{- if (.Scratch.Get "this").music -}}
+    {{- if (.Scratch.Get "enableMusic") -}}
         {{- /* MetingJS */ -}}
         {{- $source := $cdn.metingJS | default "lib/meting/Meting.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
@@ -264,7 +264,7 @@
 {{- end -}}
 
 {{/*  Custom style  */}}
-{{- with (.Scratch.Get "this").styleArr -}}
+{{- with .Scratch.Get "styleArr" -}}
     {{- $content := delimit . "" -}}
     {{- $path := substr (md5 $content) 0 6 | printf "css/%v" -}}
     {{- $options := printf "%v.min.css" $path | dict "targetPath" -}}
@@ -286,7 +286,7 @@
 {{- $_ := $js.RelPermalink -}}
 {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
-{{- with (.Scratch.Get "this").scriptArr -}}
+{{- with .Scratch.Get "scriptArr" -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
