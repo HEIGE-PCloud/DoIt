@@ -89,7 +89,7 @@
         </a>
 
         {{- /* comment button */ -}}
-        {{- if  (.Page.Scratch.Get "this").commentEnabled -}}
+        {{- if .Page.Scratch.Get "enableComment" -}}
         <a href="#comments" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>

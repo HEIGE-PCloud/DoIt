@@ -1,7 +1,7 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 
 {{- define "content" -}}
-    {{- .Page.Scratch.SetInMap "this" "tablesort" true -}}
+    {{- .Page.Scratch.Set "enableTablesort" true -}}
     {{- $params := .Scratch.Get "params" -}}
     <div class="page single special print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0">
         {{- /* Title */ -}}
