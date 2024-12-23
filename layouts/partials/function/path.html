@@ -1,3 +1,37 @@
 {{- /* https://discourse.gohugo.io/t/how-decode-urls-in-hugo/7549/4 */ -}}
-{{- $URL := . | urlquery | urlize | urls.Parse -}}
-{{- return $URL.Path -}}
+{{- $URL := . | urlize | urls.Parse -}}
+{{/*  Replace # with %23  */}}
+{{- $path := $URL.Path -}}
+{{- $path = strings.Replace $path "#" "%23" -}}
+{{- /*  Replace ? with %3F  */ -}}
+{{/*  {{- $path = strings.Replace $path "?" "%3F" -}}  */}}
+{{- /*  Replace & with %26  */ -}}
+{{/*  {{- $path = strings.Replace $path "&" "%26" -}}  */}}
+{{- /*  Replace = with %3D  */ -}}
+{{/*  {{- $path = strings.Replace $path "=" "%3D" -}}  */}}
+{{- /*  Replace + with %2B  */ -}}
+{{/*  {{- $path = strings.Replace $path "+" "%2B" -}}  */}}
+{{- /*  Replace / with %2F  */ -}}
+{{/*  {{- $path = strings.Replace $path "/" "%2F" -}}  */}}
+{{- /*  Replace % with %25  */ -}}
+{{/*  {{- $path = strings.Replace $path "%" "%25" -}}  */}}
+{{- /*  Replace ? with %3F  */ -}}
+{{/*  {{- $path = strings.Replace $path "?" "%3F" -}}  */}}
+{{- /*  Replace & with %26  */ -}}
+{{/*  {{- $path = strings.Replace $path "&" "%26" -}}  */}}
+{{- /*  Replace = with %3D  */ -}}
+{{/*  {{- $path = strings.Replace $path "=" "%3D" -}}  */}}
+{{- /*  Replace + with %2B  */ -}}
+{{/*  {{- $path = strings.Replace $path "+" "%2B" -}}  */}}
+{{- /*  Replace / with %2F  */ -}}
+{{/*  {{- $path = strings.Replace $path "/" "%2F" -}}  */}}
+{{- /*  Replace % with %25  */ -}}
+{{/*  {{- $path = strings.Replace $path "%" "%25" -}}  */}}
+{{- /*  Replace ? with %3F  */ -}}
+{{/*  {{- $path = strings.Replace $path "?" "%3F" -}}  */}}
+{{- /*  Replace & with %26  */ -}}
+{{/*  {{- $path = strings.Replace $path "&" "%26" -}}  */}}
+{{- /*  Replace = with %3D  */ -}}
+{{/*  {{- $path = strings.Replace $path "=" "%3D" -}}  */}}
+{{/*  {{ warnf "%v %v" . $URL }}  */}}
+{{- return $path -}}
