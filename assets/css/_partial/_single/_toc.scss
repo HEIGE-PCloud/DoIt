@@ -113,3 +113,42 @@
     }
   }
 }
+
+#toc-dialog {
+  transition:
+  display 0.2s allow-discrete,
+  overlay 0.2s allow-discrete,
+  translate 0.2s,
+  opacity 0.2s 0.4s;
+  opacity: 0;
+  translate: 100vw 0;
+  &::backdrop {
+    transition:
+      display 0.5s allow-discrete,
+      overlay 0.5s allow-discrete,
+      opacity 0.2s 0.4s;
+    opacity: 0;
+  }
+  &[open],
+  &[open]::backdrop {
+    opacity: 1;
+    transition:
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete,
+      translate 0.2s,
+      opacity 0.2s;
+  }
+  &[open] {
+    translate: 0 0;
+  }
+
+  @starting-style {
+    &[open],
+    &[open]::backdrop {
+      opacity: 0;
+    }
+    &[open] {
+      translate: 100vw 0;
+    }
+  }
+}
