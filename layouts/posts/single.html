@@ -20,7 +20,18 @@
         </div>
     </div>
     {{- end -}}
-    
+
+    {{/*  TOC Dialog  */}}
+    <dialog id="toc-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-full tw-ml-16">
+        <div class="toc tw-mx-4 tw-max-w-full">
+            <h2 class="tw-mx-0 tw-my-6 tw-uppercase tw-text-2xl">{{ T "contents" }}</h2>
+            <div class="toc-content">
+                {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            </div>
+        </div>
+    </dialog>
+        
+        
     {{- /* TOC Style */ -}}
     {{- if eq $toc.enable true -}}
         {{- if eq $toc.keepStatic true -}}

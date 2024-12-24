@@ -703,6 +703,20 @@ function initToc() {
   }
 }
 
+function initTocDialog() {
+  const dialog: HTMLDialogElement | null = document.querySelector('#toc-dialog');
+  const openButton = document.querySelector('#toc-drawer-button');
+  if (!dialog || !openButton) {
+    return;
+  }
+  openButton.addEventListener('click', () => {
+    dialog.showModal();
+  });
+  dialog.addEventListener('click', (e) => {
+    dialog.close();
+  })
+
+}
 function initMapbox() {
   if (window.config.mapbox) {
     mapboxgl.accessToken = window.config.mapbox.accessToken;
@@ -955,6 +969,7 @@ function init() {
   initTypeit();
   initMapbox();
   initToc();
+  initTocDialog();
   onScroll();
   onResize();
   onClickMask();

@@ -817,6 +817,14 @@ html.dark {
   margin: 0px;
 }
 
+.tw-m-4 {
+  margin: 1rem;
+}
+
+.tw-m-2 {
+  margin: 0.5rem;
+}
+
 .\!tw-my-1 {
   margin-top: 0.25rem !important;
   margin-bottom: 0.25rem !important;
@@ -837,12 +845,78 @@ html.dark {
   margin-bottom: 1rem;
 }
 
+.tw-my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.tw-mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.tw-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tw-mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.tw-my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tw-my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .tw-ml-4 {
   margin-left: 1rem;
 }
 
 .tw-mr-1 {
   margin-right: 0.25rem;
+}
+
+.tw-mr-0 {
+  margin-right: 0px;
+}
+
+.tw-ml-10 {
+  margin-left: 2.5rem;
+}
+
+.tw-ml-\[20\] {
+  margin-left: 20;
+}
+
+.tw-ml-\[20px\] {
+  margin-left: 20px;
+}
+
+.tw-ml-\[200px\] {
+  margin-left: 200px;
+}
+
+.tw-ml-8 {
+  margin-left: 2rem;
+}
+
+.tw-ml-1 {
+  margin-left: 0.25rem;
+}
+
+.tw-ml-16 {
+  margin-left: 4rem;
+}
+
+.tw-ml-2 {
+  margin-left: 0.5rem;
 }
 
 .\!tw-block {
@@ -878,6 +952,10 @@ html.dark {
   height: fit-content;
 }
 
+.tw-h-full {
+  height: 100%;
+}
+
 .\!tw-max-h-0 {
   max-height: 0px !important;
 }
@@ -890,8 +968,20 @@ html.dark {
   max-height: 2rem;
 }
 
+.tw-max-h-full {
+  max-height: 100%;
+}
+
 .tw-w-full {
   width: 100%;
+}
+
+.tw-w-11\/12 {
+  width: 91.666667%;
+}
+
+.tw-max-w-full {
+  max-width: 100%;
 }
 
 .tw-translate-y-\[-2px\] {
@@ -972,6 +1062,11 @@ html.dark {
   background-color: transparent;
 }
 
+.tw-bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .tw-p-0 {
   padding: 0px;
 }
@@ -998,6 +1093,11 @@ html.dark {
   padding-bottom: 0.5rem;
 }
 
+.tw-py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .tw-pb-8 {
   padding-bottom: 2rem;
 }
@@ -1018,6 +1118,15 @@ html.dark {
 .tw-text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.tw-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.tw-uppercase {
+  text-transform: uppercase;
 }
 
 .tw-text-fgColor-link-muted {
