@@ -152,3 +152,7 @@
     }
   }
 }
+
+html:has(#toc-dialog[open]) {
+  overflow: hidden;
+}
