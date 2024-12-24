@@ -88,9 +88,12 @@
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
         </a>
 
+        {{/*  toc dialog button  */}}
+        {{- if .Page.Scratch.Get "enableTocDialog" -}}
         <button id="toc-drawer-button" class="tw-block tw-bg-bgColor-secondary tw-rounded-full tw-text-base tw-p-1 md:tw-hidden">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") }}
         </button>
+        {{- end -}}
 
         {{- /* comment button */ -}}
         {{- if .Page.Scratch.Get "enableComment" -}}

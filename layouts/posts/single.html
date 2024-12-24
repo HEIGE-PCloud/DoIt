@@ -22,6 +22,7 @@
     {{- end -}}
 
     {{/*  TOC Dialog  */}}
+    {{- .Page.Scratch.Set "enableTocDialog" true -}}
     <dialog id="toc-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-full tw-ml-16">
         <div class="toc tw-mx-4 tw-max-w-full">
             <h2 class="tw-mx-0 tw-my-6 tw-uppercase tw-text-2xl">{{ T "contents" }}</h2>
