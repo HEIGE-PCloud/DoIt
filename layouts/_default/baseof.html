@@ -82,15 +82,19 @@
         {{- partial "footer.html" . -}}
     </div>
 
-    <div id="fixed-buttons" class="print:!tw-hidden">
+    <div class="print:!tw-hidden tw-flex tw-flex-col tw-fixed tw-right-4 tw-bottom-4 tw-gap-1">
         {{- /* top button */ -}}
-        <a href="#back-to-top" id="back-to-top-button" class="fixed-button tw-transition-opacity tw-opacity-0" title="{{ T `backToTop` }}">
+        <a href="#back-to-top" id="back-to-top-button" class="tw-transition-opacity tw-opacity-0 tw-block tw-bg-bgColor-secondary tw-rounded-full tw-text-base tw-p-1" title="{{ T `backToTop` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
         </a>
 
+        <button id="toc-drawer-button" class="tw-block tw-bg-bgColor-secondary tw-rounded-full tw-text-base tw-p-1 md:tw-hidden">
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") }}
+        </button>
+
         {{- /* comment button */ -}}
         {{- if  (.Page.Scratch.Get "this").commentEnabled -}}
-        <a href="#comments" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+        <a href="#comments" id="view-comments" class="tw-block tw-bg-bgColor-secondary tw-rounded-full tw-text-base tw-p-1" title="{{ T `viewComments` }}">
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>
         {{- end -}}

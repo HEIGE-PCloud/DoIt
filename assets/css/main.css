@@ -777,6 +777,42 @@ html.dark {
   --showcase-hover-color: white;
 }
 
+.tw-fixed {
+  position: fixed;
+}
+
+.tw-bottom-20 {
+  bottom: 5rem;
+}
+
+.tw-bottom-10 {
+  bottom: 2.5rem;
+}
+
+.tw-bottom-12 {
+  bottom: 3rem;
+}
+
+.tw-bottom-8 {
+  bottom: 2rem;
+}
+
+.tw-right-6 {
+  right: 1.5rem;
+}
+
+.tw-right-8 {
+  right: 2rem;
+}
+
+.tw-right-4 {
+  right: 1rem;
+}
+
+.tw-bottom-4 {
+  bottom: 1rem;
+}
+
 .tw-m-0 {
   margin: 0px;
 }
@@ -883,8 +919,20 @@ html.dark {
   flex-direction: row;
 }
 
+.tw-flex-col {
+  flex-direction: column;
+}
+
 .tw-justify-between {
   justify-content: space-between;
+}
+
+.tw-gap-2 {
+  gap: 0.5rem;
+}
+
+.tw-gap-1 {
+  gap: 0.25rem;
 }
 
 .tw-overflow-x-auto {
@@ -901,6 +949,10 @@ html.dark {
 
 .tw-rounded-full {
   border-radius: 9999px;
+}
+
+.tw-rounded {
+  border-radius: 0.25rem;
 }
 
 .tw-border-t-2 {
@@ -928,6 +980,14 @@ html.dark {
   padding: 1rem;
 }
 
+.tw-p-2 {
+  padding: 0.5rem;
+}
+
+.tw-p-1 {
+  padding: 0.25rem;
+}
+
 .tw-px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -948,6 +1008,16 @@ html.dark {
 
 .tw-align-text-bottom {
   vertical-align: text-bottom;
+}
+
+.tw-text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.tw-text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .tw-text-fgColor-link-muted {
@@ -1067,6 +1137,12 @@ html.dark {
 .dark\:tw-border-\[\#363636\]:is(.tw-dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(54 54 54 / var(--tw-border-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .md\:tw-hidden {
+    display: none;
+  }
 }
 
 @media print {
