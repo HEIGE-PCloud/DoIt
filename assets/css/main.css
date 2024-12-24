@@ -934,8 +934,8 @@ html.dark {
   justify-content: space-between;
 }
 
-.tw-gap-1 {
-  gap: 0.25rem;
+.tw-gap-2 {
+  gap: 0.5rem;
 }
 
 .tw-overflow-x-auto {
@@ -975,10 +975,6 @@ html.dark {
   padding: 0px;
 }
 
-.tw-p-1 {
-  padding: 0.25rem;
-}
-
 .tw-p-4 {
   padding: 1rem;
 }
@@ -1008,11 +1004,6 @@ html.dark {
 .tw-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.tw-text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .tw-uppercase {
