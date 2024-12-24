@@ -711,6 +711,7 @@ function initTocDialog() {
   }
   openButton.addEventListener('click', () => {
     dialog.showModal();
+    document.activeElement?.blur();
   });
   dialog.addEventListener('click', (e) => {
     dialog.close();
