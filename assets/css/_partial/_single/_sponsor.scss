@@ -20,7 +20,6 @@
     margin: 10px auto;
   }
   .sponsor-button {
-    border-width: 0px;
     border-style: solid;
     padding: 5px 10px;
     margin: 15px auto;
@@ -35,7 +34,7 @@
       @include transform(scale(1.05));
     }
     span {
-      vertical-align: top;
+      vertical-align: middle;
     }
   }
 }
