@@ -845,8 +845,6 @@ optimizeImages = true
   [params.compatibility]
     # 是否使用 Polyfill.io 来兼容旧式浏览器
     polyfill = false
-    # 是否使用 object-fit-images 来兼容旧式浏览器
-    objectFit = false
 
 # Hugo 解析文档的配置
 [markup]

@@ -935,7 +935,6 @@ function init() {
   window.scrollEventSet = new Set();
   window.resizeEventSet = new Set();
   window.clickMaskEventSet = new Set();
-  if (window.objectFitImages) objectFitImages();
   initMenuMobile();
   initSwitchTheme();
   initSelectTheme();

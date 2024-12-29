@@ -42,8 +42,6 @@ libFiles:
   mermaidJS: mermaid@8.13.3/dist/mermaid.min.js
   # meting@2.0.1 https://github.com/metowolf/MetingJS
   metingJS: meting@2.0.1/dist/Meting.min.js
-  # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
-  objectFitImagesJS: object-fit-images@3.2.4/dist/ofi.min.js
   # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
   sharerJS: sharer.js@0.4.2/sharer.min.js
   # twemoji@13.1.0 https://github.com/twitter/twemoji

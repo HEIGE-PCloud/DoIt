@@ -843,8 +843,6 @@ Please open the code block below to view the complete sample configuration {{< f
     # whether to use Polyfill.io on cdnjs to be compatible with older browsers
     # https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
     polyfill = false
-    # whether to use object-fit-images to be compatible with older browsers
-    objectFit = false
 
 # Markup related config in Hugo
 [markup]
