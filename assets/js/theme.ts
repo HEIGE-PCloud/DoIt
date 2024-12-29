@@ -939,7 +939,7 @@ function init() {
   initSwitchTheme();
   initSelectTheme();
   initMeta();
-  initSearch();
+  // initSearch();
   initCodeblocks();
   initDetails();
   initLightGallery();
