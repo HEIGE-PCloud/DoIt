@@ -409,3 +409,7 @@ header {
     }
   }
 }
+
+html:has(#mobile-menu-dialog[open]) {
+  overflow: hidden;
+}

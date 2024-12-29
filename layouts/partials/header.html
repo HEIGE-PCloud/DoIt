@@ -44,7 +44,7 @@
         <button class="tw-relative" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
             {{- .Language.LanguageName -}}
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
-            <select class="tw-absolute tw-top-0 tw-left-0 tw-opacity-0" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop" onchange="location = this.value;">
+            <select class="tw-absolute tw-top-0 tw-left-0 tw-opacity-0 tw-w-full tw-h-full" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop" onchange="location = this.value;">
                 {{- if eq .Kind "404" -}}
                     {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
                     {{- range .Sites -}}
@@ -83,7 +83,7 @@
         {{- if eq .Site.Params.header.themeChangeMode "select" -}}
         <button class="tw-relative" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-            <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0 tw-w-full tw-h-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 <option value="light">{{ T "Light" }}</option>
                 <option value="dark">{{ T "Dark" }}</option>
                 <option value="auto">{{ T "Auto" }}</option>
@@ -127,9 +127,9 @@
     <button class="tw-text-2xl tw-mx-4 tw-group" id="mobile-menu-open-button" title="{{ T `menu` }}">
         {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") -}}
     </button>
-    <dialog id="mobile-menu-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-fit tw-bg-bgColor-secondary tw-mt-0">
-        <div class="tw-flex tw-flex-col">
-            <div class="tw-flex tw-flex-row tw-justify-between tw-h-16 tw-items-center tw-w-full tw-gap-2">
+    <dialog id="mobile-menu-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-fit tw-bg-bgColor-secondary tw-mt-0 tw-pb-4">
+        <div class="tw-flex tw-flex-col tw-gap-y-4">
+            <div class="tw-flex tw-flex-row tw-justify-between tw-h-16 tw-items-center tw-w-full">
                 <a class="tw-text-2xl tw-font-bold tw-mx-4" href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
                     {{- with .Site.Params.header.title -}}
                     {{- $alt := .name | default $.Site.Title -}}
@@ -187,15 +187,15 @@
                 {{- with .Page -}}
                     {{- $url = .RelPermalink -}}
                 {{- end -}}
-                <a class="tw-text-center tw-my-1" href="{{ $url }}" title="{{ .Title }}" {{ if (urls.Parse $url).Host }}
+                <a class="tw-text-center" href="{{ $url }}" title="{{ .Title }}" {{ if (urls.Parse $url).Host }}
                     rel="noopener noreferrer" target="_blank" {{ end }}>
                     {{- .Pre | safeHTML }}{{ .Name }}{{ .Post | safeHTML -}}
                 </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <button class="tw-hidden tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+                <button class="tw-w-full tw-relative" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-                    <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+                    <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0 tw-w-full tw-h-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                         <option value="light">{{ T "Light" }}</option>
                         <option value="dark">{{ T "Dark" }}</option>
                         <option value="auto">{{ T "Auto" }}</option>
@@ -207,10 +207,10 @@
                 </button>
             {{- end -}}
             {{- if hugo.IsMultilingual -}}
-            <button class="tw-hidden tw-w-full" title="{{ T " selectLanguage" }}">
+            <button class="tw-relative" title="{{ T " selectLanguage" }}">
                 {{- .Language.LanguageName -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
-                <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
+                <select class="tw-absolute tw-w-full tw-h-full tw-left-0 tw-top-0 tw-opacity-0" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
                     {{- if eq .Kind "404" -}}
                     {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
                     {{- range .Sites -}}
