@@ -3,17 +3,15 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page" id="content-404">
+    <div class="page tw-h-[90vh] tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-3xl tw-text-center">
         <h1 id="error-emoji"></h1>
         <p class="error-text">
             {{- T "pageNotFoundText" -}}&nbsp;
             <button onclick="window.history.back();">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "hand-point-left") }}</button>
         </p>
     </div>
-    <script type="text/javascript">
-        (function() {
-            var emojiArray = ['\\(o_o)/', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)','(=\'X\'=)', '(>_<)', '(;-;)'];
-            document.getElementById('error-emoji').appendChild(document.createTextNode(emojiArray[Math.floor(Math.random() * emojiArray.length)]));
-        })();
+    <script>
+        const emojiArray = ['\\(o_o)/', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)','(=\'X\'=)', '(>_<)', '(;-;)'];
+        document.getElementById('error-emoji').appendChild(document.createTextNode(emojiArray[Math.floor(Math.random() * emojiArray.length)]));
     </script>
 {{- end -}}

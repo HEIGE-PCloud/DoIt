@@ -868,6 +868,10 @@ html.dark {
   height: 2.5rem;
 }
 
+.tw-h-\[90vh\] {
+  height: 90vh;
+}
+
 .tw-h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -928,6 +932,14 @@ html.dark {
 
 .tw-flex-col {
   flex-direction: column;
+}
+
+.tw-items-center {
+  align-items: center;
+}
+
+.tw-justify-center {
+  justify-content: center;
 }
 
 .tw-justify-between {
@@ -997,6 +1009,10 @@ html.dark {
   padding-top: 8rem;
 }
 
+.tw-text-center {
+  text-align: center;
+}
+
 .tw-align-text-bottom {
   vertical-align: text-bottom;
 }
@@ -1004,6 +1020,11 @@ html.dark {
 .tw-text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.tw-text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .tw-uppercase {
