@@ -98,7 +98,7 @@
 </header>
 
 {{- /* Mobile header */ -}}
-<header class="tw-flex md:tw-hidden tw-fixed print:!tw-hidden tw-flex-row- tw-justify-between tw-h-16 tw-items-center tw-w-full tw-z-50">
+<header class="tw-flex md:tw-hidden tw-fixed print:!tw-hidden tw-flex-row tw-justify-between tw-h-16 tw-items-center tw-w-full tw-z-50">
     <a class="tw-text-2xl tw-font-bold tw-mx-4" href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
         {{- with .Site.Params.header.title -}}
         {{- $alt := .name | default $.Site.Title -}}
