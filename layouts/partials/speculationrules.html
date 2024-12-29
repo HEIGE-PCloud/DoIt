@@ -1,0 +1,12 @@
+{{/*  Speculation Rules  */}}
+{{/*  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules  */}}
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "where": { "href_matches": "/*" },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>

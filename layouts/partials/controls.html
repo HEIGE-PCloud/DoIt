@@ -1,0 +1,20 @@
+<div class="print:!tw-hidden tw-flex tw-flex-col tw-fixed tw-right-4 tw-bottom-4 tw-gap-2">
+  {{- /* top button */ -}}
+  <a href="#back-to-top" id="back-to-top-button" class="tw-transition-opacity tw-opacity-0 tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="{{ T `backToTop` }}">
+      {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
+  </a>
+
+  {{/*  toc dialog button  */}}
+  {{- if .Page.Scratch.Get "enableTocDialog" -}}
+  <button id="toc-drawer-button" class="tw-block tw-bg-bgColor-secondary tw-rounded-full md:tw-hidden" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;">
+      {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") }}
+  </button>
+  {{- end -}}
+
+  {{- /* comment button */ -}}
+  {{- if .Page.Scratch.Get "enableComment" -}}
+  <a href="#comments" id="view-comments" class="tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="{{ T `viewComments` }}">
+      {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
+  </a>
+  {{- end -}}
+</div>

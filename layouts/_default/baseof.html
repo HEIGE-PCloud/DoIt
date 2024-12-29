@@ -30,95 +30,18 @@
             By default, instant.page preloads 65 ms after hovering a link and when a mobile user starts touching their display. There are other options.
             Preloading links as soon as they’re visible. On small mobile devices (such as smartphones) if you want your pages to be instant in more situations you can preload links as soon as they’re visible.
 */}}
-<body data-instant-intensity="viewport" >
-    {{- /* Check theme isDark before body rendering */ -}}
-    {{- $theme := .Site.Params.defaulttheme -}}
-    <script type="text/javascript">
-        function setTheme(theme) {
-          document.body.setAttribute('theme', theme); 
-          document.documentElement.className = theme;
-          document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
-          if (theme === 'light') {
-            document.documentElement.classList.remove('tw-dark')
-          } else {
-            document.documentElement.classList.add('tw-dark')
-          }
-          window.theme = theme;   
-          window.isDark = window.theme !== 'light' 
-        }
-        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
-        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
-        if (window.localStorage && localStorage.getItem('theme')) {
-            let theme = localStorage.getItem('theme');
-            if (theme === 'light' || theme === 'dark') {
-            setTheme(theme);
-            } else {
-                if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    setTheme('dark');
-                } else {
-                    setTheme('light');
-                }
-            }
-         } else { 
-            if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark') 
-                setTheme('{{ $theme }}'), saveTheme('{{ $theme }}'); 
-            else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
-        }
-        let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
-        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
-        window.switchThemeEventSet = new Set()
-    </script>
+<body data-instant-intensity="viewport">
+    {{- partial "theme.html" . -}}
     <div id="back-to-top"></div>
     <div id="mask"></div>
-
-    {{- /* Body wrapper */ -}}
-    <div class="wrapper">
-        {{- partial "header.html" . -}}
-        <main class="main">
-            <div class="container">
-                {{- block "content" . }}{{ end -}}
-            </div>
-        </main>
-        {{- partial "footer.html" . -}}
-    </div>
-
-    <div class="print:!tw-hidden tw-flex tw-flex-col tw-fixed tw-right-4 tw-bottom-4 tw-gap-2">
-        {{- /* top button */ -}}
-        <a href="#back-to-top" id="back-to-top-button" class="tw-transition-opacity tw-opacity-0 tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="{{ T `backToTop` }}">
-            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
-        </a>
-
-        {{/*  toc dialog button  */}}
-        {{- if .Page.Scratch.Get "enableTocDialog" -}}
-        <button id="toc-drawer-button" class="tw-block tw-bg-bgColor-secondary tw-rounded-full md:tw-hidden" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;">
-            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bars") }}
-        </button>
-        {{- end -}}
-
-        {{- /* comment button */ -}}
-        {{- if .Page.Scratch.Get "enableComment" -}}
-        <a href="#comments" id="view-comments" class="tw-block tw-bg-bgColor-secondary tw-rounded-full" style="padding: 0.6rem; line-height: 1.3rem; font-size: 1rem;" title="{{ T `viewComments` }}">
-            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
-        </a>
-        {{- end -}}
-    </div>
-
-    {{- /* Load JavaScript scripts and CSS */ -}}
+    {{- partial "header.html" . -}}
+    <main>
+        {{- block "content" . }}{{ end -}}
+    </main>
+    {{- partial "footer.html" . -}}
+    {{- partial "controls.html" . -}}
     {{- partial "assets.html" . -}}
-
-    {{/*  Speculation Rules  */}}
-    {{/*  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules  */}}
-    <script type="speculationrules">
-        {
-          "prerender": [
-            {
-              "where": { "href_matches": "/*" },
-              "eagerness": "moderate"
-            }
-          ]
-        }
-    </script>
-      
+    {{- partial "speculationrules.html" . -}}
 </body>
 
 </html>
