@@ -82,20 +82,20 @@
             </span>
         </span>
         {{- end -}}
-        {{/*  TODO: {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-        <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+        {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+        <button class="tw-relative" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-            <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <select class="tw-absolute tw-left-0 tw-top-0 tw-opacity-0" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 <option value="light">{{ T "Light" }}</option>
                 <option value="dark">{{ T "Dark" }}</option>
                 <option value="auto">{{ T "Auto" }}</option>
             </select>
         </button>
         {{- else -}}
-        <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+        <button {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
             {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
         </button>
-        {{- end -}}  */}}
+        {{- end -}}
     </div>
 </header>
 

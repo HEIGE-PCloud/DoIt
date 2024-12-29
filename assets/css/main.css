@@ -781,12 +781,28 @@ html.dark {
   position: fixed;
 }
 
+.tw-absolute {
+  position: absolute;
+}
+
+.tw-relative {
+  position: relative;
+}
+
 .tw-bottom-4 {
   bottom: 1rem;
 }
 
+.tw-left-0 {
+  left: 0px;
+}
+
 .tw-right-4 {
   right: 1rem;
+}
+
+.tw-top-0 {
+  top: 0px;
 }
 
 .tw-z-50 {
