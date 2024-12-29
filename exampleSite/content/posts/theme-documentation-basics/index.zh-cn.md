@@ -512,6 +512,12 @@ optimizeImages = true
     [params.page.code]
       # 默认展开显示的代码行数
       maxShownLines = 10
+      # 是否显示代码行号
+      lineNos = true
+      # 是否开启代码换行
+      wrap = false
+      # 是否显示代码块标题
+      header = true
     # {{< version 0.2.14 >}} 表格配置
     [params.page.table]
       # 是否开启表格排序

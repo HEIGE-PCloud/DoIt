@@ -524,6 +524,12 @@ Please open the code block below to view the complete sample configuration {{< f
     [params.page.code]
       # the maximum number of lines of displayed code by default
       maxShownLines = 10
+      # whether to enable line numbers in the code block
+      lineNos = true
+      # whether to enable line wrapping in the code block
+      wrap = false
+      # whether to display the header in the code block
+      header = true
     # {{< version 0.2.14 >}} Table config
     [params.page.table]
       # whether to enable sorting in the tables
