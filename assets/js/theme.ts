@@ -12,34 +12,13 @@ declare global {
   }
 }
 
-/* eslint-disable no-new */
-/* eslint-disable no-undef */
 const Tablesort = require("tablesort");
-// const autocomplete = require('autocomplete.js')
-
-function escape(unsafe) {
-  return unsafe
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function forEach(elements, handler) {
-  elements = elements || [];
-  for (let i = 0; i < elements.length; i++) handler(elements[i]);
-}
 
 function getScrollTop() {
   return (
     (document.documentElement && document.documentElement.scrollTop) ||
     document.body.scrollTop
   );
-}
-
-function isMobileWindow() {
-  return window.matchMedia("only screen and (max-width: 680px)").matches;
 }
 
 /**
@@ -491,7 +470,7 @@ function initSearch() {
           suggestion: ({ title, uri, date, context }) =>
             `<div><a href=${uri}><span class="suggestion-title">${title}</span></a><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
           empty: ({ query }) =>
-            `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
+            `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
           footer: () => {
             const { searchType, icon, href } =
               searchConfig.type === "algolia"
@@ -723,7 +702,7 @@ function initMapbox() {
     mapboxgl.accessToken = window.config.mapbox.accessToken;
     mapboxgl.setRTLTextPlugin(window.config.mapbox.RTLTextPlugin);
     window._mapboxArr = window._mapboxArr || [];
-    forEach(document.getElementsByClassName("mapbox"), ($mapbox) => {
+    Array.from(document.getElementsByClassName("mapbox")).forEach(($mapbox) => {
       const {
         lng,
         lat,
@@ -772,7 +751,7 @@ function initMapbox() {
       window._mapboxArr.push(mapbox);
     });
     window._mapboxOnSwitchTheme = () => {
-      forEach(window._mapboxArr, (mapbox) => {
+      window._mapboxArr.forEach((mapbox) => {
         const $mapbox = mapbox.getContainer();
         const { lightStyle, darkStyle } = window.config.data[$mapbox.id];
         mapbox.setStyle(window.isDark ? darkStyle : lightStyle);
