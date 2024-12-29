@@ -1,6 +1,5 @@
 header {
   width: 100%;
-  z-index: 150;
   background-color: $header-background-color;
   @include transition(box-shadow 0.3s ease);
 

@@ -1,103 +1,101 @@
 {{- /* Desktop header */ -}}
-<header class="desktop print:!tw-hidden" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
-                {{- with .Site.Params.header.title -}}
-                {{- $alt := .name | default $.Site.Title -}}
-                {{- with .logo -}}
-                {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" "Alt" $alt | partial "plugin/image.html" -}} {{- end -}}
-                {{- with .pre -}}
+<header class="tw-hidden tw-fixed md:tw-flex tw-flex-row tw-justify-between tw-h-16 tw-items-center tw-w-full tw-z-50">
+    <a class="tw-block tw-mx-16 tw-text-2xl tw-font-bold tw-text-nowrap" href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
+        {{- with .Site.Params.header.title -}}
+            {{- $alt := .name | default $.Site.Title -}}
+            {{- with .logo -}}
+                {{- dict "Src" . "Class" "tw-inline tw-align-text-bottom tw-mr-1" "Height" "32" "Width" "32" "Alt" $alt | partial "plugin/image.html" -}} 
+            {{- end -}}
+            {{- with .pre -}}
                 <span class="tw-mr-1">{{ . | safeHTML }}</span>
-                {{- end -}}
-                {{- if .typeit -}}
-                {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial
-                "function/id.html" -}}
+            {{- end -}}
+            {{- if .typeit -}}
+                {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial "function/id.html" -}}
                 <span id="{{ $id }}" class="typeit"></span>
                 {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
-                {{- else -}}
+            {{- else -}}
                 {{- .name -}}
-                {{- end -}}
-                {{- with .post -}}
+            {{- end -}}
+            {{- with .post -}}
                 <span class="tw-mr-1">{{ . | safeHTML }}</span>
-                {{- end -}}
-                {{- else -}}
-                {{- .Site.Title -}}
-                {{- end -}}
-            </a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner">
-                {{- range .Site.Menus.main -}}
-                {{- $url := .URL | relLangURL -}}
-                {{- with .Page -}}
+            {{- end -}}
+        {{- else -}}
+            {{- .Site.Title -}}
+        {{- end -}}
+    </a>
+    <div class="tw-flex tw-overflow-x-auto tw-items-center tw-gap-4 tw-mr-8 tw-flex-nowrap tw-text-nowrap tw-h-full">
+        {{- range .Site.Menus.main -}}
+            {{- $url := .URL | relLangURL -}}
+            {{- with .Page -}}
                 {{- $url = .RelPermalink -}}
-                {{- end -}}
-                <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}"
-                    href="{{ $url }}" {{ with .Title }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }}
-                    rel="noopener noreferrer" target="_blank" {{ end }}>
-                    {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-                </a>
-                {{- end -}}
-                {{- if .Site.Menus.main -}}
-                <span class="menu-item delimiter"></span>
-                {{- end -}}
-                {{- if hugo.IsMultilingual -}}
-                <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
+            {{- end -}}
+            {{- $active := $.IsMenuCurrent "main" . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url)  -}}
+            <a class="tw-block {{ if $active }} tw-font-bold{{ end }}"
+                href="{{ $url }}" 
+                {{ with .Title }} title="{{ . }}" {{ end }}
+                {{ if (urls.Parse $url).Host }}rel="noopener noreferrer" target="_blank" {{ end }}>
+                {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+            </a>
+        {{- end -}}
+        {{- if .Site.Menus.main -}}
+            <span aria-hidden="true" class="tw-border-l-fgColor-default tw-border-l tw-block tw-h-6"></span>
+        {{- end -}}
+        {{/*  TODO: {{- if hugo.IsMultilingual -}}  */}}
+        {{- if false -}}
+        <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
+            {{- .Language.LanguageName -}}
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
+            <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
+                onchange="location = this.value;">
+                {{- if eq .Kind "404" -}}
+                {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
+                {{- range .Sites -}}
+                {{- $link := printf "%v/404.html" .LanguagePrefix -}}
+                <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
                     {{- .Language.LanguageName -}}
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
-                    <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
-                        onchange="location = this.value;">
-                        {{- if eq .Kind "404" -}}
-                        {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                        {{- range .Sites -}}
-                        {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                        <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
-                            {{- .Language.LanguageName -}}
-                        </option>
-                        {{- end -}}
-                        {{- else -}}
-                        {{- range .AllTranslations -}}
-                        <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
-                            {{- .Language.LanguageName -}}
-                        </option>
-                        {{- end -}}
-                        {{- end -}}
-                    </select>
-                </button>
+                </option>
                 {{- end -}}
-                {{- if .Site.Params.search.enable -}}
-                <span class="menu-item search" id="search-desktop">
-                    <input type="text"
-                        placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}"
-                        id="search-input-desktop">
-                    <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
-                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "search") }}
-                    </button>
-                    <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
-                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "times-circle") }}
-                    </button>
-                    <span class="search-button search-loading tw-animate-spin" id="search-loading-desktop">
-                        {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "spinner") }}
-                    </span>
-                </span>
-                {{- end -}}
-                {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-                    <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
-                        <option value="light">{{ T "Light" }}</option>
-                        <option value="dark">{{ T "Dark" }}</option>
-                        <option value="auto">{{ T "Auto" }}</option>
-                    </select>
-                </button>
                 {{- else -}}
-                <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
-                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
-                </button>
+                {{- range .AllTranslations -}}
+                <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
+                    {{- .Language.LanguageName -}}
+                </option>
                 {{- end -}}
-            </div>
-        </div>
+                {{- end -}}
+            </select>
+        </button>
+        {{- end -}}
+        {{/*  TODO: {{- if .Site.Params.search.enable -}}  */}}
+        {{- if false -}}
+        <span class="menu-item search" id="search-desktop">
+            <input type="text"
+                placeholder="{{ .Site.Params.search.placeholder | default (T `searchPlaceholder`) }}"
+                id="search-input-desktop">
+            <button class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "search") }}
+            </button>
+            <button class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "times-circle") }}
+            </button>
+            <span class="search-button search-loading tw-animate-spin" id="search-loading-desktop">
+                {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "spinner") }}
+            </span>
+        </span>
+        {{- end -}}
+        {{/*  TODO: {{- if eq .Site.Params.header.themeChangeMode "select" -}}
+        <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
+            <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+                <option value="light">{{ T "Light" }}</option>
+                <option value="dark">{{ T "Dark" }}</option>
+                <option value="auto">{{ T "Auto" }}</option>
+            </select>
+        </button>
+        {{- else -}}
+        <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
+        </button>
+        {{- end -}}  */}}
     </div>
 </header>
 

@@ -789,6 +789,10 @@ html.dark {
   right: 1rem;
 }
 
+.tw-z-50 {
+  z-index: 50;
+}
+
 .tw-m-0 {
   margin: 0px;
 }
@@ -801,6 +805,11 @@ html.dark {
 .tw-mx-0 {
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.tw-mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .tw-mx-2 {
@@ -840,6 +849,10 @@ html.dark {
   margin-right: 0.25rem;
 }
 
+.tw-mr-8 {
+  margin-right: 2rem;
+}
+
 .\!tw-block {
   display: block !important;
 }
@@ -866,6 +879,14 @@ html.dark {
 
 .tw-h-10 {
   height: 2.5rem;
+}
+
+.tw-h-16 {
+  height: 4rem;
+}
+
+.tw-h-6 {
+  height: 1.5rem;
 }
 
 .tw-h-\[90vh\] {
@@ -934,6 +955,10 @@ html.dark {
   flex-direction: column;
 }
 
+.tw-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
 .tw-items-center {
   align-items: center;
 }
@@ -950,6 +975,10 @@ html.dark {
   gap: 0.5rem;
 }
 
+.tw-gap-4 {
+  gap: 1rem;
+}
+
 .tw-overflow-x-auto {
   overflow-x: auto;
 }
@@ -962,8 +991,16 @@ html.dark {
   text-wrap: wrap;
 }
 
+.tw-text-nowrap {
+  text-wrap: nowrap;
+}
+
 .tw-rounded-full {
   border-radius: 9999px;
+}
+
+.tw-border-l {
+  border-left-width: 1px;
 }
 
 .tw-border-t-2 {
@@ -973,6 +1010,10 @@ html.dark {
 .tw-border-\[\#f0f0f0\] {
   --tw-border-opacity: 1;
   border-color: rgb(240 240 240 / var(--tw-border-opacity, 1));
+}
+
+.tw-border-l-fgColor-default {
+  border-left-color: var(--fgColor-default);
 }
 
 .tw-bg-bgColor-secondary {
@@ -1025,6 +1066,10 @@ html.dark {
 .tw-text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.tw-font-bold {
+  font-weight: 700;
 }
 
 .tw-uppercase {
@@ -1151,6 +1196,10 @@ html.dark {
 }
 
 @media (min-width: 768px) {
+  .md\:tw-flex {
+    display: flex;
+  }
+
   .md\:tw-hidden {
     display: none;
   }
