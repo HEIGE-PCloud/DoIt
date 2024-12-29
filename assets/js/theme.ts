@@ -25,23 +25,24 @@ function getScrollTop() {
  * Initialize the mobile menu bar.
  */
 function initMenuMobile() {
-  const menuToggleMobile = document.getElementById("menu-toggle-mobile");
-  const menuMobile = document.getElementById("menu-mobile");
-  // If no event listener has been registered yet, add one.
-  if (!window.menuToggleMobileEventListener) {
-    menuToggleMobile.addEventListener("click", () => {
-      document.body.classList.toggle("blur");
-      menuToggleMobile.classList.toggle("active");
-      menuMobile.classList.toggle("active");
-    });
-    window.menuToggleMobileEventListener = true;
+  const openButton = document.getElementById("mobile-menu-open-button") as HTMLButtonElement | null;
+  const closeButton = document.getElementById("mobile-menu-close-button") as HTMLButtonElement | null;
+  const dialog = document.getElementById("mobile-menu-dialog") as HTMLDialogElement | null;
+  if (!openButton) {
+    throw new Error("Mobile menu button not found.");
   }
-  // Remove the mask when click on it.
-  window._menuMobileOnClickMask = () => {
-    menuToggleMobile.classList.remove("active");
-    menuMobile.classList.remove("active");
-  };
-  window.clickMaskEventSet.add(window._menuMobileOnClickMask);
+  if (!closeButton) {
+    throw new Error("Mobile menu close button not found.");
+  }
+  if (!dialog) {
+    throw new Error("Mobile menu dialog not found.");
+  }
+  openButton.addEventListener("click", () => {
+    dialog.showModal();
+  });
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
 }
 
 /**

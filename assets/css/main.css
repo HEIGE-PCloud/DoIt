@@ -838,6 +838,11 @@ html.dark {
   margin-right: 1rem;
 }
 
+.tw-my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
 .tw-my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -867,6 +872,10 @@ html.dark {
 
 .tw-mr-8 {
   margin-right: 2rem;
+}
+
+.tw-mt-0 {
+  margin-top: 0px;
 }
 
 .\!tw-block {
