@@ -1,9 +1,0 @@
-weight = 1
-# language code
-languageCode = "en"
-# language name
-languageName = "English"
-# whether to include Chinese/Japanese/Korean
-hasCJKLanguage = false
-# copyright description used only for seo schema
-copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."

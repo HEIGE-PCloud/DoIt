@@ -1,8 +1,0 @@
-# Options to make output .md files
-# 用于输出 Markdown 格式文档的设置
-
-["text/plain"]
-  suffixes = ["md"]
-
-["application/feed+json"]
-  suffixes = ["feed"]

@@ -1,7 +1,0 @@
-# Options to make hugo output files
-# 用于 Hugo 输出文档的设置
-
-home = ["HTML", "RSS", "JSON", "JsonFeed"]
-page = ["HTML", "MarkDown"]
-section = ["HTML", "RSS"]
-taxonomy = ["HTML", "RSS"]
