@@ -39,14 +39,16 @@ Parameters:
 {{- $optimise := .Optimise | default site.Params.image.optimise | default false -}}
 
 {{- if not $resource | and $isUrlRemote | and $cacheRemote -}}
-    {{- with try resources.GetRemote .Src -}}
+    {{- with try (resources.GetRemote .Src) -}}
         {{- with .Err -}}
             {{- warnf "%s" . -}}
-        {{ else }}
-            {{- if .Value.ResourceType | eq "image" -}}
-                {{- $resource = .Value -}}
+        {{- else with .Value -}}
+            {{- if .ResourceType | eq "image" -}}
+                {{- $resource = . -}}
             {{- end -}}
-    {{- end -}}
+        {{- else -}}
+            {{- warnf "Unable to get resource %q" .Src -}}
+        {{- end -}}
     {{- end -}}
 {{- end -}}
 
