@@ -7,12 +7,12 @@
 {{- end -}}
 
 {{- if (eq $suffixList false) | or $valid -}}
-    {{- with try $remoteResource := resources.GetRemote . -}}
+    {{- with try resources.GetRemote . -}}
         {{- with .Err -}}
             {{- warnf "%s" . -}}
         {{ else }}
-            {{- if eq $remoteResource.ResourceType "image" -}}
-                {{- $resource = $remoteResource -}}
+            {{- if eq .Value.ResourceType "image" -}}
+                {{- $resource = .Value -}}
             {{- end -}}
         {{- end -}}
     {{- end -}}
