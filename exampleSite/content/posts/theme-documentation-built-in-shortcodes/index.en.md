@@ -91,17 +91,17 @@ The rendered output looks like this:
 
 [Documentation of `ref` and `relref`](https://gohugo.io/content-management/shortcodes#ref-and-relref)
 
-## tweet
+## x
 
-[Documentation of `tweet`](https://gohugo.io/content-management/shortcodes#tweet)
+[Documentation of `x`](https://gohugo.io/content-management/shortcodes#x)
 
-Example `tweet` input:
+Example `x` input:
 
 ```markdown
-{{</* tweet user="SanDiegoZoo" id="1453110110599868418" */>}}
+{{</* x user="SanDiegoZoo" id="1453110110599868418" */>}}
 ```
 
-{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
+{{< x user="SanDiegoZoo" id="1453110110599868418" >}}
 
 ## vimeo
 

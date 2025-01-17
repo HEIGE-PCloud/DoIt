@@ -895,7 +895,7 @@ Please open the code block below to view the complete sample configuration {{< f
   # {{< version 0.2.0 deleted >}} privacy of the Google Analytics (replaced by params.analytics.google)
   [privacy.googleAnalytics]
     # ...
-  [privacy.twitter]
+  [privacy.x]
     enableDNT = true
   [privacy.youtube]
     privacyEnhanced = true
