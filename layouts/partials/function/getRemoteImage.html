@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- if (eq $suffixList false) | or $valid -}}
-    {{- with $remoteResource := resources.GetRemote . -}}
+    {{- with try $remoteResource := resources.GetRemote . -}}
         {{- with .Err -}}
             {{- warnf "%s" . -}}
         {{ else }}
