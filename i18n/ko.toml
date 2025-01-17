@@ -134,8 +134,8 @@ one = "한 단어"
 other = "{{ .Count }} 단어"
 
 [readingTime]
-one = "읽는데 약 1분"
-other = "읽는데 약 {{ .Count }}분"
+one = "읽는 데 약 1분"
+other = "읽는 데 약 {{ .Count }}분"
 
 [views]
 other = "조회"
