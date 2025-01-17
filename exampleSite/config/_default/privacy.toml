@@ -5,7 +5,7 @@
 # Google Analytics 相关隐私 (被 params.analytics.google 替代)
 [googleAnalytics]
   # ...
-[twitter]
+[x]
   enableDNT = true
 [youtube]
   privacyEnhanced = true
