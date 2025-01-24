@@ -3,7 +3,7 @@
 {{- define "content" -}}
     {{- .Page.Scratch.Set "enableTablesort" true -}}
     {{- $params := .Scratch.Get "params" -}}
-    <div class="page single special print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0">
+    <div class="page single special tw:print:w-full! tw:print:max-w-none! tw:print:m-0! tw:print:p-0!">
         {{- /* Title */ -}}
         <h1 class="single-title">
             {{- .Title -}}

@@ -13,7 +13,7 @@
     
     {{- /* Auto TOC */ -}}
     {{- if $toc.enable | and (eq $toc.keepStatic false) -}}
-    <div class="toc print:!tw-hidden" id="toc-auto">
+    <div class="toc tw:print:hidden!" id="toc-auto">
         <h2 class="toc-title">{{ T "contents" }}</h2>
         <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto">
             {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
@@ -23,9 +23,9 @@
 
     {{/*  TOC Dialog  */}}
     {{- .Page.Scratch.Set "enableTocDialog" true -}}
-    <dialog id="toc-dialog" class="tw-max-w-full tw-w-full tw-max-h-full tw-h-full tw-ml-16">
-        <div class="toc tw-mx-4 tw-max-w-full">
-            <h2 class="tw-mx-0 tw-my-6 tw-uppercase tw-text-2xl">{{ T "contents" }}</h2>
+    <dialog id="toc-dialog" class="tw:max-w-full tw:w-full tw:max-h-full tw:h-full tw:ml-16">
+        <div class="toc tw:mx-4 tw:max-w-full">
+            <h2 class="tw:mx-0 tw:my-6 tw:uppercase tw:text-2xl">{{ T "contents" }}</h2>
             <div class="toc-content">
                 {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
             </div>
@@ -44,7 +44,7 @@
         <script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "false")</script>
     {{- end -}}
 
-    <article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0">
+    <article class="page single tw:print:w-full! tw:print:max-w-none! tw:print:m-0! tw:print:p-0!">
         {{- /* Title */ -}}
         <h1 class="single-title" data-pagefind-meta="date:{{- .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}" data-pagefind-body>{{ .Title }}</h1>
 
@@ -205,7 +205,7 @@
         
         {{- /* Static TOC */ -}}
         {{- if $toc.enable -}}
-            <div class="details toc print:!tw-block" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
+            <div class="details toc tw:print:block!" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
                 <div class="details-summary toc-title">
                     <span>{{ T "contents" }}</span>
                     <span class="details-icon">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") }}</span>

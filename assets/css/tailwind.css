@@ -1,22 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' prefix(tw);
+
+@config '../../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   h1 {
-    @apply tw-text-3xl tw-font-bold tw-m-8;
+    @apply tw:text-3xl tw:font-bold tw:m-8;
   }
   h2 {
-    @apply tw-text-2xl tw-font-bold tw-m-6;
+    @apply tw:text-2xl tw:font-bold tw:m-6;
   }
   h3 {
-    @apply tw-text-xl tw-font-bold tw-m-4;
+    @apply tw:text-xl tw:font-bold tw:m-4;
   }
   ol {
-    @apply tw-list-decimal tw-list-outside;
+    @apply tw:list-decimal tw:list-outside;
   }
   ul {
-    @apply tw-list-disc tw-list-outside;
+    @apply tw:list-disc tw:list-outside;
   }
   .tw-scrollbar-thin {
     scrollbar-width: thin;

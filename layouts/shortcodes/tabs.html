@@ -13,7 +13,7 @@
     {{- errorf "defaultTab index out of range. The number of tabs is %d, but got index %s. The index should be between 0 and length - 1. See %s %s" $lenTabs $defaultTab .Name .Position -}}
 {{- end -}}
 
-<tab-container default-tab="{{ $defaultTab }}" class="tw-my-4">
+<tab-container default-tab="{{ $defaultTab }}" class="tw:my-4">
   {{- range $index, $tab := $tabs -}}
       {{- $title := $tab.title -}}
       {{- $id := $tab.id -}}
@@ -23,20 +23,20 @@
       {{- end -}}
       <button class="
         tab-button  
-        tw-transition 
-        tw-ease-in-out 
-        tw-duration-300
-        tw-bg-transparent
-        tw-px-4 
-        tw-py-2
-        tw-mr-1
-        tw-shadow-black
-        hover:tw-bg-bgColor-secondary
-        hover:tw-shadow-md
-        aria-selected:tw-font-bold
-        aria-selected:tw-border-b-4
-        aria-selected:tw-text-fgColor-link
-        aria-selected:tw-border-fgColor-link"
+        tw:transition 
+        tw:ease-in-out 
+        tw:duration-300
+        tw:bg-transparent
+        tw:px-4 
+        tw:py-2
+        tw:mr-1
+        tw:shadow-black
+        tw:hover:bg-bgColor-secondary
+        tw:hover:shadow-md
+        tw:aria-selected:font-bold
+        tw:aria-selected:border-b-4
+        tw:aria-selected:text-fgColor-link
+        tw:aria-selected:border-fgColor-link"
         type="button" 
         role="tab" 
         id="tab-{{- $id -}}">

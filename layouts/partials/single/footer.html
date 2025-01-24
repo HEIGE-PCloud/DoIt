@@ -25,7 +25,7 @@
                 {{- end -}}
             </div>
         </div>
-        <div class="post-info-line print:!tw-hidden">
+        <div class="post-info-line tw:print:hidden!">
             <div class="post-info-md">
                 {{- if  .IsPage -}}
                     {{- $post_info := slice -}}
@@ -81,12 +81,12 @@
                 {{- end -}}
             {{- end -}}
         </section>
-        <section class="print:!tw-hidden">
-            <span><button class="tw-text-fgColor-link-muted hover:tw-text-fgColor-link-muted-hover" onclick="window.history.back();">{{ T "back" }}</button></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ T "home" }}</a></span>
+        <section class="tw:print:hidden!">
+            <span><button class="tw:text-fgColor-link-muted tw:hover:text-fgColor-link-muted-hover" onclick="window.history.back();">{{ T "back" }}</button></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ T "home" }}</a></span>
         </section>
     </div>
 
-    <div class="post-nav print:tw-hidden">
+    <div class="post-nav tw:print:hidden">
         {{- if .PrevInSection -}}
             <a href="{{ .PrevInSection.RelPermalink }}" class="prev" rel="prev" title="{{ .PrevInSection.Title }}">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-left") }}{{ .PrevInSection.Title }}</a>
         {{- end -}}
