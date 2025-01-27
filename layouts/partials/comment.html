@@ -113,6 +113,9 @@
             {{- if eq $waline.texRenderer false -}}
                 {{- $commentConfig = dict "texRenderer" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
+            {{- if eq $waline.reaction false -}}
+                {{- $commentConfig = dict "reaction" false | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
             {{- $source := $cdn.walineJS | default "lib/waline/waline.js" -}}
