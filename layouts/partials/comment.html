@@ -113,8 +113,8 @@
             {{- with $waline.texRenderer | or (eq $waline.texRenderer false) -}}
                 {{- $commentConfig = dict "texRenderer" $waline.texRenderer | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- if eq $waline.reaction false -}}
-                {{- $commentConfig = dict "reaction" false | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.reaction | or (eq $waline.reaction false) -}}
+                {{- $commentConfig = dict "reaction" $waline.reaction | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
             {{- $options := dict -}}
