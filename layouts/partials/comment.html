@@ -110,8 +110,8 @@
             {{- if eq $waline.highlighter false -}}
                 {{- $commentConfig = dict "highlighter" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- if eq $waline.texRenderer false -}}
-                {{- $commentConfig = dict "texRenderer" false | dict "waline" | merge $commentConfig -}}
+            {{- with $waline.texRenderer | or (eq $waline.texRenderer false) -}}
+                {{- $commentConfig = dict "texRenderer" $waline.texRenderer | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- if eq $waline.reaction false -}}
                 {{- $commentConfig = dict "reaction" false | dict "waline" | merge $commentConfig -}}
