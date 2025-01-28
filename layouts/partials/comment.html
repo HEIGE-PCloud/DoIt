@@ -110,10 +110,10 @@
             {{- if eq $waline.highlighter false -}}
                 {{- $commentConfig = dict "highlighter" false | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.texRenderer | or (eq $waline.texRenderer false) -}}
+            {{- if isset $waline "texrenderer" -}}
                 {{- $commentConfig = dict "texRenderer" $waline.texRenderer | dict "waline" | merge $commentConfig -}}
             {{- end -}}
-            {{- with $waline.reaction | or (eq $waline.reaction false) -}}
+            {{- if isset $waline "reaction" -}}
                 {{- $commentConfig = dict "reaction" $waline.reaction | dict "waline" | merge $commentConfig -}}
             {{- end -}}
             {{- $shims := dict "@waline/client" "js/shims/waline.js" -}}
