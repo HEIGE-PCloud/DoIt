@@ -1,8 +1,20 @@
+{{- $params := .Page.Scratch.Get "params" -}}
+{{- $blockLeftDelimiter := $params.math.blockLeftDelimiter | default "\\[" -}}
+{{- $blockRightDelimiter := $params.math.blockRightDelimiter | default "\\]" -}}
+{{- $inlineLeftDelimiter := $params.math.inlineLeftDelimiter | default "\\(" -}}
+{{- $inlineRightDelimiter := $params.math.inlineRightDelimiter | default "\\)" -}}
 {{- .Page.Scratch.Set "enableMath" true -}}
-{{- if eq .Type "block" -}}
-  {{- $opts := dict "displayMode" true "output" "html" -}}
-  {{- transform.ToMath .Inner $opts -}}
-{{- else -}}
-  {{- $opts := dict "displayMode" false "output" "html" -}}
-  {{- transform.ToMath .Inner $opts -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq $.Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{/*  {{ warnf "Unable to render mathematical markup to HTML using the transform.ToMath function. The KaTeX display engine threw the following error: %s: see %s." . $.Position }}  */}}
+    {{/*  Fallback to client side rendering. Mainly for mhchem support. */}}
+    {{- if eq $.Type "block" -}}
+      {{- $blockLeftDelimiter -}}{{- $.Inner -}}{{- $blockRightDelimiter -}}
+    {{- else -}}
+      {{- $inlineLeftDelimiter -}}{{- $.Inner -}}{{- $inlineRightDelimiter -}}
+    {{- end -}}
+  {{- else }}
+    {{- .Value }}
+  {{- end }}
 {{- end -}}
