@@ -5,7 +5,6 @@ code {
   @include line-break(anywhere);
   font-size: $code-font-size;
   font-family: $code-font-family;
-  color: $code-color;
 }
 
 pre {
