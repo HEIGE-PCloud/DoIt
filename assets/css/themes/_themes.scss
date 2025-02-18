@@ -1,7 +1,11 @@
 // Syntax for themes light
-@import "syntax-catppuccin-latte";
+.light {
+  @import "syntax-light";
+}
 // Syntax for themes dark
-@import "syntax-onedark";
+.dark {
+  @import "syntax-dark";
+}
 // Syntax for gist dark
 @import "syntax-gist-dark";
 
