@@ -897,12 +897,24 @@ html.dark {
   max-height: 100%;
 }
 
+.tw-min-h-full {
+  min-height: 100%;
+}
+
+.tw-min-h-screen {
+  min-height: 100vh;
+}
+
 .tw-w-full {
   width: 100%;
 }
 
 .tw-max-w-full {
   max-width: 100%;
+}
+
+.tw-flex-1 {
+  flex: 1 1 0%;
 }
 
 .tw-translate-y-\[-2px\] {

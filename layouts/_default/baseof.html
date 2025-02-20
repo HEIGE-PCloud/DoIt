@@ -30,12 +30,12 @@
             By default, instant.page preloads 65 ms after hovering a link and when a mobile user starts touching their display. There are other options.
             Preloading links as soon as they’re visible. On small mobile devices (such as smartphones) if you want your pages to be instant in more situations you can preload links as soon as they’re visible.
 */}}
-<body data-instant-intensity="viewport">
+<body data-instant-intensity="viewport" class="tw-flex tw-min-h-screen tw-flex-col">
     {{- partial "theme.html" . -}}
     <div id="back-to-top"></div>
     <div id="mask"></div>
     {{- partial "header.html" . -}}
-    <main class="tw-mx-4">
+    <main class="tw-mx-4 tw-flex-1">
         {{- block "content" . }}{{ end -}}
     </main>
     {{- partial "footer.html" . -}}
