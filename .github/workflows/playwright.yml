@@ -17,6 +17,12 @@ jobs:
       with:
         node-version: lts/*
 
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: latest
+        extended: true
+
     - name: Install dependencies
       run: npm install
 
