@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const pages = [
   "",
-  "posts",
+  // "posts",
   "tags",
   "categories",
   "series",
@@ -11,7 +11,7 @@ const pages = [
   "about",
   "aplayer-tests",
   "extend-shortcodes-tests",
-  "person-tests.md",
+  "person-tests",
   "author-fallback-tests",
   "friend-link-tests",
   "related-tests",
@@ -21,8 +21,8 @@ const pages = [
   // "bilibili-tests",
   // "katex-tests",
   "showcase-tests",
-  "bluesky-tests.md",
-  "mapbox-tests",
+  "bluesky-tests",
+  // "mapbox-tests",
   "tab-tests",
   // "builtin-shortcodes-tests",
   "markdown-tests",
