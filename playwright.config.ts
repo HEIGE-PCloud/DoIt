@@ -80,7 +80,7 @@ export default defineConfig({
   // },
 
   expect: {
-    toMatchSnapshot: {
+    toHaveScreenshot: {
       threshold: 0.02,
     },
   },

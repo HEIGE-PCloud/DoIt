@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
 
-
-test('Homepage should look the same', async ({ page }) => {
-  await page.goto('https://hugodoit.pages.dev');
-  expect(await page.screenshot({ fullPage: true })).toMatchSnapshot('homepage.png');
+test("homepage", async ({ page }) => {
+  await page.goto("https://hugodoit.pages.dev");
+  await expect(page).toHaveScreenshot({
+    fullPage: true,
+    threshold: 0.02,
+  });
 });
