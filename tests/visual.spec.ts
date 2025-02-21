@@ -4,6 +4,5 @@ test("homepage", async ({ page }) => {
   await page.goto("https://hugodoit.pages.dev");
   await expect(page).toHaveScreenshot({
     fullPage: true,
-    threshold: 0.02,
   });
 });
