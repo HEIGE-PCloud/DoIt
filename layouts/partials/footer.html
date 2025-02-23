@@ -4,7 +4,7 @@
             {{- /* Custom Content */ -}}
             {{- with .Site.Params.footer.custom -}}
                 <div class="footer-line">
-                    {{- safeHTML . -}}
+                    {{- safeHTML . | $.RenderString -}}
                 </div>
             {{- end -}}
 
