@@ -82,7 +82,7 @@ Parameters:
 {{- if .Linked -}}
 <a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
 {{- end -}}
-<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} {{ print "src=" $src | safeHTMLAttr }} {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} {{ printf "src='%v'" $src | safeHTMLAttr }} {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
 {{- if .Linked -}}
 </a>
 {{- end -}}
