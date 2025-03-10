@@ -130,6 +130,16 @@
                     "local": "typeit/typeit.min.js"
                 }
             ]
+        },
+        {
+            "name": "plantuml-encoder",
+            "version": "1.4.0",
+            "files": [
+                {
+                    "remote": "dist/plantuml-encoder.min.js",
+                    "local": "plantuml-encoder/plantuml-encoder.min.js"
+                }
+            ]
         }
     ]
 }

@@ -336,3 +336,10 @@
   max-height: 75vh;
   overflow: auto;
 }
+
+[id^=plantuml-diagram] {
+  display: flex;
+  border-radius: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}

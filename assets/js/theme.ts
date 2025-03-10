@@ -928,6 +928,43 @@ function initCodeblocks() {
   });
 }
 
+function renderPlantUML() {
+  const diagrams = document.querySelectorAll("pre.plantuml");
+
+  diagrams.forEach((diagram) => {
+    const content = diagram.dataset.content;
+    const server = diagram.dataset.server;
+    const format = diagram.dataset.format;
+    const title = diagram.dataset.title;
+
+    try {
+      const encoded = plantumlEncoder.encode(content);
+      const img = document.createElement("img");
+
+      img.src = `${server}/${format}/${encoded}`;
+      img.loading = "lazy";
+      img.style.maxWidth = "100%";
+
+      if (title) {
+        img.alt = title;
+      }
+
+      diagram.replaceWith(img);
+    } catch (e) {
+      const errMsg = `PlantUML rendering failed: ${e.message}`;
+      console.error(errMsg);
+      diagram.innerHTML = errMsg;
+      diagram.style.color = "red";
+    }
+  });
+}
+
+function initDiagramRenderers() {
+  document.addEventListener("DOMContentLoaded", () => {
+    renderPlantUML();
+  });
+}
+
 function init() {
   window.isDark = document.body.getAttribute("theme") !== "light";
   window.newScrollTop = getScrollTop();
@@ -948,6 +985,7 @@ function init() {
   initMapbox();
   initToc();
   initTocDialog();
+  initDiagramRenderers();
   onScroll();
   onResize();
   onClickMask();
