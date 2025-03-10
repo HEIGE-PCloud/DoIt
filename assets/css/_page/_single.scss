@@ -336,3 +336,19 @@
   max-height: 75vh;
   overflow: auto;
 }
+
+[id^=plantuml-diagram] {
+  display: flex;
+  border-radius: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+[id^=WaveDrom_Display] {
+  overflow: auto;
+  display: flex;
+  border-radius: 0.25rem;
+  // justify-content: center; // aligned to left for long diagrams
+  align-items: center;
+  background-color: #FCFCFA;
+}
