@@ -959,9 +959,14 @@ function renderPlantUML() {
   });
 }
 
+function renderWaveDrom() {
+  WaveDrom.ProcessAll();
+}
+
 function initDiagramRenderers() {
   document.addEventListener("DOMContentLoaded", () => {
     renderPlantUML();
+    renderWaveDrom();
   });
 }
 

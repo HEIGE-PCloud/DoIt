@@ -140,6 +140,20 @@
                     "local": "plantuml-encoder/plantuml-encoder.min.js"
                 }
             ]
+        },
+        {
+            "name": "wavedrom",
+            "version": "3.5.0",
+            "files": [
+                {
+                    "remote": "dist/wavedrom.min.js",
+                    "local": "wavedrom/wavedrom.min.js"
+                },
+                {
+                    "remote": "dist/skins/default.js",
+                    "local": "wavedrom/skins/default.js"
+                }
+            ]
         }
     ]
 }
