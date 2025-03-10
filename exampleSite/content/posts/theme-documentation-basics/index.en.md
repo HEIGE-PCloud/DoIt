@@ -581,6 +581,9 @@ Please open the code block below to view the complete sample configuration {{< f
       Trello = false
       Mix = false
       Mastodon = false
+    # server for PlantUML online rendering
+    [params.page.plantuml]
+      server = "https://www.plantuml.com/plantuml"
 
     # instant.page config
     [params.page.instantpage]

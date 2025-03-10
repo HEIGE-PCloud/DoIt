@@ -75,3 +75,5 @@ libFiles:
   artalkLiteCSS: "artalk@2.5.5/dist/ArtalkLite.css"
   artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.5/dist/artalk-plugin-katex.js"
   artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.1/dist/artalk-plugin-lightbox.js"
+  # plantuml-encoder@1.4.0
+  plantumlEncoderJS: plantuml-encoder@1.4.0/dist/plantuml-encoder.min.js

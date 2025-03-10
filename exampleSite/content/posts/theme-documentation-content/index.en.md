@@ -454,3 +454,30 @@ The rendered output looks like this:
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+### PlantUML Support
+
+**DoIt** supports [PlantUML](https://plantuml.com/en/) diagrams:
+
+~~~markdown
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+~~~
+
+The rendered output looks like this:
+
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+
+You can customize the rendered image with following optional parameters:
+
+option | description | type
+--- | --- | ---
+`format` | the output format of PlantUML renderer, cound be one of `svg` (in default) and `png` | string
+`title` | it would be rendered as the attribute `alt` of the tag `<img>` | string

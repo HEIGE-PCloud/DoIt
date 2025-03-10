@@ -584,6 +584,9 @@ optimizeImages = true
       Trello = false
       Mix = false
       Mastodon = false
+    # PlantUML 在线渲染服务器
+    [params.page.plantuml]
+      server = "https://www.plantuml.com/plantuml"
 
     # instant.page 设置
     [params.page.instantpage]

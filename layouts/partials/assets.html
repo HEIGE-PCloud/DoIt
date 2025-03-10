@@ -166,7 +166,7 @@
     {{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
     {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $options = dict "shims" $shims | merge $options -}}
-    
+
     {{- $js := resources.Get "js/lib/echarts.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
@@ -180,6 +180,12 @@
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- dict "Source" "lib/mapbox-gl/mapbox-gl-language.js" "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "accessToken" $params.mapbox.accessToken "RTLTextPlugin" "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.0/mapbox-gl-rtl-text.js" | dict "mapbox" | merge $config -}}
+{{- end -}}
+
+{{- /* PlantUML */ -}}
+{{- if .Scratch.Get "enablePlantUML" -}}
+    {{- $source := $cdn.plantumlEncoderJS | default "lib/plantuml-encoder/plantuml-encoder.min.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- if .Scratch.Get "enableTabs" -}}

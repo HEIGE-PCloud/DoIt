@@ -453,3 +453,30 @@ resources:
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+### PlantUML支持
+
+**DoIt**支持[PlantUML](https://plantuml.com/zh/)绘图：
+
+~~~markdown
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+~~~
+
+呈现的输出效果如下：
+
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+
+你可以通过以下可选参数自定义PlantUML的渲染结果：
+
+选项 | 描述 | 类型
+--- | ---  | ---
+`format` | PlantUML渲染的输出类型，可以是`svg`（默认）或者`png` | string
+`title` | 会被渲染为`<img>`标签的`alt`属性 | string

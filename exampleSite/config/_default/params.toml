@@ -42,7 +42,7 @@ bundle = false
   # Image resizing and optimisation
   # 图片缩放和优化
   optimise = true
-  
+
 # Header config
 # 页面头部导航栏配置
 [header]
@@ -327,6 +327,12 @@ bundle = false
     Whatsapp = false
     Xing = false
     Mastodon = true
+  # PlantUML config
+  # PlantUML 配置
+  [page.plantuml]
+    # server for PlantUML online rendering
+    # PlantUML 在线渲染服务器
+    server = "https://www.plantuml.com/plantuml"
   # Comment config
   # 评论系统设置
   [page.comment]
