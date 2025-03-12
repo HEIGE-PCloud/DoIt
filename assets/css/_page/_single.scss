@@ -338,10 +338,9 @@
 }
 
 [id^=plantuml-diagram] {
-  display: flex;
   border-radius: 0.25rem;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  max-width: 100%;
 }
 
 [id^=WaveDrom_Display] {
