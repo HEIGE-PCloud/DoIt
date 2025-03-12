@@ -195,10 +195,15 @@
 
 {{- /* WaveDrom */ -}}
 {{- if .Scratch.Get "enableWaveDrom" -}}
+    {{- $config = dict "wavedrom" true | merge $config -}}
     {{- $source := $cdn.wavedromJS | default "lib/wavedrom/wavedrom.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $source := $cdn.wavedromDefaultSkinJS | default "lib/wavedrom/skins/default.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- $options := dict "targetPath" "js/wavedrom.min.js" "minify" true "sourceMap" "inline" -}}
+    {{- $js := resources.Get "js/lib/wavedrom.js" | js.Build $options -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- if .Scratch.Get "enableTabs" -}}
