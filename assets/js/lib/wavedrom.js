@@ -1,3 +1,3 @@
 if (window.config?.wavedrom) {
-    WaveDrom.ProcessAll();
+  WaveDrom.ProcessAll();
 }
