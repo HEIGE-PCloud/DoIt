@@ -456,7 +456,7 @@ resources:
 
 ### PlantUML支持
 
-**DoIt**支持[PlantUML](https://plantuml.com/zh/)绘图：
+**DoIt** 支持 [PlantUML](https://plantuml.com/zh/) 绘图：
 
 ~~~markdown
 ```plantuml {format="svg" title="example"}
@@ -474,19 +474,19 @@ Bob -> Alice : hello
 @enduml
 ```
 
-你可以通过以下可选参数自定义PlantUML的渲染结果：
+你可以通过以下可选参数自定义 PlantUML 的渲染结果：
 
 选项 | 描述 | 类型
 --- | ---  | ---
-`format` | PlantUML渲染的输出类型，可以是`svg`（默认）或者`png` | string
-`title` | 会被渲染为`<img>`标签的`alt`属性 | string
+`format` | PlantUML 渲染的输出类型，可以是 `svg` （默认）或者 `png` | string
+`title` | 会被渲染为 `<img>` 标签的 `alt` 属性 | string
 
 ### WaveDrom支持
 
 > [!TIP]
-> 这是一份[WaveDrom常用示例及教程](https://observablehq.com/collection/@drom/wavedrom)。
+> 这是一份 [WaveDrom 常用示例及教程](https://observablehq.com/collection/@drom/wavedrom)。
 
-**DoIt**支持[WaveDrom](https://wavedrom.com/)绘图：
+**DoIt** 支持 [WaveDrom](https://wavedrom.com/) 绘图：
 
 ~~~markdown {open = true}
 ```wavedrom
