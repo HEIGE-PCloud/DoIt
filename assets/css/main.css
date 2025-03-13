@@ -897,10 +897,6 @@ html.dark {
   max-height: 100%;
 }
 
-.tw-min-h-full {
-  min-height: 100%;
-}
-
 .tw-min-h-screen {
   min-height: 100vh;
 }
