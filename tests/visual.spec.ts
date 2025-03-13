@@ -32,7 +32,6 @@ const pages = [
   "typeit-tests",
   "echarts-tests",
   // "music-tests",
-  "plantuml-tests",
   "wavedrom-tests",
 ];
 
