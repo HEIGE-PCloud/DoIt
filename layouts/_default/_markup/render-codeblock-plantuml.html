@@ -9,8 +9,6 @@
     {{- errorf "unsupported plantuml: %s!" $format -}}
 {{- end -}}
 
-<div id="plantuml-container">
-    <script type='plantuml' data-server="{{ $server }}" data-format="{{ $format }}" data-title="{{ $alt }}">
-        {{- .Inner | safeHTML -}}
-    </script>
-</div>
+<script type='plantuml' data-server="{{ $server }}" data-format="{{ $format }}" data-title="{{ $alt }}">
+    {{- .Inner | safeHTML -}}
+</script>

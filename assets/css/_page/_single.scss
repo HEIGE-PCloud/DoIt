@@ -337,18 +337,12 @@
   overflow: auto;
 }
 
-[id^="plantuml-diagram"] {
-  border-radius: 0.25rem;
-  margin: auto;
-  max-width: 100%;
-}
-
-[id^="WaveDrom_Display"] > svg {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
 [id^="WaveDrom_Display"] {
-  border-radius: 0.25rem;
-  background-color: #fcfcfa;
+  > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    .dark & {
+      filter: invert(100%);
+    }
+  }
 }
