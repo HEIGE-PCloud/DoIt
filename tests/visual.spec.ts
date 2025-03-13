@@ -53,7 +53,7 @@ test("Visual regression for /plantuml-tests", async ({ page }) => {
     waitUntil: "domcontentloaded",
   });
   // Wait until all images are loaded
-  const lazyImagesLocator = page.locator('img[loading="lazy"]:visible');
+  const lazyImagesLocator = page.locator('img.plantuml-diagram');
   await expect(lazyImagesLocator).toHaveCount(11);
   const lazyImages = await lazyImagesLocator.all();
   for (const lazyImage of lazyImages) {
