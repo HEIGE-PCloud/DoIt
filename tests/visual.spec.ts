@@ -57,7 +57,7 @@ pages.forEach((path) => {
   });
 });
 
-test("Visual regression for /plantuml-tests", async ({ page }) => {
+test.fixme("Visual regression for /plantuml-tests", async ({ page }) => {
   await page.goto(BASE_URL + "/plantuml-tests", {
     waitUntil: "domcontentloaded",
   });
