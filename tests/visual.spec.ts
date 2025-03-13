@@ -36,6 +36,7 @@ const pages = [
   "wavedrom-tests",
 ];
 
+const BASE_URL = "http://127.0.0.1:1313/";
 pages.forEach((path) => {
   test(`Visual regression for /${path}`, async ({ page }) => {
     await page.goto(`http://127.0.0.1:1313/${path}`, {
@@ -46,4 +47,21 @@ pages.forEach((path) => {
       fullPage: true,
     });
   });
+});
+
+test("Visual regression for /plantuml-tests", async ({ page }) => {
+  await page.goto(BASE_URL + "plantuml-tests", {
+    waitUntil: "domcontentloaded",
+  });
+  // Wait until all images are loaded
+  const lazyImagesLocator = page.locator('img[loading="lazy"]:visible');
+  await expect(lazyImagesLocator).toHaveCount(11);
+  const lazyImages = await lazyImagesLocator.all();
+  for (const lazyImage of lazyImages) {
+    await lazyImage.scrollIntoViewIfNeeded();
+    await expect(lazyImage).not.toHaveJSProperty('naturalWidth', 0);
+  }
+  await expect(page).toHaveScreenshot({
+    fullPage: true,
+  });  
 });
