@@ -453,3 +453,73 @@ resources:
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+### PlantUML支持
+
+**DoIt** 支持 [PlantUML](https://plantuml.com/zh/) 绘图：
+
+~~~markdown
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+~~~
+
+呈现的输出效果如下：
+
+```plantuml {format="svg" title="example"}
+@startuml test
+Bob -> Alice : hello
+@enduml
+```
+
+你可以通过以下可选参数自定义 PlantUML 的渲染结果：
+
+选项 | 描述 | 类型
+--- | ---  | ---
+`format` | PlantUML 渲染的输出类型，可以是 `svg` （默认）或者 `png` | string
+`title` | 会被渲染为 `<img>` 标签的 `alt` 属性 | string
+
+### WaveDrom支持
+
+> [!TIP]
+> 这是一份 [WaveDrom 常用示例及教程](https://observablehq.com/collection/@drom/wavedrom)。
+
+**DoIt** 支持 [WaveDrom](https://wavedrom.com/) 绘图：
+
+~~~markdown {open = true}
+```wavedrom
+{signal: [
+  {name: 'clock',   wave: 'p................'},
+  {name: 'hwrite',  wave: 'x0x.0x..0.x.0.x..'},
+  {name: 'htrans',  wave: 'x3x.4x..5.x.6.x..', data: '2 2 2 2'},
+  {name: 'haddr',   wave: 'x3x.4x..5.x.6.x..', data: 'A0 A1 A2 A3'},
+  {},
+  {name: 'hready',  wave: 'x1.x101x01.x0101x'},
+  {name: 'hrdata',  wave: 'x.3x..4x..5x...6x', data: 'D0 D1 D2 D3'},
+],
+    head: {tock: 1},
+    gaps: '( . . 1 . s . 1 s . . 1 s . s . )',
+    foot: {text: 'reads'}
+}
+```
+~~~
+
+呈现的输出效果如下：
+
+```wavedrom
+{signal: [
+  {name: 'clock',   wave: 'p................'},
+  {name: 'hwrite',  wave: 'x0x.0x..0.x.0.x..'},
+  {name: 'htrans',  wave: 'x3x.4x..5.x.6.x..', data: '2 2 2 2'},
+  {name: 'haddr',   wave: 'x3x.4x..5.x.6.x..', data: 'A0 A1 A2 A3'},
+  {},
+  {name: 'hready',  wave: 'x1.x101x01.x0101x'},
+  {name: 'hrdata',  wave: 'x.3x..4x..5x...6x', data: 'D0 D1 D2 D3'},
+],
+    head: {tock: 1},
+    gaps: '( . . 1 . s . 1 s . . 1 s . s . )',
+    foot: {text: 'reads'}
+}
+```

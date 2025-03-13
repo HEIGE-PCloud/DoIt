@@ -7,8 +7,8 @@ declare global {
     config?: {
       table?: {
         sort?: boolean;
-      }
-    }
+      };
+    };
   }
 }
 
@@ -573,7 +573,9 @@ function initLightGallery() {
 
 function initTablesort() {
   if (window.config?.table?.sort) {
-    document.querySelectorAll(".content table").forEach((table) => new Tablesort(table));
+    document
+      .querySelectorAll(".content table")
+      .forEach((table) => new Tablesort(table));
   }
 }
 
@@ -683,19 +685,19 @@ function initToc() {
 }
 
 function initTocDialog() {
-  const dialog: HTMLDialogElement | null = document.querySelector('#toc-dialog');
-  const openButton = document.querySelector('#toc-drawer-button');
+  const dialog: HTMLDialogElement | null =
+    document.querySelector("#toc-dialog");
+  const openButton = document.querySelector("#toc-drawer-button");
   if (!dialog || !openButton) {
     return;
   }
-  openButton.addEventListener('click', () => {
+  openButton.addEventListener("click", () => {
     dialog.showModal();
     document.activeElement?.blur();
   });
-  dialog.addEventListener('click', (e) => {
+  dialog.addEventListener("click", (e) => {
     dialog.close();
-  })
-
+  });
 }
 function initMapbox() {
   if (window.config.mapbox) {

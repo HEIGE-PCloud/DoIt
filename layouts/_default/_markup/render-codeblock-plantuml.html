@@ -1,0 +1,14 @@
+{{- .Page.Scratch.Set "enablePlantUML" true -}}
+{{- $params := .Page.Site.Params -}}
+{{- $validFormat := slice "svg" "png" -}}
+{{- $server := $params.plantuml.server | default "https://www.plantuml.com/plantuml" -}}
+{{- $alt := index .Attributes "title" -}}
+{{- $format := index .Attributes "format" | default "svg" -}}
+
+{{- if in $validFormat $format | not -}}
+    {{- errorf "unsupported plantuml: %s!" $format -}}
+{{- end -}}
+
+<script type='plantuml' data-server="{{ $server }}" data-format="{{ $format }}" data-title="{{ $alt }}">
+    {{- .Inner | safeHTML -}}
+</script>

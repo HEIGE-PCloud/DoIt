@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 
 const pages = [
   "",
@@ -32,11 +32,22 @@ const pages = [
   "typeit-tests",
   "echarts-tests",
   // "music-tests",
+  "wavedrom-tests",
 ];
+
+const BASE_URL = "http://127.0.0.1:1313";
+
+async function forceLoadLazyImages(page: Page): Promise<void> {
+  return page.evaluate(() => {
+    for (const image of document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]')) {
+      image.setAttribute('loading', 'eager');
+    }
+  });
+}
 
 pages.forEach((path) => {
   test(`Visual regression for /${path}`, async ({ page }) => {
-    await page.goto(`http://127.0.0.1:1313/${path}`, {
+    await page.goto(`${BASE_URL}/${path}`, {
       waitUntil: "networkidle",
     });
 
@@ -44,4 +55,17 @@ pages.forEach((path) => {
       fullPage: true,
     });
   });
+});
+
+test.fixme("Visual regression for /plantuml-tests", async ({ page }) => {
+  await page.goto(BASE_URL + "/plantuml-tests", {
+    waitUntil: "domcontentloaded",
+  });
+  // Wait until all images are loaded
+  const lazyImagesLocator = page.locator('img.plantuml-diagram');
+  await expect(lazyImagesLocator).toHaveCount(11);
+  await forceLoadLazyImages(page);
+  await expect(page).toHaveScreenshot({
+    fullPage: true,
+  });  
 });
