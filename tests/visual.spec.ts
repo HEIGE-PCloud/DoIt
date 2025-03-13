@@ -35,10 +35,10 @@ const pages = [
   "wavedrom-tests",
 ];
 
-const BASE_URL = "http://127.0.0.1:1313/";
+const BASE_URL = "http://127.0.0.1:1313";
 pages.forEach((path) => {
   test(`Visual regression for /${path}`, async ({ page }) => {
-    await page.goto(`http://127.0.0.1:1313/${path}`, {
+    await page.goto(`${BASE_URL}/${path}`, {
       waitUntil: "networkidle",
     });
 
@@ -49,7 +49,7 @@ pages.forEach((path) => {
 });
 
 test("Visual regression for /plantuml-tests", async ({ page }) => {
-  await page.goto(BASE_URL + "plantuml-tests", {
+  await page.goto(BASE_URL + "/plantuml-tests", {
     waitUntil: "domcontentloaded",
   });
   // Wait until all images are loaded
