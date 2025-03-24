@@ -869,8 +869,8 @@ function onClickMask() {
 function initCodeblocks() {
   document.querySelectorAll(".code-block").forEach((codeBlock) => {
     // the queries are guaranteed to be successful
-    const titleBar = codeBlock.querySelector(
-      "div.code-block-title-bar",
+    const titleButton = codeBlock.querySelector(
+      "button.code-block-button",
     ) as HTMLDivElement;
     const chroma = codeBlock.querySelector("code.chroma") as HTMLElement;
     const copyCodeButton = codeBlock.querySelector(
@@ -892,7 +892,7 @@ function initCodeblocks() {
     chroma.style.maxHeight = "fit-content";
 
     // handle expanding and collapsing code blocks
-    titleBar.addEventListener("click", () => {
+    titleButton.addEventListener("click", () => {
       codeBlock.classList.toggle("is-open");
       codeBlock.classList.toggle("is-closed");
     });
@@ -921,7 +921,7 @@ function initCodeblocks() {
 
     addEventListener("beforeprint", (_) => {
       if (codeBlock.classList.contains("is-closed")) {
-        titleBar.click();
+        titleButton.click();
       }
       if (!codeBlock.classList.contains("is-wrap")) {
         wrapCodeButton.click();
