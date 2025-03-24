@@ -18,36 +18,29 @@
 {{- $showHeader := cond (eq $header false) "tw-hidden" "" -}}
 <div class="code-block highlight {{ $open }} {{ $showLineNumbers }} {{ $isWrap }} tw-group tw-my-2">
   <div class="
-    code-block-title 
     {{ $showHeader }}
     tw-flex 
-    tw-flex-row 
+    tw-flex-row
+    tw-flex-1 
     tw-justify-between 
     tw-w-full tw-bg-bgColor-secondary
     ">      
     <button 
       class="
-        tw-select-none 
+        code-block-button
         tw-mx-2 
-        tw-block
-        group-[.is-open]:tw-rotate-90
-        tw-transition-[transform] 
-        tw-duration-500 
-        tw-ease-in-out
-        print:!tw-hidden"
-      disabled
+        tw-flex
+        tw-flex-row
+        tw-flex-1"
       aria-hidden="true">
-      {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}
-    </button>
+          <div class="group-[.is-open]:tw-rotate-90 tw-transition-[transform] tw-duration-500 tw-ease-in-out print:!tw-hidden tw-w-min tw-h-min tw-my-1 tw-mx-1">{{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}</div>
+          <p class="tw-select-none !tw-my-1">{{ $title }}</p>
+      </button>
 
-    <div class="code-block-title-bar tw-w-full">
-      <p class="tw-select-none !tw-my-1">{{ $title }}</p>
-    </div>
-    <div class="tw-flex">
+   <div class="tw-flex">
       <button 
         class="
           line-number-button
-          tw-select-none 
           tw-mx-2 
           tw-hidden 
           group-[.is-open]:tw-block 

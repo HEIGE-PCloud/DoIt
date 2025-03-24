@@ -803,6 +803,11 @@ html.dark {
   margin-right: 0px;
 }
 
+.tw-mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .tw-mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -811,6 +816,11 @@ html.dark {
 .tw-mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.tw-my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .tw-my-2 {
@@ -881,6 +891,11 @@ html.dark {
   height: 100%;
 }
 
+.tw-h-min {
+  height: -moz-min-content;
+  height: min-content;
+}
+
 .\!tw-max-h-0 {
   max-height: 0px !important;
 }
@@ -903,6 +918,11 @@ html.dark {
 
 .tw-w-full {
   width: 100%;
+}
+
+.tw-w-min {
+  width: -moz-min-content;
+  width: min-content;
 }
 
 .tw-max-w-full {
