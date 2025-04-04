@@ -15,7 +15,14 @@
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}
-                    <a href='{{ .link | absURL }}'>{{- dict "Width" "16" "Height" "16" "Src" .avatar "Alt" (printf "%v avatar" .name) "OptimConfig" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1" | partial "plugin/image.html" -}}{{- .name -}}</a>
+                    <a href='{{ .link | absURL }}'>
+                        {{- if .avatar -}}
+                            {{- dict "Width" "16" "Height" "16" "Src" .avatar "Alt" (printf "%v avatar" .name) "OptimConfig" $optim "Class" "tw-inline-block tw-max-h-4 tw-rounded-full tw-translate-y-[-2px] tw-mr-1" | partial "plugin/image.html" -}}
+                        {{- else -}}
+                            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "user-circle") -}}
+                        {{- end -}}
+                        {{- .name -}}
+                    </a>
                 {{- end -}}
             {{- else -}}
                 {{- with partial "function/author.html" (dict
