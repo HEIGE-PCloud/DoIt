@@ -233,10 +233,9 @@ function initSearch() {
   } else {
     window._searchDesktopOnce = true;
     // Turn on the mask when clicking on the search button
-    searchToggle.addEventListener("click", () => {
+    function loadSearchScript() {
       loadScript("autocomplete-script", autocompleteJs, () => {
         initAutosearch();
-        searchInput.focus();
       });
       if (window.config?.search?.type === "algolia") {
         loadScript("algolia-script", algoliaJs, null);
@@ -245,6 +244,10 @@ function initSearch() {
       } else {
         loadPagefind();
       }
+    }
+    searchToggle.addEventListener("mouseover", loadSearchScript, { once: true }); 
+    searchToggle.addEventListener("click", () => {
+      loadSearchScript();
       document.body.classList.add("blur");
       header.classList.add("open");
       searchInput.focus();
