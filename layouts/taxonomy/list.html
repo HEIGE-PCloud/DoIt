@@ -22,7 +22,9 @@
                 {{- if $.Site.Data.authors -}}
                     {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
                         {{- .name | safeHTML -}}
-                        <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-8 tw-rounded-full tw-translate-y-[-2px] tw-ml-4"/>
+                        {{- if .avatar -}}
+                            <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-8 tw-rounded-full tw-translate-y-[-2px] tw-ml-4"/>
+                        {{- end -}}
                         <br>
                         {{- if .absLink -}}
                             <a class="author-link-icon" href="{{ .absLink }}" title="Link" rel="icon noopener noreferrer" target="_blank">
