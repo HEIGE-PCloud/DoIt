@@ -245,7 +245,7 @@ function initSearch() {
         loadPagefind();
       }
     }
-    searchToggle.addEventListener("mouseover", loadSearchScript); 
+    searchToggle.addEventListener("mouseover", loadSearchScript, { once: true }); 
     searchToggle.addEventListener("click", () => {
       document.body.classList.add("blur");
       header.classList.add("open");
