@@ -1,0 +1,39 @@
+{{- define "title" -}}
+    {{ partial "taxonomy/title.html" . }}
+{{- end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title">
+            {{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "folder-open") }}&nbsp;{{ .Title }}
+        </h2>
+        {{- /* Introduction*/ -}}
+        {{- if .Content -}}
+        <div class="introduction">
+            <blockquote>
+                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            </blockquote>
+        </div>
+        {{- end -}}
+        {{- /* Paginate */ -}}
+        {{- /* Paginate is first call on baseof.html */ -}}
+        {{- if .Pages -}}
+            {{- range .Paginator.PageGroups -}}
+                <h3 class="group-title">{{ .Key }}</h3>
+                {{- range .Pages -}}
+                    <article class="archive-item">
+                        <a href="{{ .RelPermalink }}" class="archive-item-link">
+                            {{- .Title -}}
+                        </a>
+                        <span class="archive-item-date">
+                            {{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
+                        </span>
+                    </article>
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}

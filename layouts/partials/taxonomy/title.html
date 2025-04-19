@@ -1,0 +1,6 @@
+{{- if (gt .Paginator.PageNumber 1) -}}
+    {{ $pageNumber := printf "%v %v %v" (T "prefixPageNumber" ) .Paginator.PageNumber (T "suffixPageNumber" ) }}
+    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} {{ $pageNumber }} - {{ .Site.Title -}}
+{{- else -}}
+    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- end -}}
