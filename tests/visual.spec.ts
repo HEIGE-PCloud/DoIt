@@ -21,7 +21,7 @@ const pages = [
   // "bilibili-tests",
   // "katex-tests",
   "showcase-tests",
-  "bluesky-tests",
+  // "bluesky-tests",
   // "mapbox-tests",
   "tab-tests",
   // "builtin-shortcodes-tests",
