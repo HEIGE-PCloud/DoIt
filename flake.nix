@@ -22,7 +22,7 @@
       devShells = forAllSystems ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            nodejs_23
+            nodejs_24
             hugo
           ];
           shellHook = ''
