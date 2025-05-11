@@ -479,8 +479,8 @@ You can customize the rendered image with following optional parameters:
 
 option | description | type
 --- | --- | ---
-`format` | the output format of PlantUML renderer, cound be one of `svg` (in default) and `png` | string
-`title` | it would be rendered as the attribute `alt` of the tag `<img>` | string
+`format` | output format of PlantUML renderer, either `svg` (default) or `png` | string
+`title` | will be rendered as attribute `alt` of tag `<img>` | string
 
 ### WaveDrom Support
 
