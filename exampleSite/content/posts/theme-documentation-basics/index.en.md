@@ -13,7 +13,7 @@ categories: ["documentation"]
 series: ["getting-start"]
 series_weight: 1
 lightgallery: true
-license: '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+license: '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 toc:
   auto: false
 ---
@@ -194,7 +194,7 @@ Please open the code block below to view the complete sample configuration {{< f
 ```toml
 [params]
   # {{< version 0.2.0 changed >}} DoIt theme version
-  version = "0.3.X"
+  version = "0.4.X"
   # website title
   title = "My New Hugo Site"
   # site description
@@ -223,7 +223,7 @@ Please open the code block below to view the complete sample configuration {{< f
   srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
   srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # {{< version 0.2.14 >}} License information
-  license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   # Author config
   [params.author]
     name = "xxxx"
@@ -308,7 +308,7 @@ Please open the code block below to view the complete sample configuration {{< f
     # {{< version 0.2.0 >}} whether to show Hugo and theme info
     hugo = true
     # {{< version 0.2.14 >}} Hosted on (HTML format is supported)
-    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
     hostedOn = ''
     # {{< version 0.2.0 >}} whether to show copyright info
     copyright = true
@@ -319,7 +319,7 @@ Please open the code block below to view the complete sample configuration {{< f
     # ICP info only in China (HTML format is supported)
     icp = ""
     # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
   # {{< version 0.2.0 >}} Section (all posts) page config
   [params.section]

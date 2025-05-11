@@ -197,7 +197,7 @@ hugo
 ```toml
 [params]
   # {{< version 0.2.0 changed >}} DoIt 主题版本
-  version = "0.3.X"
+  version = "0.4.X"
   # 网站名称
   title = "我的全新 Hugo 网站"
   # 网站描述
@@ -226,7 +226,7 @@ optimizeImages = true
   srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
   srcsetLargeResizeMethod = "2000x webp Lanczos q75"
   # {{< version 0.2.14 >}} 版权信息
-  license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   # 作者配置
   [params.author]
     name = "xxxx"
@@ -311,7 +311,7 @@ optimizeImages = true
     # {{< version 0.2.0 >}} 是否显示 Hugo 和主题信息
     hugo = true
     # {{< version 0.2.14 >}} 托管服务信息 (支持 HTML 格式)
-    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+    # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
     hostedOn = ''
     # {{< version 0.2.0 >}} 是否显示版权信息
     copyright = true
@@ -322,7 +322,7 @@ optimizeImages = true
     # ICP 备案信息, 仅在中国使用 (支持 HTML 格式)
     icp = ""
     # 许可协议信息 (支持 HTML 格式)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
   # {{< version 0.2.0 >}} Section (所有文章) 页面配置
   [params.section]
