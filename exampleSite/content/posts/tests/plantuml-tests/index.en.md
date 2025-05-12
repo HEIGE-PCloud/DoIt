@@ -168,7 +168,7 @@ package "Order Processing" {
 
 C --> (PO) : initiates
 C --> (TO) : checks
-C --> (CO) : requests\n<color:red>Authorizing Reqiured</color>
+C --> (CO) : requests\n<color:red>Authorizing Required</color>
 
 (PO) .> (Process Payment) : includes
 (Process Payment) .> (Validate Payment Info) : includes

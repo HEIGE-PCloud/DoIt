@@ -313,7 +313,7 @@ code:
 
 ## Mermaid
 
-[Mermaid](https://mermaid-js.github.io/) 是一个基于 JavaScript 的图表工具，它允许您使用文本和代码创建图表和可视化。
+[Mermaid](https://mermaid.js.org) 是一个基于 JavaScript 的图表工具，它允许您使用文本和代码创建图表和可视化。
 
 要使用 Mermaid，只需将 Mermaid 的代码输入放在代码块中，并将语言设置为 `mermaid`。
 
@@ -327,8 +327,7 @@ code:
 
 ### 流程图
 
-All [Flowcharts](https://mermaid-js.github.io/mermaid/#/./flowchart?id=flowcharts-basic-syntax
-) are composed of nodes, geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
+All [Flowcharts](https://mermaid.js.org/syntax/flowchart.html) are composed of nodes, geometric shapes and edges, the arrows or lines. The mermaid code defines the way that these nodes and edges are made and interact.
 
 ````markdown
 ```mermaid
@@ -350,8 +349,7 @@ graph TD;
 
 ### 序列图
 
-A [Sequence diagram](https://mermaid-js.github.io/mermaid/#/./sequenceDiagram
-) is an interaction diagram that shows how processes operate with one another and in what order.
+A [Sequence diagram](https://mermaid.js.org/syntax/sequenceDiagram.html) is an interaction diagram that shows how processes operate with one another and in what order.
 
 ````markdown
 ```mermaid
@@ -385,7 +383,7 @@ sequenceDiagram
 
 ### 甘特图
 
-A [Gantt chart](https://mermaid-js.github.io/mermaid/#/./gantt) is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate numbers of days between the start and finish dates of the terminal elements and summary elements of a project.
+A [Gantt chart](https://mermaid.js.org/syntax/gantt.html) is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate numbers of days between the start and finish dates of the terminal elements and summary elements of a project.
 
 ````markdown
 ```mermaid
@@ -417,7 +415,7 @@ Future task2               :         des4, after des3, 5d
 
 ### 类图
 
-The [class diagram](https://mermaid-js.github.io/mermaid/#/./classDiagram) is the main building block of object-oriented modelling. It is used for general conceptual modelling of the structure of the application, and detailed modelling translating the models into programming code. Class diagrams can also be used for data modelling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.
+The [class diagram](https://mermaid.js.org/syntax/classDiagram.html) is the main building block of object-oriented modelling. It is used for general conceptual modelling of the structure of the application, and detailed modelling translating the models into programming code. Class diagrams can also be used for data modelling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.
 
 ````markdown
 ```mermaid
@@ -551,7 +549,7 @@ gitGraph
 
 ### 实体关系图 - 实验性
 
-An [entity–relationship diagram](https://mermaid-js.github.io/mermaid/#/./entityRelationshipDiagram) (or ER diagram) describes interrelated things of interest in a specific domain of knowledge. A basic ER diagram is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities (instances of those entity types).
+An [entity–relationship diagram](https://mermaid.js.org/syntax/entityRelationshipDiagram.html) (or ER diagram) describes interrelated things of interest in a specific domain of knowledge. A basic ER diagram is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities (instances of those entity types).
 
 ````markdown
 ```mermaid
@@ -571,7 +569,7 @@ erDiagram
 
 ### 用户旅程图
 
-[User journey diagrams](https://mermaid-js.github.io/mermaid/#/./user-journey) describe at a high level of detail exactly what steps different users take to complete a specific task within a system, application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow.
+[User journey diagrams](https://mermaid.js.org/syntax/userJourney.html) describe at a high level of detail exactly what steps different users take to complete a specific task within a system, application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow.
 
 ````markdown
 ```mermaid
