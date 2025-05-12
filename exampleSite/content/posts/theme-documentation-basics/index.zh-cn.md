@@ -29,7 +29,7 @@ toc:
 直接安装满足你操作系统 (**Windows**, **Linux**, **macOS**) 的最新版本 [{{< fa-icon regular file-archive >}} Hugo (> 0.122.0)](https://gohugo.io/getting-started/installing/).
 
 {{< admonition note "为什么不支持早期版本的 Hugo?" >}}
-由于 [WebP 图像处理](https://gohugo.io/content-management/image-processing/#jpeg-and-webp-quality) 在 [Hugo 0.122.0版本](https://gohugo.io/news/0.122.0-relnotes/) 中被引入, 本主题只支持高于 **0.122.0** 的 Hugo 版本.
+由于 [WebP 图像处理](https://gohugo.io/content-management/image-processing/#quality) 在 [Hugo 0.122.0版本](https://github.com/gohugoio/hugo/releases/tag/v0.122.0) 中被引入, 本主题只支持高于 **0.122.0** 的 Hugo 版本.
 {{< /admonition >}}
 
 {{< admonition tip "推荐使用 Hugo extended 版本" >}}
@@ -190,7 +190,7 @@ hugo
 
 ### 网站配置 {#site-configuration}
 
-除了 [Hugo 全局配置](https://gohugo.io/overview/configuration/) 和 [菜单配置](#basic-configuration) 之外, **DoIt** 主题还允许您在网站配置中定义以下参数 (这是一个示例 `config.toml`, 其内容为默认值).
+除了 [Hugo 全局配置](https://gohugo.io/configuration/) 和 [菜单配置](#basic-configuration) 之外, **DoIt** 主题还允许您在网站配置中定义以下参数 (这是一个示例 `config.toml`, 其内容为默认值).
 
 请打开下面的代码块查看完整的示例配置 {{< fa-icon regular hand-point-down >}}:
 
@@ -895,7 +895,7 @@ optimizeImages = true
   # posts = ":year/:month/:contentbasename"
   posts = ":contentbasename"
 
-# {{< link "https://gohugo.io/about/hugo-and-gdpr/" "隐私信息配置" >}}
+# {{< link "https://gohugo.io/configuration/privacy/" "隐私信息配置" >}}
 [privacy]
   # {{< version 0.2.0 deleted >}} Google Analytics 相关隐私 (被 params.analytics.google 替代)
   [privacy.googleAnalytics]
