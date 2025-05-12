@@ -3,7 +3,7 @@
 title = "Hugo DoIt Theme Documentation"
 # DoIt theme version
 # DoIt 主题版本
-version = "0.3.X"
+version = "0.4.X"
 # site default theme ("light", "dark", "black", "auto")
 # 网站默认主题 ("light", "dark", "black", "auto")
 defaultTheme = "auto"
@@ -24,7 +24,7 @@ images = ["/images/avatar.webp"]
 enablePWA = false
 # license information
 # 许可协议信息 (支持 HTML 格式)
-license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 # [Experimental] Bundle js
 bundle = false
 
@@ -80,7 +80,7 @@ bundle = false
   hugo = true
   # Hosted on (HTML format is supported)
   # 托管服务信息 (支持 HTML 格式)
-  # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+  # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
   hostedOn = ''
   # whether to show copyright info
   # 是否显示版权信息
@@ -96,7 +96,7 @@ bundle = false
   icp = ""
   # license info (HTML format is supported)
   # 许可协议信息 (支持 HTML 格式)
-  license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  license= '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
 # Section (all posts) page config
 # Section (所有文章) 页面配置

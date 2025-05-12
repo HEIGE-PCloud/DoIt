@@ -493,7 +493,7 @@ function initSearch() {
                       icon: "",
                       href: "https://pagefind.app",
                     };
-            return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;
+            return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreferrer" target="_blank">${icon} ${searchType}</a></div>`;
           },
         },
       },
