@@ -172,7 +172,7 @@
             {{- if $telegram.dark -}}
                 {{- $attr = printf `%v data-dark="1"` $attr -}}
             {{- end -}}
-            <script type="text/javascript" src="https://comments.app/js/widget.js?3" defer {{ with $attr }} {{ . | safeHTMLAttr }}{{ end }}></script>
+            <script src="https://comments.app/js/widget.js?3" defer {{ with $attr }} {{ . | safeHTMLAttr }}{{ end }}></script>
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://comments.app/">Telegram Comments</a>.
             </noscript>

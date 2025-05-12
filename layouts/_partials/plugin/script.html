@@ -1,5 +1,5 @@
 {{- if .Content -}}
-    <script type="text/javascript">
+    <script>
         {{- .Content | safeJS -}}
     </script>
 {{- else if strings.HasPrefix .Source "<script" -}}
