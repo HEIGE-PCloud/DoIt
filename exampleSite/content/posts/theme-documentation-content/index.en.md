@@ -359,7 +359,7 @@ The rendered output looks like this:
 
 #### Copy-tex
 
-**[Copy-tex](https://github.com/Khan/KaTeX/tree/master/contrib/copy-tex)** is an extension for **$ \KaTeX $**.
+**[Copy-tex](https://github.com/KaTeX/KaTeX/tree/main/contrib/copy-tex)** is an extension for **$ \KaTeX $**.
 
 By the extension, when selecting and copying $ \KaTeX $ rendered elements, copies their $ \LaTeX $ source to the clipboard.
 
@@ -369,7 +369,7 @@ Select and copy the formula rendered in the previous section, and you can find t
 
 #### mhchem
 
-**[mhchem](https://github.com/Khan/KaTeX/tree/master/contrib/mhchem)** is an extension for **$ \KaTeX $**.
+**[mhchem](https://github.com/KaTeX/KaTeX/tree/main/contrib/mhchem)** is an extension for **$ \KaTeX $**.
 
 By the extension, you can write beautiful chemical equations easily in the article.
 
