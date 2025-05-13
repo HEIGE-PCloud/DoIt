@@ -368,7 +368,7 @@ resources:
 
 #### mhchem
 
-**[mhchem](https://github.com/KaTeX/KaTeX/tree/main/contrib/copy-tex)** 是一个 **$ \KaTeX $** 的插件.
+**[mhchem](https://github.com/KaTeX/KaTeX/tree/main/contrib/mhchem)** 是一个 **$ \KaTeX $** 的插件.
 
 通过这个扩展, 你可以在文章中轻松编写漂亮的化学方程式.
 
