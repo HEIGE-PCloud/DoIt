@@ -1,5 +1,24 @@
-@import "../_partial/_single/series";
-@import "../_partial/_single/toc";
+@use "_mixin/_compatibility" as compat;
+@use "_mixin/_link";
+@use "_variables" as var;
+
+@use "_partial/_single/series";
+@use "_partial/_single/toc";
+
+@use "_partial/_single/code";
+@use "_partial/_single/katex";
+@use "_partial/_single/admonition";
+@use "_partial/_single/echarts";
+@use "_partial/_single/mapbox";
+@use "_partial/_single/music";
+@use "_partial/_single/bilibili";
+@use "_partial/_single/friend";
+@use "_partial/_single/showcase";
+@use "_partial/_single/mermaid";
+
+@use "_partial/_single/footer";
+@use "_partial/_single/sponsor";
+@use "_partial/_single/related";
 
 .single {
   .single-title {
@@ -19,13 +38,13 @@
 
   .post-meta {
     font-size: 0.875rem;
-    color: $global-font-secondary-color;
+    color: var.$global-font-secondary-color;
 
     span {
       display: inline-block;
     }
 
-    @include link(false, true);
+    @include link.link(false, true);
 
     .author {
       font-size: 1.05rem;
@@ -83,7 +102,7 @@
     h4,
     h5,
     h6 {
-      font-weight: $single-h-font-weight;
+      font-weight: var.$single-h-font-weight;
       margin: 1.2rem 0;
     }
 
@@ -95,7 +114,7 @@
       > .header-mark::before {
         content: "|";
         margin-right: 0.3125rem;
-        color: $single-link-color;
+        color: var.$single-link-color;
       }
     }
 
@@ -110,23 +129,23 @@
     b,
     strong {
       font-weight: bold;
-      color: $single-content-strong-color;
+      color: var.$single-content-strong-color;
     }
 
-    @include link(false, false);
+    @include link.link(false, false);
 
     a {
-      @include overflow-wrap(break-word);
+      @include compat.overflow-wrap(break-word);
 
       & b,
       & strong {
-        color: $single-link-color;
+        color: var.$single-link-color;
       }
     }
 
     a:hover b,
     a:hover strong {
-      color: $single-link-hover-color;
+      color: var.$single-link-hover-color;
     }
 
     ul,
@@ -140,10 +159,10 @@
     }
 
     ruby {
-      background: $code-background-color;
+      background: var.$code-background-color;
 
       rt {
-        color: $global-font-secondary-color;
+        color: var.$global-font-secondary-color;
       }
     }
 
@@ -155,11 +174,11 @@
         max-width: 100%;
         margin: 0.625rem 0;
         border-spacing: 0;
-        background: $table-background-color;
+        background: var.$table-background-color;
         border-collapse: collapse;
 
         thead {
-          background: $table-thead-color;
+          background: var.$table-thead-color;
         }
 
         td:nth-child(2).lntd {
@@ -172,7 +191,7 @@
         th,
         td {
           padding: 0.3rem 1rem;
-          border: 1px solid $table-border-color;
+          border: 1px solid var.$table-border-color;
         }
 
         th[role="columnheader"]:not(.no-sort) {
@@ -185,7 +204,7 @@
           margin: 0.7rem -0.5rem 0px 0.5rem;
           border-width: 0 4px 4px;
           border-style: solid;
-          border-color: $global-font-color transparent;
+          border-color: var.$global-font-color transparent;
 
           visibility: hidden;
           opacity: 0;
@@ -241,14 +260,14 @@
 
     blockquote {
       display: block;
-      border-left: 0.25rem solid $blockquote-color;
-      background-color: $blockquote-bg-color;
+      border-left: 0.25rem solid var.$blockquote-color;
+      background-color: var.$blockquote-bg-color;
       padding: 0.25rem 0.75rem;
       margin: 1rem 0;
     }
 
     .footnotes {
-      color: $global-font-secondary-color;
+      color: var.$global-font-secondary-color;
 
       p {
         margin: 0.25rem 0;
@@ -268,35 +287,24 @@
       scroll-margin-top: 3.5rem;
     }
 
-    @import "../_partial/_single/code";
-    @import "../_partial/_single/katex";
-    @import "../_partial/_single/admonition";
-    @import "../_partial/_single/echarts";
-    @import "../_partial/_single/mapbox";
-    @import "../_partial/_single/music";
-    @import "../_partial/_single/bilibili";
-    @import "../_partial/_single/friend";
-    @import "../_partial/_single/showcase";
-    @import "../_partial/_single/mermaid";
-
     hr {
       margin: 2rem 0;
       position: relative;
-      border-top: 3px dashed $global-border-color;
+      border-top: 3px dashed var.$global-border-color;
       border-bottom: none;
     }
 
     kbd {
       display: inline-block;
       padding: 0.25rem;
-      background-color: $global-background-color;
-      border: 1px solid $global-border-color;
-      border-bottom-color: $global-border-color;
-      @include border-radius(3px);
-      @include box-shadow(inset 0 -1px 0 $global-border-color);
+      background-color: var.$global-background-color;
+      border: 1px solid var.$global-border-color;
+      border-bottom-color: var.$global-border-color;
+      @include compat.border-radius(3px);
+      @include compat.box-shadow(inset 0 -1px 0 var.$global-border-color);
       font-size: 0.8rem;
-      font-family: $code-font-family;
-      color: $code-color;
+      font-family: var.$code-font-family;
+      color: var.$code-color;
     }
 
     .version {
@@ -305,26 +313,22 @@
       vertical-align: text-bottom;
     }
   }
-
-  @import "../_partial/_single/footer";
-  @import "../_partial/_single/sponsor";
-  @import "../_partial/_single/related";
 }
 
 .typeit {
   .highlight {
     padding: 0.375rem;
     font-size: 0.875rem;
-    font-family: $code-font-family;
+    font-family: var.$code-font-family;
     word-break: break-all;
     white-space: pre-wrap;
   }
 
-  --ti-cursor-font-family: #{$global-font-family};
-  --ti-cursor-font-size: #{$global-font-size};
-  --ti-cursor-font-weight: #{$global-font-weight};
-  --ti-cursor-line-height: #{$global-line-height};
-  --ti-cursor-color: #{$global-font-secondary-color};
+  --ti-cursor-font-family: #{var.$global-font-family};
+  --ti-cursor-font-size: #{var.$global-font-size};
+  --ti-cursor-font-weight: #{var.$global-font-weight};
+  --ti-cursor-line-height: #{var.$global-line-height};
+  --ti-cursor-color: #{var.$global-font-secondary-color};
   --ti-cursor-margin-left: 0;
 }
 

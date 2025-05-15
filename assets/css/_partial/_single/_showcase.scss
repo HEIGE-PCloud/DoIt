@@ -1,9 +1,12 @@
+@use "_mixin/_compatibility" as compat;
+@use "_variables" as var;
+
 .showcase-box {
   width: 48%;
   height: 370px;
   margin: 1% 0% 0% 0%;
   display: inline-block !important;
-  background: $showcase-background-color;
+  background: var.$showcase-background-color;
   position: relative;
 }
 
@@ -21,7 +24,7 @@
 }
 
 .showcase-image {
-  @include transition(transform 0.4s ease);
+  @include compat.transition(transform 0.4s ease);
 
   img {
     width: 96%;
@@ -32,7 +35,7 @@
   }
 
   &:hover {
-    @include transform(scale(1.01));
+    @include compat.transform(scale(1.01));
   }
 }
 
@@ -49,10 +52,10 @@
 }
 
 .showcase-title a {
-  color: $showcase-color;
+  color: var.$showcase-color;
 
   &:hover {
-    color: $showcase-hover-color;
+    color: var.$showcase-hover-color;
   }
 }
 

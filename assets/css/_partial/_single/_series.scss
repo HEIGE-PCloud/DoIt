@@ -1,21 +1,23 @@
+@use "_variables" as var;
+
 .series-nav {
   margin: 0.8rem 0;
   &[kept="true"] {
     display: block;
   }
   .series-title {
-    font-size: $toc-title-font-size;
+    font-size: var.$toc-title-font-size;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     line-height: 2em;
     padding: 0 0.75rem;
-    background: $code-background-color-darken-6;
+    background: var.$code-background-color-darken-6;
   }
 
   .series-content {
-    font-size: $toc-content-font-size;
-    background-color: $code-background-color;
+    font-size: var.$toc-content-font-size;
+    background-color: var.$code-background-color;
 
     > nav > ul {
       margin: 0;
@@ -31,7 +33,7 @@
         content: "|";
         font-weight: bolder;
         margin-right: 0.5rem;
-        color: $single-link-color;
+        color: var.$single-link-color;
       }
       span.active {
         &:first-child::before {
@@ -39,10 +41,10 @@
           margin-right: 0.5rem;
         }
         font-weight: bolder;
-        color: $single-link-color;
+        color: var.$single-link-color;
 
         &::before {
-          color: $single-link-hover-color;
+          color: var.$single-link-hover-color;
         }
       }
       ul {
@@ -52,7 +54,7 @@
   }
   &.open {
     .toc-title {
-      background: $code-header-color;
+      background: var.$code-header-color;
     }
   }
 }

@@ -1,7 +1,9 @@
+@use "_variables" as var;
+
 .introduction blockquote {
   display: block;
-  border-left: 0.25rem solid $blockquote-color;
-  background-color: $blockquote-bg-color;
+  border-left: 0.25rem solid var.$blockquote-color;
+  background-color: var.$blockquote-bg-color;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0;
 }

@@ -1,23 +1,27 @@
+@use "_mixin/_link";
+@use "_mixin/_compatibility" as compat;
+@use "_variables" as var;
+
 .tag-cloud-tags {
   margin: 10px 0;
 
-  @include link(true, true);
+  @include link.link(true, true);
 
   a {
     display: inline-block;
     position: relative;
     margin: 5px 10px;
-    @include overflow-wrap(break-word);
-    @include transition(all ease-out 0.3s);
+    @include compat.overflow-wrap(break-word);
+    @include compat.transition(all ease-out 0.3s);
 
     &:active,
     &:focus,
     &:hover {
-      @include transform(scale(1.2));
+      @include compat.transform(scale(1.2));
     }
 
     sup {
-      color: $global-font-secondary-color;
+      color: var.$global-font-secondary-color;
     }
   }
 }

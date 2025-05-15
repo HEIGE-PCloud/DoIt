@@ -1,5 +1,7 @@
+@use "./_compatibility" as compat;
+
 @mixin blur {
   .blur & {
-    @include filter(blur(1.5px));
+    @include compat.filter(blur(1.5px));
   }
 }

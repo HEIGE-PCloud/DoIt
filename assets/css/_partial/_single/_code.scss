@@ -1,10 +1,14 @@
+@use "_mixin/_compatibility" as compat;
+@use "_mixin/_link";
+@use "_variables" as var;
+
 code {
   display: inline-block;
   max-width: 100%;
-  @include overflow-wrap(break-word);
-  @include line-break(anywhere);
-  font-size: $code-font-size;
-  font-family: $code-font-family;
+  @include compat.overflow-wrap(break-word);
+  @include compat.line-break(anywhere);
+  font-size: var.$code-font-size;
+  font-family: var.$code-font-family;
 }
 
 pre {
@@ -20,7 +24,7 @@ pre,
 .highlight table,
 .highlight tr,
 .highlight td {
-  background-color: $code-background-color !important;
+  background-color: var.$code-background-color !important;
 }
 
 code:not(.chroma) {
@@ -44,8 +48,8 @@ a > code:not(.chroma) {
 
 .highlight,
 .gist {
-  font-family: $code-font-family;
-  font-size: $code-font-size;
+  font-family: var.$code-font-family;
+  font-size: var.$code-font-size;
 
   .table-wrapper {
     > table,
@@ -68,9 +72,9 @@ a > code:not(.chroma) {
 
   .gist-meta {
     padding: 0.4rem 0.8rem;
-    background-color: $code-background-color-darken-5;
+    background-color: var.$code-background-color-darken-5;
 
-    @include link(false, false);
+    @include link.link(false, false);
   }
 }
 

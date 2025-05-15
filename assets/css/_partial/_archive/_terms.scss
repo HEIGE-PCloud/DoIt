@@ -1,3 +1,5 @@
+@use "_variables" as var;
+
 .categories-card,
 .author-card,
 .series-card {
@@ -56,17 +58,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: $global-link-color;
+  color: var.$global-link-color;
 
   &:hover {
-    color: $global-link-hover-color;
+    color: var.$global-link-hover-color;
     background-color: transparent;
   }
 }
 
 .archive-item-date {
   text-align: right;
-  color: $global-font-secondary-color;
+  color: var.$global-font-secondary-color;
   font-variant-numeric: tabular-nums;
   min-width: fit-content;
   margin-left: auto;

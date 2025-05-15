@@ -1,20 +1,20 @@
 @charset "utf-8";
 
-@import "_variables";
-@import "_override";
+@use "_variables";
+@use "_override";
 
-@import "themes/_themes";
+@use "themes/_themes";
 
-@import "_mixin/index";
+@use "_mixin/index" as mix;
 
-@import "_core/base";
+@use "_core/base";
 
-@import "_page/index";
+@use "_page/index";
 
-@import "_partial/header";
-@import "_partial/footer";
-@import "_partial/pagination";
+@use "_partial/header";
+@use "_partial/footer";
+@use "_partial/pagination";
 
-@import "_core/media";
+@use "_core/media";
 
-@import "_custom";
+@use "_custom";
