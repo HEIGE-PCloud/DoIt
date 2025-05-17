@@ -1,6 +1,10 @@
+@use "_mixin/_compatibility" as compat;
+@use "_mixin/_link";
+@use "_variables" as var;
+
 .home {
   .home-profile {
-    @include transform(translateY(16vh));
+    @include compat.transform(translateY(16vh));
     padding: 0 0 0.5rem;
     text-align: center;
 
@@ -12,13 +16,13 @@
         width: 8rem;
         height: auto;
         margin: 0 auto;
-        @include border-radius(100%);
-        @include box-shadow(0 0 0 0.3618em rgba(0, 0, 0, 0.05));
-        @include transition(all 0.4s ease);
+        @include compat.border-radius(100%);
+        @include compat.box-shadow(0 0 0 0.3618em rgba(0, 0, 0, 0.05));
+        @include compat.transition(all 0.4s ease);
 
         &:hover {
           position: relative;
-          @include transform(translateY(-0.75rem));
+          @include compat.transform(translateY(-0.75rem));
         }
       }
     }
@@ -57,14 +61,14 @@
       font-weight: normal;
       margin: 0;
       padding: 0.5rem;
-      color: $global-font-secondary-color;
+      color: var.$global-font-secondary-color;
     }
   }
 }
 
 .home[posts] {
   .home-profile {
-    @include transform(translateY(0));
+    @include compat.transform(translateY(0));
     padding-top: 2rem;
   }
 
@@ -75,15 +79,15 @@
   .summary {
     padding-top: 1rem;
     padding-bottom: 0.8rem;
-    color: $global-font-color;
-    border-bottom: 3px dashed $global-border-color;
+    color: var.$global-font-color;
+    border-bottom: 3px dashed var.$global-border-color;
 
     .featured-image-preview {
       width: 100%;
       padding: 30% 0 0;
       position: relative;
       margin: 0.6rem auto;
-      @include transition(transform 0.4s ease);
+      @include compat.transition(transform 0.4s ease);
 
       img {
         position: absolute;
@@ -95,7 +99,7 @@
       }
 
       &:hover {
-        @include transform(scale(1.01));
+        @include compat.transform(scale(1.01));
       }
     }
 
@@ -106,13 +110,13 @@
     }
 
     .content {
-      @include box(vertical);
+      @include compat.box(vertical);
       margin-top: 0.3rem;
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
-      @include overflow-wrap(break-word);
-      color: $global-font-secondary-color;
+      @include compat.overflow-wrap(break-word);
+      color: var.$global-font-secondary-color;
 
       h2,
       h3,
@@ -134,11 +138,11 @@
         font-size: 1.125rem;
       }
 
-      @include link(false, true);
+      @include link.link(false, true);
 
       b,
       strong {
-        color: $global-font-secondary-color;
+        color: var.$global-font-secondary-color;
       }
     }
 
@@ -149,12 +153,12 @@
       align-items: center;
       font-size: 0.875rem;
 
-      @include link(false, false);
+      @include link.link(false, false);
 
       .post-tags {
         padding: 0;
 
-        @include link(true, true);
+        @include link.link(true, true);
       }
     }
   }

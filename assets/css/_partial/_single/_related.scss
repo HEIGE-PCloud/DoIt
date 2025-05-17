@@ -1,3 +1,6 @@
+@use "_mixin/_compatibility" as compat;
+@use "_variables" as var;
+
 .related-container {
   display: flex;
   flex-wrap: nowrap;
@@ -12,12 +15,12 @@
     height: 270px;
     min-width: 300px;
     margin-right: 20px;
-    background: $related-background-color;
+    background: var.$related-background-color;
     position: relative;
   }
 
   .related-image {
-    @include transition(transform 0.4s ease);
+    @include compat.transition(transform 0.4s ease);
 
     img {
       width: 100%;
@@ -26,7 +29,7 @@
     }
 
     &:hover {
-      @include transform(scale(1.01));
+      @include compat.transform(scale(1.01));
     }
   }
 
@@ -43,10 +46,10 @@
   }
 
   .related-title a {
-    color: $related-color;
+    color: var.$related-color;
 
     &:hover {
-      color: $related-hover-color;
+      color: var.$related-hover-color;
     }
   }
 }

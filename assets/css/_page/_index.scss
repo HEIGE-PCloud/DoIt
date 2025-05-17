@@ -1,15 +1,18 @@
+@use "_mixin/blur";
+@use "_variables" as var;
+
+@use "_single";
+@use "_special";
+@use "_archive";
+@use "_home";
+@use "_taxonomy";
+
 .page {
   position: relative;
   max-width: 800px;
   width: 60%;
   margin: 0 auto;
-  padding-top: $header-height;
+  padding-top: var.$header-height;
 
-  @include blur;
+  @include blur.blur;
 }
-
-@import "_single";
-@import "_special";
-@import "_archive";
-@import "_home";
-@import "_taxonomy";

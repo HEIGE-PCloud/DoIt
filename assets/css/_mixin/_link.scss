@@ -1,20 +1,22 @@
+@use "_variables" as var;
+
 @mixin link($light, $dark) {
   a,
   a::before,
   a::after {
     text-decoration: none;
 
-    color: if($light, $global-link-color, $single-link-color);
+    color: if($light, var.$global-link-color, var.$single-link-color);
     .dark & {
-      color: if($dark, $global-link-color, $single-link-color);
+      color: if($dark, var.$global-link-color, var.$single-link-color);
     }
   }
 
   a:active,
   a:hover {
-    color: if($light, $global-link-hover-color, $single-link-hover-color);
+    color: if($light, var.$global-link-hover-color, var.$single-link-hover-color);
     .dark & {
-      color: if($dark, $global-link-hover-color, $single-link-hover-color);
+      color: if($dark, var.$global-link-hover-color, var.$single-link-hover-color);
     }
   }
 }

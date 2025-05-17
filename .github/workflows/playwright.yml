@@ -20,6 +20,9 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
+    - name: Install Dart Sass # Installs dart-sass
+      run: brew install sass/sass/sass
+      
     - name: Hugo setup
       run: brew install hugo
 

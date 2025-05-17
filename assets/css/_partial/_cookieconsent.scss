@@ -1,10 +1,12 @@
+@use "_variables" as var;
+
 .cc-window.cc-banner {
   .cc-btn {
-    color: $global-font-color;
+    color: var.$global-font-color;
 
     &:hover,
     &:focus {
-      background-color: $cookie-background-color;
+      background-color: var.$cookie-background-color;
     }
   }
 }

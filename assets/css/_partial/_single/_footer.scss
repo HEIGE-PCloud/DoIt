@@ -1,8 +1,12 @@
+@use "_variables" as var;
+@use "_mixin/_link";
+@use "_mixin/_compatibility" as compat;
+
 .post-footer {
   margin-top: 3rem;
 
   .post-info {
-    border-bottom: 1px solid $global-border-color;
+    border-bottom: 1px solid var.$global-border-color;
     padding: 1rem 0 0.3rem;
 
     .post-info-line {
@@ -11,22 +15,22 @@
 
       .post-info-mod {
         font-size: 0.8em;
-        color: $global-font-secondary-color;
+        color: var.$global-font-secondary-color;
 
-        @include link(false, false);
+        @include link.link(false, false);
       }
 
       .post-info-license {
         font-size: 0.8em;
-        color: $global-font-secondary-color;
+        color: var.$global-font-secondary-color;
 
-        @include link(false, false);
+        @include link.link(false, false);
       }
 
       .post-info-md {
         font-size: 0.8rem;
         width: fit-content;
-        @include link(false, false);
+        @include link.link(false, false);
       }
 
       .post-info-share {
@@ -48,7 +52,7 @@
             vertical-align: text-bottom;
           }
           :hover {
-            color: $global-link-hover-color;
+            color: var.$global-link-hover-color;
           }
         }
 
@@ -107,7 +111,7 @@
     & a.next {
       font-size: 1rem;
       font-weight: 600;
-      @include transition(all 0.3s ease-out);
+      @include compat.transition(all 0.3s ease-out);
     }
 
     & a.prev {
@@ -115,7 +119,7 @@
     }
 
     & a.prev:hover {
-      @include transform(translateX(-4px));
+      @include compat.transform(translateX(-4px));
     }
 
     & a.next {
@@ -123,7 +127,7 @@
     }
 
     & a.next:hover {
-      @include transform(translateX(4px));
+      @include compat.transform(translateX(4px));
     }
   }
 }
