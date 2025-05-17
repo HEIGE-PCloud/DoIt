@@ -35,8 +35,8 @@
       color: var.$pagination-link-hover-color;
     }
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       position: absolute;
       content: "";
       width: 0;
@@ -46,22 +46,22 @@
       bottom: 0px;
     }
 
-    &:before .active,
-    &:after .active {
+    &::before .active,
+    &::after .active {
       width: 100%;
     }
 
-    &:before {
+    &::before {
       left: 50%;
     }
 
-    &:after {
+    &::after {
       right: 50%;
     }
 
     &:hover {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         width: 50%;
       }
     }
@@ -71,8 +71,8 @@
         color: var.$pagination-link-hover-color;
       }
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         width: 60%;
       }
     }

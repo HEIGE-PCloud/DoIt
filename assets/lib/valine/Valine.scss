@@ -17,11 +17,11 @@
         .vh, .vquote {
             border: none;
         }
-        .vcontent.expand:after {
+        .vcontent.expand::after {
             color: var.$global-font-color;
             background: $global-background-color;
         }
-        .vcontent.expand:before {
+        .vcontent.expand::before {
             background: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.9));
             .dark & {
                 background: linear-gradient(180deg,hsla(0,0%,100%,0),#292a2de6);
