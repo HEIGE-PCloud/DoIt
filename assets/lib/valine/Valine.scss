@@ -1,28 +1,27 @@
-@import "../../css/_variables";
-
+@use "../../css/_variables";
 
 .v[data-class=v] {
     .vbtn {
-        color: $global-font-color;
+        color: var.$global-font-color;
     }
     .vicon {
-        fill: $global-font-color;
+        fill: var.$global-font-color;
     }
     code, pre {
         background-color: $code-background-color;
     }
     .status-bar, .veditor, .vinput, p, pre code {
-        color: $global-font-color;
+        color: var.$global-font-color;
     }
     .vcards .vcard {
         .vh, .vquote {
             border: none;
         }
-        .vcontent.expand:after {
-            color: $global-font-color;
+        .vcontent.expand::after {
+            color: var.$global-font-color;
             background: $global-background-color;
         }
-        .vcontent.expand:before {
+        .vcontent.expand::before {
             background: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.9));
             .dark & {
                 background: linear-gradient(180deg,hsla(0,0%,100%,0),#292a2de6);

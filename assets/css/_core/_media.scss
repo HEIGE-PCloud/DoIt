@@ -1,3 +1,5 @@
+@use "_variables" as var;
+
 @media only screen and (max-width: 1440px) {
   .page {
     width: 56%;
@@ -63,7 +65,7 @@
   .page {
     width: 100% !important;
     margin-left: auto !important;
-    padding-top: $header-height;
+    padding-top: var.$header-height;
 
     .categories-card,
     .author-card,

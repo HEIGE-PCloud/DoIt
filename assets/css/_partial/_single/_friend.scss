@@ -1,16 +1,19 @@
+@use "_mixin/_compatibility" as compat;
+@use "_variables" as var;
+
 .friend-link-div {
   height: 92px;
   margin-top: 5px;
   width: 48%;
   display: inline-block;
-  background: $friend-link-background-color;
+  background: var.$friend-link-background-color;
   vertical-align: top;
   -webkit-transition: transform 0.4s ease;
   -moz-transition: transform 0.4s ease;
   -o-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
   &:hover {
-    @include transform(scale(1.01));
+    @include compat.transform(scale(1.01));
   }
   .friend-link-avatar {
     width: 92px;
@@ -25,9 +28,9 @@
   }
   .friend-link-info {
     margin: 18px 18px 18px 92px;
-    color: $friend-link-color;
+    color: var.$friend-link-color;
     &:hover {
-      color: $friend-link-hover-color;
+      color: var.$friend-link-hover-color;
     }
     .friend-name-div {
       text-overflow: ellipsis;
@@ -41,7 +44,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      color: $global-font-secondary-color;
+      color: var.$global-font-secondary-color;
     }
   }
 }

@@ -1,3 +1,6 @@
+@use "_variables" as var;
+@use "_mixin/_compatibility" as compat;
+
 .details {
   .details-summary {
     &:hover {
@@ -6,8 +9,8 @@
   }
 
   .details-icon > svg {
-    color: $global-font-secondary-color;
-    @include transition(transform 0.2s ease);
+    color: var.$global-font-secondary-color;
+    @include compat.transition(transform 0.2s ease);
   }
 
   .details-content {
@@ -18,7 +21,7 @@
 
   &.open {
     .details-icon > svg {
-      @include transform(rotate(90deg));
+      @include compat.transform(rotate(90deg));
     }
 
     .details-content {
