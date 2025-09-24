@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "^1.55.1",
     "concurrently": "^9.2.1",
     "tailwindcss": "^3.4.17"
   },
