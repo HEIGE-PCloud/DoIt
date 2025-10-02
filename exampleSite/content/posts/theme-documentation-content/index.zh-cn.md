@@ -190,6 +190,7 @@ related:
 * **series_weight**: {{< version 0.2.13 >}} 自定义文章在系列中的[位置](https://gohugo.io/content-management/taxonomies/#order-taxonomies).
 * **seriesNavigation**: {{< version 0.2.13 >}} 是否使用系列导航.
 * **featuredImage**: 文章的特色图片.
+* **featuredImageCaption**: {{< version 0.4.3 >}} 特写图片的说明文字.
 * **featuredImagePreview**: 用在主页预览的文章特色图片.
 
 * **hiddenFromHomePage**: 如果设为 `true`, 这篇文章将不会显示在主页上.
