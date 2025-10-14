@@ -19,6 +19,9 @@
 {{- with .Site.Params.verification.so -}}
     <meta name="360-site-verification" content="{{ . }}" />
 {{- end -}}
+{{- with .Site.Params.verification.naver -}}
+    <meta name="naver-site-verification" content="{{ . }}" />
+{{- end -}}
 
 {{- define "blogPosting" -}}
 {{- $params := .Scratch.Get "params" -}}
