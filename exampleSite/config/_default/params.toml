@@ -549,8 +549,8 @@ bundle = false
   # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
   duration = -1
 
-# Site verification code for Google/Bing/Yandex/Pinterest/Baidu
-# 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
+# Site verification code for Google/Bing/Yandex/Pinterest/Baidu/Naver
+# 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu/Naver
 [verification]
   google = "MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4"
   bing = ""
@@ -559,6 +559,7 @@ bundle = false
   baidu = ""
   so = ""
   sogou = ""
+  naver = ""
 
 # Site SEO config
 # 网站 SEO 配置
