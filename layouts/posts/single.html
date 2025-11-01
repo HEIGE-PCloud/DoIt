@@ -170,7 +170,16 @@
                     (dict "Process" "resize 1200x webp q75" "descriptor" "1200w")
                     (dict "Process" "resize 1600x webp q75" "descriptor" "1600w") 
                 -}}
+                {{- if page.Params.featuredImageCaption -}}
+                    <figure>
+                {{- end -}}
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "OptimConfig" $optim | partial "plugin/image.html" -}}
+                {{- if page.Params.featuredImageCaption -}}
+                {{- with page.Params.featuredImageCaption | default "" -}}
+                    <figcaption>{{ . }}</figcaption>
+                {{- end -}}
+                    </figure>
+                {{- end -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

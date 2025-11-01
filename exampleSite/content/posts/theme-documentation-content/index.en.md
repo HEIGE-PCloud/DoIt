@@ -191,6 +191,7 @@ related:
 * **series_weight**: {{< version 0.2.13 >}} define the [position](https://gohugo.io/content-management/taxonomies/#order-taxonomies) of the post in the series.
 * **seriesNavigation**: {{< version 0.2.13 >}} whether to enable series navigation.
 * **featuredImage**: the featured image for the content.
+* **featuredImageCaption**: {{< version 0.4.3 >}} the caption for the featured image.
 * **featuredImagePreview**: the featured image for the content preview in the home page.
 
 * **hiddenFromHomePage**: if `true`, the content will not be shown in the home page.
