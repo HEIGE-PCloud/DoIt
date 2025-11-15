@@ -4,21 +4,19 @@
     {{- /* Featured image */ -}}
     {{- $image := "" -}}
     {{- if (or (not $.CurrentSection.IsHome) ($.Site.Params.home.posts.imagePreview | default true)) -}}
-    {{- $image = $params.featuredImagePreview | default $params.featuredImage -}}
+        {{- $image = $params.featuredImagePreview | default $params.featuredImage -}}
     {{- end -}}
     {{- with $image -}}
-    <div class="featured-image-preview">
-        <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
-            {{ $optim := slice
-            (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
-            (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
-            (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w")
-            }}
-            {{- dict "Src" . "Title" $.Title "Resources" $.Resources "Loading" "eager" "Width" "800" "Height" "240"
-            "Sizes" "(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" "OptimConfig"
-            $optim "Alt" (printf "Featured image for %v" $.Title) | partial "plugin/image.html" -}}
-        </a>
-    </div>
+        <div class="featured-image-preview">
+            <a href="{{ $.RelPermalink }}" aria-label={{ $.Title }}>
+                {{ $optim := slice 
+                    (dict "Process" "fill 800x240 Center webp q75" "descriptor" "800w")
+                    (dict "Process" "fill 1200x360 Center webp q75" "descriptor" "1200w")
+                    (dict "Process" "fill 1600x480 Center webp q75" "descriptor" "1600w") 
+                }}
+                {{- dict "Src" . "Title" $.Title "Resources" $.Resources "Loading" "eager" "Width" "800" "Height" "240" "Sizes" "(max-width: 680px) 100vw, (max-width: 1000px) 80vw, (max-width: 1440px) 56vw, 800px" "OptimConfig" $optim "Alt" (printf "Featured image for %v" $.Title) | partial "plugin/image.html" -}}
+            </a>
+        </div>
     {{- end -}}
 
     {{- /* Title */ -}}
@@ -33,57 +31,54 @@
         </span>
 
         {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
-        &nbsp;<span class="post-publish">
-            {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
-        </span>
+            &nbsp;<span class="post-publish">
+                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+            </span>
         {{- end -}}
 
         {{- with (or (.Params.categories) (.Params.series)) -}}
         &nbsp;<span class="post-category">
             {{- T "includedIn" | safeHTML -}}
         </span>
-        {{- end -}}
-
-        {{- $categories := slice -}}
-        {{- range .Params.categories -}}
+    {{- end -}}
+    
+    {{- $categories := slice -}}
+    {{- range .Params.categories -}}
         {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
         {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "folder") -}}
-        {{- $categories = $categories | append (printf `<a href="%v">%v%v</a>` $category.RelPermalink $icon
-        $category.Title) -}}
-        {{- end -}}
-        {{- with delimit $categories "&nbsp;" -}}
+        {{- $categories = $categories | append (printf `<a href="%v">%v%v</a>` $category.RelPermalink $icon $category.Title) -}}
+    {{- end -}}
+    {{- with delimit $categories "&nbsp;" -}}
         &nbsp;<span class="post-category">
             {{- dict "Categories" . "Count" (len $categories) | T "includedInCategories" | safeHTML -}}
         </span>
-        {{- end -}}
-
-        {{- with (and (.Params.categories) (.Params.series)) -}}
+    {{- end -}}
+    
+    {{- with (and (.Params.categories) (.Params.series)) -}}
         &nbsp;<span class="post-category">
             {{- T "includedInAnd" | safeHTML -}}
         </span>
-        {{- end -}}
+    {{- end -}}
 
-        {{- $series := slice -}}
-        {{- range .Params.series -}}
+    {{- $series := slice -}}
+    {{- range .Params.series -}}
         {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
         {{- $icon := partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "list-alt") -}}
-        {{- $series = $series | append (printf `<a href="%v">%v%v</a>` $singleSeries.RelPermalink $icon
-        $singleSeries.Title) -}}
-        {{- end -}}
-        {{- with delimit $series "&nbsp;" -}}
+        {{- $series = $series | append (printf `<a href="%v">%v%v</a>` $singleSeries.RelPermalink $icon $singleSeries.Title) -}}
+    {{- end -}}
+    {{- with delimit $series "&nbsp;" -}}
         &nbsp;<span class="post-series">
             {{- dict "Series" . | T "includedInSeries" | safeHTML -}}
         </span>
-        {{- end -}}
+    {{- end -}}
     </div>
 
     {{- /* Summary content */ -}}
     <div class="content">
         {{- with .Summary -}}
-        {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial
-        "function/content.html" | safeHTML -}}
+            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         {{- else -}}
-        {{- .Description | safeHTML -}}
+            {{- .Description | safeHTML -}}
         {{- end -}}
     </div>
 
@@ -91,14 +86,14 @@
     <div class="post-footer">
         <a href="{{ .RelPermalink }}">{{ T "readMore" }}</a>
         {{- with .Params.tags -}}
-        <div class="post-tags">
-            {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") -}}&nbsp;
-            {{- range $index, $value := . -}}
-            {{- if gt $index 0 }},&nbsp;{{ end -}}
-            {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
-            <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
-            {{- end -}}
-        </div>
+            <div class="post-tags">
+                {{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") -}}&nbsp;
+                {{- range $index, $value := . -}}
+                    {{- if gt $index 0 }},&nbsp;{{ end -}}
+                    {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+                    <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
+                {{- end -}}
+            </div>
         {{- end -}}
     </div>
 </article>
