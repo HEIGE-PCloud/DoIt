@@ -3,7 +3,7 @@
 <article class="single summary">
     {{- /* Featured image */ -}}
     {{- $image := "" -}}
-    {{- if (or (not $.CurrentSection.IsHome) ($.Site.Params.home.posts.imagePreview | default true)) -}}
+    {{- if ($.Site.Params.home.posts.imagePreview | default true) -}}
         {{- $image = $params.featuredImagePreview | default $params.featuredImage -}}
     {{- end -}}
     {{- with $image -}}
