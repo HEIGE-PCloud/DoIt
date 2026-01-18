@@ -619,6 +619,21 @@ bundle = false
     # token(optional), more info on https://splitbee.io/docs/embed-the-script
     # token(可选)，详细信息请前往 https://splitbee.io/docs/embed-the-script 查看
     data_token = ""
+  # Matomo Analytics
+  [analytics.matomo]
+    enable = false
+    # matomo server URL
+    server = ""
+    # matomo site ID
+    site_id = 1
+    # enable no js tracking
+    Track_no_js = true
+    # no cookie mode
+    # 无cookie模式
+    No_cookie = true
+    # respect the do not track setting of the browser
+    # 遵循浏览器的”要求网站不跟踪我“设定
+    Do_not_track = true
 
 # Cookie consent config
 # Cookie 许可配置

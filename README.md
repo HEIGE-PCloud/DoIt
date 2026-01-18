@@ -93,6 +93,7 @@ the DoIt theme may be more suitable for you.
 * **[Plausible Analytics](https://plausible.io/)** supported
 * **[Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics)** supported
 * **[Splitbee Analytics](https://splitbee.io)** supported
+* **[Matomo Analytics](http://www.matomo.com/)** supported
 * Search engine **verification** supported (Google, Bind, Yandex and Baidu)
 * **CDN** for third-party libraries supported
 
