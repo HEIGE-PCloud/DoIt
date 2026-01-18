@@ -64,15 +64,15 @@
     {{- end -}}
 
     {{- /* Matomo Analytics */ -}}
-    {{- with $analytics.matomo.enable -}}
+    {{- if $analytics.matomo.enable -}}
         <script>
             var _paq = window._paq = window._paq || [];
-            {{- if $analytics.matomo.Do_not_track -}}
+        {{- if $analytics.matomo.Do_not_track -}}
             _paq.push(["setDoNotTrack", true]);
-            {{- end -}}
-            {{- if $analytics.matomo.No_cookie -}}
+        {{- end -}}
+        {{- if $analytics.matomo.No_cookie -}}
             _paq.push(["disableCookies"]);
-            {{- end -}}
+        {{- end -}}
             _paq.push(['trackPageView']);
             _paq.push(['enableLinkTracking']);
             (function() {
@@ -84,7 +84,7 @@
             })();
         </script>
         {{- if $analytics.matomo.Track_no_js -}}
-        <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="{{ $analytics.matomo.server }}/matomo.php?idsite={{ $analytics.matomo.site_id }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="{{ $analytics.matomo.server }}/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
         {{- end -}}
     {{- end -}}
 
