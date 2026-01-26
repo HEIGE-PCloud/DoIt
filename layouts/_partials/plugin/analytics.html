@@ -63,4 +63,29 @@
         <script defer {{ with $attr }} {{ . | safeHTMLAttr }} {{ end }} src="https://cdn.splitbee.io/sb.js"></script>
     {{- end -}}
 
+    {{- /* Matomo Analytics */ -}}
+    {{- if $analytics.matomo.enable -}}
+        <script>
+            var _paq = window._paq = window._paq || [];
+        {{- if $analytics.matomo.Do_not_track -}}
+            _paq.push(["setDoNotTrack", true]);
+        {{- end -}}
+        {{- if $analytics.matomo.No_cookie -}}
+            _paq.push(["disableCookies"]);
+        {{- end -}}
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+            var u="{{ $analytics.matomo.server }}";
+            _paq.push(['setTrackerUrl', u+'mtr']);
+            _paq.push(['setSiteId', '{{ $analytics.matomo.site_id }}']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'mts'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
+        {{- if $analytics.matomo.Track_no_js -}}
+        <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="{{ $analytics.matomo.server }}/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        {{- end -}}
+    {{- end -}}
+
 {{- end -}}
