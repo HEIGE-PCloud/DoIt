@@ -1,6 +1,6 @@
 {{- $params := .Scratch.Get "params" -}}
 
-<meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
+<meta name="description" content="{{ $params.description | default .Site.Params.description }}">
 
 {{- partial "opengraph.html" . -}}
 {{- partial "twitter_cards.html" . -}}
@@ -15,5 +15,5 @@
 {{- end -}}
 
 {{- with .Site.Params.social.Twitter -}}
-<meta name="twitter:creator" content="@{{ . }}" />
+<meta name="twitter:creator" content="@{{ . }}">
 {{- end -}}

@@ -184,10 +184,10 @@
             </button>
             {{- end -}}
             {{- if hugo.IsMultilingual -}}
-            <button class="menu-item tw-w-full" title="{{ T " selectLanguage" }}">
+            <button class="menu-item tw-w-full" title="{{ T "selectLanguage" }}">
                 {{- .Language.LanguageName -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
-                <select class="language-select" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
+                <select class="language-select" title="{{ T "selectLanguage" }}" onchange="location = this.value;">
                     {{- if eq .Kind "404" -}}
                     {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
                     {{- range .Sites -}}

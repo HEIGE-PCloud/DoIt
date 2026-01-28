@@ -5,7 +5,7 @@
     {{- with .Site.Params.app.svgFavicon -}}
         <link rel="icon" href="{{ . }}">
     {{- else -}}
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     {{- end -}}
@@ -22,12 +22,12 @@
 {{ with .Scratch.Get "paginatorPager"  }}
   {{ $canonicalURL = .URL | absLangURL }}
 {{ end }}
-<link rel="canonical" href="{{ $canonicalURL }}" />
+<link rel="canonical" href="{{ $canonicalURL }}">
 {{- if .PrevInSection -}}
-    <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
+    <link rel="prev" href="{{ .PrevInSection.Permalink }}">
 {{- end -}}
 {{- if .NextInSection -}}
-    <link rel="next" href="{{ .NextInSection.Permalink }}" />
+    <link rel="next" href="{{ .NextInSection.Permalink }}">
 {{- end -}}
 
 {{- with .OutputFormats.Get "RSS" -}}
@@ -36,7 +36,7 @@
 {{- end -}}
 
 {{- with .OutputFormats.Get "JsonFeed" -}}
-    <link rel="alternate" type="application/feed+json" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}" />
+    <link rel="alternate" type="application/feed+json" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
 {{- end -}}
 
 {{/*  tailwind.css  */}}

@@ -84,7 +84,7 @@
             })();
         </script>
         {{- if $analytics.matomo.Track_no_js -}}
-        <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="{{ $analytics.matomo.server }}/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="{{ $analytics.matomo.server }}/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt=""></p></noscript>
         {{- end -}}
     {{- end -}}
 
