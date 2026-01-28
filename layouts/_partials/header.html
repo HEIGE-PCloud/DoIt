@@ -43,7 +43,7 @@
                 <span class="menu-item delimiter"></span>
                 {{- end -}}
                 {{- if hugo.IsMultilingual -}}
-                <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
+                <div class="menu-item language" role="button" tabindex="0" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
                     {{- .Language.LanguageName -}}
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                     <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
@@ -64,7 +64,7 @@
                         {{- end -}}
                         {{- end -}}
                     </select>
-                </button>
+                </div>
                 {{- end -}}
                 {{- if .Site.Params.search.enable -}}
                 <span class="menu-item search" id="search-desktop">
@@ -83,14 +83,14 @@
                 </span>
                 {{- end -}}
                 {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <button class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+                <div class="menu-item theme-select" role="button" tabindex="0" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                     <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                         <option value="light">{{ T "Light" }}</option>
                         <option value="dark">{{ T "Dark" }}</option>
                         <option value="auto">{{ T "Auto" }}</option>
                     </select>
-                </button>
+                </div>
                 {{- else -}}
                 <button class="menu-item theme-switch" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
@@ -170,21 +170,21 @@
             </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-            <button class="menu-item theme-select tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <div class="menu-item theme-select tw-w-full" role="button" tabindex="0" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                 <select class="color-theme-select" id="theme-select-mobile" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     <option value="light">{{ T "Light" }}</option>
                     <option value="dark">{{ T "Dark" }}</option>
                     <option value="auto">{{ T "Auto" }}</option>
                 </select>
-            </button>
+            </div>
             {{- else -}}
             <button class="menu-item theme-switch tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
             </button>
             {{- end -}}
             {{- if hugo.IsMultilingual -}}
-            <button class="menu-item tw-w-full" title="{{ T "selectLanguage" }}">
+            <div class="menu-item tw-w-full" role="button" tabindex="0" title="{{ T "selectLanguage" }}">
                 {{- .Language.LanguageName -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                 <select class="language-select" title="{{ T "selectLanguage" }}" onchange="location = this.value;">
@@ -204,7 +204,7 @@
                     {{- end -}}
                     {{- end -}}
                 </select>
-            </button>
+            </div>
             {{- end -}}
         </div>
     </div>
