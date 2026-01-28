@@ -43,7 +43,7 @@
                 <span class="menu-item delimiter"></span>
                 {{- end -}}
                 {{- if hugo.IsMultilingual -}}
-                <div class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
+                <div class="menu-item language">
                     {{- .Language.LanguageName -}}
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                     <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
@@ -83,7 +83,7 @@
                 </span>
                 {{- end -}}
                 {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-                <div class="menu-item theme-select" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+                <div class="menu-item theme-select">
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                     <select class="color-theme-select" id="theme-select-desktop" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                         <option value="light">{{ T "Light" }}</option>
@@ -170,7 +170,7 @@
             </a>
             {{- end -}}
             {{- if eq .Site.Params.header.themeChangeMode "select" -}}
-            <div class="menu-item theme-select tw-w-full" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
+            <div class="menu-item theme-select tw-w-full">
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "adjust") }}
                 <select class="color-theme-select" id="theme-select-mobile" {{ printf "aria-label=%q" (T "switchTheme") | safeHTMLAttr }}>
                     <option value="light">{{ T "Light" }}</option>
