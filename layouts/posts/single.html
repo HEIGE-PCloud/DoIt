@@ -27,7 +27,9 @@
         <div class="toc tw-mx-4 tw-max-w-full">
             <h2 class="tw-mx-0 tw-my-6 tw-uppercase tw-text-2xl">{{ T "contents" }}</h2>
             <div class="toc-content" id="toc-content-dialog">
-                {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                {{- $tocContent := dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+                {{- $tocContent = replace $tocContent `id="TableOfContents"` `id="TableOfContents-dialog"` -}}
+                {{- $tocContent | safeHTML -}}
             </div>
         </div>
     </dialog>
@@ -220,7 +222,9 @@
                     <span class="details-icon">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") }}</span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static">
-                    {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                    {{- $tocContent := dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+                    {{- $tocContent = replace $tocContent `id="TableOfContents"` `id="TableOfContents-static"` -}}
+                    {{- $tocContent | safeHTML -}}
                 </div>
             </div>
         {{- end -}}
