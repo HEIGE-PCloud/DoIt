@@ -75,5 +75,5 @@
 {{- $url := printf "//player.bilibili.com/player.html?bvid=%s&page=%v%s%s%s%s%s%s%s%s%s" $bvid $page $autoplayPara $danmakuPara $mutedPara $tPara $hasMuteButtonPara $hideCoverInfoPara $hideDanmakuButtonPara $noFullScreenButtonPara $fjwPara -}}
 
 <div class="bilibili">
-    <iframe src="{{ $url }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+    <iframe src="{{ $url }}" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true" style="border: 0;"></iframe>
 </div>
