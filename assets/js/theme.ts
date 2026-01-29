@@ -591,7 +591,7 @@ function initToc() {
     window.matchMedia("only screen and (max-width: 1000px)").matches;
 
   if (
-    document.getElementById("toc-static").getAttribute("kept") ||
+    document.getElementById("toc-static").getAttribute("data-kept") ||
     isTocStatic
   ) {
     if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
@@ -873,7 +873,7 @@ function initCodeblocks() {
   document.querySelectorAll(".code-block").forEach((codeBlock) => {
     // the queries are guaranteed to be successful
     const titleButton = codeBlock.querySelector(
-      "button.code-block-button",
+      ".code-block-button",
     ) as HTMLDivElement;
     const chroma = codeBlock.querySelector("code.chroma") as HTMLElement;
     const copyCodeButton = codeBlock.querySelector(

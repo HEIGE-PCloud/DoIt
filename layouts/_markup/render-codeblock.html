@@ -25,17 +25,20 @@
     tw-justify-between 
     tw-w-full tw-bg-bgColor-secondary
     ">      
-    <button 
+    <div 
       class="
         code-block-button
         tw-mx-2 
         tw-flex
         tw-flex-row
-        tw-flex-1"
+        tw-flex-1
+        tw-cursor-pointer"
+      role="button"
+      tabindex="0"
       aria-hidden="true">
           <div class="group-[.is-open]:tw-rotate-90 tw-transition-[transform] tw-duration-500 tw-ease-in-out print:!tw-hidden tw-w-min tw-h-min tw-my-1 tw-mx-1">{{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}</div>
           <p class="tw-select-none !tw-my-1">{{ $title }}</p>
-      </button>
+      </div>
 
    <div class="tw-flex">
       <button 
