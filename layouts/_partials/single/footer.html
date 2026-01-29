@@ -49,9 +49,10 @@
                         {{- $link := replace . "{title}" ($.Title | urlquery) -}}
                         {{- $link = replace $link "{url}" ($.Permalink | urlquery) -}}
                         {{- $link = replace $link "{path}" ($.File.Path | urlquery) -}}
-                        {{- /* Fix any unencoded brackets in the URL */ -}}
+                        {{- /* Fix any unencoded special characters in the URL */ -}}
                         {{- $link = replace $link "[" "%5B" -}}
                         {{- $link = replace $link "]" "%5D" -}}
+                        {{- $link = replace $link "|" "%7C" -}}
                         {{- $d := dict "class" "link-to-report" "link" $link "text" "reportThisPage" -}}
                         {{- $post_info = $post_info | append $d -}}
                     {{- end -}}
