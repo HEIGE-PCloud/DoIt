@@ -32,6 +32,20 @@ header {
   position: relative;
 }
 
+.menu-item.language,
+.menu-item.theme-select {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  line-height: inherit;
+}
+
 .language-select {
   position: absolute;
   opacity: 0;
