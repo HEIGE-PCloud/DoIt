@@ -47,8 +47,8 @@
                     {{- end -}}
                     {{- with $params.linktoreport -}}
                         {{- $link := replace . "{title}" ($.Title | urlquery) -}}
-                        {{- $link := replace $link "{url}" $.Permalink -}}
-                        {{- $link := replace $link "{path}" $.File.Path -}}
+                        {{- $link = replace $link "{url}" ($.Permalink | urlquery) -}}
+                        {{- $link = replace $link "{path}" ($.File.Path | urlquery) -}}
                         {{- $d := dict "class" "link-to-report" "link" $link "text" "reportThisPage" -}}
                         {{- $post_info = $post_info | append $d -}}
                     {{- end -}}
