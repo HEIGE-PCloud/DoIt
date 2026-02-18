@@ -45,10 +45,6 @@
     {{- warnf "Run `npx pagefind --site $YOUR_PUBLIC_DIR` after site build to create pagefind index" -}}
 {{- end -}}
 
-{{- if .Site.Author -}}
-    {{- errorf ".Site.Author is deprecated, use .Site.Params.Author instead. See https://github.com/gohugoio/hugo/issues/12228" -}}
-{{- end -}}
-
 {{- .Scratch.Set "params" $params -}}
 {{- .Scratch.Set "this" dict -}}
 
