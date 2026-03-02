@@ -19,8 +19,8 @@
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tag") }}&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "author" -}}
                 {{- .Scratch.Set "name" .Title -}}
-                {{- if $.Site.Data.authors -}}
-                    {{- with partial "function/author.html" (dict "name" .Title "author" (index $.Site.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
+                {{- if hugo.Data.authors -}}
+                    {{- with partial "function/author.html" (dict "name" .Title "author" (index hugo.Data.authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
                         {{- .name | safeHTML -}}
                         {{- if .avatar -}}
                             <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-8 tw-rounded-full tw-translate-y-[-2px] tw-ml-4"/>

@@ -14,10 +14,10 @@
             {{- if $authors -}}
                 {{- $lang := ( $.Params.lang | default $.Lang ) -}}
                 {{- range $i, $name := $authors -}}
-                    {{- if $.Site.Data.authors -}}
+                    {{- if hugo.Data.authors -}}
                         {{- with partial "function/author.html" (dict
                             "name" $name
-                            "author" (index $.Site.Data.authors $name)
+                            "author" (index hugo.Data.authors $name)
                             "lang" $lang) -}}
                             {{- dict "Src" .avatar "Resources" $.Resources | partial "plugin/image.html" -}}
                         {{- end -}}                    
