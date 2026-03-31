@@ -78,5 +78,5 @@ libFiles:
   # plantuml-encoder@1.4.0
   plantumlEncoderJS: plantuml-encoder@1.4.0/dist/plantuml-encoder.min.js
   # wavedrom@3.5.0 only default skin would be loaded!
-  wavedromJS: wavedrom@3.5.0/dist/wavedrom.min.js
+  wavedromJS: wavedrom@3.5.0/wavedrom.min.js
   wavedromDefaultSkinJS: wavedrom@3.5.0/skins/default.js
