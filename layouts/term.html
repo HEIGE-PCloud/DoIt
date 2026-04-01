@@ -24,7 +24,7 @@
                     {{- with partial "function/author.html" (dict "name" .Title "author" (index $authors .Title) "lang" ($.Params.lang | default $.Lang)) -}}
                         {{- .name | safeHTML -}}
                         {{- if .avatar -}}
-                            <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw-inline-block tw-max-h-8 tw-rounded-full tw-translate-y-[-2px] tw-ml-4"/>
+                            <img src='{{ .avatar | absURL }}' alt='{{ .name }} avatar' class="tw:inline-block tw:max-h-8 tw:rounded-full tw:translate-y-[-2px] tw:ml-4"/>
                         {{- end -}}
                         <br>
                         {{- if .absLink -}}
