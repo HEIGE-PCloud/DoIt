@@ -9,7 +9,7 @@
 {{- $authors := .Params.authors -}}
 
 {{- if $enable -}}
-    <div class="sponsor tw:print:hidden">
+    <div class="sponsor tw:print:hidden tw:text-center tw:pt-12">
         <div class="sponsor-avatar">
             {{- if $authors -}}
                 {{- $lang := ( $.Params.lang | default $.Lang ) -}}
@@ -20,25 +20,25 @@
                             "name" $name
                             "author" (index $authors $name)
                             "lang" $lang) -}}
-                            {{- dict "Src" .avatar "Resources" $.Resources | partial "plugin/image.html" -}}
-                        {{- end -}}                    
+                            {{- dict "Src" .avatar "Resources" $.Resources "Class" "tw:inline-block tw:w-24 tw:h-24 tw:m-2.5 tw:rounded-full tw:shadow-[0_0_0_0.36em_rgba(0,0,0,0.05)]" | partial "plugin/image.html" -}}
+                        {{- end -}}
                     {{- end -}}
                 {{- end -}}
             {{- else if $avatar -}}
-                {{- dict "Src" $avatar "Resources" $.Resources | partial "plugin/image.html" -}}
+                {{- dict "Src" $avatar "Resources" $.Resources "Class" "tw:inline-block tw:w-24 tw:h-24 tw:m-2.5 tw:rounded-full tw:shadow-[0_0_0_0.36em_rgba(0,0,0,0.05)]" | partial "plugin/image.html" -}}
             {{- end -}}
         </div>
         {{- with $bio -}}
-            <p class="sponsor-bio"><em>{{- . -}}</em></p>
+            <p class="sponsor-bio tw:w-1/4 tw:mx-auto tw:my-2.5 max-[1000px]:tw:w-1/2 max-[680px]:tw:w-3/4"><em>{{- . -}}</em></p>
         {{- end -}}
         {{- if $custom -}}
-            <div class="sponsor-custom">
+            <div class="sponsor-custom tw:my-8 tw:mx-auto tw:block">
                 {{- $custom | safeHTML -}}
             </div>
         {{- else -}}
-            <a href="{{- $link -}}" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
-                <span style="color: #ec6cb9;">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "heart") }}</span>
-                <span>{{- T "sponsor" -}}</span>
+            <a href="{{- $link -}}" title="Sponsor" target="_blank" class="sponsor-button tw:border-solid tw:py-1.5 tw:px-2.5 tw:my-4 tw:mx-auto tw:inline-block tw:bg-(--sponsor-button-background-color) tw:transition-transform tw:duration-400 tw:hover:bg-(--sponsor-button-hover-background-color) tw:hover:scale-105" rel="noopener noreferrer">
+                <span class="tw:align-middle" style="color: #ec6cb9;">{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "heart") }}</span>
+                <span class="tw:align-middle">{{- T "sponsor" -}}</span>
             </a>
         {{- end -}}
     </div>
