@@ -77,7 +77,7 @@ baseURL = "http://example.org/"
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # language code
-languageCode = "en"
+locale = "en"
 title = "My New Hugo Site"
 
 # Change the default theme to be use when building the site with Hugo
@@ -649,7 +649,7 @@ Please open the code block below to view the complete sample configuration {{< f
         width = "100%"
         numPosts = 10
         appId = ""
-        languageCode = ""
+        locale = ""
       # {{< version 0.2.0 >}} {{< link "https://comments.app/" "Telegram comments" >}} config
       [params.page.comment.telegram]
         enable = false
@@ -1096,8 +1096,8 @@ defaultContentLanguage = "en"
   [languages.en]
     weight = 1
     title = "My New Hugo Site"
-    languageCode = "en"
-    languageName = "English"
+    locale = "en"
+    label = "English"
     [[languages.en.menu.main]]
       identifier = "posts"
       pre = ""
@@ -1127,8 +1127,8 @@ defaultContentLanguage = "en"
     weight = 2
     title = "我的全新 Hugo 网站"
     # language code, CN only here
-    languageCode = "zh-CN"
-    languageName = "简体中文"
+    locale = "zh-CN"
+    label = "简体中文"
     # whether to include Chinese/Japanese/Korean
     hasCJKLanguage = true
     [[languages.zh-cn.menu.main]]
@@ -1176,7 +1176,7 @@ Use [Front Matter parameter](https://gohugo.io/content-management/multilingual#t
 
 Translations strings are used for common default values used in the theme. Translations are available in [some languages](#language-compatibility), but you may use another language or want to override default values.
 
-To override these values, create a new file in your local i18n folder `i18n/<languageCode>.toml` and inspire yourself from `themes/DoIt/i18n/en.toml`.
+To override these values, create a new file in your local i18n folder `i18n/<locale>.toml` and inspire yourself from `themes/DoIt/i18n/en.toml`.
 
 By the way, as these translations could be used by other people, please take the time to propose a translation by [{{< fa-icon solid code-branch >}} making a PR](https://github.com/HEIGE-PCloud/DoIt/pulls) to the theme!
 

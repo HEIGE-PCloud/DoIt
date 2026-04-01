@@ -77,7 +77,7 @@ baseURL = "http://example.org/"
 # [en, zh-cn, fr, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
 # 网站语言, 仅在这里 CN 大写
-languageCode = "zh-CN"
+locale = "zh-CN"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 网站标题
@@ -652,7 +652,7 @@ optimizeImages = true
         width = "100%"
         numPosts = 10
         appId = ""
-        languageCode = "zh_CN"
+        locale = "zh_CN"
       # {{< version 0.2.0 >}} {{< link "https://comments.app/" "Telegram Comments" >}} 评论系统设置
       [params.page.comment.telegram]
         enable = false
@@ -1097,8 +1097,8 @@ defaultContentLanguage = "zh-cn"
   [languages.en]
     weight = 1
     title = "My New Hugo Site"
-    languageCode = "en"
-    languageName = "English"
+    locale = "en"
+    label = "English"
     [[languages.en.menu.main]]
       identifier = "posts"
       pre = ""
@@ -1128,8 +1128,8 @@ defaultContentLanguage = "zh-cn"
     weight = 2
     title = "我的全新 Hugo 网站"
     # 网站语言, 仅在这里 CN 大写
-    languageCode = "zh-CN"
-    languageName = "简体中文"
+    locale = "zh-CN"
+    label = "简体中文"
     # 是否包括中日韩文字
     hasCJKLanguage = true
     [[languages.zh-cn.menu.main]]
@@ -1178,7 +1178,7 @@ defaultContentLanguage = "zh-cn"
 翻译字符串用于在主题中使用的常见默认值.
 目前提供[一些语言](#language-compatibility)的翻译, 但你可能自定义其他语言或覆盖默认值.
 
-要覆盖默认值, 请在你项目的 i18n 目录 `i18n/<languageCode>.toml` 中创建一个新文件, 并从 `themes/DoIt/i18n/en.toml` 中获得提示.
+要覆盖默认值, 请在你项目的 i18n 目录 `i18n/<locale>.toml` 中创建一个新文件, 并从 `themes/DoIt/i18n/en.toml` 中获得提示.
 
 另外, 由于你的翻译可能会帮助到其他人, 请花点时间通过 [{{< fa-icon solid code-branch >}} 创建一个 PR](https://github.com/HEIGE-PCloud/DoIt/pulls) 来贡献主题翻译, 谢谢!
 

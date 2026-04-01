@@ -44,7 +44,7 @@
                 {{- end -}}
                 {{- if hugo.IsMultilingual -}}
                 <button class="menu-item language" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }}>
-                    {{- .Language.LanguageName -}}
+                    {{- .Language.Label -}}
                     {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                     <select class="language-select" {{ printf "aria-label=%q" (T "selectLanguage") | safeHTMLAttr }} id="language-select-desktop"
                         onchange="location = this.value;">
@@ -53,13 +53,13 @@
                         {{- range .Sites -}}
                         {{- $link := printf "%v/404.html" .LanguagePrefix -}}
                         <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
-                            {{- .Language.LanguageName -}}
+                            {{- .Language.Label -}}
                         </option>
                         {{- end -}}
                         {{- else -}}
                         {{- range .AllTranslations -}}
                         <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
-                            {{- .Language.LanguageName -}}
+                            {{- .Language.Label -}}
                         </option>
                         {{- end -}}
                         {{- end -}}
@@ -185,7 +185,7 @@
             {{- end -}}
             {{- if hugo.IsMultilingual -}}
             <button class="menu-item tw-w-full" title="{{ T " selectLanguage" }}">
-                {{- .Language.LanguageName -}}
+                {{- .Language.Label -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") }}
                 <select class="language-select" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
                     {{- if eq .Kind "404" -}}
@@ -193,13 +193,13 @@
                     {{- range .Sites -}}
                     {{- $link := printf "%v/404.html" .LanguagePrefix -}}
                     <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
-                        {{- .Language.LanguageName -}}
+                        {{- .Language.Label -}}
                     </option>
                     {{- end -}}
                     {{- else -}}
                     {{- range .AllTranslations -}}
                     <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Lang }} selected{{ end }}>
-                        {{- .Language.LanguageName -}}
+                        {{- .Language.Label -}}
                     </option>
                     {{- end -}}
                     {{- end -}}

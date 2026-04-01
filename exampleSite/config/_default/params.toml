@@ -402,7 +402,7 @@ bundle = false
       width = "100%"
       numPosts = 10
       appId = ""
-      languageCode = ""
+      locale = ""
     # Telegram comments config (https://comments.app/)
     # Telegram comments 评论系统设置 (https://comments.app/)
     [page.comment.telegram]
