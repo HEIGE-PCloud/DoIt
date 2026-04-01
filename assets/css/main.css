@@ -350,6 +350,9 @@
   .tw\:text-center {
     text-align: center;
   }
+  .tw\:text-right {
+    text-align: right;
+  }
   .tw\:align-image {
     vertical-align: -0.125em;
   }

@@ -5,13 +5,13 @@
     {{- $params := .Scratch.Get "params" -}}
     <div class="page single special tw:print:w-full! tw:print:max-w-none! tw:print:m-0! tw:print:p-0!">
         {{- /* Title */ -}}
-        <h1 class="single-title">
+        <h1 class="single-title tw:text-right">
             {{- .Title -}}
         </h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
-            <h2 class="single-subtitle">{{ . }}</h2>
+            <h2 class="single-subtitle tw:text-right">{{ . }}</h2>
         {{- end -}}
 
         {{- /* Content */ -}}
