@@ -1,47 +1,29 @@
-@import "tailwindcss" prefix(tw);
-@source "../../../layouts/**/*.html";
-
-@utility scrollbar-thin {
-  scrollbar-width: thin;
-}
-
-@utility align-image {
-  vertical-align: -0.125em;
-}
-
-@theme {
-  --color-fgColor-default: var(--fgColor-default);
-  --color-fgColor-secondary: var(--fgColor-secondary);
-  --color-fgColor-muted: var(--fgColor-muted);
-  --color-fgColor-link: var(--fgColor-link);
-  --color-fgColor-link-hover: var(--fgColor-link-hover);
-  --color-fgColor-link-muted: var(--global-link-color);
-  --color-fgColor-link-muted-hover: var(--global-link-hover-color);
-  --color-bgColor-default: var(--bgColor-default);
-  --color-bgColor-secondary: var(--bgColor-secondary);
-  --color-bgColor-accent-emphasis: var(--bgColor-accent-emphasis);
-  --color-bgColor-accent-muted: var(--bgColor-accent-muted);
-  --color-borderColor-default: var(--borderColor-default);
-  --color-selection-bgColor: var(--selection-bgColor);
-  --color-button-default-bgColor-rest: var(--button-default-bgColor-rest);
-  --color-button-default-bgColor-hover: var(--button-default-bgColor-hover);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   h1 {
-    @apply tw:text-3xl tw:font-bold tw:m-8;
+    @apply tw-text-3xl tw-font-bold tw-m-8;
   }
   h2 {
-    @apply tw:text-2xl tw:font-bold tw:m-6;
+    @apply tw-text-2xl tw-font-bold tw-m-6;
   }
   h3 {
-    @apply tw:text-xl tw:font-bold tw:m-4;
+    @apply tw-text-xl tw-font-bold tw-m-4;
   }
   ol {
-    @apply tw:list-decimal tw:list-outside;
+    @apply tw-list-decimal tw-list-outside;
   }
   ul {
-    @apply tw:list-disc tw:list-outside;
+    @apply tw-list-disc tw-list-outside;
+  }
+  .tw-scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .tw-align-image {
+    vertical-align: -0.125em;
   }
 
   :root {

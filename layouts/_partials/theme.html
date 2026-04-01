@@ -6,9 +6,9 @@
       document.documentElement.className = theme;
       document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
       if (theme === 'light') {
-        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.remove('tw-dark')
       } else {
-        document.documentElement.classList.add('dark')
+        document.documentElement.classList.add('tw-dark')
       }
       window.theme = theme;   
       window.isDark = window.theme !== 'light' 
