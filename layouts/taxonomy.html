@@ -113,9 +113,9 @@
 
         {{- /* Tag Cloud Page */ -}}
         {{- else if eq $taxonomies "tags" -}}
-            <div class="tag-cloud-tags">
+            <div class="tag-cloud-tags tw:my-2.5">
                 {{- range $.Site.Taxonomies.tags.ByCount -}}
-                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+                    <a href="{{ .Page.RelPermalink }}" class="tw:inline-block tw:relative tw:my-[5px] tw:mx-2.5 tw:break-words tw:no-underline tw:text-(--global-link-color) tw:hover:text-(--global-link-hover-color) tw:transition-all tw:duration-300 tw:ease-out tw:hover:scale-120 tw:active:scale-120 tw:focus:scale-120">{{ .Page.Title }} <sup class="tw:text-(--global-font-secondary-color)">{{ .Count }}</sup></a>
                 {{- end -}}
             </div>
         {{- end -}}
