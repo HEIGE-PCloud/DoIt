@@ -13,6 +13,6 @@
     </figcaption>
 </figure>
 {{- else -}}
-    {{- dict "Src" .Destination "Class" "tw-inline" "Title" .Text "Caption" .Title "Loading" "lazy" "Resources" .Page.Resources "OptimConfig" $optim | partial "plugin/image.html" -}}
+    {{- dict "Src" .Destination "Class" "tw:inline" "Title" .Text "Caption" .Title "Loading" "lazy" "Resources" .Page.Resources "OptimConfig" $optim | partial "plugin/image.html" -}}
 {{- end -}}
 
