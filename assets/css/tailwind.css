@@ -9,6 +9,20 @@
   vertical-align: -0.125em;
 }
 
+/* Showcase column widths (dynamic class from Hugo template) */
+@utility column-1 {
+  width: 100%;
+}
+@utility column-2 {
+  width: 48%;
+}
+@utility column-3 {
+  width: 32%;
+  @media screen and (max-width: 1000px) {
+    width: 48%;
+  }
+}
+
 @theme {
   --color-fgColor-default: var(--fgColor-default);
   --color-fgColor-secondary: var(--fgColor-secondary);

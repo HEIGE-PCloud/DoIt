@@ -20,23 +20,23 @@
 {{- $linkExtra = .Get 5 | default $linkExtra -}}
 
 {{ end }}
-<div class="showcase-box column-{{ $column }}">
-    <div class="showcase-image">
+<div class="showcase-box column-{{ $column }} tw:h-[370px] tw:mt-[1%] tw:inline-block! tw:bg-(--showcase-background-color) tw:relative max-[680px]:tw:w-full!">
+    <div class="showcase-image tw:transition-transform tw:duration-400 tw:hover:scale-[1.01]">
         <a href={{ $link }}>
-            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title | partial "plugin/image.html" -}}
+            {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $title "Class" "tw:w-[96%] tw:m-[2%_2%_0%_2%] tw:h-[200px] tw:max-w-none tw:object-cover" | partial "plugin/image.html" -}}
         </a>
     </div>
-    <h2 class="showcase-title">
-        <a href={{ $link }}>{{ $title }}</a>
+    <h2 class="showcase-title tw:text-ellipsis tw:overflow-hidden tw:whitespace-nowrap tw:absolute tw:top-[210px] tw:w-[96%] tw:m-[3%_3%_3%_2%] tw:text-xl tw:leading-[140%]">
+        <a href={{ $link }} class="tw:text-(--showcase-color) tw:hover:text-(--showcase-hover-color)">{{ $title }}</a>
     </h2>
-    <p class="showcase-summary">
+    <p class="showcase-summary tw:absolute tw:text-ellipsis tw:overflow-hidden tw:m-[2%] tw:top-[250px] tw:h-[70px] tw:w-[96%]">
         {{ $summary }}
     </p>
-    <a class="showcase-link" href={{ $link }}>
+    <a class="showcase-link tw:absolute tw:bottom-[2%] tw:left-[2%]" href={{ $link }}>
         {{ T "readMore" }}
     </a>
     {{- if .Get "linkExtra" -}}
-    <a class="showcase-link-extra" href={{ $linkExtra }}>
+    <a class="showcase-link-extra tw:absolute tw:bottom-[2%] tw:right-[2%]" href={{ $linkExtra }}>
         {{ T "abstract" }}
     </a>
     {{ end }}

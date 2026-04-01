@@ -192,17 +192,38 @@
   .tw\:top-\[210px\] {
     top: 210px;
   }
+  .tw\:top-\[250px\] {
+    top: 250px;
+  }
   .tw\:right-4 {
     right: calc(var(--tw-spacing) * 4);
   }
+  .tw\:right-\[2\%\] {
+    right: 2%;
+  }
   .tw\:bottom-4 {
     bottom: calc(var(--tw-spacing) * 4);
+  }
+  .tw\:bottom-\[2\%\] {
+    bottom: 2%;
+  }
+  .tw\:left-\[2\%\] {
+    left: 2%;
   }
   .tw\:m-0 {
     margin: calc(var(--tw-spacing) * 0);
   }
   .tw\:m-2\.5 {
     margin: calc(var(--tw-spacing) * 2.5);
+  }
+  .tw\:m-\[2\%\] {
+    margin: 2%;
+  }
+  .tw\:m-\[2\%_2\%_0\%_2\%\] {
+    margin: 2% 2% 0% 2%;
+  }
+  .tw\:m-\[3\%_3\%_3\%_2\%\] {
+    margin: 3% 3% 3% 2%;
   }
   .tw\:mx-0 {
     margin-inline: calc(var(--tw-spacing) * 0);
@@ -243,6 +264,9 @@
   .tw\:my-\[3\%\] {
     margin-block: 3%;
   }
+  .tw\:mt-\[1\%\] {
+    margin-top: 1%;
+  }
   .tw\:mr-1 {
     margin-right: calc(var(--tw-spacing) * 1);
   }
@@ -273,6 +297,9 @@
   .tw\:inline-block {
     display: inline-block;
   }
+  .tw\:inline-block\! {
+    display: inline-block !important;
+  }
   .tw\:aspect-\[4\/3\] {
     aspect-ratio: 4/3;
   }
@@ -281,6 +308,9 @@
   }
   .tw\:h-24 {
     height: calc(var(--tw-spacing) * 24);
+  }
+  .tw\:h-\[70px\] {
+    height: 70px;
   }
   .tw\:h-\[90vh\] {
     height: 90vh;
@@ -293,6 +323,9 @@
   }
   .tw\:h-\[280px\] {
     height: 280px;
+  }
+  .tw\:h-\[370px\] {
+    height: 370px;
   }
   .tw\:h-fit {
     height: fit-content;
@@ -324,6 +357,9 @@
   .tw\:w-\[95\%\] {
     width: 95%;
   }
+  .tw\:w-\[96\%\] {
+    width: 96%;
+  }
   .tw\:w-full {
     width: 100%;
   }
@@ -332,6 +368,9 @@
   }
   .tw\:max-w-full {
     max-width: 100%;
+  }
+  .tw\:max-w-none {
+    max-width: none;
   }
   .tw\:min-w-\[300px\] {
     min-width: 300px;
@@ -404,6 +443,9 @@
   }
   .tw\:bg-\(--related-background-color\) {
     background-color: var(--related-background-color);
+  }
+  .tw\:bg-\(--showcase-background-color\) {
+    background-color: var(--showcase-background-color);
   }
   .tw\:bg-\(--sponsor-button-background-color\) {
     background-color: var(--sponsor-button-background-color);
@@ -483,6 +525,9 @@
   }
   .tw\:text-\(--related-color\) {
     color: var(--related-color);
+  }
+  .tw\:text-\(--showcase-color\) {
+    color: var(--showcase-color);
   }
   .tw\:text-fgColor-link-muted {
     color: var(--tw-color-fgColor-link-muted);
@@ -621,6 +666,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--related-hover-color);
+      }
+    }
+  }
+  .tw\:hover\:text-\(--showcase-hover-color\) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--showcase-hover-color);
       }
     }
   }
