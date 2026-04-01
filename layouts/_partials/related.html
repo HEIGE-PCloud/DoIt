@@ -4,10 +4,10 @@
 {{ with $related }}
 
 <h2>{{- T "relatedContent" -}}</h2>
-<div class="related-container">
+<div class="related-container tw:flex tw:flex-nowrap tw:overflow-x-scroll tw:w-full tw:h-[280px]">
     {{ range . }}
         {{- $params := .Params | merge .Site.Params.page -}}
-        <div class="related-item-container">
+        <div class="related-item-container tw:basis-[350px] tw:grow tw:shrink tw:h-[270px] tw:min-w-[300px] tw:mr-5 tw:bg-(--related-background-color) tw:relative">
             {{ $relPermalink := .RelPermalink}}
             {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
             {{- $height := "auto" -}}
@@ -28,14 +28,14 @@
                 {{- $width = .Width -}}
             {{- end -}}
             {{- with $image -}}
-            <div class="related-image">
+            <div class="related-image tw:transition-transform tw:duration-400 tw:hover:scale-[1.01]">
                 <a href="{{ $relPermalink }}">
-                    {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $.Description | partial "plugin/image.html" -}}
+                    {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $.Description "Class" "tw:w-full tw:h-[200px] tw:object-cover" | partial "plugin/image.html" -}}
                 </a>
             </div>
             {{- end -}}
-            <h2 class="related-title">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <h2 class="related-title tw:absolute tw:text-ellipsis tw:overflow-hidden tw:whitespace-nowrap tw:top-[210px] tw:w-[95%] tw:m-2.5 tw:text-xl tw:leading-[140%]">
+                <a href="{{ .RelPermalink }}" class="tw:text-(--related-color) tw:hover:text-(--related-hover-color)">{{ .Title }}</a>
             </h2>
         </div>
     {{ end }}
