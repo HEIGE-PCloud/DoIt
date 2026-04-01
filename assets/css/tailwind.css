@@ -1,5 +1,5 @@
 @import "tailwindcss" prefix(tw);
-@source "../../../layouts/**/*.html";
+@source "../../layouts/**/*.html";
 
 @utility scrollbar-thin {
   scrollbar-width: thin;
