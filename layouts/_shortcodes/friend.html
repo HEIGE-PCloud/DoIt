@@ -14,16 +14,16 @@
     {{- $bio = .Get 3 -}}
 {{- end -}}
 <a target="_blank" href="{{- $link -}}" title="{{- $title -}}" class="friend-link" rel="noopener noreferrer">
-    <div class="friend-link-div">
-        <div class="friend-link-avatar">
-            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+    <div class="friend-link-div tw:h-[92px] tw:mt-[5px] tw:w-[48%] tw:inline-block tw:bg-(--friend-link-background-color) tw:align-top tw:transition-transform tw:duration-400 tw:hover:scale-[1.01] max-[680px]:tw:w-full">
+        <div class="friend-link-avatar tw:w-[92px] tw:float-left tw:h-full">
+            {{- dict "Src" $avatar "Class" "tw:w-14 tw:h-14 tw:m-[18px] tw:rounded-full" | partial "plugin/image.html" -}}
         </div>
-        <div class="friend-link-info">
-            <div class="friend-name-div">
+        <div class="friend-link-info tw:m-[18px_18px_18px_92px] tw:text-(--friend-link-color) tw:hover:text-(--friend-link-hover-color)">
+            <div class="friend-name-div tw:text-ellipsis tw:overflow-hidden tw:whitespace-nowrap">
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "user-circle") }}
-                <i class="friend-name">{{- $title -}}</i>
+                <i class="friend-name tw:not-italic">{{- $title -}}</i>
             </div>
-            <p class="friend-bio">{{- $bio -}}</p>
+            <p class="friend-bio tw:text-ellipsis tw:overflow-hidden tw:whitespace-nowrap tw:text-(--global-font-secondary-color)">{{- $bio -}}</p>
         </div>
     </div>
 </a>
