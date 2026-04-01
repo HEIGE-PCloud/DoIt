@@ -9,7 +9,7 @@
 {{- $authors := .Params.authors -}}
 
 {{- if $enable -}}
-    <div class="sponsor print:tw-hidden">
+    <div class="sponsor tw:print:hidden">
         <div class="sponsor-avatar">
             {{- if $authors -}}
                 {{- $lang := ( $.Params.lang | default $.Lang ) -}}
