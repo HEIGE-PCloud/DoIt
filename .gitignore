@@ -28,3 +28,6 @@ jsconfig.json
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Direnv
+.direnv/

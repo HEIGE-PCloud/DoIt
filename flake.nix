@@ -26,7 +26,7 @@
             hugo
           ];
           shellHook = ''
-            npm install && npm run dev
+            npm install
           '';
         };
       });
