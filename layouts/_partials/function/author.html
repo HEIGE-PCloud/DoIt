@@ -9,7 +9,9 @@
 {{- $i18n := dict -}}
 
 {{- if .author -}}
-    {{- $i18n = (index .author .lang) -}}
+    {{- with .lang -}}
+        {{- $i18n = (index $.author .) -}}
+    {{- end -}}
     {{- $name = .author.name -}}
     {{- $link = .author.link -}}
     {{- $absLink = .author.link -}}

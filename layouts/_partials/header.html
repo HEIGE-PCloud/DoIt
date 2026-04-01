@@ -50,7 +50,7 @@
                         onchange="location = this.value;">
                         {{- if eq .Kind "404" -}}
                         {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                        {{- range .Sites -}}
+                        {{- range hugo.Sites -}}
                         {{- $link := printf "%v/404.html" .LanguagePrefix -}}
                         <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
                             {{- .Language.Label -}}
@@ -190,7 +190,7 @@
                 <select class="language-select" title="{{ T " selectLanguage" }}" onchange="location = this.value;">
                     {{- if eq .Kind "404" -}}
                     {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                    {{- range .Sites -}}
+                    {{- range hugo.Sites -}}
                     {{- $link := printf "%v/404.html" .LanguagePrefix -}}
                     <option value="{{ $link }}" {{ if eq . $.Site }} selected{{ end }}>
                         {{- .Language.Label -}}

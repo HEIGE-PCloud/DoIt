@@ -7,11 +7,12 @@
     {{- $lang := ( $.Params.lang | default $.Lang ) -}}
     <span class='author'>
         <span class='screen-reader-text'> {{ i18n "by" }} </span>
+        {{- $authors := hugo.Data.authors -}}
         {{- range $i, $name := .Params.authors -}}
-            {{- if $.Site.Data.authors -}}
+            {{- if $authors -}}
                 {{- with partial "function/author.html" (dict
                     "name" $name
-                    "author" (index $.Site.Data.authors $name)
+                    "author" (index $authors $name)
                     "lang" $lang
                 ) -}}
                     {{- if gt $i 0 }}, {{ end -}}

@@ -22,8 +22,9 @@
     {{- if .Page.Params.authors -}}
     {{- $lang := ( .Page.Language.Lang | default $.Lang ) -}}
         {{- range $i, $name := .Page.Params.authors -}}
-            {{- if $.Site.Data.authors -}}
-                {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+            {{- $authors := hugo.Data.authors -}}
+            {{- if $authors -}}
+                {{- with partial "function/author.html" (dict "name" $name "author" (index $authors $name) "lang" $lang) -}}
                     <author>
                         <name>{{- .name -}}</name>
                         {{- if .absLink -}}
