@@ -117,9 +117,10 @@
         {{- if .Params.authors -}}
         "author": [
         {{- $lang := ( $.Params.lang | default $.Lang ) -}}
+        {{- $authors := hugo.Data.authors -}}
         {{- range $i, $name := .Params.authors -}}
-            {{- if $.Site.Data.authors -}}
-                {{- with partial "function/author.html" (dict "name" $name "author" (index $.Site.Data.authors $name) "lang" $lang) -}}
+            {{- if $authors -}}
+                {{- with partial "function/author.html" (dict "name" $name "author" (index $authors $name) "lang" $lang) -}}
                     {{- if gt $i 0 }},{{ end -}}
                     {
                         "@type": "Person",
