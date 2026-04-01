@@ -550,6 +550,63 @@
     }
   }
 }
+@layer components {
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    white-space: nowrap;
+    width: 100%;
+    padding: 1rem 0 0;
+  }
+  .pagination a {
+    font-size: 0.8rem;
+    color: var(--global-font-secondary-color);
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    padding: 5px 5px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .pagination li {
+    padding-bottom: 3px;
+    margin: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: inline;
+  }
+  .pagination li.disabled {
+    display: none;
+  }
+  .pagination li:hover a {
+    color: var(--pagination-link-hover-color);
+  }
+  .pagination li::before, .pagination li::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 3px;
+    background: var(--pagination-link-hover-color);
+    transition: 0.3s;
+    bottom: 0;
+  }
+  .pagination li::before {
+    left: 50%;
+  }
+  .pagination li::after {
+    right: 50%;
+  }
+  .pagination li:hover::before, .pagination li:hover::after {
+    width: 50%;
+  }
+  .pagination li.active a {
+    color: var(--pagination-link-hover-color);
+  }
+  .pagination li.active::before, .pagination li.active::after {
+    width: 60%;
+  }
+}
 @layer base {
   h1 {
     margin: calc(var(--tw-spacing) * 8);
