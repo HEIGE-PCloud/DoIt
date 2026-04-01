@@ -247,6 +247,22 @@
       margin: 1rem 0;
     }
 
+    dl {
+      margin: 1rem 0;
+    }
+
+    dt {
+      font-weight: 600;
+    }
+
+    dd {
+      margin: 0.25rem 0 0 1.5rem;
+    }
+
+    dd + dt {
+      margin-top: 0.75rem;
+    }
+
     .footnotes {
       color: $global-font-secondary-color;
 
