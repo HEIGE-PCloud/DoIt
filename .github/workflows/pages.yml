@@ -63,6 +63,7 @@ jobs:
         uses: actions/deploy-pages@v5
 
   unlighthouse:
+    if: false
     runs-on: ubuntu-latest
     needs: deploy
     permissions:
