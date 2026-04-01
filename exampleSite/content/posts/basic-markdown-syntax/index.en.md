@@ -834,10 +834,10 @@ Images have a similar syntax to links but include a preceding exclamation point.
 or:
 
 ```markdown
-![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.png "The Stormtroopocat")
 ```
 
-![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.png "The Stormtroopocat")
 
 Like links, images also have a footnote style syntax:
 

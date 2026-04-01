@@ -841,10 +841,10 @@ Content for chapter one.
 或者:
 
 ```markdown
-![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.png "The Stormtroopocat")
 ```
 
-![Alt text](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Alt text](https://octodex.github.com/images/stormtroopocat.png "The Stormtroopocat")
 
 像链接一样, 图片也具有脚注样式的语法:
 
