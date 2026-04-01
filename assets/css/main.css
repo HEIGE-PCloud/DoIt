@@ -177,8 +177,17 @@
   }
 }
 @layer utilities {
+  .tw\:absolute {
+    position: absolute;
+  }
   .tw\:fixed {
     position: fixed;
+  }
+  .tw\:relative {
+    position: relative;
+  }
+  .tw\:inset-0 {
+    inset: calc(var(--tw-spacing) * 0);
   }
   .tw\:right-4 {
     right: calc(var(--tw-spacing) * 4);
@@ -216,6 +225,9 @@
   .tw\:my-6 {
     margin-block: calc(var(--tw-spacing) * 6);
   }
+  .tw\:my-\[3\%\] {
+    margin-block: 3%;
+  }
   .tw\:mr-1 {
     margin-right: calc(var(--tw-spacing) * 1);
   }
@@ -242,6 +254,9 @@
   }
   .tw\:inline-block {
     display: inline-block;
+  }
+  .tw\:aspect-\[4\/3\] {
+    aspect-ratio: 4/3;
   }
   .tw\:h-10 {
     height: calc(var(--tw-spacing) * 10);
