@@ -13,7 +13,8 @@
     "algolia": "atomic-algolia",
     "pagefind": "npx pagefind --site ./exampleSite/public",
     "build:tailwind": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/main.css",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "validate": "npm run build && docker run --rm -v \"$(pwd)/exampleSite/public\":/check ghcr.io/validator/validator:latest vnu --skip-non-html --format json /check/ 2>&1"
   },
   "repository": {
     "type": "git",
