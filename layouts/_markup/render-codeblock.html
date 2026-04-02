@@ -33,8 +33,8 @@
         tw:flex-row
         tw:flex-1"
       aria-hidden="true">
-          <div class="tw:group-[.is-open]:rotate-90 tw:transition-[transform] tw:duration-500 tw:ease-in-out tw:print:hidden! tw:w-min tw:h-min tw:my-1 tw:mx-1">{{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}</div>
-          <p class="tw:select-none tw:my-1!">{{ $title }}</p>
+          <span class="tw:group-[.is-open]:rotate-90 tw:transition-[transform] tw:duration-500 tw:ease-in-out tw:print:hidden! tw:w-min tw:h-min tw:my-1 tw:mx-1">{{- partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "chevron-right") -}}</span>
+          <span class="tw:select-none tw:my-1! tw:block">{{ $title }}</span>
       </button>
 
    <div class="tw:flex">
