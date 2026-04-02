@@ -7,14 +7,14 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: actions/checkout@v6
         with:
           submodules: true
           fetch-depth: 0
 
-      - uses: HEIGE-PCloud/update-dependencies@v0.3.1
+      - uses: HEIGE-PCloud/update-dependencies@v0.3.2
         with:
           reviewers: |
             HEIGE-PCloud
