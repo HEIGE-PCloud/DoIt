@@ -46,7 +46,7 @@ The HTML looks like this:
 
 ```html
 <figure>
-    <img src="/images/lighthouse.webp"/>
+    <img src="/images/lighthouse.webp">
     <figcaption>
         <h4>Lighthouse (figure)</h4>
     </figcaption>
