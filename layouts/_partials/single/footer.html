@@ -57,7 +57,7 @@
                         {{- if gt $index 0 -}}
                             |&nbsp;
                         {{- end -}}
-                        <a class="{{ $value.class }}" {{ printf "href=%v" $value.link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
+                        <a class="{{ $value.class }}" {{ printf "href=%q" $value.link | safeHTMLAttr }} target="_blank" rel="noopener noreferrer">
                             {{- T $value.text -}}
                         </a>
                     </span>
