@@ -230,7 +230,7 @@
             window.open(url, '_blank', "width=500,height=500,left=500,toolbar=0,status=0");
         }
     </script>
-    <button title="{{ T `shareOn` }} Mastodon"onclick="javascript:shareOnMastodon({{ .Title }}, {{ .Permalink }})">
+    <button title="{{ T `shareOn` }} Mastodon" onclick="javascript:shareOnMastodon({{ .Title }}, {{ .Permalink }})">
         {{- partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "mastodon") -}}
     </button>
     {{- end -}}

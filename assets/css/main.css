@@ -9,6 +9,8 @@
       "Courier New", monospace;
     --tw-color-black: #000;
     --tw-spacing: 0.25rem;
+    --tw-text-lg: 1.125rem;
+    --tw-text-lg--line-height: calc(1.75 / 1.125);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
     --tw-text-2xl: 1.5rem;
@@ -363,6 +365,10 @@
   .tw\:text-3xl {
     font-size: var(--tw-text-3xl);
     line-height: var(--tw-leading, var(--tw-text-3xl--line-height));
+  }
+  .tw\:text-lg {
+    font-size: var(--tw-text-lg);
+    line-height: var(--tw-leading, var(--tw-text-lg--line-height));
   }
   .tw\:text-fgColor-link-muted {
     color: var(--tw-color-fgColor-link-muted);
