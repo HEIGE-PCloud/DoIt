@@ -30,7 +30,7 @@
     src="{{ $src }}"
     {{ if .Crossorigin }}crossorigin="anonymous"{{ end }}{{ with $integrity }}
       integrity="{{ . }}"
-    {{ end }}{{ if .Async }}async{{ end }}{{ if .Defer }}
+    {{ end }}{{ if .Async }}async{{ end }}{{ if and .Defer (not .Module) }}
       defer
     {{ end }}{{ if .Module }}type="module"{{ end }}{{ with .Attr }}{{ . | safeHTMLAttr }}{{ end }}
   ></script>
