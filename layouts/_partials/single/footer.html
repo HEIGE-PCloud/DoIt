@@ -71,7 +71,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags">
+        <div class="post-tags">
             {{- with .Params.tags -}}
                 {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "tags") }}&nbsp;
                 {{- range $index, $value := . -}}
@@ -80,10 +80,10 @@
                     <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
                 {{- end -}}
             {{- end -}}
-        </section>
-        <section class="tw:print:hidden!">
+        </div>
+        <div class="tw:print:hidden!">
             <span><button class="tw:text-fgColor-link-muted tw:hover:text-fgColor-link-muted-hover" onclick="window.history.back();">{{ T "back" }}</button></span>&nbsp;|&nbsp;<span><a href="{{ .Site.Home.RelPermalink }}">{{ T "home" }}</a></span>
-        </section>
+        </div>
     </div>
 
     <div class="post-nav tw:print:hidden">
