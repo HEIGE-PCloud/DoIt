@@ -214,7 +214,7 @@
         
         {{- /* Static TOC */ -}}
         {{- if $toc.enable -}}
-            <div class="details toc tw:print:block!" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
+            <div class="details toc tw:print:block!" id="toc-static" data-kept="{{ if $toc.keepStatic }}true{{ end }}">
                 <div class="details-summary toc-title">
                     <span>{{ T "contents" }}</span>
                     <span class="details-icon">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "angle-right") }}</span>

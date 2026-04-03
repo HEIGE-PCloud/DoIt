@@ -591,7 +591,7 @@ function initToc() {
     window.matchMedia("only screen and (max-width: 1000px)").matches;
 
   if (
-    document.getElementById("toc-static").getAttribute("kept") ||
+    document.getElementById("toc-static").getAttribute("data-kept") ||
     isTocStatic
   ) {
     if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
