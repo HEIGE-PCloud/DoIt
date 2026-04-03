@@ -21,14 +21,14 @@
             {{- range .Paginator.PageGroups -}}
                 <h3 class="group-title">{{ .Key }}</h3>
                 {{- range .Pages -}}
-                    <article class="archive-item">
+                    <div class="archive-item">
                         <a href="{{ .RelPermalink }}" class="archive-item-link">
                             {{- .Title -}}
                         </a>
                         <span class="archive-item-date">
                             {{- $.Site.Params.section.dateFormat | default "01-02" | .Date.Format -}}
                         </span>
-                    </article>
+                    </div>
                 {{- end -}}
             {{- end -}}
             {{- partial "paginator.html" . -}}
