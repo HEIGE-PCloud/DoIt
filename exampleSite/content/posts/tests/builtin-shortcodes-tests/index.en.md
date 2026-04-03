@@ -14,7 +14,7 @@ hiddenFromSearch: true
 
 ## figure
 
-{{< figure src="https://octodex.github.com/images/minion.png" title="octodex" >}}
+{{< figure src="https://octodex.github.com/images/minion.png" alt="Minion octocat" title="octodex" >}}
 
 ## gist
 

@@ -20,12 +20,13 @@
                             "name" $name
                             "author" (index $authors $name)
                             "lang" $lang) -}}
-                            {{- dict "Src" .avatar "Resources" $.Resources | partial "plugin/image.html" -}}
-                        {{- end -}}                    
+                            {{- dict "Src" .avatar "Alt" (printf "%v avatar" .name) "Resources" $.Resources | partial "plugin/image.html" -}}
+                        {{- end -}}
                     {{- end -}}
                 {{- end -}}
             {{- else if $avatar -}}
-                {{- dict "Src" $avatar "Resources" $.Resources | partial "plugin/image.html" -}}
+                {{- $authorName := .Site.Params.Author.name | default (T "author") -}}
+                {{- dict "Src" $avatar "Alt" (printf "%v avatar" $authorName) "Resources" $.Resources | partial "plugin/image.html" -}}
             {{- end -}}
         </div>
         {{- with $bio -}}
