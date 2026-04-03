@@ -168,8 +168,8 @@ bundle = false
   # https://bitbucket.org/user/repo/src/main/{path}?mode=edit
   # configure the link to report issue for the post
   # 配置提交错误的链接
-  linkToReport = "https://github.com/HEIGE-PCloud/DoIt/issues/new?title=%5Bbug%5D%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}|"
-  # https://github.com/user/repo/issues/new?title=%5Bbug%5D%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
+  linkToReport = "https://github.com/HEIGE-PCloud/DoIt/issues/new?title=%5Bbug%5D%20{title}&body=%7CField%7CValue%7C%0A%7C-%7C-%7C%0A%7CTitle%7C{title}%7C%0A%7CUrl%7C{url}%7C%0A%7CFilename%7Chttps://github.com/HEIGE-PCloud/DoIt/blob/main/exampleSite/content/{path}%7C"
+  # https://github.com/user/repo/issues/new?title=%5Bbug%5D%20{title}&body=%7CField%7CValue%7C%0A%7C-%7C-%7C%0A%7CTitle%7C{title}%7C%0A%7CUrl%7C{url}%7C%0A%7CFilename%7Chttps://github.com/user/repo/blob/main/{path}%7C"
   # https://gitlab.com/user/repo/-/issues/new?issue%5Btitle%5D=%5Bbug%5D%20{title}&issue%5Bdescription%5D=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://gitlab.com/user/repo/-/edit/main/{path}|
   # whether to show the full text content in RSS
   # 是否在 RSS 中显示全文内容
