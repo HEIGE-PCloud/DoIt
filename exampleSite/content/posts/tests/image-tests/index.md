@@ -7,6 +7,6 @@ hiddenFromHomePage: true
 hiddenFromSearch: true
 ---
 
-- Test 1: ![](./pin_black.png)
-- Test 2: ![](./pin_red.png)
-- Test 3: ![](./pin_white.png)
+- Test 1: ![Black push pin](./pin_black.png)
+- Test 2: ![Red push pin](./pin_red.png)
+- Test 3: ![White push pin](./pin_white.png)

@@ -30,7 +30,7 @@
             {{- with $image -}}
             <div class="related-image">
                 <a href="{{ $relPermalink }}">
-                    {{- dict "Src" $image "Height" "200" "Width" "400" "Title" $.Description | partial "plugin/image.html" -}}
+                    {{- dict "Src" $image "Height" "200" "Width" "400" "Alt" ($.Description | default $.Title) | partial "plugin/image.html" -}}
                 </a>
             </div>
             {{- end -}}

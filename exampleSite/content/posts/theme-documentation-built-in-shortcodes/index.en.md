@@ -40,7 +40,7 @@ Example `figure` input:
 
 The rendered output looks like this:
 
-{{< figure src="/images/lighthouse.webp" title="Lighthouse (figure)" >}}
+{{< figure src="/images/lighthouse.webp" alt="Lighthouse" title="Lighthouse (figure)" >}}
 
 The HTML looks like this:
 

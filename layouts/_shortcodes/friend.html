@@ -16,7 +16,7 @@
 <a target="_blank" href="{{- $link -}}" title="{{- $title -}}" class="friend-link" rel="noopener noreferrer">
     <div class="friend-link-div">
         <div class="friend-link-avatar">
-            {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+            {{- dict "Src" $avatar "Alt" (printf "%v avatar" $title) | partial "plugin/image.html" -}}
         </div>
         <div class="friend-link-info">
             <div class="friend-name-div">
