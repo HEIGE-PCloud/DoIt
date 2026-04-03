@@ -9,11 +9,10 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-slim
-    if: (github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'github-action') && github.repository == 'HEIGE-PCloud/DoIt'
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'HEIGE-PCloud/DoIt'
     steps:
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}  
