@@ -4,6 +4,7 @@ export {};
 declare global {
   interface Window {
     isDark: boolean;
+    _tocOnScroll?: () => void;
     config?: {
       table?: {
         sort?: boolean;
@@ -584,19 +585,42 @@ function initTablesort() {
 
 function initToc() {
   const tocCore = document.getElementById("TableOfContents");
-  // Return directly if no toc
-  if (tocCore === null) return;
-  const isTocStatic =
+  const toc = document.getElementById("toc-auto");
+  const tocAutoContent = document.getElementById("toc-content-auto");
+  const tocStatic = document.getElementById("toc-static");
+  const tocStaticContent = document.getElementById("toc-content-static");
+  if (
+    tocCore === null ||
+    toc === null ||
+    tocAutoContent === null ||
+    tocStatic === null ||
+    tocStaticContent === null
+  )
+    return;
+
+  const isTocStatic = () =>
     window.matchMedia &&
     window.matchMedia("only screen and (max-width: 1000px)").matches;
+  const syncToc = () => {
+    const dialog = document.getElementById("toc-dialog") as HTMLDialogElement;
+    if (dialog?.open) return;
+    const nextHost =
+      tocStatic.getAttribute("data-kept") || isTocStatic()
+        ? tocStaticContent
+        : tocAutoContent;
+    if (tocCore.parentElement !== nextHost) {
+      nextHost.appendChild(tocCore);
+    }
+  };
+  const updateToc = () => {
+    syncToc();
+    if (tocStatic.getAttribute("data-kept") || isTocStatic()) {
+      toc.style.position = "absolute";
+      toc.style.top = "";
+      if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
+      return;
+    }
 
-  if (
-    document.getElementById("toc-static").getAttribute("data-kept") ||
-    isTocStatic
-  ) {
-    if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
-  } else {
-    const toc = document.getElementById("toc-auto");
     const tocLinkElements = tocCore.querySelectorAll("a:first-child");
     const tocLiElements = tocCore.getElementsByTagName("li");
     const headerLinkElements = document.getElementsByClassName(
@@ -609,98 +633,114 @@ function initToc() {
     const minTocTop = toc.offsetTop;
     const minScrollTop =
       minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-    window._tocOnScroll =
-      window._tocOnScroll ||
-      (() => {
-        const footerTop = document.getElementById("post-footer").offsetTop;
-        const maxTocTop = footerTop - toc.getBoundingClientRect().height;
-        const maxScrollTop =
-          maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-        if (window.newScrollTop < minScrollTop) {
-          // If scroll to the top of the page
-          // Set toc to absolute
-          toc.style.position = "absolute";
-          toc.style.top = `${minTocTop}px`;
-        } else if (window.newScrollTop > maxScrollTop) {
-          // If scroll to the bottom of the page
-          // Set toc to absolute
-          toc.style.position = "absolute";
-          toc.style.top = `${maxTocTop}px`;
-        } else {
-          // If in the middle
-          // Set toc to fixed with TOP_SPACING
-          toc.style.position = "fixed";
-          toc.style.top = `${TOP_SPACING}px`;
-        }
-        // Update the active toc link
-        // Return directly if no toc link
-        if (tocLinkElements.length === 0) return;
+    if (window._tocOnScroll) window.scrollEventSet.delete(window._tocOnScroll);
+    window._tocOnScroll = () => {
+      const footerTop = document.getElementById("post-footer").offsetTop;
+      const maxTocTop = footerTop - toc.getBoundingClientRect().height;
+      const maxScrollTop =
+        maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
+      if (window.newScrollTop < minScrollTop) {
+        toc.style.position = "absolute";
+        toc.style.top = `${minTocTop}px`;
+      } else if (window.newScrollTop > maxScrollTop) {
+        toc.style.position = "absolute";
+        toc.style.top = `${maxTocTop}px`;
+      } else {
+        toc.style.position = "fixed";
+        toc.style.top = `${TOP_SPACING}px`;
+      }
+      if (tocLinkElements.length === 0) return;
 
-        let activeTocIndex = -1;
-        const INDEX_SPACING = TOP_SPACING + window.newScrollTop;
-        // If the INDEX_SPACING is below the last header link
-        // activate the last element
-        if (headerLinkElements.length > 0) {
-          if (
-            headerLinkElements[headerLinkElements.length - 1].offsetTop <
-            INDEX_SPACING
-          ) {
-            activeTocIndex = headerLinkElements.length - 1;
-          } else {
-            // Otherwise activate the element that is in between
-            // Use offsetTop instead of getBoundingClientRect().top for better performance
-            for (let i = 0; i < headerLinkElements.length - 1; i++) {
-              const thisTop = headerLinkElements[i].offsetTop;
-              const nextTop = headerLinkElements[i + 1].offsetTop;
-              if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
-                activeTocIndex = i;
-                break;
-              }
+      let activeTocIndex = -1;
+      const INDEX_SPACING = TOP_SPACING + window.newScrollTop;
+      if (headerLinkElements.length > 0) {
+        if (
+          headerLinkElements[headerLinkElements.length - 1].offsetTop <
+          INDEX_SPACING
+        ) {
+          activeTocIndex = headerLinkElements.length - 1;
+        } else {
+          for (let i = 0; i < headerLinkElements.length - 1; i++) {
+            const thisTop = headerLinkElements[i].offsetTop;
+            const nextTop = headerLinkElements[i + 1].offsetTop;
+            if (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
+              activeTocIndex = i;
+              break;
             }
           }
         }
-        // Remove all legacy states
-        Array.from(tocLinkElements).forEach((tocLink) =>
-          tocLink.classList.remove("active"),
-        );
-        Array.from(tocLiElements).forEach((tocLi) =>
-          tocLi.classList.remove("has-active"),
-        );
+      }
+      Array.from(tocLinkElements).forEach((tocLink) =>
+        tocLink.classList.remove("active"),
+      );
+      Array.from(tocLiElements).forEach((tocLi) =>
+        tocLi.classList.remove("has-active"),
+      );
 
-        // Set the tocLinkElement to active
-        // and all its parent to has-active
-        if (activeTocIndex >= 0 && activeTocIndex < tocLinkElements.length) {
-          tocLinkElements[activeTocIndex].classList.add("active");
-          // tocLinkElements[activeTocIndex].scrollIntoView({
-          //   behavior: 'smooth',
-          //   block: 'center'
-          // })
-          let parent = tocLinkElements[activeTocIndex].parentElement;
-          while (parent !== tocCore) {
-            parent.classList.add("has-active");
-            parent = parent.parentElement.parentElement;
-          }
+      if (activeTocIndex >= 0 && activeTocIndex < tocLinkElements.length) {
+        tocLinkElements[activeTocIndex].classList.add("active");
+        let parent = tocLinkElements[activeTocIndex].parentElement;
+        while (parent !== tocCore) {
+          parent.classList.add("has-active");
+          parent = parent.parentElement.parentElement;
         }
-      });
-    window._tocOnScroll();
+      }
+    };
     window.scrollEventSet.add(window._tocOnScroll);
-  }
+    window._tocOnScroll();
+  };
+
+  updateToc();
+  window.resizeEventSet.add(updateToc);
 }
 
 function initTocDialog() {
   const dialog: HTMLDialogElement | null =
     document.querySelector("#toc-dialog");
   const openButton = document.querySelector("#toc-drawer-button");
-  if (!dialog || !openButton) {
+  const dialogContent = document.querySelector("#toc-content-dialog");
+  const tocCore = document.getElementById("TableOfContents");
+  const tocAutoContent = document.getElementById("toc-content-auto");
+  const tocStatic = document.getElementById("toc-static");
+  const tocStaticContent = document.getElementById("toc-content-static");
+  if (
+    !dialog ||
+    !openButton ||
+    !dialogContent ||
+    !tocCore ||
+    !tocAutoContent ||
+    !tocStatic ||
+    !tocStaticContent
+  ) {
     return;
   }
+  const restoreToc = () => {
+    const defaultHost =
+      tocStatic.getAttribute("data-kept") ||
+      (window.matchMedia &&
+        window.matchMedia("only screen and (max-width: 1000px)").matches)
+        ? tocStaticContent
+        : tocAutoContent;
+    if (tocCore.parentElement !== defaultHost) {
+      defaultHost.appendChild(tocCore);
+    }
+  };
   openButton.addEventListener("click", () => {
+    dialogContent.appendChild(tocCore);
     dialog.showModal();
     document.activeElement?.blur();
   });
   dialog.addEventListener("click", (e) => {
-    dialog.close();
+    if (e.target === dialog) {
+      dialog.close();
+    }
   });
+  dialogContent.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) {
+      dialog.close();
+    }
+  });
+  dialog.addEventListener("close", restoreToc);
 }
 function initMapbox() {
   if (window.config.mapbox) {

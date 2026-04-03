@@ -48,6 +48,10 @@
 
   @include blur;
 
+  &[data-kept="true"] {
+    display: none;
+  }
+
   .toc-title {
     margin: 0.8rem 0;
   }
