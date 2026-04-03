@@ -78,11 +78,16 @@ Parameters:
     {{- $height = $height | default $resource.Height | default "" -}}
     {{- $width = $width | default $resource.Width | default "" -}}
 {{- end -}}
+{{- /* sizes="auto" lets the browser derive the display size from layout, which is more
+     accurate than a static value (e.g. a 16px avatar with sizes="100vw" may fetch a
+     larger srcset candidate than needed). sizes="auto" is only valid on lazy-loaded
+     images; eager images fall back to "100vw". Callers can override via the Sizes param. */ -}}
+{{- $sizes := .Sizes | default (cond (ne $srcset "") (cond (eq .Loading "lazy") "auto" "100vw") "") -}}
 
 {{- if .Linked -}}
 <a class="lightgallery" href="{{ $src }}" title="{{ .Title | default .Alt }}" data-thumbnail="{{ $src }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
 {{- end -}}
-<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} {{ printf "src='%v'" $src | safeHTMLAttr }} {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with .Sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
+<img {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Loading }}loading="{{ . }}"{{ end }} {{ printf "src='%v'" $src | safeHTMLAttr }} {{ with $srcset }}srcset="{{ . }}"{{ end }} {{ with $sizes }}sizes="{{ . }}"{{ end }} {{ with $alt }}alt="{{ . }}"{{ end }} {{ with $height }}height="{{ . }}"{{ end }} {{ with $width }}width="{{ . }}"{{ end }}>
 {{- if .Linked -}}
 </a>
 {{- end -}}
