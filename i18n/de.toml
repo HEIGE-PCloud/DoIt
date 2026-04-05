@@ -30,7 +30,17 @@ other = "Kategorie"
 
 [categories]
 other = "Kategorien"
+
+[series]
+other = "Serien"
 # === Taxonomy ===
+
+# === Section ===
+
+[recentlyUpdated]
+other = "Kürzlich aktualisiert"
+
+# === Section ===
 
 # === Pagination ===
 [more]
@@ -42,12 +52,30 @@ other = "Mehr"
 other = "Sprache wählen"
 
 [switchTheme]
-other = "Thema wechseln"
+other = "Theme wechseln"
+
+[Light]
+other = "Hell"
+
+[Dark]
+other = "Dunkel"
+
+[Black]
+other = "Schwarz"
+
+[Auto]
+other = "Auto"
 # === partials/header.html ===
 
 # === partials/footer.html ===
-[poweredBySome]
-other = "Ermöglicht durch {{ .Hugo }} | Thema - {{ .Theme }}"
+[poweredBy]
+other = "Basiert auf {{ .Hugo }}"
+
+[hostedOn]
+other = "Gehostet auf {{ .Host }}"
+
+[theme]
+other = "Theme - {{ .Theme }}"
 # === partials/footer.html ===
 
 # === partials/comment.html ===
@@ -66,7 +94,7 @@ other = "de_DE"
 other = "Suche"
 
 [searchPlaceholder]
-other = "Suche nach Titel und Inhalt..."
+other = "Suche nach Titel oder Inhalt..."
 
 [clear]
 other = "Leeren"
@@ -97,24 +125,37 @@ other = "Teilen auf"
 
 # === posts/single.html ===
 [contents]
-other = "Inhalt"
+other = "Inhalte"
 
 [publishedOnDate]
-other = "veröffentlicht auf {{ .Date }}"
+other = "Veröffentlicht am {{ .Date }}"
+
+[includedIn]
+other = "enthalten in"
+
+[includedInAnd]
+other = "und"
 
 [includedInCategories]
-other = "enthalten in {{ .Categories }}"
+one = "Kategorie {{ .Categories }}"
+other = "Kategorien {{ .Categories }}"
+
+[includedInSeries]
+other = "Serie {{ .Series }}"
 
 [wordCount]
-one = "Ein wort"
-other = "{{ .Count }} wörter"
+one = "Ein Wort"
+other = "{{ .Count }} Wörter"
 
 [readingTime]
-one = "Eine minute"
-other = "{{ .Count }} minuten"
+one = "Eine Minute"
+other = "{{ .Count }} Minuten"
 
 [views]
-other = "aufrufe"
+other = "Aufrufe"
+
+[comments]
+other = "Kommentare"
 
 [author]
 other = "Autor"
@@ -125,6 +166,15 @@ other = "Aktualisiert am {{ .Date }}"
 [readMarkdown]
 other = "Markdown anzeigen"
 
+[viewSource]
+other = "Quelle anzeigen"
+
+[editThisPage]
+other = "Diese Seite bearbeiten"
+
+[reportThisPage]
+other = "Problem melden"
+
 [back]
 other = "Zurück"
 
@@ -133,6 +183,18 @@ other = "Startseite"
 
 [readMore]
 other = "Mehr lesen"
+
+[outdatedInfoWarningBefore]
+other = "Dieser Artikel wurde zuletzt aktualisiert am "
+
+[outdatedInfoWarningAfter]
+other = ", der Inhalt ist möglicherweiße nicht mehr aktuell."
+
+[sponsor]
+other = "Sponsor"
+
+[relatedContent]
+other = "ähnliche Inhalte"
 # === posts/single.html ===
 
 # === 404.html ===
@@ -154,7 +216,7 @@ other = "Ausblick"
 other = "Info"
 
 [tip]
-other = "Tip"
+other = "Tipp"
 
 [success]
 other = "Erfolg"
