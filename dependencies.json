@@ -146,11 +146,11 @@
             "version": "3.5.0",
             "files": [
                 {
-                    "remote": "dist/wavedrom.min.js",
+                    "remote": "wavedrom.min.js",
                     "local": "wavedrom/wavedrom.min.js"
                 },
                 {
-                    "remote": "dist/skins/default.js",
+                    "remote": "skins/default.js",
                     "local": "wavedrom/skins/default.js"
                 }
             ]
