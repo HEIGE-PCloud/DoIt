@@ -1,3 +1,5 @@
-{{- partial "plugin/admonitionPre.html" (dict "Type" .AlertType "Title" (.AlertTitle | default (strings.FirstUpper .AlertType)) "Open" (not (eq .AlertSign "-"))) -}}
+{{- $alertTitle := .AlertTitle | plainify | strings.TrimSpace -}}
+{{- $title := cond (eq $alertTitle "") (strings.FirstUpper .AlertType) $alertTitle -}}
+{{- partial "plugin/admonitionPre.html" (dict "Type" .AlertType "Title" $title "Open" (not (eq .AlertSign "-"))) -}}
 {{- .Text -}}
 {{- partial "plugin/admonitionPost.html" -}}
