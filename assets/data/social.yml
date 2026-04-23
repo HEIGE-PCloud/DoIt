@@ -558,7 +558,15 @@ thingiverse:
   Icon:
     Simpleicons: thingiverse
 
-# 058: Dev.To
+# 058: Printables
+printables:
+  Weight: 58
+  Prefix: https://www.printables.com/
+  Title: Printables
+  Icon:
+    Simpleicons: printables
+
+# 059: Dev.To
 devto:
   Weight: 58
   Prefix: https://dev.to/
@@ -575,9 +583,17 @@ gitea:
   Icon:
     Simpleicons: gitea
 
-# 060: XMPP
-xmpp:
+# 060: Codeberg
+codeberg:
   Weight: 60
+  Prefix: https://codeberg.org/
+  Title: Codeberg
+  Icon:
+    Simpleicons: codeberg
+
+# 061: XMPP
+xmpp:
+  Weight: 61
   Template: xmpp:%v
   Title: XMPP
   Icon:
