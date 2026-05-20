@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "twikoo",
-            "version": "1.7.7",
+            "version": "1.7.9",
             "files": [
                 {
                     "remote": "dist/twikoo.all.min.js",
@@ -31,7 +31,7 @@
         },
         {
             "name": "katex",
-            "version": "0.16.45",
+            "version": "0.16.47",
             "files": [
                 {
                     "remote": "dist/katex.min.js",
@@ -57,7 +57,7 @@
         },
         {
             "name": "echarts",
-            "version": "6.0.0",
+            "version": "6.1.0",
             "files": [
                 {
                     "remote": "dist/echarts.min.js",
