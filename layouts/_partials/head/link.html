@@ -40,11 +40,11 @@
 {{- end -}}
 
 {{/*  tailwind.css  */}}
-{{ $style := dict "Source" "css/main.css" "Minify" true }}
+{{ $style := dict "Source" "css/main.css" "Minify" true "Fingerprint" $fingerprint }}
 {{- partial "plugin/style.html" $style -}}
 
 {{- /* style.min.css */ -}}
-{{- $style := dict "Source" "css/style.scss" -}}
+{{- $style := dict "Source" "css/style.scss" "Fingerprint" $fingerprint -}}
 {{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" true -}}
 {{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
 {{- partial "plugin/style.html" $style -}}

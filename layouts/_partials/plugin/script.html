@@ -7,9 +7,13 @@
 {{- else -}}
   {{- $src := .Source -}}
   {{- $integrity := .Integrity -}}
-  {{- if $src -}}
+  {{- $resource := .Resource -}}
+  {{- if and (not $resource) $src -}}
     {{- if (urls.Parse $src).Host | not -}}
-      {{- $resource := resources.Get $src -}}
+      {{- $resource = resources.Get $src -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $resource -}}
       {{- with .Template -}}
         {{- $resource = $resource | resources.ExecuteAsTemplate . $.Context -}}
       {{- end -}}
@@ -21,7 +25,6 @@
         {{- $integrity = $resource.Data.Integrity -}}
       {{- end -}}
       {{- $src = $resource.RelPermalink -}}
-    {{- end -}}
   {{- end -}}
   {{- with .Link -}}
     {{- $src = . -}}

@@ -3,8 +3,8 @@
 {{- else -}}
     {{- $href := .Source -}}
     {{- $integrity := .Integrity -}}
-    {{- $resource := 0 -}}
-    {{- if $href | and (not (urls.Parse $href).Host) -}}
+    {{- $resource := .Resource -}}
+    {{- if and (not $resource) $href (not (urls.Parse $href).Host) -}}
         {{- $resource = resources.Get $href -}}
     {{- end -}}
     {{- with .Content -}}
