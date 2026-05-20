@@ -49,8 +49,7 @@
     {{- $options = dict "targetPath" "js/twemoji.min.js" | merge $options -}}
     {{- $options = dict "minify" true | merge $options -}}
     {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- /* lightgallery.js */ -}}
@@ -100,8 +99,7 @@
         {{- $options = dict "targetPath" "js/mathjax.min.js" | merge $options -}}
         {{- $options = dict "minify" true | merge $options -}}
         {{- $js := resources.Get "js/lib/mathjax.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- dict "Resource" $js "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
     {{- else -}}
 
@@ -127,8 +125,7 @@
         {{- $options = dict "minify" true | merge $options -}}
         {{- $options = dict "shims" $shims | merge $options -}}
         {{- $js := resources.Get "js/lib/katex.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
     {{- end -}}
 
@@ -168,8 +165,7 @@
     {{- $options = dict "shims" $shims | merge $options -}}
 
     {{- $js := resources.Get "js/lib/echarts.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- /* Mapbox GL */ -}}
@@ -189,8 +185,7 @@
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $options := dict "targetPath" "js/plantuml.min.js" "minify" true "sourceMap" "inline" -}}
     {{- $js := resources.Get "js/lib/plantuml.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- /* WaveDrom */ -}}
@@ -202,8 +197,7 @@
     {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $options := dict "targetPath" "js/wavedrom.min.js" "minify" true "sourceMap" "inline" -}}
     {{- $js := resources.Get "js/lib/wavedrom.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- if .Scratch.Get "enableTabs" -}}
@@ -234,8 +228,7 @@
         {{- $options = dict "minify" true | merge $options -}}
         {{- $options = dict "shims" $shims | merge $options -}}
         {{- $js := resources.Get "js/lib/aplayer.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- end -}}
 {{- end -}}
 
@@ -256,8 +249,7 @@
     {{- $options = dict "minify" true | merge $options -}}
     {{- $options = dict "shims" $shims | merge $options -}}
     {{- $js := resources.Get "js/lib/cookieconsent.js" | js.Build $options -}}
-    {{- $_ := $js.RelPermalink -}}
-    {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+    {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- range $params.library.css -}}
@@ -309,8 +301,7 @@
     {{- $options = dict "sourceMap" "inline" | merge $options -}}
 {{- end -}}
 {{- $js := resources.Get "js/theme.ts" | js.Build $options -}}
-{{- $_ := $js.RelPermalink -}}
-{{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
 {{- with .Scratch.Get "scriptArr" -}}
 {{- delimit . "\n" | dict "Content" | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}

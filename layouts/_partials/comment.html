@@ -31,8 +31,7 @@
             {{- end -}}
             {{- $options := dict "targetPath" "js/gitalk.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/gitalk.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript>
@@ -66,8 +65,7 @@
             {{- $options = dict "targetPath" "js/valine.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/valine.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript>
@@ -124,8 +122,7 @@
             {{- $options = dict "targetPath" "js/waline.min.js" | merge $options -}}
             {{- $options = dict "minify" true | merge $options -}}
             {{- $js := resources.Get "js/lib/waline.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://waline.js.org/">Waline</a>.
             </noscript>
@@ -200,8 +197,7 @@
             {{- $commentConfig = $utterances.darkTheme | default "github-dark" | dict "darkTheme" | dict "utterances" | merge $commentConfig -}}
             {{- $options := dict "targetPath" "js/utterances.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/utterances.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
@@ -224,7 +220,7 @@
             {{- end -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/twikoo.js" | js.Build $options -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             {{- $commentConfig = dict "el" "#twikoo" "envId" $twikoo.envId | dict "twikoo" | merge $commentConfig -}}
             {{- $commentConfig = dict "lang" .Lang | dict "twikoo" | merge $commentConfig -}}
             {{- with $twikoo.region -}}
@@ -280,8 +276,7 @@
                 {{- end -}}
                 {{- $options := dict "targetPath" "js/vssue.min.js" "minify" true -}}
                 {{- $js := resources.Get "js/lib/vssue.js" | js.Build $options -}}
-                {{- $_ := $js.RelPermalink -}}
-                {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+                {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
             </noscript>
@@ -303,8 +298,7 @@
             {{- end -}}
             {{- $options := dict "targetPath" "js/remark42.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/remark42.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://remark42.com/">Remark42</a>.
             </noscript>
@@ -329,8 +323,7 @@
             {{- $commentConfig = $giscus.dataLoading | default "lazy" | dict "dataLoading" | dict "giscus" | merge $commentConfig -}}
             {{- $options := dict "targetPath" "js/giscus.min.js" "minify" true -}}
             {{- $js := resources.Get "js/lib/giscus.js" | js.Build $options -}}
-            {{- $_ := $js.RelPermalink -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
             <noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript>
@@ -366,7 +359,7 @@
             {{- $options = dict "minify" true | merge $options -}}
             {{- $options = dict "shims" $shims | merge $options -}}
             {{- $js := resources.Get "js/lib/artalk.js" | js.Build $options -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}            
+            {{- dict "Resource" $js "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
         {{- end -}}
     </div>
 {{- end -}}
