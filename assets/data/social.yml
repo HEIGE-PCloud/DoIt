@@ -558,9 +558,17 @@ thingiverse:
   Icon:
     Simpleicons: thingiverse
 
-# 058: Dev.To
-devto:
+# 058: Printables
+printables:
   Weight: 58
+  Prefix: https://www.printables.com/
+  Title: Printables
+  Icon:
+    Simpleicons: printables
+
+# 059: Dev.To
+devto:
+  Weight: 59
   Prefix: https://dev.to/
   Title: Dev.To
   Icon:
@@ -568,40 +576,48 @@ devto:
       Style: brands
       Icon: dev
 
-# 059: Gitea
+# 060: Gitea
 gitea:
-  Weight: 59
+  Weight: 60
   Title: Gitea
   Icon:
     Simpleicons: gitea
 
-# 060: XMPP
+# 061: Codeberg
+codeberg:
+  Weight: 61
+  Prefix: https://codeberg.org/
+  Title: Codeberg
+  Icon:
+    Simpleicons: codeberg
+
+# 062: XMPP
 xmpp:
-  Weight: 60
+  Weight: 62
   Template: xmpp:%v
   Title: XMPP
   Icon:
     Simpleicons: xmpp
 
-# 061: Matrix
+# 063: Matrix
 matrix:
-  Weight: 61
+  Weight: 63
   Prefix: https://matrix.to/#/
   Title: Matrix
   Icon:
     Simpleicons: matrix
 
-# 062: bilibili
+# 064: bilibili
 bilibili:
-  Weight: 62
+  Weight: 64
   Prefix: https://space.bilibili.com/
   Title: bilibili
   Icon:
     Src: svg/icons/bilibili.svg
 
-# 063: ORCID
+# 065: ORCID
 orcid:
-  Weight: 63
+  Weight: 65
   Prefix: https://orcid.org/
   Title: ORCID
   Icon:
@@ -609,105 +625,105 @@ orcid:
       Style: brands
       Icon: orcid
 
-# 064 Liberapay:
+# 066 Liberapay:
 liberapay:
-  Weight: 64
+  Weight: 66
   Prefix: https://liberapay.com/
   Title: Liberapay
   Icon:
     Simpleicons: liberapay
 
-# 065 Ko-Fi:
+# 067 Ko-Fi:
 ko-fi:
-  Weight: 65
+  Weight: 67
   Prefix: https://ko-fi.com/
   Title: Ko-Fi
   Icon:
     Simpleicons: kofi
 
-# 066: BuyMeaCoffee
+# 068: BuyMeaCoffee
 buymeacoffee:
-  Weight: 66
+  Weight: 68
   Prefix: https://www.buymeacoffee.com/
   Title: BuyMeaCoffee
   Icon:
     Simpleicons: buymeacoffee
 
-# 067: Linktree
+# 069: Linktree
 linktree:
-  Weight: 67
+  Weight: 69
   Prefix: https://linktr.ee/
   Title: Linktree
   Icon:
     Simpleicons: linktree
 
-# 068: QQ
+# 070: QQ
 qq:
-  Weight: 68
+  Weight: 70
   Template: http://wpa.qq.com/msgrd?v=3&uin=%v&site=qq&menu=yes
   Title: QQ
   Icon:
     Simpleicons: tencentqq
 
-# 069: QQGroup
+# 071: QQGroup
 qqgroup:
-  Weight: 69
+  Weight: 71
   Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v&jump_from=webapi
   Title: QQGroup
   Icon:
     Simpleicons: tencentqq
 
-# 070: Diaspora
+# 072: Diaspora
 diaspora:
-  Weight: 70
+  Weight: 72
   Title: diaspora*
   Icon:
     Simpleicons: diaspora
 
-# 071: Discord
+# 073: Discord
 discord:
-  Weight: 71
+  Weight: 73
   Template: https://discordapp.com/users/%v
   Title: Discord
   Newtab: true
   Icon:
     Simpleicons: discord
 
-# 072: Pixelfed
+# 074: Pixelfed
 pixelfed:
-  Weight: 72
+  Weight: 74
   Prefix: https://pixelfed.social/
   Title: Pixelfed
   Icon:
     Simpleicons: pixelfed
 
-# 073: Lemmy
+# 075: Lemmy
 lemmy:
-  Weight: 73
+  Weight: 75
   Prefix: https://lemmy.world/u/
   Title: Lemmy
   Icon:
     Simpleicons: lemmy
 
-# 074: X
+# 076: X
 x:
-  Weight: 74
+  Weight: 76
   Prefix: https://x.com/
   Title: X
   Icon:
     Simpleicons: x
 
-# 075: Bluesky
+# 077: Bluesky
 bluesky:
-  Weight: 75
+  Weight: 77
   Prefix: https://bsky.app/profile/
   Title: Bluesky
   Icon:
     Simpleicons: bluesky
 
-# 076: Email
+# 078: Email
 email:
-  Weight: 76
+  Weight: 78
   Template: mailto:%v
   Title: Email
   Icon:
@@ -715,9 +731,9 @@ email:
       Style: regular
       Icon: envelope
 
-# 077: RSS
+# 079: RSS
 rss:
-  Weight: 77
+  Weight: 79
   Url: /index.xml
   Title: RSS
   Newtab: true
