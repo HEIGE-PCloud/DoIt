@@ -602,8 +602,13 @@ bundle = false
     data_domains = ""
   # Plausible Analytics
   [analytics.plausible]
+    # legacy tracking snippet, used when script is empty
+    # 旧版跟踪代码，在 script 为空时使用
     data_domain = ""
     src = ""
+    # tracking script for plausible.init(...)
+    # plausible.init(...) 跟踪脚本
+    script = ""
   # Cloudflare Analytics
   [analytics.cloudflare]
     token = ""

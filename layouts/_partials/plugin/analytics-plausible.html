@@ -1,0 +1,10 @@
+{{- $analytics := .Scratch.Get "analytics" | default dict -}}
+
+{{- if and $analytics.enable $analytics.plausible.script -}}
+    {{- with $analytics.plausible.src -}}
+        <script async defer src="{{ . }}"></script>
+        <script>
+            {{- $analytics.plausible.script | safeJS -}}
+        </script>
+    {{- end -}}
+{{- end -}}

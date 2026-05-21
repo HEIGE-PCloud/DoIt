@@ -39,8 +39,12 @@
     {{- end -}}
 
     {{- /* Plausible Analytics */ -}}
-    {{- with $analytics.plausible.data_domain -}}
-        <script async defer data-domain="{{ . }}" src="{{ $analytics.plausible.src }}"></script>
+    {{- if not $analytics.plausible.script -}}
+        {{- with $analytics.plausible.src -}}
+            {{- with $analytics.plausible.data_domain -}}
+                <script async defer data-domain="{{ . }}" src="{{ $analytics.plausible.src }}"></script>
+            {{- end -}}
+        {{- end -}}
     {{- end -}}
 
     {{- /* Cloudflare Analytics */ -}}
