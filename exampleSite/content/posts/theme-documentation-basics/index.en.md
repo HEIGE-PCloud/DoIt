@@ -823,8 +823,11 @@ Please open the code block below to view the complete sample configuration {{< f
       data_domains = ""
     # {{< version 0.2.13 >}} Plausible Analytics
     [params.analytics.plausible]
+      # legacy tracking snippet, used when script is empty
       data_domain = ""
       src = ""
+      # tracking script for plausible.init(...)
+      script = ""
     # {{< version 0.2.14 >}} Cloudflare Analytics
     [params.analytics.cloudflare]
       token = ""

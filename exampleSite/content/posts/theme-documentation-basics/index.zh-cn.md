@@ -826,8 +826,11 @@ optimizeImages = true
       data_domains = ""
     # {{< version 0.2.13 >}} Plausible Analytics
     [params.analytics.plausible]
+      # 旧版跟踪代码，在 script 为空时使用
       data_domain = ""
       src = ""
+      # plausible.init(...) 跟踪脚本
+      script = ""
     # {{< version 0.2.14 >}} Cloudflare Analytics
     [params.analytics.cloudflare]
       token = ""
