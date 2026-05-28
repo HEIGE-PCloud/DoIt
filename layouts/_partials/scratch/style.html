@@ -1,4 +1,8 @@
 {{- $this := .Scratch.Get "this" -}}
+{{- if not $this -}}
+  {{- .Scratch.Set "this" (dict "_init" "") -}}
+  {{- $this = .Scratch.Get "this" -}}
+{{- end -}}
 {{- $style := $this.style | default slice -}}
 {{- $style = $style | append (slice .Data) -}}
 {{- .Scratch.SetInMap "this" "style" $style -}}
