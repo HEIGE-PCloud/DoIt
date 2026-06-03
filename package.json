@@ -32,7 +32,7 @@
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@tailwindcss/cli": "^4.2.4",
+    "@tailwindcss/cli": "^4.3.0",
     "concurrently": "^10.0.3"
   },
   "dependencies": {
