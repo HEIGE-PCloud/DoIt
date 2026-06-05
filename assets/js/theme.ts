@@ -568,7 +568,8 @@ function initDetails() {
 function initLightGallery() {
   if (window.config.lightGallery) {
     lightGallery(
-      document.getElementById("content"),
+      document.querySelector("article.page.single") ||
+        document.getElementById("content"),
       window.config.lightGallery,
     );
   }
