@@ -146,6 +146,9 @@ bundle = false
   # whether to enable lightgallery
   # 是否使用 lightgallery
   lightgallery = false
+  # whether to include featured image in lightgallery (requires lightgallery = true)
+  # 是否将特色图片包含在 lightgallery 中（需要 lightgallery = true）
+  # featuredImageLightgallery = false
   # whether to enable the ruby extended syntax
   # 是否使用 ruby 扩展语法
   ruby = true
