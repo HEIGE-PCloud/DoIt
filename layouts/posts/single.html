@@ -179,7 +179,7 @@
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "OptimConfig" $optim "Linked" $linked "Caption" ($.Params.featuredImageCaption | default "") | partial "plugin/image.html" -}}
                 {{- if page.Params.featuredImageCaption -}}
                 {{- with page.Params.featuredImageCaption | default "" -}}
-                    <figcaption>{{ . }}</figcaption>
+                    <figcaption class="image-caption">{{ . | safeHTML }}</figcaption>
                 {{- end -}}
                     </figure>
                 {{- end -}}
