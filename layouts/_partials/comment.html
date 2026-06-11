@@ -186,6 +186,55 @@
             </noscript>
         {{- end -}}
 
+        {{- /* Comentario Comment System */ -}}
+        {{- $comentario := $comment.comentario | default dict -}}
+        {{- if $comentario.enable -}}
+            {{- $host := $comentario.host | default $comentario.serverURL -}}
+            {{- with $host -}}
+                {{- $pageId := $comentario.pageId | default $.RelPermalink -}}
+                {{- $attr := printf `lang="%v" page-id="%v"` $.Lang $pageId -}}
+                {{- with $comentario.domainId -}}
+                    {{- $attr = printf `%v domain-id="%v"` $attr . -}}
+                {{- end -}}
+                {{- with $comentario.cssOverride -}}
+                    {{- $attr = printf `%v css-override="%v"` $attr . -}}
+                {{- end -}}
+                {{- if isset $comentario "nofonts" -}}
+                    {{- $attr = printf `%v no-fonts="%v"` $attr $comentario.noFonts -}}
+                {{- end -}}
+                {{- if isset $comentario "autoinit" -}}
+                    {{- $attr = printf `%v auto-init="%v"` $attr $comentario.autoInit -}}
+                {{- end -}}
+                {{- if isset $comentario "autononinteractivesso" -}}
+                    {{- $attr = printf `%v auto-non-interactive-sso="%v"` $attr $comentario.autoNonInteractiveSso -}}
+                {{- end -}}
+                {{- with $comentario.maxLevel -}}
+                    {{- $attr = printf `%v max-level="%v"` $attr . -}}
+                {{- end -}}
+                {{- if isset $comentario "liveupdate" -}}
+                    {{- $attr = printf `%v live-update="%v"` $attr $comentario.liveUpdate -}}
+                {{- end -}}
+                {{- if $comentario.hideFooter -}}
+                    <style>
+                        comentario-comments .comentario-footer,
+                        comentario-comments .footer {
+                            display: none !important;
+                        }
+                    </style>
+                {{- end -}}
+                <comentario-comments {{ $attr | safeHTMLAttr }}></comentario-comments>
+                {{- $script := $comentario.script | default (printf "%v/comentario.js" .) -}}
+                {{- if and $script ((urls.Parse $script).Host | not) -}}
+                    {{- dict "Link" $script "Defer" true | dict "Scratch" $.Scratch "Data" | partial "scratch/commentScript.html" -}}
+                {{- else -}}
+                    {{- dict "Source" $script "Defer" true | dict "Scratch" $.Scratch "Data" | partial "scratch/commentScript.html" -}}
+                {{- end -}}
+                <noscript>
+                    Please enable JavaScript to view the comments.
+                </noscript>
+            {{- end -}}
+        {{- end -}}
+
         {{- /* Utterances Comment System */ -}}
         {{- $utterances := $comment.utterances | default dict -}}
         {{- if $utterances.enable -}}

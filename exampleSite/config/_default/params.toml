@@ -422,6 +422,22 @@ bundle = false
     # Commento comment 评论系统设置 (https://commento.io/)
     [page.comment.commento]
       enable = false
+    # Comentario comment config (https://comentario.app/)
+    [page.comment.comentario]
+      enable = false
+      host = ""
+      script = ""
+      # Defaults to the page relative permalink.
+      pageId = ""
+      # Optional domain ID. Leave empty to let Comentario detect by host.
+      domainId = ""
+      cssOverride = ""
+      noFonts = true
+      autoInit = true
+      autoNonInteractiveSso = false
+      maxLevel = 10
+      liveUpdate = true
+      hideFooter = false
     # Utterances comment config (https://utteranc.es/)
     # Utterances comment 评论系统设置 (https://utteranc.es/)
     [page.comment.utterances]
