@@ -667,6 +667,22 @@ optimizeImages = true
       # {{< version 0.2.0 >}} {{< link "https://commento.io/" "Commento" >}} 评论系统设置
       [params.page.comment.commento]
         enable = false
+      # {{< version 0.4.0 >}} {{< link "https://comentario.app/" "Comentario" >}} 评论系统设置
+      [params.page.comment.comentario]
+        enable = false
+        host = ""
+        script = ""
+        # 默认为页面相对永久链接。
+        pageId = ""
+        # 可选 domain ID。留空可让 Comentario 按主机名自动识别。
+        domainId = ""
+        cssOverride = ""
+        noFonts = true
+        autoInit = true
+        autoNonInteractiveSso = false
+        maxLevel = 10
+        liveUpdate = true
+        hideFooter = false
       # {{< version 0.2.5 >}} {{< link "https://utteranc.es/" "Utterances" >}} 评论系统设置
       [params.page.comment.utterances]
         enable = false

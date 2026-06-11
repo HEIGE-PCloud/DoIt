@@ -664,6 +664,22 @@ Please open the code block below to view the complete sample configuration {{< f
       # {{< version 0.2.0 >}} {{< link "https://commento.io/" "Commento" >}} comment config
       [params.page.comment.commento]
         enable = false
+      # {{< version 0.4.0 >}} {{< link "https://comentario.app/" "Comentario" >}} comment config
+      [params.page.comment.comentario]
+        enable = false
+        host = ""
+        script = ""
+        # Defaults to the page relative permalink.
+        pageId = ""
+        # Optional domain ID. Leave empty to let Comentario detect by host.
+        domainId = ""
+        cssOverride = ""
+        noFonts = true
+        autoInit = true
+        autoNonInteractiveSso = false
+        maxLevel = 10
+        liveUpdate = true
+        hideFooter = false
       # {{< version 0.2.5 >}} {{< link "https://utteranc.es/" "Utterances" >}} comment config
       [params.page.comment.utterances]
         enable = false
