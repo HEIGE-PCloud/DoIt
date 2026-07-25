@@ -33,7 +33,7 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@tailwindcss/cli": "^4.3.2",
-    "concurrently": "^10.0.3"
+    "concurrently": "^10.0.4"
   },
   "dependencies": {
     "atomic-algolia": "^0.3.19"
