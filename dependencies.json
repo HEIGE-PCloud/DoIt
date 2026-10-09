@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "twikoo",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "files": [
                 {
                     "remote": "dist/twikoo.all.min.js",
