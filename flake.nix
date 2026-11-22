@@ -24,6 +24,7 @@
           packages = with pkgs; [
             nodejs_24
             hugo
+            dart-sass
           ];
           shellHook = ''
             npm install

@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Setup Dart Sass
+        uses: ./.github/actions/setup-dart-sass
+
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v3
         with:
@@ -33,3 +36,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Test builds
+        run: npm run test:build

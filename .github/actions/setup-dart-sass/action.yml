@@ -1,0 +1,16 @@
+name: Setup Dart Sass
+description: Install the native Dart Sass compiler on Linux x64 runners
+runs:
+  using: composite
+  steps:
+    - name: Install Dart Sass
+      shell: bash
+      env:
+        DART_SASS_VERSION: "1.108.2"
+      run: |
+        curl --fail --location --retry 3 \
+          "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" \
+          --output "${RUNNER_TEMP}/dart-sass.tar.gz"
+        tar -xzf "${RUNNER_TEMP}/dart-sass.tar.gz" -C "${RUNNER_TEMP}"
+        echo "${RUNNER_TEMP}/dart-sass" >> "${GITHUB_PATH}"
+        "${RUNNER_TEMP}/dart-sass/sass" --version

@@ -158,6 +158,8 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 
 安装 [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass), 并确保其可执行文件位于 `PATH` 中. 主题显式使用 Dart Sass, 不需要 Hugo 的 extended 版本. Hugo 0.170.0 及之后的版本不再区分 extended 版本.
 
+Hugo 的 Snap 包自带 Dart Sass, 但独立的 Hugo 可执行文件不包含它. GitHub Actions 工作流通过 `.github/actions/setup-dart-sass` 安装原生编译器, Nix 开发环境也包含它. 配置其他 CI 平台时, 请在构建前安装原生 Dart Sass 并将其目录加入 `PATH`. 仅安装 JavaScript 实现的 npm `sass` 包不足以供 Hugo 使用.
+
 ```bash
 hugo server --source=exampleSite
 ```
