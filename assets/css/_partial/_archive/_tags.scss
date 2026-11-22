@@ -1,23 +1,29 @@
-.tag-cloud-tags {
-  margin: 10px 0;
+@use "../../_mixin/compatibility";
+@use "../../_mixin/link";
+@use "../../variables";
 
-  @include link(true, true);
+@mixin styles {
+  .tag-cloud-tags {
+    margin: 10px 0;
 
-  a {
-    display: inline-block;
-    position: relative;
-    margin: 5px 10px;
-    @include overflow-wrap(break-word);
-    @include transition(all ease-out 0.3s);
+    @include link.link(true, true);
 
-    &:active,
-    &:focus,
-    &:hover {
-      @include transform(scale(1.2));
-    }
+    a {
+      display: inline-block;
+      position: relative;
+      margin: 5px 10px;
+      @include compatibility.overflow-wrap(break-word);
+      @include compatibility.transition(all ease-out 0.3s);
 
-    sup {
-      color: $global-font-secondary-color;
+      &:active,
+      &:focus,
+      &:hover {
+        @include compatibility.transform(scale(1.2));
+      }
+
+      sup {
+        color: variables.$global-font-secondary-color;
+      }
     }
   }
 }

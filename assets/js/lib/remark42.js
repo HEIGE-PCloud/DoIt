@@ -19,10 +19,10 @@ if (window.config?.comment?.remark42) {
       const r = n.createElement("script");
       let c = ".js";
       const d = n.head || n.body;
-      "noModule" in r ? ((r.type = "module"), (c = ".mjs")) : (r.async = !0),
+      ("noModule" in r ? ((r.type = "module"), (c = ".mjs")) : (r.async = !0),
         (r.defer = !0),
         (r.src = remark_config.host + "/web/" + e[o] + c),
-        d.appendChild(r);
+        d.appendChild(r));
     }
   })(remark_config.components || ["embed"], document);
   window._remark42OnSwitchTheme = () => {

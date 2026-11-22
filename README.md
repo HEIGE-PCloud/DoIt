@@ -159,9 +159,19 @@ the DoIt theme may be more suitable for you.
 
 Build Documentation Locally:
 
+Install [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass) and make its executable available on `PATH`. The theme uses Dart Sass explicitly and does not require Hugo's extended edition. Hugo 0.170.0 and later no longer have a separate extended edition.
+
+The Hugo Snap package bundles Dart Sass, but standalone Hugo binaries do not. GitHub Actions workflows install the native compiler with `.github/actions/setup-dart-sass`; the Nix development shell also includes it. When configuring other CI providers, install native Dart Sass before building and add its directory to `PATH`. Installing the JavaScript-only npm `sass` package is not sufficient for Hugo.
+
 ```bash
 hugo server --source=exampleSite
 ```
+
+Development intentionally disables comments, PWA, CDN, and fingerprinting. Use `npm run server:production` to preview these features.
+
+Run `npm run test:build` to check warning-free development and production builds, dark-mode selectors, and style overrides.
+
+After `npm install`, use `npm run format` to format supported source files and `npm run format:check` to verify formatting without changes. Hugo templates, HTML, Markdown, vendored assets, and generated output are excluded by `.prettierignore` and `.gitignore`.
 
 ## Multilingual and i18n
 

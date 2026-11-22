@@ -1,12 +1,16 @@
+@use "../../_mixin/blur";
+@use "../../_mixin/compatibility";
+@use "../../variables";
+
 .toc {
   .toc-title {
-    font-size: $toc-title-font-size;
+    font-size: variables.$toc-title-font-size;
     font-weight: bold;
     text-transform: uppercase;
   }
 
   .toc-content {
-    font-size: $toc-content-font-size;
+    font-size: variables.$toc-content-font-size;
 
     ul {
       text-indent: -0.85rem;
@@ -17,7 +21,7 @@
         content: "|";
         font-weight: bolder;
         margin-right: 0.5rem;
-        color: $single-link-color;
+        color: variables.$single-link-color;
       }
 
       ul {
@@ -27,10 +31,10 @@
   }
 
   ruby {
-    background: $code-background-color;
+    background: variables.$code-background-color;
 
     rt {
-      color: $global-font-secondary-color;
+      color: variables.$global-font-secondary-color;
     }
   }
 }
@@ -39,14 +43,14 @@
   display: block;
   position: absolute;
   padding: 0 0.8rem;
-  border-left: 4px solid $global-border-color;
-  @include overflow-wrap(break-word);
+  border-left: 4px solid variables.$global-border-color;
+  @include compatibility.overflow-wrap(break-word);
   box-sizing: border-box;
   top: 10rem;
   left: 80%;
   width: 20%;
 
-  @include blur;
+  @include blur.blur;
 
   .toc-title {
     margin: 0.8rem 0;
@@ -73,10 +77,10 @@
 
     a.active {
       font-weight: bold;
-      color: $single-link-color;
+      color: variables.$single-link-color;
 
       &::before {
-        color: $single-link-hover-color;
+        color: variables.$single-link-hover-color;
       }
     }
   }
@@ -95,11 +99,11 @@
     justify-content: space-between;
     line-height: 2em;
     padding: 0 0.75rem;
-    background: $code-background-color-darken-6;
+    background: variables.$code-background-color-darken-6;
   }
 
   .toc-content {
-    background-color: $code-background-color;
+    background-color: variables.$code-background-color;
 
     > nav > ul {
       margin: 0;
@@ -109,17 +113,17 @@
 
   &.open {
     .toc-title {
-      background: $code-header-color;
+      background: variables.$code-header-color;
     }
   }
 }
 
 #toc-dialog {
   transition:
-  display 0.2s allow-discrete,
-  overlay 0.2s allow-discrete,
-  translate 0.2s,
-  opacity 0.2s 0.4s;
+    display 0.2s allow-discrete,
+    overlay 0.2s allow-discrete,
+    translate 0.2s,
+    opacity 0.2s 0.4s;
   opacity: 0;
   translate: 100vw 0;
   &::backdrop {

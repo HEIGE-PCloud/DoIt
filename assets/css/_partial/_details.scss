@@ -1,3 +1,6 @@
+@use "../_mixin/compatibility";
+@use "../variables";
+
 .details {
   .details-summary {
     &:hover {
@@ -6,8 +9,8 @@
   }
 
   .details-icon > svg {
-    color: $global-font-secondary-color;
-    @include transition(transform 0.2s ease);
+    color: variables.$global-font-secondary-color;
+    @include compatibility.transition(transform 0.2s ease);
   }
 
   .details-content {
@@ -18,7 +21,7 @@
 
   &.open {
     .details-icon > svg {
-      @include transform(rotate(90deg));
+      @include compatibility.transform(rotate(90deg));
     }
 
     .details-content {

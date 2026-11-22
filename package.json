@@ -13,7 +13,9 @@
     "algolia": "atomic-algolia",
     "pagefind": "npx pagefind --site ./exampleSite/public",
     "build:tailwind": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/main.css",
-    "format": "npx prettier . --write",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test:build": "node --test tests/build.test.mjs",
     "validate": "npm run build:preview && docker run --rm -v \"$(pwd)/exampleSite/public\":/check ghcr.io/validator/validator:latest vnu --skip-non-html --format json /check/ 2>&1"
   },
   "repository": {
@@ -33,7 +35,8 @@
   "devDependencies": {
     "@playwright/test": "^1.64.1",
     "@tailwindcss/cli": "^4.3.3",
-    "concurrently": "^10.0.6"
+    "concurrently": "^10.0.6",
+    "prettier": "3.10.1"
   },
   "dependencies": {
     "atomic-algolia": "^0.3.19"

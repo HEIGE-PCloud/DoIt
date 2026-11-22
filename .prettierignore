@@ -1,4 +1,6 @@
 assets/lib
+# Hugo templates are not plain HTML, JSON, or Markdown.
+layouts/
 *.html
 *.md
 **/public

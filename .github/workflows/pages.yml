@@ -40,6 +40,8 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Setup Dart Sass
+        uses: ./.github/actions/setup-dart-sass
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6

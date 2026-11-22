@@ -15,6 +15,9 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Setup Dart Sass
+        uses: ./.github/actions/setup-dart-sass
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
