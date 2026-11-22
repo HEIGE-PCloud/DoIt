@@ -1,3 +1,6 @@
+@forward "override";
+@use "override" as *;
+
 // ==============================
 // Variables
 // ==============================
@@ -21,9 +24,9 @@ $global-font-family:
   Helvetica,
   Arial,
   sans-serif !default;
-$global-font-size: 16px;
-$global-font-weight: 400;
-$global-line-height: 1.5rem;
+$global-font-size: 16px !default;
+$global-font-weight: 400 !default;
+$global-line-height: 1.5rem !default;
 
 // Color of the background
 $global-background-color: var(--global-background-color) !default;
@@ -181,7 +184,7 @@ $code-type-map: (
   language-typescript: "TypeScript",
   language-vue: "Vue",
   language-yml: "YAML",
-  language-yaml: "YAML"
+  language-yaml: "YAML",
 ) !default;
 
 // ========== Code ========== //

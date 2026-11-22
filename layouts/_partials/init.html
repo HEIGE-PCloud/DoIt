@@ -6,12 +6,6 @@
     {{- errorf "\n\nHugo version is too low.\nHugo 版本过低。\n\nCurrent Hugo version is %v, the oldest supported version is %v.\n目前使用的 Hugo 版本为 %v， DoIt 支持的最老的 Hugo 版本为 %v。\n\nIf you are running Hugo on your own computer, check out https://gohugo.io/getting-started/installing/#upgrade-hugo for upgrading guide.\n如果你正在自己的计算机上运行 Hugo，请访问 https://gohugo.io/getting-started/installing/#upgrade-hugo 以查阅升级指南。\n\nIf you are deploying on a third-party platform, please configure Hugo version accordingly.\n如果你正在第三方平台上部署，请按照相应文档配置 Hugo 版本。\n\n" hugo.Version $MINIMAL_HUGO_VERSION hugo.Version $MINIMAL_HUGO_VERSION -}}
 {{- end -}}
 
-{{- /* Check Hugo extend */ -}}
-{{- if eq hugo.IsExtended false -}}
-    {{- warnf "\n\nThe Hugo Extended version is necessary for SCSS support.\n需要使用 Hugo Extended 版本来获得 SCSS 支持。\n\n" -}}
-{{- end -}}
-
-
 {{- $params := .Params | merge .Site.Params.page -}}
 
 {{- if eq hugo.Environment "production" -}}
@@ -37,8 +31,6 @@
     {{- else if eq .Params.comment false -}}
         {{- .Scratch.Set "comment" dict -}}
     {{- end -}}
-{{- else if eq .Site hugo.Sites.Default -}}
-    {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n\n" -}}
 {{- end -}}
 
 {{- if eq .Site.Params.search.type "pagefind" -}}

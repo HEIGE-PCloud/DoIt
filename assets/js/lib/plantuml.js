@@ -8,7 +8,7 @@ function initPlantuml() {
       const format = diagram.dataset.format;
       const title = diagram.dataset.title;
       const encoded = plantumlEncoder.encode(content);
-      
+
       const img = document.createElement("img");
       img.dataset.server = server;
       img.dataset.format = format;

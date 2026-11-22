@@ -1,15 +1,19 @@
+@use "sass:meta";
+@use "../_mixin/blur";
+@use "../variables";
+
 .page {
   position: relative;
   max-width: 800px;
   width: 60%;
   margin: 0 auto;
-  padding-top: $header-height;
+  padding-top: variables.$header-height;
 
-  @include blur;
+  @include blur.blur;
 }
 
-@import "_single";
-@import "_special";
-@import "_archive";
-@import "_home";
-@import "_taxonomy";
+@include meta.load-css("_single");
+@include meta.load-css("_special");
+@include meta.load-css("_archive");
+@include meta.load-css("_home");
+@include meta.load-css("_taxonomy");

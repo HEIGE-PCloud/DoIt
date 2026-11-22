@@ -1,20 +1,38 @@
+@use "../variables";
+
 @mixin link($light, $dark) {
   a,
   a::before,
   a::after {
     text-decoration: none;
 
-    color: if($light, $global-link-color, $single-link-color);
+    @if $light {
+      color: variables.$global-link-color;
+    } @else {
+      color: variables.$single-link-color;
+    }
     .dark & {
-      color: if($dark, $global-link-color, $single-link-color);
+      @if $dark {
+        color: variables.$global-link-color;
+      } @else {
+        color: variables.$single-link-color;
+      }
     }
   }
 
   a:active,
   a:hover {
-    color: if($light, $global-link-hover-color, $single-link-hover-color);
+    @if $light {
+      color: variables.$global-link-hover-color;
+    } @else {
+      color: variables.$single-link-hover-color;
+    }
     .dark & {
-      color: if($dark, $global-link-hover-color, $single-link-hover-color);
+      @if $dark {
+        color: variables.$global-link-hover-color;
+      } @else {
+        color: variables.$single-link-hover-color;
+      }
     }
   }
 }

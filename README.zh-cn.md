@@ -156,9 +156,17 @@ DoIt 主题增加了许多新的功能与配置项，查看[变更日志](https:
 
 在本地构建文档:
 
+安装 [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass), 并确保其可执行文件位于 `PATH` 中. 主题显式使用 Dart Sass, 不需要 Hugo 的 extended 版本. Hugo 0.170.0 及之后的版本不再区分 extended 版本.
+
 ```bash
 hugo server --source=exampleSite
 ```
+
+开发环境会禁用评论系统、PWA、CDN 和 fingerprint. 使用 `npm run server:production` 预览这些功能.
+
+运行 `npm run test:build` 检查开发和生产构建是否无警告, 以及深色模式选择器和样式覆盖是否正常.
+
+运行 `npm install` 后, 使用 `npm run format` 格式化支持的源文件, 使用 `npm run format:check` 检查格式而不修改文件. `.prettierignore` 和 `.gitignore` 会排除 Hugo 模板、HTML、Markdown、第三方资源和生成的输出.
 
 ## 多语言和国际化
 

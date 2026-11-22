@@ -1048,7 +1048,7 @@ Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and back
 {{< version 0.2.8 changed >}}
 
 {{< admonition >}}
-Hugo **extended** version is necessary for the style customization.
+Style customization requires [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass) on `PATH`. The theme explicitly uses Dart Sass, so Hugo's **extended** edition is not required.
 {{< /admonition >}}
 
 **DoIt** theme has been built to be as configurable as possible by defining custom `.scss` style files.
@@ -1065,6 +1065,20 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 ```
 
 In `assets/css/_custom.scss`, you can add some css style code to customize the style.
+
+The theme uses Sass modules. Overrides remain plain variable assignments as above and are loaded before the defaults. To access theme variables or mixins in `_custom.scss`, explicitly load the modules you need:
+
+```scss
+@use "variables" as *;
+@use "_mixin/link";
+
+.custom-link {
+  font-family: $code-font-family;
+  @include link.link(false, false);
+}
+```
+
+Keep `@use` rules before other statements. CSS URL imports such as the Google Fonts example above are still supported.
 
 ## Multilingual and i18n
 

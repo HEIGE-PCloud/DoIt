@@ -39,8 +39,10 @@ const BASE_URL = "http://127.0.0.1:1313";
 
 async function forceLoadLazyImages(page: Page): Promise<void> {
   return page.evaluate(() => {
-    for (const image of document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]')) {
-      image.setAttribute('loading', 'eager');
+    for (const image of document.querySelectorAll<HTMLImageElement>(
+      'img[loading="lazy"]',
+    )) {
+      image.setAttribute("loading", "eager");
     }
   });
 }
@@ -62,10 +64,10 @@ test.fixme("Visual regression for /plantuml-tests", async ({ page }) => {
     waitUntil: "domcontentloaded",
   });
   // Wait until all images are loaded
-  const lazyImagesLocator = page.locator('img.plantuml-diagram');
+  const lazyImagesLocator = page.locator("img.plantuml-diagram");
   await expect(lazyImagesLocator).toHaveCount(11);
   await forceLoadLazyImages(page);
   await expect(page).toHaveScreenshot({
     fullPage: true,
-  });  
+  });
 });

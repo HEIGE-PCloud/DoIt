@@ -1,21 +1,23 @@
+@use "../../variables";
+
 .series-nav {
   margin: 0.8rem 0;
   &[data-kept="true"] {
     display: block;
   }
   .series-title {
-    font-size: $toc-title-font-size;
+    font-size: variables.$toc-title-font-size;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     line-height: 2em;
     padding: 0 0.75rem;
-    background: $code-background-color-darken-6;
+    background: variables.$code-background-color-darken-6;
   }
 
   .series-content {
-    font-size: $toc-content-font-size;
-    background-color: $code-background-color;
+    font-size: variables.$toc-content-font-size;
+    background-color: variables.$code-background-color;
 
     > nav > ul {
       margin: 0;
@@ -31,7 +33,7 @@
         content: "|";
         font-weight: bolder;
         margin-right: 0.5rem;
-        color: $single-link-color;
+        color: variables.$single-link-color;
       }
       span.active {
         &:first-child::before {
@@ -39,10 +41,10 @@
           margin-right: 0.5rem;
         }
         font-weight: bolder;
-        color: $single-link-color;
+        color: variables.$single-link-color;
 
         &::before {
-          color: $single-link-hover-color;
+          color: variables.$single-link-hover-color;
         }
       }
       ul {
@@ -52,7 +54,7 @@
   }
   &.open {
     .toc-title {
-      background: $code-header-color;
+      background: variables.$code-header-color;
     }
   }
 }

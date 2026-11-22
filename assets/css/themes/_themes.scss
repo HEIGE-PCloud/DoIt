@@ -1,12 +1,13 @@
+@use "sass:meta";
 // Syntax for themes light
 .light {
-  @import "syntax-light";
+  @include meta.load-css("syntax-light");
 }
 // Syntax for themes dark
 .dark {
-  @import "syntax-dark";
+  @include meta.load-css("syntax-dark");
 }
 // Syntax for gist dark
-@import "syntax-gist-dark";
+@include meta.load-css("syntax-gist-dark");
 
 // Themes is in assets/css/tailwind.css

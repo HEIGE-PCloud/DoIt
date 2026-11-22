@@ -1,94 +1,99 @@
-code {
-  display: inline-block;
-  max-width: 100%;
-  @include overflow-wrap(break-word);
-  @include line-break(anywhere);
-  font-size: $code-font-size;
-  font-family: $code-font-family;
-}
+@use "../../_mixin/compatibility";
+@use "../../_mixin/link";
+@use "../../variables";
 
-pre {
-  img {
-    min-height: 1em;
-    max-height: 1.2em;
-    vertical-align: text-bottom;
+@mixin styles {
+  code {
+    display: inline-block;
+    max-width: 100%;
+    @include compatibility.overflow-wrap(break-word);
+    @include compatibility.line-break(anywhere);
+    font-size: variables.$code-font-size;
+    font-family: variables.$code-font-family;
   }
-}
 
-code,
-pre,
-.highlight table,
-.highlight tr,
-.highlight td {
-  background-color: $code-background-color !important;
-}
-
-code:not(.chroma) {
-  /* Inline code blocks */
-  display: inline;
-  background-color: var(--inline-code-background-color) !important;
-  border-radius: 6px;
-  padding: .2em .4em;
-  font-size: 85%;
-  line-height: 1.5;
-  color: var(--global-font-color);
-}
-
-a > code:not(.chroma) {
-  /* Inline code blocks inside links */
-  color: var(--single-link-color);
-  text-decoration: underline;
-  text-underline-offset: .2rem;
-}
-
-
-.highlight,
-.gist {
-  font-family: $code-font-family;
-  font-size: $code-font-size;
-
-  .table-wrapper {
-    > table,
-    > table thead,
-    > table tr,
-    > table td {
-      margin: 0;
-      padding: 0;
-      border: none !important;
+  pre {
+    img {
+      min-height: 1em;
+      max-height: 1.2em;
+      vertical-align: text-bottom;
     }
   }
-}
 
-.gist {
-  .gist-file,
-  .gist-data,
-  .gist-meta {
-    border: none;
+  code,
+  pre,
+  .highlight table,
+  .highlight tr,
+  .highlight td {
+    background-color: variables.$code-background-color !important;
   }
 
-  .gist-meta {
-    padding: 0.4rem 0.8rem;
-    background-color: $code-background-color-darken-5;
-
-    @include link(false, false);
+  code:not(.chroma) {
+    /* Inline code blocks */
+    display: inline;
+    background-color: var(--inline-code-background-color) !important;
+    border-radius: 6px;
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    line-height: 1.5;
+    color: var(--global-font-color);
   }
-}
 
-.show-line-numbers > pre > code > span::before {
-  // line number for code block
-  counter-increment: codeblock;
-  content: counter(codeblock);
-  min-width: 5ch;
-  text-align: center;
-  background: var(--code-background-color);
-  color: var(--global-font-color);
-  text-wrap: nowrap;
-}
+  a > code:not(.chroma) {
+    /* Inline code blocks inside links */
+    color: var(--single-link-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
 
-pre > code > span > span.cl {
-  margin-left: 1rem;
-}
+  .highlight,
+  .gist {
+    font-family: variables.$code-font-family;
+    font-size: variables.$code-font-size;
 
-.show-line-numbers > pre > code > span > span.cl {
-  margin-left: 0;
+    .table-wrapper {
+      > table,
+      > table thead,
+      > table tr,
+      > table td {
+        margin: 0;
+        padding: 0;
+        border: none !important;
+      }
+    }
+  }
+
+  .gist {
+    .gist-file,
+    .gist-data,
+    .gist-meta {
+      border: none;
+    }
+
+    .gist-meta {
+      padding: 0.4rem 0.8rem;
+      background-color: variables.$code-background-color-darken-5;
+
+      @include link.link(false, false);
+    }
+  }
+
+  .show-line-numbers > pre > code > span::before {
+    // line number for code block
+    counter-increment: codeblock;
+    content: counter(codeblock);
+    min-width: 5ch;
+    text-align: center;
+    background: var(--code-background-color);
+    color: var(--global-font-color);
+    text-wrap: nowrap;
+  }
+
+  pre > code > span > span.cl {
+    margin-left: 1rem;
+  }
+
+  .show-line-numbers > pre > code > span > span.cl {
+    margin-left: 0;
+  }
 }

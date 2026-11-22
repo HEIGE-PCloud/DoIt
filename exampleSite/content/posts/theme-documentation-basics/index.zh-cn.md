@@ -1050,7 +1050,7 @@ series = "series"
 {{< version 0.2.8 changed >}}
 
 {{< admonition >}}
-Hugo **extended** 版本对于自定义样式是必需的.
+自定义样式需要 [Dart Sass](https://gohugo.io/functions/css/sass/#dart-sass) 位于 `PATH` 中. 主题显式使用 Dart Sass, 因此不需要 Hugo 的 **extended** 版本.
 {{< /admonition >}}
 
 通过定义自定义 `.scss` 样式文件, **DoIt** 主题支持可配置的样式.
@@ -1067,6 +1067,20 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 ```
 
 在 `assets/css/_custom.scss` 中, 你可以添加一些 CSS 样式代码以自定义样式.
+
+主题使用 Sass 模块. 覆盖变量仍可使用上面的普通变量赋值语法, 并在默认值之前加载. 在 `_custom.scss` 中使用主题变量或 mixin 时, 需要显式加载相应模块:
+
+```scss
+@use "variables" as *;
+@use "_mixin/link";
+
+.custom-link {
+  font-family: $code-font-family;
+  @include link.link(false, false);
+}
+```
+
+请将 `@use` 放在其他语句之前. 上述 Google Fonts 示例中的 CSS URL 导入仍然受支持.
 
 ## 多语言和 i18n
 

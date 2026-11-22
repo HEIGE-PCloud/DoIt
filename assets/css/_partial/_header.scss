@@ -1,11 +1,15 @@
+@use "../_mixin/compatibility";
+@use "../_mixin/link";
+@use "../variables";
+
 header {
   width: 100%;
   z-index: 150;
-  background-color: $header-background-color;
-  @include transition(box-shadow 0.3s ease);
+  background-color: variables.$header-background-color;
+  @include compatibility.transition(box-shadow 0.3s ease);
 
   &:hover {
-    @include box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.1));
+    @include compatibility.box-shadow(0 0 1.5rem 0 rgba(0, 0, 0, 0.1));
   }
 }
 
@@ -18,14 +22,14 @@ header {
 }
 
 .header-title {
-  font-family: $header-title-font-family;
+  font-family: variables.$header-title-font-family;
   font-weight: bold;
   margin-right: 0.5rem;
   min-width: 10%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  @include flex(10);
+  @include compatibility.flex(10);
 }
 
 .menu .menu-item {
@@ -66,15 +70,15 @@ header {
     box-sizing: border-box;
     height: 2.5rem;
     width: 2.5rem;
-    @include border-radius(0.5rem);
+    @include compatibility.border-radius(0.5rem);
     border: none;
     outline: none;
-    background-color: $header-background-color;
+    background-color: variables.$header-background-color;
     vertical-align: baseline !important;
-    @include transition(width 0.3s ease);
+    @include compatibility.transition(width 0.3s ease);
   }
 
-  @include placeholder(transparent);
+  @include compatibility.placeholder(transparent);
 
   .search-button {
     margin: 0;
@@ -102,15 +106,15 @@ header {
   .open &,
   &.mobile {
     input {
-      color: $global-font-color;
-      background-color: $search-background-color;
+      color: variables.$global-font-color;
+      background-color: variables.$search-background-color;
       padding: 0 2rem 0 2rem;
     }
 
-    @include placeholder($global-font-secondary-color);
+    @include compatibility.placeholder(variables.$global-font-secondary-color);
 
     .search-button {
-      color: $global-font-secondary-color;
+      color: variables.$global-font-secondary-color;
     }
 
     .search-clear:hover {
@@ -124,24 +128,24 @@ header {
 }
 
 .theme-switch svg {
-  @include transform(rotate(225deg));
+  @include compatibility.transform(rotate(225deg));
 }
 
 .theme-select svg {
-  @include transform(rotate(225deg));
+  @include compatibility.transform(rotate(225deg));
 }
 
 #header-desktop {
   display: block;
   position: fixed;
-  height: $header-height;
-  line-height: $header-height;
+  height: variables.$header-height;
+  line-height: variables.$header-height;
 
   .header-wrapper {
     padding: 0 2rem 0 10%;
 
     .header-title {
-      font-size: $header-title-font-size;
+      font-size: variables.$header-title-font-size;
     }
 
     .menu {
@@ -156,8 +160,8 @@ header {
         margin: 0 0.5rem;
 
         &.delimiter {
-          border-left: 1.5px solid $global-font-color;
-          border-left-color: $header-delimiter;
+          border-left: 1.5px solid variables.$global-font-color;
+          border-left-color: variables.$header-delimiter;
         }
 
         &.language {
@@ -175,7 +179,7 @@ header {
 
       a.active {
         font-weight: 900;
-        color: $header-hover-color;
+        color: variables.$header-hover-color;
       }
     }
   }
@@ -192,8 +196,8 @@ header {
 #header-mobile {
   display: none;
   position: fixed;
-  height: $header-height;
-  line-height: $header-height;
+  height: variables.$header-height;
+  line-height: variables.$header-height;
 
   .header-container {
     padding: 0;
@@ -202,25 +206,25 @@ header {
     .header-wrapper {
       padding: 0 1rem;
       font-size: 1.125rem;
-      @include transition(margin-top 0.3s ease);
+      @include compatibility.transition(margin-top 0.3s ease);
 
       .header-title {
-        font-size: $header-title-font-size;
+        font-size: variables.$header-title-font-size;
         max-width: 80%;
       }
 
       .menu-toggle {
         line-height: 4rem;
         cursor: pointer;
-        @include transition(width 0.3s ease);
+        @include compatibility.transition(width 0.3s ease);
 
         span {
           display: block;
-          background: $global-font-color;
+          background: variables.$global-font-color;
           width: 1.5rem;
           height: 2px;
-          @include border-radius(3px);
-          @include transition(all 0.3s ease-in-out);
+          @include compatibility.border-radius(3px);
+          @include compatibility.transition(all 0.3s ease-in-out);
         }
 
         span:nth-child(1) {
@@ -233,7 +237,9 @@ header {
 
         &.active {
           span:nth-child(1) {
-            @include transform(rotate(45deg) translate(0.4rem, 0.5rem));
+            @include compatibility.transform(
+              rotate(45deg) translate(0.4rem, 0.5rem)
+            );
           }
 
           span:nth-child(2) {
@@ -241,7 +247,9 @@ header {
           }
 
           span:nth-child(3) {
-            @include transform(rotate(-45deg) translate(0.4rem, -0.5rem));
+            @include compatibility.transform(
+              rotate(-45deg) translate(0.4rem, -0.5rem)
+            );
           }
         }
       }
@@ -249,18 +257,18 @@ header {
 
     .menu {
       text-align: center;
-      background: $header-background-color;
-      border-top: 2px solid $global-border-color;
+      background: variables.$header-background-color;
+      border-top: 2px solid variables.$global-border-color;
       display: none;
       padding-top: 0.5rem;
-      @include box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+      @include compatibility.box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
 
       .search-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
-        padding: ($header-height - 2.5rem) / 2 1rem;
+        padding: (variables.$header-height - 2.5rem) * 0.5 1rem;
         line-height: 2.5rem;
       }
 
@@ -295,7 +303,7 @@ header {
 
   &.open {
     .header-wrapper {
-      margin-top: -$header-height;
+      margin-top: -(variables.$header-height);
     }
 
     .menu {
@@ -316,8 +324,8 @@ header {
 .search-dropdown {
   position: fixed;
   z-index: 200;
-  top: $header-height;
-  @include box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+  top: variables.$header-height;
+  @include compatibility.box-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
 
   &.desktop {
     right: 2rem;
@@ -331,11 +339,11 @@ header {
 
   .dropdown-menu {
     right: 0 !important;
-    background-color: $global-background-color;
+    background-color: variables.$global-background-color;
 
     .suggestions {
       overflow-y: auto;
-      max-height: calc(100vh - #{$header-height});
+      max-height: calc(100vh - #{variables.$header-height});
 
       .suggestion {
         padding: 0.75rem 1rem;
@@ -358,26 +366,26 @@ header {
           font-size: 0.875rem;
           float: right;
           text-align: right;
-          color: $global-font-secondary-color;
+          color: variables.$global-font-secondary-color;
         }
 
         .suggestion-context {
           line-height: 1.25rem;
-          @include box(vertical);
+          @include compatibility.box(vertical);
           -webkit-line-clamp: 2;
           overflow: hidden;
           text-overflow: ellipsis;
-          @include overflow-wrap(break-word);
-          color: $global-font-secondary-color;
+          @include compatibility.overflow-wrap(break-word);
+          color: variables.$global-font-secondary-color;
         }
 
         em {
           font-style: normal;
-          background-color: $selection-color;
+          background-color: variables.$selection-color;
         }
 
         &.cursor {
-          background: $code-background-color-darken-5;
+          background: variables.$code-background-color-darken-5;
         }
 
         &:hover {
@@ -392,7 +400,7 @@ header {
 
       .search-query {
         font-weight: bold;
-        color: $search-empty-font-color;
+        color: variables.$search-empty-font-color;
       }
     }
 
@@ -400,9 +408,9 @@ header {
       padding: 0.5rem 1rem;
       float: right;
       font-size: 0.8rem;
-      color: $global-font-secondary-color;
+      color: variables.$global-font-secondary-color;
 
-      @include link(false, false);
+      @include link.link(false, false);
 
       a {
         font-size: 1rem;
